@@ -1,0 +1,123 @@
+{
+  "correction_date": "2026-10-17",
+  "libero_commit": "f78abd68ee283de9f9be3c8f7e2a9ad60246e95c",
+  "official_goal": "On akita_black_bowl_1 plate_1",
+  "predicate_requirements": [
+    "plate z <= bowl z",
+    "plate and bowl in contact",
+    "XY center distance < 0.03 meters"
+  ],
+  "predicate_does_not_require": [
+    "gripper release",
+    "stable unsupported placement",
+    "hand retreat"
+  ],
+  "gripper_action_contract": {
+    "negative": "open",
+    "positive": "close"
+  },
+  "official_predicate_hits": 8,
+  "trials": [
+    {
+      "csv": "evaluations/my_first_10000_replan1_init0to3/trial-000_init-000_actions.csv",
+      "sha256": "9afba7cdb7cddf8e777e31937f1ed39d6cee81e9bef87634e975eb6e3bb9a4c2",
+      "control_steps": 102,
+      "last_done": true,
+      "last_gripper_command": 0.9943898159352542,
+      "pre_action_finger_qpos": [
+        0.002473969100119557,
+        -0.0022957723186219107
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init0to3/trial-001_init-001_actions.csv",
+      "sha256": "a41928fc3788f18ecd39e7c3a64ad9f69ab39d853aa903ab281b59be6cecdd50",
+      "control_steps": 98,
+      "last_done": true,
+      "last_gripper_command": 0.998930976881981,
+      "pre_action_finger_qpos": [
+        0.00228519918946719,
+        -0.0021341229325820984
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init0to3/trial-002_init-002_actions.csv",
+      "sha256": "f50e6ea97782ab90db5cb5afd5524ce01e44332ca16e2b30271f98339b3fa5b8",
+      "control_steps": 135,
+      "last_done": true,
+      "last_gripper_command": 0.9882891582828761,
+      "pre_action_finger_qpos": [
+        0.011226196785599015,
+        -0.004525800413284174
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init0to3/trial-003_init-003_actions.csv",
+      "sha256": "9f8552d0c8b5226190fa524e565e09fe108cabda8b97e915ce62102593a604a1",
+      "control_steps": 97,
+      "last_done": true,
+      "last_gripper_command": 1.0042510517160892,
+      "pre_action_finger_qpos": [
+        0.0022712483525984366,
+        -0.0021448872428922704
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init10to13/trial-000_init-010_actions.csv",
+      "sha256": "55f81daeee779272cfaeab0bdd3cc1561027114c4c359a3c43f6f0d4bc600230",
+      "control_steps": 114,
+      "last_done": true,
+      "last_gripper_command": 0.9980040049829484,
+      "pre_action_finger_qpos": [
+        0.004838198257673978,
+        -0.004960112811492497
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init10to13/trial-001_init-011_actions.csv",
+      "sha256": "123ba4e0badb911599921591bdb38c4a364b487e4e6eafa12fa6bf22f6641025",
+      "control_steps": 103,
+      "last_done": true,
+      "last_gripper_command": 1.006964256502867,
+      "pre_action_finger_qpos": [
+        0.0024689538904790996,
+        -0.002341149421802283
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init10to13/trial-002_init-012_actions.csv",
+      "sha256": "cc6d53ee36d8d3159c7ec899a3617024d80b771cc49dae538fca796db380959b",
+      "control_steps": 109,
+      "last_done": true,
+      "last_gripper_command": 0.9865789809598924,
+      "pre_action_finger_qpos": [
+        0.002444651203793097,
+        -0.0023496380117284344
+      ]
+    },
+    {
+      "csv": "evaluations/my_first_10000_replan1_init10to13/trial-003_init-013_actions.csv",
+      "sha256": "eca0ef80ab39723e1d338a22f0e37353a8ab2a788ffd8267d7b4622c8a30281a",
+      "control_steps": 112,
+      "last_done": true,
+      "last_gripper_command": 1.000493334612012,
+      "pre_action_finger_qpos": [
+        0.0022462839278093263,
+        -0.0023332459293894186
+      ]
+    }
+  ],
+  "release_and_retreat_success": null,
+  "interpretation": "8/8 is the official On predicate hit count. Every last command was close. The evaluator stopped immediately at the first hit; subsequent release and retreat have not been evaluated. Positive close commands alone do not prove continued physical grasp.",
+  "source_sha256": {
+    "openpi/third_party/libero/libero/libero/envs/object_states/base_object_states.py": "ca6f53123336b6487bdb4feb02534ddb3a0627a4b847fe89da4460520ef01366",
+    "openpi/third_party/libero/libero/libero/envs/predicates/base_predicates.py": "319137e95330dbb22a266a8dceb8110f18413c2bf17461550222228c4bc310a1",
+    "openpi/third_party/libero/libero/libero/bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.bddl": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe"
+  },
+  "followup_validation": {
+    "unittest_count": 12,
+    "simulation_executed_by_agent": false,
+    "live_policy_followup": "awaiting learner execution",
+    "default_stop_unchanged": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "classification": "policy release failure observed after moving target; corrected observation budget applied",
+  "causal_limits": [
+    "different initial state ids 0 and 2",
+    "server sampling RNG advances across trials",
+    "single run each, no success-rate estimate"
+  ],
+  "training_data": "16 demonstrations / 1971 frames; existing release-focus sampling adds no new spatial demonstrations",
+  "model_parameters_updated_by_testing": false,
+  "next_experiment": "Collect successful corrective demonstrations in shifted states; keep independent held-out shifts; compare with fresh server seed and identical state order. Failure actions must not be treated as expert labels.",
+  "cases": [
+    {
+      "directory": "evaluations/interactive_lab_20261018_013915_1792258755052393577/scene-001_init-000",
+      "result_sha256": "078c83c9aa5946f681d11f1454eebb9ae8853b7be2d53da60a4ec4a95eab1771",
+      "actions_sha256": "4900ee3c41d50fead6cf0053dcce112565c67f49baf566e1aef56ca344ccd701",
+      "layout": 0,
+      "xy_offset_cm": [
+        0.0,
+        0.0
+      ],
+      "total_offset_cm": 0.0,
+      "control_steps": 220,
+      "first_On_step": 113,
+      "post_On_steps": 107,
+      "stop_reason": "step_limit",
+      "tail20_open_commands": 20,
+      "tail20_close_commands": 0,
+      "manual_release_and_retreat": "not formally annotated",
+      "params_manifest_sha256": "d2230a4bde3350a6829920e0c5be662969f01637c43157df5f34776e1c192c20"
+    },
+    {
+      "directory": "evaluations/interactive_lab_20261018_013915_1792258755052393577/scene-002_init-002",
+      "result_sha256": "c0e8137d277c9286b680c038214b7976934be1d069250a6874790f85a596cb37",
+      "actions_sha256": "6de20fe4f74027a50ed590b1fb9e9c909b54381133bcfac71f7d44a91beb115c",
+      "layout": 2,
+      "xy_offset_cm": [
+        -1.8894009216589858,
+        -2.903225806451612
+      ],
+      "total_offset_cm": 3.4638931747403006,
+      "control_steps": 220,
+      "first_On_step": 158,
+      "post_On_steps": 62,
+      "stop_reason": "step_limit",
+      "tail20_open_commands": 2,
+      "tail20_close_commands": 17,
+      "manual_release_and_retreat": "not formally annotated",
+      "params_manifest_sha256": "d2230a4bde3350a6829920e0c5be662969f01637c43157df5f34776e1c192c20"
+    }
+  ]
+}

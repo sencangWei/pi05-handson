@@ -232,6 +232,37 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
 
 初始状态 0–3 用于开发复盘。采样改动是否有效，需使用 `--uniform-control` 另训 `release_uniform_2000`（相同权重来源、新优化器、预算和种子，仅采样不同），并用 `serve_release_focus.py --uniform-control` 加载对照。比较各模型时重新启动各自服务，保持采样随机数初始种子相同、相同的测试顺序和反馈设置。原模型与专项模型比较还增加了训练预算，不能单独归因于重采样。新的初始状态 14–17 预留为配置冻结后的测试；尚未测试，不报告成功率。
 
+## 本地仿真实验面板
+
+`simulation_lab.py` 打开中文 Tk 操作面板；加载布局后另开 MuJoCo 三维窗口。启动一次后可选择 0–49 号布局、调整碗的世界 X/Y 位置、重置、运行/暂停、单步，以及结束并保存。面板不启动训练；点击运行或单步时连接已启动的 `127.0.0.1:8755` 模型服务。
+
+先在旧评测窗口按 Q 保存并退出，保留 `serve_release_focus.py` 服务。启动面板：
+
+```bash
+cd ~/.pi05-handson
+PYTHONPATH="$PWD/openpi/third_party/libero${PYTHONPATH:+:$PYTHONPATH}" \
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
+.venv-sim/bin/python -u scripts/simulation_lab.py
+```
+
+1. 选择布局编号，点击 **加载/重置布局**，三维窗口显示该布局；初始为暂停。
+2. X/Y 偏移以厘米显示，范围 ±10 cm，相对该布局原始碗位置；修改后再次点击 **加载/重置布局** 生效。保留碗的高度和朝向；**原位置**恢复零偏移。
+3. 点击 **运行**、**暂停**或**单步**。三维窗口中的空格、N 同样可用。模型推理在后台；暂停、重置会使旧预测失效，再次运行根据新观测预测。
+4. 点击 **结束并保存**后保持场景可观察，重置可开启下一轮。三维窗口按 Q 会保存并结束当前场景，操作面板仍可继续加载。
+5. 首次 On 信号之后继续 40 步，或者达到 220 个控制步时，自动结束并保存；松爪和撤手仍需观察，On 信号本身不等于完整收尾。
+
+每次启动创建独立的 `evaluations/interactive_lab_*` 目录；每个场景保存在 `scene-*_init-*` 子目录中：
+
+- `actions.csv`：执行前 8 维状态、模型实际执行的 7 维动作、执行后末端/碗/夹指位置及 On 信号。
+- `video.mp4`：有控制动作时保存；初始画面加每个控制步一帧，按 10 FPS 回放，暂停时间不进入视频。
+- `scene.json`、`result.json`：布局、位置修改、模型元数据、停止原因和步数。
+- `initial_state.npy`、`final_state.npy`、首尾 PNG：物理状态快照及画面；快照不包含策略随机数或控制器完整内部状态，不能声称精确续跑。
+- 会话根目录的 `operations.jsonl`：运行、暂停、重置、位置修改、保存和错误事件。检测到原生窗口物理状态变化时另存快照；不保证记录原生界面的所有输入。
+
+重置和退出先保存上一轮；编码或保存失败时保留内存记录以便重试，不直接销毁旧场景。面板实验记录为 `formal_benchmark=false`，与固定初始状态的批量评测分开；原训练、评测脚本继续使用原入口。
+
+本次准备验证使用真实 Tk 控件和隔离假后端，另检查了实际文件导出及本地任务元数据。**新面板尚未由代理连接模型、创建真实仿真或执行策略，真实场景首跑由学习者完成。** UI 检查截图 [仅界面，未连接仿真](previews/simulation-lab-ui-check.png)。
+
 ```bash
 .venv-sim/bin/python scripts/export_training_curves.py
 .venv-sim/bin/tensorboard --logdir .local/tensorboard --host 127.0.0.1 --port 6006

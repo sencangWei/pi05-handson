@@ -1,0 +1,71 @@
+{
+  "status": "ISOLATED_LOGIC_AND_NATIVE_WIDGET_CHECKS_PASS",
+  "test_count": 35,
+  "real_policy_or_simulation_started": false,
+  "task_metadata_verified": {
+    "layout_count": 50,
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "gui_check": {
+    "toolkit": "Tk 9",
+    "fake_backend": true,
+    "screenshot": "previews/simulation-lab-ui-check.png",
+    "size": [
+      560,
+      510
+    ],
+    "visually_inspected": true,
+    "cjk_font_fix": "Tk-visible song ti fallback plus explicit spacing"
+  },
+  "checks": {
+    "tests": {
+      "exit_code": 0,
+      "output": "test_buttons_load_offsets_in_meters_and_preserve_pause (test_lab_panel.PanelTests.test_buttons_load_offsets_in_meters_and_preserve_pause) ... ok\ntest_failed_close_keeps_panel_and_can_retry (test_lab_panel.PanelTests.test_failed_close_keeps_panel_and_can_retry) ... ok\ntest_invalid_offset_never_reaches_backend (test_lab_panel.PanelTests.test_invalid_offset_never_reaches_backend) ... ok\ntest_original_position_resets_offsets (test_lab_panel.PanelTests.test_original_position_resets_offsets) ... ok\ntest_poll_error_can_recover_after_new_operation (test_lab_panel.PanelTests.test_poll_error_can_recover_after_new_operation) ... ok\ntest_default_keeps_original_stop_at_first_success (test_post_success.PostSuccessTests.test_default_keeps_original_stop_at_first_success) ... ok\ntest_followup_cli_is_opt_in (test_post_success.PostSuccessTests.test_followup_cli_is_opt_in) ... ok\ntest_followup_is_exactly_forty_further_steps_even_if_predicate_changes (test_post_success.PostSuccessTests.test_followup_is_exactly_forty_further_steps_even_if_predicate_changes) ... ok\ntest_no_success_signal_never_stops_early (test_post_success.PostSuccessTests.test_no_success_signal_never_stops_early) ... ok\ntest_focus_has_context_and_never_crosses_episode_boundaries (test_release_focus.ReleaseFocusTests.test_focus_has_context_and_never_crosses_episode_boundaries) ... ok\ntest_installation_preserves_original_create_signature (test_release_focus.ReleaseFocusTests.test_installation_preserves_original_create_signature) ... ok\ntest_invalid_terminal_labels_are_rejected (test_release_focus.ReleaseFocusTests.test_invalid_terminal_labels_are_rejected) ... ok\ntest_sampling_changes_only_access_not_future_action_chunk (test_release_focus.ReleaseFocusTests.test_sampling_changes_only_access_not_future_action_chunk) ... ok\ntest_uniform_control_preserves_original_order_and_all_frames (test_release_focus.ReleaseFocusTests.test_uniform_control_preserves_original_order_and_all_frames) ... ok\ntest_explicit_pause_cancels_both_single_step_flags (test_simulation_lab.LabTests.test_explicit_pause_cancels_both_single_step_flags) ... ok\ntest_first_on_signal_gets_exactly_forty_extra_steps_and_auto_save (test_simulation_lab.LabTests.test_first_on_signal_gets_exactly_forty_extra_steps_and_auto_save) ... ok\ntest_invalid_prediction_pauses_without_executing (test_simulation_lab.LabTests.test_invalid_prediction_pauses_without_executing) ... ok\ntest_invalid_reset_does_not_close_existing_scene (test_simulation_lab.LabTests.test_invalid_reset_does_not_close_existing_scene) ... ok\ntest_manual_state_change_invalidates_waiting_prediction (test_simulation_lab.LabTests.test_manual_state_change_invalidates_waiting_prediction) ... ok\ntest_native_pause_after_single_step_then_run_cancels_old_step_intent (test_simulation_lab.LabTests.test_native_pause_after_single_step_then_run_cancels_old_step_intent) ... ok\ntest_native_pause_discards_inflight_prediction (test_simulation_lab.LabTests.test_native_pause_discards_inflight_prediction) ... ok\ntest_pause_discards_pending_result_and_resume_predicts_again (test_simulation_lab.LabTests.test_pause_discards_pending_result_and_resume_predicts_again) ... ok\ntest_paused_never_moves_and_single_step_uses_new_camera_observation (test_simulation_lab.LabTests.test_paused_never_moves_and_single_step_uses_new_camera_observation) ... ok\ntest_position_edit_preserves_z_and_rotation_and_clears_velocity (test_simulation_lab.LabTests.test_position_edit_preserves_z_and_rotation_and_clears_velocity) ... ok\ntest_reset_saves_first_closes_view_before_env_and_discards_old_prediction (test_simulation_lab.LabTests.test_reset_saves_first_closes_view_before_env_and_discards_old_prediction) ... ok\ntest_save_failure_preserves_current_scene_on_reset (test_simulation_lab.LabTests.test_save_failure_preserves_current_scene_on_reset) ... ok\ntest_real_csv_json_png_and_video_export_is_idempotent (test_simulation_lab.RecordTests.test_real_csv_json_png_and_video_export_is_idempotent) ... /home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/imageio/plugins/ffmpeg.py:514: ResourceWarning: unclosed file <_io.BufferedWriter name=9>\n  s = self._read_gen.__next__()\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n/home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/imageio/plugins/ffmpeg.py:514: ResourceWarning: unclosed file <_io.BufferedReader name=10>\n  s = self._read_gen.__next__()\nResourceWarning: Enable tracemalloc to get the object allocation traceback\nok\ntest_bowl_near_hand_is_rejected_before_any_mutation (test_target_shift.TargetShiftTests.test_bowl_near_hand_is_rejected_before_any_mutation) ... ok\ntest_closed_gripper_is_rejected_before_any_mutation (test_target_shift.TargetShiftTests.test_closed_gripper_is_rejected_before_any_mutation) ... ok\ntest_existing_command_has_no_intervention (test_target_shift.TargetShiftTests.test_existing_command_has_no_intervention) ... ok\ntest_only_world_x_changes_and_new_observation_is_returned (test_target_shift.TargetShiftTests.test_only_world_x_changes_and_new_observation_is_returned) ... ok\ntest_nonfinite_metrics_are_rejected (test_visual_tools.VisualToolTests.test_nonfinite_metrics_are_rejected) ... ok\ntest_parser_keeps_steps_and_signed_scientific_values (test_visual_tools.VisualToolTests.test_parser_keeps_steps_and_signed_scientific_values) ... ok\ntest_pause_single_step_and_quit_without_opening_window (test_visual_tools.VisualToolTests.test_pause_single_step_and_quit_without_opening_window) ... ok\ntest_repeated_step_is_not_duplicated (test_visual_tools.VisualToolTests.test_repeated_step_is_not_duplicated) ... ok\n\n----------------------------------------------------------------------\nRan 35 tests in 1.137s\n\nOK"
+    },
+    "ruff": {
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    "compile": {
+      "exit_code": 0,
+      "output": ""
+    },
+    "diff": {
+      "exit_code": 0,
+      "output": ""
+    }
+  },
+  "review": "Independent reviewer confirmed both GUI/native pause regressions resolved and13backend/exportchecks passed; no remaining important issue found.",
+  "environment": {
+    "python": {
+      "executable": "/home/robot/.pi05-handson/.venv-sim/bin/python",
+      "implementation": "CPython",
+      "version": "3.11.15"
+    },
+    "packages": {
+      "flax": "not-installed",
+      "jax": "not-installed",
+      "jaxlib": "not-installed",
+      "numpy": "1.26.4",
+      "orbax-checkpoint": "not-installed"
+    },
+    "system": {
+      "architecture": "x86_64",
+      "os": "Linux",
+      "release": "6.8.0-138-generic"
+    }
+  },
+  "source_sha256": {
+    "scripts/simulation_lab.py": "edf27695007bc978c6580985696decb4f0100b407d1e7e163e8d40d6e5f52fd6",
+    "scripts/lab_panel.py": "c4a97d8e11fb51bd52ed203969e3b28f13f4ed93dc7b68b5b0cb458857cc2f5c",
+    "tests/test_simulation_lab.py": "e28b65757c61a09eea56c64595b836f2bedb713319b8e8063e90421202e3fbcd",
+    "tests/test_lab_panel.py": "3c6ce5450e16b78782a4d142a6f622f84242773bf1e9b259143390e1c3e3cb07",
+    "previews/simulation-lab-ui-check.png": "bcf0a2d7cb4bc08e98bc9e7e3ea98432d53fc96f4c5a69b0826079f24da4df92"
+  },
+  "limitations": [
+    "Real MuJoCo scene and learned policy integration awaits learner first launch.",
+    "Interactive scene changes are not formal benchmark trials.",
+    "Automatic release/retreat acceptance and teleoperation dataset capture are not implemented."
+  ]
+}

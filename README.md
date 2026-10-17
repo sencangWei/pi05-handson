@@ -156,6 +156,80 @@ Viewer 模式会在导入仿真库前选择 GLX。机器人策略仍接收原来
 
 `export_training_curves.py` 将已存在的三段训练日志导入 TensorBoard，提供 loss、grad_norm 和 param_norm，共 1000 个历史记录点。横轴应使用 Step；事件的 wall_time 是导出时间，不是原训练耗时。本操作不启动训练。
 
+## 放置收尾专项训练（准备完成，尚未训练）
+
+训练由终端中的 JAX 程序执行；TensorBoard 用于看训练曲线，MuJoCo 用于观察仿真动作。当前 TensorBoard 只显示已经导入的历史日志，新实验的日志需要在训练后另行导入。
+
+续行诊断见 [记录](evidence/release-followup-diagnosis.json)：到达盘子后实际执行 40 步，其中 38 条闭爪、2 条短暂开爪，40 条向下指令，未完成松爪、撤手。16 条训练示范都有最后开爪的片段，转换数据没有截掉这些标签。
+
+新实验检验“提高收尾片段采样频率是否改善阶段切换”这一假设，不预先保证有效：
+
+| 项目 | 设置 |
+| --- | --- |
+| 初始化权重 | 原 `my_first_200/9999`，保留原模型 |
+| 新实验 | `release_focus_2000` |
+| 更新预算 | 新增 2000 次更新，batch=4，seed=42 |
+| 优化器 | 新建 AdamW；优化器、学习率步数、随机数和数据游标重新开始，属于继续微调，不是精确断点恢复 |
+| 学习率 | 前 20 步预热，随后 5e-5；仅 LoRA 可训练 |
+| 采样 | 每条示范最后开爪片段，加上其之前 10 帧，共 355 帧，各出现 4 次；其余帧各 1 次 |
+| 数据量 | 原 1971 帧保持不变；采样映射为 3036 项，收尾及前置片段占约 46.8% |
+| 数据与统计 | 仍只使用原 16 条训练示范；4 条留出不参与；归一化沿用原统计 |
+| 动作 | 预测 10 步动作；评测每次执行 1 步再观察 |
+| 保存位置 | `checkpoints/pi05_handson_lora/release_focus_2000/1000`、`1999` |
+
+### 第一步：学习者启动训练
+
+先在仿真窗口按 Q 保存并退出；在自己启动 `serve_10000.py` 的终端按 Ctrl+C，释放该推理服务占用的显存。保留其他 GPU 任务。另一个终端执行：
+
+```bash
+cd ~/.pi05-handson
+export HF_HUB_OFFLINE=1
+export XLA_PYTHON_CLIENT_PREALLOCATE=false
+export XLA_PYTHON_CLIENT_MEM_FRACTION=0.55
+export OMP_NUM_THREADS=4
+
+.venv/bin/python -u scripts/train_release_focus.py \
+  2>&1 | tee "logs/release-focus-training-$(date +%Y%m%d_%H%M%S_%N).log"
+```
+
+入口会先核对训练文件哈希、索引顺序和归一化，然后打印采样设置，再启动训练。最后编号是新实验的 `1999`，表示新增 2000 次更新；参数来自此前已经训练 10000 次更新的模型。入口拒绝覆盖已有实验和已有启动记录。若训练被中断，先保留日志和目录排查，再确定恢复方式。
+
+准备检查可单独运行 `JAX_PLATFORMS=cpu .venv/bin/python scripts/train_release_focus.py --dry-run`；它只读取数据和配置，不加载模型权重、不创建优化器，也不开始训练。
+
+### 第二步：训练结束后加载新模型
+
+确认 `release_focus_2000/1999` 已完成保存，再在推理终端运行：
+
+```bash
+cd ~/.pi05-handson
+HF_HUB_OFFLINE=1 XLA_PYTHON_CLIENT_PREALLOCATE=false \
+XLA_PYTHON_CLIENT_MEM_FRACTION=0.55 OMP_NUM_THREADS=4 \
+.venv/bin/python -u scripts/serve_release_focus.py \
+  2>&1 | tee "logs/serve-release-focus-$(date +%Y%m%d_%H%M%S_%N).log"
+```
+
+它监听同一个 `127.0.0.1:8755`；旧服务必须先退出。
+
+### 第三步：学习者在 MuJoCo 验证收尾
+
+```bash
+cd ~/.pi05-handson
+release_run="release_focus_$(date +%Y%m%d_%H%M%S_%N)"
+LIBERO_CONFIG_PATH="$PWD/.local/libero" \
+PYTHONPATH="$PWD/openpi/third_party/libero${PYTHONPATH:+:$PYTHONPATH}" \
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
+.venv-sim/bin/python -u scripts/evaluate_libero.py \
+  --output "evaluations/$release_run" \
+  --trials 1 --seed 42 --initial-state-offset 0 \
+  --port 8755 --replan-steps 1 --max-steps 220 \
+  --post-success-steps 40 --viewer \
+  2>&1 | tee "logs/$release_run.log"
+```
+
+按空格开始，结束后按 Q 保存录像和结果。除了官方 On 条件，还要检查夹指是否持续打开、手是否撤离，以及碗是否仍稳定留在盘上。视频人工复核属于初步证据；当前 `release_and_retreat_success=null`，没有自动完整验收指标。短暂发出开爪命令不能算完成释放。
+
+初始状态 0–3 用于开发复盘。采样改动是否有效，需使用 `--uniform-control` 另训 `release_uniform_2000`（相同权重来源、新优化器、预算和种子，仅采样不同），并用 `serve_release_focus.py --uniform-control` 加载对照。比较各模型时重新启动各自服务，保持采样随机数初始种子相同、相同的测试顺序和反馈设置。原模型与专项模型比较还增加了训练预算，不能单独归因于重采样。新的初始状态 14–17 预留为配置冻结后的测试；尚未测试，不报告成功率。
+
 ```bash
 .venv-sim/bin/python scripts/export_training_curves.py
 .venv-sim/bin/tensorboard --logdir .local/tensorboard --host 127.0.0.1 --port 6006

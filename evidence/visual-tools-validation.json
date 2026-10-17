@@ -1,0 +1,29 @@
+{
+  "status": "STATIC_AND_ISOLATED_CHECKS_PASS",
+  "unittest_count": 8,
+  "desktop_opengl": {
+    "renderer": "NVIDIA GeForce RTX 5090 D/PCIe/SSE2",
+    "version": "4.6.0 NVIDIA 595.84",
+    "hidden_context_check_passed": true
+  },
+  "native_viewer_import_passed": true,
+  "full_gui_episode_executed": false,
+  "training_started": false,
+  "historical_loss_points": 1000,
+  "tensorboard_http": {
+    "root": 200,
+    "scalar_tags": 200,
+    "last_stage_loss_points": 800
+  },
+  "source_sha256": {
+    "scripts/evaluate_libero.py": "0fcbe7985e10d8a57903e7300fd29dd5dc388e62cd7917be49709de029d4e6b8",
+    "scripts/live_preview.py": "1049e8a69c348a7e35ad94e655aaa1c5c9bb0ad1e79df704ed4e727522b8450b",
+    "scripts/export_training_curves.py": "625aaf70e2128d75c6d85279896313f844bc98600e7f74039aeaefbd4220a1b5",
+    "tests/test_visual_tools.py": "a27c14dd41c938e7a448455ac36099d5c047abda2916cb84729beb95afd1cbd6"
+  },
+  "limitations": [
+    "Full MuJoCo/LIBERO viewer episode awaits the learner's first run.",
+    "Manual GUI edits are not individually logged.",
+    "TensorBoard currently displays historical logs; training callbacks are unchanged."
+  ]
+}

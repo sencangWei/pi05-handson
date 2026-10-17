@@ -120,7 +120,7 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 - 原模型和恢复模型的参数树 SHA256 均为 `e0080b2b69ff602d461a5c7264112ea5216322cf99538abc7f22ff1d2b5b7515`。
 - 本次验证未重新运行训练或仿真，也没有覆盖原模型。远端推理备份不包含优化器状态；原完整 checkpoint 继续留在训练机器。
 
-## 目录
+## 实验分支与可视化
 
 ### 下一阶段：运动中的目标位置扰动（尚未报告仿真结果）
 
@@ -128,7 +128,36 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 这属于抓取前的目标重定位测试，不是自然掉落实验。工具要求夹爪处于打开状态且与碗相距至少 0.12 m；仅修改目标自由关节的 X 坐标，并将其速度置零。刷新观测、清空旧动作计划后再推理，保存扰动前后截图、坐标事件和视频。若扰动未发生，不计作有效扰动成功样本。
 
-目前只执行了 `tests/test_target_shift.py` 的 4 项隔离检查及命令行检查，没有自动启动模型、训练或 MuJoCo 仿真。仿真实测由学习者亲自运行；结果尚未产生。
+目前已通过位置扰动、窗口控制和曲线解析的 8 项隔离检查及命令行检查。位置扰动的仿真实测由学习者亲自运行；结果尚未产生。
+
+### 实时三维窗口
+
+`--viewer` 使用 MuJoCo 3.2.3 原生交互窗口，连接当前 LIBERO 场景和策略循环。窗口初始暂停：空格运行/暂停，N 执行一个控制步骤，Q 结束。鼠标可调整观察视角；结束后保留最终场景，关闭窗口或按 Q 后保存结果。用户主动关闭未完成的窗口记为 `user_stopped`，不算有效成功率样本。
+
+保持 `serve_10000.py` 的模型服务运行，在桌面终端执行：
+
+```bash
+LIBERO_CONFIG_PATH="$PWD/.local/libero" \
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
+.venv-sim/bin/python scripts/evaluate_libero.py \
+  --output evaluations/live_view_init0 --trials 1 --seed 42 \
+  --initial-state-offset 0 --port 8755 --replan-steps 1 --max-steps 220 --viewer
+```
+
+Viewer 模式会在导入仿真库前选择 GLX。机器人策略仍接收原来的两路相机观测；三维窗口相机只是观察视角。GUI 允许手动修改或扰动场景，故交互结果单独标记，不直接合并到上面的固定评测结果。工具未逐项记录手动 GUI 编辑。操作规范参考 [MuJoCo 原生 viewer 文档](https://mujoco.readthedocs.io/en/3.2.3/python.html#interactive-viewer)。
+
+### 训练曲线界面
+
+`export_training_curves.py` 将已存在的三段训练日志导入 TensorBoard，提供 loss、grad_norm 和 param_norm，共 1000 个历史记录点。横轴应使用 Step；事件的 wall_time 是导出时间，不是原训练耗时。本操作不启动训练。
+
+```bash
+.venv-sim/bin/python scripts/export_training_curves.py
+.venv-sim/bin/tensorboard --logdir .local/tensorboard --host 127.0.0.1 --port 6006
+```
+
+浏览器打开 `http://127.0.0.1:6006`。重复导出需使用新的 `--output` 目录，以避免叠加重复记录。后续新训练尚未接入持续写入事件的实时回调。参考 [TensorBoard 官方说明](https://www.tensorflow.org/tensorboard/get_started)。
+
+## 目录
 
 - `scripts/`：数据准备、统计、训练、推理、评测、LoRA 导出与恢复。
 - `evidence/`：数据划分、训练来源、环境快照、模型哈希及备份验证记录。

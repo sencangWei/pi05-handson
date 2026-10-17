@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import contextlib
 import csv
 import hashlib
 import json
@@ -32,6 +33,7 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--replan-steps", type=int, default=5)
     parser.add_argument("--max-steps", type=int, default=220)
     parser.add_argument("--smoke", action="store_true", help="Render five zero-motion steps; never connect to a model.")
+    parser.add_argument("--viewer", action="store_true", help="Open MuJoCo's interactive 3D viewer, initially paused.")
     parser.add_argument("--target-shift-step", type=int, help="Before this control step, translate the ungrasped target bowl.")
     parser.add_argument("--target-shift-x-m", type=float, default=0.05, help="Instant world-X translation in meters.")
     args = parser.parse_args()
@@ -109,7 +111,11 @@ def main() -> int:
     args = arguments()
     output = prepare_output(args.output)
     # MuJoCo physics runs on CPU. EGL can use the GPU for rendering only.
-    os.environ.setdefault("MUJOCO_GL", "egl")
+    if args.viewer:
+        os.environ["MUJOCO_GL"] = "glx"
+        os.environ["PYOPENGL_PLATFORM"] = "glx"
+    else:
+        os.environ.setdefault("MUJOCO_GL", "egl")
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     import imageio.v2 as imageio
     import numpy as np
@@ -141,6 +147,8 @@ def main() -> int:
         "target_shift_x_m": args.target_shift_x_m if args.target_shift_step is not None else None,
         "video_fps": 10, "video_timing": "one initial frame plus one per controlled simulation step; settling and inference wall pauses omitted",
         "physics": "CPU MuJoCo", "render_backend": os.environ["MUJOCO_GL"],
+        "interactive_viewer": args.viewer,
+        "manual_gui_edits_recorded": False,
         "state_contract": "8D: eef xyz, quaternion-derived axisangle xyz, gripper qpos 2",
         "action_contract": "7D LIBERO end-effector delta position/rotation and gripper command",
         "image_contract": "agentview and wrist RGB, 180-degree flip, pad-resize 224x224 uint8",
@@ -164,7 +172,8 @@ def main() -> int:
                   "outcome": "exception", "success": False, "control_steps": 0,
                   "inference_calls": 0, "exception": None}
         result["target_shift"] = None
-        images, env = [], None
+        images, env, live = [], None, None
+        viewer_closed = False
         started = time.perf_counter()
         try:
             env = OffScreenRenderEnv(bddl_file_name=str(bddl), camera_heights=256, camera_widths=256)
@@ -175,6 +184,9 @@ def main() -> int:
             images.append(np.ascontiguousarray(obs["agentview_image"][::-1, ::-1]))
             for _ in range(10):
                 obs, _, _, _ = env.step(DUMMY_ACTION)
+            if args.viewer:
+                from live_preview import LivePreview
+                live = LivePreview(env)
             if client is not None:
                 client.reset()
             plan = collections.deque()
@@ -185,10 +197,17 @@ def main() -> int:
                 writer = csv.DictWriter(handle, fieldnames=columns)
                 writer.writeheader()
                 for step in range(step_limit):
+                    if live is not None:
+                        if not live.before_step():
+                            viewer_closed = True
+                            break
+                        with live.lock():
+                            obs = env.regenerate_obs_from_state(env.get_sim_state())
                     if args.target_shift_step is not None and step == args.target_shift_step:
                         imageio.imwrite(output / f"{prefix}_shift-before.png",
                                         np.ascontiguousarray(obs["agentview_image"][::-1, ::-1]))
-                        obs, event = shift_ungrasped_target(env, obs, args.target_shift_x_m)
+                        with live.lock() if live is not None else contextlib.nullcontext():
+                            obs, event = shift_ungrasped_target(env, obs, args.target_shift_x_m)
                         event["control_step"] = step
                         result["target_shift"] = event
                         plan.clear()
@@ -222,7 +241,10 @@ def main() -> int:
                             result["inference_calls"] += 1
                             fresh = True
                         action = plan.popleft()
-                    obs, reward, done, _ = env.step(action.tolist())
+                    with live.lock() if live is not None else contextlib.nullcontext():
+                        obs, reward, done, _ = env.step(action.tolist())
+                    if live is not None:
+                        live.after_step()
                     images.append(np.ascontiguousarray(obs["agentview_image"][::-1, ::-1]))
                     row = {"step": step, "wall_elapsed_s": time.perf_counter() - started,
                            "inference_latency_s": latency, "new_chunk": fresh,
@@ -236,7 +258,9 @@ def main() -> int:
                         result["success"] = True
                         break
             result["outcome"] = "smoke_only" if args.smoke else ("success" if result["success"] else "failure")
-            if args.target_shift_step is not None and result["target_shift"] is None:
+            if viewer_closed:
+                result["outcome"] = "user_stopped"
+            if not viewer_closed and args.target_shift_step is not None and result["target_shift"] is None:
                 result["outcome"] = "perturbation_not_applied"
                 result["success"] = False
         except Exception:
@@ -245,6 +269,12 @@ def main() -> int:
             result["exception"] = traceback.format_exc()
         finally:
             result["wall_duration_s"] = time.perf_counter() - started
+            if live is not None:
+                try:
+                    if result["outcome"] in ("success", "failure", "smoke_only"):
+                        live.hold_final(result["outcome"])
+                finally:
+                    live.close()
             if env is not None:
                 try:
                     env.close()
@@ -266,12 +296,15 @@ def main() -> int:
             metadata["trials"].append(result)
             metadata["successes"] = sum(x["success"] for x in metadata["trials"])
             valid = [x for x in metadata["trials"]
-                     if args.target_shift_step is None or x["target_shift"] is not None]
+                     if x["outcome"] != "user_stopped"
+                     and (args.target_shift_step is None or x["target_shift"] is not None)]
             metadata["trials_valid_for_success_rate"] = len(valid)
             metadata["success_rate"] = None if args.smoke or not valid else metadata["successes"] / len(valid)
             metadata["exception_count"] = sum(x["outcome"] == "exception" for x in metadata["trials"])
             write_json(output / "summary.json", metadata)
             print(json.dumps(result, default=json_default), flush=True)
+        if viewer_closed:
+            break
     return int(any(x["outcome"] in ("exception", "perturbation_not_applied")
                    or "video_exception" in x for x in metadata["trials"]))
 

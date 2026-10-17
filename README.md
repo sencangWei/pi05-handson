@@ -85,7 +85,21 @@ JAX_PLATFORMS=cpu .venv/bin/python scripts/restore_adapter.py \
   --output checkpoints/pi05_handson_lora/my_first_200/9999
 ```
 
-输出目录必须不存在。恢复后可启动 `scripts/serve_10000.py`，在另一个终端运行 `scripts/evaluate_libero.py`。精确参数参考 `logs/19-eval-10000-replan1-init0to3.log` 和 `logs/20-eval-10000-replan1-init10to13.log`，重跑请使用新的输出目录。
+输出目录必须不存在。恢复后可启动 `scripts/serve_10000.py`，在另一个终端设置以下变量后运行评测：
+
+```bash
+export PYTHONPATH="$PWD/openpi/third_party/libero${PYTHONPATH:+:$PYTHONPATH}"
+export LIBERO_CONFIG_PATH="$PWD/.local/libero"
+export MUJOCO_GL=egl
+export PYOPENGL_PLATFORM=egl
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+.venv-sim/bin/python scripts/evaluate_libero.py \
+  --output evaluations/new-run --trials 4 --seed 42 \
+  --initial-state-offset 10 --port 8755 --replan-steps 1 --max-steps 220
+```
+
+首次运行前执行上文的 `sim_smoke.py` 创建项目内配置。精确评测记录见 `evaluations/my_first_10000_replan1_init0to3/summary.json` 和 `evaluations/my_first_10000_replan1_init10to13/summary.json`；重跑请使用新的输出目录。
 
 ## 操作问题复盘
 
@@ -98,6 +112,13 @@ JAX_PLATFORMS=cpu .venv/bin/python scripts/restore_adapter.py \
 | 初期抓起后掉落、重新抓取失败 | 保留失败轨迹；尚未专门训练或验证恢复能力 |
 | 2000 步模型搬运后不松爪 | CSV 显示持续闭合；增加反馈频率后仅个别布局成功，后续增加训练预算 |
 | Gym 与 private macro 警告 | 本轮均未导致运行异常；没有为消除提示而替换已验证的依赖 |
+
+## 已执行的远端恢复验证
+
+- [源码恢复记录](evidence/remote-source-restore-verification.json)：从 GitHub 新克隆课程仓库，并从官方远端获取固定版本的 OpenPI、LIBERO；首个备份提交的 100 个课程文件、140 个 OpenPI 文件、1116 个 LIBERO 文件均与本机逐文件字节一致。未使用的 ALOHA 子模块没有初始化。
+- [模型恢复记录](evidence/remote-model-restore-verification.json)：重新下载 Release 的全部附件，核对文件 SHA256，使用远端克隆中的恢复脚本和匹配基座重建完整推理模型，再读回落盘参数。全部 71 个张量的形状、类型和内容哈希一致，归一化统计也一致。
+- 原模型和恢复模型的参数树 SHA256 均为 `e0080b2b69ff602d461a5c7264112ea5216322cf99538abc7f22ff1d2b5b7515`。
+- 本次验证未重新运行训练或仿真，也没有覆盖原模型。远端推理备份不包含优化器状态；原完整 checkpoint 继续留在训练机器。
 
 ## 目录
 

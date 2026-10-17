@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "inference_only": true,
+  "optimizer_state_restored": false,
+  "tensor_count": 71,
+  "all_original_tensor_hashes_match": true,
+  "original_tree_sha256": "e0080b2b69ff602d461a5c7264112ea5216322cf99538abc7f22ff1d2b5b7515",
+  "restored_tree_sha256": "e0080b2b69ff602d461a5c7264112ea5216322cf99538abc7f22ff1d2b5b7515",
+  "adapter_metadata_sha256": "7381bbee53806814682fd358491fe50d9afc75ae2efb16e3249a9e255c0064c9",
+  "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+  "remote": "https://github.com/sencangWei/pi05-handson",
+  "release": "handson-10000-20261017",
+  "restored_from": "release assets downloaded from GitHub; restoration script from fresh remote clone",
+  "release_files_sha256": {
+    "SHA256SUMS": "28a27f0d0790488feb755709538b7c3dee446065e4c0fb52d48df836ebed975d",
+    "metadata.json": "7381bbee53806814682fd358491fe50d9afc75ae2efb16e3249a9e255c0064c9",
+    "adapter.npz": "f4a339afb455c29ee4bce000f192711dd8c5919b29e92d21a0c2f055dbc7fff5",
+    "norm_stats.json": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "source_checkpoint": "checkpoints/pi05_handson_lora/my_first_200/9999"
+}

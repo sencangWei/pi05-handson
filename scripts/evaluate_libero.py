@@ -34,6 +34,8 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--max-steps", type=int, default=220)
     parser.add_argument("--smoke", action="store_true", help="Render five zero-motion steps; never connect to a model.")
     parser.add_argument("--viewer", action="store_true", help="Open MuJoCo's interactive 3D viewer, initially paused.")
+    parser.add_argument("--post-success-steps", type=int, default=0,
+                        help="Continue policy actions after the first official success signal; bounded by max-steps.")
     parser.add_argument("--target-shift-step", type=int, help="Before this control step, translate the ungrasped target bowl.")
     parser.add_argument("--target-shift-x-m", type=float, default=0.05, help="Instant world-X translation in meters.")
     args = parser.parse_args()
@@ -41,6 +43,8 @@ def arguments() -> argparse.Namespace:
         parser.error("trials, replan-steps and max-steps must be positive")
     if args.initial_state_offset < 0:
         parser.error("initial-state-offset must be nonnegative")
+    if args.post_success_steps < 0 or (args.smoke and args.post_success_steps):
+        parser.error("post-success-steps must be nonnegative and requires a policy trial")
     if args.target_shift_step is not None:
         if args.smoke or not 0 <= args.target_shift_step < args.max_steps:
             parser.error("target-shift-step requires a policy trial and must be within its step limit")
@@ -75,6 +79,18 @@ def quaternion_axis_angle(quaternion):
     if math.isclose(denominator, 0.0):
         return [0.0, 0.0, 0.0]
     return [x * 2.0 * math.acos(w) / denominator for x in q[:3]]
+
+
+def update_benchmark_progress(result, done, extra_steps):
+    """Keep the first On-predicate success distinct from subsequent policy observation."""
+    first = result["first_benchmark_success_control_steps"]
+    if done and first is None:
+        first = result["control_steps"]
+        result["first_benchmark_success_control_steps"] = first
+        result["success"] = True
+    result["final_benchmark_success"] = bool(done)
+    result["post_success_steps_executed"] = 0 if first is None else result["control_steps"] - first
+    return first is not None and result["post_success_steps_executed"] >= extra_steps
 
 
 def shift_ungrasped_target(env, obs, dx):
@@ -149,6 +165,8 @@ def main() -> int:
         "physics": "CPU MuJoCo", "render_backend": os.environ["MUJOCO_GL"],
         "interactive_viewer": args.viewer,
         "manual_gui_edits_recorded": False,
+        "success_definition": "Official LIBERO On(bowl, plate): contact, relative height and XY proximity; no release/retreat requirement",
+        "post_success_steps_requested": args.post_success_steps,
         "state_contract": "8D: eef xyz, quaternion-derived axisangle xyz, gripper qpos 2",
         "action_contract": "7D LIBERO end-effector delta position/rotation and gripper command",
         "image_contract": "agentview and wrist RGB, 180-degree flip, pad-resize 224x224 uint8",
@@ -172,6 +190,9 @@ def main() -> int:
                   "outcome": "exception", "success": False, "control_steps": 0,
                   "inference_calls": 0, "exception": None}
         result["target_shift"] = None
+        result.update({"first_benchmark_success_control_steps": None,
+                       "post_success_steps_executed": 0, "final_benchmark_success": None,
+                       "release_and_retreat_success": None})
         images, env, live = [], None, None
         viewer_closed = False
         started = time.perf_counter()
@@ -254,10 +275,20 @@ def main() -> int:
                     writer.writerow(row)
                     handle.flush()
                     result["control_steps"] += 1
-                    if done and not args.smoke:
-                        result["success"] = True
-                        break
+                    result["final_gripper_command"] = float(action[6])
+                    result["final_gripper_qpos"] = np.asarray(obs["robot0_gripper_qpos"]).tolist()
+                    result["final_eef_xyz"] = np.asarray(obs["robot0_eef_pos"]).tolist()
+                    result["final_target_xyz"] = np.asarray(obs["akita_black_bowl_1_pos"]).tolist()
+                    if not args.smoke:
+                        if done and result["first_benchmark_success_control_steps"] is None and args.post_success_steps:
+                            print(f"Official On predicate reached at control step {result['control_steps']}; "
+                                  f"observe up to {args.post_success_steps} more policy steps for release/retreat.", flush=True)
+                        if update_benchmark_progress(result, done, args.post_success_steps):
+                            break
             result["outcome"] = "smoke_only" if args.smoke else ("success" if result["success"] else "failure")
+            if result["success"] and args.post_success_steps:
+                result["outcome"] = "benchmark_success_followup"
+                result["post_success_observation_complete"] = result["post_success_steps_executed"] >= args.post_success_steps
             if viewer_closed:
                 result["outcome"] = "user_stopped"
             if not viewer_closed and args.target_shift_step is not None and result["target_shift"] is None:
@@ -271,7 +302,7 @@ def main() -> int:
             result["wall_duration_s"] = time.perf_counter() - started
             if live is not None:
                 try:
-                    if result["outcome"] in ("success", "failure", "smoke_only"):
+                    if result["outcome"] in ("success", "failure", "smoke_only", "benchmark_success_followup"):
                         live.hold_final(result["outcome"])
                 finally:
                     live.close()
@@ -299,7 +330,7 @@ def main() -> int:
                      if x["outcome"] != "user_stopped"
                      and (args.target_shift_step is None or x["target_shift"] is not None)]
             metadata["trials_valid_for_success_rate"] = len(valid)
-            metadata["success_rate"] = None if args.smoke or not valid else metadata["successes"] / len(valid)
+            metadata["success_rate"] = None if args.smoke or not valid else sum(x["success"] for x in valid) / len(valid)
             metadata["exception_count"] = sum(x["outcome"] == "exception" for x in metadata["trials"])
             write_json(output / "summary.json", metadata)
             print(json.dumps(result, default=json_default), flush=True)

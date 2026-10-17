@@ -1,0 +1,49 @@
+{
+  "status": "SINGLE_LAYOUT_RELEASE_AND_RETREAT_OBSERVED",
+  "source_run": "evaluations/release_focus_20261017_233142_391180239",
+  "initial_state_id": 0,
+  "seed": 42,
+  "replan_steps": 1,
+  "max_steps": 220,
+  "post_success_steps_requested": 40,
+  "model_metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "configuration": "pi05_handson_lora",
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/release_focus_2000/1999",
+    "checkpoint_step_index": "1999",
+    "model_stage": "release_focus_2000",
+    "policy_sampling_seed_at_server_start": 0,
+    "params_manifest_sha256": "d2230a4bde3350a6829920e0c5be662969f01637c43157df5f34776e1c192c20",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "total_control_steps": 149,
+  "first_official_on_hit_control_steps": 109,
+  "post_success_steps_executed": 40,
+  "post_success_open_command_count": 37,
+  "last_10_open_command_count": 10,
+  "last_10_on_predicate_true_count": 10,
+  "eef_z_at_first_hit_pre_action_m": 0.936888066216951,
+  "eef_z_last_logged_pre_action_m": 1.0625116890043078,
+  "eef_rise_between_those_observations_m": 0.12562362278735684,
+  "last_logged_pre_action_finger_qpos_m": [
+    0.039519971585791396,
+    -0.03948929088032596
+  ],
+  "learner_report": "成功了",
+  "learner_report_interpretation": "Learner reported visual success after being asked to inspect sustained opening and retreat; CSV independently supports opening, hand rise and continued On predicate.",
+  "snapshot": "evidence/release-focus-init0-actions.csv",
+  "snapshot_sha256": "24f8d49529586be07e8286875899837882fed1b8288442360781500562c080c9",
+  "native_result_finalized_at_audit": false,
+  "video_finalized_at_audit": false,
+  "automated_release_and_retreat_success": null,
+  "limits": [
+    "Only initial state0 observed. No multi-layout success rate yet.",
+    "No uniform-control training yet: additional training budget and sampling both changed.",
+    "No automatic stable-placement/retreat acceptance criterion; raw evaluator field remains null.",
+    "GUI wall times include user pauses. Native result/video saved only after Q or close.",
+    "New model checkpoint remains local; this evidence commit does not back up new model weights."
+  ]
+}

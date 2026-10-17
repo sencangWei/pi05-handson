@@ -242,7 +242,8 @@ class SimulationLab:
                      "initial_state_sha256": state_digest(state), "task_language": TASK_LANGUAGE,
                      "interactive_experiment": True, "formal_benchmark": False,
                      "untracked_native_gui_edits_possible": True, "replan_steps": 1,
-                     "max_steps": 220, "post_success_steps": 40,
+                     "max_steps": 220, "post_success_steps": None,
+                     "stop_policy": "max_steps_or_user_save; On is recorded without early stopping",
                      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
                      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
                      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling"}
@@ -377,10 +378,10 @@ class SimulationLab:
             self.record.append(state, chunk[0], self.obs, reward, done)
             self.step_requested = False
             self.next_step_time = time.monotonic() + self.view.control_dt
-            complete = update_benchmark_progress(self.record.result, done, 40)
-            self.status = "运行中；收到放置条件信号，继续观察收尾" if self.record.result["success"] else "模型执行中"
-            if complete or self.record.result["control_steps"] >= 220:
-                self.save("on_followup_complete" if complete else "step_limit")
+            update_benchmark_progress(self.record.result, done, 0)
+            self.status = "已收到 On 信号，继续执行至观察上限；松爪撤手待复核" if self.record.result["success"] else "模型执行中"
+            if self.record.result["control_steps"] >= 220:
+                self.save("step_limit")
         except Exception as error:
             self.view.paused = True
             self.step_requested = False
@@ -399,7 +400,8 @@ class SimulationLab:
                 self.obs = self.env.regenerate_obs_from_state(state)
             self.record.save(reason, state, self.obs)
             self.event("saved", reason=reason, directory=str(self.record.directory))
-        self.status = "本轮已保存；可更换布局或重置后继续"
+        self.status = ("已到观察上限并保存；On 信号不代表完成松爪撤手，请复核录像"
+                       if reason == "step_limit" else "本轮已保存；可更换布局或重置后继续")
 
     def state(self):
         result = self.record.result if self.record is not None else {}

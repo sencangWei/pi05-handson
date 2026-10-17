@@ -224,7 +224,7 @@ class LabTests(unittest.TestCase):
         self.assertIs(self.lab.env, env)
         self.assertFalse(self.calls)
 
-    def test_first_on_signal_gets_exactly_forty_extra_steps_and_auto_save(self):
+    def test_on_signal_is_recorded_but_does_not_stop_unreleased_interactive_trial(self):
         self.lab.env.hit_at = 1
         self.lab.toggle_run()
         for _ in range(41):
@@ -233,11 +233,20 @@ class LabTests(unittest.TestCase):
             self.lab.tick()
         self.assertEqual(len(self.lab.env.applied), 41)
         self.assertEqual(self.lab.record.result["post_success_steps_executed"], 40)
+        self.assertFalse(self.lab.finished)
+        self.assertFalse(self.lab.record.saved)
+        for _ in range(179):
+            self.lab.tick()
+            self.complete()
+            self.lab.tick()
+        self.assertEqual(len(self.lab.env.applied), 220)
+        self.assertEqual(self.lab.record.result["post_success_steps_executed"], 219)
         self.assertTrue(self.lab.finished)
         self.assertTrue(self.lab.record.saved)
-        self.assertEqual(self.lab.record.reason, "on_followup_complete")
+        self.assertEqual(self.lab.record.reason, "step_limit")
+        self.assertIn("松爪", self.lab.status)
         self.lab.tick()
-        self.assertEqual(len(self.lab.env.applied), 41)
+        self.assertEqual(len(self.lab.env.applied), 220)
 
     def test_position_edit_preserves_z_and_rotation_and_clears_velocity(self):
         env = self.lab.env

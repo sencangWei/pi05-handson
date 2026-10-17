@@ -1,0 +1,51 @@
+{
+  "failure_record": "evaluations/interactive_lab_20261018_005444_1792256084346163072/scene-015_init-012",
+  "source_sha256": {
+    "result.json": "e4dc2936bf3c668985a290d99ec20b87cdbd7714cc20d09703e1b0aabad97004",
+    "actions.csv": "d186af79e2ae7459f68a64ac418d524978702ae33cc51f3ca9bd1fbe7dc59bc9"
+  },
+  "model_metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "configuration": "pi05_handson_lora",
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/release_focus_2000/1999",
+    "checkpoint_step_index": "1999",
+    "model_stage": "release_focus_2000",
+    "policy_sampling_seed_at_server_start": 0,
+    "params_manifest_sha256": "d2230a4bde3350a6829920e0c5be662969f01637c43157df5f34776e1c192c20",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "layout_id": 12,
+  "xy_offset_m": [
+    0,
+    0
+  ],
+  "first_On_control_step": 108,
+  "total_steps": 148,
+  "stop_reason": "on_followup_complete",
+  "tail40_close_commands": 34,
+  "tail40_open_commands": 6,
+  "last_finger_qpos": [
+    0.0018508716017687156,
+    -0.009438869538637944
+  ],
+  "official_On_ever": true,
+  "complete_release_and_retreat": "not achieved in inspected interval; not an official benchmark field",
+  "classification": [
+    "learned policy failed to open gripper",
+    "interactive observer stopped after fixed 40 follow-up actions"
+  ],
+  "repair": "Interactive On signal now records progress but does not end trial before total 220-step limit. No forced release action or model weights change.",
+  "new_model_simulation_run_by_agent": false,
+  "needs_user_reopen_for_new_source": true,
+  "validation": {
+    "red_regression": "Fails on previous source at assertion that trial remains unfinished after 41 controls",
+    "targeted_tests": 30,
+    "passed": 30,
+    "ruff": "passed",
+    "git_diff_check": "passed",
+    "actual_model_rollout_after_fix": "pending user launch"
+  }
+}

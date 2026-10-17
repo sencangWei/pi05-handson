@@ -1,0 +1,135 @@
+{
+  "status": "POLICY_RELEASE_RETREAT_FAILURE_OBSERVED",
+  "run": "evaluations/live_followup_20261017_220726_867368049",
+  "checkpoint": "my_first_200/9999",
+  "source_evaluator_commit": "94171e6284e89d9fea4091a8804f3585d24676dc",
+  "csv_snapshot_sha256": "caad0719663d254b5fae1507ad83596ccfc58cedaaf0fbbf5fe1826b22c01b37",
+  "csv_rows_observed": 160,
+  "result_finalized_at_audit": false,
+  "first_official_hit_control_step": 120,
+  "post_success_steps_executed": 40,
+  "post_success_close_command_count": 38,
+  "post_success_downward_command_count": 40,
+  "post_success_gripper_command_range": [
+    -1.0087833448457717,
+    1.0063405531880858
+  ],
+  "pre_action_eef_z_first_hit": 0.9405557228303204,
+  "pre_action_eef_z_last_logged": 0.9237855249998412,
+  "train_terminal_phase_audit": [
+    {
+      "source_episode": 1280,
+      "frames": 107,
+      "terminal_open_frames": 7,
+      "terminal_open_with_upward_command_frames": 6,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1285,
+      "frames": 125,
+      "terminal_open_frames": 11,
+      "terminal_open_with_upward_command_frames": 9,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1293,
+      "frames": 121,
+      "terminal_open_frames": 10,
+      "terminal_open_with_upward_command_frames": 8,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1307,
+      "frames": 138,
+      "terminal_open_frames": 13,
+      "terminal_open_with_upward_command_frames": 12,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1332,
+      "frames": 125,
+      "terminal_open_frames": 10,
+      "terminal_open_with_upward_command_frames": 7,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1342,
+      "frames": 126,
+      "terminal_open_frames": 14,
+      "terminal_open_with_upward_command_frames": 12,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1346,
+      "frames": 123,
+      "terminal_open_frames": 14,
+      "terminal_open_with_upward_command_frames": 8,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1348,
+      "frames": 114,
+      "terminal_open_frames": 6,
+      "terminal_open_with_upward_command_frames": 4,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1363,
+      "frames": 164,
+      "terminal_open_frames": 14,
+      "terminal_open_with_upward_command_frames": 7,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1372,
+      "frames": 115,
+      "terminal_open_frames": 6,
+      "terminal_open_with_upward_command_frames": 5,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1387,
+      "frames": 138,
+      "terminal_open_frames": 15,
+      "terminal_open_with_upward_command_frames": 15,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1392,
+      "frames": 122,
+      "terminal_open_frames": 7,
+      "terminal_open_with_upward_command_frames": 6,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1393,
+      "frames": 109,
+      "terminal_open_frames": 5,
+      "terminal_open_with_upward_command_frames": 3,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1403,
+      "frames": 137,
+      "terminal_open_frames": 45,
+      "terminal_open_with_upward_command_frames": 21,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1409,
+      "frames": 110,
+      "terminal_open_frames": 14,
+      "terminal_open_with_upward_command_frames": 13,
+      "converted_actions_exact_match": true
+    },
+    {
+      "source_episode": 1413,
+      "frames": 97,
+      "terminal_open_frames": 4,
+      "terminal_open_with_upward_command_frames": 3,
+      "converted_actions_exact_match": true
+    }
+  ],
+  "interpretation": "Continuation worked. All 40 additional steps commanded downward movement; 38 commanded closing and 2 briefly commanded opening. The policy did not complete sustained release and retreat. All 16 source demonstrations include a final open segment (195/1971 frames); converted actions are identical. This rules out missing terminal release labels or conversion truncation for these episodes; the precise learning failure remains unisolated.",
+  "next_experiment": "Keep original model/data/results. Define release, stable placement and retreat acceptance; inspect terminal images and action predictions, then compare a separate terminal-phase-weighted training run under unchanged evaluation settings. Do not replace policy output with scripted release while claiming learned success."
+}

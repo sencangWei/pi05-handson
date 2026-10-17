@@ -1,0 +1,1099 @@
+{
+  "format": "pi05-course-lora-v1",
+  "purpose": "inference only; no optimizer or loader state",
+  "checkpoint_step_index": "9999",
+  "base": {
+    "reference": "official_openpi_pi05_base_jax",
+    "tree_sha256": "275b007daa9d3c3092ca7fe6304eee1c4f3c8635392998224bbb716946667587",
+    "parameters": {
+      "PaliGemma/img/Transformer/encoder_norm/bias": {
+        "shape": [
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "c3b34c748571bd992dc337b89436653eef1ca41b7350b67fd7e05c3ad57fc272"
+      },
+      "PaliGemma/img/Transformer/encoder_norm/scale": {
+        "shape": [
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "3c2a49b86d3e95f2689230890fe6d35c44e0cba98b646d6542ba3a277d015536"
+      },
+      "PaliGemma/img/Transformer/encoderblock/LayerNorm_0/bias": {
+        "shape": [
+          27,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "9f707c6ad5c4a5aa2e2daa2e1df3c2fdb1cc875f27c56bee9da504f592528c38"
+      },
+      "PaliGemma/img/Transformer/encoderblock/LayerNorm_0/scale": {
+        "shape": [
+          27,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "cc4c3a09b6e71aaa2692c5cea440e66e526a0e5f76ea9a89c96b512f54082392"
+      },
+      "PaliGemma/img/Transformer/encoderblock/LayerNorm_1/bias": {
+        "shape": [
+          27,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "d97e8fe678c94bfcd6b975c17e7d15020560e012644f4c720ca37def51cbd5f0"
+      },
+      "PaliGemma/img/Transformer/encoderblock/LayerNorm_1/scale": {
+        "shape": [
+          27,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "2c32cdeaeabdae804f3ea65f40a9b7536f1f9ffcf05b1e9473275506100347aa"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_0/bias": {
+        "shape": [
+          27,
+          4304
+        ],
+        "dtype": "float32",
+        "sha256": "625960c43834c2b285f82c4cb63ad1c6551f8baa9cd9aacfa8a0be25bbbe30f8"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_0/kernel": {
+        "shape": [
+          27,
+          1152,
+          4304
+        ],
+        "dtype": "float32",
+        "sha256": "d49582c79229a0a3deb690813a663ea17428857a3546cdcce10ab2f32db18a3b"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_1/bias": {
+        "shape": [
+          27,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "769c8042798902dea5ba38d19e400351877e73645990315a9e350342a0fb9b86"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_1/kernel": {
+        "shape": [
+          27,
+          4304,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "765706e8edc7f0cdebe6f706df3cd094637fbd82e66d5a17c1bdf2074abd2f9c"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/key/bias": {
+        "shape": [
+          27,
+          16,
+          72
+        ],
+        "dtype": "float32",
+        "sha256": "7f6762147122c143f2b85d5896dc46302539d0de24a22962b3e46a19a6ddaf56"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/key/kernel": {
+        "shape": [
+          27,
+          1152,
+          16,
+          72
+        ],
+        "dtype": "float32",
+        "sha256": "b9bf0b1c401171ef9075c1edaa803d65d47f0559e4dc908ca11f5a85c2d89081"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/out/bias": {
+        "shape": [
+          27,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "1c1132f814cef21a70bf15cab8063e13dc476c687121b1ae95a1bbb82e22da42"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/out/kernel": {
+        "shape": [
+          27,
+          16,
+          72,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "058139836db74e0cd8d4239036b39903dfabed966c95e83990d1dc4cdbd6ad7a"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/query/bias": {
+        "shape": [
+          27,
+          16,
+          72
+        ],
+        "dtype": "float32",
+        "sha256": "96e213bac1088fadcfb4a4fe33a60d00a7be93f6d24aa3cc90849eb053a60a39"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/query/kernel": {
+        "shape": [
+          27,
+          1152,
+          16,
+          72
+        ],
+        "dtype": "float32",
+        "sha256": "ceafe84eabaeae79b24433c7c8be1560c89c86504db39614e3b8b0dcd1794906"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/value/bias": {
+        "shape": [
+          27,
+          16,
+          72
+        ],
+        "dtype": "float32",
+        "sha256": "1117c0a714215022757680c7dea7827c06b2d9c460fb0a331a253e75bc345917"
+      },
+      "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/value/kernel": {
+        "shape": [
+          27,
+          1152,
+          16,
+          72
+        ],
+        "dtype": "float32",
+        "sha256": "680afc25bf93ced101f3040b0f0e77e60423822324776a0dfc830db290ccc244"
+      },
+      "PaliGemma/img/embedding/bias": {
+        "shape": [
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "ea23a107dcee87a77e6def55e159cd41d05e0528a654be61dda2697a8440c29c"
+      },
+      "PaliGemma/img/embedding/kernel": {
+        "shape": [
+          14,
+          14,
+          3,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "7a52c045f164dcc4a9817d397dce9e9de5d8ee8526efbf8a917a0aa7083b8628"
+      },
+      "PaliGemma/img/head/bias": {
+        "shape": [
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "3c6219d347bb0fe1347d3bbb3eb5c1b53c9f3471a926b4233348f951fe2b2d15"
+      },
+      "PaliGemma/img/head/kernel": {
+        "shape": [
+          1152,
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "b913d7f8b8d30b87702afa846d1c9dfa70483e2601759d5ce82f27881c9bfb66"
+      },
+      "PaliGemma/img/pos_embedding": {
+        "shape": [
+          1,
+          256,
+          1152
+        ],
+        "dtype": "float32",
+        "sha256": "621b8ef05daf7826f580f8148b99ba09a2acfa68d5ae77eca245c51e1e9882a0"
+      },
+      "PaliGemma/llm/embedder/input_embedding": {
+        "shape": [
+          257152,
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "be92a43984f5697aec15c33b8f57b986405970022b3fed53d63ec232fd23873f"
+      },
+      "PaliGemma/llm/final_norm/scale": {
+        "shape": [
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "335e10ccda1eec96e439d7340ba79520a9fa67bf7cc2253b00141d10e04cfc49"
+      },
+      "PaliGemma/llm/final_norm_1/Dense_0/bias": {
+        "shape": [
+          3072
+        ],
+        "dtype": "float32",
+        "sha256": "38a98d62a6b5b7c779924ccaa930effb717532d15c67c277b8e4b6a0ae36da9c"
+      },
+      "PaliGemma/llm/final_norm_1/Dense_0/kernel": {
+        "shape": [
+          1024,
+          3072
+        ],
+        "dtype": "float32",
+        "sha256": "06a956020503d5b5de578316c9e5e6d172950cd8133630433dee2362748b9515"
+      },
+      "PaliGemma/llm/layers/attn/attn_vec_einsum/w": {
+        "shape": [
+          18,
+          8,
+          256,
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "f33350755695e796e1293ddd1d7b10cc0a3656037be331cdb26799c059e51627"
+      },
+      "PaliGemma/llm/layers/attn/attn_vec_einsum_1/w": {
+        "shape": [
+          18,
+          8,
+          256,
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "60fec629012cd9d0894d60632b9d27f6d95475dfe7b9a9c84025d67dcf54e7f7"
+      },
+      "PaliGemma/llm/layers/attn/kv_einsum/w": {
+        "shape": [
+          18,
+          2,
+          1,
+          2048,
+          256
+        ],
+        "dtype": "float32",
+        "sha256": "6947349535024e4d9ae7ef412e91f47cbefd4d2f4ddb621b3947f975dc905cf8"
+      },
+      "PaliGemma/llm/layers/attn/kv_einsum_1/w": {
+        "shape": [
+          18,
+          2,
+          1,
+          1024,
+          256
+        ],
+        "dtype": "float32",
+        "sha256": "49412746d1d458405f96b1b5bb12266429669e8c3a056666ecadd18f96632f97"
+      },
+      "PaliGemma/llm/layers/attn/q_einsum/w": {
+        "shape": [
+          18,
+          8,
+          2048,
+          256
+        ],
+        "dtype": "float32",
+        "sha256": "2449f7d264dfd08c490564e3ed2a9a72797dca79ff5283713b773cb5dab24d19"
+      },
+      "PaliGemma/llm/layers/attn/q_einsum_1/w": {
+        "shape": [
+          18,
+          8,
+          1024,
+          256
+        ],
+        "dtype": "float32",
+        "sha256": "216c1ca32f50b1cdad28c68eb3bb0946fe53b58602adc152ce4a026252bd646c"
+      },
+      "PaliGemma/llm/layers/mlp/gating_einsum": {
+        "shape": [
+          18,
+          2,
+          2048,
+          16384
+        ],
+        "dtype": "float32",
+        "sha256": "128ef14dff543e725e6bc2f3047975040624dad0ca98f47ea648149acfc99e1f"
+      },
+      "PaliGemma/llm/layers/mlp/linear": {
+        "shape": [
+          18,
+          16384,
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "91c7d02d45290d6301d7f9dfd9a9b84ea3d7a0edc71d8ba514e8d3874e448cf4"
+      },
+      "PaliGemma/llm/layers/mlp_1/gating_einsum": {
+        "shape": [
+          18,
+          2,
+          1024,
+          4096
+        ],
+        "dtype": "float32",
+        "sha256": "cb8a43620c4003e43abf21d98d2c205c05c7451e52b81ba82ba148da2363e9cb"
+      },
+      "PaliGemma/llm/layers/mlp_1/linear": {
+        "shape": [
+          18,
+          4096,
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "e04d447df1e42aacc9a5dbccd8e2174612c7e0cc227cde36b4634be109f69acd"
+      },
+      "PaliGemma/llm/layers/pre_attention_norm/scale": {
+        "shape": [
+          18,
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "06539acebf26c57524d5cf1bac64a9e760a10b2010da619b8d66374898730690"
+      },
+      "PaliGemma/llm/layers/pre_attention_norm_1/Dense_0/bias": {
+        "shape": [
+          18,
+          3072
+        ],
+        "dtype": "float32",
+        "sha256": "537bb42e238c0774119cadac167144d9e27b28c1be313eca9af328c9c8d84a00"
+      },
+      "PaliGemma/llm/layers/pre_attention_norm_1/Dense_0/kernel": {
+        "shape": [
+          18,
+          1024,
+          3072
+        ],
+        "dtype": "float32",
+        "sha256": "9dbcc2bc26f5939e3fbbad1ce1aeff2daf7b0665d2c84a8f96430a689ec9ad9c"
+      },
+      "PaliGemma/llm/layers/pre_ffw_norm/scale": {
+        "shape": [
+          18,
+          2048
+        ],
+        "dtype": "float32",
+        "sha256": "fc9c543be1fbfa4a5589c5b7a8496b88b323a77e56a8654eb81ea24b9cc48fa9"
+      },
+      "PaliGemma/llm/layers/pre_ffw_norm_1/Dense_0/bias": {
+        "shape": [
+          18,
+          3072
+        ],
+        "dtype": "float32",
+        "sha256": "747ea8cdd973f701eef269a57bab87218ff3336a95cd70fa7bcae0c18c50f769"
+      },
+      "PaliGemma/llm/layers/pre_ffw_norm_1/Dense_0/kernel": {
+        "shape": [
+          18,
+          1024,
+          3072
+        ],
+        "dtype": "float32",
+        "sha256": "d3513fff609054445db10d4cc94364c8aef07b22955eb3f795a447f095115e6f"
+      },
+      "action_in_proj/bias": {
+        "shape": [
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "38915805ec4de76d8126775f9177f5edd5ae9dbe46dc4cd28b1c001975133740"
+      },
+      "action_in_proj/kernel": {
+        "shape": [
+          32,
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "7beaa208e342a2937fcfc7efea42d5239c1fdbf01b23b011f3e90a5364e37fd0"
+      },
+      "action_out_proj/bias": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32",
+        "sha256": "5b63d1c9d6a3f4958a34e11c200c4d89a1eb72b2d93cc940b5940deb6d48f16f"
+      },
+      "action_out_proj/kernel": {
+        "shape": [
+          1024,
+          32
+        ],
+        "dtype": "float32",
+        "sha256": "c85c7fa1f7ae79a1a9c5b13cf2e460a136cd6dceecf1966935078116a8faed12"
+      },
+      "time_mlp_in/bias": {
+        "shape": [
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "6565214681b0c3b6858e8555ab900ef7ec4df1771470f8a9f5ecf0bb3c0c70b9"
+      },
+      "time_mlp_in/kernel": {
+        "shape": [
+          1024,
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "0d465c9a54cb45151a801848107afbf6665ccf5cf1f77d1f3582cc0d91406796"
+      },
+      "time_mlp_out/bias": {
+        "shape": [
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "e420e85e0c02d5f7f4ae7ac0f3fedc823f1dadfab73e1751a1127e7302cf124a"
+      },
+      "time_mlp_out/kernel": {
+        "shape": [
+          1024,
+          1024
+        ],
+        "dtype": "float32",
+        "sha256": "6dea9fbce0859370501ecd676a8b68d177acaf1e5dcb1182fa6468c0bddb1bd1"
+      }
+    },
+    "manifest_sha256": "78b6898ea1f8897a0225022b0ab799455cff0e15158a9ca349d8efbbe044aa55"
+  },
+  "model": {
+    "pi05": true,
+    "paligemma_variant": "gemma_2b_lora",
+    "action_expert_variant": "gemma_300m_lora",
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "freeze": "all non-LoRA parameters, cast bfloat16"
+  },
+  "original_parameters": {
+    "PaliGemma/img/Transformer/encoder_norm/bias": {
+      "shape": [
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "8df50b5a4ff4b41a0e238f04d3d88c6f63094e0a1bf93fe8c6a33b8fc8108b38"
+    },
+    "PaliGemma/img/Transformer/encoder_norm/scale": {
+      "shape": [
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "a30f6209aaeca03b84588d3ab1eb9283ab6f0c6f88ddf3c43672c1c984a2dcaf"
+    },
+    "PaliGemma/img/Transformer/encoderblock/LayerNorm_0/bias": {
+      "shape": [
+        27,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "8e5a9c7f159b858926fddd965d4570ca6e91ad7d15a327ebc420e0b83dccf68e"
+    },
+    "PaliGemma/img/Transformer/encoderblock/LayerNorm_0/scale": {
+      "shape": [
+        27,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "ad6fd9e74fac616bc3af40f18e563280c2736e72451f9dedd174e43076592b8b"
+    },
+    "PaliGemma/img/Transformer/encoderblock/LayerNorm_1/bias": {
+      "shape": [
+        27,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "583c705c28b40cbc4bdbee3d25f7f169c3c0f3a15e4ab9ba90425a85c30858ec"
+    },
+    "PaliGemma/img/Transformer/encoderblock/LayerNorm_1/scale": {
+      "shape": [
+        27,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "1fd3bc20b4851e0ca8f8460937545abec90d8641d5613aaed4dc2cce5b0351f0"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_0/bias": {
+      "shape": [
+        27,
+        4304
+      ],
+      "dtype": "bfloat16",
+      "sha256": "ad700612f0c972a6c5223ead650ab9f1e92ed105804896e5cb93d06fa7274bd9"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_0/kernel": {
+      "shape": [
+        27,
+        1152,
+        4304
+      ],
+      "dtype": "bfloat16",
+      "sha256": "a0fb8d7fa5274e30c894779605486ce1687c6773436cf9694d4169d70f362606"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_1/bias": {
+      "shape": [
+        27,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "0716d8982b34fe8ebfb4cba232c9df31d7e4515958b031253fe92544407bd1ae"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MlpBlock_0/Dense_1/kernel": {
+      "shape": [
+        27,
+        4304,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "a01e8aa147ce55572191e2ff6826020bc11089c02308891dfff12978c7fb7d79"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/key/bias": {
+      "shape": [
+        27,
+        16,
+        72
+      ],
+      "dtype": "bfloat16",
+      "sha256": "b2c0a53dee174d2d557ea8789717b6985f9801c82758a265b5875875b8cb29eb"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/key/kernel": {
+      "shape": [
+        27,
+        1152,
+        16,
+        72
+      ],
+      "dtype": "bfloat16",
+      "sha256": "0ec912d22227d888c9860d27508d9a0bb5bdf4da67b35076110c279c8cdfd602"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/out/bias": {
+      "shape": [
+        27,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "3639df3094674e729f453d3718f0115f2a3e6e753e9b4fcc87100ed54d72bbd5"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/out/kernel": {
+      "shape": [
+        27,
+        16,
+        72,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "9e3ba473f8734ac84a8ee87df0adfd87b1a8af727e0fbd437d160d4a6eef1477"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/query/bias": {
+      "shape": [
+        27,
+        16,
+        72
+      ],
+      "dtype": "bfloat16",
+      "sha256": "57f02aaa095c4a4275c67b65d26d268ce299ca0fa744ed8af879270f9255d569"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/query/kernel": {
+      "shape": [
+        27,
+        1152,
+        16,
+        72
+      ],
+      "dtype": "bfloat16",
+      "sha256": "d4da84002957ed0d914a3c14fa03b55bb7fad111fa10a90fa5b0421836f8ac0f"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/value/bias": {
+      "shape": [
+        27,
+        16,
+        72
+      ],
+      "dtype": "bfloat16",
+      "sha256": "b12030da7233deba822b6a2ced3ef36fb1cb06676ae67821c0ea103b13cea07f"
+    },
+    "PaliGemma/img/Transformer/encoderblock/MultiHeadDotProductAttention_0/value/kernel": {
+      "shape": [
+        27,
+        1152,
+        16,
+        72
+      ],
+      "dtype": "bfloat16",
+      "sha256": "d7715c048ffa9e297ffa706f6eb94c75375577ab901a6ca9d50d6e76525b558d"
+    },
+    "PaliGemma/img/embedding/bias": {
+      "shape": [
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "632ebd38174a108279c53fe78769800c8e9bb19402a376b55d7354644c0b4af1"
+    },
+    "PaliGemma/img/embedding/kernel": {
+      "shape": [
+        14,
+        14,
+        3,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "745bc1002aa0aff778f971364c46f041b8f0a08b09071c8916c12ede9f890c22"
+    },
+    "PaliGemma/img/head/bias": {
+      "shape": [
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "0925763ae719cbdd95c0d02735fc47180b7c435b2533970474a6e21e9fa81584"
+    },
+    "PaliGemma/img/head/kernel": {
+      "shape": [
+        1152,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "d0d222f2e71dcba8bab3e0f5f0db032e14fc3307bbe8cd69350d2d7cccb8fc5f"
+    },
+    "PaliGemma/img/pos_embedding": {
+      "shape": [
+        1,
+        256,
+        1152
+      ],
+      "dtype": "bfloat16",
+      "sha256": "31f77ea7db5fec1ba30608622650bfb239d6dd52902adb7ea89656f19c00efb9"
+    },
+    "PaliGemma/llm/embedder/input_embedding": {
+      "shape": [
+        257152,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "1a864944010654f7d47f5f35e67073f013aa91c628e20f9b67961f1c94fd74cb"
+    },
+    "PaliGemma/llm/final_norm/scale": {
+      "shape": [
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "08f1f18f16c1fd9df73fbd3cd2e8b9ec0809274f52074f99534e301ab2f98a66"
+    },
+    "PaliGemma/llm/final_norm_1/Dense_0/bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "bfloat16",
+      "sha256": "25b3d48a2e6fcfae7a4456461552ed50a4cfd96df656478c00bf7b7501b92ebf"
+    },
+    "PaliGemma/llm/final_norm_1/Dense_0/kernel": {
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "sha256": "547b0dda39664f466d5a1e9046b94937660a2c0bdf1a3030483a06db54f8a57a"
+    },
+    "PaliGemma/llm/layers/attn/attn_vec_einsum/lora_a": {
+      "shape": [
+        18,
+        8,
+        256,
+        16
+      ],
+      "dtype": "float32",
+      "sha256": "ffed44ff0016f2d41ea609e31f36231bbc90c72f42c526440066b3bee6376f95"
+    },
+    "PaliGemma/llm/layers/attn/attn_vec_einsum/lora_b": {
+      "shape": [
+        18,
+        8,
+        16,
+        2048
+      ],
+      "dtype": "float32",
+      "sha256": "9a7c2dc97ad201615e3071a30c95c8bac88abd2d3a5038a00a27494d5f0f6214"
+    },
+    "PaliGemma/llm/layers/attn/attn_vec_einsum/w": {
+      "shape": [
+        18,
+        8,
+        256,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "f3d56948057f324e3b76283f4eb8b257b4fb508bc1f29b2ecd1686f7c8f4aa14"
+    },
+    "PaliGemma/llm/layers/attn/attn_vec_einsum_1/lora_a": {
+      "shape": [
+        18,
+        8,
+        256,
+        32
+      ],
+      "dtype": "float32",
+      "sha256": "184889d23f18e75098c7cd006bab239fefe392c96df74e0a3f8e7eed4a402a5d"
+    },
+    "PaliGemma/llm/layers/attn/attn_vec_einsum_1/lora_b": {
+      "shape": [
+        18,
+        8,
+        32,
+        1024
+      ],
+      "dtype": "float32",
+      "sha256": "be5ec82c167dd4e4755269556438242f7fb34b395fd242a9424b9394f670521f"
+    },
+    "PaliGemma/llm/layers/attn/attn_vec_einsum_1/w": {
+      "shape": [
+        18,
+        8,
+        256,
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "3a341df0218f0b6e493b9e42398ecacbd4b18d1650176007c293126c7212ea4a"
+    },
+    "PaliGemma/llm/layers/attn/kv_einsum/lora_a": {
+      "shape": [
+        18,
+        2,
+        1,
+        2048,
+        16
+      ],
+      "dtype": "float32",
+      "sha256": "c0729437dd3caf020d400cdb7e349c92dbf95cb18e83effaab84adc22d890ed6"
+    },
+    "PaliGemma/llm/layers/attn/kv_einsum/lora_b": {
+      "shape": [
+        18,
+        2,
+        1,
+        16,
+        256
+      ],
+      "dtype": "float32",
+      "sha256": "109bb7bdff990abbbf8b2d95fdc77fd7fc68379f2b5c9955bd29a8809ff182d5"
+    },
+    "PaliGemma/llm/layers/attn/kv_einsum/w": {
+      "shape": [
+        18,
+        2,
+        1,
+        2048,
+        256
+      ],
+      "dtype": "bfloat16",
+      "sha256": "f0a26461dc4025626288c0eaae529a4373506d7ddccd203a79e923112055c954"
+    },
+    "PaliGemma/llm/layers/attn/kv_einsum_1/lora_a": {
+      "shape": [
+        18,
+        2,
+        1,
+        1024,
+        32
+      ],
+      "dtype": "float32",
+      "sha256": "763adc0e150fc484fef985028d293e1c00063142c7dc96db770050af26d41735"
+    },
+    "PaliGemma/llm/layers/attn/kv_einsum_1/lora_b": {
+      "shape": [
+        18,
+        2,
+        1,
+        32,
+        256
+      ],
+      "dtype": "float32",
+      "sha256": "a3d0fdf84d9ecdd4b7aca1a9e1f3916e560bf9a36f75887c099555750c84dee2"
+    },
+    "PaliGemma/llm/layers/attn/kv_einsum_1/w": {
+      "shape": [
+        18,
+        2,
+        1,
+        1024,
+        256
+      ],
+      "dtype": "bfloat16",
+      "sha256": "cef133958a7716cd914e238ddeae87a82817463c210f2b6ab79ccebb1fa5cfcb"
+    },
+    "PaliGemma/llm/layers/attn/q_einsum/lora_a": {
+      "shape": [
+        18,
+        8,
+        2048,
+        16
+      ],
+      "dtype": "float32",
+      "sha256": "ee8ca2c9e283039746bdee629a2386e6c6a5f823fdb9cc3734a7163dcc795548"
+    },
+    "PaliGemma/llm/layers/attn/q_einsum/lora_b": {
+      "shape": [
+        18,
+        8,
+        16,
+        256
+      ],
+      "dtype": "float32",
+      "sha256": "c97a453ef5ee9f24a9c9c693c17ff2fb1558f87725058391c068cbd0c2e11717"
+    },
+    "PaliGemma/llm/layers/attn/q_einsum/w": {
+      "shape": [
+        18,
+        8,
+        2048,
+        256
+      ],
+      "dtype": "bfloat16",
+      "sha256": "49bd63dbc90f97b03dc0d9d3309bd4c4c800bd4eddf301bf87d232e76853ae68"
+    },
+    "PaliGemma/llm/layers/attn/q_einsum_1/lora_a": {
+      "shape": [
+        18,
+        8,
+        1024,
+        32
+      ],
+      "dtype": "float32",
+      "sha256": "2f972f5bbe2d45bff0a19976f3e6e8b360ab185f3c81571534566db78188f98f"
+    },
+    "PaliGemma/llm/layers/attn/q_einsum_1/lora_b": {
+      "shape": [
+        18,
+        8,
+        32,
+        256
+      ],
+      "dtype": "float32",
+      "sha256": "091eb795648713806da42b221832414465bb3b3053dd83b95b7f3b753fe78aca"
+    },
+    "PaliGemma/llm/layers/attn/q_einsum_1/w": {
+      "shape": [
+        18,
+        8,
+        1024,
+        256
+      ],
+      "dtype": "bfloat16",
+      "sha256": "08bc434584edfd487b4312f7f29537261cf39194a28c7d078504826952019499"
+    },
+    "PaliGemma/llm/layers/mlp/gating_einsum": {
+      "shape": [
+        18,
+        2,
+        2048,
+        16384
+      ],
+      "dtype": "bfloat16",
+      "sha256": "5c9d9aae7fae7ebacd7fc310c3708325491112bb511d5b94648b224ee5b5da44"
+    },
+    "PaliGemma/llm/layers/mlp/gating_einsum_lora_a": {
+      "shape": [
+        18,
+        2,
+        2048,
+        16
+      ],
+      "dtype": "float32",
+      "sha256": "bc3b39f1f931d921b0f9d786a712d8bbeed4a67c013f3971bc9c0b033a2a8710"
+    },
+    "PaliGemma/llm/layers/mlp/gating_einsum_lora_b": {
+      "shape": [
+        18,
+        2,
+        16,
+        16384
+      ],
+      "dtype": "float32",
+      "sha256": "e87e06d19b7eef074a4349e9962e782cc8bb8817532aff34495780675e80bbab"
+    },
+    "PaliGemma/llm/layers/mlp/linear": {
+      "shape": [
+        18,
+        16384,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "7804c2ca69805bf3d6c440642fc951c606e31707c656762b62d574de02074c70"
+    },
+    "PaliGemma/llm/layers/mlp/linear_lora_a": {
+      "shape": [
+        18,
+        16384,
+        16
+      ],
+      "dtype": "float32",
+      "sha256": "efb6ec21f989f38d391809962051666a65bf5d14b8e89fbf7d2ead28e7b75aba"
+    },
+    "PaliGemma/llm/layers/mlp/linear_lora_b": {
+      "shape": [
+        18,
+        16,
+        2048
+      ],
+      "dtype": "float32",
+      "sha256": "228689f94fa213f3f00b858c39090707805f379afd88162416f36da8ea21baa3"
+    },
+    "PaliGemma/llm/layers/mlp_1/gating_einsum": {
+      "shape": [
+        18,
+        2,
+        1024,
+        4096
+      ],
+      "dtype": "bfloat16",
+      "sha256": "ee8cf2ee0f988781cacecffeb508282966f4a4f26dcc122e5a1ea5ef70b2b66e"
+    },
+    "PaliGemma/llm/layers/mlp_1/gating_einsum_lora_a": {
+      "shape": [
+        18,
+        2,
+        1024,
+        32
+      ],
+      "dtype": "float32",
+      "sha256": "d2d70fef6d2912508b40f4b2602998ebaa86e6a1c6ee09321eb6f57b4ec01538"
+    },
+    "PaliGemma/llm/layers/mlp_1/gating_einsum_lora_b": {
+      "shape": [
+        18,
+        2,
+        32,
+        4096
+      ],
+      "dtype": "float32",
+      "sha256": "290dc55add7a49ae7dbb381618beb6acc878fb2577dc37ab97f016916ce3eb52"
+    },
+    "PaliGemma/llm/layers/mlp_1/linear": {
+      "shape": [
+        18,
+        4096,
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "5988c6c1a62daf5381d621ce4d546101e9c0620e0ff1115b79d348effa7e663e"
+    },
+    "PaliGemma/llm/layers/mlp_1/linear_lora_a": {
+      "shape": [
+        18,
+        4096,
+        32
+      ],
+      "dtype": "float32",
+      "sha256": "f8ec4b2a1bc7bb6ae1658824fdb24de2b29eacc3f69f77008c4d04859c451272"
+    },
+    "PaliGemma/llm/layers/mlp_1/linear_lora_b": {
+      "shape": [
+        18,
+        32,
+        1024
+      ],
+      "dtype": "float32",
+      "sha256": "9ec824be2d2f81dcaca5ef812c81a0842aec65fb07ef532d1c4b9ab9bc5777d1"
+    },
+    "PaliGemma/llm/layers/pre_attention_norm/scale": {
+      "shape": [
+        18,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "37fa5c86fa453d713c979be95fce9c6a6464b87c7339b2b887f04d4f3a2b10b5"
+    },
+    "PaliGemma/llm/layers/pre_attention_norm_1/Dense_0/bias": {
+      "shape": [
+        18,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "sha256": "1cc8cca210b816a450ace197de5a550f362edf0d4bb8133435ea1d3f86f2d606"
+    },
+    "PaliGemma/llm/layers/pre_attention_norm_1/Dense_0/kernel": {
+      "shape": [
+        18,
+        1024,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "sha256": "23e81e87528f562e0d326eae3667295e1a03c2ccee7015254cf3e5c51372128a"
+    },
+    "PaliGemma/llm/layers/pre_ffw_norm/scale": {
+      "shape": [
+        18,
+        2048
+      ],
+      "dtype": "bfloat16",
+      "sha256": "9ea1d295fd076be19aee25bfdf8d064800dcb46fe82be303ffc113299de4a88f"
+    },
+    "PaliGemma/llm/layers/pre_ffw_norm_1/Dense_0/bias": {
+      "shape": [
+        18,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "sha256": "3ebb26e581981f80f4c47d8e5323badd71054ee89fb6b023f5b98b83535cc04a"
+    },
+    "PaliGemma/llm/layers/pre_ffw_norm_1/Dense_0/kernel": {
+      "shape": [
+        18,
+        1024,
+        3072
+      ],
+      "dtype": "bfloat16",
+      "sha256": "d854ec1c6dee5ff98fb2ff68d39146caf57f21e2af4b72fe611c6efa0cffb7c5"
+    },
+    "action_in_proj/bias": {
+      "shape": [
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "b54cdd057e108f09140210f85fa2ff3dfc34e8aa453663edb11cb16669e0ba43"
+    },
+    "action_in_proj/kernel": {
+      "shape": [
+        32,
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "127a5a4d9961327b1c341171b452c926e6a5bdfd531a280a59b98e6200566b7a"
+    },
+    "action_out_proj/bias": {
+      "shape": [
+        32
+      ],
+      "dtype": "bfloat16",
+      "sha256": "fe9e450b5dc6029d3300a0e9287f08e27a2992f72d11ea76d10512771c8ac2f4"
+    },
+    "action_out_proj/kernel": {
+      "shape": [
+        1024,
+        32
+      ],
+      "dtype": "bfloat16",
+      "sha256": "7c244800a4b8c43fea1df92b3b51770916c744ab4b01f0f7a95f51a21fdf18f6"
+    },
+    "time_mlp_in/bias": {
+      "shape": [
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "bffaf795eea6abbce1a260d1e4128f969fe4621853999f323c21fb08c57a55c6"
+    },
+    "time_mlp_in/kernel": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "e2bda31bef685d65996ff8efad8c8021817b78b161addc2e6bc15177a9b3fd5e"
+    },
+    "time_mlp_out/bias": {
+      "shape": [
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "24ff6cfb0d3c359a43637aba5ce6b77c297e1846c907dddf389313e8bca2146a"
+    },
+    "time_mlp_out/kernel": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "bfloat16",
+      "sha256": "d8ad534003a6fcb75e87c88303b4467f9afc45e04abbe645ad32c272d0ae39ca"
+    }
+  },
+  "original_tree_sha256": "e0080b2b69ff602d461a5c7264112ea5216322cf99538abc7f22ff1d2b5b7515",
+  "files": {
+    "adapter.npz": "f4a339afb455c29ee4bce000f192711dd8c5919b29e92d21a0c2f055dbc7fff5",
+    "norm_stats.json": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  }
+}

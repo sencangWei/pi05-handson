@@ -1,0 +1,13 @@
+{
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/199",
+  "parent_manifest_sha256": "d999e32aa9831e84b754fbfb1fd55db14ae97482b0272328ad953afebca63d4b",
+  "original_launch_sha256": "0f36f536101e45d85f12f77f5bcbe25ae89b827d68d7df913afc2efe23d3ad55",
+  "total_updates": 2000,
+  "additional_updates": 1800,
+  "batch_size": 1,
+  "seed": 42,
+  "dataset_manifest_sha256": "4f32b07dfe7d257691a83abf8cc0d935bca1d14e48654d2b27e6055321509138",
+  "resume_script_sha256": "4759206686428e21e6453a99e684bf635afb8024f01a6d3376a9317e7a365d6c",
+  "checkpoint_retention": "Keep checkpoint 199 and the new checkpoint.",
+  "dataset_cursor": "Restarts; upstream does not restore DataLoader position."
+}

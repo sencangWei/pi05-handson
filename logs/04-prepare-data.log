@@ -1,0 +1,56 @@
+{
+  "source_repo": "physical-intelligence/libero",
+  "source_revision": "a4336d589d589045d1c56423ffdf3b88a0e19b1f",
+  "source_format": "v2.0",
+  "destination_repo": "course/libero_black_bowl",
+  "destination_format": "v2.1",
+  "task": "pick up the black bowl next to the plate and place it on the plate",
+  "fps": 10,
+  "train_source_episode_ids": [
+    1280,
+    1285,
+    1293,
+    1307,
+    1332,
+    1342,
+    1346,
+    1348,
+    1363,
+    1372,
+    1387,
+    1392,
+    1393,
+    1403,
+    1409,
+    1413
+  ],
+  "holdout_source_episode_ids": [
+    1639,
+    1648,
+    1671,
+    1678
+  ],
+  "train_episodes": 16,
+  "holdout_episodes": 4,
+  "train_frames": 1971,
+  "holdout_frames": 473,
+  "image_stats": "all embedded RGB pixels, population std, [0,1] scale",
+  "ready": false
+}
+Prepared 1/16: source episode 1280, 107 frames
+Prepared 2/16: source episode 1285, 125 frames
+Prepared 3/16: source episode 1293, 121 frames
+Prepared 4/16: source episode 1307, 138 frames
+Prepared 5/16: source episode 1332, 125 frames
+Prepared 6/16: source episode 1342, 126 frames
+Prepared 7/16: source episode 1346, 123 frames
+Prepared 8/16: source episode 1348, 114 frames
+Prepared 9/16: source episode 1363, 164 frames
+Prepared 10/16: source episode 1372, 115 frames
+Prepared 11/16: source episode 1387, 138 frames
+Prepared 12/16: source episode 1392, 122 frames
+Prepared 13/16: source episode 1393, 109 frames
+Prepared 14/16: source episode 1403, 137 frames
+Prepared 15/16: source episode 1409, 110 frames
+Prepared 16/16: source episode 1413, 97 frames
+READY: /home/robot/.pi05-handson/data/lerobot/course/libero_black_bowl; manifest: /home/robot/.pi05-handson/evidence/data_manifest.json

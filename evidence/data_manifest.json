@@ -1,0 +1,257 @@
+{
+  "source_repo": "physical-intelligence/libero",
+  "source_revision": "a4336d589d589045d1c56423ffdf3b88a0e19b1f",
+  "source_format": "v2.0",
+  "destination_repo": "course/libero_black_bowl",
+  "destination_format": "v2.1",
+  "task": "pick up the black bowl next to the plate and place it on the plate",
+  "fps": 10,
+  "train_source_episode_ids": [
+    1280,
+    1285,
+    1293,
+    1307,
+    1332,
+    1342,
+    1346,
+    1348,
+    1363,
+    1372,
+    1387,
+    1392,
+    1393,
+    1403,
+    1409,
+    1413
+  ],
+  "holdout_source_episode_ids": [
+    1639,
+    1648,
+    1671,
+    1678
+  ],
+  "train_episodes": 16,
+  "holdout_episodes": 4,
+  "train_frames": 1971,
+  "holdout_frames": 473,
+  "image_stats": "all embedded RGB pixels, population std, [0,1] scale",
+  "ready": true,
+  "destination": "data/lerobot/course/libero_black_bowl",
+  "files": [
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001280.parquet",
+      "bytes": 13168544,
+      "sha256": "2a32de3c43ea575cfbf5b4a660dd54467fb3752b3258f23df6fb87e1dc32f6f6"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001285.parquet",
+      "bytes": 15520475,
+      "sha256": "1bc9cf6135711b1c8f611b4491a4f3c05fe528346f47ea9e7eb9ce4458874e2d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001293.parquet",
+      "bytes": 15674291,
+      "sha256": "6508911b5bdf401cb917c128d5e9c75b05e7f80a1d7a22ec79f5372120817e51"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001307.parquet",
+      "bytes": 17831314,
+      "sha256": "ae7adc4438f3e7d96f73568c253f4accc471bd21de75fb2f82d2d559af500251"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001332.parquet",
+      "bytes": 16370132,
+      "sha256": "f4bbe7896565a3b7d2e46dd6cec96fff7df16d1ebf8c9c13dbb7f1dc60d0662f"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001342.parquet",
+      "bytes": 15744275,
+      "sha256": "3f83929a6599823c4fe624ab2ca74b699bde36f8c67b04e3234d9121cf2d2b23"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001346.parquet",
+      "bytes": 15871701,
+      "sha256": "cb94e72c196eef5ba560b810f8e1bc6889e17cf37ee57a9517e80105d54d86f5"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001348.parquet",
+      "bytes": 14187937,
+      "sha256": "c1d0054ac21c7cf1161acef2ecc85a98049412eaa02b1785f668a5ecd51a96cf"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001363.parquet",
+      "bytes": 20445080,
+      "sha256": "4f5c5d9f8698eb65a3b042918ecbae02663b884e853c8f2dd0e4713290a2bcc0"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001372.parquet",
+      "bytes": 13898121,
+      "sha256": "504a5a75916c69eb0f086d079e3bfcbf1d33b61341f48e1f46bef0cddb900b1d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001387.parquet",
+      "bytes": 16980959,
+      "sha256": "757df67cf2446cbf4b3a8b91ae335bd2c81ee45e4c7e025d0b4f7181288dfa4d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001392.parquet",
+      "bytes": 15798717,
+      "sha256": "e75ebc96d2714042d6efa0804055d625eb069efa439544d9028e4ced0fe975c1"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001393.parquet",
+      "bytes": 13821337,
+      "sha256": "c5c970a802cfb77fb495a923f70ae46e442f3118c29f79c2c68651289b681ff8"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001403.parquet",
+      "bytes": 18390139,
+      "sha256": "cb19b2ee4624026a45fac28d469c839ac0eb5faf48cc9610eb9126dda8fde640"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001409.parquet",
+      "bytes": 13178223,
+      "sha256": "088a997cd4ee2c662744df19057a3a53701b3a3b5fd2cfdb72bcc75b73e153aa"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001413.parquet",
+      "bytes": 13125192,
+      "sha256": "f410d029136f4016e9c4f82d87d9d48fdc5e725068a150361d722d680f60ade0"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001639.parquet",
+      "bytes": 15015580,
+      "sha256": "64e4a8db86c71226cf8677301a75fa73772f644f88eb96b57300fb6c99043ee3"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001648.parquet",
+      "bytes": 17446991,
+      "sha256": "615e71cda91a42004c980611fdb9db7db2274a5ec966d5822e62a6fd546cdccb"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001671.parquet",
+      "bytes": 15305946,
+      "sha256": "e97cc1a427bbb24a72030a4a49cf55e1dba65ea33af445dcfbd25719ac88f891"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001678.parquet",
+      "bytes": 12410697,
+      "sha256": "e89fb49adc36b8bedc63490f8164caeaac8773c08df65f0de3b2d478c4957452"
+    },
+    {
+      "path": "data/raw_public/meta/episodes.jsonl",
+      "bytes": 180384,
+      "sha256": "0479a2ced6117700e4638a1da54dccd9f60ae5f47485ea6d91390c869befcf08"
+    },
+    {
+      "path": "data/raw_public/meta/info.json",
+      "bytes": 2131,
+      "sha256": "77c0da93c67960bac803a8ea25dabf380d752c26c1d91c54151121dd10e7d82f"
+    },
+    {
+      "path": "data/raw_public/meta/tasks.jsonl",
+      "bytes": 3375,
+      "sha256": "e72ef3cf7ca7a3abe70b3e142a0d1acf2719d2a3f27598869092cc4f1762bb99"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000000.parquet",
+      "bytes": 13166711,
+      "sha256": "7edbb5d25afe67f940081df3500500be0dd71830c44ca7ea81be48080cc1c595"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000001.parquet",
+      "bytes": 15518443,
+      "sha256": "cb85781d218e756e2a8a794bda2dd0392aebff031d3819093292cc419f020b83"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000002.parquet",
+      "bytes": 15672334,
+      "sha256": "45971560808651d94284bb2a4e70f62a45d7ca75522e8b409b2c43c8fb941611"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000003.parquet",
+      "bytes": 17829425,
+      "sha256": "d256cc96c3f6868059e0456c257245fd66793169c69e5d72c90497d7fe2873e8"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000004.parquet",
+      "bytes": 16368128,
+      "sha256": "d1461cdd14d277fe3db5551f0a4f87b6a76c1945ad163e2ee942de79b5f77550"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000005.parquet",
+      "bytes": 15742270,
+      "sha256": "96802aae6461789e19753f91a3da40047f03309450eb91d6fcc0708ee2170f5f"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000006.parquet",
+      "bytes": 15869776,
+      "sha256": "0093071d0da746823830b21e8d7c2af6bf24ba94eeb5d4cf39dcd77f39739262"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000007.parquet",
+      "bytes": 14186064,
+      "sha256": "59d114b6669faf6664351576109a0b45df2d31cf30f4059249ed22eafba49241"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000008.parquet",
+      "bytes": 20443105,
+      "sha256": "5c0dda1911dd9eadbcc72556412344170debbdd834c826a9c7c8efeb81286b4f"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000009.parquet",
+      "bytes": 13896253,
+      "sha256": "f434d53eed3a86c6337d4e0c50da4dd83cac12b441032539123255f0311746a1"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000010.parquet",
+      "bytes": 16979118,
+      "sha256": "12cce440118bc334773366d5a64f0fcc07ee7434f50e8c6f9dc7cf40a2734ea9"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000011.parquet",
+      "bytes": 15796767,
+      "sha256": "5f879002cd69c63d113a9c176290417579cac9b54a7ef843a152c275118bdebb"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000012.parquet",
+      "bytes": 13819452,
+      "sha256": "7e5742930f94a8ee18f67aa24812db958bc89de7577f8a7c76e1affb41ae8e89"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000013.parquet",
+      "bytes": 18388283,
+      "sha256": "f289854e4e4dd7471bcc55f22325d4f290426aa352877bd32b4848ace3c3c795"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000014.parquet",
+      "bytes": 13176334,
+      "sha256": "18809b2d8f5c869788109df0a06ca3fb7225205a484bd71187a1c04dab6665b8"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/data/chunk-000/episode_000015.parquet",
+      "bytes": 13125320,
+      "sha256": "4a01ae9edff4f2c2cfca7c9ea4e51832ad51fb026ee32efa8f56be7b649fb066"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/meta/episodes.jsonl",
+      "bytes": 1877,
+      "sha256": "048e35b9c2d667a7adb6d5750f312d5dc6e07cdf8f6638d10293da605d898be4"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/meta/episodes_stats.jsonl",
+      "bytes": 39539,
+      "sha256": "432266d953ea8689133501e91851ac5bfdaca3c437e55ab53119713efd1503e3"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/meta/info.json",
+      "bytes": 1611,
+      "sha256": "2d71d87fe33a83c052ca4b6f46e0d20f7429e95b1d488856678bda87e00560ed"
+    },
+    {
+      "path": "data/lerobot/course/libero_black_bowl/meta/tasks.jsonl",
+      "bytes": 96,
+      "sha256": "388e57320fc7785fe35c1fdc4da9aacf5406d850b872d4acd4ae6edb0e6c9ccf"
+    }
+  ]
+}

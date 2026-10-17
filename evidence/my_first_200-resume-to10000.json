@@ -1,0 +1,20 @@
+{
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/1999",
+  "parent_manifest_sha256": "3f9877eb2db270772c8bb2458d070914d681ec08dbb3a8190b2ce2e44d3ef40b",
+  "previous_resume_record_sha256": "b6889824c45e324cc99d13fdc0ed461771fc68b98d859eb7a4311196e5fdecae",
+  "dataset_manifest_sha256": "4f32b07dfe7d257691a83abf8cc0d935bca1d14e48654d2b27e6055321509138",
+  "source_sha256": {
+    "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "resume_to10000.py": "6d57ee25cff2a49bd99f987cdbf98f5f3080946836e916727d69f91553bd157f"
+  },
+  "initial_update": 2000,
+  "total_updates": 10000,
+  "additional_updates": 8000,
+  "previous_batch_size": 1,
+  "batch_size": 4,
+  "seed": 42,
+  "save_interval": 2000,
+  "keep_period": 1,
+  "comparison_limit": "Both batch size and training budget changed.",
+  "dataset_cursor": "Restarts; upstream does not restore DataLoader position."
+}

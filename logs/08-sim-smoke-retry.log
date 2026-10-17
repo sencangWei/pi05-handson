@@ -1,0 +1,14 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+截图: /home/robot/.pi05-handson/previews/sim-agentview.png 形状: (256, 256, 3)
+截图: /home/robot/.pi05-handson/previews/sim-wrist.png 形状: (256, 256, 3)
+任务编号: 8
+文字指令: pick up the black bowl next to the plate and place it on the plate
+末端位置: [-0.20865389 -0.01330797  1.17845899]
+夹爪位置: [ 0.03872216 -0.03872338]
+仿真画面检查通过

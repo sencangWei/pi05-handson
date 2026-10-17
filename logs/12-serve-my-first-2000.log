@@ -1,0 +1,5 @@
+推理设备: [CudaDevice(id=0)]
+加载你的 checkpoint: /home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/1999
+模型加载完成，准备监听 127.0.0.1:8755
+INFO:websockets.server:server listening on 127.0.0.1:8755
+INFO:websockets.server:connection open

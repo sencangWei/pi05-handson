@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/robot/.pi05-handson/scripts/sim_smoke.py", line 38, in <module>
+    from libero.libero import benchmark
+ModuleNotFoundError: No module named 'libero'

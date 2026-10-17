@@ -1,0 +1,11 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+{"trial": 0, "initial_state_id": 0, "initial_state_sha256": "aef30979e2ee8c9893c9161c881264362f750a34df952f381e3969a567688451", "outcome": "success", "success": true, "control_steps": 102, "inference_calls": 102, "exception": null, "wall_duration_s": 19.43970353389159, "video": "trial-000_init-000_success.mp4", "video_frames": 103}
+{"trial": 1, "initial_state_id": 1, "initial_state_sha256": "50873b51eb943c92ce71438551a26675e253fe37622918167c060a16477577f7", "outcome": "success", "success": true, "control_steps": 98, "inference_calls": 98, "exception": null, "wall_duration_s": 8.47694980201777, "video": "trial-001_init-001_success.mp4", "video_frames": 99}
+{"trial": 2, "initial_state_id": 2, "initial_state_sha256": "4463e2e153ce61661d48384171f0532d4eb4c45158ab9c0325012e26c0a9d830", "outcome": "success", "success": true, "control_steps": 135, "inference_calls": 135, "exception": null, "wall_duration_s": 11.212683315039612, "video": "trial-002_init-002_success.mp4", "video_frames": 136}
+{"trial": 3, "initial_state_id": 3, "initial_state_sha256": "8d1fbf0d1785c75002a47f290b3b6d195d3a26b8c9a86cf95512ba804fd36d4b", "outcome": "success", "success": true, "control_steps": 97, "inference_calls": 97, "exception": null, "wall_duration_s": 8.67284885502886, "video": "trial-003_init-003_success.mp4", "video_frames": 98}

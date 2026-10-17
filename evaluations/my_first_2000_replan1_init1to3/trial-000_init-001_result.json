@@ -1,0 +1,13 @@
+{
+  "trial": 0,
+  "initial_state_id": 1,
+  "initial_state_sha256": "50873b51eb943c92ce71438551a26675e253fe37622918167c060a16477577f7",
+  "outcome": "failure",
+  "success": false,
+  "control_steps": 220,
+  "inference_calls": 220,
+  "exception": null,
+  "wall_duration_s": 18.87353710993193,
+  "video": "trial-000_init-001_failure.mp4",
+  "video_frames": 221
+}

@@ -1,0 +1,16 @@
+{
+  "steps": 200,
+  "experiment": "my_first_200",
+  "seed": 42,
+  "batch_size": 1,
+  "trainable": "LoRA parameters only",
+  "resume": false,
+  "task": "pick up the black bowl next to the plate and place it on the plate",
+  "upstream_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+  "source_sha256": {
+    "scripts/course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "scripts/train.py": "e2228f0c087d84fb7f9cf2bdaf28f7918f4b4b8d282e399962e05c4d3908c6b3",
+    "scripts/compute_stats.py": "311afc9ac324e29283969f4a57fb8df6f6417b64263185e0f29d9de31e8fdaa6",
+    "scripts/prepare_public_data.py": "ff8b2681ded6ce15b669d8d0e546b6b56013b972d374b8e93fdfd46409691def"
+  }
+}

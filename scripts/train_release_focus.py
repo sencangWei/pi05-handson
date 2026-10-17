@@ -1,12 +1,14 @@
-"""Prepare or run a separate, terminal-phase sampling experiment from checkpoint 9999."""
+"""Prepare or run a separate, terminal-phase sampling experiment from a course checkpoint."""
 import argparse
 from collections import Counter
 import dataclasses
 import hashlib
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
+import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -102,15 +104,58 @@ def inspect_data(multiplier):
     }
 
 
-def make_experiment(uniform=False):
+def validate_experiment(value):
+    if not isinstance(value, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,79}", value):
+        raise ValueError("Experiment must be 1-80 ASCII letters, digits, underscores or hyphens; start with a letter or digit")
+    return value
+
+
+def positive_int(value):
+    number = int(value)
+    if isinstance(value, bool) or str(number) != str(value) or number < 1:
+        raise ValueError("Expected a positive integer")
+    return number
+
+
+def positive_learning_rate(value):
+    number = float(value)
+    if not math.isfinite(number) or number <= 0:
+        raise ValueError("Learning rate must be finite and positive")
+    return number
+
+
+def validate_checkpoint(value):
+    """Accept only an existing numeric step of a course experiment, after resolving symlinks."""
+    checkpoint = Path(value).resolve()
+    base = (ROOT / "checkpoints/pi05_handson_lora").resolve()
+    try:
+        relative = checkpoint.relative_to(base)
+    except ValueError:
+        raise ValueError(f"Checkpoint must be under {base}") from None
+    if len(relative.parts) != 2 or not re.fullmatch(r"[0-9]+", checkpoint.name):
+        raise ValueError("Checkpoint must be a numeric step directory directly inside a course experiment")
+    if not (checkpoint / "params/manifest.ocdbt").is_file():
+        raise ValueError(f"Missing checkpoint params manifest: {checkpoint}")
+    return checkpoint
+
+
+def make_experiment(uniform=False, *, experiment=None, steps=UPDATES, batch_size=4,
+                    learning_rate=5e-5, parent=PARENT):
+    experiment = validate_experiment(experiment if experiment is not None else
+                                     ("release_uniform_2000" if uniform else "release_focus_2000"))
+    steps = positive_int(steps)
+    batch_size = positive_int(batch_size)
+    learning_rate = positive_learning_rate(learning_rate)
+    parent = validate_checkpoint(parent)
     from course_config import make_config
     from openpi.training.weight_loaders import CheckpointWeightLoader
 
-    experiment = "release_uniform_2000" if uniform else "release_focus_2000"
+    cfg = make_config(steps, experiment)
     return dataclasses.replace(
-        make_config(UPDATES, experiment), batch_size=4,
-        weight_loader=CheckpointWeightLoader(str(PARENT / "params")),
-        save_interval=1000, keep_period=1,
+        cfg, batch_size=batch_size,
+        weight_loader=CheckpointWeightLoader(str(parent / "params")),
+        lr_schedule=dataclasses.replace(cfg.lr_schedule, peak_lr=learning_rate, decay_lr=learning_rate),
+        save_interval=min(1000, steps), keep_period=1,
     )
 
 
@@ -130,47 +175,63 @@ def install_sampling(data_loader, indices, expected_frames):
     return original
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dry-run", action="store_true", help="Check inputs/configuration only; never load model weights or train")
-    parser.add_argument("--uniform-control", action="store_true", help="Same parent and budget, original uniform sampling")
-    args = parser.parse_args()
-    # Set before importing LeRobot; avoid dependence on the interactive shell's data cache.
-    os.environ["HF_LEROBOT_HOME"] = str(ROOT / "data/lerobot")
-    os.environ.setdefault("HF_HUB_OFFLINE", "1")
-    os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
-    cfg = make_experiment(args.uniform_control)
-    if cfg.checkpoint_dir.exists():
-        raise FileExistsError(f"Refusing to overwrite an existing experiment: {cfg.checkpoint_dir}")
-    parent_manifest = PARENT / "params/manifest.ocdbt"
-    if not parent_manifest.is_file():
-        raise FileNotFoundError(parent_manifest)
-    indices, record = inspect_data(1 if args.uniform_control else MULTIPLIER)
+def build_record(cfg, parent, record, *, dry_run):
+    parent_manifest = parent / "params/manifest.ocdbt"
     stats = ROOT / "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json"
-    parent_stats = PARENT / "assets/course/libero_black_bowl/norm_stats.json"
+    parent_stats = parent / "assets/course/libero_black_bowl/norm_stats.json"
     if digest(stats) != digest(parent_stats):
         raise ValueError("Normalization differs from the parent model")
+    record = dict(record)
     record.update({
-        "experiment": cfg.exp_name, "new_updates": UPDATES, "batch_size": 4,
+        "experiment": cfg.exp_name, "new_updates": cfg.num_train_steps, "batch_size": cfg.batch_size,
         "seed": cfg.seed, "action_horizon": cfg.model.action_horizon,
-        "parent_checkpoint": str(PARENT), "parent_params_manifest_sha256": digest(parent_manifest),
-        "checkpoint_directory": str(cfg.checkpoint_dir), "final_step_index": UPDATES - 1,
-        "lineage": "Initialize ALL model weights from 9999; reset Adam, scheduler, RNG and data cursor; not exact resume",
+        "parent_checkpoint": str(parent), "parent_params_manifest_sha256": digest(parent_manifest),
+        "checkpoint_directory": str(cfg.checkpoint_dir), "final_step_index": cfg.num_train_steps - 1,
+        "lineage": f"Initialize ALL model weights from {parent.name}; reset Adam, scheduler, RNG and data cursor; not exact resume",
         "norm_stats_sha256": digest(stats), "norm_stats_recomputed": False,
-        "learning_rate": {"warmup_steps": 20, "peak": 5e-5, "final": 5e-5},
+        "learning_rate": {"warmup_steps": cfg.lr_schedule.warmup_steps,
+                          "peak": cfg.lr_schedule.peak_lr, "final": cfg.lr_schedule.decay_lr},
         "optimizer": "AdamW, clip gradient norm 1.0, only LoRA trainable",
-        "checkpoint_save_steps": [1000, 1999], "wandb_enabled": False,
+        "checkpoint_save_steps": sorted(set(range(cfg.save_interval, cfg.num_train_steps, cfg.save_interval))
+                                        | {cfg.num_train_steps - 1}),
+        "wandb_enabled": cfg.wandb_enabled,
         "source_commit": subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip(),
         "openpi_commit": subprocess.check_output(["git", "-C", str(ROOT / "openpi"), "rev-parse", "HEAD"], text=True).strip(),
         "source_sha256": {name: digest(ROOT / "scripts" / name) for name in ("train_release_focus.py", "course_config.py")},
         "comparison": "Compare focus vs uniform-control with equal parent/budget and fresh identical server seeds. Original 10000-step vs focus also changes training budget.",
-        "dry_run": args.dry_run,
+        "dry_run": dry_run,
     })
+    return record
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dry-run", action="store_true", help="Check inputs/configuration only; never load model weights or train")
+    parser.add_argument("--uniform-control", action="store_true", help="Same parent and budget, original uniform sampling")
+    parser.add_argument("--experiment", type=validate_experiment)
+    parser.add_argument("--steps", type=positive_int, default=UPDATES)
+    parser.add_argument("--batch-size", type=positive_int, default=4)
+    parser.add_argument("--learning-rate", type=positive_learning_rate, default=5e-5)
+    parser.add_argument("--parent-checkpoint", type=validate_checkpoint, default=str(PARENT))
+    args = parser.parse_args(argv)
+    experiment = args.experiment or ("release_uniform_2000" if args.uniform_control else "release_focus_2000")
+    checkpoint_dir = ROOT / "checkpoints/pi05_handson_lora" / experiment
+    launch_manifest = ROOT / "evidence" / f"{experiment}-launch.json"
+    if checkpoint_dir.exists() or launch_manifest.exists():
+        raise FileExistsError(f"Refusing to overwrite an existing experiment: {experiment}")
+    # Set before importing LeRobot; avoid dependence on the interactive shell's data cache.
+    os.environ["HF_LEROBOT_HOME"] = str(ROOT / "data/lerobot")
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+    os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+    cfg = make_experiment(args.uniform_control, experiment=experiment, steps=args.steps,
+                          batch_size=args.batch_size, learning_rate=args.learning_rate, parent=args.parent_checkpoint)
+    indices, record = inspect_data(1 if args.uniform_control else MULTIPLIER)
+    record = build_record(cfg, args.parent_checkpoint, record, dry_run=args.dry_run)
     print(json.dumps(record, ensure_ascii=False, indent=2), flush=True)
     if args.dry_run:
         print("DRY_RUN_PASS: no model weights loaded, no optimizer created, no training started", flush=True)
         return
-    with (ROOT / "evidence" / f"{cfg.exp_name}-launch.json").open("x") as handle:
+    with launch_manifest.open("x") as handle:
         json.dump(record, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
     import openpi.training.data_loader as data_loader

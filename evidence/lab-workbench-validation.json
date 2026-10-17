@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-17T16:43:22.933099+00:00",
+  "scope": "course GUI workbench; no actual model, training, simulator or browser launched by validation",
+  "checks": [
+    {
+      "name": "simulation-tests",
+      "command": [
+        ".venv-sim/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "----------------------------------------------------------------------",
+        "Ran 96 tests in 6.072s",
+        "",
+        "OK (skipped=2)",
+        "已安装桌面快捷方式：/tmp/lab.desktop"
+      ]
+    },
+    {
+      "name": "training-cpu-tests",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_training_entry.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 11 tests in 2.254s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/lab_jobs.py",
+        "scripts/lab_workbench.py",
+        "scripts/lab_panel.py",
+        "scripts/lab_launcher.py",
+        "scripts/simulation_lab.py",
+        "scripts/train_release_focus.py",
+        "scripts/serve_checkpoint.py",
+        "tests/test_lab_workbench.py",
+        "tests/test_lab_jobs.py",
+        "tests/test_lab_panel.py",
+        "tests/test_lab_launcher.py",
+        "tests/test_training_entry.py"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "All checks passed!"
+      ]
+    },
+    {
+      "name": "compile",
+      "command": [
+        ".venv-sim/bin/python",
+        "-m",
+        "py_compile",
+        "scripts/lab_jobs.py",
+        "scripts/lab_workbench.py",
+        "scripts/lab_panel.py",
+        "scripts/lab_launcher.py",
+        "scripts/simulation_lab.py",
+        "scripts/train_release_focus.py",
+        "scripts/serve_checkpoint.py",
+        "tests/test_lab_workbench.py",
+        "tests/test_lab_jobs.py",
+        "tests/test_lab_panel.py",
+        "tests/test_lab_launcher.py",
+        "tests/test_training_entry.py"
+      ],
+      "exit_code": 0,
+      "tail": []
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "tail": []
+    }
+  ],
+  "ui_integration": {
+    "real_Tk_and_workbench": true,
+    "task_placeholder_no_env": true,
+    "local_checkpoints": 8,
+    "saved_results": 17,
+    "external_model_port_busy": true
+  },
+  "review_resolved": [
+    "direct GUI singleton flock before task load",
+    "owned model switch available",
+    "training scene/reset/run gates",
+    "result/manual review source hash isolation"
+  ],
+  "desktop_shortcut": "/home/robot/桌面/pi05-simulation-lab.desktop",
+  "desktop_trusted_verified": true,
+  "source_sha256": {
+    "scripts/lab_jobs.py": "b941e5c14d41f0c096a1bd19c6830e137a6149a0d062f37d5d6d655fc4a2288e",
+    "scripts/lab_workbench.py": "d3c3a96d82c286ab2e4d8749234c5422f10c413fb510df7b71e6d4753f516bef",
+    "scripts/lab_panel.py": "e4c946325051c480da37dc3958f50176af7ec9f73aea71c5cf190ac079679b06",
+    "scripts/lab_launcher.py": "4f1a096ba021af518dd16e7273d299dc8e05db6f2b115483f0876518b43c40bd",
+    "scripts/simulation_lab.py": "f84769e4faaf149c4cb842bbe794a7f0310859c9d61762034e3616ba8da727dd",
+    "scripts/train_release_focus.py": "e8debfca203b0f894f3e06f3c6621c83a7f5f933586a5af43569dc8fff60bd52",
+    "scripts/serve_checkpoint.py": "97f9e7b4b544e7bdc9c3e0de626cf53008f988a05c6b7c8f9179e693933a13d6",
+    "tests/test_lab_workbench.py": "64d0f84e2a1a004629b139eb1dafe990004638bf9f0aff2e7bbc5a331183ce1f",
+    "tests/test_lab_jobs.py": "1092b84ae267385e3b58150cae562095fc7ed1508e6da9c97d8c303b48c3ea5d",
+    "tests/test_lab_panel.py": "a7facccfac40cf6e773023dac7c76f9e53e7572dcbe318fb50413972c56540ae",
+    "tests/test_lab_launcher.py": "56bad02fff8f07ae4c7a6159aa5fb05265afc0d47a33a5a86e4a9a2e084aaf21",
+    "tests/test_training_entry.py": "f5d69ed0a08b6023fb87a525825807874b9573ae011ce7c8b76c2c179b205511"
+  },
+  "not_integrated": [
+    "teleoperation data collection",
+    "dataset editing",
+    "new task scene authoring",
+    "multi-task training",
+    "continuous live TensorBoard events"
+  ],
+  "real_end_to_end_user_run_pending": true,
+  "new_weights_uploaded": false
+}

@@ -89,7 +89,7 @@ class PolicyConnection:
         self.port, self.ws, self.metadata = port, None, None
         self.closed = False
 
-    def infer(self, query):
+    def metadata_only(self):
         from openpi_client import msgpack_numpy
         from websockets.sync.client import connect
         try:
@@ -101,6 +101,15 @@ class PolicyConnection:
                 if self.closed:
                     raise RuntimeError("推理连接已关闭")
                 self.metadata = msgpack_numpy.unpackb(self.ws.recv(timeout=3))
+            return self.metadata
+        except Exception:
+            self._disconnect()
+            raise
+
+    def infer(self, query):
+        from openpi_client import msgpack_numpy
+        try:
+            self.metadata_only()
             ws = self.ws
             ws.send(msgpack_numpy.Packer().pack(query))
             response = ws.recv(timeout=60)
@@ -277,10 +286,11 @@ class SimulationLab:
     def _submit(self, query, request_hash):
         future = Future()
         self.pending = (future, self.generation, request_hash)
+        policy = self.policy
 
         def work():
             try:
-                future.set_result(self.policy.infer(query))
+                future.set_result(policy.infer(query))
             except Exception as error:
                 future.set_exception(error)
         threading.Thread(target=work, daemon=True, name="lab-policy-request").start()
@@ -415,15 +425,35 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8755)
     args = parser.parse_args()
+    # Cover direct CLI launches as well as desktop launches before opening any GPU scene.
+    import fcntl
+    lock_path = ROOT / ".local/lab-panel.lock"
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    with lock_path.open("a+") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            from lab_launcher import notify
+            notify("仿真实验室已在运行，请切换到已有窗口。")
+            return
+        run_gui(args.port)
+
+
+def run_gui(port):
     # Select GLX before importing robosuite/OpenGL; initialize no model or training job.
     os.environ["MUJOCO_GL"] = os.environ["PYOPENGL_PLATFORM"] = "glx"
+    os.environ.setdefault("__NV_PRIME_RENDER_OFFLOAD", "1")
+    os.environ.setdefault("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     os.environ.setdefault("LIBERO_CONFIG_PATH", str(ROOT / ".local/libero"))
     import tkinter as tk
+    import sys
+    sys.path.insert(0, str(ROOT / "openpi/third_party/libero"))
     from lab_panel import LabPanel
+    from lab_workbench import LabWorkbench
     output = ROOT / "evaluations" / f"interactive_lab_{time.strftime('%Y%m%d_%H%M%S')}_{time.time_ns()}"
     task = LiberoTask()
-    lab = SimulationLab(output, task, PolicyConnection(args.port))
+    lab = LabWorkbench(output, task, port=port)
     root = tk.Tk()
     LabPanel(root, lab)
     try:

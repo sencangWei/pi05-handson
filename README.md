@@ -158,9 +158,9 @@ Viewer 模式会在导入仿真库前选择 GLX。机器人策略仍接收原来
 
 ## 放置收尾专项训练（已训练，初始状态 0 已观察到松爪与撤手）
 
-训练由终端中的 JAX 程序执行；TensorBoard 用于看训练曲线，MuJoCo 用于观察仿真动作。
+训练由 JAX 后台程序执行，可从下面的中文工作台点击启动；TensorBoard 用于看训练曲线，MuJoCo 用于观察和交互仿真。
 
-学习者已完成 `release_focus_2000` 新增 2000 次更新，并报告初始状态 0 成功。记录显示第 109 步触发 On 条件，随后执行 40 步；最后 10 步均为开爪命令且 On 条件保持成立，末端相对首次触发前观测抬高约 12.6 cm。详见 [首次收尾观察](evidence/release-focus-first-observation.json)。这是一条布局的观察，尚无多布局成功率；同预算均匀采样对照尚未训练，不能把改善单独归因于重采样。当前 TensorBoard 只显示已经导入的历史日志，新实验的日志需要在训练后另行导入。
+学习者已完成 `release_focus_2000` 新增 2000 次更新，并报告初始状态 0 成功。记录显示第 109 步触发 On 条件，随后执行 40 步；最后 10 步均为开爪命令且 On 条件保持成立，末端相对首次触发前观测抬高约 12.6 cm。详见 [首次收尾观察](evidence/release-focus-first-observation.json)。这是一条布局的观察，尚无多布局成功率；同预算均匀采样对照尚未训练，不能把改善单独归因于重采样。当前 TensorBoard 只显示已导入的日志；工作台的“训练曲线（快照）”可在训练中或训练后按需导入已有 Step 指标，不是持续实时推送。
 
 续行诊断见 [记录](evidence/release-followup-diagnosis.json)：到达盘子后实际执行 40 步，其中 38 条闭爪、2 条短暂开爪，40 条向下指令，未完成松爪、撤手。16 条训练示范都有最后开爪的片段，转换数据没有截掉这些标签。
 
@@ -234,16 +234,27 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
 
 ## 本地仿真实验面板
 
-`simulation_lab.py` 打开中文 Tk 操作面板；加载布局后另开 MuJoCo 三维窗口。启动一次后可选择 0–49 号布局、调整碗的世界 X/Y 位置、重置、运行/暂停、单步，以及结束并保存。面板不启动训练；点击运行或单步时连接已启动的 `127.0.0.1:8755` 模型服务。
-
-先在旧评测窗口按 Q 保存并退出，保留 `serve_release_focus.py` 服务。启动面板：
+桌面双击 **π0.5 仿真实验室**，即可打开中文工作台；加载布局后另开 MuJoCo 三维窗口。也可运行：
 
 ```bash
 cd ~/.pi05-handson
-PYTHONPATH="$PWD/openpi/third_party/libero${PYTHONPATH:+:$PYTHONPATH}" \
-__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
-.venv-sim/bin/python -u scripts/simulation_lab.py
+/usr/bin/python3 scripts/lab_launcher.py
 ```
+
+在新机器安装桌面入口：`/usr/bin/python3 scripts/lab_launcher.py --install-shortcut`。启动失败会弹出日志位置；同一时间只允许一个面板，直接运行 `simulation_lab.py` 也有单实例保护。打开面板不会自动加载模型、创建仿真或启动训练。
+
+### 模型与训练
+
+- **推理 checkpoint → 启动所选模型 → 检查连接**：从本课程完整 checkpoint 中选择；加载日志在页面内显示。已有本面板模型会先停止再切换。界面没有读入新 checkpoint 时点击“刷新模型”。
+- **外部服务**：原终端运行的 `serve_release_focus.py` 可以直接连接。切换模型或开始训练前，需先在它的原终端按 Ctrl+C；软件不接管或终止外部服务。
+- **继续训练起点 → 设置 Steps、Batch、学习率和采样 → 开始训练**：默认新增 2000 次更新、batch=4、学习率 5e-5。采样可选收尾重点或均匀对照。每次新建唯一实验目录，初始化所选权重并重建优化器、调度器和随机数，**不是精确断点续训**。沿用原 16/4 训练和留出划分、训练集归一化与 10 步动作窗口。
+- 启动训练会先保存并关闭当前三维场景、停止本面板模型，训练期间禁止运行策略。停止按钮只操作经 PID、UID、进程创建时间和命令行核验的本面板进程；中断后尚未保存的更新不恢复。
+- 日志在页内刷新；**训练曲线（快照）**导出当前日志已出现的 Step 指标并打开本地 TensorBoard。想看后续数据再次点击；横轴用 Step，wall_time 为快照导出时间。
+- 关闭面板后，后台模型、训练和 TensorBoard 继续运行。重新打开可从 `.local/lab-jobs.json` 恢复管理；单独关闭窗口不等于停止训练。
+
+### 仿真操作
+
+先在旧评测三维窗口按 Q 保存退出；模型服务可以保留，然后使用以下按钮：
 
 1. 选择布局编号，点击 **加载/重置布局**，三维窗口显示该布局；初始为暂停。
 2. X/Y 偏移以厘米显示，范围 ±10 cm，相对该布局原始碗位置；修改后再次点击 **加载/重置布局** 生效。保留碗的高度和朝向；**原位置**恢复零偏移。
@@ -261,14 +272,15 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
 
 重置和退出先保存上一轮；编码或保存失败时保留内存记录以便重试，不直接销毁旧场景。面板实验记录为 `formal_benchmark=false`，与固定初始状态的批量评测分开；原训练、评测脚本继续使用原入口。
 
-本次准备验证使用真实 Tk 控件和隔离假后端，另检查了实际文件导出及本地任务元数据。**新面板尚未由代理连接模型、创建真实仿真或执行策略，真实场景首跑由学习者完成。** UI 检查截图 [仅界面，未连接仿真](previews/simulation-lab-ui-check.png)。
+### 结果与录像
 
-```bash
-.venv-sim/bin/python scripts/export_training_curves.py
-.venv-sim/bin/tensorboard --logdir .local/tensorboard --host 127.0.0.1 --port 6006
-```
+点击 **刷新结果**，选择一条记录即可播放录像或打开其目录；列表读取最近 200 条已保存结果。仿真页另有相机截图、重置相机、播放当前录像按钮。录像在本轮结束保存后可播放，两个相机截图需先加载场景。
 
-浏览器打开 `http://127.0.0.1:6006`。重复导出需使用新的 `--output` 目录，以避免叠加重复记录。后续新训练尚未接入持续写入事件的实时回调。参考 [TensorBoard 官方说明](https://www.tensorflow.org/tensorboard/get_started)。
+官方 On 判据与人工“收尾成功/收尾失败”分开显示。播放检查后填写备注并保存复核，生成单独 `*.review.json`，不会改写原始成功字段；原结果变化后复核显示“复核过期”。未保存的活动窗口结果暂不在列表内。
+
+验证使用真实 Tk、实际工作台与本地 checkpoint/结果目录，仿真任务为占位对象；另用隔离环境验证进程管理、训练配置和真实视频文件导出。**本轮未由代理启动真实模型、训练或仿真，首次完整运行由学习者点击完成。** 界面截图：[模型与训练](previews/lab-workbench-training-ui-check.png)、[结果与录像](previews/lab-workbench-results-ui-check.png)；截图标注为界面检查，不是新的策略演示。
+
+当前软件管理本课程的单任务训练和交互评测；键盘遥操作采集、完整数据标注/编辑、新任务场景制作、多任务训练尚未集成。
 
 ## 目录
 

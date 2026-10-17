@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/robot/.pi05-handson/scripts/evaluate_libero.py", line 313, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/robot/.pi05-handson/scripts/evaluate_libero.py", line 112, in main
+    output = prepare_output(args.output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/robot/.pi05-handson/scripts/evaluate_libero.py", line 55, in prepare_output
+    raise FileExistsError(f"Refusing to overwrite nonempty output: {path}")
+FileExistsError: Refusing to overwrite nonempty output: /home/robot/.pi05-handson/evaluations/live_view_init0

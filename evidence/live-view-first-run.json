@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "evidence": "learner-run MuJoCo interactive episode and saved artifacts",
+  "checkpoint_index": 9999,
+  "initial_state": 0,
+  "control_steps": 111,
+  "inference_calls": 111,
+  "success": true,
+  "exception": null,
+  "target_shift": null,
+  "video_frames": 112,
+  "wall_time_note": "Includes startup pause, in-run interaction waits and inference; not pure motion time. Final scene inspection happens after this measurement.",
+  "repeat_error": "Repeated use of evaluations/live_view_init0 was correctly refused to protect existing results.",
+  "stdout_log_note": "logs/24-live-view.log was overwritten by repeated tee invocations; successful episode is evidenced by saved JSON, CSV and MP4.",
+  "file_sha256": {
+    "evaluations/live_view_init0/trial-000_init-000_success.mp4": "baf4894db5abe5e6c1e37082a9515992ebd9b78a4c2eab18e1cf212bdd161303",
+    "evaluations/live_view_init0/summary.json": "f2b9626071cea9c1377861444c23218f61afed6e7d30c4bbe9489b54bedeeef7",
+    "evaluations/live_view_init0/trial-000_init-000_result.json": "37fd973ef9c69e37c99122e39162322f2da99b5e4df9276d168da44699227b26",
+    "evaluations/live_view_init0/trial-000_init-000_actions.csv": "5db0f6d447a23f2e130236cc8f8a4daaa9ca41eb05083954dc5cda3ecfcd890b"
+  }
+}

@@ -137,14 +137,18 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 保持 `serve_10000.py` 的模型服务运行，在桌面终端执行：
 
 ```bash
+live_run="live_view_$(date +%Y%m%d_%H%M%S_%N)"
 LIBERO_CONFIG_PATH="$PWD/.local/libero" \
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia \
 .venv-sim/bin/python scripts/evaluate_libero.py \
-  --output evaluations/live_view_init0 --trials 1 --seed 42 \
-  --initial-state-offset 0 --port 8755 --replan-steps 1 --max-steps 220 --viewer
+  --output "evaluations/$live_run" --trials 1 --seed 42 \
+  --initial-state-offset 0 --port 8755 --replan-steps 1 --max-steps 220 --viewer \
+  2>&1 | tee "logs/$live_run.log"
 ```
 
 Viewer 模式会在导入仿真库前选择 GLX。机器人策略仍接收原来的两路相机观测；三维窗口相机只是观察视角。GUI 允许手动修改或扰动场景，故交互结果单独标记，不直接合并到上面的固定评测结果。工具未逐项记录手动 GUI 编辑。操作规范参考 [MuJoCo 原生 viewer 文档](https://mujoco.readthedocs.io/en/3.2.3/python.html#interactive-viewer)。
+
+首次窗口演示已由学习者运行：初始状态 0，111 个控制步骤完成任务，无程序异常，见 [结果](evaluations/live_view_init0/trial-000_init-000_result.json) 和 [录像](evaluations/live_view_init0/trial-000_init-000_success.mp4)。GUI 的 wall_duration 包括启动暂停、交互等待和推理时间，不能当作纯运动或推理耗时。此后重复使用原输出目录触发了拒绝覆盖保护，原始结果仍保留；上面的命令每次生成新目录和新日志。
 
 ### 训练曲线界面
 

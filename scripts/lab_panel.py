@@ -48,7 +48,7 @@ class LabPanel:
         self.layout_var = tk.IntVar(root, value=0)
         self.x_var = tk.DoubleVar(root, value=0.0)
         self.y_var = tk.DoubleVar(root, value=0.0)
-        ttk.Label(frame, text="布局编号").grid(row=2, column=0, sticky="w")
+        ttk.Label(frame, text="初始状态编号").grid(row=2, column=0, sticky="w")
         ttk.Spinbox(frame, from_=0, to=lab.layout_count - 1, textvariable=self.layout_var,
                     width=8).grid(row=2, column=1, sticky="w")
         for row, name, variable in ((3, "碗 X 偏移 (cm)", self.x_var),
@@ -58,7 +58,7 @@ class LabPanel:
                 row=row, column=1, sticky="ew", padx=8, pady=5)
             ttk.Spinbox(frame, from_=-10, to=10, increment=0.5, format="%.1f",
                         textvariable=variable, width=7).grid(row=row, column=2)
-        ttk.Label(frame, text="偏移基于原位置；加载生效，重置会保存上一轮。",
+        ttk.Label(frame, text="编号对应同一场景的小范围摆放差异。\n\n明显移动黑碗请调 X/Y 偏移，再点加载；会保存上一轮。",
                   wraplength=470).grid(row=5, column=0, columnspan=3, sticky="w", pady=6)
         controls = ttk.Frame(frame)
         controls.grid(row=6, column=0, columnspan=3, sticky="w", pady=6)

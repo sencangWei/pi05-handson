@@ -1,0 +1,28 @@
+{
+  "source_operations": "evaluations/interactive_lab_20261018_005444_1792256084346163072/operations.jsonl",
+  "observed_state_ids": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    5,
+    11,
+    15
+  ],
+  "state0_bowl_xyz_m": [
+    0.0071370557647211785,
+    0.29824631861827444,
+    0.8984038567263857
+  ],
+  "state1_bowl_xyz_m": [
+    0.016733764423116023,
+    0.3207248503119255,
+    0.8984038567263857
+  ],
+  "bowl_distance_0_to_1_cm": 2.4441383025037378,
+  "diagnosis": "State selection is applied; fixed-task reference states differ by centimeters. Labels clarified, physics and datasets unchanged.",
+  "running_user_session_restarted": false
+}

@@ -32,11 +32,18 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--replan-steps", type=int, default=5)
     parser.add_argument("--max-steps", type=int, default=220)
     parser.add_argument("--smoke", action="store_true", help="Render five zero-motion steps; never connect to a model.")
+    parser.add_argument("--target-shift-step", type=int, help="Before this control step, translate the ungrasped target bowl.")
+    parser.add_argument("--target-shift-x-m", type=float, default=0.05, help="Instant world-X translation in meters.")
     args = parser.parse_args()
     if args.trials < 1 or args.replan_steps < 1 or args.max_steps < 1:
         parser.error("trials, replan-steps and max-steps must be positive")
     if args.initial_state_offset < 0:
         parser.error("initial-state-offset must be nonnegative")
+    if args.target_shift_step is not None:
+        if args.smoke or not 0 <= args.target_shift_step < args.max_steps:
+            parser.error("target-shift-step requires a policy trial and must be within its step limit")
+        if not math.isfinite(args.target_shift_x_m) or not 0 < abs(args.target_shift_x_m) <= 0.1:
+            parser.error("target-shift-x-m must be finite and nonzero, with magnitude at most 0.1 m")
     return args
 
 
@@ -66,6 +73,36 @@ def quaternion_axis_angle(quaternion):
     if math.isclose(denominator, 0.0):
         return [0.0, 0.0, 0.0]
     return [x * 2.0 * math.acos(w) / denominator for x in q[:3]]
+
+
+def shift_ungrasped_target(env, obs, dx):
+    """Translate only the target free joint; obtain fresh observations before inference."""
+    import numpy as np
+
+    target = "akita_black_bowl_1"
+    before = np.asarray(obs[f"{target}_pos"], dtype=float).copy()
+    distance = float(np.linalg.norm(np.asarray(obs["robot0_eef_pos"]) - before))
+    if distance < 0.12 or np.linalg.norm(obs["robot0_gripper_qpos"]) < 0.04:
+        raise ValueError("Target shift requires an open gripper at least 0.12 m from the bowl")
+    joints = env.env.objects_dict[target].joints
+    if len(joints) != 1:
+        raise ValueError(f"Expected one target free joint, got {joints}")
+    joint = joints[0]
+    qpos = np.asarray(env.sim.data.get_joint_qpos(joint)).copy()
+    qvel = np.asarray(env.sim.data.get_joint_qvel(joint))
+    if qpos.shape != (7,) or qvel.shape != (6,):
+        raise ValueError("Target joint does not have free-joint position/velocity dimensions")
+    qpos[0] += dx
+    env.sim.data.set_joint_qpos(joint, qpos)
+    env.sim.data.set_joint_qvel(joint, np.zeros_like(qvel))
+    refreshed = env.regenerate_obs_from_state(env.get_sim_state())
+    after = np.asarray(refreshed[f"{target}_pos"], dtype=float)
+    if not np.allclose(after - before, [dx, 0, 0], rtol=0, atol=1e-6):
+        raise ValueError("Observed target translation differs from the requested world-X shift")
+    return refreshed, {"target": target, "kind": "instant_translation_before_grasp",
+                       "before_xyz": before.tolist(), "after_xyz": after.tolist(),
+                       "requested_dx_m": dx, "actual_delta_xyz": (after - before).tolist(),
+                       "eef_distance_before_m": distance}
 
 
 def main() -> int:
@@ -100,6 +137,8 @@ def main() -> int:
         "initial_state_offset": args.initial_state_offset,
         "host": "127.0.0.1", "port": args.port, "replan_steps": args.replan_steps,
         "max_steps": args.max_steps, "settling_steps": 10,
+        "target_shift_step": args.target_shift_step,
+        "target_shift_x_m": args.target_shift_x_m if args.target_shift_step is not None else None,
         "video_fps": 10, "video_timing": "one initial frame plus one per controlled simulation step; settling and inference wall pauses omitted",
         "physics": "CPU MuJoCo", "render_backend": os.environ["MUJOCO_GL"],
         "state_contract": "8D: eef xyz, quaternion-derived axisangle xyz, gripper qpos 2",
@@ -124,6 +163,7 @@ def main() -> int:
                   "initial_state_sha256": hashlib.sha256(np.asarray(initial_states[initial_state_id]).tobytes()).hexdigest(),
                   "outcome": "exception", "success": False, "control_steps": 0,
                   "inference_calls": 0, "exception": None}
+        result["target_shift"] = None
         images, env = [], None
         started = time.perf_counter()
         try:
@@ -145,6 +185,17 @@ def main() -> int:
                 writer = csv.DictWriter(handle, fieldnames=columns)
                 writer.writeheader()
                 for step in range(step_limit):
+                    if args.target_shift_step is not None and step == args.target_shift_step:
+                        imageio.imwrite(output / f"{prefix}_shift-before.png",
+                                        np.ascontiguousarray(obs["agentview_image"][::-1, ::-1]))
+                        obs, event = shift_ungrasped_target(env, obs, args.target_shift_x_m)
+                        event["control_step"] = step
+                        result["target_shift"] = event
+                        plan.clear()
+                        imageio.imwrite(output / f"{prefix}_shift-after.png",
+                                        np.ascontiguousarray(obs["agentview_image"][::-1, ::-1]))
+                        write_json(output / f"{prefix}_target-shift.json", event)
+                        print("TARGET_SHIFT " + json.dumps(event), flush=True)
                     image = image_tools.convert_to_uint8(image_tools.resize_with_pad(
                         np.ascontiguousarray(obs["agentview_image"][::-1, ::-1]), 224, 224))
                     wrist = image_tools.convert_to_uint8(image_tools.resize_with_pad(
@@ -185,6 +236,9 @@ def main() -> int:
                         result["success"] = True
                         break
             result["outcome"] = "smoke_only" if args.smoke else ("success" if result["success"] else "failure")
+            if args.target_shift_step is not None and result["target_shift"] is None:
+                result["outcome"] = "perturbation_not_applied"
+                result["success"] = False
         except Exception:
             result["success"] = False
             result["outcome"] = "exception"
@@ -211,11 +265,15 @@ def main() -> int:
             write_json(output / f"{prefix}_result.json", result)
             metadata["trials"].append(result)
             metadata["successes"] = sum(x["success"] for x in metadata["trials"])
-            metadata["success_rate"] = None if args.smoke else metadata["successes"] / len(metadata["trials"])
+            valid = [x for x in metadata["trials"]
+                     if args.target_shift_step is None or x["target_shift"] is not None]
+            metadata["trials_valid_for_success_rate"] = len(valid)
+            metadata["success_rate"] = None if args.smoke or not valid else metadata["successes"] / len(valid)
             metadata["exception_count"] = sum(x["outcome"] == "exception" for x in metadata["trials"])
             write_json(output / "summary.json", metadata)
             print(json.dumps(result, default=json_default), flush=True)
-    return int(any(x["outcome"] == "exception" or "video_exception" in x for x in metadata["trials"]))
+    return int(any(x["outcome"] in ("exception", "perturbation_not_applied")
+                   or "video_exception" in x for x in metadata["trials"]))
 
 
 if __name__ == "__main__":

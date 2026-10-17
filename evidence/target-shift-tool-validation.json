@@ -1,0 +1,24 @@
+{
+  "status": "STATIC_AND_ISOLATED_CHECKS_PASS",
+  "simulation_executed": false,
+  "model_or_training_launched": false,
+  "checks": [
+    "4 unittest checks passed",
+    "CLI --help passed",
+    "git diff --check passed"
+  ],
+  "protocol": {
+    "checkpoint_index": 9999,
+    "initial_state": 0,
+    "sim_seed": 42,
+    "server_sampling_seed_on_restart": 0,
+    "target_shift_before_control_step": 20,
+    "target_world_x_delta_m": 0.05,
+    "replan_steps": 1,
+    "max_control_steps": 220
+  },
+  "source_sha256": {
+    "scripts/evaluate_libero.py": "c586eaad6e381593080bcb4997d77d97272c4eeb6ef4b506ae2f9cc15b9f41ce",
+    "tests/test_target_shift.py": "6abea88ceaeef2dae21077d15c50dea17af8ac066594495a8e785c793563625d"
+  }
+}

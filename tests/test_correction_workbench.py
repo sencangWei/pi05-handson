@@ -17,6 +17,10 @@ from test_simulation_lab import FakeEnv, FakeRecord, FakeView
 
 class ManualEnv(FakeEnv):
     def regenerate_obs_from_state(self, state):
+        self.qpos[:] = state[:7]
+        self.qvel[:] = state[7:13]
+        self.eef[:] = state[13:16]
+        self.steps = int(state[16])
         obs = super().regenerate_obs_from_state(state)
         # Deliberate mutable alias: the stored BEFORE state must survive env.step.
         obs["robot0_eef_pos"] = self.eef
@@ -145,6 +149,62 @@ class CorrectionBackendTests(unittest.TestCase):
                 self.lab.manual_hold(1)
         self.assertEqual(self.lab.correction.count, 1)
         self.assertTrue((self.lab.correction.directory / "final_sim_state.npy").is_file())
+        self.assertFalse(self.lab.correction_active)
+
+    def test_resume_preserves_prefix_and_scene_without_executing_actions(self):
+        self.lab.begin_correction()
+        self.lab.manual_jog(0, 1, .1, 2)
+        source = self.lab.finish_correction(False)
+        metadata_before = (source / "metadata.json").read_bytes()
+        frame_before = (source / "frame-000001.npz").read_bytes()
+        state_before = self.lab.env.get_sim_state().copy()
+        self.lab.resume_correction(source)
+        np.testing.assert_array_equal(self.lab.env.get_sim_state(), state_before)
+        self.assertEqual(self.lab.env.applied, [])
+        self.assertTrue(self.lab.correction_active)
+        self.assertTrue(self.lab.view.paused)
+        self.assertTrue(self.lab.finished)
+        self.assertEqual(self.lab.correction.count, 2)
+        self.assertNotEqual(source, self.lab.correction.directory)
+        self.assertEqual((self.lab.correction.directory / "frame-000001.npz").read_bytes(), frame_before)
+        self.lab.manual_hold(1)
+        self.assertEqual(self.lab.correction.count, 3)
+        self.assertEqual((source / "metadata.json").read_bytes(), metadata_before)
+
+    def test_resume_invalid_snapshot_keeps_existing_scene(self):
+        self.lab.begin_correction()
+        self.lab.manual_hold(1)
+        source = self.lab.finish_correction(False)
+        old_env, old_view = self.lab.env, self.lab.view
+        state = np.load(source / "final_sim_state.npy")
+        state[13] += .1
+        np.save(source / "final_sim_state.npy", state)
+        with self.assertRaises(ValueError):
+            self.lab.resume_correction(source)
+        self.assertIs(self.lab.env, old_env)
+        self.assertIs(self.lab.view, old_view)
+        self.assertFalse(self.lab.correction_active)
+
+    def test_resume_gripper_accumulator_handles_partial_reversal(self):
+        robot = SimpleNamespace(controller=Mock(), gripper=SimpleNamespace(speed=.01, current_action=np.zeros(2)))
+        env = SimpleNamespace(env=SimpleNamespace(robots=[robot], control_timestep=.05, model_timestep=.002))
+        frames = [{"action": [0, 0, 0, 0, 0, 0, grip]} for grip in [1] * 8 + [-1]]
+        self.lab._restore_controllers(env, frames, .05)
+        np.testing.assert_allclose(robot.gripper.current_action, [-.75, .75])
+        robot.controller.reset_goal.assert_called_once()
+        with self.assertRaisesRegex(ValueError, "累计"):
+            self.lab._restore_controllers(env, frames[-1:], .05)
+
+    def test_resume_copy_failure_keeps_existing_scene(self):
+        self.lab.begin_correction()
+        self.lab.manual_hold(1)
+        source = self.lab.finish_correction(False)
+        old_env, old_view = self.lab.env, self.lab.view
+        with patch("correction_workbench.shutil.copyfile", side_effect=OSError("disk full")):
+            with self.assertRaisesRegex(OSError, "disk full"):
+                self.lab.resume_correction(source)
+        self.assertIs(self.lab.env, old_env)
+        self.assertIs(self.lab.view, old_view)
         self.assertFalse(self.lab.correction_active)
 
     def test_invalid_manual_parameters_never_step(self):

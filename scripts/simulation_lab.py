@@ -428,6 +428,7 @@ class SimulationLab:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8755)
+    parser.add_argument("--resume-correction", type=Path, help="恢复纠正草稿并暂停，不执行后续动作")
     args = parser.parse_args()
     # Cover direct CLI launches as well as desktop launches before opening any GPU scene.
     import fcntl
@@ -440,10 +441,10 @@ def main():
             from lab_launcher import notify
             notify("仿真实验室已在运行，请切换到已有窗口。")
             return
-        run_gui(args.port)
+        run_gui(args.port, args.resume_correction)
 
 
-def run_gui(port):
+def run_gui(port, resume_correction=None):
     # Select GLX before importing robosuite/OpenGL; initialize no model or training job.
     os.environ["MUJOCO_GL"] = os.environ["PYOPENGL_PLATFORM"] = "glx"
     os.environ.setdefault("__NV_PRIME_RENDER_OFFLOAD", "1")
@@ -459,7 +460,10 @@ def run_gui(port):
     task = LiberoTask()
     lab = CorrectionWorkbench(output, task, port=port)
     root = tk.Tk()
-    LabPanel(root, lab)
+    panel = LabPanel(root, lab)
+    if resume_correction is not None:
+        panel.notebook.select(panel.correction_page)
+        panel._perform(lambda: lab.resume_correction(resume_correction))
     try:
         root.mainloop()
     finally:

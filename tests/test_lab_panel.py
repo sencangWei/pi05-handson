@@ -316,6 +316,11 @@ class FakeCorrectionWorkbench(FakeWorkbench):
         self.data["finished"] = True
         self.correction.update(active=True, frames=0)
 
+    def resume_correction(self, directory):
+        self.calls.append(("resume_correction", directory))
+        self.data.update(ready=True, finished=True, running=False)
+        self.correction.update(active=True, frames=770)
+
     def correction_state(self):
         return self.correction
 
@@ -360,6 +365,14 @@ class CorrectionTests(PanelTests):
     def _begin(self):
         self.panel.load_button.invoke()
         self.panel.correction_start_button.invoke()
+
+    def test_resume_draft_without_loaded_scene_then_gates_second_resume(self):
+        with patch("lab_panel.filedialog.askdirectory", return_value="/tmp/draft"):
+            self.panel.correction_resume_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("resume_correction", "/tmp/draft"))
+        self.assertIn("770 帧", self.panel.correction_status_var.get())
+        self.assertEqual(str(self.panel.correction_resume_button.cget("state")), "disabled")
+        self.assertEqual(str(self.panel.hold_button.cget("state")), "normal")
 
     def test_fourth_page_is_idle_until_explicit_takeover(self):
         names = [self.panel.notebook.tab(tab, "text") for tab in self.panel.notebook.tabs()]

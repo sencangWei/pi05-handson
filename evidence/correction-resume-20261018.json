@@ -1,0 +1,33 @@
+{
+  "status": "RECOVERED_PAUSED",
+  "task": "Preserve 770 human control steps and continue recording",
+  "original_draft": "corrections/human_1792301123523923494",
+  "bridge_snapshot": "corrections/human_1792301679894359488",
+  "recoverable_copy": "corrections/recovered_770_20261018",
+  "active_continuation_at_restore": "corrections/human_1792302165387076969",
+  "inherited_frames": 770,
+  "prefix_checksums_all_match": true,
+  "state_shape": [
+    92
+  ],
+  "restored_sim_state_matches_snapshot": true,
+  "state_sha256": "461fd257c97340b7fd1cbc072d7a82405e322bf221dcaa98f56d09e60768c4d9",
+  "new_actions_executed_at_restore": 0,
+  "post_observation_max_abs_diff": 0.00013361158085833935,
+  "observation_tolerance_m_and_rad": 0.001,
+  "physical_state_tolerance": 1e-12,
+  "controller_resume_bit_exact": false,
+  "controller_goal": "Reset at restored pose",
+  "gripper_accumulator": "Reconstruct from all prefix commands and physics substeps; initial interval bounds converged",
+  "raw_recordings_uploaded": false,
+  "model_weights_changed": false,
+  "independent_review": "Fixed gripper accumulator, staging failure preservation, and retry directory collision",
+  "live_evidence": "evaluations/interactive_lab_20261018_134241_1792302161003168373/operations.jsonl",
+  "scope": "Resume verified; user continues motion and final approval",
+  "checks": {
+    "backend_tests": 16,
+    "lab_tests": 85,
+    "ruff": "PASS",
+    "git_diff_check": "PASS"
+  }
+}

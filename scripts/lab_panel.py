@@ -8,7 +8,7 @@ import subprocess
 import time
 import tkinter as tk
 import tkinter.font as tkfont
-from tkinter import messagebox, ttk
+from tkinter import filedialog, messagebox, ttk
 
 
 class LabPanel:
@@ -318,6 +318,8 @@ class LabPanel:
         self.correction_start_button = ttk.Button(start, text="开始人工接管",
                                                   command=lambda: self._perform(self._begin_correction))
         self.correction_start_button.grid(row=0, column=2, padx=6)
+        self.correction_resume_button = ttk.Button(start, text="继续草稿", command=lambda: self._perform(self._resume_correction))
+        self.correction_resume_button.grid(row=0, column=3, padx=6)
         ttk.Label(page, text="train 用于训练，holdout 仅评测；相同布局与偏移不能分属两组。",
                   wraplength=660).grid(row=2, column=0, sticky="w")
         cameras = ttk.Frame(page)
@@ -388,6 +390,13 @@ class LabPanel:
             raise ValueError("本段用途须选择 train 或 holdout")
         self.lab.begin_correction(split=split)
 
+    def _resume_correction(self):
+        project = getattr(self.lab, "project", Path.home() / ".pi05-handson")
+        directory = filedialog.askdirectory(parent=self.root, title="选择含最终状态的纠正草稿目录",
+                                           initialdir=str(project / "corrections"), mustexist=True)
+        if directory:
+            self.lab.resume_correction(directory)
+
     def _manual_jog(self, axis, sign):
         scale, repeats = float(self.jog_scale_var.get()), int(self.jog_repeats_var.get())
         if not math.isfinite(scale) or not 0.05 <= scale <= 0.3 or not 1 <= repeats <= 20:
@@ -400,6 +409,7 @@ class LabPanel:
         training = scene.get("training_running", False)
         available = scene["ready"] and not scene["running"] and not training
         self.correction_start_button.configure(state="normal" if available and not active else "disabled")
+        self.correction_resume_button.configure(state="disabled" if active or training or scene["running"] else "normal")
         self.correction_split_combo.configure(state="disabled" if active else "readonly")
         for button in self._manual_buttons:
             button.configure(state="normal" if active and available else "disabled")

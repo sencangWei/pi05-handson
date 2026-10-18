@@ -2,14 +2,15 @@
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import time
 
 import numpy as np
 
-from correction_data import MAX_FRAMES, CorrectionRecorder
+from correction_data import MAX_FRAMES, CorrectionRecorder, digest, load_frames, write_json
 from lab_workbench import LabWorkbench
-from simulation_lab import TASK_LANGUAGE, TARGET, quaternion_axis_angle, state_digest
+from simulation_lab import TASK_LANGUAGE, TARGET, TrialRecord, quaternion_axis_angle, state_digest
 
 
 class CorrectionWorkbench(LabWorkbench):
@@ -41,6 +42,22 @@ class CorrectionWorkbench(LabWorkbench):
             return None
         return {name: np.ascontiguousarray(self.obs[key][::-1, ::-1]) for name, key in (
             ("image", "agentview_image"), ("wrist_image", "robot0_eye_in_hand_image"))}
+
+    @staticmethod
+    def _restore_controllers(env, frames, control_dt):
+        for robot in getattr(env.env, "robots", []):
+            substeps = int(env.env.control_timestep / env.env.model_timestep)
+            if not np.isclose(control_dt, env.env.control_timestep) or substeps < 1:
+                raise ValueError("草稿控制周期与当前环境不一致")
+            low, high = np.full(2, -1.), np.full(2, 1.)
+            for frame in frames:
+                delta = np.array([-1., 1.]) * robot.gripper.speed * np.sign(frame["action"][6]) * substeps
+                low, high = np.clip(low + delta, -1, 1), np.clip(high + delta, -1, 1)
+            if not np.allclose(low, high, atol=1e-12, rtol=0):
+                raise ValueError("草稿动作不足以确定夹爪累计控制状态；保留原场景")
+            robot.controller.update(force=True)
+            robot.controller.reset_goal()
+            robot.gripper.current_action = low.copy()
 
     def begin_correction(self, split="train"):
         self._ensure_not_training()
@@ -76,6 +93,94 @@ class CorrectionWorkbench(LabWorkbench):
         self.manual_grip = -1.0 if np.abs(self.obs["robot0_gripper_qpos"]).sum() >= .06 else 1.0
         self.correction_status = "已接管：小步调整位置，放稳后张开、撤手，再原地保持 10 步"
         self.event("correction_started", directory=str(directory), split=split, scenario_key=metadata["scenario_key"])
+
+    def resume_correction(self, directory):
+        """Continue a validated draft in a new directory, retaining its human action prefix."""
+        self._ensure_not_training()
+        self._require_no_correction()
+        source = Path(directory).expanduser().resolve()
+        if not source.is_relative_to(self.project / "corrections"):
+            raise ValueError("请选择本项目 corrections 下的草稿目录")
+        metadata = json.loads((source / "metadata.json").read_text())
+        if metadata.get("status") != "draft" or metadata.get("task") != TASK_LANGUAGE:
+            raise ValueError("仅能继续本任务的草稿，合格示范保持不变")
+        frames = load_frames(source, metadata)
+        if not 0 < len(frames) < MAX_FRAMES:
+            raise ValueError("草稿须包含动作且尚未达到单段上限")
+        state = np.load(source / "final_sim_state.npy", allow_pickle=False)
+        initial = np.load(source / "initial_sim_state.npy", allow_pickle=False)
+        if state.ndim != 1 or not np.isfinite(state).all():
+            raise ValueError("草稿的最终仿真状态无效")
+        if state_digest(initial) != metadata.get("initial_sim_state_sha256"):
+            raise ValueError("草稿的初始仿真状态校验失败")
+        if metadata.get("final_sim_state_sha256") not in (None, state_digest(state)):
+            raise ValueError("草稿的最终仿真状态校验失败")
+        scenario = metadata["scenario"]
+        layout = scenario["layout_id"]
+        if type(layout) is not int or not 0 <= layout < self.layout_count:
+            raise ValueError("草稿布局编号无效")
+        if scenario.get("task_metadata") != getattr(self.task, "metadata", {}):
+            raise ValueError("草稿与当前任务资源不一致")
+        candidate, _ = self.task.create(layout)
+        try:
+            if candidate.get_sim_state().shape != state.shape:
+                raise ValueError("草稿仿真状态维度与当前环境不一致")
+            obs = candidate.regenerate_obs_from_state(state)
+            if (not np.allclose(candidate.get_sim_state(), state, atol=1e-12, rtol=0)
+                    # Step observations may precede the final physics substep; allow 1 mm / 1 mrad.
+                    or not np.allclose(self._state8(obs), frames[-1]["post_state"], atol=1e-3, rtol=0)
+                    or not np.allclose(obs[f"{TARGET}_pos"], frames[-1]["post_bowl_pos"], atol=1e-3, rtol=0)):
+                raise ValueError("草稿最终位置与最后记录帧不一致，保留原场景")
+            grip = float(frames[-1]["action"][6])
+            self._restore_controllers(candidate, frames, metadata["control_dt"])
+            target = self.project / "corrections" / f"human_{time.time_ns()}"
+            recorder = CorrectionRecorder(target, metadata)
+            for item in metadata["files"]:
+                shutil.copyfile(source / item["path"], target / item["path"])
+                if digest(target / item["path"]) != item["sha256"]:
+                    raise ValueError("续录副本校验失败；原草稿保留")
+            shutil.copyfile(source / "initial_sim_state.npy", target / "initial_sim_state.npy")
+            recorder.count = len(frames)
+            recorder.metadata.update(frame_count=recorder.count, files=metadata["files"],
+                                     observation_gates=None, final_sim_state_sha256=None,
+                                     resume_provenance={"source_directory": str(source),
+                                         "source_metadata_sha256": digest(source / "metadata.json"),
+                                         "inherited_frames": recorder.count, "state_sha256": state_digest(state),
+                                         "recorded_observation_max_abs_diff": float(np.max(np.abs(self._state8(obs) - frames[-1]["post_state"]))),
+                                         "controller_state": "goals reset at restored pose; gripper accumulator reconstructed from prefix",
+                                         "bit_exact_controller_resume": False})
+            write_json(target / "metadata.json", recorder.metadata)
+            np.save(target / "resume_sim_state.npy", state, allow_pickle=False)
+            np.save(target / "final_sim_state.npy", state, allow_pickle=False)
+            scene = {**scenario, "task_language": TASK_LANGUAGE, "formal_benchmark": False,
+                     "interactive_experiment": True, "physics_horizon_ignored": True,
+                     "resumed_human_draft": str(source)}
+            record = TrialRecord(self.output / f"scene-{self.scene_number + 1:03d}_init-{layout:03d}_resume-{time.time_ns()}",
+                                 scene, obs, state)
+            record.save("human_draft_resume", state, obs)
+            view = self.viewer_factory(candidate)
+            try:
+                self.save("resume_correction")
+            except Exception:
+                view.close()
+                raise
+        except Exception:
+            candidate.close()
+            raise
+        self._close_scene()
+        self._new_connection()
+        self.pending = None
+        self.env, self.obs, self.layout_id = candidate, obs, layout
+        self.scene_number += 1
+        self.record, self.view = record, view
+        self.view.paused, self.view.single_step, self.step_requested = True, False, False
+        self.finished = True
+        self.correction = recorder
+        self.manual_grip = grip
+        self.manual_state_hash = self.known_state_hash = state_digest(state)
+        self.status = "已恢复草稿场景并暂停；人工按钮继续录制"
+        self.correction_status = f"已恢复 {recorder.count} 步，可继续；原草稿保留，尚未保存为合格"
+        self.event("correction_resumed", directory=str(target), **recorder.metadata["resume_provenance"])
 
     def _manual_steps(self, action, repeats):
         self._ensure_not_training()
@@ -161,6 +266,8 @@ class CorrectionWorkbench(LabWorkbench):
         import imageio.v2 as imageio
         imageio.imwrite(directory / "final-agentview.png", images["image"])
         imageio.imwrite(directory / "final-wrist.png", images["wrist_image"])
+        self.correction.metadata["final_sim_state_sha256"] = state_digest(final_state)
+        write_json(directory / "metadata.json", self.correction.metadata)
         self.correction_status = "已保存并通过观察门；仍需人工检查动作过程" if approved else "已保留草稿；不会导入训练"
         self.event("correction_finished", directory=str(directory), approved=approved)
         return directory

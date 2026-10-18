@@ -62,14 +62,23 @@ class WorkbenchTests(unittest.TestCase):
                     simulation_lab.main()
                     gui.assert_not_called()
                     notify.assert_called_once()
-        def run(port):
+        def run(port, resume):
+            self.assertIsNone(resume)
             with lock_path.open("a+") as other:
                 with self.assertRaises(BlockingIOError):
                     fcntl.flock(other, fcntl.LOCK_EX | fcntl.LOCK_NB)
         with patch.object(simulation_lab, "ROOT", self.root), patch.object(sys, "argv", ["simulation_lab.py"]):
             with patch.object(simulation_lab, "run_gui", side_effect=run) as gui:
                 simulation_lab.main()
-                gui.assert_called_once_with(8755)
+                gui.assert_called_once_with(8755, None)
+
+    def test_resume_cli_passes_draft_path_without_running_model(self):
+        import simulation_lab
+        with patch.object(simulation_lab, "ROOT", self.root), patch.object(sys, "argv", [
+                "simulation_lab.py", "--resume-correction", "corrections/example"]):
+            with patch.object(simulation_lab, "run_gui") as gui:
+                simulation_lab.main()
+                gui.assert_called_once_with(8755, Path("corrections/example"))
 
     def test_foreign_service_never_stopped_or_replaced(self):
         self.status["port_busy"] = True

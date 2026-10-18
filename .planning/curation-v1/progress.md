@@ -7,3 +7,5 @@ Candidate selection pinned:805[425,635),950[770,906),210+136=346frames. Bothcame
 Focusedchecks22export/trainer+40TkGUI+21backend=83passed,Ruffpassed, independentreview no blockers. Optional--selection exactslices pinnedrawhash/count/ranges; trainerchecksallselectedstate/action/RGB/index alignment. GUIprepare preservesselectedsidecar; current running GUI not restarted orreconfigured pendinguserreview.
 
 Initialxdg-open ofhiddenfilepath failed inFirefoxSnap; servedonlyreviewfolder via loopbackHTTP, verifiedcorrectpage.
+
+Source/selection backup0e29140 pushed to own sencangWei/pi05-handson experiment/correction-learning, restored fetched patch on clean94fe15f base; all15changedfilehashes andfullGit tree match. Proof:.local/backup-public-20261017/curation-remote-verification.json. Pendinguserclipfeedback; realcuratedexport/loader/GUIselection intentionallyawaitthatfeedback.

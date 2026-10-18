@@ -1,0 +1,70 @@
+{
+  "status": "READY",
+  "client_date": "2026-10-18",
+  "training_started": false,
+  "source": "corrections/human_1792311079911388886",
+  "source_frame_count": 585,
+  "source_metadata_sha256": "8854b2899d86fd152cfa90bc56ad095814e606f4bb4f7a15a83d6e85f733fb72",
+  "selection": "evidence/curation-complete-recovery-v3-selection.json",
+  "selection_sha256": "875eabc75359befd9d7242aa7e8c3daf78737aa5252ce76b5af6cf30763bed8d",
+  "dataset_manifest": "evidence/corrections-public37_curated5_recovery_v3-manifest.json",
+  "dataset_manifest_sha256": "61340f32115ca2e78c6bf97b95e3bca6e428f04ddc9dcff9e93aa3754d194617",
+  "train_episodes": 42,
+  "train_frames": 5466,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "human_frames": 1066,
+  "old_four_clips_unchanged": true,
+  "new_recording_contiguous_range": [
+    0,
+    585
+  ],
+  "camera_review": {
+    "two_cameras": true,
+    "raw_frame_indices": [
+      0,
+      10,
+      54,
+      109,
+      139,
+      149,
+      199,
+      254,
+      354,
+      434,
+      474,
+      484,
+      534,
+      564,
+      584
+    ],
+    "contact_sheet": ".local/recovery585-review/contact.jpg",
+    "video": ".local/curation-placement-v1/recovery585.mp4"
+  },
+  "observation_gates": {
+    "ten_frames": true,
+    "task_done_last_ten": true,
+    "actual_fingers_open_last_ten": true,
+    "open_command_last_ten": true,
+    "eef_clear_of_bowl": true
+  },
+  "dry_run": {
+    "exit_code": 0,
+    "marker": "DRY_RUN_PASS: no model weights loaded, no optimizer created, no training started",
+    "steps": 2000,
+    "batch_size": 4,
+    "learning_rate": 1e-05,
+    "seed": 42,
+    "sampling": "uniform",
+    "parent_checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792308600740118554/2999",
+    "parent_params_manifest_sha256": "e987267393d28ce212017585555b97dc36ecce8944697a3a81162b663ae39756",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "lineage": "all parent weights, fresh optimizer/scheduler/RNG, not exact resume"
+  },
+  "limitations": [
+    "One additional training scenario; recovery generalization remains untested.",
+    "The terminal placement_release gate does not certify every intermediate action or autonomous recovery.",
+    "Raw recording includes small trial/reversal motions; all585 retained to preserve the complete chain.",
+    "Raw recordings, exported parquet, video and checkpoints remain local; remote backup covers provenance/configuration only."
+  ]
+}

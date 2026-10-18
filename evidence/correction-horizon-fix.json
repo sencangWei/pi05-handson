@@ -1,0 +1,30 @@
+{
+  "error": "executing action in terminated episode",
+  "cause": "robosuite default horizon counted initialization, policy and manual actions together",
+  "observed_steps": {
+    "initial_settling": 10,
+    "model": 220,
+    "manual_recorded": 770,
+    "total": 1000
+  },
+  "preserved_draft": "corrections/human_1792301123523923494",
+  "draft_metadata_sha256": "9844151225c732b93973f2fbfadea5060e5fb68daaf683f4a83756da99da7e8f",
+  "draft_approved_for_training": false,
+  "repair": {
+    "interactive_ignore_done": true,
+    "On_predicate_retained": true,
+    "model_control_budget": 220,
+    "manual_per_recording_budget": 5000,
+    "manual_budget_checked_before_physics_step": true,
+    "error_snapshot_attempt": true
+  },
+  "validation": {
+    "regressions_failed_before_fix": true,
+    "targeted_tests_passed": 26,
+    "ruff": "passed",
+    "diff_check": "passed",
+    "real_physics_after_fix": "pending user restart"
+  },
+  "user_data_or_model_modified": false,
+  "live_process_restarted": false
+}

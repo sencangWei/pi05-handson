@@ -70,7 +70,8 @@ class LiberoTask:
 
     def create(self, layout):
         from libero.libero.envs import OffScreenRenderEnv
-        env = OffScreenRenderEnv(bddl_file_name=str(self.bddl), camera_heights=256, camera_widths=256)
+        env = OffScreenRenderEnv(bddl_file_name=str(self.bddl), camera_heights=256, camera_widths=256,
+                                 ignore_done=True)
         try:
             env.seed(42)
             env.reset()
@@ -243,7 +244,7 @@ class SimulationLab:
                      "initial_state_sha256": state_digest(state), "task_language": TASK_LANGUAGE,
                      "interactive_experiment": True, "formal_benchmark": False,
                      "untracked_native_gui_edits_possible": True, "replan_steps": 1,
-                     "max_steps": 220, "post_success_steps": None,
+                     "max_steps": 220, "post_success_steps": None, "physics_horizon_ignored": True,
                      "stop_policy": "max_steps_or_user_save; On is recorded without early stopping",
                      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
                      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",

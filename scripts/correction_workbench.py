@@ -7,7 +7,7 @@ import time
 
 import numpy as np
 
-from correction_data import CorrectionRecorder
+from correction_data import MAX_FRAMES, CorrectionRecorder
 from lab_workbench import LabWorkbench
 from simulation_lab import TASK_LANGUAGE, TARGET, quaternion_axis_angle, state_digest
 
@@ -89,6 +89,8 @@ class CorrectionWorkbench(LabWorkbench):
         self.view.paused, self.view.single_step, self.step_requested = True, False, False
         try:
             for _ in range(repeats):
+                if self.correction.count >= MAX_FRAMES:
+                    raise ValueError(f"单段人工纠正已达 {MAX_FRAMES} 步上限，本段保留草稿；请开启新段")
                 with self.view.lock():
                     before = self.env.get_sim_state().copy()
                     if state_digest(before) != self.manual_state_hash:
@@ -108,7 +110,12 @@ class CorrectionWorkbench(LabWorkbench):
             self.event("manual_action", action=action.tolist(), repeats=repeats, frames=self.correction.count)
         except Exception as error:
             if self.correction_active:
-                self.correction.finish(False)
+                try:
+                    self.finish_correction(False)
+                except Exception as snapshot_error:
+                    if self.correction_active:
+                        self.correction.finish(False)
+                    self.event("correction_snapshot_error", error=str(snapshot_error))
             self.correction_status = f"录制暂停并保留草稿：{error}"
             self.event("correction_error", error=str(error))
             raise

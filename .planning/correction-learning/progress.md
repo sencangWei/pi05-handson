@@ -6,3 +6,5 @@
 剩余：最终检查记录、文档和公开分支备份恢复比对；首次真实采集/训练由用户点击。
 
 最终检查：simenv130项，122通过8依赖跳过；CPU原/新数据配置与入口21项全部通过，覆盖跳过部分。Ruff/py_compile/diff-check通过，真实LeRobot读取与CPU norm复用检查通过。人工录制原始大文件由corrections/保留本机并加入.gitignore；没有真实纠正示范或新训练结果，实际采集由用户开始。代码位于本课程根repo，上游未改；备份目标为sencangWei/pi05-handson的experiment/correction-learning分支，提交后fetch到独立对象库，在干净父树apply二进制patch并核对全树及19个变更文件哈希。
+
+2026-10-18 后续修正：学习者第二段纠正770帧时出现executing action in terminated episode；初始化10+模型220+人工770耗尽底层共享1000步，原805段未触发仅因178+10+805=993。交互构造器ignore_done=True，LIBERO On仍由_check_success独立返回，220模型预算不变，人工5000帧前置检查避免未记录物理动作；异常尝试保存最终快照，失败仍保留raw草稿。26项回归通过，Ruff/diffcheck通过。旧草稿770步仅保留，未改用户记录和模型。真实新场景需重开软件后验证。

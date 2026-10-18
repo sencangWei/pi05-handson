@@ -12,7 +12,7 @@ from unittest.mock import patch
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from simulation_lab import SimulationLab, TARGET, TrialRecord, move_bowl
+from simulation_lab import LiberoTask, SimulationLab, TARGET, TrialRecord, move_bowl
 
 
 class FakeEnv:
@@ -266,6 +266,41 @@ class LabTests(unittest.TestCase):
         self.assertFalse(self.lab.record.saved)
         operations = [json.loads(line) for line in (self.lab.output / "operations.jsonl").read_text().splitlines()]
         self.assertEqual(operations[0]["kind"], "reset")
+
+
+class InteractiveHorizonTests(unittest.TestCase):
+    def test_interactive_env_can_cross_old_horizon_without_losing_task_success_signal(self):
+        class HorizonEnv:
+            def __init__(self, **kwargs):
+                self.ignore_done = kwargs.get("ignore_done", False)
+                self.timestep, self.done = 0, False
+            def seed(self, seed):
+                pass
+            def reset(self):
+                pass
+            def set_init_state(self, state):
+                return {}
+            def close(self):
+                pass
+            def step(self, action):
+                if self.done:
+                    raise ValueError("executing action in terminated episode")
+                self.timestep += 1
+                self.done = self.timestep >= 1000 and not self.ignore_done
+                # LIBERO returns task On success separately from its internal time limit.
+                return {}, 1.0, True, {}
+        factory = unittest.mock.Mock(side_effect=HorizonEnv)
+        task = LiberoTask.__new__(LiberoTask)
+        task.bddl, task.initial_states = Path("fake-task.bddl"), [np.zeros(2)]
+        modules = {"libero.libero.envs": SimpleNamespace(OffScreenRenderEnv=factory)}
+        with patch.dict(sys.modules, modules):
+            env, _ = task.create(0)
+        for _ in range(1000):
+            _, _, task_done, _ = env.step([0] * 7)
+        self.assertEqual(env.timestep, 1010)
+        self.assertTrue(factory.call_args.kwargs["ignore_done"])
+        self.assertTrue(task_done)
+        self.assertFalse(env.done)
 
 
 class RecordTests(unittest.TestCase):

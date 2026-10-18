@@ -125,6 +125,28 @@ class CorrectionBackendTests(unittest.TestCase):
         self.assertEqual(metadata["status"], "draft")
         self.assertFalse(self.lab.env.applied)
 
+    def test_raw_budget_stops_before_unrecorded_action_and_preserves_final_snapshot(self):
+        self.lab.begin_correction()
+        with patch("correction_workbench.MAX_FRAMES", 2):
+            self.lab.manual_hold(2)
+            with self.assertRaises(ValueError):
+                self.lab.manual_hold(1)
+        self.assertEqual(self.lab.env.steps, 2)
+        self.assertEqual(self.lab.correction.count, 2)
+        self.assertFalse(self.lab.correction_active)
+        self.assertTrue((self.lab.correction.directory / "final_sim_state.npy").is_file())
+        self.assertEqual(json.loads((self.lab.correction.directory / "metadata.json").read_text())["status"], "draft")
+
+    def test_physics_step_error_preserves_existing_frames_and_final_state(self):
+        self.lab.begin_correction()
+        self.lab.manual_hold(1)
+        with patch.object(self.lab.env, "step", side_effect=ValueError("terminated episode")):
+            with self.assertRaisesRegex(ValueError, "terminated episode"):
+                self.lab.manual_hold(1)
+        self.assertEqual(self.lab.correction.count, 1)
+        self.assertTrue((self.lab.correction.directory / "final_sim_state.npy").is_file())
+        self.assertFalse(self.lab.correction_active)
+
     def test_invalid_manual_parameters_never_step(self):
         self.lab.begin_correction()
         for action in (lambda: self.lab.manual_jog(7, 1, .1, 1),

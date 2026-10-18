@@ -1,0 +1,342 @@
+{
+  "experiment": "phase_tempo_v1_ready_5000",
+  "new_updates": 5000,
+  "batch_size": 4,
+  "dataset_manifest": "/home/robot/.pi05-handson/evidence/corrections-public37_tempo_v1-manifest.json",
+  "dataset_manifest_sha256": "c7792a86de4d3637f8169bae9cbceae339360ed344966e45b404dfa1a3a8d91f",
+  "repo_id": "course/libero_corrections_public37_reviewed19_v4",
+  "sampling": "phase tempo over unchanged episodes; original inherited field in manifest describes base export only",
+  "dataset_kind": "expanded_public_corrections_v1",
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+  "parent_params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+  "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+  "seed": 42,
+  "action_horizon": 10,
+  "normalization": {
+    "asset_id": "course/libero_black_bowl",
+    "recomputed": false,
+    "path": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+    "bytes": 1966,
+    "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "timing": {
+    "nominal_fps": 10,
+    "nominal_dt": 0.1,
+    "pauses_excluded": true,
+    "one_frame_per_human_control_action": true,
+    "physical_control_dt_by_episode": {
+      "corrections/human_1792298109792073701": 0.05,
+      "corrections/human_1792302165387076969": 0.05,
+      "corrections/human_1792311079911388886": 0.05,
+      "corrections/human_1792316444273677599": 0.05,
+      "corrections/human_1792316642061092080": 0.05,
+      "corrections/human_1792316796553277838": 0.05,
+      "corrections/human_1792316988593839967": 0.05,
+      "corrections/human_1792320596142609404": 0.05,
+      "corrections/human_1792320729171754480": 0.05,
+      "corrections/human_1792320881178092096": 0.05,
+      "corrections/human_1792321044770146509": 0.05,
+      "corrections/human_1792321327539756305": 0.05,
+      "corrections/human_1792321449733577218": 0.05,
+      "corrections/human_1792321533232937641": 0.05,
+      "corrections/human_1792321838302212936": 0.05,
+      "corrections/human_1792321887412888670": 0.05,
+      "corrections/human_1792322110720259274": 0.05
+    },
+    "caveat": "Nominal timestamps follow the public 10 Hz convention; physical correction control_dt is recorded separately and may differ."
+  },
+  "checkpoint_directory": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/phase_tempo_v1_ready_5000",
+  "final_step_index": 4999,
+  "learning_rate": {
+    "warmup_steps": 20,
+    "peak": 1e-05,
+    "final": 1e-05
+  },
+  "optimizer": "AdamW, clip gradient norm 1.0; only LoRA trainable",
+  "checkpoint_save_steps": [
+    1000,
+    2000,
+    3000,
+    4000,
+    4999
+  ],
+  "source_commit": "b9cc2903e507fe7747ddd240138971c80ac36c20",
+  "openpi_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+  "source_worktree_status": [
+    " M logs/18-serve-10000.log",
+    "?? .planning/correction-batch14-review-v1/",
+    "?? .planning/manual-controls-v1/",
+    "?? .planning/phase-tempo-v1/",
+    "?? .planning/postgrasp-slow-v1/",
+    "?? .planning/recovery-focus-v1/",
+    "?? .planning/recovery-v3-diagnosis/",
+    "?? .planning/recovery585-v3/",
+    "?? .planning/reviewed19-training-ready/",
+    "?? evaluations/interactive_lab_20261018_005444_1792256084346163072/",
+    "?? evaluations/interactive_lab_20261018_013915_1792258755052393577/",
+    "?? evaluations/interactive_lab_20261018_123330_1792298010869590151/",
+    "?? evaluations/interactive_lab_20261018_133726_1792301846250165870/",
+    "?? evaluations/interactive_lab_20261018_133921_1792301961272048211/",
+    "?? evaluations/interactive_lab_20261018_134241_1792302161003168373/",
+    "?? evaluations/interactive_lab_20261018_144742_1792306062258625251/",
+    "?? evaluations/interactive_lab_20261018_144950_1792306190911408929/",
+    "?? evaluations/interactive_lab_20261018_150313_1792306993965959505/",
+    "?? evaluations/interactive_lab_20261018_152628_1792308388078217247/",
+    "?? evaluations/interactive_lab_20261018_165905_1792313945855890490/",
+    "?? evaluations/interactive_lab_20261018_171240_1792314760568183609/",
+    "?? evaluations/interactive_lab_20261018_171827_1792315107234606914/",
+    "?? evaluations/interactive_lab_20261018_172125_1792315285667491937/",
+    "?? evaluations/live_followup_20261017_220726_867368049/",
+    "?? evaluations/live_view_20261017_215937_300540391/",
+    "?? evaluations/release_focus_20261017_233142_391180239/",
+    "?? evidence/corrections-human_1792299081397332053-manifest.json",
+    "?? evidence/corrections-human_1792302581426075020-manifest.json",
+    "?? evidence/corrections-public37_tempo_v1-manifest.json",
+    "?? evidence/phase-tempo-v1-profile.json",
+    "?? evidence/phase-tempo-v1-selection.json",
+    "?? evidence/phase-tempo-v1/",
+    "?? evidence/ui_correct_1792299396056546839-launch.json",
+    "?? evidence/ui_correct_1792302925929811127-launch.json",
+    "?? evidence/ui_correct_1792308600740118554-launch.json",
+    "?? evidence/ui_correct_1792311653585294069-launch.json",
+    "?? evidence/ui_correct_1792324180062259097-launch.json",
+    "?? logs/combined-panel-restart.log",
+    "?? logs/combined-public37-human2-export.log",
+    "?? logs/correction_prepare_1792299102416024233.log",
+    "?? logs/correction_prepare_1792302627099455939.log",
+    "?? logs/coverage-v2-export.log",
+    "?? logs/curated4-panel-restart.log",
+    "?? logs/lab-launcher-20261018-005444-pfnthc6w.log",
+    "?? logs/lab-launcher-20261018-013915-2a327log.log",
+    "?? logs/lab-launcher-20261018-123330-6ajf8539.log",
+    "?? logs/lab-launcher-20261018-133726-byrk116i.log",
+    "?? logs/lab-launcher-20261018-133921-16tiqrc4.log",
+    "?? logs/lab-launcher-20261018-144742-0b2j530l.log",
+    "?? logs/lab-launcher-20261018-144950-x9t1l1rv.log",
+    "?? logs/lab-launcher-20261018-150313-iuegz9ae.log",
+    "?? logs/lab-launcher-20261018-152627-99udjunb.log",
+    "?? logs/lab-launcher-20261018-165905-wlweg9ov.log",
+    "?? logs/lab-launcher-20261018-171240-ut8xqsjl.log",
+    "?? logs/lab-launcher-20261018-171827-gkhiale4.log",
+    "?? logs/lab-launcher-20261018-172125-9vtl709j.log",
+    "?? logs/lab-launcher.lock",
+    "?? logs/live_followup_20261017_220726_867368049.log",
+    "?? logs/live_view_20261017_215937_300540391.log",
+    "?? logs/release_focus_20261017_233142_391180239.log",
+    "?? logs/serve-release-focus-20261017_232625_872713205.log",
+    "?? logs/ui_model_1792300580468254245.log",
+    "?? logs/ui_model_1792300599182979538.log",
+    "?? logs/ui_model_1792303924248837550.log",
+    "?? logs/ui_model_1792310288885075594.log",
+    "?? logs/ui_model_1792310299032731333.log",
+    "?? logs/ui_model_1792310299667534618.log",
+    "?? logs/ui_model_1792310299955375598.log",
+    "?? logs/ui_model_1792312572480020605.log",
+    "?? logs/ui_model_1792336227863071857.log",
+    "?? logs/ui_training_1792299396056567376.log",
+    "?? logs/ui_training_1792302925929829152.log",
+    "?? logs/ui_training_1792308600740144938.log",
+    "?? logs/ui_training_1792311653585322989.log",
+    "?? logs/ui_training_1792324180062288166.log",
+    "?? scripts/prepare_phase_tempo.py",
+    "?? tests/test_phase_tempo.py"
+  ],
+  "source_sha256": {
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+    "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699",
+    "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "prepare_expanded_public.py": "f07dc6ce8dcf5863b475e9d85d3c885f82e63bdc0c63f0ca5844e62ba0ba1619",
+    "curated_checks.py": "1a9d12bef9ff3314bd7251983b3ef699694f665f36d075d7bd22ef6a2db61206",
+    "recovery_sampling.py": "29aa84309d187445291eab4f750bf9ea178990b0a0f9fa7ba367610be1a025cf",
+    "train_release_focus.py": "e8debfca203b0f894f3e06f3c6621c83a7f5f933586a5af43569dc8fff60bd52"
+  },
+  "wandb_enabled": false,
+  "dry_run": true,
+  "recovery_sampling": {
+    "profile": {
+      "path": "evidence/phase-tempo-v1-profile.json",
+      "sha256": "d809c74ceca5294e66cce1c06ba987532ead4bb05575fc5cca64b3c2684eb28d"
+    },
+    "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+    "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+    "repo_id": "course/libero_corrections_public37_reviewed19_v4",
+    "real_frames": 13521,
+    "virtual_frames": 200000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete_demos",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 140000,
+        "real_frames": 4400,
+        "probability": 0.7
+      },
+      {
+        "name": "previous_approved_corrections",
+        "ranges": [
+          [
+            4400,
+            5466
+          ]
+        ],
+        "virtual_count": 20000,
+        "real_frames": 1066,
+        "probability": 0.1
+      },
+      {
+        "name": "new_contact_and_other",
+        "ranges": [
+          [
+            5466,
+            5856
+          ],
+          [
+            6007,
+            6453
+          ],
+          [
+            6567,
+            7141
+          ],
+          [
+            7312,
+            7882
+          ],
+          [
+            8027,
+            8490
+          ],
+          [
+            8669,
+            9265
+          ],
+          [
+            9375,
+            10039
+          ],
+          [
+            10198,
+            10778
+          ],
+          [
+            10877,
+            11976
+          ],
+          [
+            12022,
+            12555
+          ],
+          [
+            12642,
+            13521
+          ]
+        ],
+        "virtual_count": 38000,
+        "real_frames": 6794,
+        "probability": 0.19
+      },
+      {
+        "name": "new_normal_transport",
+        "ranges": [
+          [
+            5856,
+            6007
+          ],
+          [
+            6453,
+            6567
+          ],
+          [
+            7141,
+            7312
+          ],
+          [
+            7882,
+            8027
+          ],
+          [
+            8490,
+            8669
+          ],
+          [
+            9265,
+            9375
+          ],
+          [
+            10039,
+            10198
+          ],
+          [
+            10778,
+            10877
+          ],
+          [
+            11976,
+            12022
+          ],
+          [
+            12555,
+            12642
+          ]
+        ],
+        "virtual_count": 2000,
+        "real_frames": 1261,
+        "probability": 0.01
+      }
+    ],
+    "sampling_indices_sha256": "99c315972597e1bc972f1db8b4d8b74fb55a2863311d6be71d8a96b9a841f429",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  },
+  "status": "READY_NOT_TRAINED",
+  "limitations": "Sampling preparation and CPU dry-run only. No new policy-speed or task-success result.",
+  "preparation_source_sha256": {
+    "scripts/prepare_phase_tempo.py": "b85e5d5124b203ea0272718c859b21c1bafb4497687b0a4e1240d16f14769ef5",
+    "tests/test_phase_tempo.py": "1a96e6b5066fee00727fa553e6433a968e5b0d975ab0efdad970a33c2ef95d58",
+    "evidence/phase-tempo-v1-selection.json": "6478c18dcc3a739f24c42907cf2dc936ed41f7d6175d88664d4ffbb452d49426",
+    "evidence/phase-tempo-v1-profile.json": "d809c74ceca5294e66cce1c06ba987532ead4bb05575fc5cca64b3c2684eb28d"
+  },
+  "environment_snapshot": "evidence/phase-tempo-v1/environment.json",
+  "evaluation_plan": {
+    "comparisons": [
+      "parent ui_correct_1792311653585294069/1999",
+      "uniform ui_correct_1792324180062259097/4999",
+      "new tempo1000 and4999 after learner training"
+    ],
+    "fixed_settings": {
+      "replan_steps": 1,
+      "max_steps": 800,
+      "seed": 42,
+      "initial_state_ids": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "interactive_reproduction": {
+      "initial_state": 24,
+      "bowl_dx_m": 0.06384364820846905,
+      "bowl_dy_m": 0.1,
+      "note": "Same recorded interactive shifted layout; report separately from official benchmark suite."
+    },
+    "metrics": [
+      "On",
+      "stable release",
+      "retreat",
+      "transport control-step displacement",
+      "step budget and wall time separately",
+      "open/close switching after On"
+    ],
+    "gate": "No speed improvement claim until paired closed-loop tests; reject speed gains accompanied by worse grasp/place/recovery outcomes."
+  }
+}

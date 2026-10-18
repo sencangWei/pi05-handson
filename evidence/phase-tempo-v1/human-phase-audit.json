@@ -1,0 +1,1988 @@
+{
+  "status": "CANDIDATE_AUDIT_NOT_TRAINING_SELECTION",
+  "manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "range_convention": "All [start,stop), source_raw absolute frame, exported_episode zero-based local frame, dataset_global real start index. Every original selected source frame remains in exactly one group.",
+  "method": "All selected raw NPZ action/post_bowl_pos/done read; no RGB decode or new policy/simulation calls. Prior paired-camera timeline review and curation notes used for interpretation. Conservative carry candidates are proposed sampling-start strata, never deleted frames or joined clips.",
+  "candidate_rule": {
+    "height_threshold_m": 0.04,
+    "height_sustained_frames": 5,
+    "post_lift_protected_frames": 20,
+    "final_target_xy_radius_m": 0.06,
+    "near_target_sustained_frames": 5,
+    "gripper_transition_exclusion_radius_frames": 30,
+    "carry_min_contiguous_frames": 10,
+    "definition": "After first sustained close and bowl raised above original table bowl-center z+4cm for 5 frames, protect 20 more frames; tentative carry ends at first sustained entry within 6cm XY of final stable bowl location. Exclude every actual gripper transition +/-30 frames from candidates. If lift/near cannot be found, no carry candidate. Initial already-closed clips near plate are not assumed to be grasp recovery.",
+    "final_target": "mean post_bowl_pos XY of last 10 source frames; offline event reference only, not deployment privileged state"
+  },
+  "proposed_sampling": {
+    "virtual_size": 200000,
+    "public": 0.7,
+    "old5_correction": 0.1,
+    "new_contact_and_other": 0.15,
+    "new_conservative_carry": 0.05,
+    "each_real_start_at_least_once": true
+  },
+  "records": [
+    {
+      "episode_index": 37,
+      "source_directory": "corrections/human_1792298109792073701",
+      "source_selected_range": [
+        425,
+        635
+      ],
+      "frames": 210,
+      "metadata_sha256": "c6d0d8e04723338bd327513d7aac9831bfac849ff6e0e6bb521f3178e0e44720",
+      "source_clip_sha256": "61688d860af62bcea8d99b4373164f6be59c6bbc5153159173748aeb1e3323d1",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "1cb5c6e0ea5191488d0d61b59e689683ec6468ab71d3c2d95753cf9882c722c7",
+      "dataset_global_range": [
+        4400,
+        4610
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 425,
+        "first_sustained_raised_4cm": 425,
+        "lift_protected_end": 445,
+        "near_final_target_6cm": 445,
+        "first_postclose_open": 550,
+        "gripper_transitions": [
+          550
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "previous_user_approved_placement_release",
+          "source_range": [
+            425,
+            635
+          ],
+          "frames": 210
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "old5_correction": {
+        "frames": 210,
+        "source_raw_ranges": [
+          [
+            425,
+            635
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            210
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            4400,
+            4610
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 0
+    },
+    {
+      "episode_index": 38,
+      "source_directory": "corrections/human_1792302165387076969",
+      "source_selected_range": [
+        0,
+        45
+      ],
+      "frames": 45,
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_clip_sha256": "f68b195c2f5d9af231312d45f23d4b029a41b9a6092cff3e28f9a013b8727a51",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "98504d8665cb860ec356f7dd4b6a38a07d6175f5cefc33c68403a21caa3235e3",
+      "dataset_global_range": [
+        4610,
+        4655
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": null,
+        "lift_protected_end": null,
+        "near_final_target_6cm": null,
+        "first_postclose_open": null,
+        "gripper_transitions": []
+      },
+      "coarse_phases": [
+        {
+          "label": "previous_user_approved_lift_clearance",
+          "source_range": [
+            0,
+            45
+          ],
+          "frames": 45
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "old5_correction": {
+        "frames": 45,
+        "source_raw_ranges": [
+          [
+            0,
+            45
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            45
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            4610,
+            4655
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 1
+    },
+    {
+      "episode_index": 39,
+      "source_directory": "corrections/human_1792302165387076969",
+      "source_selected_range": [
+        430,
+        520
+      ],
+      "frames": 90,
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_clip_sha256": "4e616fdaa53f10b179d81c5d643a5225d8a001bd2753e30a1e34ff7b8031438e",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "354d6253aec0f1d5446c5854a4b6883c1a597d5de1e1e578bc0e79c95034a9f0",
+      "dataset_global_range": [
+        4655,
+        4745
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 490,
+        "first_sustained_raised_4cm": null,
+        "lift_protected_end": null,
+        "near_final_target_6cm": null,
+        "first_postclose_open": null,
+        "gripper_transitions": [
+          490
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "previous_user_approved_regrasp_lift",
+          "source_range": [
+            430,
+            520
+          ],
+          "frames": 90
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "old5_correction": {
+        "frames": 90,
+        "source_raw_ranges": [
+          [
+            430,
+            520
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            90
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            4655,
+            4745
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 2
+    },
+    {
+      "episode_index": 40,
+      "source_directory": "corrections/human_1792302165387076969",
+      "source_selected_range": [
+        770,
+        906
+      ],
+      "frames": 136,
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_clip_sha256": "77027549b388a839edc54d959efc84251bfef5431313e95098f5fad2a03ff2d7",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "1ab61530630a477ac7de843372011c1a7f2e71abe6f868016cb14bda0f8f1ed6",
+      "dataset_global_range": [
+        4745,
+        4881
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 770,
+        "first_sustained_raised_4cm": 770,
+        "lift_protected_end": 790,
+        "near_final_target_6cm": 790,
+        "first_postclose_open": 845,
+        "gripper_transitions": [
+          845
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "previous_user_approved_placement_release",
+          "source_range": [
+            770,
+            906
+          ],
+          "frames": 136
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "old5_correction": {
+        "frames": 136,
+        "source_raw_ranges": [
+          [
+            770,
+            906
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            136
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            4745,
+            4881
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 3
+    },
+    {
+      "episode_index": 41,
+      "source_directory": "corrections/human_1792311079911388886",
+      "source_selected_range": [
+        0,
+        585
+      ],
+      "frames": 585,
+      "metadata_sha256": "8854b2899d86fd152cfa90bc56ad095814e606f4bb4f7a15a83d6e85f733fb72",
+      "source_clip_sha256": "0fd0a2ed2c3e31f7754c7a29fd440f1809a76d50bc246c26773f13d234513145",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "988c38404461e52273512fae30ca36f879a477c3a8a4438c9705116863223635",
+      "dataset_global_range": [
+        4881,
+        5466
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 140,
+        "first_sustained_raised_4cm": 206,
+        "lift_protected_end": 226,
+        "near_final_target_6cm": 389,
+        "first_postclose_open": 475,
+        "gripper_transitions": [
+          140,
+          475
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "previous_user_approved_placement_release",
+          "source_range": [
+            0,
+            585
+          ],
+          "frames": 585
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "old5_correction": {
+        "frames": 585,
+        "source_raw_ranges": [
+          [
+            0,
+            585
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            585
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            4881,
+            5466
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 4
+    },
+    {
+      "episode_index": 42,
+      "source_directory": "corrections/human_1792316444273677599",
+      "source_selected_range": [
+        0,
+        796
+      ],
+      "frames": 796,
+      "metadata_sha256": "04352c3687814b10143c2d57c84d83f50fcb9e18015d9d229fc7fc5c23f1fadb",
+      "source_clip_sha256": "abdbeaf64245f5b14c35e9c25cedce5dc96f0955927f8788b21c5272f9ef113e",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "fb1e2351b1ceba95a79edf16875e976d17f24be52a663c5cceab135297392629",
+      "dataset_global_range": [
+        5466,
+        6262
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 314,
+        "first_sustained_raised_4cm": 370,
+        "lift_protected_end": 390,
+        "near_final_target_6cm": 550,
+        "first_postclose_open": 666,
+        "gripper_transitions": [
+          314,
+          666
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            314
+          ],
+          "frames": 314
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            314,
+            390
+          ],
+          "frames": 76
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            390,
+            550
+          ],
+          "frames": 160
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            550,
+            666
+          ],
+          "frames": 116
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            666,
+            796
+          ],
+          "frames": 130
+        }
+      ],
+      "candidate_carry": {
+        "frames": 160,
+        "source_raw_ranges": [
+          [
+            390,
+            550
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            390,
+            550
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            5856,
+            6016
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 636,
+        "source_raw_ranges": [
+          [
+            0,
+            390
+          ],
+          [
+            550,
+            796
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            390
+          ],
+          [
+            550,
+            796
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            5466,
+            5856
+          ],
+          [
+            6016,
+            6262
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 5,
+      "raw_transport_ranges": [
+        [
+          390,
+          550
+        ]
+      ]
+    },
+    {
+      "episode_index": 43,
+      "source_directory": "corrections/human_1792316642061092080",
+      "source_selected_range": [
+        67,
+        681
+      ],
+      "frames": 614,
+      "metadata_sha256": "897cf43c30ed15bc3677b3c743f3f508cf1073b05b069f238d1d4cc621d722e9",
+      "source_clip_sha256": "bda40bc3d83c367bf1b638fcacd84f4881c76a454fd2f52e6211a54367b7eba1",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "4089d9c0b8732c5d4385f9aff64a7b7af48b58428200c9012c4dd1fdf0e8541c",
+      "dataset_global_range": [
+        6262,
+        6876
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 187,
+        "first_sustained_raised_4cm": 238,
+        "lift_protected_end": 258,
+        "near_final_target_6cm": 381,
+        "first_postclose_open": 526,
+        "gripper_transitions": [
+          187,
+          526
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            67,
+            187
+          ],
+          "frames": 120
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            187,
+            258
+          ],
+          "frames": 71
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            258,
+            381
+          ],
+          "frames": 123
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            381,
+            526
+          ],
+          "frames": 145
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            526,
+            681
+          ],
+          "frames": 155
+        }
+      ],
+      "candidate_carry": {
+        "frames": 123,
+        "source_raw_ranges": [
+          [
+            258,
+            381
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            191,
+            314
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            6453,
+            6576
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 491,
+        "source_raw_ranges": [
+          [
+            67,
+            258
+          ],
+          [
+            381,
+            681
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            191
+          ],
+          [
+            314,
+            614
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            6262,
+            6453
+          ],
+          [
+            6576,
+            6876
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 6,
+      "raw_transport_ranges": [
+        [
+          258,
+          381
+        ]
+      ]
+    },
+    {
+      "episode_index": 44,
+      "source_directory": "corrections/human_1792316796553277838",
+      "source_selected_range": [
+        0,
+        665
+      ],
+      "frames": 665,
+      "metadata_sha256": "f9c7d7bcf0cc19f10b48b4e05cd818d0fd0e00a87456b67686e2da4bea7e0dff",
+      "source_clip_sha256": "c6948a5824e8194f73e2b159a6c3ac2758edca7d306977faf14662f85fb52396",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "c24611ad91d83f3045c741213e4ed02b2347fbdc008317dbf6ffd8b4ab4fd0bd",
+      "dataset_global_range": [
+        6876,
+        7541
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 195,
+        "first_sustained_raised_4cm": 245,
+        "lift_protected_end": 265,
+        "near_final_target_6cm": 445,
+        "first_postclose_open": 550,
+        "gripper_transitions": [
+          195,
+          550
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            195
+          ],
+          "frames": 195
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            195,
+            265
+          ],
+          "frames": 70
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            265,
+            445
+          ],
+          "frames": 180
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            445,
+            550
+          ],
+          "frames": 105
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            550,
+            665
+          ],
+          "frames": 115
+        }
+      ],
+      "candidate_carry": {
+        "frames": 180,
+        "source_raw_ranges": [
+          [
+            265,
+            445
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            265,
+            445
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            7141,
+            7321
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 485,
+        "source_raw_ranges": [
+          [
+            0,
+            265
+          ],
+          [
+            445,
+            665
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            265
+          ],
+          [
+            445,
+            665
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            6876,
+            7141
+          ],
+          [
+            7321,
+            7541
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 7,
+      "raw_transport_ranges": [
+        [
+          265,
+          445
+        ]
+      ]
+    },
+    {
+      "episode_index": 45,
+      "source_directory": "corrections/human_1792316988593839967",
+      "source_selected_range": [
+        0,
+        735
+      ],
+      "frames": 735,
+      "metadata_sha256": "576c8d6781913ee2933dfe68469e5295ccaa366db2310d23ff2790f4eb16af1b",
+      "source_clip_sha256": "34109945cc904053c4424fe703fd058392899ea1dde9a78874e2d654dd7b0705",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "aa0f3f4bb55fca17721abe2d1015a18dcde4ee4c091bde007b9faf705fed1d13",
+      "dataset_global_range": [
+        7541,
+        8276
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 265,
+        "first_sustained_raised_4cm": 321,
+        "lift_protected_end": 341,
+        "near_final_target_6cm": 495,
+        "first_postclose_open": 600,
+        "gripper_transitions": [
+          265,
+          600
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            265
+          ],
+          "frames": 265
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            265,
+            341
+          ],
+          "frames": 76
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            341,
+            495
+          ],
+          "frames": 154
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            495,
+            600
+          ],
+          "frames": 105
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            600,
+            735
+          ],
+          "frames": 135
+        }
+      ],
+      "candidate_carry": {
+        "frames": 154,
+        "source_raw_ranges": [
+          [
+            341,
+            495
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            341,
+            495
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            7882,
+            8036
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 581,
+        "source_raw_ranges": [
+          [
+            0,
+            341
+          ],
+          [
+            495,
+            735
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            341
+          ],
+          [
+            495,
+            735
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            7541,
+            7882
+          ],
+          [
+            8036,
+            8276
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 8,
+      "raw_transport_ranges": [
+        [
+          341,
+          495
+        ]
+      ]
+    },
+    {
+      "episode_index": 46,
+      "source_directory": "corrections/human_1792320596142609404",
+      "source_selected_range": [
+        0,
+        625
+      ],
+      "frames": 625,
+      "metadata_sha256": "de327fefcd630ff66479aa25cad0d1bc21392e730eb0294d0e5e6098f09398e7",
+      "source_clip_sha256": "8f325a20c62fe0f8123faf0ff57a6215a2bd56847cedad1f8b9cef3810c352fc",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "f36d7771907782657cb0a95cd6931398012d0519120ffa7ffb96e99ee1afb37c",
+      "dataset_global_range": [
+        8276,
+        8901
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 155,
+        "first_sustained_raised_4cm": 194,
+        "lift_protected_end": 214,
+        "near_final_target_6cm": 402,
+        "first_postclose_open": 490,
+        "gripper_transitions": [
+          155,
+          490
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            155
+          ],
+          "frames": 155
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            155,
+            214
+          ],
+          "frames": 59
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            214,
+            402
+          ],
+          "frames": 188
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            402,
+            490
+          ],
+          "frames": 88
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            490,
+            625
+          ],
+          "frames": 135
+        }
+      ],
+      "candidate_carry": {
+        "frames": 188,
+        "source_raw_ranges": [
+          [
+            214,
+            402
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            214,
+            402
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            8490,
+            8678
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 437,
+        "source_raw_ranges": [
+          [
+            0,
+            214
+          ],
+          [
+            402,
+            625
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            214
+          ],
+          [
+            402,
+            625
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            8276,
+            8490
+          ],
+          [
+            8678,
+            8901
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 9,
+      "raw_transport_ranges": [
+        [
+          214,
+          402
+        ]
+      ]
+    },
+    {
+      "episode_index": 47,
+      "source_directory": "corrections/human_1792320729171754480",
+      "source_selected_range": [
+        0,
+        810
+      ],
+      "frames": 810,
+      "metadata_sha256": "eb9072888be7080bac6274c250250638a5e2bd76f430799dae484128d32af0e8",
+      "source_clip_sha256": "6a59b5d79d405a97dc4a144590748cabdfb93f0cf0b88c4aa146191804219e0e",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "b5aed4b42eeb8fc5eadb4a948bef92f813c0654962b86e9a5fc09003c98c79c1",
+      "dataset_global_range": [
+        8901,
+        9711
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 270,
+        "first_sustained_raised_4cm": 344,
+        "lift_protected_end": 364,
+        "near_final_target_6cm": 483,
+        "first_postclose_open": 585,
+        "gripper_transitions": [
+          270,
+          585
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            270
+          ],
+          "frames": 270
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            270,
+            364
+          ],
+          "frames": 94
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            364,
+            483
+          ],
+          "frames": 119
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            483,
+            585
+          ],
+          "frames": 102
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            585,
+            810
+          ],
+          "frames": 225
+        }
+      ],
+      "candidate_carry": {
+        "frames": 119,
+        "source_raw_ranges": [
+          [
+            364,
+            483
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            364,
+            483
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            9265,
+            9384
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 691,
+        "source_raw_ranges": [
+          [
+            0,
+            364
+          ],
+          [
+            483,
+            810
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            364
+          ],
+          [
+            483,
+            810
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            8901,
+            9265
+          ],
+          [
+            9384,
+            9711
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 10,
+      "raw_transport_ranges": [
+        [
+          364,
+          483
+        ]
+      ]
+    },
+    {
+      "episode_index": 48,
+      "source_directory": "corrections/human_1792320881178092096",
+      "source_selected_range": [
+        0,
+        785
+      ],
+      "frames": 785,
+      "metadata_sha256": "bddc0d0a2b6b1a86895b4a657a83fb0991755e222427678a8b23ef915c7e6830",
+      "source_clip_sha256": "14bd5d6a96ab80d57896d46d7192a0c518cd65592cfa160da842dac7e9aa1661",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "b3e0b99e51883f15cb1df31f23287146b27654ac95554a0afbab8b7070415a17",
+      "dataset_global_range": [
+        9711,
+        10496
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 260,
+        "first_sustained_raised_4cm": 308,
+        "lift_protected_end": 328,
+        "near_final_target_6cm": 496,
+        "first_postclose_open": 625,
+        "gripper_transitions": [
+          260,
+          625
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            260
+          ],
+          "frames": 260
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            260,
+            328
+          ],
+          "frames": 68
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            328,
+            496
+          ],
+          "frames": 168
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            496,
+            625
+          ],
+          "frames": 129
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            625,
+            785
+          ],
+          "frames": 160
+        }
+      ],
+      "candidate_carry": {
+        "frames": 168,
+        "source_raw_ranges": [
+          [
+            328,
+            496
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            328,
+            496
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            10039,
+            10207
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 617,
+        "source_raw_ranges": [
+          [
+            0,
+            328
+          ],
+          [
+            496,
+            785
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            328
+          ],
+          [
+            496,
+            785
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            9711,
+            10039
+          ],
+          [
+            10207,
+            10496
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 11,
+      "raw_transport_ranges": [
+        [
+          328,
+          496
+        ]
+      ]
+    },
+    {
+      "episode_index": 49,
+      "source_directory": "corrections/human_1792321044770146509",
+      "source_selected_range": [
+        0,
+        650
+      ],
+      "frames": 650,
+      "metadata_sha256": "842b6b5d10f1b76ba1a90e4301065fa92e0a891af18c4884a3beee70a118a71a",
+      "source_clip_sha256": "fadf8082292362a6e7b2a22bc7fd75c57f672eb0507f422ed3613a48f9028125",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "8ba3ce4c64a588967c65b26d83570fee3b2c18de5060070712f5b83cde3bb1df",
+      "dataset_global_range": [
+        10496,
+        11146
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 205,
+        "first_sustained_raised_4cm": 262,
+        "lift_protected_end": 282,
+        "near_final_target_6cm": 390,
+        "first_postclose_open": 510,
+        "gripper_transitions": [
+          205,
+          510
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            205
+          ],
+          "frames": 205
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            205,
+            282
+          ],
+          "frames": 77
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            282,
+            390
+          ],
+          "frames": 108
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            390,
+            510
+          ],
+          "frames": 120
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            510,
+            650
+          ],
+          "frames": 140
+        }
+      ],
+      "candidate_carry": {
+        "frames": 108,
+        "source_raw_ranges": [
+          [
+            282,
+            390
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            282,
+            390
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            10778,
+            10886
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 542,
+        "source_raw_ranges": [
+          [
+            0,
+            282
+          ],
+          [
+            390,
+            650
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            282
+          ],
+          [
+            390,
+            650
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            10496,
+            10778
+          ],
+          [
+            10886,
+            11146
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "known_quality_limit": {
+        "source_range": [
+          478,
+          510
+        ],
+        "label": "late_contact",
+        "group": "new_contact_and_other",
+        "reason": "Already On, additional closed-gripper downward commands before release. Preserved under single-variable sampler comparison, not ideal quick release."
+      },
+      "clip_index": 12,
+      "raw_transport_ranges": [
+        [
+          282,
+          390
+        ]
+      ]
+    },
+    {
+      "episode_index": 50,
+      "source_directory": "corrections/human_1792321327539756305",
+      "source_selected_range": [
+        0,
+        545
+      ],
+      "frames": 545,
+      "metadata_sha256": "ec005078b6952b4c598299759e9f70622179c801197ca452f9c1205ae4dacaea",
+      "source_clip_sha256": "eb4bb2cc90359dcc328c5bede0844c91f2d0215faf8ac5aaaf90d7c4e889273c",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "484fd3ea750fe743e1f14a73997f922d9a4993f963ee63421f91eed000b02d90",
+      "dataset_global_range": [
+        11146,
+        11691
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 205,
+        "first_sustained_raised_4cm": null,
+        "lift_protected_end": null,
+        "near_final_target_6cm": null,
+        "first_postclose_open": 425,
+        "gripper_transitions": [
+          205,
+          425
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            205
+          ],
+          "frames": 205
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            205,
+            425
+          ],
+          "frames": 220
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            425,
+            545
+          ],
+          "frames": 120
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "protected_contact_and_other": {
+        "frames": 545,
+        "source_raw_ranges": [
+          [
+            0,
+            545
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            545
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            11146,
+            11691
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 13,
+      "raw_transport_ranges": []
+    },
+    {
+      "episode_index": 51,
+      "source_directory": "corrections/human_1792321449733577218",
+      "source_selected_range": [
+        0,
+        600
+      ],
+      "frames": 600,
+      "metadata_sha256": "e9804b6de7ad91103204043cfb09db86bbcd82999608af6d60f1c48db0adce92",
+      "source_clip_sha256": "e64b94a9e583989db291d4a18ad4ac37eb9c2d4884e895baccd13fc20629d2e9",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "6aaf7d70d9d1ec7ed4a432713c604224d6977d3e6fe15150349ef69705b5484a",
+      "dataset_global_range": [
+        11691,
+        12291
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 215,
+        "first_sustained_raised_4cm": 265,
+        "lift_protected_end": 285,
+        "near_final_target_6cm": 340,
+        "first_postclose_open": 450,
+        "gripper_transitions": [
+          215,
+          450
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            215
+          ],
+          "frames": 215
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            215,
+            285
+          ],
+          "frames": 70
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            285,
+            340
+          ],
+          "frames": 55
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            340,
+            450
+          ],
+          "frames": 110
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            450,
+            600
+          ],
+          "frames": 150
+        }
+      ],
+      "candidate_carry": {
+        "frames": 55,
+        "source_raw_ranges": [
+          [
+            285,
+            340
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            285,
+            340
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            11976,
+            12031
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 545,
+        "source_raw_ranges": [
+          [
+            0,
+            285
+          ],
+          [
+            340,
+            600
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            285
+          ],
+          [
+            340,
+            600
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            11691,
+            11976
+          ],
+          [
+            12031,
+            12291
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 14,
+      "raw_transport_ranges": [
+        [
+          285,
+          340
+        ]
+      ]
+    },
+    {
+      "episode_index": 52,
+      "source_directory": "corrections/human_1792321533232937641",
+      "source_selected_range": [
+        0,
+        580
+      ],
+      "frames": 580,
+      "metadata_sha256": "042e7a5bf2b6acf494f500872b1563e7efd6e29597dedbfb9124a43f2e7dd3f1",
+      "source_clip_sha256": "7f13ac5902fe2a429b184bcdc5862d820959ddfc2e4012f27177c2b5b69fa09c",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "2abee978c6932017685b6d31218455f931693cb3202d2315514f1379b78a88fc",
+      "dataset_global_range": [
+        12291,
+        12871
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 195,
+        "first_sustained_raised_4cm": 244,
+        "lift_protected_end": 264,
+        "near_final_target_6cm": 360,
+        "first_postclose_open": 450,
+        "gripper_transitions": [
+          195,
+          450
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "initial_approach_or_recovery",
+          "source_range": [
+            0,
+            195
+          ],
+          "frames": 195
+        },
+        {
+          "label": "grasp_and_lift_or_low_clearance_move",
+          "source_range": [
+            195,
+            264
+          ],
+          "frames": 69
+        },
+        {
+          "label": "elevated_transfer",
+          "source_range": [
+            264,
+            360
+          ],
+          "frames": 96
+        },
+        {
+          "label": "placement_alignment_and_contact",
+          "source_range": [
+            360,
+            450
+          ],
+          "frames": 90
+        },
+        {
+          "label": "release_retreat_and_hold",
+          "source_range": [
+            450,
+            580
+          ],
+          "frames": 130
+        }
+      ],
+      "candidate_carry": {
+        "frames": 96,
+        "source_raw_ranges": [
+          [
+            264,
+            360
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            264,
+            360
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            12555,
+            12651
+          ]
+        ]
+      },
+      "protected_contact_and_other": {
+        "frames": 484,
+        "source_raw_ranges": [
+          [
+            0,
+            264
+          ],
+          [
+            360,
+            580
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            264
+          ],
+          [
+            360,
+            580
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            12291,
+            12555
+          ],
+          [
+            12651,
+            12871
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 15,
+      "raw_transport_ranges": [
+        [
+          264,
+          360
+        ]
+      ]
+    },
+    {
+      "episode_index": 53,
+      "source_directory": "corrections/human_1792321838302212936",
+      "source_selected_range": [
+        0,
+        225
+      ],
+      "frames": 225,
+      "metadata_sha256": "f2e46bc03a7e4b46eecfc4a14974dea5287b51e035c6e2f0484e8e46954cad6b",
+      "source_clip_sha256": "282e878123da22c41e2b260811669620352f0dc3faaccf94489f5ad8a8b80531",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "1d826c4e72a7511b21d8f1d584e0da89fd31da2260f61c7460dc7ca05e4ce116",
+      "dataset_global_range": [
+        12871,
+        13096
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": 32,
+        "lift_protected_end": 52,
+        "near_final_target_6cm": 52,
+        "first_postclose_open": 110,
+        "gripper_transitions": [
+          110
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "already_holding_placement_and_release",
+          "source_range": [
+            0,
+            225
+          ],
+          "frames": 225
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "protected_contact_and_other": {
+        "frames": 225,
+        "source_raw_ranges": [
+          [
+            0,
+            225
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            225
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            12871,
+            13096
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 16,
+      "raw_transport_ranges": []
+    },
+    {
+      "episode_index": 54,
+      "source_directory": "corrections/human_1792321887412888670",
+      "source_selected_range": [
+        0,
+        205
+      ],
+      "frames": 205,
+      "metadata_sha256": "0f030ee770076970aa52146318422ce3e4125cc28cf890666510f1942b8bd03c",
+      "source_clip_sha256": "c785bea8ece4188350b2d12d5278977225d8a108ad025046f98d95765561eeea",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "e34ac4fde8406702e70ebcc280096e2c938679c8b638efe804ab010d94c1fb71",
+      "dataset_global_range": [
+        13096,
+        13301
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": 0,
+        "lift_protected_end": 20,
+        "near_final_target_6cm": 21,
+        "first_postclose_open": 100,
+        "gripper_transitions": [
+          100
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "already_holding_placement_and_release",
+          "source_range": [
+            0,
+            205
+          ],
+          "frames": 205
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "protected_contact_and_other": {
+        "frames": 205,
+        "source_raw_ranges": [
+          [
+            0,
+            205
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            205
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            13096,
+            13301
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 17,
+      "raw_transport_ranges": []
+    },
+    {
+      "episode_index": 55,
+      "source_directory": "corrections/human_1792322110720259274",
+      "source_selected_range": [
+        0,
+        220
+      ],
+      "frames": 220,
+      "metadata_sha256": "9a7e201239e5631aa519cacddb13a69a96831001cb273c94c9663673533a30f1",
+      "source_clip_sha256": "5cdb84264f7c279e037705b460b2460c347cdcb7399b83e0fafc06962929365c",
+      "source_clip_sha256_definition": "SHA256 of ordered metadata entries encoded path+NUL+file_sha256+newline (each selected NPZ is already pinned by metadata); does not reread RGB bytes.",
+      "exported_parquet_sha256": "67f755bcf13020bc881d63b33fc96f4f254107c8d4112eb122d6ac67a05bc9c4",
+      "dataset_global_range": [
+        13301,
+        13521
+      ],
+      "events_source_frames": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": 0,
+        "lift_protected_end": 20,
+        "near_final_target_6cm": 22,
+        "first_postclose_open": 125,
+        "gripper_transitions": [
+          125
+        ]
+      },
+      "coarse_phases": [
+        {
+          "label": "already_holding_placement_and_release",
+          "source_range": [
+            0,
+            220
+          ],
+          "frames": 220
+        }
+      ],
+      "candidate_carry": {
+        "frames": 0,
+        "source_raw_ranges": [],
+        "exported_episode_ranges": [],
+        "dataset_global_ranges": []
+      },
+      "protected_contact_and_other": {
+        "frames": 220,
+        "source_raw_ranges": [
+          [
+            0,
+            220
+          ]
+        ],
+        "exported_episode_ranges": [
+          [
+            0,
+            220
+          ]
+        ],
+        "dataset_global_ranges": [
+          [
+            13301,
+            13521
+          ]
+        ]
+      },
+      "interpretation": "All original source frames retained. Candidate strata only; protected complement includes approach, recovery, lift, target alignment, release and other motion.",
+      "clip_index": 18,
+      "raw_transport_ranges": []
+    }
+  ],
+  "risks": [
+    "Phase boundaries are conservative heuristics and not exhaustive expert phase annotations.",
+    "contact_and_other is the complement, not a claim every frame is fine contact or recovery.",
+    "Some low-clearance carry is deliberately left in contact_and_other because no 4cm height event.",
+    "The 6cm final-target distance is offline only and must not enter model observation or online controls.",
+    "Sampling whole windows at a start still includes next 9 actions; preserving originals avoids discontinuities. Gripper +/-30 protection exceeds horizon10.",
+    "Known human_1792321044770146509 [478,510) late closed contact/downward press remains contact_and_other for a single-variable sampling contrast, not endorsed ideal fast release.",
+    "Late successful retreat/holds remain preserved even if inefficient; no automatic terminal-gate trimming.",
+    "No data, training configuration, GUI, model or original recordings changed."
+  ],
+  "full_coverage_counts": {
+    "public": 4400,
+    "old5_correction": 1066,
+    "new_contact_and_other": 6704,
+    "new_conservative_carry": 1351
+  },
+  "full_coverage_total": 13521
+}

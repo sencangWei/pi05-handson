@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "purpose": "phase_tempo_v1",
+  "seed": 42,
+  "repo_id": "course/libero_corrections_public37_reviewed19_v4",
+  "dataset_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "dataset_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "virtual_frames": 200000,
+  "selection": {
+    "path": "evidence/phase-tempo-v1-selection.json",
+    "sha256": "6478c18dcc3a739f24c42907cf2dc936ed41f7d6175d88664d4ffbb452d49426"
+  },
+  "groups": [
+    {
+      "name": "public_complete_demos",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 140000
+    },
+    {
+      "name": "previous_approved_corrections",
+      "ranges": [
+        [
+          4400,
+          5466
+        ]
+      ],
+      "virtual_count": 20000
+    },
+    {
+      "name": "new_contact_and_other",
+      "ranges": [
+        [
+          5466,
+          5856
+        ],
+        [
+          6007,
+          6453
+        ],
+        [
+          6567,
+          7141
+        ],
+        [
+          7312,
+          7882
+        ],
+        [
+          8027,
+          8490
+        ],
+        [
+          8669,
+          9265
+        ],
+        [
+          9375,
+          10039
+        ],
+        [
+          10198,
+          10778
+        ],
+        [
+          10877,
+          11976
+        ],
+        [
+          12022,
+          12555
+        ],
+        [
+          12642,
+          13521
+        ]
+      ],
+      "virtual_count": 38000
+    },
+    {
+      "name": "new_normal_transport",
+      "ranges": [
+        [
+          5856,
+          6007
+        ],
+        [
+          6453,
+          6567
+        ],
+        [
+          7141,
+          7312
+        ],
+        [
+          7882,
+          8027
+        ],
+        [
+          8490,
+          8669
+        ],
+        [
+          9265,
+          9375
+        ],
+        [
+          10039,
+          10198
+        ],
+        [
+          10778,
+          10877
+        ],
+        [
+          11976,
+          12022
+        ],
+        [
+          12555,
+          12642
+        ]
+      ],
+      "virtual_count": 2000
+    }
+  ]
+}

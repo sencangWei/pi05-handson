@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "dataset_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "dataset_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "retained_old_clips": 5,
+  "rule": "Only change observation-start sampling. A downweighted start must have all10 future actions inside a reviewed transport interval; every original start remains represented.",
+  "phase_audit": {
+    "path": "evidence/phase-tempo-v1/human-phase-audit.json",
+    "sha256": "2d62b5ef3234c38f5d780c6dc4e59d683b851e4e48c0daec51bb19e4ba5c673f"
+  },
+  "candidate_rule": {
+    "height_threshold_m": 0.04,
+    "height_sustained_frames": 5,
+    "post_lift_protected_frames": 20,
+    "final_target_xy_radius_m": 0.06,
+    "near_target_sustained_frames": 5,
+    "gripper_transition_exclusion_radius_frames": 30,
+    "carry_min_contiguous_frames": 10,
+    "definition": "After first sustained close and bowl raised above original table bowl-center z+4cm for 5 frames, protect 20 more frames; tentative carry ends at first sustained entry within 6cm XY of final stable bowl location. Exclude every actual gripper transition +/-30 frames from candidates. If lift/near cannot be found, no carry candidate. Initial already-closed clips near plate are not assumed to be grasp recovery.",
+    "final_target": "mean post_bowl_pos XY of last 10 source frames; offline event reference only, not deployment privileged state"
+  },
+  "virtual_group_fractions": {
+    "public": 0.7,
+    "old5": 0.1,
+    "new_contact_and_other": 0.19,
+    "new_normal_transport": 0.01
+  },
+  "rationale": "Final post-boundary counts1261transport/6794other:1% vs19% reduces transport weight per unique human start. Initial5% vs15% candidate would overweight transport relative to other new human starts; rejected before export/training.",
+  "clips": [
+    {
+      "clip_index": 5,
+      "source_directory": "corrections/human_1792316444273677599",
+      "metadata_sha256": "04352c3687814b10143c2d57c84d83f50fcb9e18015d9d229fc7fc5c23f1fadb",
+      "raw_transport_ranges": [
+        [
+          390,
+          550
+        ]
+      ]
+    },
+    {
+      "clip_index": 6,
+      "source_directory": "corrections/human_1792316642061092080",
+      "metadata_sha256": "897cf43c30ed15bc3677b3c743f3f508cf1073b05b069f238d1d4cc621d722e9",
+      "raw_transport_ranges": [
+        [
+          258,
+          381
+        ]
+      ]
+    },
+    {
+      "clip_index": 7,
+      "source_directory": "corrections/human_1792316796553277838",
+      "metadata_sha256": "f9c7d7bcf0cc19f10b48b4e05cd818d0fd0e00a87456b67686e2da4bea7e0dff",
+      "raw_transport_ranges": [
+        [
+          265,
+          445
+        ]
+      ]
+    },
+    {
+      "clip_index": 8,
+      "source_directory": "corrections/human_1792316988593839967",
+      "metadata_sha256": "576c8d6781913ee2933dfe68469e5295ccaa366db2310d23ff2790f4eb16af1b",
+      "raw_transport_ranges": [
+        [
+          341,
+          495
+        ]
+      ]
+    },
+    {
+      "clip_index": 9,
+      "source_directory": "corrections/human_1792320596142609404",
+      "metadata_sha256": "de327fefcd630ff66479aa25cad0d1bc21392e730eb0294d0e5e6098f09398e7",
+      "raw_transport_ranges": [
+        [
+          214,
+          402
+        ]
+      ]
+    },
+    {
+      "clip_index": 10,
+      "source_directory": "corrections/human_1792320729171754480",
+      "metadata_sha256": "eb9072888be7080bac6274c250250638a5e2bd76f430799dae484128d32af0e8",
+      "raw_transport_ranges": [
+        [
+          364,
+          483
+        ]
+      ]
+    },
+    {
+      "clip_index": 11,
+      "source_directory": "corrections/human_1792320881178092096",
+      "metadata_sha256": "bddc0d0a2b6b1a86895b4a657a83fb0991755e222427678a8b23ef915c7e6830",
+      "raw_transport_ranges": [
+        [
+          328,
+          496
+        ]
+      ]
+    },
+    {
+      "clip_index": 12,
+      "source_directory": "corrections/human_1792321044770146509",
+      "metadata_sha256": "842b6b5d10f1b76ba1a90e4301065fa92e0a891af18c4884a3beee70a118a71a",
+      "raw_transport_ranges": [
+        [
+          282,
+          390
+        ]
+      ]
+    },
+    {
+      "clip_index": 13,
+      "source_directory": "corrections/human_1792321327539756305",
+      "metadata_sha256": "ec005078b6952b4c598299759e9f70622179c801197ca452f9c1205ae4dacaea",
+      "raw_transport_ranges": []
+    },
+    {
+      "clip_index": 14,
+      "source_directory": "corrections/human_1792321449733577218",
+      "metadata_sha256": "e9804b6de7ad91103204043cfb09db86bbcd82999608af6d60f1c48db0adce92",
+      "raw_transport_ranges": [
+        [
+          285,
+          340
+        ]
+      ]
+    },
+    {
+      "clip_index": 15,
+      "source_directory": "corrections/human_1792321533232937641",
+      "metadata_sha256": "042e7a5bf2b6acf494f500872b1563e7efd6e29597dedbfb9124a43f2e7dd3f1",
+      "raw_transport_ranges": [
+        [
+          264,
+          360
+        ]
+      ]
+    },
+    {
+      "clip_index": 16,
+      "source_directory": "corrections/human_1792321838302212936",
+      "metadata_sha256": "f2e46bc03a7e4b46eecfc4a14974dea5287b51e035c6e2f0484e8e46954cad6b",
+      "raw_transport_ranges": []
+    },
+    {
+      "clip_index": 17,
+      "source_directory": "corrections/human_1792321887412888670",
+      "metadata_sha256": "0f030ee770076970aa52146318422ce3e4125cc28cf890666510f1942b8bd03c",
+      "raw_transport_ranges": []
+    },
+    {
+      "clip_index": 18,
+      "source_directory": "corrections/human_1792322110720259274",
+      "metadata_sha256": "9a7e201239e5631aa519cacddb13a69a96831001cb273c94c9663673533a30f1",
+      "raw_transport_ranges": []
+    }
+  ]
+}

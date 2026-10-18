@@ -1,0 +1,30 @@
+{
+  "status": "candidate_pending_user_review",
+  "source_directory": "corrections/human_1792302165387076969",
+  "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+  "scope": "Recovery fragments separate from placement; no stitching across removed trial-and-error frames",
+  "clips": [
+    {
+      "label": "抓取失败后抬起脱离：原始0–44帧",
+      "start": 0,
+      "stop": 45,
+      "frames": 45,
+      "video": ".local/curation-placement-v1/recovery-lift.mp4",
+      "sha256": "15fe2ee2be31737df8db679e14b4e60b8ae5b42dc8e5022b1464542372f75304",
+      "last_bowl_z_m": 0.8989359140396118,
+      "last_finger_gap_m": 0.0009996199514716864,
+      "task_placement_complete": false
+    },
+    {
+      "label": "重新开爪、下探、夹住并初步提起：原始430–519帧",
+      "start": 430,
+      "stop": 520,
+      "frames": 90,
+      "video": ".local/curation-placement-v1/recovery-regrasp.mp4",
+      "sha256": "12e3769e8d19027de15aae89b48266be50ebaee1f990cc2f48529ce317ca03d7",
+      "last_bowl_z_m": 0.9242620468139648,
+      "last_finger_gap_m": 0.006375759840011597,
+      "task_placement_complete": false
+    }
+  ]
+}

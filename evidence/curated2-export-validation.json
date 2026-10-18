@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "Placement-only export validation; not the complete recovery training dataset",
+  "dataset_manifest": "evidence/corrections-public37_curated2_v1-manifest.json",
+  "dataset_manifest_sha256": "272e1c22dc638691939e46909c6ead9d1012246c6ecae027587f6dbd12cf03fa",
+  "public_train_episodes": 37,
+  "public_train_frames": 4400,
+  "selected_placement_episodes": 2,
+  "selected_placement_frames": 346,
+  "total_train_episodes": 39,
+  "total_train_frames": 4746,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "validator": "train_corrections.validate_inputs",
+  "checks": "Checksummed public/heldout/source files, exact raw selected action/state/RGB/index/time alignment, normalization and parent lineage",
+  "parent_checkpoint": "checkpoints/pi05_handson_lora/release_focus_2000/1999",
+  "training_started_by_agent": false,
+  "gui_dataset_selection_changed": false,
+  "recovery_clips": "candidate_pending_user_review"
+}

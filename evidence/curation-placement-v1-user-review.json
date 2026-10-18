@@ -1,0 +1,10 @@
+{
+  "selection_manifest": "evidence/curation-placement-v1-selection.json",
+  "selection_sha256": "474938b32f6737740dd0a5b7931be66d4238639f5da68adb4ab2df99cadcdd4b",
+  "reviewed_by": "user",
+  "reply": "两段都可以",
+  "client_date": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "selected_ranges_unchanged": true,
+  "training_started_by_agent": false
+}

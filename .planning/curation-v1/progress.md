@@ -19,3 +19,5 @@ User steering:「但是我有一个不是重复夹完吗？去哪里了，夹不
 Newv2realexportPASS:41episodes4881frames,481selectedhumanframes,10/1170holdoutunchanged. ActualOpenPIloader checksall41start/tail/endwindows, exact481rawstate/actions; stricttrainer verifiesallRGBs and3source950slicesindependently. CPUdryrunPASS,noparams/optimizer/trainingcreated.73targetedtests(28export/trainer+4phase+41Tk) andRuffPASS,independentreviewnoblockers. Standardlast-actionpaddingrepeatupwardtargetsnotstoplabels; documented.
 
 IdleGUIverifiednoscenes/recordings andgracefullyreopened; actualscreenshotpreviews/curated4-training-form.png verified41/4881,放置2恢复2, parentrelease_focus/1999,3000/batch4/LR1e-5/uniform. StartTrainingNOTclicked.
+
+Backupv2verified:fc6b93f pushedownpublicsencangWei/pi05-handson experiment/correction-learning,20changedfileSHA256 andfullGit tree matchafterapplyingfetchedremotepatchtoclean3eff9b4base. OpenPI/LIBEROcleansourceuntouched. Proof:.local/backup-public-20261017/curated4-remote-verification.json. Backedupcode/selection/manifests/checks/GUI screenshot; rawdata/media/checkpointsremainlocal. PreparationCOMPLETE/READY, trainingnotstarted; learnerclicksStartTraining.

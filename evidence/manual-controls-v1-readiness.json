@@ -1,0 +1,38 @@
+{
+  "status": "READY_FOR_MANUAL_COLLECTION",
+  "date": "2026-10-18",
+  "features": [
+    "view-relative table-plane mouse joystick",
+    "world XYZ arrows beside gripper with leader line",
+    "top camera and independent Z/gripper controls"
+  ],
+  "tests": {
+    "targeted_suite_passed": 111,
+    "subtests_passed": 5,
+    "final_axes_sdk_tests_passed": 4,
+    "ruff": "PASS",
+    "native_combobox_regression": "failed before raw Tcl grab-path fix; passed afterward"
+  },
+  "real_simulation_check": "evidence/manual-controls-v1-sim-check.json",
+  "desktop_check": {
+    "passed": true,
+    "policy_control_steps": 0,
+    "human_recorded_frames": 0,
+    "inference_service_restarted": false,
+    "training_started": false,
+    "reviewed_images": [
+      "previews/manual-controls-v1-panel.png",
+      "previews/manual-controls-v1-axes-perspective.png",
+      "previews/manual-controls-v1-axes-top.png",
+      "previews/manual-controls-v1-training-settings.png"
+    ]
+  },
+  "scope": "collection controls only; no new recovery performance result",
+  "new_recordings_require_new_dataset_selection": true,
+  "image_sha256": {
+    "previews/manual-controls-v1-panel.png": "f51785b8d394c83b24ff38a5f5054f810854cc64805e1fa4b783f249a52c0c2e",
+    "previews/manual-controls-v1-axes-perspective.png": "bcff91f86e58042004b35fa4d0a9cd43bd16e65429b56b591d88a03d6560d79c",
+    "previews/manual-controls-v1-axes-top.png": "087817906de46c345997f437154064369250245ee1ac85f5b6b3f18d69d3cdcb",
+    "previews/manual-controls-v1-training-settings.png": "1213c0ca771e3b65d97a56f089a81ca0af7fbd93e92309123fba0ea24285b372"
+  }
+}

@@ -81,10 +81,11 @@ class CorrectionWorkbench(LabWorkbench):
                     "source_model_metadata": scene.get("model_metadata"),
                     "control_dt": float(self.view.control_dt),
                     "camera_orientation": "same double-axis flip as original course inference",
-                    "action_contract": "OSC_POSE normalized delta xyz/rotation; +1 close, -1 open",
+                    "action_contract": "OSC_POSE normalized world delta xyz/axis-angle rotation; +1 close, -1 open",
                     "initial_sim_state_sha256": state_digest(state),
                     "software_source_sha256": {name: hashlib.sha256((Path(__file__).parent / name).read_bytes()).hexdigest()
-                                               for name in ("correction_workbench.py", "correction_data.py", "lab_panel.py")}}
+                                               for name in ("correction_workbench.py", "correction_data.py", "lab_panel.py",
+                                                            "live_preview.py", "viewer_controls.py", "manual_joystick.py")}}
         directory = self.project / "corrections" / f"human_{time.time_ns()}"
         recorder = CorrectionRecorder(directory, metadata)
         np.save(directory / "initial_sim_state.npy", state, allow_pickle=False)
@@ -210,7 +211,7 @@ class CorrectionWorkbench(LabWorkbench):
                     self.obs = after
                     self.manual_state_hash = state_digest(self.env.get_sim_state())
                     self.known_state_hash = self.manual_state_hash
-                self.view.handle.sync()
+                self.view.sync()
             self.correction_status = f"已记录 {self.correction.count} 个人工控制步；暂停等待下一次按钮操作"
             self.event("manual_action", action=action.tolist(), repeats=repeats, frames=self.correction.count)
         except Exception as error:
@@ -241,6 +242,20 @@ class CorrectionWorkbench(LabWorkbench):
         action[6] = -1 if opened else 1
         self._manual_steps(action, repeats)
         self.manual_grip = float(action[6])
+
+    def manual_translate(self, x, y, scale):
+        """Record one view-relative table-plane step; Z and orientation stay fixed."""
+        if (not np.isfinite([x, y, scale]).all() or isinstance(scale, bool)
+                or not .05 <= scale <= .3 or np.linalg.norm([x, y]) > 1 + 1e-6):
+            raise ValueError("摇杆幅度须在单位圆内，动作幅度须为 0.05～0.3")
+        if not self.correction_active or self.view is None or not self.view.is_running():
+            raise ValueError("请先开始人工接管")
+        right, up = self.view.translation_basis()
+        delta = x * right + y * up
+        delta /= max(1., float(np.linalg.norm(delta)))
+        action = np.zeros(7)
+        action[:2], action[6] = delta * scale, self.manual_grip
+        self._manual_steps(action, 1)
 
     def manual_hold(self, repeats=10):
         action = np.zeros(7)

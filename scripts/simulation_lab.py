@@ -308,7 +308,7 @@ class SimulationLab:
             self.save("viewer_closed")
             self._close_scene()
             return
-        self.view.handle.sync()
+        self.view.sync()
         if self.finished:
             self.view.paused = True
             return

@@ -64,6 +64,12 @@ class FakeView:
     def lock(self):
         return contextlib.nullcontext()
 
+    def sync(self):
+        self.handle.sync()
+
+    def translation_basis(self):
+        return np.array([1., 0]), np.array([0, 1.])
+
     def close(self):
         self.env.calls.append("view_close")
 

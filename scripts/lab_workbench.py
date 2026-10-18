@@ -199,6 +199,12 @@ class LabWorkbench(SimulationLab):
             self.view.handle.cam.elevation = -30
         self.event("camera_reset")
 
+    def top_camera(self):
+        if self.view is None:
+            raise ValueError("请先加载场景")
+        self.view.top_view()
+        self.event("camera_top")
+
     def _result_path(self, path):
         path = Path(path).expanduser().resolve()
         if not path.is_relative_to(self.project / "evaluations") or not path.is_file() or not path.name.endswith("result.json"):

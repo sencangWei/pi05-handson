@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "world_camera_basis": [
+    [
+      1.0,
+      -6.123234262925839e-17
+    ],
+    [
+      6.123234262925839e-17,
+      1.0
+    ]
+  ],
+  "axes_count": 3,
+  "state_equal_before_after_axes_and_camera": true,
+  "camera_pixels_equal": {
+    "agentview_image": true,
+    "robot0_eye_in_hand_image": true
+  },
+  "model_geom_count_unchanged": true,
+  "recorded_action": [
+    0.06,
+    0.08,
+    0,
+    0,
+    0,
+    0,
+    -1
+  ],
+  "recorded_frames": 1,
+  "recording_status": "draft",
+  "test_recording_project": "/home/robot/.pi05-handson/.local/manual-controls-v1/test-project/corrections/human_1792314672444408306",
+  "frame_sha256": "81185d6c1ce0f01c3958ec62f6beaebb0d8651d88ec333d2a0fc3612f9dbc23a",
+  "actual_user_project_data_changed": false,
+  "training_or_model_inference": false,
+  "final_overlay_check": {
+    "status": "PASS",
+    "visual_geoms": 7,
+    "arrows": 3,
+    "separate_endpoint_labels": 3,
+    "eef_leader_lines": 1,
+    "state_equal": true,
+    "camera_pixels_equal": {
+      "agentview_image": true,
+      "robot0_eye_in_hand_image": true
+    },
+    "model_geom_count_unchanged": true,
+    "observation_baseline": "both observations regenerated from the same physical state, avoiding post-step sensor cache differences"
+  }
+}

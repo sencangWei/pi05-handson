@@ -91,6 +91,32 @@ class CorrectionBackendTests(unittest.TestCase):
         self.assertEqual(self.lab.record.result["control_steps"], 0)
         self.assertEqual(self.lab.correction.count, 1)
 
+    def test_joystick_records_one_world_step_and_preserves_grip_and_other_axes(self):
+        self.lab.begin_correction()
+        self.lab.view.translation_basis = lambda: (np.array([0., -1]), np.array([1., 0]))
+        self.lab.manual_translate(.6, .8, .1)
+        self.assertEqual(len(self.lab.env.applied), 1)
+        np.testing.assert_allclose(self.lab.env.applied[0], [.08, -.06, 0, 0, 0, 0, -1])
+        with np.load(self.lab.correction.directory / "frame-000000.npz", allow_pickle=False) as frame:
+            np.testing.assert_allclose(frame["action"], self.lab.env.applied[0])
+        self.lab.manual_gripper(False, repeats=1)
+        self.lab.manual_translate(1, 0, .1)
+        self.assertEqual(self.lab.env.applied[-1][6], 1)
+        self.assertEqual(self.lab.correction.count, 3)
+        for x, y, scale in [(1, 1, .1), (float("nan"), 0, .1), (1, 0, .4)]:
+            with self.assertRaises(ValueError):
+                self.lab.manual_translate(x, y, scale)
+        self.assertEqual(self.lab.correction.count, 3)
+
+    def test_joystick_clamps_combined_projection_and_requires_takeover(self):
+        with self.assertRaisesRegex(ValueError, "接管"):
+            self.lab.manual_translate(1, 0, .1)
+        self.lab.begin_correction()
+        # Roll in a fixed camera can make projected floor directions nonorthogonal.
+        self.lab.view.translation_basis = lambda: (np.array([1., 0]), np.array([1., 0]))
+        self.lab.manual_translate(2**-.5, 2**-.5, .1)
+        self.assertAlmostEqual(np.linalg.norm(self.lab.env.applied[-1][:2]), .1)
+
     def test_rejected_approval_can_continue_then_open_hold_and_save(self):
         self.lab.begin_correction()
         self.lab.manual_gripper(False)

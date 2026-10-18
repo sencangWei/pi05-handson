@@ -29,6 +29,7 @@ class VisualToolTests(unittest.TestCase):
         view.single_step = False
         view.quit_requested = False
         view.handle = SimpleNamespace(sync=lambda: None, is_running=lambda: True)
+        view.sync = lambda: view.handle.sync()
         view.on_key(ord("N"))
         self.assertTrue(view.before_step())
         self.assertTrue(view.paused)

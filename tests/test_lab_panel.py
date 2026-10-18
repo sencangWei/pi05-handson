@@ -413,6 +413,22 @@ class CorrectionTests(PanelTests):
         self.assertEqual(self.backend.calls[-1], ("finish_correction", False))
         self.assertFalse(any(call[0] == "start_training" for call in self.backend.calls))
 
+    def test_joystick_only_enabled_on_active_correction_tab_and_errors_stop(self):
+        self._begin()
+        self.panel.notebook.select(self.panel.correction_page)
+        self.root.update()
+        self.panel._refresh()
+        self.assertTrue(self.panel.translation_joystick._enabled)
+        with patch.object(self.backend, "manual_translate", create=True) as move:
+            self.assertTrue(self.panel._joystick_move(.6, .8))
+            move.assert_called_once_with(.6, .8, scale=.1)
+        with patch.object(self.backend, "manual_translate", create=True, side_effect=ValueError("stopped")):
+            self.assertFalse(self.panel._joystick_move(1, 0))
+        self.panel.notebook.select(0)
+        self.root.update()
+        self.panel._refresh()
+        self.assertFalse(self.panel.translation_joystick._enabled)
+
     def test_manual_validation_and_failed_approval_preserve_takeover(self):
         self._begin()
         before = list(self.backend.calls)

@@ -301,13 +301,13 @@ class LabPanel:
         self._results = {}
 
     def _build_correction(self):
+        from manual_joystick import TranslationJoystick
         page = self.correction_page = ttk.Frame(self.notebook, padding=12)
         self.notebook.add(page, text="人工纠正")
         page.columnconfigure(0, weight=1)
-        ttk.Label(page, text="在盘子附近先暂停模型，再开始接管；只记录人工按钮产生的动作。\n\n"
-                  "完成放置后：松爪 10 步（开口至少 6cm）→ 撤手至少 10cm → 保持 10 步。\n\n"
-                  "最后 10 步均须满足 On，再保存为合格。\n\n"
-                  "合格保存须通过检查，失败后可继续纠正；草稿永不进入训练。",
+        ttk.Label(page, text="先暂停模型，再开始人工接管；按钮和摇杆执行的动作都会录制。\n"
+                  "放稳后：松爪 10 步 → 撤手至少 10cm → 保持 10 步，最后 10 步均须满足 On。\n"
+                  "摇杆跟随三维窗口的视角；下面两路模型相机的方向可能不同。草稿不进入训练。",
                   wraplength=660, justify="left").grid(row=0, column=0, sticky="w")
         start = ttk.Frame(page)
         start.grid(row=1, column=0, sticky="w", pady=8)
@@ -336,30 +336,45 @@ class LabPanel:
             box.columnconfigure(0, weight=1)
             box.rowconfigure(1, weight=1)
             self.camera_labels[key] = label
-        options = ttk.Frame(page)
-        options.grid(row=4, column=0, sticky="w", pady=4)
+        controls = ttk.Frame(page)
+        controls.grid(row=4, column=0, sticky="w", pady=4)
+        self.translation_joystick = TranslationJoystick(controls, self._joystick_move, self._error)
+        self.translation_joystick.grid(row=0, column=0, rowspan=4, sticky="n", padx=(0, 12))
+        options = ttk.Frame(controls)
+        options.grid(row=0, column=1, sticky="w", pady=4)
         self.jog_scale_var = tk.StringVar(value="0.1")
         self.jog_repeats_var = tk.StringVar(value="5")
         ttk.Label(options, text="动作幅度 (0.05～0.3)").grid(row=0, column=0)
         ttk.Spinbox(options, from_=0.05, to=0.3, increment=0.05, width=6,
                     textvariable=self.jog_scale_var).grid(row=0, column=1, padx=6)
-        ttk.Label(options, text="重复步数 (1～20)").grid(row=0, column=2)
+        ttk.Label(options, text="按钮步数 (1～20)").grid(row=0, column=2)
         ttk.Spinbox(options, from_=1, to=20, width=5,
                     textvariable=self.jog_repeats_var).grid(row=0, column=3, padx=6)
-        jog = ttk.Frame(page)
-        jog.grid(row=5, column=0, sticky="w", pady=4)
+        legend = ttk.Frame(controls)
+        legend.grid(row=1, column=1, sticky="w")
+        for column, (text, color) in enumerate((("世界 X 红", "#ce2020"),
+                                              ("Y 绿", "#188231"), ("Z 蓝", "#235ac4"))):
+            ttk.Label(legend, text=text, foreground=color).grid(row=0, column=column, padx=(0, 8))
+        self.top_view_button = ttk.Button(legend, text="俯视对准",
+                                          command=lambda: self._perform(self.lab.top_camera))
+        self.top_view_button.grid(row=0, column=3)
+        jog = ttk.Frame(controls)
+        jog.grid(row=2, column=1, sticky="w", pady=4)
         self.jog_buttons = {}
         self._manual_buttons = []
         for axis, label in enumerate(("X", "Y", "Z", "Rx", "Ry", "Rz")):
             for row, sign in enumerate((1, -1)):
-                button = ttk.Button(jog, text=f"{label} {'+' if sign > 0 else '−'}", width=7,
+                text = f"{label} {'+' if sign > 0 else '−'}"
+                if axis == 2:
+                    text = "Z ↑ 抬高" if sign > 0 else "Z ↓ 降低"
+                button = ttk.Button(jog, text=text, width=7,
                                     command=lambda axis=axis, sign=sign: self._perform(
                                         lambda: self._manual_jog(axis, sign)))
                 button.grid(row=row, column=axis, padx=(0, 6), pady=3)
                 self.jog_buttons[(axis, sign)] = button
                 self._manual_buttons.append(button)
-        actions = ttk.Frame(page)
-        actions.grid(row=6, column=0, sticky="w", pady=6)
+        actions = ttk.Frame(controls)
+        actions.grid(row=3, column=1, sticky="w", pady=6)
         for column, (name, label, action) in enumerate((
                 ("gripper_open_button", "松爪（10步）", lambda: self.lab.manual_gripper(True, repeats=10)),
                 ("gripper_close_button", "闭爪（10步）", lambda: self.lab.manual_gripper(False, repeats=10)),
@@ -404,11 +419,23 @@ class LabPanel:
             raise ValueError("动作幅度须在 0.05～0.3，重复步数须为 1～20 的整数")
         self.lab.manual_jog(axis, sign, scale=scale, repeats=repeats)
 
+    def _joystick_move(self, x, y):
+        try:
+            self.lab.manual_translate(x, y, scale=float(self.jog_scale_var.get()))
+        except Exception as error:
+            self._error(error)
+            return False
+        self._refresh()
+        return True
+
     def _refresh_correction(self, scene):
         state = self.lab.correction_state()
         active = bool(state["active"])
         training = scene.get("training_running", False)
         available = scene["ready"] and not scene["running"] and not training
+        self.translation_joystick.set_enabled(
+            active and available and self.notebook.select() == str(self.correction_page))
+        self.top_view_button.configure(state="normal" if scene["ready"] and not training else "disabled")
         self.correction_start_button.configure(state="normal" if available and not active else "disabled")
         self.correction_resume_button.configure(state="disabled" if active or training or scene["running"] else "normal")
         self.correction_split_combo.configure(state="disabled" if active else "readonly")

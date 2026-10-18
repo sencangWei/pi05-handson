@@ -1,0 +1,2118 @@
+{
+  "status": "COMPLETE_READ_ONLY_COVERAGE_AUDIT",
+  "manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "scope": {
+    "approved_source_directories": 17,
+    "approved_human_clips": 19,
+    "human_frames": 9121,
+    "public_episodes": 37,
+    "public_frames": 4400
+  },
+  "human_clips": [
+    {
+      "episode_index": 37,
+      "source_directory": "corrections/human_1792298109792073701",
+      "source_range": [
+        425,
+        635
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "c6d0d8e04723338bd327513d7aac9831bfac849ff6e0e6bb521f3178e0e44720",
+      "scenario_key": "97a64170ec4d7751681311e1797f512342b5b6df09b733944f59e443b0343f24",
+      "layout_id": 0,
+      "intended_bowl_dx_dy_m": [
+        -0.031797235023041465,
+        -0.016589861751152065
+      ],
+      "intended_bowl_xyz": [
+        -0.024660179258320286,
+        0.2816564568671224,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.05116088315844536,
+        0.22217774391174316,
+        0.9920223355293274
+      ],
+      "initial_eef_rotation_axis_angle": [
+        2.778733015060425,
+        -1.6500712633132935,
+        0.7567188739776611
+      ],
+      "initial_finger_qpos": [
+        0.0022232525516301394,
+        -0.0017452092142775655
+      ],
+      "initial_gripper_command": "close",
+      "initial_post_bowl_xyz": [
+        0.09476067870855331,
+        0.24201904237270355,
+        0.9740170836448669
+      ],
+      "initial_bowl_height_above_original_m": 0.07561322691848127,
+      "start_already_holding_candidate": true,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 425,
+        "first_sustained_raised_4cm": 425,
+        "lift_protected_end": 445,
+        "near_final_target_6cm": 445,
+        "first_postclose_open": 550,
+        "gripper_transitions": [
+          550
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        0.018443921580910683,
+        0.16923992335796356,
+        0.9279806017875671
+      ],
+      "eef_observed_xyz_max": [
+        0.05368199199438095,
+        0.22217774391174316,
+        1.0080121755599976
+      ],
+      "stage_start_class": "already_holding_placement"
+    },
+    {
+      "episode_index": 38,
+      "source_directory": "corrections/human_1792302165387076969",
+      "source_range": [
+        0,
+        45
+      ],
+      "source_kind": "lift_clearance",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "intended_bowl_dx_dy_m": [
+        -0.07741935483870968,
+        -0.02304147465437788
+      ],
+      "intended_bowl_xyz": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.0065717208199203014,
+        0.2213744968175888,
+        0.9198536276817322
+      ],
+      "initial_eef_rotation_axis_angle": [
+        2.9305474758148193,
+        -0.8716632127761841,
+        1.0336940288543701
+      ],
+      "initial_finger_qpos": [
+        0.0009995317086577415,
+        -0.000700807198882103
+      ],
+      "initial_gripper_command": "close",
+      "initial_post_bowl_xyz": [
+        -0.07193868607282639,
+        0.2821745276451111,
+        0.9167758226394653
+      ],
+      "initial_bowl_height_above_original_m": 0.018371965913079658,
+      "start_already_holding_candidate": true,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": null,
+        "lift_protected_end": null,
+        "near_final_target_6cm": null,
+        "first_postclose_open": null,
+        "gripper_transitions": []
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        -0.007149680517613888,
+        0.21840929985046387,
+        0.9198536276817322
+      ],
+      "eef_observed_xyz_max": [
+        -0.006341935601085424,
+        0.22206991910934448,
+        0.9751996994018555
+      ],
+      "stage_start_class": "already_holding_placement"
+    },
+    {
+      "episode_index": 39,
+      "source_directory": "corrections/human_1792302165387076969",
+      "source_range": [
+        430,
+        520
+      ],
+      "source_kind": "regrasp_lift",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "intended_bowl_dx_dy_m": [
+        -0.07741935483870968,
+        -0.02304147465437788
+      ],
+      "intended_bowl_xyz": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.07735072821378708,
+        0.2158866673707962,
+        0.9809490442276001
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.2320356369018555,
+        -0.5871983766555786,
+        0.5830010771751404
+      ],
+      "initial_finger_qpos": [
+        0.0007699026609770954,
+        -0.00022966355027165264
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.07613566517829895,
+        0.28638529777526855,
+        0.8988608717918396
+      ],
+      "initial_bowl_height_above_original_m": 0.0004570150654539251,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 490,
+        "first_sustained_raised_4cm": null,
+        "lift_protected_end": null,
+        "near_final_target_6cm": null,
+        "first_postclose_open": null,
+        "gripper_transitions": [
+          490
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.0,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        -0.07735072821378708,
+        0.21132045984268188,
+        0.9233133792877197
+      ],
+      "eef_observed_xyz_max": [
+        -0.06837289780378342,
+        0.21991749107837677,
+        0.9809490442276001
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 40,
+      "source_directory": "corrections/human_1792302165387076969",
+      "source_range": [
+        770,
+        906
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "intended_bowl_dx_dy_m": [
+        -0.07741935483870968,
+        -0.02304147465437788
+      ],
+      "intended_bowl_xyz": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.08574628084897995,
+        0.13849978148937225,
+        0.9993695020675659
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.0016512870788574,
+        -0.6362569332122803,
+        1.203599214553833
+      ],
+      "initial_finger_qpos": [
+        0.0027619253378361464,
+        -0.002145538805052638
+      ],
+      "initial_gripper_command": "close",
+      "initial_post_bowl_xyz": [
+        0.09945604205131531,
+        0.18824753165245056,
+        0.9677316546440125
+      ],
+      "initial_bowl_height_above_original_m": 0.06932779791762678,
+      "start_already_holding_candidate": true,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 770,
+        "first_sustained_raised_4cm": 770,
+        "lift_protected_end": 790,
+        "near_final_target_6cm": 790,
+        "first_postclose_open": 845,
+        "gripper_transitions": [
+          845
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        0.05166701227426529,
+        0.12431325018405914,
+        0.9393835067749023
+      ],
+      "eef_observed_xyz_max": [
+        0.08574628084897995,
+        0.13849978148937225,
+        0.9996277093887329
+      ],
+      "stage_start_class": "already_holding_placement"
+    },
+    {
+      "episode_index": 41,
+      "source_directory": "corrections/human_1792311079911388886",
+      "source_range": [
+        0,
+        585
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "8854b2899d86fd152cfa90bc56ad095814e606f4bb4f7a15a83d6e85f733fb72",
+      "scenario_key": "611f445c39edbf1a9a11612b20b382cb7030cd70aef7eaeb47c32e2c4b0d936b",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.055299539170506916,
+        -0.015207373271889394
+      ],
+      "intended_bowl_xyz": [
+        -0.049752488358093365,
+        0.28860310280285206,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.014583929441869259,
+        0.2620304822921753,
+        0.9276666641235352
+      ],
+      "initial_eef_rotation_axis_angle": [
+        2.8712728023529053,
+        -0.774088442325592,
+        0.900909423828125
+      ],
+      "initial_finger_qpos": [
+        0.039716508239507675,
+        -0.03970830515027046
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.05781395733356476,
+        0.28721511363983154,
+        0.8968932032585144
+      ],
+      "initial_bowl_height_above_original_m": -0.0015106534678712702,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 140,
+        "first_sustained_raised_4cm": 206,
+        "lift_protected_end": 226,
+        "near_final_target_6cm": 389,
+        "first_postclose_open": 475,
+        "gripper_transitions": [
+          140,
+          475
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.0,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        -0.026972468942403793,
+        0.23359951376914978,
+        0.9276666641235352
+      ],
+      "eef_observed_xyz_max": [
+        0.0970185399055481,
+        0.3139953911304474,
+        1.0550638437271118
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 42,
+      "source_directory": "corrections/human_1792316444273677599",
+      "source_range": [
+        0,
+        796
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "04352c3687814b10143c2d57c84d83f50fcb9e18015d9d229fc7fc5c23f1fadb",
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.0553,
+        -0.0152
+      ],
+      "intended_bowl_xyz": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.009816433303058147,
+        0.2116202861070633,
+        1.0069303512573242
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.016826868057251,
+        -0.369653582572937,
+        0.7954716086387634
+      ],
+      "initial_finger_qpos": [
+        0.03883940726518631,
+        -0.038714244961738586
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.056650057435035706,
+        0.2965722978115082,
+        0.8984041213989258
+      ],
+      "initial_bowl_height_above_original_m": 2.6467254010675845e-07,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 314,
+        "first_sustained_raised_4cm": 370,
+        "lift_protected_end": 390,
+        "near_final_target_6cm": 550,
+        "first_postclose_open": 666,
+        "gripper_transitions": [
+          314,
+          666
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.09720048254322752,
+        0.10000000149011612,
+        0.10000000221290488
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          390,
+          550
+        ]
+      ],
+      "transport_frames": 160,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.09944929676441992,
+        0.10000000221290488,
+        0.10000000221290488
+      ],
+      "eef_observed_xyz_min": [
+        -0.09287170320749283,
+        0.14634117484092712,
+        0.9230912327766418
+      ],
+      "eef_observed_xyz_max": [
+        0.07041370123624802,
+        0.3050948679447174,
+        1.0878362655639648
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 43,
+      "source_directory": "corrections/human_1792316642061092080",
+      "source_range": [
+        67,
+        681
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "897cf43c30ed15bc3677b3c743f3f508cf1073b05b069f238d1d4cc621d722e9",
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.0553,
+        -0.0152
+      ],
+      "intended_bowl_xyz": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.051457978785037994,
+        0.20883364975452423,
+        1.0251988172531128
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.1938982009887695,
+        -0.22182276844978333,
+        0.3113546073436737
+      ],
+      "initial_finger_qpos": [
+        0.0005950902123004198,
+        -0.00040450727101415396
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.04975295066833496,
+        0.2886104881763458,
+        0.8984041213989258
+      ],
+      "initial_bowl_height_above_original_m": 2.6467254010675845e-07,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 187,
+        "first_sustained_raised_4cm": 238,
+        "lift_protected_end": 258,
+        "near_final_target_6cm": 381,
+        "first_postclose_open": 526,
+        "gripper_transitions": [
+          187,
+          526
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.09999999852619125,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          258,
+          381
+        ]
+      ],
+      "transport_frames": 123,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.09999999852619125,
+        0.09999999852619125,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.055852845311164856,
+        0.15035724639892578,
+        0.9145940542221069
+      ],
+      "eef_observed_xyz_max": [
+        0.06582011282444,
+        0.23456335067749023,
+        1.1047816276550293
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 44,
+      "source_directory": "corrections/human_1792316796553277838",
+      "source_range": [
+        0,
+        665
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "f9c7d7bcf0cc19f10b48b4e05cd818d0fd0e00a87456b67686e2da4bea7e0dff",
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.0553,
+        -0.0152
+      ],
+      "intended_bowl_xyz": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.009340583346784115,
+        0.27834486961364746,
+        0.917590320110321
+      ],
+      "initial_eef_rotation_axis_angle": [
+        2.9360103607177734,
+        -0.2676023542881012,
+        1.1157735586166382
+      ],
+      "initial_finger_qpos": [
+        0.039904482662677765,
+        -0.0391138419508934
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.08387386053800583,
+        0.32002493739128113,
+        0.9083117246627808
+      ],
+      "initial_bowl_height_above_original_m": 0.009907867936395087,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 195,
+        "first_sustained_raised_4cm": 245,
+        "lift_protected_end": 265,
+        "near_final_target_6cm": 445,
+        "first_postclose_open": 550,
+        "gripper_transitions": [
+          195,
+          550
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.09999999875807736,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          265,
+          445
+        ]
+      ],
+      "transport_frames": 180,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000036956787,
+        0.10000000149011612,
+        0.10000000295555282
+      ],
+      "eef_observed_xyz_min": [
+        -0.07090998440980911,
+        0.1422482132911682,
+        0.9164313673973083
+      ],
+      "eef_observed_xyz_max": [
+        0.08354248106479645,
+        0.2899472415447235,
+        1.1012548208236694
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 45,
+      "source_directory": "corrections/human_1792316988593839967",
+      "source_range": [
+        0,
+        735
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "576c8d6781913ee2933dfe68469e5295ccaa366db2310d23ff2790f4eb16af1b",
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.08892508143322475,
+        -0.03648208469055375
+      ],
+      "intended_bowl_xyz": [
+        -0.0833780306208112,
+        0.2673283913841877,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.028117461130023003,
+        0.2708820402622223,
+        0.9135550856590271
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.038231372833252,
+        -0.2732526659965515,
+        0.6286192536354065
+      ],
+      "initial_finger_qpos": [
+        0.038909588009119034,
+        -0.03889894112944603
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.12326568365097046,
+        0.28329604864120483,
+        0.9044818878173828
+      ],
+      "initial_bowl_height_above_original_m": 0.006078031090997138,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 265,
+        "first_sustained_raised_4cm": 321,
+        "lift_protected_end": 341,
+        "near_final_target_6cm": 495,
+        "first_postclose_open": 600,
+        "gripper_transitions": [
+          265,
+          600
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          341,
+          495
+        ]
+      ],
+      "transport_frames": 154,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.10365384072065353,
+        0.13989625871181488,
+        0.9135550856590271
+      ],
+      "eef_observed_xyz_max": [
+        0.06696093082427979,
+        0.2738388180732727,
+        1.0866994857788086
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 46,
+      "source_directory": "corrections/human_1792320596142609404",
+      "source_range": [
+        0,
+        625
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "de327fefcd630ff66479aa25cad0d1bc21392e730eb0294d0e5e6098f09398e7",
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.08892508143322475,
+        -0.03648208469055375
+      ],
+      "intended_bowl_xyz": [
+        -0.0833780306208112,
+        0.2673283913841877,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.017262082546949387,
+        0.2297438383102417,
+        0.9331617951393127
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.160630226135254,
+        -0.168345108628273,
+        0.4527190923690796
+      ],
+      "initial_finger_qpos": [
+        0.001138028921559453,
+        -0.0009858310222625732
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.11412777751684189,
+        0.28350991010665894,
+        0.9049025774002075
+      ],
+      "initial_bowl_height_above_original_m": 0.006498720673821845,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 155,
+        "first_sustained_raised_4cm": 194,
+        "lift_protected_end": 214,
+        "near_final_target_6cm": 402,
+        "first_postclose_open": 490,
+        "gripper_transitions": [
+          155,
+          490
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          214,
+          402
+        ]
+      ],
+      "transport_frames": 188,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.09305186569690704,
+        0.1303672343492508,
+        0.9187548756599426
+      ],
+      "eef_observed_xyz_max": [
+        0.06863580644130707,
+        0.23612041771411896,
+        1.1054598093032837
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 47,
+      "source_directory": "corrections/human_1792320729171754480",
+      "source_range": [
+        0,
+        810
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "eb9072888be7080bac6274c250250638a5e2bd76f430799dae484128d32af0e8",
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.1,
+        -0.07035830618892508
+      ],
+      "intended_bowl_xyz": [
+        -0.09445294918758645,
+        0.23345216988581635,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.011124223470687866,
+        0.24844560027122498,
+        0.9256539940834045
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.1168367862701416,
+        -0.22331827878952026,
+        0.5865530371665955
+      ],
+      "initial_finger_qpos": [
+        0.0015377309173345566,
+        -0.0013918036129325628
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.09732402861118317,
+        0.233942911028862,
+        0.8984023928642273
+      ],
+      "initial_bowl_height_above_original_m": -1.4638621583795697e-06,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 270,
+        "first_sustained_raised_4cm": 344,
+        "lift_protected_end": 364,
+        "near_final_target_6cm": 483,
+        "first_postclose_open": 585,
+        "gripper_transitions": [
+          270,
+          585
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          364,
+          483
+        ]
+      ],
+      "transport_frames": 119,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.08592794835567474,
+        0.2257380485534668,
+        0.9228613376617432
+      ],
+      "eef_observed_xyz_max": [
+        0.0751500129699707,
+        0.28437402844429016,
+        1.1955580711364746
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 48,
+      "source_directory": "corrections/human_1792320881178092096",
+      "source_range": [
+        0,
+        785
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "bddc0d0a2b6b1a86895b4a657a83fb0991755e222427678a8b23ef915c7e6830",
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.1,
+        -0.07035830618892508
+      ],
+      "intended_bowl_xyz": [
+        -0.09445294918758645,
+        0.23345216988581635,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.03568701818585396,
+        0.22935056686401367,
+        1.0157665014266968
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.20150089263916,
+        -0.0810026302933693,
+        0.2865247428417206
+      ],
+      "initial_finger_qpos": [
+        0.03995843604207039,
+        -0.03980511426925659
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.09445294737815857,
+        0.23345217108726501,
+        0.8984041213989258
+      ],
+      "initial_bowl_height_above_original_m": 2.6467254010675845e-07,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 260,
+        "first_sustained_raised_4cm": 308,
+        "lift_protected_end": 328,
+        "near_final_target_6cm": 496,
+        "first_postclose_open": 625,
+        "gripper_transitions": [
+          260,
+          625
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          328,
+          496
+        ]
+      ],
+      "transport_frames": 168,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.09946583211421967,
+        0.21838712692260742,
+        0.9223147034645081
+      ],
+      "eef_observed_xyz_max": [
+        0.07687382400035858,
+        0.2901686728000641,
+        1.1335393190383911
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 49,
+      "source_directory": "corrections/human_1792321044770146509",
+      "source_range": [
+        0,
+        650
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "842b6b5d10f1b76ba1a90e4301065fa92e0a891af18c4884a3beee70a118a71a",
+      "scenario_key": "78a2565d1fb84021d470db2a166ad2557fa0e01fb91e5ac594897d92c82080c9",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.1,
+        -0.08306188925081433
+      ],
+      "intended_bowl_xyz": [
+        -0.09445294918758645,
+        0.22074858682392712,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.01276317611336708,
+        0.24049943685531616,
+        0.9234187006950378
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.150589942932129,
+        -0.15032069385051727,
+        0.51246577501297
+      ],
+      "initial_finger_qpos": [
+        0.010720853693783283,
+        -0.010459480807185173
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.09514371305704117,
+        0.22077777981758118,
+        0.8981943726539612
+      ],
+      "initial_bowl_height_above_original_m": -0.00020948407242449285,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 205,
+        "first_sustained_raised_4cm": 262,
+        "lift_protected_end": 282,
+        "near_final_target_6cm": 390,
+        "first_postclose_open": 510,
+        "gripper_transitions": [
+          205,
+          510
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          282,
+          390
+        ]
+      ],
+      "transport_frames": 108,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.1044321283698082,
+        0.22295592725276947,
+        0.9234187006950378
+      ],
+      "eef_observed_xyz_max": [
+        0.07284174859523773,
+        0.2700565755367279,
+        1.1025538444519043
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 50,
+      "source_directory": "corrections/human_1792321327539756305",
+      "source_range": [
+        0,
+        545
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "ec005078b6952b4c598299759e9f70622179c801197ca452f9c1205ae4dacaea",
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "intended_bowl_xyz": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.014245593920350075,
+        0.22342436015605927,
+        0.9991855025291443
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.1242446899414062,
+        -0.18877215683460236,
+        0.640425443649292
+      ],
+      "initial_finger_qpos": [
+        0.0017893813783302903,
+        -0.0016315405955538154
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.05737212300300598,
+        0.24341453611850739,
+        0.8984041213989258
+      ],
+      "initial_bowl_height_above_original_m": 2.6467254010675845e-07,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 205,
+        "first_sustained_raised_4cm": null,
+        "lift_protected_end": null,
+        "near_final_target_6cm": null,
+        "first_postclose_open": 425,
+        "gripper_transitions": [
+          205,
+          425
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        -0.06850185245275497,
+        0.1346990019083023,
+        0.9185658693313599
+      ],
+      "eef_observed_xyz_max": [
+        0.05234450474381447,
+        0.22374291718006134,
+        1.0737298727035522
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 51,
+      "source_directory": "corrections/human_1792321449733577218",
+      "source_range": [
+        0,
+        600
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "e9804b6de7ad91103204043cfb09db86bbcd82999608af6d60f1c48db0adce92",
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "intended_bowl_xyz": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        -0.03556390479207039,
+        0.16006647050380707,
+        1.1622865200042725
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.184504270553589,
+        0.016229791566729546,
+        0.0817166194319725
+      ],
+      "initial_finger_qpos": [
+        0.03968608379364014,
+        -0.03951922804117203
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.04837551712989807,
+        0.23931534588336945,
+        0.8984103798866272
+      ],
+      "initial_bowl_height_above_original_m": 6.523160241522774e-06,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 215,
+        "first_sustained_raised_4cm": 265,
+        "lift_protected_end": 285,
+        "near_final_target_6cm": 340,
+        "first_postclose_open": 450,
+        "gripper_transitions": [
+          215,
+          450
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          285,
+          340
+        ]
+      ],
+      "transport_frames": 55,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.03738587349653244,
+        0.13929115235805511,
+        0.9240341186523438
+      ],
+      "eef_observed_xyz_max": [
+        0.0859486535191536,
+        0.17076177895069122,
+        1.1633203029632568
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 52,
+      "source_directory": "corrections/human_1792321533232937641",
+      "source_range": [
+        0,
+        580
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "042e7a5bf2b6acf494f500872b1563e7efd6e29597dedbfb9124a43f2e7dd3f1",
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "intended_bowl_xyz": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.0024358651135116816,
+        0.2407667338848114,
+        0.9279562830924988
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.181724786758423,
+        -0.1791275143623352,
+        0.35818177461624146
+      ],
+      "initial_finger_qpos": [
+        0.03882196545600891,
+        -0.03853185847401619
+      ],
+      "initial_gripper_command": "open",
+      "initial_post_bowl_xyz": [
+        -0.05201837047934532,
+        0.24170315265655518,
+        0.898544430732727
+      ],
+      "initial_bowl_height_above_original_m": 0.0001405740063413763,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 195,
+        "first_sustained_raised_4cm": 244,
+        "lift_protected_end": 264,
+        "near_final_target_6cm": 360,
+        "first_postclose_open": 450,
+        "gripper_transitions": [
+          195,
+          450
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [
+        [
+          264,
+          360
+        ]
+      ],
+      "transport_frames": 96,
+      "transport_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "eef_observed_xyz_min": [
+        -0.04996476694941521,
+        0.13680361211299896,
+        0.9274149537086487
+      ],
+      "eef_observed_xyz_max": [
+        0.06721072643995285,
+        0.24897970259189606,
+        1.0872615575790405
+      ],
+      "stage_start_class": "open_approach_or_recovery"
+    },
+    {
+      "episode_index": 53,
+      "source_directory": "corrections/human_1792321838302212936",
+      "source_range": [
+        0,
+        225
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "f2e46bc03a7e4b46eecfc4a14974dea5287b51e035c6e2f0484e8e46954cad6b",
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        0.0986970684039088,
+        0.031921824104234525
+      ],
+      "intended_bowl_xyz": [
+        0.10424411921632235,
+        0.33573230017897593,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.04774777218699455,
+        0.15510836243629456,
+        0.9391692280769348
+      ],
+      "initial_eef_rotation_axis_angle": [
+        2.8809165954589844,
+        -0.8780921101570129,
+        -0.006345290224999189
+      ],
+      "initial_finger_qpos": [
+        0.0033202203921973705,
+        -0.007772398181259632
+      ],
+      "initial_gripper_command": "close",
+      "initial_post_bowl_xyz": [
+        0.07722856104373932,
+        0.19277836382389069,
+        0.9075964093208313
+      ],
+      "initial_bowl_height_above_original_m": 0.009192552594445624,
+      "start_already_holding_candidate": false,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": 32,
+        "lift_protected_end": 52,
+        "near_final_target_6cm": 52,
+        "first_postclose_open": 110,
+        "gripper_transitions": [
+          110
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        -0.01490365993231535,
+        0.1459573209285736,
+        0.9391692280769348
+      ],
+      "eef_observed_xyz_max": [
+        0.04774777218699455,
+        0.15510836243629456,
+        1.0658440589904785
+      ],
+      "stage_start_class": "closed_at_failed_grasp_or_contact"
+    },
+    {
+      "episode_index": 54,
+      "source_directory": "corrections/human_1792321887412888670",
+      "source_range": [
+        0,
+        205
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "0f030ee770076970aa52146318422ce3e4125cc28cf890666510f1942b8bd03c",
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        0.0986970684039088,
+        0.031921824104234525
+      ],
+      "intended_bowl_xyz": [
+        0.10424411921632235,
+        0.33573230017897593,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.11795302480459213,
+        0.17149370908737183,
+        1.0012656450271606
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.0831398963928223,
+        -0.7490826845169067,
+        -0.05065338313579559
+      ],
+      "initial_finger_qpos": [
+        0.0021739250514656305,
+        -0.0022517661564052105
+      ],
+      "initial_gripper_command": "close",
+      "initial_post_bowl_xyz": [
+        0.12958796322345734,
+        0.20710155367851257,
+        0.9513741135597229
+      ],
+      "initial_bowl_height_above_original_m": 0.052970256833337226,
+      "start_already_holding_candidate": true,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": 0,
+        "lift_protected_end": 20,
+        "near_final_target_6cm": 21,
+        "first_postclose_open": 100,
+        "gripper_transitions": [
+          100
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        0.03979227691888809,
+        0.1627684384584427,
+        0.9608306288719177
+      ],
+      "eef_observed_xyz_max": [
+        0.11795302480459213,
+        0.17149370908737183,
+        1.072258472442627
+      ],
+      "stage_start_class": "already_holding_placement"
+    },
+    {
+      "episode_index": 55,
+      "source_directory": "corrections/human_1792322110720259274",
+      "source_range": [
+        0,
+        220
+      ],
+      "source_kind": "placement_release",
+      "metadata_sha256": "9a7e201239e5631aa519cacddb13a69a96831001cb273c94c9663673533a30f1",
+      "scenario_key": "e8aaa0e96edaa3b88d61f6efd0e7ba8b777aafa51ac6935e22d4fca70a31b6b0",
+      "layout_id": 24,
+      "intended_bowl_dx_dy_m": [
+        0.0986970684039088,
+        0.1
+      ],
+      "intended_bowl_xyz": [
+        0.10424411921632235,
+        0.4038104760747414,
+        0.8984038567263857
+      ],
+      "initial_eef_xyz": [
+        0.11853709816932678,
+        0.16851049661636353,
+        1.0040934085845947
+      ],
+      "initial_eef_rotation_axis_angle": [
+        3.134294271469116,
+        -0.6201084852218628,
+        -0.10051776468753815
+      ],
+      "initial_finger_qpos": [
+        0.0024118293076753616,
+        -0.002343956148251891
+      ],
+      "initial_gripper_command": "close",
+      "initial_post_bowl_xyz": [
+        0.12494204938411713,
+        0.2081259787082672,
+        0.950792670249939
+      ],
+      "initial_bowl_height_above_original_m": 0.05238881352355329,
+      "start_already_holding_candidate": true,
+      "already_holding_caveat": "Command+height+distance evidence; stable grasp is not certified by a single frame. Existing visual review says last3 and old placement clips begin held.",
+      "original_phase_events": {
+        "first_sustained_close": 0,
+        "first_sustained_raised_4cm": 0,
+        "lift_protected_end": 20,
+        "near_final_target_6cm": 22,
+        "first_postclose_open": 125,
+        "gripper_transitions": [
+          125
+        ]
+      },
+      "all_action_xyz_norm_p10_p50_p90": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "conservative_transport_source_ranges": [],
+      "transport_frames": 0,
+      "transport_action_xyz_norm_p10_p50_p90": null,
+      "eef_observed_xyz_min": [
+        0.05175775662064552,
+        0.14786820113658905,
+        0.9600853323936462
+      ],
+      "eef_observed_xyz_max": [
+        0.11914040148258209,
+        0.17120911180973053,
+        1.0611116886138916
+      ],
+      "stage_start_class": "already_holding_placement"
+    }
+  ],
+  "test_scenes": [
+    {
+      "scene": 49,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-049_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.013680781758957643,
+        0.03973941368078176
+      ],
+      "intended_target_xyz": [
+        -0.008133730946544092,
+        0.3435498897555232,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.06892386018341967,
+      "nearest_human_source": "corrections/human_1792316444273677599",
+      "nearest_human_offset": [
+        -0.0553,
+        -0.0152
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.06753316282239637,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792316444273677599",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 284,
+      "recorded_any_On": true,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 50,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-050_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.013680781758957643,
+        -0.038110749185667744
+      ],
+      "intended_target_xyz": [
+        -0.008133730946544092,
+        0.2656997268890737,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.04750458500744144,
+      "nearest_human_source": "corrections/human_1792311079911388886",
+      "nearest_human_offset": [
+        -0.055299539170506916,
+        -0.015207373271889394
+      ],
+      "within_human_same_layout_offset_convex_hull": true,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.04750855115674519,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792316642061092080",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 298,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 51,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-051_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.013680781758957643,
+        -0.05570032573289902
+      ],
+      "intended_target_xyz": [
+        -0.008133730946544092,
+        0.24811015034184242,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.04104013488696501,
+      "nearest_human_source": "corrections/human_1792321327539756305",
+      "nearest_human_offset": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.041191624642511436,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792321449733577218",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 800,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 52,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-052_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.04527687296416937,
+        -0.05570032573289902
+      ],
+      "intended_target_xyz": [
+        -0.03972982215175582,
+        0.24811015034184242,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.012280130293159617,
+      "nearest_human_source": "corrections/human_1792321327539756305",
+      "nearest_human_offset": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "within_human_same_layout_offset_convex_hull": true,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.012332746130438678,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792321449733577218",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 279,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 53,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-053_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.04527687296416937,
+        -0.0758957654723127
+      ],
+      "intended_target_xyz": [
+        -0.03972982215175582,
+        0.22791471060242874,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.01412378000408661,
+      "nearest_human_source": "corrections/human_1792321327539756305",
+      "nearest_human_offset": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.01430812798601215,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792321449733577218",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 251,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 54,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-054_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.06416938110749186,
+        -0.08729641693811076
+      ],
+      "intended_target_xyz": [
+        -0.05862233029507831,
+        0.2165140591366307,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.024982014559879726,
+      "nearest_human_source": "corrections/human_1792321327539756305",
+      "nearest_human_offset": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.024997917060209547,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792321449733577218",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 96,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 55,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-055_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        -0.08306188925081433,
+        -0.1
+      ],
+      "intended_target_xyz": [
+        -0.07751483843840078,
+        0.20381047607474143,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.023954105942475892,
+      "nearest_human_source": "corrections/human_1792321044770146509",
+      "nearest_human_offset": [
+        -0.1,
+        -0.08306188925081433
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.024467664715324328,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792321044770146509",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 85,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 56,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-056_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        0.02638436482084689,
+        -0.1
+      ],
+      "intended_target_xyz": [
+        0.03193141563326044,
+        0.20381047607474143,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.08760440225674589,
+      "nearest_human_source": "corrections/human_1792321327539756305",
+      "nearest_human_offset": [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.046621227815807666,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792321838302212936",
+      "initial_eef_state": null,
+      "nearest_human_start_eef_xyz_distance_m": null,
+      "recorded_control_steps": 0,
+      "recorded_any_On": false,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    },
+    {
+      "scene": 57,
+      "directory": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-057_init-024",
+      "layout_id": 24,
+      "dx_dy_m": [
+        0.02638436482084689,
+        0.061237785016286635
+      ],
+      "intended_target_xyz": [
+        0.03193141563326044,
+        0.36504826109102806,
+        0.8984038567263857
+      ],
+      "same_offset_training_match": false,
+      "nearest_human_offset_distance_m": 0.07802917828408,
+      "nearest_human_source": "corrections/human_1792321838302212936",
+      "nearest_human_offset": [
+        0.0986970684039088,
+        0.031921824104234525
+      ],
+      "within_human_same_layout_offset_convex_hull": false,
+      "nearest_recorded_first_bowl_xy_distance_m": 0.11187076841717743,
+      "nearest_recorded_first_bowl_source": "corrections/human_1792316642061092080",
+      "initial_eef_state": [
+        -0.20813707982741433,
+        0.00154781811531885,
+        1.1781749925037863,
+        3.1397244432045643,
+        0.003846818607486729,
+        -0.0873875614840203,
+        0.03872736513209368,
+        -0.038730988145782554
+      ],
+      "nearest_human_start_eef_xyz_distance_m": 0.23486614795497804,
+      "recorded_control_steps": 800,
+      "recorded_any_On": true,
+      "recorded_release_and_retreat_success": null,
+      "result_caveat": "These interactive resets use evolving server RNG and some stop before budget; result fields are not a matched-seed formal benchmark or standalone full-release proof."
+    }
+  ],
+  "spatial_summary": {
+    "human_same_layout24_unique_intended_offsets": [
+      [
+        -0.1,
+        -0.08306188925081433
+      ],
+      [
+        -0.1,
+        -0.07035830618892508
+      ],
+      [
+        -0.08892508143322475,
+        -0.03648208469055375
+      ],
+      [
+        -0.0553,
+        -0.0152
+      ],
+      [
+        -0.055299539170506916,
+        -0.015207373271889394
+      ],
+      [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      [
+        0.0986970684039088,
+        0.031921824104234525
+      ],
+      [
+        0.0986970684039088,
+        0.1
+      ]
+    ],
+    "same_layout24_offset_convex_hull": [
+      [
+        -0.1,
+        -0.08306188925081433
+      ],
+      [
+        -0.05374592833876221,
+        -0.0645928338762215
+      ],
+      [
+        0.0986970684039088,
+        0.031921824104234525
+      ],
+      [
+        0.0986970684039088,
+        0.1
+      ],
+      [
+        -0.08892508143322475,
+        -0.03648208469055375
+      ],
+      [
+        -0.1,
+        -0.07035830618892508
+      ]
+    ],
+    "negative_negative_source_clips": 12,
+    "negative_negative_coverage_conclusion": "Negative-negative region is represented by approved human sources; scenes52..55 are not exact repeats. Nearby XY does not imply identical gripper pose, object contacts, failure history or full trajectory coverage.",
+    "human_start_stage_counts": {
+      "open_approach_or_recovery": 13,
+      "closed_at_failed_grasp_or_contact": 1,
+      "already_holding_placement": 5
+    },
+    "public_coverage_limit": "Public37 actions/states were audited for tempo but public full object layouts were not reconstructed; do not claim public training excludes these spatial relations."
+  },
+  "visual_relation_review": {
+    "method": "Viewed saved initial-agentview images for scenes49,52,54,55,57 only, no new rendering.",
+    "evidence": [
+      "scene052 target shifted toward the other black bowls compared to49/57.",
+      "scene054/055 target visually close to another black bowl; touching/occlusion risk increases, especially55.",
+      "Target in negative scenes still appears nearer the plate than the other black bowl, so language ambiguity is not established by these images."
+    ],
+    "limitations": "Image review is qualitative; exact distractor/plate 3D distances and collision overlap were not extracted. Scene edit intended positions may settle after contact. A changed visual relationship should be flagged, not automatically relabeled or discarded."
+  },
+  "model_state_limitation": {
+    "current_pi05": true,
+    "current_discrete_state_input": false,
+    "continuous_state_projection_in_pi05": false,
+    "conclusion": "Current pi05 path does not condition action generation on proprioceptive state tokens or a continuous state embedding. State arrays are still supplied for shape/pipeline uses. Fine contact/gripper-phase discrimination relies on RGB, which may be ambiguous under occlusion.",
+    "source_evidence": [
+      "scripts/course_config.py:23",
+      "openpi/src/openpi/models/pi0.py:93",
+      "openpi/src/openpi/models/pi0.py:153",
+      "openpi/src/openpi/transforms.py:250"
+    ],
+    "required_experiment": "Treat enabling discrete_state_input=True as a new training configuration with matching training/serve transforms and separate checkpoint lineage. Do not change serve alone and claim an equivalent model."
+  },
+  "tempo_evidence": {
+    "public": {
+      "frames": 4400,
+      "action_xyz_norm": {
+        "n": 4400,
+        "mean": 0.7136860452525088,
+        "p10_p50_p90_p99": [
+          0.26269667820139414,
+          0.800220656819054,
+          1.0181232042710886,
+          1.1495942877956296
+        ]
+      },
+      "xyz_zero_fraction": 0.0013636363636363637,
+      "xyz_norm_le_0p100001_fraction": 0.02181818181818182,
+      "all_six_motion_zero_fraction": 0.0,
+      "closed_command_fraction": 0.4677272727272727,
+      "closed_high_transport_proxy": {
+        "definition": "action gripper > 0.5 and pre-action EEF z > 1.0 m; common source proxy, not proof of grasp",
+        "action_xyz_norm": {
+          "n": 634,
+          "mean": 0.8222846021240465,
+          "p10_p50_p90_p99": [
+            0.6271795872030106,
+            0.8336792687929395,
+            1.026220027443273,
+            1.1555613085354692
+          ]
+        },
+        "consecutive_preobs_eef_displacement_mm": {
+          "n": 634,
+          "mean": 10.288183097943534,
+          "p10_p50_p90_p99": [
+            7.603672301607705,
+            10.421185680163031,
+            13.062937537639899,
+            14.808173244847175
+          ]
+        }
+      },
+      "consecutive_preobs_eef_displacement_mm": {
+        "n": 4363,
+        "mean": 8.296357941614293,
+        "p10_p50_p90_p99": [
+          2.175728643344855,
+          9.345312778130713,
+          12.60312397742536,
+          14.068746131486993
+        ]
+      }
+    },
+    "old_human": {
+      "frames": 1066,
+      "action_xyz_norm": {
+        "n": 1066,
+        "mean": 0.08545966356237879,
+        "p10_p50_p90_p99": [
+          0.0,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ]
+      },
+      "xyz_zero_fraction": 0.14540337711069418,
+      "xyz_norm_le_0p100001_fraction": 1.0,
+      "all_six_motion_zero_fraction": 0.09380863039399624,
+      "closed_command_fraction": 0.5722326454033771,
+      "closed_high_transport_proxy": {
+        "definition": "action gripper > 0.5 and pre-action EEF z > 1.0 m; common source proxy, not proof of grasp",
+        "action_xyz_norm": {
+          "n": 110,
+          "mean": 0.053636364435607736,
+          "p10_p50_p90_p99": [
+            0.0,
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ]
+        },
+        "consecutive_preobs_eef_displacement_mm": {
+          "n": 110,
+          "mean": 1.042931668671988,
+          "p10_p50_p90_p99": [
+            0.1987851682297216,
+            1.1767621030030724,
+            1.5652000811587456,
+            2.8863157344774195
+          ]
+        }
+      },
+      "consecutive_preobs_eef_displacement_mm": {
+        "n": 1061,
+        "mean": 1.0983655690604128,
+        "p10_p50_p90_p99": [
+          0.4888227345940505,
+          1.1929390361420769,
+          1.303301929100029,
+          1.705653604095518
+        ]
+      }
+    },
+    "new_human": {
+      "frames": 8055,
+      "action_xyz_norm": {
+        "n": 8055,
+        "mean": 0.09384178235836937,
+        "p10_p50_p90_p99": [
+          0.10000000069058557,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000221290488
+        ]
+      },
+      "xyz_zero_fraction": 0.05834885164494103,
+      "xyz_norm_le_0p100001_fraction": 1.0,
+      "all_six_motion_zero_fraction": 0.05834885164494103,
+      "closed_command_fraction": 0.4650527622594662,
+      "closed_high_transport_proxy": {
+        "definition": "action gripper > 0.5 and pre-action EEF z > 1.0 m; common source proxy, not proof of grasp",
+        "action_xyz_norm": {
+          "n": 1240,
+          "mean": 0.09936529883872021,
+          "p10_p50_p90_p99": [
+            0.09999999874881116,
+            0.10000000149011612,
+            0.10000000221290488,
+            0.10000000352354484
+          ]
+        },
+        "consecutive_preobs_eef_displacement_mm": {
+          "n": 1240,
+          "mean": 1.1909017444912622,
+          "p10_p50_p90_p99": [
+            1.0980970312197105,
+            1.174983417720581,
+            1.3183002359136247,
+            1.5718011084310792
+          ]
+        }
+      },
+      "consecutive_preobs_eef_displacement_mm": {
+        "n": 8041,
+        "mean": 1.1380318076129012,
+        "p10_p50_p90_p99": [
+          0.9182937161651579,
+          1.190464040934769,
+          1.3181421768508637,
+          1.4660175272136435
+        ]
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "priority": 1,
+      "action": "Retain all previously approved five recovery clips and all new originals; use the audited phase sampler to lower slow ordinary-transfer dominance and preserve grasp/lift, plate alignment, stable release and retreat.",
+      "reason": "Public transport targets are much larger than manual0.1; more steps on identical mixture can reinforce slow-target behavior."
+    },
+    {
+      "priority": 2,
+      "action": "Evaluate the phase-balanced checkpoint on a fixed position matrix and matched seeds, separate approach/grasp/carry/release/retreat metrics, and compare to parent checkpoint.",
+      "reason": "Nearby negative training positions exist, so do not call all failed negative positions untrained or blindly add steps."
+    },
+    {
+      "priority": 3,
+      "action": "For persistent failures, add validated recovery from the actual failed gripper/target/distractor arrangement, followed continuously through a successful retry and release. Keep normal fast carry examples in the mixture.",
+      "reason": "Position-only proximity does not cover failed relative grasp pose or occluded-contact ambiguity. Samples should address demonstrated failure stages."
+    },
+    {
+      "priority": 4,
+      "action": "After sampler contrast is evaluated, test state-conditioned pi05 as a separate train-and-serve-consistent experiment if release/grasp-phase ambiguity persists.",
+      "reason": "Existing RGB-only path does not directly observe measured finger opening/EEF pose. This is a plausible limitation, not yet a proven sole failure cause."
+    }
+  ],
+  "not_claimed": [
+    "No claim of full video frame-by-frame review.",
+    "No claim that small nearest-offset distance guarantees trajectory coverage.",
+    "No claim target language is definitely ambiguous.",
+    "No claim step count alone fixes these failures.",
+    "No model inference, simulation, training, data changes or GUI operations performed."
+  ]
+}

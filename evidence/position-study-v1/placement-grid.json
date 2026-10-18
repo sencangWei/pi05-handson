@@ -1,0 +1,4326 @@
+{
+  "status": "PASS",
+  "layout": 24,
+  "seed": 42,
+  "planned_cases": 31,
+  "source_sha256": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+  "cases": [
+    {
+      "case": "user052",
+      "group": "user",
+      "dx_m": -0.04527687296416937,
+      "dy_m": -0.05570032573289902,
+      "source_scene_metadata": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-052_init-024/scene.json",
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.039729822149925105,
+          0.2481101503406022,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011641012914661137
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011641012914661137
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002383220681075214
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0016668024491766347
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0021638803078698346
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002383220681075214
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0016668024491766347
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0021638803078698346
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约2.4毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.002383220681075214,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.14824378633057478,
+        "plate_1": 0.11305473870927234
+      },
+      "nearest_other_object_xy_center_m": 0.11305473870927234,
+      "audit_pass": true
+    },
+    {
+      "case": "user053",
+      "group": "user",
+      "dx_m": -0.04527687296416937,
+      "dy_m": -0.0758957654723127,
+      "source_scene_metadata": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-053_init-024/scene.json",
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.039729822149925105,
+          0.2279147106011885,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0010318404913946923
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0010318404913946923
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002355716005215393
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011214389566198673
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002355716005215393
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011214389566198673
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.005192776912317478
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0061020338638452095
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003955239344416186
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.001603044453592162
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0016336905143847467
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0016003309731258352
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.001603044453592162
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0016336905143847467
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0016003309731258352
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0025194799180322525
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011643072184817096
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011643072184817096
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004241653948149909
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0047799467431826614
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0019508124418813888
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004241653948149909
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0047799467431826614
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0019508124418813888
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011268319660814145
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0010220666576662998
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011268319660814145
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0010220666576662998
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0018396816959121605
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001801613719397754
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0044398107195643905
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003714112643091617
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0032173283354690516
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约6.1毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.0061020338638452095,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.15803968131285512,
+        "plate_1": 0.10435850302383064
+      },
+      "nearest_other_object_xy_center_m": 0.10435850302383064,
+      "audit_pass": true
+    },
+    {
+      "case": "user054",
+      "group": "user",
+      "dx_m": -0.06416938110749186,
+      "dy_m": -0.08729641693811076,
+      "source_scene_metadata": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-054_init-024/scene.json",
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.05862233029324759,
+          0.21651405913539046,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.05862233029507831,
+          0.2165140591366307,
+          0.8984038567263857
+        ],
+        "dx_m": -0.06416938110749186,
+        "dy_m": -0.08729641693811076
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.1494598855222441,
+        "plate_1": 0.11929654068196635
+      },
+      "nearest_other_object_xy_center_m": 0.11929654068196635,
+      "audit_pass": true
+    },
+    {
+      "case": "user055",
+      "group": "user",
+      "dx_m": -0.08306188925081433,
+      "dy_m": -0.1,
+      "source_scene_metadata": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-055_init-024/scene.json",
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.07751483843657006,
+          0.2038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.07751483843840078,
+          0.20381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08306188925081433,
+        "dy_m": -0.1
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.14475764016608528,
+        "plate_1": 0.13605838583149457
+      },
+      "nearest_other_object_xy_center_m": 0.13605838583149457,
+      "audit_pass": true
+    },
+    {
+      "case": "user056",
+      "group": "user",
+      "dx_m": 0.02638436482084689,
+      "dy_m": -0.1,
+      "source_scene_metadata": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-056_init-024/scene.json",
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.03193141563509116,
+          0.2038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0017173628294181083
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0017173628294181083
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.0017439802303295684
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.008723553605601753
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.008675344383228497
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.008723553605601753
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.008675344383228497
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.0013023866588558269
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0029650482327573746
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003599223969614287
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003599223969614287
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.0028840030967257407
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0030159562126155274
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011670231518076677
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011090205376986211
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011670231518076677
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011090205376986211
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.0038014979802579547
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0031209851024389264
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0028655733127245227
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.003260218451930993
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0029303931747329784
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.003404299867171674
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0030447059286594293
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0030055764634346134
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0038692728468464432
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.002342217997602611
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003467940422727356
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0030606725177937384
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004719055358835054
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.006795206219035689
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0022461199825037246
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0032250105666919203
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002239385359506443
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004719055358835054
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.006795206219035689
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0022461199825037246
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0032250105666919203
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002239385359506443
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0053031666241406955
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.005135449733273272
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0025438350142850214
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0010101387791278098
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0025529844585654047
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002179522758009214
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0021038675575320467
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003988404288554133
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.00447603160080854
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0021110114127983275
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003988404288554133
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.00447603160080854
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0021110114127983275
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0019011001440761453
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.001310295522747995
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0019011001440761453
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.001310295522747995
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002306110660956274
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0016890995927822748
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002306110660956274
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0016890995927822748
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004182001730690113
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00497304220823792
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0028549220206202344
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0024448707381641514
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0024448707381641514
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0019826315334559347
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002805004742992172
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001076458348977641
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001240367195876842
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004566456048643217
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0011576832901376618
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003793852474638064
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004566456048643217
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0011576832901376618
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003793852474638064
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004225066729083044
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0051085787930381325
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002697969152570115
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0025949047114954436
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0026979044584766656
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002697969152570115
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0025949047114954436
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0026979044584766656
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004043526987722248
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004315419181264866
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0036348728843460148
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0014580198633682843
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0023463300609100003
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.001417569770700423
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0025840951631851596
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0010009579648809577
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0010010972711212392
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004503753352779291
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0047222481314437076
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004503753352779291
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0047222481314437076
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.003810709465392252
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.004065007016510521
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.002052836348651227
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0013429238880731547
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0017530909422496907
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0013429238880731547
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0017530909422496907
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001148067310940363
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0024270495061104163
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002584049626050015
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.002418062019348419
+        },
+        {
+          "other_geom": "plate_1_g10",
+          "depth_m": 0.0016399370426324463
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约8.7毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.008723553605601753,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.23219104586070363,
+        "plate_1": 0.028919573807482793
+      },
+      "nearest_other_object_xy_center_m": 0.028919573807482793,
+      "audit_pass": true
+    },
+    {
+      "case": "user057",
+      "group": "user",
+      "dx_m": 0.02638436482084689,
+      "dy_m": 0.061237785016286635,
+      "source_scene_metadata": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-057_init-024/scene.json",
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.03193141563509116,
+          0.36504826108978783,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.03193141563326044,
+          0.36504826109102806,
+          0.8984038567263857
+        ],
+        "dx_m": 0.02638436482084689,
+        "dy_m": 0.061237785016286635
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.21195951772133878,
+        "plate_1": 0.1757827917307526
+      },
+      "nearest_other_object_xy_center_m": 0.1757827917307526,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.08_-0.08",
+      "group": "grid",
+      "dx_m": -0.08,
+      "dy_m": -0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.07445294918575573,
+          0.22381047607350119,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.07445294918758645,
+          0.22381047607474142,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08,
+        "dy_m": -0.08
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.13270911965630183,
+        "plate_1": 0.13636698503830874
+      },
+      "nearest_other_object_xy_center_m": 0.13270911965630183,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.08_-0.04",
+      "group": "grid",
+      "dx_m": -0.08,
+      "dy_m": -0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.07445294918575573,
+          0.2638104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.07445294918758645,
+          0.26381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08,
+        "dy_m": -0.04
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.11014982271154501,
+        "plate_1": 0.15101178131124082
+      },
+      "nearest_other_object_xy_center_m": 0.11014982271154501,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.08_+0.00",
+      "group": "grid",
+      "dx_m": -0.08,
+      "dy_m": 0.0,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.07445294918575573,
+          0.3038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "akita_black_bowl_2_g25",
+          "depth_m": 0.0022410643055857217
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g26",
+          "depth_m": 0.002726925016341443
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g26",
+          "depth_m": 0.0029209107657723193
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g26",
+          "depth_m": 0.002727027762579112
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g24",
+          "depth_m": 0.0012285614451655472
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g25",
+          "depth_m": 0.0023599154641499916
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g25",
+          "depth_m": 0.0015918888190476676
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g25",
+          "depth_m": 0.0019525973363733534
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g25",
+          "depth_m": 0.001754018134592568
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g26",
+          "depth_m": 0.0027108264622698734
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g26",
+          "depth_m": 0.0020814852973843148
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与其他物体发生重叠（约2.9毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.0029209107657723193,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.09926860755958536,
+        "plate_1": 0.17381933603931907
+      },
+      "nearest_other_object_xy_center_m": 0.09926860755958536,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.08_+0.04",
+      "group": "grid",
+      "dx_m": -0.08,
+      "dy_m": 0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.07445294918575573,
+          0.3438104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "akita_black_bowl_2_g27",
+          "depth_m": 0.0011507857997678948
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g26",
+          "depth_m": 0.0016416895413597912
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g27",
+          "depth_m": 0.0013508087220208448
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g27",
+          "depth_m": 0.001644130647367635
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与其他物体发生重叠（约1.6毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.001644130647367635,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.1038052477009382,
+        "plate_1": 0.20204396815422482
+      },
+      "nearest_other_object_xy_center_m": 0.1038052477009382,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.08_+0.08",
+      "group": "grid",
+      "dx_m": -0.08,
+      "dy_m": 0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.07445294918575573,
+          0.3838104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.07445294918758645,
+          0.38381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08,
+        "dy_m": 0.08
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.12205245779453727,
+        "plate_1": 0.2337314025839513
+      },
+      "nearest_other_object_xy_center_m": 0.12205245779453727,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.04_-0.08",
+      "group": "grid",
+      "dx_m": -0.04,
+      "dy_m": -0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.034452949185755734,
+          0.22381047607350119,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0019654813762609137
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0019654813762609137
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003289356890081616
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.00205507984148609
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003289356890081616
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.00205507984148609
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.007456284561251696
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.008365541512779424
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0061849595693720715
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.00336699527474457
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.00336699527474457
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0036264160453218287
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0012158326044916356
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0012901693311105022
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004011376076464833
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0045864275518690155
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0024385624137577165
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004011376076464833
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0045864275518690155
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0024385624137577165
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0015083004471852885
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0014509335120424167
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0015083004471852885
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0014509335120424167
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0045836460191725145
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003857947942699742
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约8.4毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.008365541512779424,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.1646940856759512,
+        "plate_1": 0.09799523258529333
+      },
+      "nearest_other_object_xy_center_m": 0.09799523258529333,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.04_-0.04",
+      "group": "grid",
+      "dx_m": -0.04,
+      "dy_m": -0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.034452949185755734,
+          0.2638104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.03445294918758645,
+          0.26381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": -0.04,
+        "dy_m": -0.04
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.14712380793084345,
+        "plate_1": 0.11752305771975742
+      },
+      "nearest_other_object_xy_center_m": 0.11752305771975742,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.04_+0.00",
+      "group": "grid",
+      "dx_m": -0.04,
+      "dy_m": 0.0,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.034452949185755734,
+          0.3038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.03445294918758645,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": -0.04,
+        "dy_m": 0.0
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.1391642477919738,
+        "plate_1": 0.1456717974837859
+      },
+      "nearest_other_object_xy_center_m": 0.1391642477919738,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.04_+0.04",
+      "group": "grid",
+      "dx_m": -0.04,
+      "dy_m": 0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.034452949185755734,
+          0.3438104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.03445294918758645,
+          0.3438104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": -0.04,
+        "dy_m": 0.04
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.1424358131473263,
+        "plate_1": 0.17840649110532056
+      },
+      "nearest_other_object_xy_center_m": 0.1424358131473263,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_-0.04_+0.08",
+      "group": "grid",
+      "dx_m": -0.04,
+      "dy_m": 0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          -0.034452949185755734,
+          0.3838104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.03445294918758645,
+          0.38381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": -0.04,
+        "dy_m": 0.08
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.15623454762111427,
+        "plate_1": 0.21362930406399896
+      },
+      "nearest_other_object_xy_center_m": 0.15623454762111427,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.00_-0.08",
+      "group": "grid",
+      "dx_m": 0.0,
+      "dy_m": -0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.00554705081424427,
+          0.22381047607350119,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0030869599565769676
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0030869599565769676
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0030414369864262196
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0030414369864262196
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.006774920849170538
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.007617398253799201
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004519397731751649
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.004878204582055211
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0017455228234753723
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0046667809487751484
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0046667809487751484
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003115758355980156
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002788082918344022
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.002611074598483858
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002058779227069696
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0049394952418268115
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0018808399660689297
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002058779227069696
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0049394952418268115
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0018808399660689297
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.006828431224802447
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004878209524386918
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0010043238512751644
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0031811989770004372
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0028415633119907384
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0016322737006312974
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0038342566343165714
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.011770318585279564
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0018660324472295096
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.006253556264489673
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.008751587163489968
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0032352794578172552
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0020858677145608228
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0014619817093874904
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002082387160228907
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0016667233380581192
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0014619817093874904
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002082387160228907
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0016667233380581192
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0021382587878495474
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.001822732565200206
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0021382587878495474
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.001822732565200206
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.001640260565191556
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0011264414789573262
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004191343432223158
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0034550438514482857
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002745979855491556
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0010514018530371424
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0010514018530371424
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0011363863877614613
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004085917314527024
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0017894765626789708
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0021175475918867263
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003795643207160888
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004085917314527024
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0017894765626789708
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0021175475918867263
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003795643207160888
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002093692291932586
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0010994782083235725
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0034141013287001293
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002583976056942616
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002564737880251899
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0010021118215234144
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0010021118215234144
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001829873133047185
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约11.8毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.011770318585279564,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.19959101501150917,
+        "plate_1": 0.06172662805024383
+      },
+      "nearest_other_object_xy_center_m": 0.06172662805024383,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.00_-0.04",
+      "group": "grid",
+      "dx_m": 0.0,
+      "dy_m": -0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.00554705081424427,
+          0.2638104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002273954326284304
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00396360849580547
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0022567732512643575
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004362783702593994
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004035108264957859
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.008370658123611565
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.009204103146139975
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004442288386843318
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004617002612980132
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.001567130306348267
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.001675244067225109
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003588467088465743
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004162705016722948
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004502009882416652
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.003790976546229555
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约9.2毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.009204103146139975,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.18535869625339577,
+        "plate_1": 0.08954764149216242
+      },
+      "nearest_other_object_xy_center_m": 0.08954764149216242,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.00_+0.00",
+      "group": "grid",
+      "dx_m": 0.0,
+      "dy_m": 0.0,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.00554705081424427,
+          0.3038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0,
+        "dy_m": 0.0
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.17910644678568333,
+        "plate_1": 0.12420701905755786
+      },
+      "nearest_other_object_xy_center_m": 0.12420701905755786,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.00_+0.04",
+      "group": "grid",
+      "dx_m": 0.0,
+      "dy_m": 0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.00554705081424427,
+          0.3438104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.005547050812413551,
+          0.3438104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0,
+        "dy_m": 0.04
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.18166010096778812,
+        "plate_1": 0.16135670754424877
+      },
+      "nearest_other_object_xy_center_m": 0.16135670754424877,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.00_+0.08",
+      "group": "grid",
+      "dx_m": 0.0,
+      "dy_m": 0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.00554705081424427,
+          0.3838104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.005547050812413551,
+          0.38381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0,
+        "dy_m": 0.08
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.1926698349173039,
+        "plate_1": 0.19961109827831702
+      },
+      "nearest_other_object_xy_center_m": 0.1926698349173039,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.04_-0.08",
+      "group": "grid",
+      "dx_m": 0.04,
+      "dy_m": -0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.04554705081424427,
+          0.22381047607350119,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0019218947768758032
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0019218947768758032
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002364094958789056
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.006745589369129644
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.005402369092379763
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0023273931354705914
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.006745589369129644
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.005402369092379763
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0023273931354705914
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.006469166665651247
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002961721585166467
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002961721585166467
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0033904340721146913
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0032206201411186064
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.00317644900775067
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.003271528120976759
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.003119209065240392
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0033765570108001586
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.003121145221085755
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.006376456756508941
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002713148351996498
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0033362504644112666
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0013985326607379122
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.006604904355912431
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.003910715698586453
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0032041354442323183
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.006961855977017955
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0038858508296570706
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0017429136169624803
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0033384961856608598
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0020253612427985736
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0020094086502909407
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004314097926374055
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.001937759686983893
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.001937759686983893
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0038036318084453415
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004364272352629443
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.001716719629461438
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0012029005432272082
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0010883225487530943
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.005096257889230292
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0043599583084554215
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002906806320003117
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0010448260457751246
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0046239455769123096
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003795802307385881
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0043411226972632135
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.005087866595034691
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0012577321558464422
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002506459819635802
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002584888669688378
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004140800320033058
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004348845969638427
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004744095783635723
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.005020604730085323
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0021437910474161755
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0026445433742014086
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0014906731946557035
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00123925906286466
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0018682614711893943
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0040845366384645865
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0024228508724199573
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0027505069310352725
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003794261733863441
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0040845366384645865
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0024228508724199573
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0027505069310352725
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003794261733863441
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004624649487242588
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004371502803282547
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0024574002882316744
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0025842997332826906
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约7.0毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.006961855977017955,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.23611227136684654,
+        "plate_1": 0.034889649059005476
+      },
+      "nearest_other_object_xy_center_m": 0.034889649059005476,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.04_-0.04",
+      "group": "grid",
+      "dx_m": 0.04,
+      "dy_m": -0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.04554705081424427,
+          0.2638104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004113962566080095
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0072216657610041845
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004819883803714184
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004641449544475537
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004760023260520476
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0022072622029333214
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004460357201092896
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.007040124693250628
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004540543548710251
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004200584932722559
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0020803071494006364
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004100029662179848
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004689035664457266
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0014038355190090883
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0010126609459437034
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.00420881101823431
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.003491686100099872
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0020871919317804804
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约7.2毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.0072216657610041845,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.22421034252113692,
+        "plate_1": 0.0736606482310349
+      },
+      "nearest_other_object_xy_center_m": 0.0736606482310349,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.04_+0.00",
+      "group": "grid",
+      "dx_m": 0.04,
+      "dy_m": 0.0,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.04554705081424427,
+          0.3038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.04554705081241355,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": 0.04,
+        "dy_m": 0.0
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.21906973934544158,
+        "plate_1": 0.11328942838664144
+      },
+      "nearest_other_object_xy_center_m": 0.11328942838664144,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.04_+0.04",
+      "group": "grid",
+      "dx_m": 0.04,
+      "dy_m": 0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.04554705081424427,
+          0.3438104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.04554705081241355,
+          0.3438104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": 0.04,
+        "dy_m": 0.04
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.2211624373629344,
+        "plate_1": 0.15311139105411997
+      },
+      "nearest_other_object_xy_center_m": 0.15311139105411997,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.04_+0.08",
+      "group": "grid",
+      "dx_m": 0.04,
+      "dy_m": 0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.04554705081424427,
+          0.3838104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.04554705081241355,
+          0.38381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": 0.04,
+        "dy_m": 0.08
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.23029133006639232,
+        "plate_1": 0.19300699872513266
+      },
+      "nearest_other_object_xy_center_m": 0.19300699872513266,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.08_-0.08",
+      "group": "grid",
+      "dx_m": 0.08,
+      "dy_m": -0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.08554705081424427,
+          0.22381047607350119,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.005969778984540318
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.005969778769898901
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004124817908077711
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0033184300939924625
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004468089160136498
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002300283041626666
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0017691601822306822
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.003343669822158326
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0032346692355628395
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.006240002016792592
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002302738003792371
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004799513855414767
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0014007536191948933
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.003854983885107117
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0010456367810138295
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0027125343477913746
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.0042568814688163535
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.0015310537554085071
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0011701079882654392
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.0016401169273351493
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002941258862083054
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004528556700339525
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0024830502482470784
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0021868819552739063
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0015933987148183577
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.003120188825631558
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.00138983351490473
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.00370361350860218
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.004455106374997612
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004150082204879099
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004706404662722074
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0013035817775000147
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0013247615149052895
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0010150687337740988
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0013245145926897377
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.001015315851253502
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004121076879514159
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.003794330363350132
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004223391153952698
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004718336444583145
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.0024215604447932262
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.002584131814776415
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.001258234957258791
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0014900544235193986
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0012579770149986763
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004313518856215921
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0039820363245847935
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.00490449416582396
+        },
+        {
+          "other_geom": "plate_1_g7",
+          "depth_m": 0.004685710524508202
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0043042632461620465
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.003946579194288314
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004961805458916379
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0044864153676886466
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.0019292635913940694
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约6.2毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.006240002016792592,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.27360817989727265,
+        "plate_1": 0.04271297943796446
+      },
+      "nearest_other_object_xy_center_m": 0.04271297943796446,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.08_-0.04",
+      "group": "grid",
+      "dx_m": 0.08,
+      "dy_m": -0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.08554705081424427,
+          0.2638104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0011183789288415397
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004223991668491475
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0012617859432279676
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004274492654674112
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.00501632121083168
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004440611940043952
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0027231138620900184
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0025210721525535627
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.001873609561555196
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002626413989292243
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.002743763193354438
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0014280316347064612
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0013954564356633945
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0020347414622861795
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0021624540213109316
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.004317152296585873
+        },
+        {
+          "other_geom": "plate_1_g6",
+          "depth_m": 0.005027534773305197
+        }
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约5.0毫米）；请把碗挪远后再加载",
+      "deepest_penetration_m": 0.005027534773305197,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": true,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.2634059777418358,
+        "plate_1": 0.07767240242726935
+      },
+      "nearest_other_object_xy_center_m": 0.07767240242726935,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.08_+0.00",
+      "group": "grid",
+      "dx_m": 0.08,
+      "dy_m": 0.0,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.08554705081424427,
+          0.3038104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.08554705081241355,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": 0.08,
+        "dy_m": 0.0
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.25904436321519647,
+        "plate_1": 0.11593793850668284
+      },
+      "nearest_other_object_xy_center_m": 0.11593793850668284,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.08_+0.04",
+      "group": "grid",
+      "dx_m": 0.08,
+      "dy_m": 0.04,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.08554705081424427,
+          0.3438104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.08554705081241355,
+          0.3438104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": 0.08,
+        "dy_m": 0.04
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.26081651618906504,
+        "plate_1": 0.1550812982649264
+      },
+      "nearest_other_object_xy_center_m": 0.1550812982649264,
+      "audit_pass": true
+    },
+    {
+      "case": "grid_+0.08_+0.08",
+      "group": "grid",
+      "dx_m": 0.08,
+      "dy_m": 0.08,
+      "source_scene_metadata": null,
+      "original_positions": {
+        "akita_black_bowl_1": [
+          0.005547050813350805,
+          0.30381047607410794,
+          0.8984038715812133
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189523563,
+          0.31229456353118085,
+          0.8984038715812133
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707146234166
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831624923,
+          0.20408508422945673,
+          0.899341119995436
+        ],
+        "plate_1": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ]
+      },
+      "requested_positions": {
+        "akita_black_bowl_1": [
+          0.08554705081424427,
+          0.3838104760735012,
+          0.8984038856841015
+        ],
+        "akita_black_bowl_2": [
+          -0.17335834189434218,
+          0.3122945635305741,
+          0.8984038856841015
+        ],
+        "cookies_1": [
+          0.061680083084880016,
+          0.021534808434892465,
+          0.9093707268102663
+        ],
+        "glazed_rim_porcelain_ramekin_1": [
+          -0.1915617831625016,
+          0.20408508422912996,
+          0.8993411326543503
+        ],
+        "plate_1": [
+          0.0579581633016516,
+          0.19120293249405498,
+          0.9024995937037765
+        ]
+      },
+      "deep_contacts": [],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.08554705081241355,
+          0.38381047607474145,
+          0.8984038567263857
+        ],
+        "dx_m": 0.08,
+        "dy_m": 0.08
+      },
+      "deepest_penetration_m": 0.0,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "entire_state_exactly_restored": false,
+      "other_bowl_plate_xy_center_distance_m": {
+        "akita_black_bowl_2": 0.2686010575564344,
+        "plate_1": 0.1945734117444898
+      },
+      "nearest_other_object_xy_center_m": 0.1945734117444898,
+      "audit_pass": true
+    }
+  ],
+  "policy_loaded": false,
+  "gui_used": false,
+  "tolerance_m": 0.001,
+  "contract": "Each independent create(24) settles ten open-gripper steps; edits then execute zero physical steps.",
+  "limits": [
+    "Static placement validity does not establish learned policy success or speed.",
+    "Nearest center XY distance is a crowding proxy, not mesh clearance."
+  ],
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "source_unchanged_during_audit": true
+}

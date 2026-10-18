@@ -1,0 +1,2832 @@
+{
+  "status": "COMPLETE",
+  "inputs_sha256": {
+    ".local/position-study-v1/matrix-plan.json": "04521d91f9aeb3c23c8920896fb51d982d75bbf3828f9d0902308a4b139dd59d",
+    ".local/position-study-v1/matrix-results.json": "ad8bda1b3fab6fb9db9324ec686bd4d9f7248467413652a0cea47fd6cd19ed1e",
+    ".local/position-study-v1/placement-grid.json": "6ce70e28ef4c43d4767b63b8111c6b63c51cea4a886ce576e6e881c08cbcea15"
+  },
+  "plan": {
+    "predeclared_models": {
+      "parent1999": "ui_correct_1792311653585294069/1999",
+      "uniform4999": "ui_correct_1792324180062259097/4999",
+      "tempo4999": "ui_correct_1792341395770417042/4999"
+    },
+    "control_settings": {
+      "budget": 800,
+      "replan_steps": 1,
+      "policy_seed_per_trial": 0,
+      "sim_seed": 42,
+      "layout_id": 24,
+      "stop_after": "10 consecutive On+open+gap>=.06m+EEF-bowl>=.10m"
+    },
+    "case_selection": "Frozen before model rollouts. Invalid(+.04,-.01) excluded by static guard before policy calls, replaced with legal(+.04,0) boundary. Q4 coverage gap explicitly retained.",
+    "cases": [
+      {
+        "case": "zero",
+        "dx_m": 0.0,
+        "dy_m": 0.0,
+        "source": ".local/position-study-v1/sources/zero",
+        "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+        "source_scene_file_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a"
+      },
+      {
+        "case": "small_neg_neg",
+        "dx_m": -0.01,
+        "dy_m": -0.01,
+        "source": ".local/position-study-v1/sources/small_neg_neg",
+        "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3",
+        "source_scene_file_sha256": "37f5caeb320ed7f52142d37c1068c7da25a3d3194b9e3420175d56c04feed579"
+      },
+      {
+        "case": "user054_neg_neg",
+        "dx_m": -0.06416938110749186,
+        "dy_m": -0.08729641693811076,
+        "source": ".local/position-study-v1/sources/user054_neg_neg",
+        "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+        "source_scene_file_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068"
+      },
+      {
+        "case": "user055_neg_neg",
+        "dx_m": -0.08306188925081433,
+        "dy_m": -0.1,
+        "source": ".local/position-study-v1/sources/user055_neg_neg",
+        "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+        "source_scene_file_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7"
+      },
+      {
+        "case": "user057_pos_pos",
+        "dx_m": 0.02638436482084689,
+        "dy_m": 0.061237785016286635,
+        "source": ".local/position-study-v1/sources/user057_pos_pos",
+        "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+        "source_scene_file_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0"
+      },
+      {
+        "case": "neg_pos",
+        "dx_m": -0.04,
+        "dy_m": 0.04,
+        "source": ".local/position-study-v1/sources/neg_pos",
+        "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b",
+        "source_scene_file_sha256": "e6faf64b841fc4f55d41db1005e1e9ca18b53649cf54dc48755ce774dd39bb2a"
+      },
+      {
+        "case": "mirror054_pos_pos",
+        "dx_m": 0.06416938110749186,
+        "dy_m": 0.08729641693811076,
+        "source": ".local/position-study-v1/sources/mirror054_pos_pos",
+        "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5",
+        "source_scene_file_sha256": "754efb8aee2b0fd2642aadaf12652ed9be3425b147ae1c0d824dc432fd973c51"
+      },
+      {
+        "case": "pos_zero",
+        "dx_m": 0.04,
+        "dy_m": 0,
+        "source": ".local/position-study-v1/sources/pos_zero",
+        "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f",
+        "source_scene_file_sha256": "95358bdecaa79dec8ea5606c30cd5f6bd4c63bffb723c23b2f7635a5c9ea0dad"
+      }
+    ]
+  },
+  "completed_runs": 24,
+  "pending_runs": 0,
+  "invalid_or_error_runs": 0,
+  "runs": [
+    {
+      "case": "zero",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__zero",
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_sha256": {
+        "actions.csv": "8987333375f4d672ed547c79c74c648a8ad7d77e5fa34c7219328e1ec4830d38",
+        "result.json": "8f913864ecdf3b8acc9b516a8c57fd43a21a6eaefed42e525ff75866a80409f8"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 176,
+        "first_close_control_step": 51,
+        "first_lift_over_2cm_control_step": 72,
+        "first_On_control_step": 108,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 176,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 68,
+        "first_carry_proxy_control_step": 73,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 31,
+          "action_xyz_norm": {
+            "n": 31,
+            "mean": 0.8159099058908724,
+            "p10_p50_p90": [
+              0.6931715489549999,
+              0.7847538679733439,
+              1.0857042366955878
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 30,
+            "mean": 10.168172960887516,
+            "p10_p50_p90": [
+              8.306675505994853,
+              10.50075809820719,
+              12.124766378688156
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 176,
+          "mean": 0.5508756440426674,
+          "p10_p50_p90": [
+            0.13007950435965615,
+            0.5589134683685607,
+            0.9559026738163248
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 175,
+          "mean": 6.243935746816642,
+          "p10_p50_p90": [
+            1.0056875480719392,
+            5.396860508506047,
+            11.736459630416762
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.92,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07851933430330578,
+        "final_eef_bowl_distance_m": 0.1187402479620465,
+        "final_bowl_plate_xy_center_error_m": 0.015467444994418785,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_+0.00_+0.00",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 177,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__zero/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "zero",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__zero",
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_sha256": {
+        "actions.csv": "6bdc48f2a050bc1380d69368d3d026fc99c9e43b1e9012630f47216da375d048",
+        "result.json": "86f74e0b840878f81ebffad894eb551e643c65e60073d7f57ab160448e97bff1"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 269,
+        "first_close_control_step": 64,
+        "first_lift_over_2cm_control_step": 80,
+        "first_On_control_step": 164,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 269,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 105,
+        "first_carry_proxy_control_step": 84,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 73,
+          "action_xyz_norm": {
+            "n": 73,
+            "mean": 0.2351649879180242,
+            "p10_p50_p90": [
+              0.06713616023208237,
+              0.13377988976566169,
+              0.6434003802261721
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 72,
+            "mean": 2.912830927580669,
+            "p10_p50_p90": [
+              1.0739955015530325,
+              1.8340401382177063,
+              8.107214130887433
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 269,
+          "mean": 0.30429718158746877,
+          "p10_p50_p90": [
+            0.04838636066138051,
+            0.14024865055337432,
+            0.8791988137296497
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 268,
+          "mean": 3.589306789732849,
+          "p10_p50_p90": [
+            0.3010322407905294,
+            1.7804685146015313,
+            10.249515669453846
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.98,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07946639371053588,
+        "final_eef_bowl_distance_m": 0.10892796334891218,
+        "final_bowl_plate_xy_center_error_m": 0.0028907543202585212,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_+0.00_+0.00",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 270,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__zero/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "zero",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__zero",
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_sha256": {
+        "actions.csv": "b86922e7916a5106b7f225f14acd7529100befd0b66a7c3dfca3815fa59748f0",
+        "result.json": "bbe0b543b1640bb1283aaf84dfb88388abb00c1ec8450db4fe4d2e72ac1611bc"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 262,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 81,
+        "first_On_control_step": 212,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 262,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 50,
+        "first_carry_proxy_control_step": 85,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 116,
+          "action_xyz_norm": {
+            "n": 116,
+            "mean": 0.2091894268101177,
+            "p10_p50_p90": [
+              0.041746742447850566,
+              0.08796452029305438,
+              0.6003344863978939
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 115,
+            "mean": 2.5332690910114826,
+            "p10_p50_p90": [
+              0.41322821089627365,
+              1.3051759767435234,
+              6.81382228922538
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 262,
+          "mean": 0.3257911520540174,
+          "p10_p50_p90": [
+            0.047948357640003714,
+            0.17823256025706877,
+            0.868153237114164
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 261,
+          "mean": 3.949788842552731,
+          "p10_p50_p90": [
+            0.47832822910178474,
+            2.369226122122092,
+            10.362348950530702
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.88,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07928361080722009,
+        "final_eef_bowl_distance_m": 0.12024454294474313,
+        "final_bowl_plate_xy_center_error_m": 0.015943252269141343,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_+0.00_+0.00",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 263,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__zero/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "small_neg_neg",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__small_neg_neg",
+      "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3",
+      "source_sha256": {
+        "actions.csv": "3e4d2a61b016e574d376b643de8b89194913ed94c8f041c23bb1472ee81f5fd6",
+        "result.json": "72e9b113ad77b52dd93daf2c43f1c5f16efc5b641a6f06e10f5ae498b4354d69"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 132,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 73,
+        "first_On_control_step": 99,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 132,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 33,
+        "first_carry_proxy_control_step": 74,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 24,
+          "action_xyz_norm": {
+            "n": 24,
+            "mean": 0.8743622555137461,
+            "p10_p50_p90": [
+              0.6799733122693011,
+              0.876294030629563,
+              1.0860542394945802
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 23,
+            "mean": 10.669758414760311,
+            "p10_p50_p90": [
+              9.108249723050168,
+              10.231903965554674,
+              12.363309835717743
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 132,
+          "mean": 0.6206939906066882,
+          "p10_p50_p90": [
+            0.14846390223904463,
+            0.7267256610139021,
+            0.9693004501841674
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 131,
+          "mean": 7.520759768108876,
+          "p10_p50_p90": [
+            1.4422417260764973,
+            9.037129986500812,
+            11.816479864001094
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.54,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07858256500170302,
+        "final_eef_bowl_distance_m": 0.12405641063881988,
+        "final_bowl_plate_xy_center_error_m": 0.015603130174258104,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user052",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": false
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 133,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__small_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "small_neg_neg",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__small_neg_neg",
+      "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3",
+      "source_sha256": {
+        "actions.csv": "cd3c11999e0e50813ef5e4ecf28dd023c07d6cfe9ac5b79717deb7699db601cd",
+        "result.json": "635354c32b01ebfe1563a2ea5df2c86e9614cc78726ecb90f0e112bea7c81863"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 353,
+        "first_close_control_step": 66,
+        "first_lift_over_2cm_control_step": 85,
+        "first_On_control_step": 288,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 353,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 65,
+        "first_carry_proxy_control_step": 92,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 188,
+          "action_xyz_norm": {
+            "n": 188,
+            "mean": 0.13208244130092206,
+            "p10_p50_p90": [
+              0.03880745646365353,
+              0.07267825314633679,
+              0.2900078229180828
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 187,
+            "mean": 1.513095190501003,
+            "p10_p50_p90": [
+              0.5034468852272442,
+              0.7729048863593146,
+              3.347707948463441
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 353,
+          "mean": 0.23922638175829267,
+          "p10_p50_p90": [
+            0.04437761006416482,
+            0.10071422297335354,
+            0.7978425096653955
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 352,
+          "mean": 2.8800835226025674,
+          "p10_p50_p90": [
+            0.5493123177528192,
+            1.2676258868377719,
+            9.678080473918651
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.079720712131069,
+        "final_eef_bowl_distance_m": 0.11069190579088581,
+        "final_bowl_plate_xy_center_error_m": 0.02223663746272296,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user052",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": false
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 354,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__small_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "small_neg_neg",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__small_neg_neg",
+      "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3",
+      "source_sha256": {
+        "actions.csv": "d75b6e609608faedfb425d9686958bd75150d01f0df50fc451e8477880616aee",
+        "result.json": "335b9335c4af1b7508f5892db2748b5595fcbc8afb941b3e57d5353d56d4dda8"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 65,
+        "first_lift_over_2cm_control_step": 87,
+        "first_On_control_step": 279,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": 91,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 178,
+          "action_xyz_norm": {
+            "n": 178,
+            "mean": 0.1691504006680098,
+            "p10_p50_p90": [
+              0.03700627970529035,
+              0.07899075062245733,
+              0.497266956820181
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 176,
+            "mean": 1.9833298415186216,
+            "p10_p50_p90": [
+              0.3965974936550382,
+              1.0439850668661803,
+              4.890297892377032
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.20447796185133352,
+          "p10_p50_p90": [
+            0.046779590881252955,
+            0.1268164093973457,
+            0.5042449714703492
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.5036119839570732,
+          "p10_p50_p90": [
+            0.13397646460896095,
+            0.4924578571419625,
+            4.558352045659978
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.02,
+        "tail_open_command_fraction_last10": 0.0,
+        "final_finger_gap_m": 0.010913744938934062,
+        "final_eef_bowl_distance_m": 0.050586780394919977,
+        "final_bowl_plate_xy_center_error_m": 0.02273660464871295,
+        "diagnostic_phase_proxy": "On_without_stable_release_retreat"
+      },
+      "plate_reference": {
+        "case": "user052",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": false
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__small_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user054_neg_neg",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__user054_neg_neg",
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_sha256": {
+        "actions.csv": "39c6341dedf6ae8b1d2f8795a1bc04de399f3ff9ddc2874dc3d634a64993b025",
+        "result.json": "9b54c083bc1f77fafbf4305b82a091c55dac9857cb6ef1f01214a2d1fb42c542"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 46,
+        "first_lift_over_2cm_control_step": null,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": null,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 0,
+          "action_xyz_norm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.13130566982957168,
+          "p10_p50_p90": [
+            0.028224116639710275,
+            0.06408680491711352,
+            0.3185889516431695
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.3612378360221091,
+          "p10_p50_p90": [
+            0.29377645874082836,
+            0.6596223235435013,
+            2.3617971408130782
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.64,
+        "tail_open_command_fraction_last10": 0.3,
+        "final_finger_gap_m": 0.05007403900687643,
+        "final_eef_bowl_distance_m": 0.053281778372782966,
+        "final_bowl_plate_xy_center_error_m": 0.12676328253630173,
+        "diagnostic_phase_proxy": "close_command_without_lift_proxy"
+      },
+      "plate_reference": {
+        "case": "user054",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__user054_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user054_neg_neg",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__user054_neg_neg",
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_sha256": {
+        "actions.csv": "0a478e853c1bca4a6518c51d5ed3ac8bf956d2dbb1133497d874129985fac3fe",
+        "result.json": "a57eeac969ab96e27b61e51d5253d84f1aeffd3edda69feb5c8ed98824157fe6"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": null,
+        "first_lift_over_2cm_control_step": null,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": null,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 0,
+          "action_xyz_norm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.06270685604360313,
+          "p10_p50_p90": [
+            0.016689285106667354,
+            0.037163420772705874,
+            0.08668211727742117
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.6505141890480011,
+          "p10_p50_p90": [
+            0.12764853746530433,
+            0.3282051166275244,
+            0.8808466161352996
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07994217030594386,
+        "final_eef_bowl_distance_m": 0.10269262163182105,
+        "final_bowl_plate_xy_center_error_m": 0.11929654066622743,
+        "diagnostic_phase_proxy": "no_close_command_by_stop"
+      },
+      "plate_reference": {
+        "case": "user054",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__user054_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user054_neg_neg",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__user054_neg_neg",
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_sha256": {
+        "actions.csv": "1bf28683de0bf6f93673b139bb4e60fea250c0dd4a3c8ec48507d3c626963755",
+        "result.json": "9fa25291da152dc4b2e91efa463bd6703ea67a083d5bb1e2cf44e93cc880ac78"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": null,
+        "first_lift_over_2cm_control_step": 492,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": null,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 0,
+          "action_xyz_norm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.08889330246612367,
+          "p10_p50_p90": [
+            0.02811813363487084,
+            0.05503527094850898,
+            0.1319387264620611
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.9638101647211615,
+          "p10_p50_p90": [
+            0.2866173740161206,
+            0.5738095339896556,
+            1.503845738846688
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07977595651311213,
+        "final_eef_bowl_distance_m": 0.2054108330395521,
+        "final_bowl_plate_xy_center_error_m": 0.126988823371593,
+        "diagnostic_phase_proxy": "lift_proxy_without_On"
+      },
+      "plate_reference": {
+        "case": "user054",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__user054_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user055_neg_neg",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__user055_neg_neg",
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_sha256": {
+        "actions.csv": "bdc66223fd1c7689b0ceb6004ff8395c1c1d433077841bc64ab31c79937dde4e",
+        "result.json": "f1c9cfd376b2607b98012c59e5e4f696a3c3249fa756355dbc9e204b31d4205e"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": null,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": null,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 0,
+          "action_xyz_norm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.1411083265497478,
+          "p10_p50_p90": [
+            0.033645845604666,
+            0.06998906442529435,
+            0.37614911406771007
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.4950570012769149,
+          "p10_p50_p90": [
+            0.36717505786055904,
+            0.7867089553439597,
+            2.8943268232527877
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07977581344039673,
+        "final_eef_bowl_distance_m": 0.20756818290759785,
+        "final_bowl_plate_xy_center_error_m": 0.15751918028668188,
+        "diagnostic_phase_proxy": "close_command_without_lift_proxy"
+      },
+      "plate_reference": {
+        "case": "user055",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__user055_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user055_neg_neg",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__user055_neg_neg",
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_sha256": {
+        "actions.csv": "687793dab4ab3beff1373b4e5173fd035d00aa06cbeddaf6488f693fa0e2ee09",
+        "result.json": "bcdff65eadf6a413a79da0f4f5bde16af2b9a5900cf9a0ea56544412f3ab24c8"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 640,
+        "first_lift_over_2cm_control_step": 733,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": 745,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 56,
+          "action_xyz_norm": {
+            "n": 56,
+            "mean": 0.09634091381002816,
+            "p10_p50_p90": [
+              0.055230764165877175,
+              0.10163061759560141,
+              0.13493413785513664
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 55,
+            "mean": 1.0736331749003292,
+            "p10_p50_p90": [
+              0.7962603380731114,
+              1.036434768413484,
+              1.4170249096978906
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.07797003297142586,
+          "p10_p50_p90": [
+            0.023966810404634574,
+            0.05320938055741229,
+            0.11747727154480621
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.8678951420071094,
+          "p10_p50_p90": [
+            0.24317535866002757,
+            0.590716983394459,
+            1.200863676110631
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.0,
+        "tail_open_command_fraction_last10": 0.0,
+        "final_finger_gap_m": 0.004829224763883725,
+        "final_eef_bowl_distance_m": 0.061109406034195506,
+        "final_bowl_plate_xy_center_error_m": 0.10756031166921895,
+        "diagnostic_phase_proxy": "lift_proxy_without_On"
+      },
+      "plate_reference": {
+        "case": "user055",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__user055_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user055_neg_neg",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__user055_neg_neg",
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_sha256": {
+        "actions.csv": "b0757fe19ea6588db41993558ef293bb314a25b84f127043a77c0061d8214ffe",
+        "result.json": "dbefc34ca6b291ed1ff104170565562dd025ec05b5ef64bc843540899121a0fb"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": null,
+        "first_lift_over_2cm_control_step": null,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": null,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 0,
+          "action_xyz_norm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 0,
+            "mean": null,
+            "p10_p50_p90": null
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.08315145099329188,
+          "p10_p50_p90": [
+            0.025326947662395734,
+            0.05230004249422312,
+            0.13275968938499982
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.8988478560326805,
+          "p10_p50_p90": [
+            0.25540966466716697,
+            0.5320783980816138,
+            1.3804665594352594
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07980155782745132,
+        "final_eef_bowl_distance_m": 0.21238182365660552,
+        "final_bowl_plate_xy_center_error_m": 0.13605838581648186,
+        "diagnostic_phase_proxy": "no_close_command_by_stop"
+      },
+      "plate_reference": {
+        "case": "user055",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__user055_neg_neg/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user057_pos_pos",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__user057_pos_pos",
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_sha256": {
+        "actions.csv": "32a55ddc0c394be1ee7ebe7c07abe06feb6b3af26456a0841132a8b55f3e10f9",
+        "result.json": "32478dc20d630d6969138cc519010dade6bf4f0f8cd32d1037fef2e626641963"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 213,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 72,
+        "first_On_control_step": 115,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 213,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 98,
+        "first_carry_proxy_control_step": 73,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 38,
+          "action_xyz_norm": {
+            "n": 38,
+            "mean": 0.8237047797709308,
+            "p10_p50_p90": [
+              0.6368148204364251,
+              0.8249641399719925,
+              1.0198491367229359
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 37,
+            "mean": 10.06894130278547,
+            "p10_p50_p90": [
+              7.618191750536036,
+              10.179353567210377,
+              12.891102096381044
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 213,
+          "mean": 0.5368190150707046,
+          "p10_p50_p90": [
+            0.15230018039698726,
+            0.4923582718910868,
+            0.9218230147569276
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 212,
+          "mean": 5.583079109699465,
+          "p10_p50_p90": [
+            0.6061692456160788,
+            4.3068082193551005,
+            11.37397261362489
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.94,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07940377857006163,
+        "final_eef_bowl_distance_m": 0.1145149170861381,
+        "final_bowl_plate_xy_center_error_m": 0.017774490496015403,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user057",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 214,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__user057_pos_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user057_pos_pos",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__user057_pos_pos",
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_sha256": {
+        "actions.csv": "aa2c98319bd72d872a413146fd7f9f7d9297fde7c3912649a12dc2d2c91a2e8b",
+        "result.json": "220b34c8273e6bdb65c03a672ad40b27ad6be4198e17aedb0db6dc71a8c44247"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 258,
+        "first_close_control_step": 64,
+        "first_lift_over_2cm_control_step": 81,
+        "first_On_control_step": 190,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 258,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 68,
+        "first_carry_proxy_control_step": 83,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 104,
+          "action_xyz_norm": {
+            "n": 104,
+            "mean": 0.24967506540006268,
+            "p10_p50_p90": [
+              0.05254720932712258,
+              0.12871591557391737,
+              0.8387852887181524
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 103,
+            "mean": 3.068766521631387,
+            "p10_p50_p90": [
+              0.8750920789615085,
+              1.6307867278404362,
+              10.118356241730748
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 258,
+          "mean": 0.33343567807492314,
+          "p10_p50_p90": [
+            0.05479719187306771,
+            0.14512747642495027,
+            0.8671987367938311
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 257,
+          "mean": 4.09226741307864,
+          "p10_p50_p90": [
+            0.8562766748219726,
+            1.8266229872310777,
+            10.689891089241197
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.0797164683166606,
+        "final_eef_bowl_distance_m": 0.1102380943118486,
+        "final_bowl_plate_xy_center_error_m": 0.005945875709286559,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user057",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 259,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__user057_pos_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "user057_pos_pos",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__user057_pos_pos",
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_sha256": {
+        "actions.csv": "3d69e48fc727e5aa78d715f212fbfc283bda6c6bc71017a62d5779248d777121",
+        "result.json": "4872cdb5d46064cacba0e21ea742eab0e7fbb09a14e217f0a481173584cc8c81"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 225,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 75,
+        "first_On_control_step": 157,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 225,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 68,
+        "first_carry_proxy_control_step": 77,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 72,
+          "action_xyz_norm": {
+            "n": 72,
+            "mean": 0.38460471740198726,
+            "p10_p50_p90": [
+              0.06798694484000266,
+              0.287334304643896,
+              0.8148072088945731
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 71,
+            "mean": 4.908075428803624,
+            "p10_p50_p90": [
+              1.2211676763223787,
+              4.068725085282912,
+              9.9098698241412
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 225,
+          "mean": 0.37807763540497297,
+          "p10_p50_p90": [
+            0.06716668612878121,
+            0.20794045093990443,
+            0.8550270299493918
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 224,
+          "mean": 4.705200085536722,
+          "p10_p50_p90": [
+            0.91245986381246,
+            2.652257092838078,
+            10.778620465272342
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.98,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07946088261589057,
+        "final_eef_bowl_distance_m": 0.10965612701566167,
+        "final_bowl_plate_xy_center_error_m": 0.009489285053151204,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user057",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 226,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__user057_pos_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "neg_pos",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__neg_pos",
+      "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b",
+      "source_sha256": {
+        "actions.csv": "9648fd017f4613a3d287411e821a28f01fca87a44a9a37aaa2be08f61836f485",
+        "result.json": "3b30297470467a0cc79456154eb6b03fcc214dc77a6540875222962a8afeaf18"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 46,
+        "first_lift_over_2cm_control_step": 70,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": 72,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 37,
+          "action_xyz_norm": {
+            "n": 37,
+            "mean": 0.8301082282482235,
+            "p10_p50_p90": [
+              0.5535780528389952,
+              0.8307319045712664,
+              1.0733424749804865
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 36,
+            "mean": 9.995882481969232,
+            "p10_p50_p90": [
+              6.854055593792806,
+              10.140472409826078,
+              13.226022385726878
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.2192145007353195,
+          "p10_p50_p90": [
+            0.04314766845733925,
+            0.10284686692425055,
+            0.6816228657295279
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 2.2715955551562206,
+          "p10_p50_p90": [
+            0.4696247354660497,
+            1.0904509083924157,
+            6.984752882235074
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.0796622030113183,
+        "final_eef_bowl_distance_m": 0.18502283412306136,
+        "final_bowl_plate_xy_center_error_m": 0.04371809133261117,
+        "diagnostic_phase_proxy": "lift_proxy_without_On"
+      },
+      "plate_reference": {
+        "case": "grid_-0.04_+0.04",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__neg_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "neg_pos",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__neg_pos",
+      "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b",
+      "source_sha256": {
+        "actions.csv": "79e846f9b2a6cdcbb4c71ad0576f6f2ca6df805b7fb4e0c26ff712c595dcbcca",
+        "result.json": "ba43c182719fa8c0aa4460fed466f8c8fda36c6ae8fed5b2be08057ab24f4d58"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 307,
+        "first_close_control_step": 71,
+        "first_lift_over_2cm_control_step": 100,
+        "first_On_control_step": 207,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 307,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 100,
+        "first_carry_proxy_control_step": 102,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 94,
+          "action_xyz_norm": {
+            "n": 94,
+            "mean": 0.2294641914150899,
+            "p10_p50_p90": [
+              0.06274251066038385,
+              0.1427576949666844,
+              0.6097676364508696
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 93,
+            "mean": 2.910065712045927,
+            "p10_p50_p90": [
+              1.1649486692053732,
+              1.9474415081174894,
+              6.467662678698737
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 307,
+          "mean": 0.2514209027651908,
+          "p10_p50_p90": [
+            0.04616627655431612,
+            0.11066049613052821,
+            0.7079316641697021
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 306,
+          "mean": 3.1051072239443105,
+          "p10_p50_p90": [
+            0.5410260650193356,
+            1.5380193373740014,
+            8.86111604438883
+          ]
+        },
+        "tail_open_command_fraction_last50": 1.0,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07980070753378793,
+        "final_eef_bowl_distance_m": 0.10795831110987808,
+        "final_bowl_plate_xy_center_error_m": 0.00273629083795926,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_-0.04_+0.04",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 308,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__neg_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "neg_pos",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__neg_pos",
+      "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b",
+      "source_sha256": {
+        "actions.csv": "24143c206da0f700a2d0fa59fc65f72a552e408c0b17088d17f360ceb14d5fac",
+        "result.json": "a4653efa93038ef23f2e88bddd2a91ad6f099650badb6388d7b40431047b9235"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 85,
+        "first_On_control_step": null,
+        "any_On": false,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": 89,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 100,
+          "action_xyz_norm": {
+            "n": 100,
+            "mean": 0.3706107066582875,
+            "p10_p50_p90": [
+              0.06299930022499571,
+              0.23299242122412844,
+              0.9389674128828058
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 99,
+            "mean": 4.402385752666941,
+            "p10_p50_p90": [
+              0.8052194064927461,
+              2.387607831893656,
+              11.430969212949012
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.21157812113662489,
+          "p10_p50_p90": [
+            0.04551268355911278,
+            0.1225309196842688,
+            0.5400954209859771
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.6047844374234987,
+          "p10_p50_p90": [
+            0.1391165728211824,
+            0.43726804023112553,
+            6.240790228893254
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.0,
+        "tail_open_command_fraction_last10": 0.0,
+        "final_finger_gap_m": 0.010874076522832381,
+        "final_eef_bowl_distance_m": 0.04999276818518283,
+        "final_bowl_plate_xy_center_error_m": 0.040448702285117315,
+        "diagnostic_phase_proxy": "lift_proxy_without_On"
+      },
+      "plate_reference": {
+        "case": "grid_-0.04_+0.04",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__neg_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "mirror054_pos_pos",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__mirror054_pos_pos",
+      "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5",
+      "source_sha256": {
+        "actions.csv": "ee747e8bb48b954893f078b9b5c66f6618d597e1f0ddd76ec6f94b3830ec380b",
+        "result.json": "665ed1b4e01a5dc9bdab85d5017232a1402b38acddd26e4badbb37f4d00f098d"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 177,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 76,
+        "first_On_control_step": 119,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 177,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 58,
+        "first_carry_proxy_control_step": 78,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 38,
+          "action_xyz_norm": {
+            "n": 38,
+            "mean": 0.841409237858995,
+            "p10_p50_p90": [
+              0.5745062392865287,
+              0.8415335062361267,
+              1.016930549037475
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 37,
+            "mean": 10.16244172581984,
+            "p10_p50_p90": [
+              7.927736285095872,
+              10.30487296035642,
+              12.797799523272358
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 177,
+          "mean": 0.5709838436958946,
+          "p10_p50_p90": [
+            0.1469687842001746,
+            0.5747911349134948,
+            0.9310976444637062
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 176,
+          "mean": 6.740859238319743,
+          "p10_p50_p90": [
+            1.0859820373478117,
+            7.566102323279411,
+            11.629108803888265
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.7,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.0785452048990048,
+        "final_eef_bowl_distance_m": 0.12525945455493637,
+        "final_bowl_plate_xy_center_error_m": 0.011020397495371962,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user052",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": false
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 178,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__mirror054_pos_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "mirror054_pos_pos",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__mirror054_pos_pos",
+      "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5",
+      "source_sha256": {
+        "actions.csv": "018e76385180fc3f3f62080af7944635c9ee38153ca6acc8c2418bc120957dce",
+        "result.json": "ef28ea79cbade5814df74aef797e1491a75d361263a5ee10d8a0894118162b17"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 518,
+        "first_close_control_step": 66,
+        "first_lift_over_2cm_control_step": 142,
+        "first_On_control_step": 435,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 518,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 83,
+        "first_carry_proxy_control_step": 150,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 267,
+          "action_xyz_norm": {
+            "n": 267,
+            "mean": 0.12204741849484418,
+            "p10_p50_p90": [
+              0.036975474442384075,
+              0.07369088465297498,
+              0.24332210454564648
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 266,
+            "mean": 1.277934680626208,
+            "p10_p50_p90": [
+              0.38961320075983563,
+              0.7594249804985019,
+              2.5814472039757352
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 518,
+          "mean": 0.1837144232727176,
+          "p10_p50_p90": [
+            0.037184677202812905,
+            0.08517130372615989,
+            0.702814404114796
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 517,
+          "mean": 2.1117154593113567,
+          "p10_p50_p90": [
+            0.4360189823349815,
+            0.9582271925999185,
+            8.231141149346287
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.96,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07944335037717123,
+        "final_eef_bowl_distance_m": 0.10976239389354074,
+        "final_bowl_plate_xy_center_error_m": 0.01546248803484025,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "user052",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": false
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 519,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__mirror054_pos_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "mirror054_pos_pos",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__mirror054_pos_pos",
+      "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5",
+      "source_sha256": {
+        "actions.csv": "d1e8051349009d6a80179d0d2c03fa4cff6dd437042f56ba7e58f47d7eafb7fe",
+        "result.json": "593e933c48f60fb2c6ed379b41fa7af9f1e4d78b8e5accf806ffe7b7ca8bd837"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "first_close_control_step": 64,
+        "first_lift_over_2cm_control_step": 89,
+        "first_On_control_step": 326,
+        "any_On": true,
+        "final_On": false,
+        "first_ten_step_release_retreat_control_step": null,
+        "ten_step_release_retreat_observed": false,
+        "final_ten_step_release_retreat": false,
+        "final_gate_streak_steps": 0,
+        "On_to_stable_release_retreat_steps": null,
+        "first_carry_proxy_control_step": 91,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 202,
+          "action_xyz_norm": {
+            "n": 202,
+            "mean": 0.18638563554766874,
+            "p10_p50_p90": [
+              0.03146485595777176,
+              0.08456389008249632,
+              0.5182702662970233
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 201,
+            "mean": 1.9073005015343918,
+            "p10_p50_p90": [
+              0.24994280246169595,
+              0.6957022567228545,
+              6.231175235320593
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 800,
+          "mean": 0.16049966005713606,
+          "p10_p50_p90": [
+            0.03208689760424046,
+            0.07812785039073131,
+            0.42378308197167497
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.4700479251256524,
+          "p10_p50_p90": [
+            0.11897345491440504,
+            0.4173808819539489,
+            4.714920398774884
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.08,
+        "tail_open_command_fraction_last10": 0.0,
+        "final_finger_gap_m": 0.010660908253316906,
+        "final_eef_bowl_distance_m": 0.05974507551595111,
+        "final_bowl_plate_xy_center_error_m": 0.040681791251140784,
+        "diagnostic_phase_proxy": "On_without_stable_release_retreat"
+      },
+      "plate_reference": {
+        "case": "user052",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": false
+      },
+      "stop_reason": "step_limit",
+      "video_frames": 801,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__mirror054_pos_pos/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": true,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "pos_zero",
+      "model": "parent1999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/parent1999__pos_zero",
+      "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f",
+      "source_sha256": {
+        "actions.csv": "11a145613d0c08ee397cb11fb16772a26fa1940013155d1dace089d9ba85c2f0",
+        "result.json": "ab9493c122dd6f486cfd14e194498538940333dd3f558bd33b82315ab1ba1c45"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 141,
+        "first_close_control_step": 57,
+        "first_lift_over_2cm_control_step": 79,
+        "first_On_control_step": 105,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 141,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 36,
+        "first_carry_proxy_control_step": 80,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 23,
+          "action_xyz_norm": {
+            "n": 23,
+            "mean": 0.8577144841889613,
+            "p10_p50_p90": [
+              0.6904204670542916,
+              0.8546998794851964,
+              1.0468571034301781
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 22,
+            "mean": 10.128861549594037,
+            "p10_p50_p90": [
+              7.6421076757730155,
+              10.580626902503326,
+              12.73705082665691
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 141,
+          "mean": 0.640006247966723,
+          "p10_p50_p90": [
+            0.15916043715993766,
+            0.7228542913381224,
+            0.9704842205697592
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 140,
+          "mean": 7.417473423571145,
+          "p10_p50_p90": [
+            1.9743790061529203,
+            7.821485676969555,
+            11.853698053564898
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.6,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07872614961683722,
+        "final_eef_bowl_distance_m": 0.12912652367142194,
+        "final_bowl_plate_xy_center_error_m": 0.007639982858161776,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_+0.04_+0.00",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 142,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/parent1999__pos_zero/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+        "model_stage": "ui_correct_1792311653585294069/1999",
+        "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "pos_zero",
+      "model": "uniform4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__pos_zero",
+      "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f",
+      "source_sha256": {
+        "actions.csv": "b18f31c7f7774d12446d8858a6c022335c49494167ce37afc20aec640dc36921",
+        "result.json": "d8c107a665126a346a0077c0aef69208f82f2f8f66917932143efaaa540cf421"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 336,
+        "first_close_control_step": 66,
+        "first_lift_over_2cm_control_step": 85,
+        "first_On_control_step": 261,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 336,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 75,
+        "first_carry_proxy_control_step": 86,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 152,
+          "action_xyz_norm": {
+            "n": 152,
+            "mean": 0.09989664761000047,
+            "p10_p50_p90": [
+              0.030473022027618816,
+              0.05556959006310422,
+              0.14185652357773101
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 150,
+            "mean": 1.10941921616048,
+            "p10_p50_p90": [
+              0.31237788272586564,
+              0.5187810548869085,
+              1.696689972296667
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 336,
+          "mean": 0.2368270167933674,
+          "p10_p50_p90": [
+            0.033904925552721024,
+            0.08371827784462739,
+            0.8385264785396869
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 335,
+          "mean": 2.6965304330452033,
+          "p10_p50_p90": [
+            0.33590552977396054,
+            0.8925829456232569,
+            9.92129388509843
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.96,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.07945003658696806,
+        "final_eef_bowl_distance_m": 0.10981142827329153,
+        "final_bowl_plate_xy_center_error_m": 0.014869906731615106,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_+0.04_+0.00",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 337,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/uniform4999__pos_zero/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+        "model_stage": "ui_correct_1792324180062259097/4999",
+        "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    },
+    {
+      "case": "pos_zero",
+      "model": "tempo4999",
+      "status": "COMPLETE",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__pos_zero",
+      "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f",
+      "source_sha256": {
+        "actions.csv": "cf457c740ca7e55febd7f217819f665d4c6ce12921e1c4350c995221fa57e295",
+        "result.json": "1fcaecbc4623a54307c63dc629e06c31cb3d243615545fc55b07a88dffab3657"
+      },
+      "validations": {
+        "initial_sha_plan_result_entry_file": true,
+        "source_scene_file_sha": true,
+        "source_scene_result_sha": true,
+        "control_steps_csv_result_entry": true,
+        "On_csv_result_entry": true,
+        "first_On_csv_result_entry": true,
+        "stable_gate_csv_result_entry": true,
+        "stopflag_matches_gate": true,
+        "stable_stop_is_first_gate": true,
+        "budget_and_replan": true,
+        "seed_and_legal_scene": true,
+        "video_steps_frames_fps": true,
+        "checkpoint_identity": true
+      },
+      "metrics": {
+        "control_steps": 305,
+        "first_close_control_step": 66,
+        "first_lift_over_2cm_control_step": 89,
+        "first_On_control_step": 218,
+        "any_On": true,
+        "final_On": true,
+        "first_ten_step_release_retreat_control_step": 305,
+        "ten_step_release_retreat_observed": true,
+        "final_ten_step_release_retreat": true,
+        "final_gate_streak_steps": 10,
+        "On_to_stable_release_retreat_steps": 87,
+        "first_carry_proxy_control_step": 91,
+        "carry_proxy": {
+          "definition": "close command + post bowl > initial z + 3cm + not On; not verified grasp",
+          "frames": 113,
+          "action_xyz_norm": {
+            "n": 113,
+            "mean": 0.12383350547923505,
+            "p10_p50_p90": [
+              0.02857734710371353,
+              0.06102232175987929,
+              0.21938059008667202
+            ]
+          },
+          "fresh_adjacent_eef_displacement_mm": {
+            "n": 112,
+            "mean": 1.439588290188587,
+            "p10_p50_p90": [
+              0.38649263260829686,
+              0.7231190737666486,
+              3.636381639491002
+            ]
+          }
+        },
+        "all_action_xyz_norm": {
+          "n": 305,
+          "mean": 0.2658389299381024,
+          "p10_p50_p90": [
+            0.0431354430355191,
+            0.11133191511920333,
+            0.8532485605185539
+          ]
+        },
+        "fresh_adjacent_eef_displacement_mm": {
+          "n": 304,
+          "mean": 3.0408978415562737,
+          "p10_p50_p90": [
+            0.409562018471105,
+            1.16611728825403,
+            10.185272515445611
+          ]
+        },
+        "tail_open_command_fraction_last50": 0.82,
+        "tail_open_command_fraction_last10": 1.0,
+        "final_finger_gap_m": 0.0792602207437573,
+        "final_eef_bowl_distance_m": 0.11740943506904042,
+        "final_bowl_plate_xy_center_error_m": 0.01704048470830163,
+        "diagnostic_phase_proxy": "stable_release_retreat_observed"
+      },
+      "plate_reference": {
+        "case": "grid_+0.04_+0.00",
+        "plate_xyz": [
+          0.05795816330101628,
+          0.1912029324921334,
+          0.9024995808477997
+        ],
+        "exact_offset_case_match": true
+      },
+      "stop_reason": "stable_release_retreat",
+      "video_frames": 306,
+      "video_fps": 10,
+      "video_source": ".local/position-study-v1/runs/tempo4999__pos_zero/video.mp4",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+        "model_stage": "ui_correct_1792341395770417042/4999",
+        "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "budget_censored": false,
+      "observation_ends_at_stop": true
+    }
+  ],
+  "definitions": {
+    "control_step": "One CSV action; event steps are one-based action counts, CSV step is zero-based.",
+    "stable_gate": "10 consecutive post_On AND command<0 AND sum(abs(post_finger))>=.06m AND ||post_EEF-post_bowl||>=.10m",
+    "carry": "closed command>0 + post bowl z > initial saved bowl z+.03m + not On; diagnostic proxy, not verified grasp",
+    "motion": "Consecutive fresh pre-action state XYZ displacement in mm; no conversion to wall-clock velocity.",
+    "plate_error": "Final bowl-to-plate XY center distance using static grid original plate_1; not the On success predicate.",
+    "video": "Initial frame + one per action at 10 FPS. Playback aligns by control step, not physical or wall-clock time."
+  },
+  "limits": [
+    "One policy seed (0), simulation seed42, layout24 and eight predeclared guarded legal cases; no population/generalization success-rate claim.",
+    "Unsuccessful budget-limited trials are right-censored at800 actions, not proof they can never finish.",
+    "Successful trials stop at their first ten-step stable release/retreat; later stability or recovery is not observed.",
+    "Diagnostic phase labels are proxies, not causal failure diagnoses or grasp verification.",
+    "Q4 positive-X/negative-Y legal-scene coverage gap remains; rejected placements were not evaluated.",
+    "Video links are local only. The remote repository does not contain these raw videos.",
+    "No policy loading, simulation, training or changes to source run outputs performed."
+  ]
+}

@@ -1,0 +1,650 @@
+{
+  "status": "COMPLETE_BOUNDED_KEYFRAME_REVIEW",
+  "method": "Decoded true MP4 frames with OpenCV; viewed all saved keyframe contact sheets. Per trial only frame0,100,250,500,last where frame exists. MP4 frame k corresponds to k completed actions because video includes initial frame. CSV used separately for target identity/height/actions; no simulator or policy calls.",
+  "not_claimed": [
+    "Not full-video frame-by-frame visual review.",
+    "A bowl under the gripper in one projected image is not certified stable grasp.",
+    "No visual proof of wrong-bowl grasp where distractor pose trajectory is not recorded.",
+    "No inference about recovery after an800-action censored stop.",
+    "No wall-clock velocity inferred from10FPS action-index replay."
+  ],
+  "records": [
+    {
+      "model": "parent1999",
+      "case": "zero",
+      "source_directory": ".local/position-study-v1/runs/parent1999__zero",
+      "source_video_sha256": "452b7896b2ff2c6be1d52e6ed05f171e37129a4c7f4266e2c22334643ac79bc3",
+      "source_csv_sha256": "8987333375f4d672ed547c79c74c648a8ad7d77e5fa34c7219328e1ec4830d38",
+      "source_result_sha256": "8f913864ecdf3b8acc9b516a8c57fd43a21a6eaefed42e525ff75866a80409f8",
+      "contact_sheet": ".local/position-study-v1/visual-review/parent1999__zero-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/parent1999__zero-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/parent1999__zero-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            0.09097710423412947,
+            0.1709566772100361,
+            0.9490614554418754
+          ],
+          "gripper_action": 0.992152256451607
+        },
+        {
+          "video_frame": 176,
+          "image": ".local/position-study-v1/visual-review/parent1999__zero-frame0176.png",
+          "post_On": "True",
+          "target_xyz": [
+            0.056708030990625796,
+            0.17578609027779235,
+            0.9073175249049624
+          ],
+          "gripper_action": -1.007185939567089
+        }
+      ],
+      "visual_observations": [
+        "第100帧可见夹爪贴近盘上方碗；末176帧碗在盘上、夹爪已打开且离开。",
+        "只有100及终点等稀疏关键帧，没有完整看到抓起过程；不能单凭第100帧证明从开始到放置始终抓稳。"
+      ],
+      "csv_evidence": {
+        "control_steps": 176,
+        "first_close_control_step": 51,
+        "maximum_named_target_lift_mm": 135.275145046593,
+        "final_named_target_xyz": [
+          0.056708030990625796,
+          0.17578609027779235,
+          0.9073175249049624
+        ],
+        "final_eef_xyz": [
+          0.03502413640399292,
+          0.15557257384409015,
+          1.0222978230217639
+        ],
+        "final_gripper_command": -1.007185939567089,
+        "first_On_control_step": 108,
+        "any_On": true,
+        "ten_step_release_retreat_flag": true,
+        "stop_reason": "stable_release_retreat"
+      },
+      "bounded_interpretation": "Target height and final On/stable release-retreat flags support this trial completion; sparse images agree. Continuous grasp reliability is not measured by this review."
+    },
+    {
+      "model": "parent1999",
+      "case": "user054_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/parent1999__user054_neg_neg",
+      "source_video_sha256": "cbcc6abd78bbcde922bff618557d8394e4bebd4e408e4b5b197a1880060c239b",
+      "source_csv_sha256": "39c6341dedf6ae8b1d2f8795a1bc04de399f3ff9ddc2874dc3d634a64993b025",
+      "source_result_sha256": "9b54c083bc1f77fafbf4305b82a091c55dac9857cb6ef1f01214a2d1fb42c542",
+      "contact_sheet": ".local/position-study-v1/visual-review/parent1999__user054_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/parent1999__user054_neg_neg-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/parent1999__user054_neg_neg-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.06540181088113517,
+            0.22007307109291643,
+            0.8984041501888531
+          ],
+          "gripper_action": 1.0038710123109817
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/parent1999__user054_neg_neg-frame0250.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.06540181088113517,
+            0.22007307109291643,
+            0.8984041501888531
+          ],
+          "gripper_action": -0.9943414302189648
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/parent1999__user054_neg_neg-frame0500.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.06540181088113517,
+            0.22007307109291643,
+            0.8984041501888531
+          ],
+          "gripper_action": -0.9955803133800626
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/parent1999__user054_neg_neg-frame0800.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.0656569694100675,
+            0.21927834458526926,
+            0.8985521286009043
+          ],
+          "gripper_action": 1.0113034768121243
+        }
+      ],
+      "visual_observations": [
+        "100、250、500及800帧夹爪附近都有碗形轮廓，但未见目标碗完整离桌并搬到盘上的视觉链。",
+        "800帧盘子仍空，夹爪低位靠近碗。单相机遮挡较强，不能把碗与夹爪投影重叠说成抓稳。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": 46,
+        "maximum_named_target_lift_mm": 0.1482718745186018,
+        "final_named_target_xyz": [
+          -0.0656569694100675,
+          0.21927834458526926,
+          0.8985521286009043
+        ],
+        "final_eef_xyz": [
+          -0.03769041147069201,
+          0.23755746365660801,
+          0.9400574698182191
+        ],
+        "final_gripper_command": 1.0113034768121243,
+        "first_On_control_step": null,
+        "any_On": false,
+        "ten_step_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "Recorded named target never meaningfully lifted; apparent bowl/gripper overlap must not be treated as stable target carry. Cannot distinguish empty grasp vs other-bowl contact solely from these frames; no wrong-bowl claim."
+    },
+    {
+      "model": "parent1999",
+      "case": "user055_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/parent1999__user055_neg_neg",
+      "source_video_sha256": "65faf3776c2513b5e2e7b900514b2940311a77f012a7978c72936f46885ce20a",
+      "source_csv_sha256": "bdc66223fd1c7689b0ceb6004ff8395c1c1d433077841bc64ab31c79937dde4e",
+      "source_result_sha256": "f1c9cfd376b2607b98012c59e5e4f696a3c3249fa756355dbc9e204b31d4205e",
+      "contact_sheet": ".local/position-study-v1/visual-review/parent1999__user055_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/parent1999__user055_neg_neg-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/parent1999__user055_neg_neg-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.09475703221535448,
+            0.21129820821493625,
+            0.8983362823766319
+          ],
+          "gripper_action": 1.0048475752992632
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/parent1999__user055_neg_neg-frame0250.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.09823233276533604,
+            0.21278098877973434,
+            0.8985383885851345
+          ],
+          "gripper_action": -0.9933648672306835
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/parent1999__user055_neg_neg-frame0500.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.09816326407169396,
+            0.212786336519747,
+            0.8985125912909505
+          ],
+          "gripper_action": -1.0009514098156094
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/parent1999__user055_neg_neg-frame0800.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.09807203709981205,
+            0.21281007763131232,
+            0.898478081770689
+          ],
+          "gripper_action": -1.0096937466452718
+        }
+      ],
+      "visual_observations": [
+        "100帧夹爪靠近盘和碗之间，250帧后夹爪在较高或侧方位置；500与800偏向桌边/其他碗一侧。",
+        "这些画面有夹爪与碗重叠的外观，无法从稀疏单视角区分接触、空抓或非目标接近；末帧盘子仍空。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": 57,
+        "maximum_named_target_lift_mm": 1.4678736289175376,
+        "final_named_target_xyz": [
+          -0.09807203709981205,
+          0.21281007763131232,
+          0.898478081770689
+        ],
+        "final_eef_xyz": [
+          -0.05727130149077053,
+          0.3991947201459523,
+          0.9802131144311886
+        ],
+        "final_gripper_command": -1.0096937466452718,
+        "first_On_control_step": null,
+        "any_On": false,
+        "ten_step_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "Recorded named target never meaningfully lifted; apparent bowl/gripper overlap must not be treated as stable target carry. Cannot distinguish empty grasp vs other-bowl contact solely from these frames; no wrong-bowl claim."
+    },
+    {
+      "model": "parent1999",
+      "case": "user057_pos_pos",
+      "source_directory": ".local/position-study-v1/runs/parent1999__user057_pos_pos",
+      "source_video_sha256": "e6eb5f3062be53ed2f7c3aa028c28110ca4b66b8da5cebfd4cd22787daa54e27",
+      "source_csv_sha256": "32a55ddc0c394be1ee7ebe7c07abe06feb6b3af26456a0841132a8b55f3e10f9",
+      "source_result_sha256": "32478dc20d630d6969138cc519010dade6bf4f0f8cd32d1037fef2e626641963",
+      "contact_sheet": ".local/position-study-v1/visual-review/parent1999__user057_pos_pos-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/parent1999__user057_pos_pos-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/parent1999__user057_pos_pos-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            0.11857399246673211,
+            0.18272256781024662,
+            0.9978238817600019
+          ],
+          "gripper_action": 0.988246004498482
+        },
+        {
+          "video_frame": 213,
+          "image": ".local/position-study-v1/visual-review/parent1999__user057_pos_pos-frame0213.png",
+          "post_On": "True",
+          "target_xyz": [
+            0.06704451287340091,
+            0.17592645502377155,
+            0.9081367173513873
+          ],
+          "gripper_action": -1.0036115664420129
+        }
+      ],
+      "visual_observations": [
+        "初始目标碗部分位于画面左边缘；100帧已到夹爪下方盘旁，213末帧碗在盘上且夹爪开放撤离。",
+        "初始画面裁边没有阻止这次完成；不能推广为任意遮挡都能处理。"
+      ],
+      "csv_evidence": {
+        "control_steps": 213,
+        "first_close_control_step": 57,
+        "maximum_named_target_lift_mm": 163.58033130328974,
+        "final_named_target_xyz": [
+          0.06704451287340091,
+          0.17592645502377155,
+          0.9081367173513873
+        ],
+        "final_eef_xyz": [
+          0.03871772761645098,
+          0.1486495407263308,
+          1.0156877722911777
+        ],
+        "final_gripper_command": -1.0036115664420129,
+        "first_On_control_step": 115,
+        "any_On": true,
+        "ten_step_release_retreat_flag": true,
+        "stop_reason": "stable_release_retreat"
+      },
+      "bounded_interpretation": "Target height and final On/stable release-retreat flags support this trial completion; sparse images agree. Continuous grasp reliability is not measured by this review."
+    },
+    {
+      "model": "uniform4999",
+      "case": "zero",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__zero",
+      "source_video_sha256": "76874f215ff24b6ec83029ec75227d4f28fd8e110f0bd87a301f7c7bd266d85e",
+      "source_csv_sha256": "6bdc48f2a050bc1380d69368d3d026fc99c9e43b1e9012630f47216da375d048",
+      "source_result_sha256": "86f74e0b840878f81ebffad894eb551e643c65e60073d7f57ab160448e97bff1",
+      "contact_sheet": ".local/position-study-v1/visual-review/uniform4999__zero-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/uniform4999__zero-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/uniform4999__zero-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            0.0591223656384903,
+            0.2403427227130326,
+            0.9986176051687945
+          ],
+          "gripper_action": 0.9892225674867632
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/uniform4999__zero-frame0250.png",
+          "post_On": "True",
+          "target_xyz": [
+            0.055194998539851395,
+            0.19205227716999088,
+            0.9062966738132116
+          ],
+          "gripper_action": -0.9997125266545117
+        },
+        {
+          "video_frame": 269,
+          "image": ".local/position-study-v1/visual-review/uniform4999__zero-frame0269.png",
+          "post_On": "True",
+          "target_xyz": [
+            0.05519499846241355,
+            0.19205227377501258,
+            0.9062966737267292
+          ],
+          "gripper_action": -1.0026698125836848
+        }
+      ],
+      "visual_observations": [
+        "100帧碗位于抬高夹爪下方，尚未到盘；250帧碗已在盘上，夹爪虽开但仍较近；269末帧撤离更充分。",
+        "与parent同控制步100对比，碗尚在搬运中；这只是步数对照，不代表墙钟速度。"
+      ],
+      "csv_evidence": {
+        "control_steps": 269,
+        "first_close_control_step": 64,
+        "maximum_named_target_lift_mm": 101.96202668236998,
+        "final_named_target_xyz": [
+          0.05519499846241355,
+          0.19205227377501258,
+          0.9062966737267292
+        ],
+        "final_eef_xyz": [
+          0.04534044708308405,
+          0.1517925235606318,
+          1.0070306874913448
+        ],
+        "final_gripper_command": -1.0026698125836848,
+        "first_On_control_step": 164,
+        "any_On": true,
+        "ten_step_release_retreat_flag": true,
+        "stop_reason": "stable_release_retreat"
+      },
+      "bounded_interpretation": "Target height and final On/stable release-retreat flags support this trial completion; sparse images agree. Continuous grasp reliability is not measured by this review."
+    },
+    {
+      "model": "uniform4999",
+      "case": "user054_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__user054_neg_neg",
+      "source_video_sha256": "75319a8cf2e0d184fc845ef6b8200cc60ecdbabf418c6eaa2fe9b3bea9a3ef96",
+      "source_csv_sha256": "0a478e853c1bca4a6518c51d5ed3ac8bf956d2dbb1133497d874129985fac3fe",
+      "source_result_sha256": "a57eeac969ab96e27b61e51d5253d84f1aeffd3edda69feb5c8ed98824157fe6",
+      "contact_sheet": ".local/position-study-v1/visual-review/uniform4999__user054_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user054_neg_neg-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user054_neg_neg-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.058622330279576335,
+            0.21651405912518273,
+            0.898404150188853
+          ],
+          "gripper_action": -0.9883174837827683
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user054_neg_neg-frame0250.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.058622330279576335,
+            0.21651405912518273,
+            0.898404150188853
+          ],
+          "gripper_action": -0.9982476821720898
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user054_neg_neg-frame0500.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.058622330279576335,
+            0.21651405912518273,
+            0.898404150188853
+          ],
+          "gripper_action": -0.9970451578624845
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user054_neg_neg-frame0800.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.058622330279576335,
+            0.21651405912518273,
+            0.898404150188853
+          ],
+          "gripper_action": -1.0023695242331625
+        }
+      ],
+      "visual_observations": [
+        "100至250帧末端仍较高，500帧开始接近目标，800末帧开放夹爪悬在目标附近；盘子始终未在关键帧中见碗。",
+        "没有看到实际闭爪抓取或目标提升；早期更多是长时间接近/微调。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": null,
+        "maximum_named_target_lift_mm": 0.00029346246732675496,
+        "final_named_target_xyz": [
+          -0.058622330279576335,
+          0.21651405912518273,
+          0.898404150188853
+        ],
+        "final_eef_xyz": [
+          -0.051674729991242806,
+          0.21021283271424143,
+          1.000667535295977
+        ],
+        "final_gripper_command": -1.0023695242331625,
+        "first_On_control_step": null,
+        "any_On": false,
+        "ten_step_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "All action gripper signs remain open, so this800-step run did not execute a closing attempt; not a post-grasp release failure."
+    },
+    {
+      "model": "uniform4999",
+      "case": "user055_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__user055_neg_neg",
+      "source_video_sha256": "4521b75acddaa67ca049086a376337bd7708ddb376b351112ceb146605b7759c",
+      "source_csv_sha256": "687793dab4ab3beff1373b4e5173fd035d00aa06cbeddaf6488f693fa0e2ee09",
+      "source_result_sha256": "bcdff65eadf6a413a79da0f4f5bde16af2b9a5900cf9a0ea56544412f3ab24c8",
+      "contact_sheet": ".local/position-study-v1/visual-review/uniform4999__user055_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user055_neg_neg-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user055_neg_neg-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.07751483842289893,
+            0.20381047606329347,
+            0.898404150188853
+          ],
+          "gripper_action": -0.9785518538999558
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user055_neg_neg-frame0250.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.07751483842289893,
+            0.20381047606329347,
+            0.898404150188853
+          ],
+          "gripper_action": -0.9997125266545117
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user055_neg_neg-frame0500.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.07751483842289893,
+            0.20381047606329347,
+            0.898404150188853
+          ],
+          "gripper_action": -1.0051018025158047
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user055_neg_neg-frame0800.png",
+          "post_On": "False",
+          "target_xyz": [
+            -0.04490218553052022,
+            0.22265081452946853,
+            0.977609498048876
+          ],
+          "gripper_action": 0.9976314757668376
+        }
+      ],
+      "visual_observations": [
+        "100、250时末端较高；500仍在目标附近接近；800帧闭爪下有可见抬起的碗，尚未搬到盘上或释放。",
+        "真实目标位置日志支持最后抬起的是目标碗；只看末帧仍不能保证之后持续抓稳和成功放置。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": 640,
+        "maximum_named_target_lift_mm": 79.20564132249031,
+        "final_named_target_xyz": [
+          -0.04490218553052022,
+          0.22265081452946853,
+          0.977609498048876
+        ],
+        "final_eef_xyz": [
+          -0.04898387056457384,
+          0.2555849103781245,
+          1.0289226998956376
+        ],
+        "final_gripper_command": 0.9976314757668376,
+        "first_On_control_step": null,
+        "any_On": false,
+        "ten_step_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "Target lifts late after first close640, remains held at800 and On never occurs. This trial is budget-censored before observed placement/release; not proof completion is impossible."
+    },
+    {
+      "model": "uniform4999",
+      "case": "user057_pos_pos",
+      "source_directory": ".local/position-study-v1/runs/uniform4999__user057_pos_pos",
+      "source_video_sha256": "7b61ada2ff2c3f8ff98b95dd9b9034f344f10e4ab1d756fd1c3d085d113c53b4",
+      "source_csv_sha256": "aa2c98319bd72d872a413146fd7f9f7d9297fde7c3912649a12dc2d2c91a2e8b",
+      "source_result_sha256": "220b34c8273e6bdb65c03a672ad40b27ad6be4198e17aedb0db6dc71a8c44247",
+      "contact_sheet": ".local/position-study-v1/visual-review/uniform4999__user057_pos_pos-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user057_pos_pos-frame0000.png",
+          "post_On": null,
+          "target_xyz": null,
+          "gripper_action": null
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user057_pos_pos-frame0100.png",
+          "post_On": "False",
+          "target_xyz": [
+            0.09336158095937834,
+            0.23725954208769,
+            1.0401234864626516
+          ],
+          "gripper_action": 0.996058508404732
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user057_pos_pos-frame0250.png",
+          "post_On": "True",
+          "target_xyz": [
+            0.06125150531792956,
+            0.18625237954438906,
+            0.9062373120182067
+          ],
+          "gripper_action": -1.001177311532259
+        },
+        {
+          "video_frame": 258,
+          "image": ".local/position-study-v1/visual-review/uniform4999__user057_pos_pos-frame0258.png",
+          "post_On": "True",
+          "target_xyz": [
+            0.06125146935511475,
+            0.18625242007579484,
+            0.9062373027035254
+          ],
+          "gripper_action": -1.0063614877083302
+        }
+      ],
+      "visual_observations": [
+        "100帧夹爪下方碗明显处于较高位置；250与258末帧碗在盘上，夹爪打开且逐步离开。",
+        "与parent一样完成，但关键事件步数更晚；无证据把它归作拿错碗。"
+      ],
+      "csv_evidence": {
+        "control_steps": 258,
+        "first_close_control_step": 64,
+        "maximum_named_target_lift_mm": 142.28260678706505,
+        "final_named_target_xyz": [
+          0.06125146935511475,
+          0.18625242007579484,
+          0.9062373027035254
+        ],
+        "final_eef_xyz": [
+          0.04370966785677435,
+          0.1493894419381203,
+          1.0086377103224513
+        ],
+        "final_gripper_command": -1.0063614877083302,
+        "first_On_control_step": 190,
+        "any_On": true,
+        "ten_step_release_retreat_flag": true,
+        "stop_reason": "stable_release_retreat"
+      },
+      "bounded_interpretation": "Target height and final On/stable release-retreat flags support this trial completion; sparse images agree. Continuous grasp reliability is not measured by this review."
+    }
+  ],
+  "summary": [
+    "zero和user057：两模型视觉终点与CSV稳定释放门一致，uniform本次步数更长。",
+    "parent054/055：命名目标几乎未离桌，属于抓取前/接触失败，不应把夹爪投影中的碗判成已抓稳。",
+    "uniform054：800步始终开爪，没有真正闭爪抓取尝试。",
+    "uniform055：640才首次闭爪，800时目标已提升约79mm但未放盘，属于预算截尾的未完成。",
+    "未获得可靠拿错碗证据；单视角重叠/遮挡需要和命名目标轨迹分开解释。"
+  ]
+}

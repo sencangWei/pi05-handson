@@ -1,0 +1,311 @@
+{
+  "status": "ORIGINAL_SPEED_REPLAY_FAILED_NO_RETIMING",
+  "trials": [
+    {
+      "source": "/home/robot/.pi05-handson/corrections/human_1792316444273677599",
+      "source_metadata_sha256": "04352c3687814b10143c2d57c84d83f50fcb9e18015d9d229fc7fc5c23f1fadb",
+      "source_initial_state_file_sha256": "b28472f3920ec106ccae3fe7fcf50356e0b13e5b262649cd5ecbe21124ce9a84",
+      "source_initial_state_array_sha256": "a018727fc8a4aa143bd99d747f81264f31a312f3771029adbdd7c31e5a184059",
+      "source_frame_count": 796,
+      "source_split": "train",
+      "source_scenario": {
+        "layout_id": 24,
+        "bowl_edit": {
+          "before_xyz": [
+            0.005547050812413551,
+            0.30381047607474143,
+            0.8984038567263857
+          ],
+          "after_xyz": [
+            -0.04975294918758645,
+            0.28861047607474144,
+            0.8984038567263857
+          ],
+          "dx_m": -0.0553,
+          "dy_m": -0.0152
+        },
+        "task_metadata": {
+          "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+          "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+        }
+      },
+      "source_frame_hashes_verified": true,
+      "source_original_approval_gates_pass": true,
+      "status": "COMPLETE",
+      "output": "/home/robot/.pi05-handson/.local/position-study-v1/original-replay-pilot/human_1792316444273677599",
+      "physical_state_exactly_restored_before_actions": true,
+      "first_fresh_state8_error": [
+        5.3571605485025486e-11,
+        -3.3280266320545593e-09,
+        -4.8349019676763305e-08,
+        -8.147551167070333e-08,
+        1.4119632518738712e-08,
+        -2.8762713433216902e-08,
+        -8.727736172664535e-10,
+        1.2083882575120164e-09
+      ],
+      "controller_initialization": [
+        {
+          "controller_class": "OperationalSpaceController",
+          "gripper_current_action": [
+            1.0,
+            -1.0
+          ],
+          "goal_pos": [
+            -0.2081340911609005,
+            0.0015649252322378316,
+            1.178185380028037
+          ],
+          "goal_ori": [
+            [
+              -0.0004918296871690936,
+              0.9983867450712572,
+              -0.056777331476359764
+            ],
+            [
+              0.9999998786606131,
+              0.0004926243561613802,
+              0.0
+            ],
+            [
+              2.7969896363104485e-05,
+              -0.05677732458703325,
+              -0.9983868662149061
+            ]
+          ],
+          "initial_joint": [
+            0.0,
+            -0.161037389,
+            0.0,
+            -2.44459747,
+            0.0,
+            2.2267522,
+            0.7853981633974483
+          ]
+        }
+      ],
+      "executed_control_steps": 796,
+      "reference_errors_m": {
+        "fresh_pre_eef": {
+          "mean": 0.054000586152213204,
+          "max": 0.13729308818828223,
+          "p95": 0.09996665302533363,
+          "final": 0.03157172723832698
+        },
+        "fresh_post_eef": {
+          "mean": 0.0540642363867659,
+          "max": 0.13742788276349074,
+          "p95": 0.10039137180544774,
+          "final": 0.031640278656751605
+        },
+        "returned_post_eef": {
+          "mean": 0.05408972245800922,
+          "max": 0.1375576943817826,
+          "p95": 0.10001999206033749,
+          "final": 0.03163916043154119
+        },
+        "fresh_post_bowl": {
+          "mean": 0.044410457397753934,
+          "max": 0.07088935120163069,
+          "p95": 0.06339066285659624,
+          "final": 0.035313075239613655
+        }
+      },
+      "wall_duration_s": 11.920341524994,
+      "final_on": true,
+      "final_finger_gap_m": 0.07998522687188767,
+      "final_eef_bowl_distance_m": 0.20176447580824172,
+      "fresh_terminal_gates": {
+        "checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "pass": true
+      },
+      "returned_terminal_gates": {
+        "checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "pass": true
+      },
+      "source_metadata_unchanged": true,
+      "artifact_verification": {
+        "replayed_actions_bitwise_equal_to_source": true,
+        "csv_rows": 796,
+        "npz_control_steps": 796,
+        "initial_final_rgb_images_256x256_valid": true
+      }
+    },
+    {
+      "source": "/home/robot/.pi05-handson/corrections/human_1792316988593839967",
+      "source_metadata_sha256": "576c8d6781913ee2933dfe68469e5295ccaa366db2310d23ff2790f4eb16af1b",
+      "source_initial_state_file_sha256": "17d8ae84f21717beb517edbbff8609351e2a213e553fc6506bd7d9843613c474",
+      "source_initial_state_array_sha256": "deac21f7f942eee7c50ecb32f92d31afa87efd42ad709679c17e00204a7660ce",
+      "source_frame_count": 735,
+      "source_split": "train",
+      "source_scenario": {
+        "layout_id": 24,
+        "bowl_edit": {
+          "before_xyz": [
+            0.005547050812413551,
+            0.30381047607474143,
+            0.8984038567263857
+          ],
+          "after_xyz": [
+            -0.0833780306208112,
+            0.2673283913841877,
+            0.8984038567263857
+          ],
+          "dx_m": -0.08892508143322475,
+          "dy_m": -0.03648208469055375
+        },
+        "task_metadata": {
+          "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+          "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+        }
+      },
+      "source_frame_hashes_verified": true,
+      "source_original_approval_gates_pass": true,
+      "status": "COMPLETE",
+      "output": "/home/robot/.pi05-handson/.local/position-study-v1/original-replay-pilot/human_1792316988593839967",
+      "physical_state_exactly_restored_before_actions": true,
+      "first_fresh_state8_error": [
+        7.973527046956086e-10,
+        -1.3538735244011946e-08,
+        1.6925349677343604e-08,
+        -3.788500935186789e-08,
+        7.978438576472513e-09,
+        -8.730889233810046e-09,
+        -2.638952320554999e-10,
+        -9.427095076786074e-10
+      ],
+      "controller_initialization": [
+        {
+          "controller_class": "OperationalSpaceController",
+          "gripper_current_action": [
+            1.0,
+            -1.0
+          ],
+          "goal_pos": [
+            -0.2081340911609005,
+            0.0015649252322378316,
+            1.178185380028037
+          ],
+          "goal_ori": [
+            [
+              -0.0004918296871690936,
+              0.9983867450712572,
+              -0.056777331476359764
+            ],
+            [
+              0.9999998786606131,
+              0.0004926243561613802,
+              0.0
+            ],
+            [
+              2.7969896363104485e-05,
+              -0.05677732458703325,
+              -0.9983868662149061
+            ]
+          ],
+          "initial_joint": [
+            0.0,
+            -0.161037389,
+            0.0,
+            -2.44459747,
+            0.0,
+            2.2267522,
+            0.7853981633974483
+          ]
+        }
+      ],
+      "executed_control_steps": 735,
+      "reference_errors_m": {
+        "fresh_pre_eef": {
+          "mean": 0.04889331754564321,
+          "max": 0.05987720300618155,
+          "p95": 0.05679273283042292,
+          "final": 0.05233413389677904
+        },
+        "fresh_post_eef": {
+          "mean": 0.04910248470635346,
+          "max": 0.06052053490962193,
+          "p95": 0.05694417532713422,
+          "final": 0.05233012016766598
+        },
+        "returned_post_eef": {
+          "mean": 0.0489464757252947,
+          "max": 0.060025200746212315,
+          "p95": 0.05707380662416274,
+          "final": 0.05233162285064314
+        },
+        "fresh_post_bowl": {
+          "mean": 0.09836453683794569,
+          "max": 0.20684833665049054,
+          "p95": 0.20461260367596482,
+          "final": 0.20444515893214565
+        }
+      },
+      "wall_duration_s": 8.574541246984154,
+      "final_on": false,
+      "final_finger_gap_m": 0.07998813184498277,
+      "final_eef_bowl_distance_m": 0.3542677761535699,
+      "fresh_terminal_gates": {
+        "checks": {
+          "ten_frames": true,
+          "task_done_last_ten": false,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "pass": false
+      },
+      "returned_terminal_gates": {
+        "checks": {
+          "ten_frames": true,
+          "task_done_last_ten": false,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "pass": false
+      },
+      "source_metadata_unchanged": true,
+      "artifact_verification": {
+        "replayed_actions_bitwise_equal_to_source": true,
+        "csv_rows": 735,
+        "npz_control_steps": 735,
+        "initial_final_rgb_images_256x256_valid": true
+      }
+    }
+  ],
+  "training_data_generated": false,
+  "policy_loaded": false,
+  "gui_used": false,
+  "original_speed": "1x; exact source action per control step",
+  "control_dt_s": 0.05,
+  "limits": [
+    "MuJoCo physical state is restored; serialized controller goals/gripper accumulator/internal state are unavailable.",
+    "Fresh create(24) controller state is retained, not claimed to reproduce original controller internals.",
+    "Fresh post observation is next-step pre observation; no physics step between them. Returned-step observations are also retained for matching original reference semantics.",
+    "This pilot generates diagnostics only; it does not edit labels, approve new demonstrations, retime actions, or write training data."
+  ],
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "source_code_sha256": {
+    "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "correction_workbench.py": "7150297f8052e28e9c888d5269c2363675f7bc87dc518a332fbc44586c02c5c3"
+  },
+  "next_step": "Diagnose restoration/physical divergence; do not retime or generate training data",
+  "replay_helper_sha256": "4ff5512d85acc05b01a052a5abbb59c62618eb4084c6dbcd8d5ba77e0c309939"
+}

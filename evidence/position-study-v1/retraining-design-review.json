@@ -1,0 +1,191 @@
+{
+  "status": "COMPLETE_BOUNDED_DESIGN_REVIEW_NOT_A_VALIDATED_TRAINING_FIX",
+  "scope": "Read-only code/evidence review; only this report written; no inference, simulation, training or original-data edits.",
+  "evidence": {
+    "training_coverage": ".local/position-study-v1/training-coverage.json",
+    "training_coverage_sha256": "4a330be9af3b430a61e29f6a5caf0edd9ba79cff53dc982aa1dcf790696f22c0",
+    "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+    "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+    "scope": {
+      "approved_source_directories": 17,
+      "approved_human_clips": 19,
+      "human_frames": 9121,
+      "public_episodes": 37,
+      "public_frames": 4400
+    },
+    "interface_audit": ".local/phase-tempo-failure-v1/interface-audit.json",
+    "current_phase_mix": [
+      0.7,
+      0.1,
+      0.19,
+      0.01
+    ],
+    "current_matrix": ".local/position-study-v1/matrix-plan.json",
+    "matrix_status": "RUNNING at review; wait for frozen24run results before choosing branch; no invented final comparison."
+  },
+  "conclusion": {
+    "lowest_reliable_path": "Do not request a full rerecording batch. Preserve every approved original and recovery clip. Finish stage-specific paired evaluation; if carry targets are the remaining limiting factor, validate a two-source offline replay/retiming pilot before any new training. If failures are approach/grasp from home, carry-only retiming is insufficient and cannot honestly create missing approach/recovery behavior.",
+    "not_a_guarantee": "Existing APIs permit building a simulator-generated tracking teacher; neither recorded success nor a trackingcontroller guarantees a faster valid demonstration or learned robust recovery.",
+    "state_design": "CurrentRGB+language-only design is documented and matches officialpi05_libero configuration. Stateconditioning is an independent later A/B, not a serving switch or proven sole cause."
+  },
+  "confirmed_facts": {
+    "human_tempo": "All human XYZ action norms <=approximately.1; old median.1,new median.1. Public median.8002206568. These are normalized controller commands, not meters or measured speed.",
+    "human_measured_transport_proxy_mm": "Coverageaudit closed/high proxy: old median1.1768,new1.1750 vs public10.4212 per controlstep; proxy does not certify a stablegrasp.",
+    "coverage": "12negative-negative sourceclips already exist. Their starts include13openapproach/recovery,1closedfailedcontact,5alreadyheldplacement overall. Testhome EEF is at least.2349m from the nearest human start in auditedscenes. Nearby bowlXY is not equivalent fulltrajectory coverage.",
+    "no_new_axisangle_bug": "Numericstate is not consumed in currentmodel. Both public/human contain >pi axisangle without large jumps; do not canonicalize inference alone.",
+    "known_layout_fault": "Some prior050/051 initialposes overlapped plate and jumped under zero actions. Separate these from legal negative cases; newinitial layouts must pass guard."
+  },
+  "ordered_experiments": [
+    {
+      "order": 0,
+      "name": "Finish current24run matrix and classify stages",
+      "inputs": "8predeclaredlegalpositions x parent1999/uniform4999/tempo4999, seed0 perconnection, fixedbudget800/replan1.",
+      "metrics": [
+        "firstsustainedpickup using actualbowlheight plus shortbowl/EEF comotion, not closecommand alone",
+        "timeanddistance through elevatednormalcarry using freshconsecutivepreobservations",
+        "Onfirst vs full10stepopen+gap+retreat separately",
+        "timeincontact/failedregrasp, collisions and repeatclose",
+        "800stepcensoring and userreset separately"
+      ],
+      "decision": "Only claim sampler effect from matchedlegalcases. Negativeapproach/grasp failures select coverage/teacherbranch; slowcarry with validpickup selects tempo pilot. If finalmatrix does not support improvement, do not repeat a sampleronly longertraining run."
+    },
+    {
+      "order": 1,
+      "name": "Two full approved-source original-speed replay controls",
+      "bound": "2sources,1originalaction replay each; if either fails, diagnose source restoration before retiming, no broad sweep.",
+      "sources": [
+        "corrections/human_1792316444273677599",
+        "corrections/human_1792316988593839967"
+      ],
+      "why": "Completeapproved796/735steprawsources with initial/finalsimstatefiles, distinctnegativeoffsets and previouslyreviewed normalcarry intervals; avoid known650frameslowcontactsource as the firstpilot.",
+      "gate": "Restore/metadatahashcheck then replay exactoriginalactions, freshcurrentobs before everyaction. Verify originalterminalrelease and physicalpath consistency. Missingserializedcontrollerinternals means equalitycannot be assumed. Do not call reset_goal alone a bitexactcontrollerrestore."
+    },
+    {
+      "order": 2,
+      "name": "Retimed carry tracking pilot with genuine regenerated observations",
+      "bound": "Only after both1xcontrols pass:1carry-retimed fullrun per source, nominalreferenceprogress2x in auditedcarry; totalinitialpilot4simrollouts. No modelpolicy calls required.",
+      "preserve": "Approach, close, lift, recovery, targetalignment, contact, release and retreat remain atoriginalphase timing; fullsourceend-to-end continuity retained.",
+      "gate": "All2xvariants must pass the declared geometric/task/video/tempo gates below. If acceleration causes slip, contact or endfailure, keeporiginaldata and reject candidate; do not repeatedly increasecommands or labelitexpert."
+    },
+    {
+      "order": 3,
+      "name": "Choose the smallest data correction supported by stages",
+      "options": [
+        "If2sourcepilot passes and carryislimiting, add a small separatelyversioned generatedteacher stratum at coveredtrainingstarts. Keeporiginalrecoveries and usepublicnormalcarry as primaryfast evidence.",
+        "If legalhomeapproach/grasp fails, first inspect existingpublicfulltrajectories and availablefullrawprefixes. Do not extrapolate a carry-onlyteacher into missinghome-to-grasp behavior. Obtain a small number of targeted continuoussuccessfulbridges or independentlyvalidate a scriptedteacher from those exactstates.",
+        "If RGBocclusion/phaseambiguity persists with goodmatchedteacherlabels, run independentstateinputA/B afterdataquality gates; do not change dataandstateconditioning simultaneously in onecomparison."
+      ],
+      "mixture": "Freeze explicitphase/provenanceweights only after actualgeneratedcounts exist. Never choose new percentages just fromframecounts. Inspect effectiveperunique-start weights and10stepwindowspillovers; protect scarce recovery/contact examples."
+    },
+    {
+      "order": 4,
+      "name": "Train one bounded controlled comparison only after data passes",
+      "lineage": "Use same pinnedparent1999 for control andcandidate, freshoptimizer/RNG documented, samebatch/LR/budget/code except declareddataorstateconditionchange. Do not automatically continue from failedtempo4999, which would confound newdata with its priorupdates.",
+      "traininggates": [
+        "CPUmanifest/checksum/split/norm preflight",
+        "realOpenPIloader checks first/middle/boundary/final10windows includinggeneratedtimestamps andpadding",
+        "record trainingstepbudget/checkpointselection rule beforelaunch; avoid selecting solely ontrainloss",
+        "teach-forcedfixedobservation localfits separate from closedloop tasksuccess; report bothfirstaction and10chunkbehavior"
+      ],
+      "no_blind_more_steps": "A budgetincrease is not the intervention. Earlystop/checkpointchoice must follow predeclared validation; no claim that a fewthousand extra updates alone fixes it."
+    },
+    {
+      "order": 5,
+      "name": "Accept only on paired independent closedloop checks",
+      "minimumcontrast": "Predeclare4validcases:2previouslyfailinglegalnegativecases,1positivecase,1zerobaseline;3inference seeds each, bothcontrolandcandidate =24pairedrollouts total. This is a boundedfollowupdesign, not performedhere.",
+      "holdout": "These repeatedlyinspected4cases are regression/validationcases, not honestunseentestcases. Preserve10existingpublicholdoutepisodes and reserve at least2newlegalphysicalinitialstates not usedbyanyteacher generation orcheckpointselection for later final confirmation.",
+      "acceptance": [
+        "No lostfullrelease on previouslysuccessfulregressioncases; report pairedcounts ratherthan a pooledgeneral successrate",
+        "Newnegativeimprovement must include grasp/carry/verifiedrelease, not Onalone",
+        "Prespecify a usefulcarryspeedgoal, e.g at least1.5x shorter medianelapsednormalcarry among comparablecompletedcases, withno moredrops; label this aproposedgate not measuredperformance",
+        "Comparecompletiontime with800stepfailures explicitly censored; do not dropfailures fromspeedsummary",
+        "For apparentstable-release successes, continue up to50additionalpolicycontrolsteps withinbudget for a boundedstabilitycheck: record sustainedOn, bowldrift, regrasp andretreat;10stepgate alone is notlongtermstabilityproof"
+      ]
+    }
+  ],
+  "pilot_implementation": {
+    "existing_apis": [
+      "simulation_lab.LiberoTask.create(layout)",
+      "env.regenerate_obs_from_state(saved_state)",
+      "env.get_sim_state(),env.step(action)",
+      "simulation_lab.bowl_penetrations(env)",
+      "correction_workbench.CorrectionWorkbench._state8(obs), camera_images convention",
+      "correction_data.validate_frame and approval_checks as qualitycheck helpers, not automatic humanapproval",
+      "robosuite controller.update(force=True),reset_goal and PandaGripper.current_action",
+      "scipy.spatial.transform.Rotation/Slerp or installedrobosuite axisangle2quat/quat2mat for referenceinterpolation"
+    ],
+    "capture_loop": [
+      "Loadsourcefullrawframes andinitialsimstate; verifysourceSHA,control_dt. Freshheadlessenvironment with pinnedtask/XML/runtime; do not touchGUIenv.",
+      "Firstrecorda1xcontrol. Logcontroller/gripperrestoration and compare to originalreference. Sourceinitialintegrationstate lacks originalcontrollergoals/gripperaccumulator, so acceptbehavioralreproductiononly aftermeasurement; rejectunreproduciblesources.",
+      "Buildcontinuousreferencep(s),R(s) from originalpre-actionstates; use originalperstepgrippersignschedule. Timeprogresss increases1outsidecarry andnominal2inside reviewedcarry. Resolvephaseboundaries by SO3interpolation; never subtractaxisanglecomponents acrossbranches.",
+      "Fortracking, bounddesiredworldgoalerror: a_xyz=clip((p_reference_lookahead-p_fresh)/.05,-1,1); a_rot=clip(rotvec(R_reference@R_fresh.T)/.5,-1,1), using actualOSCconfiguration and currentpose. Shortlookahead is necessary becauseOSC is a dynamicalgoalcontroller; thisinversealone does not imply exactspeedorpositions. Freezeoneconservativepilotlookahead/cap andrecordit; do not quietlytuneusingtestcases.",
+      "At eachsteprefreshobservationonce; capture pre-state8+bothdouble-flippedRGB, computecontrolleractionfromthatsamepose, executeone20Hzstep, recordactionandfreshpostmetrics. Retainfullphysicalcontinuity.",
+      "At retimedcarryendpoint, requiretrackingandobjectrelativeposecloseenough before entering unmodifiedslowcontactphase; ifnot, rejector slowthecandidate explicitly, neverjump/teleporttoreference.",
+      "Checkenvironment actualtaskpredicate, gap, retreat, sourceobjectidentity andbowl/EEFmotion, then encodefullgeneratedepisode. NeverreuseoldRGB oroldactions aslabels ofnewphysicaltrajectory."
+    ],
+    "proposed_tracking_gates_not_yet_validated": {
+      "restore": "Initialstatehash/sceneidentity matches. 1xterminal10stepreleasepasses. Proposedpathconsistency gate:>=95%EEFsampleswithin5mm/3deg ofreference, bowlpathwithin10mm awayfromexplicitcontacts; iftheseareunattainable, diagnosebeforeloosening.",
+      "normalcarry": "Retimedpathtrackingp95<=5mm,orientationp95<=3deg,noheldbowlrelativepositionsuddenchange>5mm beyondsourcebaseline, actualbowl staysclearandcomoves; closedgripper alone neverpasses.",
+      "contact": "Initialexternalpenetration<-1mmdisallowed;duringgrasp/place compareagainst1xbaselinebecauselegitimatecontactsarenormal. No newplate/distractorcollision, bowlfall or uncontrolledjump.",
+      "phaseboundaries": "Last10sourceactionsaroundgrippertransition/targetcontact stayprotectedat1x. Progressonlywhenfreshpose/objectconsistencypasses; no disjointepisode stitching.",
+      "outcome": "10consecutiveactualOn+opencommand+gap>=6cm+EEFdistance>=10cm, thenadditionalboundedstabilitycheck andpaireddualRGBtimeline review.",
+      "speed": "Achieve>=1.5x actualcarrydurationreductiononbothpilotpathswhilepassingoutcome; measure20Hzcontroltime,not10FPSvideotime. Purecommandnormincreaseisnotpassing."
+    },
+    "pilot_source_ranges": [
+      {
+        "source": "corrections/human_1792316444273677599",
+        "carry_raw_ranges": [
+          [
+            390,
+            550
+          ]
+        ]
+      },
+      {
+        "source": "corrections/human_1792316988593839967",
+        "carry_raw_ranges": [
+          [
+            341,
+            495
+          ]
+        ]
+      }
+    ]
+  },
+  "data_contract": {
+    "immutable": "Allapproved17sources/19clips andpublic37 retainedbyteforbyte in originalmanifest; preservefull585recovery andpartialrecoveryoriginals. Draftsremainexcluded.",
+    "generated_provenance": "Newdirectory/newrepo+manifest; source_kind=offline_tracking_teacher,human_actions_only=False; sourcecliphash,initialstatehash,referencephase/timewarp,controllerparameters/lookahead,simversion/taskXMLhash,actualactions/RGBstatehashes,candidatequalityresults allpinned.",
+    "approval_truth": "Currentprepare_corrections.py acceptsapprovedhumanonly. Do not fakehuman_actions_only oruseCorrectionRecorder.finish(True) toclaimautomaticteacherwasmanualuserapproved. Addoneexplicitgeneratedsource exportpath orseparatebuilder with truthfulsimulationvalidatedmetadata, thenloadercheck.",
+    "training_windows": "Everygeneratedsequence isonecontinuousphysicalepisode,10futureactionlabels remain nativecontiguousfuturesteps withsameboundarypadding rule. No dropframeandretargetoldactions, nor multipliedlabels againstoldRGB.",
+    "fps": "Use truthful20Hznewrecordingmetadata andexplicit20Hznative-step timestamps, or makeallloadedmetadata consistentlyindex-based withseparatephysicalcontrol_dt declared; do not silentlyappend20Hzframes under10Hzlabels. Anyfpsconversion must be reviewed withreal10windowloader.",
+    "normalization": "Initialpilotactions must remain withinnormalizedcontrollerlimits and auditagainstpinnedpublicnormstats. Holdnormalizationfixed forcleancomparison ifrangecoverageissufficient. If newranges require recomputation, do it inbothcontrolandcandidate andversionstats; neverchangeonlyserve.",
+    "split": "Groupalloriginalsourceandretimeddescendants together. No samepath1xtrain/2xholdout leakage. Neveruseexisting10publicholdoutsasteachertraining. Do not trainonmatrixvalidationcases andlatercallthemuntouchedtest."
+  },
+  "state_input_ab": {
+    "trigger": "Afterdata/phaseaudit, whenstateambiguity remains plausible; not automaticfirstfix.",
+    "control": "pi05=True,discrete_state_input=False",
+    "candidate": "pi05=True,discrete_state_input=True withmatchingtrainandserveconfig, versionedcheckpointlineage.",
+    "holdconstant": "Sameapproved/generateddata, splits,sampler,parent,batch,optimizer,steps,noise/seeds andevaluationconditions; onlystatepathchanges.",
+    "checks": [
+      "VerifyPaligemmaTokenizer actuallyreceivesnormalized8stateandtokenschangeforsameimages+language/differentstate.",
+      "Auditstatequantizationbins/clipping/outofrangecoverage andmax_token_lentruncation beforetraining; positiveaxisangle>pi is notitselfa problem.",
+      "Checkpointmanifestmustpinstateinputflag andserveconstructmustread/validateit; currentserve_checkpoint alwaysmake_config(False),soaseparateexplicitconfiguredservepathisrequired.",
+      "Numericgripperjointpositionscanhelpgripperphasebutare nottactileforce orproofbowlheld; no claimstateinput alone solvescontact."
+    ]
+  },
+  "cannot_honestly_autofill": [
+    "Unrecordedhome-to-humanhandoff bridgingactions/RGB cannot be obtained byconcatenatingpublicapproachandhumanplacement; startsdifferinpose,contacts,objectrelations.",
+    "A sourcepathrelative tobowlcannot justbetranslatedacrossdifferentplate/distractorlocations; independentcollision/reach/graspvalidationisrequired.",
+    "Failedapproach/regraspstatewithoutanexistingsuccessfulpathcannot be fixedbyretimingasuccessfulcarry. Eitherindependentlyvalidatedteacherplanningorasmalltargetedcontinuousdemonstrationisneeded.",
+    "Unknowncontroller/gripperinternalstate atsourcecapture cannotberecoveredexactlyfromintegrationstatebyassertion.",
+    "Approvalendpointgatesarenotexpertperactionqualitycertification, forceverification, orpolicyrecoveryability.",
+    "Teachertrackingwithprivilegedsimstateisdatageneration, notlearnedpolicycapability; deploymentpolicyonlygetsdeclaredRGB/language/stateinputs.",
+    "No promisedcost-freelearningfrom24evaluationrollouts: failedpolicyactionsarenotcorrectexpertlabels."
+  ],
+  "recommended_stop_condition": "Currenttaskendswiththisreview. Do notlaunchtraining,generateautomaticteacherdataset,oraskuserforfullrerecordingbatchfromthisreportalone. Parentintegratescompletedmatrixbeforechoosingminimalnextpilot.",
+  "necessary_before_any_retraining": [
+    "Finishmatrixanddeclarefailingstage.",
+    "Ifnewteacherdata:1xreplayandre-timingpilotgatespass,truthfulgeneratedsourceexportandrealLoaderchecks.",
+    "Freezeprovenance/split/stateflag/sampling/norm/parentandacceptanceconditions."
+  ]
+}

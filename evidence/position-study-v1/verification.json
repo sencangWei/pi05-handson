@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "targeted_pytest": "50 passed, 5 subtests passed; tests/test_simulation_lab.py tests/test_correction_workbench.py tests/test_summarize_position_study.py",
+  "targeted_ruff": "PASS for listed source/test files",
+  "source_sha256": {
+    "scripts/simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+    "scripts/replay_saved_scene.py": "56b00be2cb69f0264bd0ccacbf4eeaa5de0ac41ce7d47b1ec5241e74141c743b",
+    "scripts/serve_position_study.py": "437967f7ae4350b33f6a0a5fe417d34374f85ed0a6700bf4b117401d5546a63f",
+    "scripts/summarize_position_study.py": "9deb524abfcae929fd1d2c877a88cf7c2f3edb64fc88dc1304b2b95aac74d60b",
+    "tests/test_simulation_lab.py": "1326fcc41a9ab029f1c8352c25b7eae36f6cfe754183017bcb9b12cb4f8865ba",
+    "tests/test_summarize_position_study.py": "98c7895d20cdd2ad77d31482c8dbc65f2d66d2d496155964618c874cf518228d"
+  },
+  "matrix_complete_and_all_validations": true,
+  "actual_video_decode_audit": "video-audit.json",
+  "video_links_existing": 24,
+  "javascript_syntax": "node --check PASS; browser interaction not fully exercised",
+  "original_user_processes_preserved": {
+    "original_gui": {
+      "pid": 2682724,
+      "command": "/home/robot/.pi05-handson/.venv-sim/bin/python -u scripts/simulation_lab.py"
+    },
+    "original_policy8755": {
+      "pid": 2963355,
+      "command": "/home/robot/.pi05-handson/.venv/bin/python -u /home/robot/.pi05-handson/scripts/serve_checkpoint.py --checkpoint /home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999 --port 8755"
+    }
+  },
+  "diagnostic8756_closed": true,
+  "upstream_openpi_and_libero_worktrees": "git status --porcelain both empty",
+  "new_training_launched": false,
+  "generated_teacher_dataset": false
+}

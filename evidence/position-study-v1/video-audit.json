@@ -1,0 +1,487 @@
+{
+  "status": "PASS",
+  "method": "ffprobe -count_frames decodes the complete video stream; imageio reads first and last RGB frame; file SHA256.",
+  "scope": "Actual local MP4 files, not just result.json metadata. Visual task outcome is evaluated separately.",
+  "videos": [
+    {
+      "model": "parent1999",
+      "case": "zero",
+      "video": ".local/position-study-v1/runs/parent1999__zero/video.mp4",
+      "sha256": "452b7896b2ff2c6be1d52e6ed05f171e37129a4c7f4266e2c22334643ac79bc3",
+      "bytes": 137208,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "177"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "zero",
+      "video": ".local/position-study-v1/runs/uniform4999__zero/video.mp4",
+      "sha256": "76874f215ff24b6ec83029ec75227d4f28fd8e110f0bd87a301f7c7bd266d85e",
+      "bytes": 198829,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "270"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "zero",
+      "video": ".local/position-study-v1/runs/tempo4999__zero/video.mp4",
+      "sha256": "a771c0737d778bc6f7fd4f26b6a427221e650b280d39ce89b119291e7fc9ca3e",
+      "bytes": 200807,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "263"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "small_neg_neg",
+      "video": ".local/position-study-v1/runs/parent1999__small_neg_neg/video.mp4",
+      "sha256": "501f91caa53c308b6fc83ddb036beaad22a70f108cc0ab077739a1bc5ed433c5",
+      "bytes": 106742,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "133"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "small_neg_neg",
+      "video": ".local/position-study-v1/runs/uniform4999__small_neg_neg/video.mp4",
+      "sha256": "65c0e91658d14f6af71b0878659300e5ec28fa96bb8a019568d731e3fdc82a82",
+      "bytes": 251677,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "354"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "small_neg_neg",
+      "video": ".local/position-study-v1/runs/tempo4999__small_neg_neg/video.mp4",
+      "sha256": "1538a288a6021fb962fdbe00e3779dd902bed0b134c185be38a1c4da86473d05",
+      "bytes": 473388,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "user054_neg_neg",
+      "video": ".local/position-study-v1/runs/parent1999__user054_neg_neg/video.mp4",
+      "sha256": "cbcc6abd78bbcde922bff618557d8394e4bebd4e408e4b5b197a1880060c239b",
+      "bytes": 417277,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "user054_neg_neg",
+      "video": ".local/position-study-v1/runs/uniform4999__user054_neg_neg/video.mp4",
+      "sha256": "75319a8cf2e0d184fc845ef6b8200cc60ecdbabf418c6eaa2fe9b3bea9a3ef96",
+      "bytes": 352722,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "user054_neg_neg",
+      "video": ".local/position-study-v1/runs/tempo4999__user054_neg_neg/video.mp4",
+      "sha256": "19a94ded7783e983ce95d07c3988aa14d46ed67de7540086e8d150bbad0ed09f",
+      "bytes": 390603,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "user055_neg_neg",
+      "video": ".local/position-study-v1/runs/parent1999__user055_neg_neg/video.mp4",
+      "sha256": "65faf3776c2513b5e2e7b900514b2940311a77f012a7978c72936f46885ce20a",
+      "bytes": 410698,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "user055_neg_neg",
+      "video": ".local/position-study-v1/runs/uniform4999__user055_neg_neg/video.mp4",
+      "sha256": "4521b75acddaa67ca049086a376337bd7708ddb376b351112ceb146605b7759c",
+      "bytes": 395983,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "user055_neg_neg",
+      "video": ".local/position-study-v1/runs/tempo4999__user055_neg_neg/video.mp4",
+      "sha256": "a007a223a3ea1ec592ccef404c4ec41baa8b9e9c79260b925f195aaa30cccbd2",
+      "bytes": 379537,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "user057_pos_pos",
+      "video": ".local/position-study-v1/runs/parent1999__user057_pos_pos/video.mp4",
+      "sha256": "e6eb5f3062be53ed2f7c3aa028c28110ca4b66b8da5cebfd4cd22787daa54e27",
+      "bytes": 158714,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "214"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "user057_pos_pos",
+      "video": ".local/position-study-v1/runs/uniform4999__user057_pos_pos/video.mp4",
+      "sha256": "7b61ada2ff2c3f8ff98b95dd9b9034f344f10e4ab1d756fd1c3d085d113c53b4",
+      "bytes": 191990,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "259"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "user057_pos_pos",
+      "video": ".local/position-study-v1/runs/tempo4999__user057_pos_pos/video.mp4",
+      "sha256": "e04250f75da4cd059ceab71c5ddaef986b9a746c1fbc0168e87f5745b84c692a",
+      "bytes": 159404,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "226"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "neg_pos",
+      "video": ".local/position-study-v1/runs/parent1999__neg_pos/video.mp4",
+      "sha256": "f4f5238e46f7d9458c9e4aa0236a973915fbddc38ffe86182034e0b692975b45",
+      "bytes": 508559,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "neg_pos",
+      "video": ".local/position-study-v1/runs/uniform4999__neg_pos/video.mp4",
+      "sha256": "776f9fd5bc43cba221bc0bd65e27f443fe28b00131cb058380ba05d66030de56",
+      "bytes": 216482,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "308"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "neg_pos",
+      "video": ".local/position-study-v1/runs/tempo4999__neg_pos/video.mp4",
+      "sha256": "4a9df26f5dccf7b1efe1e86cdd99577157617458a0b5e8b7f83743b2a612db3f",
+      "bytes": 456678,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "mirror054_pos_pos",
+      "video": ".local/position-study-v1/runs/parent1999__mirror054_pos_pos/video.mp4",
+      "sha256": "8bcf16681992bffffe92606b7c994a1978636fafcdc010191877641c60d38119",
+      "bytes": 138681,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "178"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "mirror054_pos_pos",
+      "video": ".local/position-study-v1/runs/uniform4999__mirror054_pos_pos/video.mp4",
+      "sha256": "819c1576de2623d7960d6440b3b978c43995acf3deae52c705c63eff9e5bd45d",
+      "bytes": 352487,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "519"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "mirror054_pos_pos",
+      "video": ".local/position-study-v1/runs/tempo4999__mirror054_pos_pos/video.mp4",
+      "sha256": "b873eb72c037c375415065779946f7c16c25ecbc4cd7474c81aa620d17225d67",
+      "bytes": 518876,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "801"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "parent1999",
+      "case": "pos_zero",
+      "video": ".local/position-study-v1/runs/parent1999__pos_zero/video.mp4",
+      "sha256": "29d6c4967fcf95eee2c09daf8d81492acb33ba02709f3c3df9d2f50a80d5d0c1",
+      "bytes": 119752,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "142"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "uniform4999",
+      "case": "pos_zero",
+      "video": ".local/position-study-v1/runs/uniform4999__pos_zero/video.mp4",
+      "sha256": "b5e00ba6a418a1c92c8c6c130f127e12ec68bd6c0258f440493f0f924f67a32c",
+      "bytes": 250640,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "337"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    },
+    {
+      "model": "tempo4999",
+      "case": "pos_zero",
+      "video": ".local/position-study-v1/runs/tempo4999__pos_zero/video.mp4",
+      "sha256": "064179ebaa48cf239c27c2f9b1acc02c2c636268de7fbfd0d41c7aee40de6750",
+      "bytes": 236697,
+      "decoded_stream": {
+        "width": 256,
+        "height": 256,
+        "avg_frame_rate": "10/1",
+        "nb_read_frames": "306"
+      },
+      "checks": {
+        "decoded_frame_count_matches": true,
+        "fps_matches": true,
+        "first_and_last_rgb_shape": true,
+        "shape_matches_probe": true
+      },
+      "pass": true
+    }
+  ]
+}

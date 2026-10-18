@@ -1,0 +1,403 @@
+{
+  "status": "COMPLETE_24_PREDECLARED_ROLLOUTS",
+  "plan": {
+    "predeclared_models": {
+      "parent1999": "ui_correct_1792311653585294069/1999",
+      "uniform4999": "ui_correct_1792324180062259097/4999",
+      "tempo4999": "ui_correct_1792341395770417042/4999"
+    },
+    "control_settings": {
+      "budget": 800,
+      "replan_steps": 1,
+      "policy_seed_per_trial": 0,
+      "sim_seed": 42,
+      "layout_id": 24,
+      "stop_after": "10 consecutive On+open+gap>=.06m+EEF-bowl>=.10m"
+    },
+    "case_selection": "Frozen before model rollouts. Invalid(+.04,-.01) excluded by static guard before policy calls, replaced with legal(+.04,0) boundary. Q4 coverage gap explicitly retained.",
+    "cases": [
+      {
+        "case": "zero",
+        "dx_m": 0.0,
+        "dy_m": 0.0,
+        "source": ".local/position-study-v1/sources/zero",
+        "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+        "source_scene_file_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a"
+      },
+      {
+        "case": "small_neg_neg",
+        "dx_m": -0.01,
+        "dy_m": -0.01,
+        "source": ".local/position-study-v1/sources/small_neg_neg",
+        "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3",
+        "source_scene_file_sha256": "37f5caeb320ed7f52142d37c1068c7da25a3d3194b9e3420175d56c04feed579"
+      },
+      {
+        "case": "user054_neg_neg",
+        "dx_m": -0.06416938110749186,
+        "dy_m": -0.08729641693811076,
+        "source": ".local/position-study-v1/sources/user054_neg_neg",
+        "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+        "source_scene_file_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068"
+      },
+      {
+        "case": "user055_neg_neg",
+        "dx_m": -0.08306188925081433,
+        "dy_m": -0.1,
+        "source": ".local/position-study-v1/sources/user055_neg_neg",
+        "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+        "source_scene_file_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7"
+      },
+      {
+        "case": "user057_pos_pos",
+        "dx_m": 0.02638436482084689,
+        "dy_m": 0.061237785016286635,
+        "source": ".local/position-study-v1/sources/user057_pos_pos",
+        "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+        "source_scene_file_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0"
+      },
+      {
+        "case": "neg_pos",
+        "dx_m": -0.04,
+        "dy_m": 0.04,
+        "source": ".local/position-study-v1/sources/neg_pos",
+        "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b",
+        "source_scene_file_sha256": "e6faf64b841fc4f55d41db1005e1e9ca18b53649cf54dc48755ce774dd39bb2a"
+      },
+      {
+        "case": "mirror054_pos_pos",
+        "dx_m": 0.06416938110749186,
+        "dy_m": 0.08729641693811076,
+        "source": ".local/position-study-v1/sources/mirror054_pos_pos",
+        "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5",
+        "source_scene_file_sha256": "754efb8aee2b0fd2642aadaf12652ed9be3425b147ae1c0d824dc432fd973c51"
+      },
+      {
+        "case": "pos_zero",
+        "dx_m": 0.04,
+        "dy_m": 0,
+        "source": ".local/position-study-v1/sources/pos_zero",
+        "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f",
+        "source_scene_file_sha256": "95358bdecaa79dec8ea5606c30cd5f6bd4c63bffb723c23b2f7635a5c9ea0dad"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "model": "parent1999",
+      "case": "zero",
+      "output": ".local/position-study-v1/runs/parent1999__zero",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 176,
+      "firstOn": 108,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 14.585204782080837,
+      "exception": null,
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472"
+    },
+    {
+      "model": "parent1999",
+      "case": "small_neg_neg",
+      "output": ".local/position-study-v1/runs/parent1999__small_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 132,
+      "firstOn": 99,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 10.850102926953696,
+      "exception": null,
+      "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3"
+    },
+    {
+      "model": "parent1999",
+      "case": "user054_neg_neg",
+      "output": ".local/position-study-v1/runs/parent1999__user054_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.36386308900546,
+      "exception": null,
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a"
+    },
+    {
+      "model": "parent1999",
+      "case": "user055_neg_neg",
+      "output": ".local/position-study-v1/runs/parent1999__user055_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.46813360298984,
+      "exception": null,
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79"
+    },
+    {
+      "model": "parent1999",
+      "case": "user057_pos_pos",
+      "output": ".local/position-study-v1/runs/parent1999__user057_pos_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 213,
+      "firstOn": 115,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 17.852323426981457,
+      "exception": null,
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe"
+    },
+    {
+      "model": "parent1999",
+      "case": "neg_pos",
+      "output": ".local/position-study-v1/runs/parent1999__neg_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.71600040700287,
+      "exception": null,
+      "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b"
+    },
+    {
+      "model": "parent1999",
+      "case": "mirror054_pos_pos",
+      "output": ".local/position-study-v1/runs/parent1999__mirror054_pos_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 177,
+      "firstOn": 119,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 14.64438995195087,
+      "exception": null,
+      "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5"
+    },
+    {
+      "model": "parent1999",
+      "case": "pos_zero",
+      "output": ".local/position-study-v1/runs/parent1999__pos_zero",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "steps": 141,
+      "firstOn": 105,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 11.646105980034918,
+      "exception": null,
+      "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f"
+    },
+    {
+      "model": "uniform4999",
+      "case": "zero",
+      "output": ".local/position-study-v1/runs/uniform4999__zero",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 269,
+      "firstOn": 164,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 31.916901497053914,
+      "exception": null,
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472"
+    },
+    {
+      "model": "uniform4999",
+      "case": "small_neg_neg",
+      "output": ".local/position-study-v1/runs/uniform4999__small_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 353,
+      "firstOn": 288,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 29.101767339976504,
+      "exception": null,
+      "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3"
+    },
+    {
+      "model": "uniform4999",
+      "case": "user054_neg_neg",
+      "output": ".local/position-study-v1/runs/uniform4999__user054_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.63335647503845,
+      "exception": null,
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a"
+    },
+    {
+      "model": "uniform4999",
+      "case": "user055_neg_neg",
+      "output": ".local/position-study-v1/runs/uniform4999__user055_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.37746381899342,
+      "exception": null,
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79"
+    },
+    {
+      "model": "uniform4999",
+      "case": "user057_pos_pos",
+      "output": ".local/position-study-v1/runs/uniform4999__user057_pos_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 258,
+      "firstOn": 190,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 21.413693387061357,
+      "exception": null,
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe"
+    },
+    {
+      "model": "uniform4999",
+      "case": "neg_pos",
+      "output": ".local/position-study-v1/runs/uniform4999__neg_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 307,
+      "firstOn": 207,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 25.85250963398721,
+      "exception": null,
+      "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b"
+    },
+    {
+      "model": "uniform4999",
+      "case": "mirror054_pos_pos",
+      "output": ".local/position-study-v1/runs/uniform4999__mirror054_pos_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 518,
+      "firstOn": 435,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 42.89404783491045,
+      "exception": null,
+      "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5"
+    },
+    {
+      "model": "uniform4999",
+      "case": "pos_zero",
+      "output": ".local/position-study-v1/runs/uniform4999__pos_zero",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "steps": 336,
+      "firstOn": 261,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 27.71582323499024,
+      "exception": null,
+      "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f"
+    },
+    {
+      "model": "tempo4999",
+      "case": "zero",
+      "output": ".local/position-study-v1/runs/tempo4999__zero",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 262,
+      "firstOn": 212,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 31.784123940044083,
+      "exception": null,
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472"
+    },
+    {
+      "model": "tempo4999",
+      "case": "small_neg_neg",
+      "output": ".local/position-study-v1/runs/tempo4999__small_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 800,
+      "firstOn": 279,
+      "finalOn": true,
+      "completion": false,
+      "wall_s": 68.42503384593874,
+      "exception": null,
+      "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3"
+    },
+    {
+      "model": "tempo4999",
+      "case": "user054_neg_neg",
+      "output": ".local/position-study-v1/runs/tempo4999__user054_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.7820089131128,
+      "exception": null,
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a"
+    },
+    {
+      "model": "tempo4999",
+      "case": "user055_neg_neg",
+      "output": ".local/position-study-v1/runs/tempo4999__user055_neg_neg",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 65.25651084003039,
+      "exception": null,
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79"
+    },
+    {
+      "model": "tempo4999",
+      "case": "user057_pos_pos",
+      "output": ".local/position-study-v1/runs/tempo4999__user057_pos_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 225,
+      "firstOn": 157,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 18.518868593964726,
+      "exception": null,
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe"
+    },
+    {
+      "model": "tempo4999",
+      "case": "neg_pos",
+      "output": ".local/position-study-v1/runs/tempo4999__neg_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 800,
+      "firstOn": null,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 68.02205515699461,
+      "exception": null,
+      "initial_state_sha256": "a7c07a62c63f7f3c15d368ac85671b841da4b5a7cd377515e8bb58b5a3c3833b"
+    },
+    {
+      "model": "tempo4999",
+      "case": "mirror054_pos_pos",
+      "output": ".local/position-study-v1/runs/tempo4999__mirror054_pos_pos",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 800,
+      "firstOn": 326,
+      "finalOn": false,
+      "completion": false,
+      "wall_s": 67.07206951000262,
+      "exception": null,
+      "initial_state_sha256": "3e42d133c79950eee1d7bce6eab7c5c1c3284bf0c29a430d1a6e5a81f657b8d5"
+    },
+    {
+      "model": "tempo4999",
+      "case": "pos_zero",
+      "output": ".local/position-study-v1/runs/tempo4999__pos_zero",
+      "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "steps": 305,
+      "firstOn": 218,
+      "finalOn": true,
+      "completion": true,
+      "wall_s": 25.40117014804855,
+      "exception": null,
+      "initial_state_sha256": "f6d86c7c5873d542252aa5a7e19a9d5cf6902aa11ca3f5f8847c7f607054918f"
+    }
+  ],
+  "rng_reset_probe": {
+    "status": "PASS",
+    "identical_5x7_actions_on_two_fresh_connections": true
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "status": "PLANNED_NOT_LAUNCHED_DATA_GATES_PENDING",
+  "purpose": "先修正可验证的轨迹与阶段覆盖，再做一轮受控微调；不是仅延长训练步数。",
+  "preserved_data": {
+    "approved_sources": 17,
+    "approved_clips": 19,
+    "public_train_episodes": 37,
+    "public_holdout_episodes": 10,
+    "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+    "all_originals_immutable": true,
+    "drafts_excluded": true
+  },
+  "data_pilot": {
+    "run_after": "完成位置矩阵并确认失败阶段",
+    "sources": [
+      "corrections/human_1792316444273677599",
+      "corrections/human_1792316988593839967"
+    ],
+    "original_speed_replays": 2,
+    "only_after_replay_pass_carry_retiming_trials": 2,
+    "maximum_initial_pilot_simulations": 4,
+    "retiming": "仅已审无接触搬运段参考进度2x；抓取/接触/释放/恢复保持1x；真实物理重跑重新采RGB/state/action",
+    "reject_conditions": [
+      "原速重放未能复现完整释放撤手",
+      "加速造成碰撞/掉碗/轨迹错位",
+      "原观察画面与新动作不匹配",
+      "没有达到至少1.5倍实际搬运用时改善"
+    ],
+    "teacher_provenance": "offline_tracking_teacher; human_actions_only=False; 不伪造人工批准",
+    "performed_original_speed_replays": 2,
+    "performed_retiming_trials": 0,
+    "result": "两条原速轨迹均明显偏离原示范；第二条末端On失败，禁止直接进入2x retime。",
+    "report": "original-replay-pilot.json",
+    "next_required": "先诊断/验证controller与gripper恢复（物理状态hash相同不等于控制器内部状态相同），或从当前fresh连续仿真取得有效新teacher轨迹。"
+  },
+  "coverage_branch": {
+    "trigger": "合法远端位置从home抓取失败",
+    "action": "补从默认起点到抓取、抬起、放置的连续成功路径；先验证已有完整原件能否覆盖，再决定定点示范或独立验证的仿真teacher",
+    "cannot_replace_with": "单独加速搬运段、拼接不同物理状态、重用失败策略动作作为正确标签"
+  },
+  "conditional_training_proposal": {
+    "ready": false,
+    "parent_checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+    "parent_reason": "三分支共同父模型；避免新数据效果与已失败后续更新混在一起；不是声称父模型所有位置最优",
+    "optimizer_state": "fresh Adam/RNG/data cursor, not exact resume",
+    "batch_size": 4,
+    "learning_rate": 1e-05,
+    "initial_new_updates": 2000,
+    "checkpoints_to_compare": [
+      1000,
+      1999
+    ],
+    "seed": 42,
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "normalization": "保持父模型一致，若动作范围需要重算则control/candidate一起版本化",
+    "sampling": "待pilot真实数量/质量通过后再固定phase/provenance权重；保留全部人工恢复，不能按长片帧数直接均匀压过公开搬运",
+    "reason": "与已有batch/LR相同，先用2000次更新检查新数据方向；不是保证2000步足够。验证未改善就停止继续叠步数。"
+  },
+  "acceptance": {
+    "validation_cases": [
+      "zero",
+      "user054_neg_neg",
+      "user055_neg_neg",
+      "user057_pos_pos"
+    ],
+    "policy_seeds": [
+      0,
+      1,
+      2
+    ],
+    "paired_control_candidate_runs": 24,
+    "known_cases_are_validation_not_unseen_test": true,
+    "additional_unseen_legal_layouts_reserved": 2,
+    "gates": [
+      "先报告每个位置的抓取/搬运/释放，800步未完成显式标注",
+      "原成功位置完整释放不退化，远端负位移需真正抓起并完成释放",
+      "可比成功轨迹普通搬运目标至少1.5倍改善，不剔除失败来算快",
+      "连续10步释放撤手后再有界追加50步观察是否重抓/漂移"
+    ]
+  },
+  "state_conditioning_followup": {
+    "separate_ab": true,
+    "control": "pi05 discrete_state_input=False",
+    "candidate": "另行训练 discrete_state_input=True并用匹配推理配置",
+    "gate": "验证8维state实际进入tokenizer、量化范围和token截断；数据/父模型/预算保持一致",
+    "not_authorized_shortcut": "禁止只改推理开关；禁止把状态输入当已证实根因"
+  },
+  "execution_boundary": "这是参数与数据验收计划，不是已启动训练或已实现teacher数据生成器；实际生成数据、loader验证和微调结果另行记录。",
+  "completed_matrix": {
+    "runs": 24,
+    "full_release_counts": {
+      "parent1999": 5,
+      "uniform4999": 6,
+      "tempo4999": 3
+    },
+    "cases_per_model": 8,
+    "scope": "single policy seed0 / layout24; regression validation, not generalization",
+    "latest_tempo_accepted": false,
+    "decision": "最新采样模型未通过：完整释放3/8，低于均匀模型6/8，且普通搬运仍慢。停止sampler-only叠步数路线，先处理连续抓取覆盖和有效快轨迹标签。"
+  }
+}

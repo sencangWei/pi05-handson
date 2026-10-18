@@ -1,0 +1,256 @@
+{
+  "status": "COMPLETE_BOUNDED_TEMPO_KEYFRAME_REVIEW",
+  "method": "Only four completed tempo4999 MP4s. Extracted/viewed frame0,100,250,500,800 (last) for each,20 real keyframes total. CSV interpreted separately. No inference/simulation/rendering.",
+  "limitations": [
+    "Sparse single-camera keyframes, not full-video frame-by-frame review.",
+    "Closed command or a bowl-shaped projection below gripper is not sufficient to certify a stable grasp.",
+    "Height-only lift proxy can be caused by open-gripper contact and must not be labeled grasp.",
+    "Budget800 stops are censored; no claim about eventual completion."
+  ],
+  "records": [
+    {
+      "model": "tempo4999",
+      "case": "small_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__small_neg_neg",
+      "source_sha256": {
+        "video.mp4": "1538a288a6021fb962fdbe00e3779dd902bed0b134c185be38a1c4da86473d05",
+        "actions.csv": "d75b6e609608faedfb425d9686958bd75150d01f0df50fc451e8477880616aee",
+        "result.json": "335b9335c4af1b7508f5892db2748b5595fcbc8afb941b3e57d5353d56d4dda8"
+      },
+      "contact_sheet": ".local/position-study-v1/visual-review/tempo4999__small_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/tempo4999__small_neg_neg-frame0000.png"
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/tempo4999__small_neg_neg-frame0100.png"
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/tempo4999__small_neg_neg-frame0250.png"
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/tempo4999__small_neg_neg-frame0500.png"
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/tempo4999__small_neg_neg-frame0800.png"
+        }
+      ],
+      "visual_observations": [
+        "100帧碗在夹爪下并离开桌面；250帧移到盘附近；500和800帧碗在盘内/盘上但夹爪一直紧贴，未见完整开爪撤手。",
+        "从100到250的目标位置变化与搬运相符；稀疏关键帧不足以保证中间每步抓稳。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": 65,
+        "closed_command_frames": 712,
+        "maximum_named_target_lift_mm": 164.08165685953801,
+        "maximum_lift_control_step": 126,
+        "actual_finger_gap_min_max_m": [
+          0.005164380184487172,
+          0.0798529691885431
+        ],
+        "any_On": true,
+        "first_On_control_step": 279,
+        "closed_command_frames_since_first_On": 500,
+        "final_gripper_command": 0.9966549127785564,
+        "final_eef_target_distance_m": 0.050586780394919977,
+        "final_named_target_xyz": [
+          0.04300500443037927,
+          0.17407528727332516,
+          0.9075592437749116
+        ],
+        "stable_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "已搬到盘附近且出现On，但释放/撤手失败；不是本次预算内尚未找到碗。"
+    },
+    {
+      "model": "tempo4999",
+      "case": "user054_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__user054_neg_neg",
+      "source_sha256": {
+        "video.mp4": "19a94ded7783e983ce95d07c3988aa14d46ed67de7540086e8d150bbad0ed09f",
+        "actions.csv": "1bf28683de0bf6f93673b139bb4e60fea250c0dd4a3c8ec48507d3c626963755",
+        "result.json": "9fa25291da152dc4b2e91efa463bd6703ea67a083d5bb1e2cf44e93cc880ac78"
+      },
+      "contact_sheet": ".local/position-study-v1/visual-review/tempo4999__user054_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user054_neg_neg-frame0000.png"
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user054_neg_neg-frame0100.png"
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user054_neg_neg-frame0250.png"
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user054_neg_neg-frame0500.png"
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user054_neg_neg-frame0800.png"
+        }
+      ],
+      "visual_observations": [
+        "100及250帧末端较高，500帧靠近碗且目标呈倾斜/抬动外观；800末端已离开，目标回到桌面，盘子仍空。",
+        "不能把500帧碗在夹爪附近的外观当成闭爪抓稳。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": null,
+        "closed_command_frames": 0,
+        "maximum_named_target_lift_mm": 28.546359292753507,
+        "maximum_lift_control_step": 548,
+        "actual_finger_gap_min_max_m": [
+          0.07767527842979381,
+          0.08001897730810699
+        ],
+        "any_On": false,
+        "first_On_control_step": null,
+        "closed_command_frames_since_first_On": null,
+        "final_gripper_command": -1.0082289021628499,
+        "final_eef_target_distance_m": 0.2054108330395521,
+        "final_named_target_xyz": [
+          -0.06597008326673377,
+          0.2189148606809945,
+          0.8984041501888531
+        ],
+        "stable_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "全程无close命令，实际夹爪始终约8cm打开；目标有28.55mm瞬时抬高代理，但不是闭爪夹持证据。可能接触/钩动/倾斜扰动物体，具体原因无法由这些关键帧确定。"
+    },
+    {
+      "model": "tempo4999",
+      "case": "user055_neg_neg",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__user055_neg_neg",
+      "source_sha256": {
+        "video.mp4": "a007a223a3ea1ec592ccef404c4ec41baa8b9e9c79260b925f195aaa30cccbd2",
+        "actions.csv": "b0757fe19ea6588db41993558ef293bb314a25b84f127043a77c0061d8214ffe",
+        "result.json": "dbefc34ca6b291ed1ff104170565562dd025ec05b5ef64bc843540899121a0fb"
+      },
+      "contact_sheet": ".local/position-study-v1/visual-review/tempo4999__user055_neg_neg-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user055_neg_neg-frame0000.png"
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user055_neg_neg-frame0100.png"
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user055_neg_neg-frame0250.png"
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user055_neg_neg-frame0500.png"
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/tempo4999__user055_neg_neg-frame0800.png"
+        }
+      ],
+      "visual_observations": [
+        "100及250帧末端较高，500接近目标附近，800回到另一碗附近上方；目标关键帧中未明显离桌，盘子始终空。",
+        "没有看见闭爪夹持或完成搬运。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": null,
+        "closed_command_frames": 0,
+        "maximum_named_target_lift_mm": 0.00029346246732675496,
+        "maximum_lift_control_step": 16,
+        "actual_finger_gap_min_max_m": [
+          0.07767525258671419,
+          0.07992276675642503
+        ],
+        "any_On": false,
+        "first_On_control_step": null,
+        "closed_command_frames_since_first_On": null,
+        "final_gripper_command": -1.0087171836569906,
+        "final_eef_target_distance_m": 0.21238182365660552,
+        "final_named_target_xyz": [
+          -0.07751483842289894,
+          0.20381047606329347,
+          0.898404150188853
+        ],
+        "stable_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "CSV全程无close且目标高度几乎不变，属于未执行成功抓取阶段；不能称抬碗后的释放问题。"
+    },
+    {
+      "model": "tempo4999",
+      "case": "neg_pos",
+      "source_directory": ".local/position-study-v1/runs/tempo4999__neg_pos",
+      "source_sha256": {
+        "video.mp4": "4a9df26f5dccf7b1efe1e86cdd99577157617458a0b5e8b7f83743b2a612db3f",
+        "actions.csv": "24143c206da0f700a2d0fa59fc65f72a552e408c0b17088d17f360ceb14d5fac",
+        "result.json": "a4653efa93038ef23f2e88bddd2a91ad6f099650badb6388d7b40431047b9235"
+      },
+      "contact_sheet": ".local/position-study-v1/visual-review/tempo4999__neg_pos-keyframes.png",
+      "viewed_keyframes": [
+        {
+          "video_frame": 0,
+          "image": ".local/position-study-v1/visual-review/tempo4999__neg_pos-frame0000.png"
+        },
+        {
+          "video_frame": 100,
+          "image": ".local/position-study-v1/visual-review/tempo4999__neg_pos-frame0100.png"
+        },
+        {
+          "video_frame": 250,
+          "image": ".local/position-study-v1/visual-review/tempo4999__neg_pos-frame0250.png"
+        },
+        {
+          "video_frame": 500,
+          "image": ".local/position-study-v1/visual-review/tempo4999__neg_pos-frame0500.png"
+        },
+        {
+          "video_frame": 800,
+          "image": ".local/position-study-v1/visual-review/tempo4999__neg_pos-frame0800.png"
+        }
+      ],
+      "visual_observations": [
+        "100帧碗在夹爪下明显抬高，250到达盘附近；500与800仍在盘边低位、夹爪贴住碗，未见开放撤离。",
+        "单视角末帧容易看成已放进盘中，必须与On谓词及指令分开判断。"
+      ],
+      "csv_evidence": {
+        "control_steps": 800,
+        "first_close_control_step": 57,
+        "closed_command_frames": 721,
+        "maximum_named_target_lift_mm": 177.57381052937714,
+        "maximum_lift_control_step": 110,
+        "actual_finger_gap_min_max_m": [
+          0.004163918196756452,
+          0.07979475756362953
+        ],
+        "any_On": false,
+        "first_On_control_step": null,
+        "closed_command_frames_since_first_On": null,
+        "final_gripper_command": 1.0010495654351712,
+        "final_eef_target_distance_m": 0.04999276818518283,
+        "final_named_target_xyz": [
+          0.07098738832559216,
+          0.15291015495107457,
+          0.9122881136606026
+        ],
+        "stable_release_retreat_flag": false,
+        "stop_reason": "step_limit"
+      },
+      "bounded_interpretation": "命名目标确实抬高并搬到盘边，但On全程False；末段近盘持续闭爪，定位/放置与释放阶段未完成，不能把图像接近盘当成功。"
+    }
+  ]
+}

@@ -306,6 +306,8 @@ class CorrectionWorkbench(LabWorkbench):
             if str(selected) not in bundles or selected.parent != (self.project / "evidence").resolve():
                 raise ValueError("请选择本项目有效的公开扩充或混合训练数据版本")
             manifest = json.loads(selected.read_text())
+            if manifest.get("training_sampling_profile"):
+                raise ValueError("恢复重点版本已复用现有数据，无需重建；新增示范请从原始混合数据版本另行筛选")
             if manifest.get("dataset_kind") == "expanded_public_v1":
                 base = selected
             elif manifest.get("dataset_kind") == "expanded_public_corrections_v1":

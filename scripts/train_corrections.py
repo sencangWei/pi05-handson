@@ -243,7 +243,14 @@ def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
     if manifest_path.parent != root / "evidence" or not re.fullmatch(r"corrections-[A-Za-z0-9][A-Za-z0-9_-]{0,79}-manifest.json", manifest_path.name):
         raise ValueError("Correction manifest must be an exported evidence manifest in this project")
     manifest = json.loads(manifest_path.read_text())
-    name = manifest_path.name[len("corrections-"):-len("-manifest.json")]
+    lineage_path = manifest_path
+    if "training_sampling_profile" in manifest:
+        from recovery_sampling import prepare_sampling
+        _, sampling_record = prepare_sampling(root, manifest)
+        lineage_path = contained(root, sampling_record["base_manifest"])
+    if not re.fullmatch(r"corrections-[A-Za-z0-9][A-Za-z0-9_-]{0,79}-manifest.json", lineage_path.name):
+        raise ValueError("Recovery sampling base must be an exported correction manifest")
+    name = lineage_path.name[len("corrections-"):-len("-manifest.json")]
     expected_repo = f"course/libero_corrections_{name}"
     if (manifest.get("ready") is not True or manifest.get("project_root") != str(root)
             or manifest.get("repo_id") != expected_repo
@@ -354,11 +361,20 @@ def main(argv=None):
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
     manifest, parent, launch_manifest = validate_inputs(args.manifest, args.parent_checkpoint, args.experiment)
+    from recovery_sampling import prepare_sampling
+    sampling = prepare_sampling(ROOT, manifest)
     os.environ["HF_LEROBOT_HOME"] = str(ROOT / "data/lerobot")
     os.environ.setdefault("HF_HUB_OFFLINE", "1")
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     cfg = make_experiment(manifest["repo_id"], parent, args.experiment, args.steps, args.batch_size, args.learning_rate)
     record = build_record(cfg, args.manifest, manifest, parent, args.dry_run)
+    if sampling is not None:
+        if cfg.seed != sampling[1]["seed"]:
+            raise ValueError("Training seed differs from recovery sampling profile")
+        record["sampling"] = "recovery focus over unchanged observation/action episodes"
+        record["recovery_sampling"] = sampling[1]
+        for name in ("recovery_sampling.py", "train_release_focus.py"):
+            record["source_sha256"][name] = digest(ROOT / "scripts" / name)
     print(json.dumps(record, ensure_ascii=False, indent=2), flush=True)
     if args.dry_run:
         print("DRY_RUN_PASS: no model weights loaded, no optimizer created, no training started", flush=True)
@@ -366,10 +382,19 @@ def main(argv=None):
     with launch_manifest.open("x") as stream:
         json.dump(record, stream, ensure_ascii=False, indent=2)
         stream.write("\n")
-    spec = importlib.util.spec_from_file_location("course_correction_trainer", ROOT / "openpi/scripts/train.py")
-    trainer = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(trainer)
-    trainer.main(cfg)
+    data_loader, original = None, None
+    if sampling is not None:
+        import openpi.training.data_loader as data_loader
+        from recovery_sampling import install_sampling
+        original = install_sampling(data_loader, *sampling)
+    try:
+        spec = importlib.util.spec_from_file_location("course_correction_trainer", ROOT / "openpi/scripts/train.py")
+        trainer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(trainer)
+        trainer.main(cfg)
+    finally:
+        if original is not None:
+            data_loader.create_torch_dataset = original
 
 
 if __name__ == "__main__":

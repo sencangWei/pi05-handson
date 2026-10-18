@@ -595,6 +595,23 @@ class CorrectionTests(PanelTests):
             self.assertIn("训练：41 条 / 4881 帧", self.panel.dataset_var.get())
             self.assertFalse(self.backend.calls)
 
+    def test_focus_alias_shows_real_sampling_mode_without_starting_training(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            manifest.write_text(json.dumps({
+                "dataset_kind": "expanded_public_corrections_v1", "original_train_episodes": 37,
+                "correction_train_episodes": 5, "correction_train_frames": 1066,
+                "training_sampling_profile": {"path": "evidence/focus.json", "sha256": "pinned"},
+                "task": "black bowl", "train_episodes": 42, "train_frames": 5466,
+                "holdout_episodes": 10, "holdout_frames": 1170}))
+            self.backend.bundle_paths = [str(manifest)]
+            self.panel.dataset_refresh_button.invoke()
+            self.panel.training_dataset_var.set(str(manifest))
+            self.panel._select_dataset()
+            self.assertEqual(self.panel.sampler_var.get(), "恢复重点")
+            self.assertIn("恢复重点：42条/5466帧", self.panel.correction_dataset_hint.get())
+            self.assertFalse(self.backend.calls)
+
     def test_prepare_forwards_selected_expanded_or_mixed_dataset_only(self):
         with tempfile.TemporaryDirectory() as directory:
             manifest = Path(directory) / "manifest.json"

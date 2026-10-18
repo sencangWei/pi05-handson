@@ -1,0 +1,162 @@
+{
+  "status": "READY_FOR_USER_TRAINING",
+  "training_started": false,
+  "dataset_manifest": "evidence/corrections-public37_recovery_focus_v1-manifest.json",
+  "dataset_manifest_sha256": "a8b532ff39f116d3c062aaa97d36f6e533ad33faa428f6fd37eb9059ca1e03ec",
+  "profile": {
+    "path": "evidence/recovery-focus-v1-profile.json",
+    "sha256": "c63a2ef3d7e6d10053181222d73c10b6a341aa6429c442d887fa816974e3d95d"
+  },
+  "real_train_episodes": 42,
+  "real_train_frames": 5466,
+  "virtual_sampling_entries": 20000,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "groups": [
+    {
+      "name": "public",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 7000,
+      "real_frames": 4400,
+      "probability": 0.35
+    },
+    {
+      "name": "previous_corrections",
+      "ranges": [
+        [
+          4400,
+          4881
+        ]
+      ],
+      "virtual_count": 3000,
+      "real_frames": 481,
+      "probability": 0.15
+    },
+    {
+      "name": "open_and_lift",
+      "ranges": [
+        [
+          4881,
+          4936
+        ]
+      ],
+      "virtual_count": 1600,
+      "real_frames": 55,
+      "probability": 0.08
+    },
+    {
+      "name": "realign",
+      "ranges": [
+        [
+          4941,
+          4991
+        ]
+      ],
+      "virtual_count": 2000,
+      "real_frames": 50,
+      "probability": 0.1
+    },
+    {
+      "name": "descend",
+      "ranges": [
+        [
+          4991,
+          5021
+        ]
+      ],
+      "virtual_count": 1400,
+      "real_frames": 30,
+      "probability": 0.07
+    },
+    {
+      "name": "close",
+      "ranges": [
+        [
+          5021,
+          5031
+        ]
+      ],
+      "virtual_count": 1400,
+      "real_frames": 10,
+      "probability": 0.07
+    },
+    {
+      "name": "lift_grasped",
+      "ranges": [
+        [
+          5031,
+          5081
+        ]
+      ],
+      "virtual_count": 1600,
+      "real_frames": 50,
+      "probability": 0.08
+    },
+    {
+      "name": "new_remainder",
+      "ranges": [
+        [
+          4936,
+          4941
+        ],
+        [
+          5081,
+          5466
+        ]
+      ],
+      "virtual_count": 2000,
+      "real_frames": 390,
+      "probability": 0.1
+    }
+  ],
+  "sampling_indices_sha256": "2accd19c1504248fd2fc1a2665953226dee75804baf3b3159f64e7783920fca5",
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+  "parent_params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+  "steps": 2000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "seed": 42,
+  "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+  "training_lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+  "verification": {
+    "cpu_dry_run": "PASS",
+    "real_loader_exact_action_window_boundaries": 24,
+    "targeted_arrow_logic_tests_passed": 72,
+    "real_Tk_tests_passed": 42,
+    "ruff": "PASS",
+    "independent_review": "No remaining blocking findings after alias identity, profile-loss and sample-mean false-PASS fixes."
+  },
+  "current_policy_baseline_probe": {
+    "path": "evidence/recovery-v3-current-model-probe.json",
+    "sha256": "c6a6ef5d507a5c1e59643ce004e4fff390aeb49040f6ba666dae14b1c120fd30",
+    "status": "NEEDS_TRAINING",
+    "passed_points": 4,
+    "total_points": 14
+  },
+  "interactive_step_limit_after_restart": 800,
+  "limitations": [
+    "No new training executed by agent; sampling effect unverified.",
+    "No additional independent recovery scenarios created.",
+    "Probe evaluates selected axes/gripper signs on training observations, not7Daction accuracy, full task success or generalization.",
+    "Virtual indices repeat observation starts; source future action windows and all raw recordings remain unchanged.",
+    "Raw data and checkpoints remain local; remote backup scope is code, config and checks."
+  ],
+  "gui": {
+    "screenshot": "previews/recovery-focus-v1-ready.png",
+    "screenshot_sha256": "1a2f83d79fc0d17d9524481054c580d280bcc9e540bc9d6f29ebaacaee9d558a",
+    "new_gui_pid": 2646145,
+    "inference_and_parent_model": "ui_correct_1792311653585294069/1999",
+    "steps": 2000,
+    "batch_size": 4,
+    "learning_rate": 1e-05,
+    "sampler_label": "\u6062\u590d\u91cd\u70b9",
+    "dataset_selection_verified": true,
+    "no_training_or_simulation_started": true,
+    "existing_model_process_preserved": 2612848
+  }
+}

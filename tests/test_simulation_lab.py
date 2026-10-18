@@ -241,12 +241,21 @@ class LabTests(unittest.TestCase):
             self.lab.tick()
         self.assertEqual(len(self.lab.env.applied), 220)
         self.assertEqual(self.lab.record.result["post_success_steps_executed"], 219)
+        self.assertFalse(self.lab.finished)
+        self.assertFalse(self.lab.record.saved)
+        for _ in range(580):
+            self.lab.tick()
+            self.complete()
+            self.lab.tick()
+        self.assertEqual(len(self.lab.env.applied), 800)
+        self.assertEqual(self.lab.record.result["max_steps"], 800)
+        self.assertEqual(self.lab.record.result["post_success_steps_executed"], 799)
         self.assertTrue(self.lab.finished)
         self.assertTrue(self.lab.record.saved)
         self.assertEqual(self.lab.record.reason, "step_limit")
         self.assertIn("松爪", self.lab.status)
         self.lab.tick()
-        self.assertEqual(len(self.lab.env.applied), 220)
+        self.assertEqual(len(self.lab.env.applied), 800)
 
     def test_position_edit_preserves_z_and_rotation_and_clears_velocity(self):
         env = self.lab.env

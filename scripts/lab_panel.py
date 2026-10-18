@@ -465,6 +465,8 @@ class LabPanel:
         if manifest_path is not None:
             try:
                 manifest = json.loads(Path(manifest_path).read_text())
+                if manifest.get("training_sampling_profile"):
+                    self.sampler_var.set("恢复重点")
                 if manifest.get("dataset_kind") == "expanded_public_v1":
                     hint = (f"公开示范扩充：{manifest['original_train_episodes']}条训练，"
                             f"{len(manifest['holdout_source_episode_ids_excluded'])}条留出；人工纠正暂未混入")
@@ -484,6 +486,9 @@ class LabPanel:
                             hint = (f"精选纠正：{manifest['original_train_episodes']}条公开＋"
                                     f"{manifest['correction_train_episodes']}段/{manifest['correction_train_frames']}帧"
                                     f"（放置{placements}、恢复{recoveries}）；原始录制保留")
+                if manifest.get("training_sampling_profile"):
+                    hint = (f"恢复重点：{manifest['train_episodes']}条/{manifest['train_frames']}帧；"
+                            "按固定阶段比例抽样，原始示范完整保留；先检查关键动作，再做仿真")
             except (OSError, ValueError, KeyError, TypeError):
                 hint = "训练数据清单无效，请刷新；启动前将重新校验"
         self.correction_dataset_hint.set(hint)

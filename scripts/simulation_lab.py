@@ -18,6 +18,7 @@ from evaluate_libero import (
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = "akita_black_bowl_1"
+INTERACTIVE_STEP_LIMIT = 800
 
 
 def state_digest(state):
@@ -244,7 +245,7 @@ class SimulationLab:
                      "initial_state_sha256": state_digest(state), "task_language": TASK_LANGUAGE,
                      "interactive_experiment": True, "formal_benchmark": False,
                      "untracked_native_gui_edits_possible": True, "replan_steps": 1,
-                     "max_steps": 220, "post_success_steps": None, "physics_horizon_ignored": True,
+                     "max_steps": INTERACTIVE_STEP_LIMIT, "post_success_steps": None, "physics_horizon_ignored": True,
                      "stop_policy": "max_steps_or_user_save; On is recorded without early stopping",
                      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
                      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
@@ -382,7 +383,7 @@ class SimulationLab:
             self.next_step_time = time.monotonic() + self.view.control_dt
             update_benchmark_progress(self.record.result, done, 0)
             self.status = "已收到 On 信号，继续执行至观察上限；松爪撤手待复核" if self.record.result["success"] else "模型执行中"
-            if self.record.result["control_steps"] >= 220:
+            if self.record.result["control_steps"] >= INTERACTIVE_STEP_LIMIT:
                 self.save("step_limit")
         except Exception as error:
             self.view.paused = True

@@ -311,6 +311,8 @@ class CorrectionBackendTests(unittest.TestCase):
         evidence.mkdir()
         selected = evidence / "corrections-mixed-manifest.json"
         values = [
+            {"ready": True, "dataset_kind": "expanded_public_corrections_v1",
+             "training_sampling_profile": {"path": "evidence/focus.json", "sha256": "fixed"}},
             {"ready": True},
             {"ready": True, "dataset_kind": "unknown"},
             {"ready": True, "dataset_kind": "expanded_public_corrections_v1", "public_base_manifest": "evidence/missing.json"},

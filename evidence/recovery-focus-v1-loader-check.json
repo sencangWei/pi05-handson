@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "real_frames": 5466,
+  "virtual_frames": 20000,
+  "checked_observation_starts": [
+    0,
+    4399,
+    4400,
+    4609,
+    4610,
+    4654,
+    4655,
+    4744,
+    4745,
+    4880,
+    4881,
+    4935,
+    4936,
+    4940,
+    4941,
+    4990,
+    4991,
+    5020,
+    5021,
+    5030,
+    5031,
+    5080,
+    5081,
+    5465
+  ],
+  "checks": "Real OpenPI/LeRobot loader produces exact original10-step action windows including episode-tailpadding at focused and original boundaries.",
+  "groups": [
+    {
+      "name": "public",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 7000,
+      "real_frames": 4400,
+      "probability": 0.35
+    },
+    {
+      "name": "previous_corrections",
+      "ranges": [
+        [
+          4400,
+          4881
+        ]
+      ],
+      "virtual_count": 3000,
+      "real_frames": 481,
+      "probability": 0.15
+    },
+    {
+      "name": "open_and_lift",
+      "ranges": [
+        [
+          4881,
+          4936
+        ]
+      ],
+      "virtual_count": 1600,
+      "real_frames": 55,
+      "probability": 0.08
+    },
+    {
+      "name": "realign",
+      "ranges": [
+        [
+          4941,
+          4991
+        ]
+      ],
+      "virtual_count": 2000,
+      "real_frames": 50,
+      "probability": 0.1
+    },
+    {
+      "name": "descend",
+      "ranges": [
+        [
+          4991,
+          5021
+        ]
+      ],
+      "virtual_count": 1400,
+      "real_frames": 30,
+      "probability": 0.07
+    },
+    {
+      "name": "close",
+      "ranges": [
+        [
+          5021,
+          5031
+        ]
+      ],
+      "virtual_count": 1400,
+      "real_frames": 10,
+      "probability": 0.07
+    },
+    {
+      "name": "lift_grasped",
+      "ranges": [
+        [
+          5031,
+          5081
+        ]
+      ],
+      "virtual_count": 1600,
+      "real_frames": 50,
+      "probability": 0.08
+    },
+    {
+      "name": "new_remainder",
+      "ranges": [
+        [
+          4936,
+          4941
+        ],
+        [
+          5081,
+          5466
+        ]
+      ],
+      "virtual_count": 2000,
+      "real_frames": 390,
+      "probability": 0.1
+    }
+  ],
+  "sampling_indices_sha256": "2accd19c1504248fd2fc1a2665953226dee75804baf3b3159f64e7783920fca5",
+  "training_started": false
+}

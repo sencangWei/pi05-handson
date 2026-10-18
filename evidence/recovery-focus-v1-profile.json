@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "dataset_manifest": "evidence/corrections-public37_curated5_recovery_v3-manifest.json",
+  "dataset_manifest_sha256": "61340f32115ca2e78c6bf97b95e3bca6e428f04ddc9dcff9e93aa3754d194617",
+  "repo_id": "course/libero_corrections_public37_curated5_recovery_v3",
+  "seed": 42,
+  "virtual_frames": 20000,
+  "groups": [
+    {
+      "name": "public",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 7000
+    },
+    {
+      "name": "previous_corrections",
+      "ranges": [
+        [
+          4400,
+          4881
+        ]
+      ],
+      "virtual_count": 3000
+    },
+    {
+      "name": "open_and_lift",
+      "ranges": [
+        [
+          4881,
+          4936
+        ]
+      ],
+      "virtual_count": 1600
+    },
+    {
+      "name": "realign",
+      "ranges": [
+        [
+          4941,
+          4991
+        ]
+      ],
+      "virtual_count": 2000
+    },
+    {
+      "name": "descend",
+      "ranges": [
+        [
+          4991,
+          5021
+        ]
+      ],
+      "virtual_count": 1400
+    },
+    {
+      "name": "close",
+      "ranges": [
+        [
+          5021,
+          5031
+        ]
+      ],
+      "virtual_count": 1400
+    },
+    {
+      "name": "lift_grasped",
+      "ranges": [
+        [
+          5031,
+          5081
+        ]
+      ],
+      "virtual_count": 1600
+    },
+    {
+      "name": "new_remainder",
+      "ranges": [
+        [
+          4936,
+          4941
+        ],
+        [
+          5081,
+          5466
+        ]
+      ],
+      "virtual_count": 2000
+    }
+  ]
+}

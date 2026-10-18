@@ -6,3 +6,5 @@
 实际导出37/4400训练+10/1170留出完成，原数据清单全部文件校验未改变，47条公开示范末尾均有开爪。实际OpenPI loader检查37条末帧动作窗口全部(10,7)正确clamp、不跨示范；state8和任务文本匹配，留出1170可加载。CPU dry-run通过：父release_focus_2000/1999、3000步、batch4、lr1e-5，无模型权重/优化器加载和训练启动。针对性检查68项通过，额外GUI统计刷新修复并37项重测通过。
 
 真实GUI已更新且参数预填截图保存previews/coverage-v2-training-form.png；训练未启动，原模型服务保留。首次UI自动填值时Tk的Ctrl+A仅移到行首，已用Home/Shift+End重新选择并修正，截图确认3000与1e-5、父1999、新37条数据正确。
+
+能力代码与清单已提交16a4373并推送sencangWei/pi05-handson:experiment/correction-learning，从远端在干净父提交恢复补丁，20个文件SHA256及整个Git树一致。证明保存在.local/backup-public-20261017/coverage-v2-remote-verification.json。交付READY：数据/面板已准备，学习者启动训练与实际评测；无新训练或物理仿真执行。

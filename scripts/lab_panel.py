@@ -1,6 +1,8 @@
 """Chinese controls for the simulation lab; the native viewer displays the scene."""
 
 import math
+import base64
+import io
 from pathlib import Path
 import subprocess
 import time
@@ -16,6 +18,9 @@ class LabPanel:
         self._tick_enabled = True
         self._after_id = None
         self._workbench = hasattr(lab, "workbench_state")
+        self._correction = self._workbench and hasattr(lab, "begin_correction")
+        self._camera_next = 0.0
+        self._camera_photos = {}
         self._workbench_next = 0.0
         # Some bundled Tk builds expose core X fonts only; use a CJK font Tk actually lists.
         families = {name.lower() for name in tkfont.families(root)}
@@ -93,6 +98,9 @@ class LabPanel:
             ttk.Label(frame, text="退出后，后台模型/训练继续运行，可重开管理。",
                       wraplength=650).grid(row=10, column=0, columnspan=3, sticky="w")
             self._build_workbench()
+            if self._correction:
+                self._build_correction()
+                self._perform(self._refresh_datasets)
             self._perform(self._refresh_checkpoints)
             self._perform(self._refresh_results)
             self._perform(self._refresh_workbench)
@@ -130,12 +138,13 @@ class LabPanel:
 
     def _refresh(self):
         state = self.lab.state()
-        self.load_button.configure(state="disabled" if state.get("training_running", False) else "normal")
-        available = state["ready"] and not state["finished"] and not state.get("training_running", False)
+        correcting = self._refresh_correction(state) if self._correction else False
+        self.load_button.configure(state="disabled" if state.get("training_running", False) or correcting else "normal")
+        available = state["ready"] and not state["finished"] and not state.get("training_running", False) and not correcting
         self.run_button.configure(state="normal" if available else "disabled",
                                   text="暂停" if state["running"] else "运行")
         self.step_button.configure(state="normal" if available else "disabled")
-        self.save_button.configure(state="normal" if state["ready"] else "disabled")
+        self.save_button.configure(state="normal" if state["ready"] and not correcting else "disabled")
         layout = state["layout_id"] if state["layout_id"] is not None else "未加载"
         reached = "已达到" if state["on_reached"] else "未达到"
         model = state["model_name"]
@@ -159,6 +168,13 @@ class LabPanel:
             self._workbench_next = time.monotonic() + 1.0
             try:
                 self._refresh_workbench()
+            except Exception as error:
+                self._error(error)
+        if (self._correction and self.notebook.select() == str(self.correction_page)
+                and time.monotonic() >= self._camera_next):
+            self._camera_next = time.monotonic() + 0.3
+            try:
+                self._refresh_cameras()
             except Exception as error:
                 self._error(error)
         self._after_id = self.root.after(30, self._poll)
@@ -203,6 +219,8 @@ class LabPanel:
             widget = (ttk.Combobox(options, values=choices, state="readonly", textvariable=variable,
                                   width=8) if choices else ttk.Entry(options, textvariable=variable, width=8))
             widget.grid(row=0, column=column * 2 + 1, padx=(0, 8))
+            if variable is self.sampler_var:
+                self.sampler_combo = widget
         ttk.Label(page, text="点击才开始训练，并保存关闭三维场景、停止本面板模型。\n\n外部服务占用时，请先在原终端退出。",
                   wraplength=660).grid(row=5, column=0, columnspan=4, sticky="w")
         train_actions = ttk.Frame(page)
@@ -218,6 +236,22 @@ class LabPanel:
             setattr(self, name, button)
         ttk.Label(page, textvariable=self.dataset_var, wraplength=660).grid(
             row=7, column=0, columnspan=4, sticky="w")
+        if self._correction:
+            datasets = ttk.Frame(page)
+            datasets.grid(row=12, column=0, columnspan=4, sticky="ew", pady=6)
+            datasets.columnconfigure(1, weight=1)
+            ttk.Label(datasets, text="训练数据集").grid(row=0, column=0, sticky="w")
+            self.training_dataset_var = tk.StringVar(value="原始示范")
+            self.dataset_paths = {"原始示范": None}
+            self.dataset_combo = ttk.Combobox(datasets, textvariable=self.training_dataset_var, state="readonly")
+            self.dataset_combo.grid(row=0, column=1, sticky="ew", padx=6)
+            self.dataset_combo.bind("<<ComboboxSelected>>", self._select_dataset)
+            self.dataset_refresh_button = ttk.Button(datasets, text="刷新数据集",
+                                                     command=lambda: self._perform(self._refresh_datasets))
+            self.dataset_refresh_button.grid(row=0, column=2)
+            self.correction_dataset_hint = tk.StringVar()
+            ttk.Label(datasets, textvariable=self.correction_dataset_hint, wraplength=660).grid(
+                row=1, column=0, columnspan=3, sticky="w")
         for row, name, label in ((8, "model_log", "模型日志"), (10, "training_log", "训练日志")):
             ttk.Label(page, text=label).grid(row=row, column=0, columnspan=4, sticky="w", pady=(5, 0))
             log_frame = ttk.Frame(page)
@@ -265,6 +299,162 @@ class LabPanel:
             row=0, column=2, padx=(8, 0))
         self._results = {}
 
+    def _build_correction(self):
+        page = self.correction_page = ttk.Frame(self.notebook, padding=12)
+        self.notebook.add(page, text="人工纠正")
+        page.columnconfigure(0, weight=1)
+        ttk.Label(page, text="在盘子附近先暂停模型，再开始接管；只记录人工按钮产生的动作。\n\n"
+                  "完成放置后：松爪 10 步（开口至少 6cm）→ 撤手至少 10cm → 保持 10 步。\n\n"
+                  "最后 10 步均须满足 On，再保存为合格。\n\n"
+                  "合格保存须通过检查，失败后可继续纠正；草稿永不进入训练。",
+                  wraplength=660, justify="left").grid(row=0, column=0, sticky="w")
+        start = ttk.Frame(page)
+        start.grid(row=1, column=0, sticky="w", pady=8)
+        self.correction_split_var = tk.StringVar(value="train")
+        ttk.Label(start, text="本段用途").grid(row=0, column=0)
+        self.correction_split_combo = ttk.Combobox(start, values=("train", "holdout"), width=9,
+                                                  textvariable=self.correction_split_var, state="readonly")
+        self.correction_split_combo.grid(row=0, column=1, padx=6)
+        self.correction_start_button = ttk.Button(start, text="开始人工接管",
+                                                  command=lambda: self._perform(self._begin_correction))
+        self.correction_start_button.grid(row=0, column=2, padx=6)
+        ttk.Label(page, text="train 用于训练，holdout 仅评测；相同布局与偏移不能分属两组。",
+                  wraplength=660).grid(row=2, column=0, sticky="w")
+        cameras = ttk.Frame(page)
+        cameras.grid(row=3, column=0, sticky="w", pady=8)
+        self.camera_labels = {}
+        for column, (key, title) in enumerate((("image", "场景相机"), ("wrist_image", "腕部相机"))):
+            box = ttk.Frame(cameras, width=266, height=285)
+            box.grid(row=0, column=column, padx=(0, 10))
+            box.grid_propagate(False)
+            ttk.Label(box, text=title).grid(row=0, column=0, sticky="w")
+            label = ttk.Label(box, text="加载场景后显示", anchor="center")
+            label.grid(row=1, column=0, sticky="nsew")
+            box.columnconfigure(0, weight=1)
+            box.rowconfigure(1, weight=1)
+            self.camera_labels[key] = label
+        options = ttk.Frame(page)
+        options.grid(row=4, column=0, sticky="w", pady=4)
+        self.jog_scale_var = tk.StringVar(value="0.1")
+        self.jog_repeats_var = tk.StringVar(value="5")
+        ttk.Label(options, text="动作幅度 (0.05～0.3)").grid(row=0, column=0)
+        ttk.Spinbox(options, from_=0.05, to=0.3, increment=0.05, width=6,
+                    textvariable=self.jog_scale_var).grid(row=0, column=1, padx=6)
+        ttk.Label(options, text="重复步数 (1～20)").grid(row=0, column=2)
+        ttk.Spinbox(options, from_=1, to=20, width=5,
+                    textvariable=self.jog_repeats_var).grid(row=0, column=3, padx=6)
+        jog = ttk.Frame(page)
+        jog.grid(row=5, column=0, sticky="w", pady=4)
+        self.jog_buttons = {}
+        self._manual_buttons = []
+        for axis, label in enumerate(("X", "Y", "Z", "Rx", "Ry", "Rz")):
+            for row, sign in enumerate((1, -1)):
+                button = ttk.Button(jog, text=f"{label} {'+' if sign > 0 else '−'}", width=7,
+                                    command=lambda axis=axis, sign=sign: self._perform(
+                                        lambda: self._manual_jog(axis, sign)))
+                button.grid(row=row, column=axis, padx=(0, 6), pady=3)
+                self.jog_buttons[(axis, sign)] = button
+                self._manual_buttons.append(button)
+        actions = ttk.Frame(page)
+        actions.grid(row=6, column=0, sticky="w", pady=6)
+        for column, (name, label, action) in enumerate((
+                ("gripper_open_button", "松爪（10步）", lambda: self.lab.manual_gripper(True, repeats=10)),
+                ("gripper_close_button", "闭爪（10步）", lambda: self.lab.manual_gripper(False, repeats=10)),
+                ("hold_button", "保持（10步）", lambda: self.lab.manual_hold(repeats=10)))):
+            button = ttk.Button(actions, text=label, command=lambda action=action: self._perform(action))
+            button.grid(row=0, column=column, padx=(0, 8))
+            setattr(self, name, button)
+            self._manual_buttons.append(button)
+        finish = ttk.Frame(page)
+        finish.grid(row=7, column=0, sticky="w", pady=6)
+        self.correction_approve_button = ttk.Button(finish, text="保存为合格",
+                                                    command=lambda: self._perform(
+                                                        lambda: self.lab.finish_correction(approved=True)))
+        self.correction_approve_button.grid(row=0, column=0, padx=(0, 8))
+        self.correction_draft_button = ttk.Button(finish, text="结束并存草稿",
+                                                  command=lambda: self._perform(
+                                                      lambda: self.lab.finish_correction(approved=False)))
+        self.correction_draft_button.grid(row=0, column=1, padx=(0, 8))
+        self.prepare_corrections_button = ttk.Button(finish, text="准备混合训练数据",
+                                                     command=lambda: self._perform(self._prepare_corrections))
+        self.prepare_corrections_button.grid(row=0, column=2)
+        self.correction_status_var = tk.StringVar()
+        ttk.Label(page, textvariable=self.correction_status_var, justify="left", wraplength=660).grid(
+            row=8, column=0, sticky="w", pady=6)
+
+    def _begin_correction(self):
+        split = self.correction_split_var.get()
+        if split not in ("train", "holdout"):
+            raise ValueError("本段用途须选择 train 或 holdout")
+        self.lab.begin_correction(split=split)
+
+    def _manual_jog(self, axis, sign):
+        scale, repeats = float(self.jog_scale_var.get()), int(self.jog_repeats_var.get())
+        if not math.isfinite(scale) or not 0.05 <= scale <= 0.3 or not 1 <= repeats <= 20:
+            raise ValueError("动作幅度须在 0.05～0.3，重复步数须为 1～20 的整数")
+        self.lab.manual_jog(axis, sign, scale=scale, repeats=repeats)
+
+    def _refresh_correction(self, scene):
+        state = self.lab.correction_state()
+        active = bool(state["active"])
+        training = scene.get("training_running", False)
+        available = scene["ready"] and not scene["running"] and not training
+        self.correction_start_button.configure(state="normal" if available and not active else "disabled")
+        self.correction_split_combo.configure(state="disabled" if active else "readonly")
+        for button in self._manual_buttons:
+            button.configure(state="normal" if active and available else "disabled")
+        self.correction_approve_button.configure(
+            state="normal" if active and available and state.get("frames", 0) > 0 else "disabled")
+        self.correction_draft_button.configure(state="normal" if active and not training else "disabled")
+        self.prepare_corrections_button.configure(state="disabled" if active or training else "normal")
+        if active:
+            self.model_start_button.configure(state="disabled")
+            self.model_stop_button.configure(state="disabled")
+            self.training_start_button.configure(state="disabled")
+        self.correction_status_var.set(f"{state.get('status', '')}；本段 {state.get('frames', 0)} 帧\n\n"
+                                       f"已合格：训练 {state.get('approved_train', 0)} 段；"
+                                       f"留出 {state.get('approved_holdout', 0)} 段\n\n"
+                                       f"纠正目录：{state.get('directory', '')}")
+        return active
+
+    def _refresh_cameras(self):
+        images = self.lab.camera_images()
+        if images is None:
+            self._camera_photos.clear()
+            for label in self.camera_labels.values():
+                label.configure(image="", text="加载场景后显示")
+            return
+        from PIL import Image
+        for key, label in self.camera_labels.items():
+            picture = Image.fromarray(images[key]).resize((256, 256))
+            try:
+                from PIL import ImageTk
+                photo = ImageTk.PhotoImage(picture, master=self.root)
+            except (ImportError, RuntimeError, tk.TclError):
+                png = io.BytesIO()
+                picture.save(png, format="PNG")
+                photo = tk.PhotoImage(master=self.root, data=base64.b64encode(png.getvalue()))
+            self._camera_photos[key] = photo
+            label.configure(image=photo, text="")
+
+    def _refresh_datasets(self):
+        paths = self.lab.corrections_bundles()
+        self.dataset_paths = {"原始示范": None}
+        self.dataset_paths.update({str(Path(path)): str(path) for path in paths if Path(path).is_absolute()})
+        self.dataset_combo.configure(values=tuple(self.dataset_paths))
+        self._select_dataset()
+
+    def _select_dataset(self, _event=None):
+        correction = self.dataset_paths.get(self.training_dataset_var.get()) is not None
+        if correction:
+            self.sampler_var.set("均匀")
+        self.sampler_combo.configure(state="disabled" if correction else "readonly")
+        self.correction_dataset_hint.set("纠正数据：原示范与人工纠正均匀混合，原归一化不变" if correction else "")
+
+    def _prepare_corrections(self):
+        self.lab.prepare_corrections()
+        self._refresh_datasets()
+
     def _refresh_checkpoints(self):
         paths = self.lab.checkpoints()
         self.checkpoint_paths = {str(Path(path).relative_to(Path(path).parents[2])): path for path in paths}
@@ -287,8 +477,18 @@ class LabPanel:
         steps, batch, lr = int(self.steps_var.get()), int(self.batch_var.get()), float(self.lr_var.get())
         if steps <= 0 or batch not in (1, 2, 4) or not math.isfinite(lr) or lr <= 0:
             raise ValueError("Steps 须为正整数，Batch 须为 1/2/4，学习率须为正数")
-        self.lab.start_training(self._checkpoint(self.parent_var), steps, batch, lr,
-                                uniform=self.sampler_var.get() == "均匀")
+        options = {"uniform": self.sampler_var.get() == "均匀"}
+        if self._correction:
+            selected = self.training_dataset_var.get()
+            if selected not in self.dataset_paths:
+                raise ValueError("请刷新并选择有效的训练数据集")
+            manifest = self.dataset_paths[selected]
+            if manifest is not None:
+                if not Path(manifest).is_absolute() or not Path(manifest).is_file():
+                    raise ValueError("所选纠正数据清单已失效，请刷新数据集")
+                options["correction_manifest"] = manifest
+                options["uniform"] = True
+        self.lab.start_training(self._checkpoint(self.parent_var), steps, batch, lr, **options)
         self._workbench_next = 0.0
 
     @staticmethod
@@ -310,6 +510,10 @@ class LabPanel:
         self.model_start_button.configure(state="disabled" if (state["jobs"].get("port_busy") and not model.get("owned")) or training.get("running") else "normal")
         self.training_start_button.configure(state="disabled" if training.get("running") or (
             state["jobs"].get("port_busy") and not model.get("owned")) else "normal")
+        if self._correction and self.lab.correction_state()["active"]:
+            self.model_start_button.configure(state="disabled")
+            self.model_stop_button.configure(state="disabled")
+            self.training_start_button.configure(state="disabled")
         def job_label(job):
             return ((f"本面板运行中 PID {job.get('pid', '?')}" if job.get("owned") else "外部服务运行中")
                     if job.get("running") else "已停止")

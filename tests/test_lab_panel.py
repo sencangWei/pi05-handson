@@ -1,6 +1,7 @@
 """Real Tk widgets with an explicitly fake backend; no simulation or model."""
 from pathlib import Path
 import sys
+import tempfile
 import tkinter as tk
 import unittest
 from unittest.mock import patch
@@ -300,6 +301,201 @@ class WorkbenchTests(PanelTests):
         log.yview_moveto(1)
         self.panel._update_log(log, content + "\nnext tail")
         self.assertGreater(log.yview()[1], 0.99)
+
+
+class FakeCorrectionWorkbench(FakeWorkbench):
+    def __init__(self):
+        super().__init__()
+        self.correction = dict(active=False, frames=0, directory="/tmp/correction", approved_train=0,
+                               approved_holdout=0, status="尚未接管")
+        self.bundle_paths = []
+        self.camera_reads = 0
+
+    def begin_correction(self, split="train"):
+        self.calls.append(("begin_correction", split))
+        self.data["finished"] = True
+        self.correction.update(active=True, frames=0)
+
+    def correction_state(self):
+        return self.correction
+
+    def manual_jog(self, axis, sign, scale, repeats):
+        self.calls.append(("manual_jog", axis, sign, scale, repeats))
+        self.correction["frames"] += repeats
+
+    def manual_gripper(self, opened, repeats=10):
+        self.calls.append(("manual_gripper", opened, repeats))
+        self.correction["frames"] += repeats
+
+    def manual_hold(self, repeats=10):
+        self.calls.append(("manual_hold", repeats))
+        self.correction["frames"] += repeats
+
+    def finish_correction(self, approved):
+        self.calls.append(("finish_correction", approved))
+        self.correction["active"] = False
+
+    def camera_images(self):
+        import numpy as np
+        self.camera_reads += 1
+        image = np.zeros((4, 4, 3), dtype=np.uint8)
+        image[:2, :2] = (255, 0, 0)
+        return {"image": image, "wrist_image": image.copy()}
+
+    def corrections_bundles(self):
+        return self.bundle_paths
+
+    def prepare_corrections(self):
+        self.calls.append(("prepare_corrections",))
+
+    def start_training(self, parent, steps, batch, learning_rate, uniform=False, correction_manifest=None):
+        super().start_training(parent, steps, batch, learning_rate, uniform)
+        if correction_manifest is not None:
+            self.calls[-1] += (correction_manifest,)
+
+
+class CorrectionTests(PanelTests):
+    backend_class = FakeCorrectionWorkbench
+
+    def _begin(self):
+        self.panel.load_button.invoke()
+        self.panel.correction_start_button.invoke()
+
+    def test_fourth_page_is_idle_until_explicit_takeover(self):
+        names = [self.panel.notebook.tab(tab, "text") for tab in self.panel.notebook.tabs()]
+        self.assertEqual(names, ["仿真操作", "模型与训练", "结果与录像", "人工纠正"])
+        self.assertEqual(self.backend.calls, [])
+        self.assertEqual(self.backend.camera_reads, 0)
+        self.assertEqual(self.panel.jog_scale_var.get(), "0.1")
+        self.assertEqual(self.panel.jog_repeats_var.get(), "5")
+        for button in (self.panel.correction_start_button, self.panel.hold_button,
+                       self.panel.correction_approve_button, self.panel.correction_draft_button):
+            self.assertEqual(str(button.cget("state")), "disabled")
+        self.root.update_idletasks()
+        self.assertLess(self.root.winfo_reqheight(), 1100)
+
+    def test_pause_takeover_buttons_and_explicit_human_steps(self):
+        self.panel.load_button.invoke()
+        self.panel.run_button.invoke()
+        self.assertEqual(str(self.panel.correction_start_button.cget("state")), "disabled")
+        self.panel.run_button.invoke()
+        self.panel.correction_split_var.set("holdout")
+        self.panel.correction_start_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("begin_correction", "holdout"))
+        for button in (self.panel.run_button, self.panel.load_button, self.panel.save_button,
+                       self.panel.model_start_button, self.panel.training_start_button):
+            self.assertEqual(str(button.cget("state")), "disabled")
+        self.assertEqual(str(self.panel.correction_split_combo.cget("state")), "disabled")
+        for (axis, sign), button in self.panel.jog_buttons.items():
+            button.invoke()
+            self.assertEqual(self.backend.calls[-1], ("manual_jog", axis, sign, 0.1, 5))
+        self.panel.gripper_open_button.invoke()
+        self.panel.gripper_close_button.invoke()
+        self.panel.hold_button.invoke()
+        self.assertEqual(self.backend.calls[-3:], [("manual_gripper", True, 10),
+                                                  ("manual_gripper", False, 10), ("manual_hold", 10)])
+        self.assertIn("90 帧", self.panel.correction_status_var.get())
+        self.panel.correction_draft_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("finish_correction", False))
+        self.assertFalse(any(call[0] == "start_training" for call in self.backend.calls))
+
+    def test_manual_validation_and_failed_approval_preserve_takeover(self):
+        self._begin()
+        before = list(self.backend.calls)
+        for scale, repeats in (("nan", "5"), ("0.31", "5"), ("0.1", "0"), ("0.1", "1.5")):
+            self.panel.jog_scale_var.set(scale)
+            self.panel.jog_repeats_var.set(repeats)
+            self.panel.jog_buttons[(0, 1)].invoke()
+        self.assertEqual(self.backend.calls, before)
+        self.panel.hold_button.invoke()
+        with patch.object(self.backend, "finish_correction", side_effect=ValueError("请先松爪撤手")):
+            self.panel.correction_approve_button.invoke()
+        self.assertTrue(self.backend.correction["active"])
+        self.assertEqual(str(self.panel.hold_button.cget("state")), "normal")
+        self.panel.correction_approve_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("finish_correction", True))
+
+    def test_finished_trial_can_be_taken_over_and_manual_controls_stay_enabled(self):
+        self.panel.load_button.invoke()
+        self.backend.data["finished"] = True
+        self.backend.jobs.update(model={"owned": True, "running": True}, port_busy=True)
+        self.panel._refresh()
+        self.panel._refresh_workbench()
+        self.assertEqual(str(self.panel.correction_start_button.cget("state")), "normal")
+        self.panel.correction_start_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("begin_correction", "train"))
+        self.assertTrue(self.backend.data["finished"])
+        self.panel._refresh_workbench()
+        self.assertEqual(str(self.panel.model_stop_button.cget("state")), "disabled")
+        for button in self.panel._manual_buttons:
+            self.assertEqual(str(button.cget("state")), "normal")
+        self.panel.hold_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("manual_hold", 10))
+        self.assertEqual(str(self.panel.correction_approve_button.cget("state")), "normal")
+        self.assertEqual(str(self.panel.correction_draft_button.cget("state")), "normal")
+
+    def test_previews_only_poll_on_selected_page_and_throttle_without_actions(self):
+        with patch("lab_panel.time.monotonic", return_value=100):
+            self.panel._poll()
+            self.assertEqual(self.backend.camera_reads, 0)
+            self.panel.notebook.select(self.panel.correction_page)
+            self.panel._poll()
+            self.panel._poll()
+        self.assertEqual(self.backend.camera_reads, 1)
+        for photo in self.panel._camera_photos.values():
+            self.assertEqual((photo.width(), photo.height()), (256, 256))
+        self.assertTrue(all(call == ("tick",) for call in self.backend.calls))
+        with patch("lab_panel.time.monotonic", return_value=100.31):
+            self.panel._poll()
+        self.assertEqual(self.backend.camera_reads, 2)
+
+    def test_tk_png_fallback_preserves_canonical_camera_orientation(self):
+        with patch("PIL.ImageTk.PhotoImage", side_effect=RuntimeError("Tk bridge unavailable")):
+            self.panel._refresh_cameras()
+        photo = self.panel._camera_photos["image"]
+        self.assertEqual(photo.get(0, 0), (255, 0, 0))
+        self.assertEqual(photo.get(255, 255), (0, 0, 0))
+        with patch.object(self.backend, "camera_images", return_value=None):
+            self.panel._refresh_cameras()
+        self.assertEqual(self.panel._camera_photos, {})
+
+    def test_dataset_explicit_selection_uniform_training_and_original_compatibility(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            manifest.write_text("{}")
+            self.backend.bundle_paths = [str(manifest)]
+            self.panel.dataset_refresh_button.invoke()
+            self.assertEqual(self.panel.training_dataset_var.get(), "原始示范")
+            self.panel.training_dataset_var.set(str(manifest))
+            self.panel._select_dataset()
+            self.assertEqual(self.panel.sampler_var.get(), "均匀")
+            self.assertEqual(str(self.panel.sampler_combo.cget("state")), "disabled")
+            self.panel.training_start_button.invoke()
+            self.assertEqual(self.backend.calls[-1], ("start_training", self.backend.checkpoint_list[0],
+                                                     2000, 4, 5e-5, True, str(manifest)))
+            before = len(self.backend.calls)
+            manifest.unlink()
+            self.panel.training_start_button.invoke()
+            self.assertEqual(len(self.backend.calls), before)
+            self.backend.bundle_paths = []
+            self.panel.dataset_refresh_button.invoke()
+            self.assertEqual(self.panel.training_dataset_var.get(), str(manifest))
+            self.panel.training_start_button.invoke()
+            self.assertEqual(len(self.backend.calls), before)
+            self.panel.training_dataset_var.set("unknown")
+            self.panel.training_start_button.invoke()
+            self.assertEqual(len(self.backend.calls), before)
+            self.panel.training_dataset_var.set("原始示范")
+            self.panel._select_dataset()
+            self.assertEqual(str(self.panel.sampler_combo.cget("state")), "readonly")
+            self.panel.sampler_var.set("收尾重点")
+            self.panel.training_start_button.invoke()
+            self.assertEqual(self.backend.calls[-1], ("start_training", self.backend.checkpoint_list[0],
+                                                     2000, 4, 5e-5, False))
+
+    def test_prepare_data_only_dispatches_preparation(self):
+        self.panel.prepare_corrections_button.invoke()
+        self.assertEqual(self.backend.calls, [("prepare_corrections",)])
 
 
 if __name__ == "__main__":

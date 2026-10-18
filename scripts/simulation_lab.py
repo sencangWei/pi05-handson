@@ -204,7 +204,8 @@ class SimulationLab:
         write_json(self.output / "session.json", {
             "task": TASK_LANGUAGE, "layout_count": task.layout_count,
             "source_sha256": {name: hashlib.sha256((ROOT / "scripts" / name).read_bytes()).hexdigest()
-                              for name in ("simulation_lab.py", "lab_panel.py")},
+                              for name in ("simulation_lab.py", "lab_panel.py", "lab_jobs.py", "correction_workbench.py",
+                                           "correction_data.py", "prepare_corrections.py", "train_corrections.py")},
             "formal_benchmark": False,
         })
 
@@ -452,10 +453,10 @@ def run_gui(port):
     import sys
     sys.path.insert(0, str(ROOT / "openpi/third_party/libero"))
     from lab_panel import LabPanel
-    from lab_workbench import LabWorkbench
+    from correction_workbench import CorrectionWorkbench
     output = ROOT / "evaluations" / f"interactive_lab_{time.strftime('%Y%m%d_%H%M%S')}_{time.time_ns()}"
     task = LiberoTask()
-    lab = LabWorkbench(output, task, port=port)
+    lab = CorrectionWorkbench(output, task, port=port)
     root = tk.Tk()
     LabPanel(root, lab)
     try:

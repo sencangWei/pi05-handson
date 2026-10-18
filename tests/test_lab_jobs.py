@@ -98,6 +98,24 @@ class LabJobsTests(unittest.TestCase):
         self.assertTrue(self.jobs.snapshot()["port_busy"])
         self.popen.assert_not_called()
 
+    def test_correction_training_uses_immutable_manifest_and_separate_entry(self):
+        directory = self.root / "evidence"
+        directory.mkdir()
+        manifest = directory / "corrections-mixed-manifest.json"
+        manifest.write_text(json.dumps({"ready": True}))
+        self.jobs.start_correction_training(self.checkpoint, 20, 2, 1e-4, manifest)
+        command = self.popen.call_args.args[0]
+        self.assertIn(str(self.root / "scripts/train_corrections.py"), command)
+        self.assertEqual(command[command.index("--manifest") + 1], str(manifest))
+        self.assertIn("ui_correct_", command[-1])
+        with self.assertRaises(RuntimeError):
+            self.jobs.start_correction_training(self.checkpoint, 20, 2, 1e-4, manifest)
+        self.jobs.stop_training()
+        self.port_busy.return_value = True
+        with self.assertRaises(RuntimeError):
+            self.jobs.start_correction_training(self.checkpoint, 20, 2, 1e-4, manifest)
+        self.assertEqual(self.popen.call_count, 1)
+
     def test_checkpoints_sort_by_manifest_mtime_then_path(self):
         checkpoints = [self.checkpoint]
         for name in ("2", "3"):

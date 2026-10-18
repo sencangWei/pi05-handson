@@ -1,0 +1,177 @@
+{
+  "scope": "manual correction collection and offline mixed-data fine-tuning tooling; no actual model, simulator or training run by agent",
+  "checks": [
+    {
+      "name": "sim-tests",
+      "command": [
+        ".venv-sim/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "----------------------------------------------------------------------",
+        "Ran 130 tests in 10.005s",
+        "",
+        "OK (skipped=8)",
+        "已安装桌面快捷方式：/tmp/lab.desktop"
+      ],
+      "tests": 130,
+      "skipped": [
+        "test_arrow_roundtrip_originals_unchanged_holdout_and_draft_excluded (test_correction_data.ExportTests.test_arrow_roundtrip_originals_unchanged_holdout_and_draft_excluded) ... skipped 'CPU Arrow environment required'",
+        "test_split_overlap_and_tamper_refuse_publication (test_correction_data.ExportTests.test_split_overlap_and_tamper_refuse_publication) ... skipped 'CPU Arrow environment required'",
+        "test_asset_id_and_all_parent_weights_explicit_without_sampling_override (test_train_corrections.TrainingTests.test_asset_id_and_all_parent_weights_explicit_without_sampling_override) ... skipped 'CPU Arrow environment required'",
+        "test_dry_run_does_not_import_trainer_or_write_launch (test_train_corrections.TrainingTests.test_dry_run_does_not_import_trainer_or_write_launch) ... skipped 'CPU Arrow environment required'",
+        "test_invalid_manifest_fails_before_config_import (test_train_corrections.TrainingTests.test_invalid_manifest_fails_before_config_import) ... skipped 'CPU Arrow environment required'",
+        "test_preflight_rejects_tamper_parent_norm_and_collision (test_train_corrections.TrainingTests.test_preflight_rejects_tamper_parent_norm_and_collision) ... skipped 'CPU Arrow environment required'",
+        "test_custom_settings_update_actual_configuration (test_training_entry.TrainingConfigurationTests.test_custom_settings_update_actual_configuration) ... skipped 'Training configuration dependencies unavailable'",
+        "test_defaults_and_uniform_preserve_original_training_contract (test_training_entry.TrainingConfigurationTests.test_defaults_and_uniform_preserve_original_training_contract) ... skipped 'Training configuration dependencies unavailable'"
+      ]
+    },
+    {
+      "name": "cpu-data-config-tests",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "test_correction_data",
+        "test_train_corrections",
+        "test_training_entry",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 21 tests in 3.232s",
+        "",
+        "OK"
+      ],
+      "tests": 21,
+      "skipped": []
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/correction_workbench.py",
+        "scripts/correction_data.py",
+        "scripts/prepare_corrections.py",
+        "scripts/train_corrections.py",
+        "scripts/lab_jobs.py",
+        "scripts/lab_panel.py",
+        "scripts/simulation_lab.py",
+        "tests/test_correction_workbench.py",
+        "tests/test_correction_data.py",
+        "tests/test_train_corrections.py",
+        "tests/test_lab_jobs.py",
+        "tests/test_lab_panel.py"
+      ],
+      "exit_code": 0,
+      "tail": [
+        "All checks passed!"
+      ]
+    },
+    {
+      "name": "compile",
+      "command": [
+        ".venv-sim/bin/python",
+        "-m",
+        "py_compile",
+        "scripts/correction_workbench.py",
+        "scripts/correction_data.py",
+        "scripts/prepare_corrections.py",
+        "scripts/train_corrections.py",
+        "scripts/lab_jobs.py",
+        "scripts/lab_panel.py",
+        "scripts/simulation_lab.py",
+        "tests/test_correction_workbench.py",
+        "tests/test_correction_data.py",
+        "tests/test_train_corrections.py",
+        "tests/test_lab_jobs.py",
+        "tests/test_lab_panel.py"
+      ],
+      "exit_code": 0,
+      "tail": []
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "tail": []
+    }
+  ],
+  "real_LeRobot_loader_smoke": {
+    "temporary_only": true,
+    "original_frames": 1971,
+    "synthetic_test_frames": 10,
+    "episodes": 17,
+    "action_shape": [
+      10,
+      7
+    ],
+    "state_shape": [
+      8
+    ],
+    "image_shape": [
+      3,
+      256,
+      256
+    ],
+    "last_window_padding": true,
+    "temporary_data_removed": true
+  },
+  "actual_upstream_config_smoke": {
+    "normalization_asset_id": "course/libero_black_bowl",
+    "norm_loaded": true,
+    "new_repo_id": true,
+    "seed": 42,
+    "no_weights_or_optimizer_loaded": true
+  },
+  "native_GUI_smoke": {
+    "actual_backend": true,
+    "task_placeholder_no_simulation": true,
+    "tabs": 4,
+    "camera_pixels_from_prior_user_trial": true,
+    "screenshot": "previews/correction-panel-ui-check.png"
+  },
+  "review_resolved": [
+    "finished-state manual GUI gating",
+    "dataset method name",
+    "native-edit hash verification at approval",
+    "before-state copied before mutating physics step"
+  ],
+  "raw_observation_contract": "two pre-action RGB images, pre-state and human action, post physical state/bowl/On; final dual camera PNG saved",
+  "source_sha256": {
+    "scripts/correction_workbench.py": "ce0f60edfb69cf06ae07ef0718a5caf2ed502e6c24b359a635da740cd45af6d3",
+    "scripts/correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "scripts/prepare_corrections.py": "0927fe275dfdb37657046472b54efc651609a912a6a76801b2f01cad35f7d6d0",
+    "scripts/train_corrections.py": "856ea35cdb689a6b3812a0ec635108f2ebde7b78057e6c6cdda0f4e0639f071a",
+    "scripts/lab_jobs.py": "d58619a9007c3bae00ada0ec1e6b822f74db0b92cd4ba4b8b13c4b1bcc51c1e8",
+    "scripts/lab_panel.py": "4c01fad30a39c0edff5ad6802bd6254ea6d6222930d484f556fb3be3b348a938",
+    "scripts/simulation_lab.py": "b9179923548063c5998b88df98b5aed9d48280e08fd96205e8bc42b9290e4808",
+    "tests/test_correction_workbench.py": "9330d16c7463b3de872dc5511826f75e25530d70a04f05bb044965b3ca7758ed",
+    "tests/test_correction_data.py": "04d0b9ff801d90a3a1072078b553937f0a54be82842aaae29c82f3b7df4e016c",
+    "tests/test_train_corrections.py": "bb1ba831a8a92c1bfe76c785c5b9d12942cec006ba5accdc76268cc4ff3c9384",
+    "tests/test_lab_jobs.py": "f5bfece4d02a31165cf9e1685f2294e6cb4c381a3fed036f000c84879fecb417",
+    "tests/test_lab_panel.py": "f6423558f74cb3a630b909ef7164fd00dede50d9cece1289dd2384d965d87c63"
+  },
+  "environment_snapshot_sha256": "a2ea490aaad3708690713395ad90a3e8ce07fa22f4df22ef6e18d5ff559ab133",
+  "real_user_demonstrations_and_training_pending": true,
+  "new_model_success_rate": "not measured or claimed",
+  "unchanged": [
+    "original dataset and holdout",
+    "old checkpoints",
+    "OpenPI and LIBERO source",
+    "external model service"
+  ]
+}

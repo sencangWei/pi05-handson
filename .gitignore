@@ -6,3 +6,6 @@ data/
 checkpoints/
 exports/
 .restore*/
+
+# Locally collected correction images and physical state snapshots.
+/corrections/

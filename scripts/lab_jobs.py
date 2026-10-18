@@ -183,6 +183,22 @@ class LabJobs:
                 command.append("--uniform-control")
             return self._launch("training", command)
 
+    def start_correction_training(self, parent, steps, batch_size, learning_rate, manifest):
+        with self._lock:
+            parent, steps, batch_size, learning_rate = self.validate_training(parent, steps, batch_size, learning_rate)
+            manifest = Path(manifest).resolve()
+            if manifest.parent != self.root / "evidence" or not manifest.name.startswith("corrections-") or not manifest.name.endswith("-manifest.json"):
+                raise ValueError("Expected this course's correction manifest")
+            if not json.loads(manifest.read_text()).get("ready"):
+                raise ValueError("Correction dataset is not ready")
+            if self._owned_process("training") or self._owned_process("model") or self._port_busy(self.port):
+                raise RuntimeError("Stop managed model/training first; external services are never stopped")
+            experiment = f"ui_correct_{time.time_ns()}"
+            return self._launch("training", [str(self.root / ".venv/bin/python"), "-u",
+                str(self.root / "scripts/train_corrections.py"), "--manifest", str(manifest),
+                "--parent-checkpoint", str(parent), "--steps", str(steps), "--batch-size", str(batch_size),
+                "--learning-rate", str(learning_rate), "--experiment", experiment])
+
     def start_tensorboard(self):
         with self._lock:
             if self._owned_process("tensorboard") or self._port_busy(6006):

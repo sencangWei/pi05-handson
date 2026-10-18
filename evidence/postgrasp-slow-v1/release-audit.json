@@ -1,0 +1,337 @@
+{
+  "status": "DERIVED_FROM_EXISTING_CSV_NOT_OFFICIAL_RESULT_REWRITE",
+  "indexing": "Zero-based CSV steps, ranges inclusive. done is benchmark On, not release certification.",
+  "sustained_open_definition": "Last 10 commands <0 and current post finger gap >=0.06m",
+  "terminal_gate_definition": "Last 10 rows done True, action_6<0, post finger gap>=0.06m, final cached post EEF-bowl Euclidean distance>=0.10m; derived kinematic gate, not force/contact verification",
+  "scenes": [
+    {
+      "scene": "scene-037_init-024",
+      "source_csv": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-037_init-024/actions.csv",
+      "source_csv_sha256": "7687d376903d240a4074a97647d87e8eb0c43e8a874db20d6763873fb34cfc2a",
+      "rows": 673,
+      "first_On_csv_step": null,
+      "first_sustained_open_csv_step": null,
+      "open_delay_control_steps": null,
+      "post_On_grip_segments": [],
+      "terminal_checks": {
+        "last10_On": false,
+        "last10_open_command": false,
+        "last10_gap_ge_0p06m": false,
+        "final_distance_ge_0p10m": false
+      },
+      "final_eef_bowl_distance_m": 0.06508264248122089,
+      "derived_terminal_gate": false
+    },
+    {
+      "scene": "scene-038_init-024",
+      "source_csv": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-038_init-024/actions.csv",
+      "source_csv_sha256": "3d0184aeb717f7c4da9443f4365aefc3bf466af97c2e24a8d3f47c9a781e0c42",
+      "rows": 351,
+      "first_On_csv_step": 315,
+      "first_sustained_open_csv_step": 326,
+      "open_delay_control_steps": 11,
+      "post_On_grip_segments": [
+        {
+          "start": 315,
+          "end": 315,
+          "command": "open"
+        },
+        {
+          "start": 316,
+          "end": 316,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 317,
+          "end": 350,
+          "command": "open"
+        }
+      ],
+      "terminal_checks": {
+        "last10_On": true,
+        "last10_open_command": true,
+        "last10_gap_ge_0p06m": true,
+        "final_distance_ge_0p10m": false
+      },
+      "final_eef_bowl_distance_m": 0.09946716495520645,
+      "derived_terminal_gate": false
+    },
+    {
+      "scene": "scene-039_init-024",
+      "source_csv": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-039_init-024/actions.csv",
+      "source_csv_sha256": "1d4e14fac45c036f5c8308197cbe928bcfc38cf40be491ed31b5e2b02a0c04b9",
+      "rows": 281,
+      "first_On_csv_step": null,
+      "first_sustained_open_csv_step": null,
+      "open_delay_control_steps": null,
+      "post_On_grip_segments": [],
+      "terminal_checks": {
+        "last10_On": false,
+        "last10_open_command": false,
+        "last10_gap_ge_0p06m": false,
+        "final_distance_ge_0p10m": false
+      },
+      "final_eef_bowl_distance_m": 0.06197346146132818,
+      "derived_terminal_gate": false
+    },
+    {
+      "scene": "scene-040_init-024",
+      "source_csv": "evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-040_init-024/actions.csv",
+      "source_csv_sha256": "8d69ce67cb1b07b43dc8e748051efef1f8c3888749a5e1e10333e88508ad11ac",
+      "rows": 800,
+      "first_On_csv_step": 363,
+      "first_sustained_open_csv_step": 701,
+      "open_delay_control_steps": 338,
+      "post_On_grip_segments": [
+        {
+          "start": 363,
+          "end": 523,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 524,
+          "end": 524,
+          "command": "open"
+        },
+        {
+          "start": 525,
+          "end": 529,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 530,
+          "end": 530,
+          "command": "open"
+        },
+        {
+          "start": 531,
+          "end": 552,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 553,
+          "end": 554,
+          "command": "open"
+        },
+        {
+          "start": 555,
+          "end": 566,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 567,
+          "end": 568,
+          "command": "open"
+        },
+        {
+          "start": 569,
+          "end": 580,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 581,
+          "end": 581,
+          "command": "open"
+        },
+        {
+          "start": 582,
+          "end": 583,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 584,
+          "end": 584,
+          "command": "open"
+        },
+        {
+          "start": 585,
+          "end": 590,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 591,
+          "end": 591,
+          "command": "open"
+        },
+        {
+          "start": 592,
+          "end": 607,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 608,
+          "end": 608,
+          "command": "open"
+        },
+        {
+          "start": 609,
+          "end": 609,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 610,
+          "end": 610,
+          "command": "open"
+        },
+        {
+          "start": 611,
+          "end": 612,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 613,
+          "end": 613,
+          "command": "open"
+        },
+        {
+          "start": 614,
+          "end": 620,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 621,
+          "end": 621,
+          "command": "open"
+        },
+        {
+          "start": 622,
+          "end": 624,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 625,
+          "end": 625,
+          "command": "open"
+        },
+        {
+          "start": 626,
+          "end": 628,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 629,
+          "end": 629,
+          "command": "open"
+        },
+        {
+          "start": 630,
+          "end": 631,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 632,
+          "end": 632,
+          "command": "open"
+        },
+        {
+          "start": 633,
+          "end": 635,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 636,
+          "end": 636,
+          "command": "open"
+        },
+        {
+          "start": 637,
+          "end": 655,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 656,
+          "end": 656,
+          "command": "open"
+        },
+        {
+          "start": 657,
+          "end": 657,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 658,
+          "end": 658,
+          "command": "open"
+        },
+        {
+          "start": 659,
+          "end": 659,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 660,
+          "end": 660,
+          "command": "open"
+        },
+        {
+          "start": 661,
+          "end": 661,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 662,
+          "end": 664,
+          "command": "open"
+        },
+        {
+          "start": 665,
+          "end": 667,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 668,
+          "end": 668,
+          "command": "open"
+        },
+        {
+          "start": 669,
+          "end": 682,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 683,
+          "end": 683,
+          "command": "open"
+        },
+        {
+          "start": 684,
+          "end": 684,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 685,
+          "end": 685,
+          "command": "open"
+        },
+        {
+          "start": 686,
+          "end": 687,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 688,
+          "end": 690,
+          "command": "open"
+        },
+        {
+          "start": 691,
+          "end": 691,
+          "command": "close_or_zero"
+        },
+        {
+          "start": 692,
+          "end": 799,
+          "command": "open"
+        }
+      ],
+      "terminal_checks": {
+        "last10_On": true,
+        "last10_open_command": true,
+        "last10_gap_ge_0p06m": true,
+        "final_distance_ge_0p10m": true
+      },
+      "final_eef_bowl_distance_m": 0.1634941262392527,
+      "derived_terminal_gate": true
+    }
+  ]
+}

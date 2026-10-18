@@ -1,0 +1,121 @@
+{
+  "status": "COMPLETE_FIXED_OBSERVATION_COMPARISON",
+  "methods": "16 prespecified observations x3 seeds42/43/44; identical observations and diffusion noise across checkpoints; isolated policy processes, not GUI server",
+  "limitations": "Small action probe, not validation loss or task success; changing first-step/whole-chunk MAE can disagree. No overfitting verdict from this sample.",
+  "models": {
+    "parent": {
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+      "groups": {
+        "newhuman_carry": {
+          "gt_xyz_norm_mean": 0.10000000149011612,
+          "pred_xyz_norm_mean": 0.8405825759854468,
+          "first_xyz_mae_mean": 0.36709535620658124,
+          "chunk_xyz_mae_mean": 0.3050288300016658,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        },
+        "newhuman_release": {
+          "gt_xyz_norm_mean": 0.0,
+          "pred_xyz_norm_mean": 0.2830984884163691,
+          "first_xyz_mae_mean": 0.19757871915444777,
+          "chunk_xyz_mae_mean": 0.17925461354507563,
+          "gripper_sign_correct": 2,
+          "gripper_sign_total": 12
+        },
+        "public_train_closed_move": {
+          "gt_xyz_norm_mean": 0.9504793584346771,
+          "pred_xyz_norm_mean": 0.8797362561722493,
+          "first_xyz_mae_mean": 0.11308931094107806,
+          "chunk_xyz_mae_mean": 0.1217137455027431,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        },
+        "public_holdout_closed_move": {
+          "gt_xyz_norm_mean": 0.7150664031505585,
+          "pred_xyz_norm_mean": 0.8611448437123788,
+          "first_xyz_mae_mean": 0.1821429833447049,
+          "chunk_xyz_mae_mean": 0.19346214913239604,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        }
+      }
+    },
+    "1000": {
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/1000",
+      "params_manifest_sha256": "19b82ed1fbcaed748206fe764c8751fc5ea19c4be01b373d3517d0857fe3b7d5",
+      "groups": {
+        "newhuman_carry": {
+          "gt_xyz_norm_mean": 0.10000000149011612,
+          "pred_xyz_norm_mean": 0.09511009211944334,
+          "first_xyz_mae_mean": 0.0446676158015023,
+          "chunk_xyz_mae_mean": 0.05044383270655103,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        },
+        "newhuman_release": {
+          "gt_xyz_norm_mean": 0.0,
+          "pred_xyz_norm_mean": 0.16127875684148998,
+          "first_xyz_mae_mean": 0.09371038038321468,
+          "chunk_xyz_mae_mean": 0.08453947442967613,
+          "gripper_sign_correct": 3,
+          "gripper_sign_total": 12
+        },
+        "public_train_closed_move": {
+          "gt_xyz_norm_mean": 0.9504793584346771,
+          "pred_xyz_norm_mean": 0.8644887218300591,
+          "first_xyz_mae_mean": 0.1555678758280942,
+          "chunk_xyz_mae_mean": 0.15899325893808314,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        },
+        "public_holdout_closed_move": {
+          "gt_xyz_norm_mean": 0.7150664031505585,
+          "pred_xyz_norm_mean": 0.8308681539988905,
+          "first_xyz_mae_mean": 0.20385603962626317,
+          "chunk_xyz_mae_mean": 0.19337074666906273,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        }
+      }
+    },
+    "4999": {
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792324180062259097/4999",
+      "params_manifest_sha256": "4203cf1b9e6ba68b3bc7b2938728f2e0f980d96655675c4235a903e049ab0f6b",
+      "groups": {
+        "newhuman_carry": {
+          "gt_xyz_norm_mean": 0.10000000149011612,
+          "pred_xyz_norm_mean": 0.09008219642915133,
+          "first_xyz_mae_mean": 0.0361465747230876,
+          "chunk_xyz_mae_mean": 0.039826901505244004,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        },
+        "newhuman_release": {
+          "gt_xyz_norm_mean": 0.0,
+          "pred_xyz_norm_mean": 0.05652864025328268,
+          "first_xyz_mae_mean": 0.027269149358042765,
+          "chunk_xyz_mae_mean": 0.0334413098289726,
+          "gripper_sign_correct": 6,
+          "gripper_sign_total": 12
+        },
+        "public_train_closed_move": {
+          "gt_xyz_norm_mean": 0.9504793584346771,
+          "pred_xyz_norm_mean": 0.8392504865947583,
+          "first_xyz_mae_mean": 0.12467462179026884,
+          "chunk_xyz_mae_mean": 0.14538858549980951,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        },
+        "public_holdout_closed_move": {
+          "gt_xyz_norm_mean": 0.7150664031505585,
+          "pred_xyz_norm_mean": 0.8211974016578523,
+          "first_xyz_mae_mean": 0.16294708713227757,
+          "chunk_xyz_mae_mean": 0.20972275313717037,
+          "gripper_sign_correct": 12,
+          "gripper_sign_total": 12
+        }
+      }
+    }
+  }
+}

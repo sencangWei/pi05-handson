@@ -392,3 +392,5 @@ rtk proxy .venv-sim/bin/python scripts/probe_corrections.py \
 
 
 下一轮训练面板已准备为：`public37_reviewed19_v4`、父模型`ui_correct_1792311653585294069/1999`、新增5000步、Batch4、学习率1e-5、均匀采样。CPU dry-run已通过，未加载训练权重、创建优化器或开始训练。5000×4约为当前13521帧的1.48倍观测起点采样量，接近上一轮2000×4/5466；这是有界试验，不保证最优。仍由学习者在面板点击“开始训练”，软件自动生成新实验名，保存并关闭当前场景、停止本面板推理服务后开始。配置与校验见`evidence/reviewed19-v4-training-ready.json`，[面板截图](previews/reviewed19-v4-training-ready.png)。
+
+后续已训练出 `ui_correct_1792324180062259097/4999`。针对抓碗后变慢、落盘后开爪延迟，已完成[动作与数据诊断](evidence/postgrasp-slow-v1/README.md)：人工小步搬运被学到，开爪切换仍不稳定；尚不能判定过拟合。诊断未改变运行策略，也未启动进一步训练。

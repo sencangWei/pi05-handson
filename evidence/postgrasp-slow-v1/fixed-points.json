@@ -1,0 +1,332 @@
+{
+  "purpose": "fixed-observation diagnostic; no simulator or policy run yet",
+  "selection": "8 prespecified new-human carry/release rows; public closed-gripper moving rows selected by positive gripper, XY norm>=.15, finger gap<=.04, future10 complete; median eligible row per episode",
+  "noise_seeds": [
+    42,
+    43,
+    44
+  ],
+  "points": [
+    {
+      "id": 0,
+      "group": "newhuman_carry",
+      "episode": 42,
+      "frame": 420,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000042.parquet",
+      "source_sha256": "fb1e2351b1ceba95a79edf16875e976d17f24be52a663c5cceab135297392629",
+      "bundle": "point-00.npz",
+      "bundle_sha256": "ac5fa124eb60fe89114d196e07e5553dc7e087bdbfbefcd9120f54943cae9209",
+      "gt_first": [
+        0.022204257547855377,
+        -0.09750369936227798,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 1,
+      "group": "newhuman_carry",
+      "episode": 45,
+      "frame": 400,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000045.parquet",
+      "source_sha256": "aa0f3f4bb55fca17721abe2d1015a18dcde4ee4c091bde007b9faf705fed1d13",
+      "bundle": "point-01.npz",
+      "bundle_sha256": "8fce7b9ea69e0addb273a677af25362169c857f3e5758c4b0e963d1fc794c1cb",
+      "gt_first": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 2,
+      "group": "newhuman_carry",
+      "episode": 51,
+      "frame": 300,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000051.parquet",
+      "source_sha256": "6aaf7d70d9d1ec7ed4a432713c604224d6977d3e6fe15150349ef69705b5484a",
+      "bundle": "point-02.npz",
+      "bundle_sha256": "5b0f8e5c3e1c2f7acbb1731b52c3719b2919a185e23037fce19cebb9e34698c5",
+      "gt_first": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 3,
+      "group": "newhuman_carry",
+      "episode": 52,
+      "frame": 300,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000052.parquet",
+      "source_sha256": "2abee978c6932017685b6d31218455f931693cb3202d2315514f1379b78a88fc",
+      "bundle": "point-03.npz",
+      "bundle_sha256": "613e832d70cd535b586cf79a394c9e85e4811bf1e6559f9908051b16b8e75c1d",
+      "gt_first": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 4,
+      "group": "newhuman_release",
+      "episode": 42,
+      "frame": 666,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000042.parquet",
+      "source_sha256": "fb1e2351b1ceba95a79edf16875e976d17f24be52a663c5cceab135297392629",
+      "bundle": "point-04.npz",
+      "bundle_sha256": "837d478de0e5671faa4bf7ca1e9888c81c7711cc2d452a26492856b88e3f5ed5",
+      "gt_first": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "id": 5,
+      "group": "newhuman_release",
+      "episode": 51,
+      "frame": 450,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000051.parquet",
+      "source_sha256": "6aaf7d70d9d1ec7ed4a432713c604224d6977d3e6fe15150349ef69705b5484a",
+      "bundle": "point-05.npz",
+      "bundle_sha256": "b1625535a2a51ee1d3796025f79e97fb75e7989ff0703e4445cb6f24b3f61749",
+      "gt_first": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "id": 6,
+      "group": "newhuman_release",
+      "episode": 53,
+      "frame": 110,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000053.parquet",
+      "source_sha256": "1d826c4e72a7511b21d8f1d584e0da89fd31da2260f61c7460dc7ca05e4ce116",
+      "bundle": "point-06.npz",
+      "bundle_sha256": "70fb9c83ce3b9edfa888a05ce76c7133507da7726598307e25d1087a3f9506e4",
+      "gt_first": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "id": 7,
+      "group": "newhuman_release",
+      "episode": 55,
+      "frame": 125,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000055.parquet",
+      "source_sha256": "67f755bcf13020bc881d63b33fc96f4f254107c8d4112eb122d6ac67a05bc9c4",
+      "bundle": "point-07.npz",
+      "bundle_sha256": "32df8969c4b622169377427eb84d073996f788de050a4043d19f44c80cbcb84a",
+      "gt_first": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "id": 8,
+      "group": "public_train_closed_move",
+      "episode": 0,
+      "frame": 78,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000000.parquet",
+      "source_sha256": "7edbb5d25afe67f940081df3500500be0dd71830c44ca7ea81be48080cc1c595",
+      "bundle": "point-08.npz",
+      "bundle_sha256": "18079eb7432716bcd501c6881dd50adc459d095c5ad94b378e4025e799fb2b10",
+      "gt_first": [
+        0.27589285373687744,
+        -0.8410714268684387,
+        0.47410714626312256,
+        0.046071428805589676,
+        0.02142857201397419,
+        -0.029999999329447746,
+        1.0
+      ]
+    },
+    {
+      "id": 9,
+      "group": "public_train_closed_move",
+      "episode": 4,
+      "frame": 86,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000004.parquet",
+      "source_sha256": "d1461cdd14d277fe3db5551f0a4f87b6a76c1945ad163e2ee942de79b5f77550",
+      "bundle": "point-09.npz",
+      "bundle_sha256": "d29ed34f76ed93ff5557443997fd53904d219fcf2a7ad2e42e250918ec694904",
+      "gt_first": [
+        -0.5464285612106323,
+        -0.09375,
+        -0.9375,
+        0.0,
+        -0.04285714402794838,
+        -0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 10,
+      "group": "public_train_closed_move",
+      "episode": 12,
+      "frame": 79,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000012.parquet",
+      "source_sha256": "7e5742930f94a8ee18f67aa24812db958bc89de7577f8a7c76e1affb41ae8e89",
+      "bundle": "point-10.npz",
+      "bundle_sha256": "ba9606e6f2f6fd3b4de5e1429b832cca95436c0ddaab1aaa22591506463553a9",
+      "gt_first": [
+        0.46339285373687744,
+        -0.7258928418159485,
+        0.08303571492433548,
+        0.018214285373687744,
+        0.046071428805589676,
+        -0.06321428716182709,
+        1.0
+      ]
+    },
+    {
+      "id": 11,
+      "group": "public_train_closed_move",
+      "episode": 28,
+      "frame": 85,
+      "dataset": "data/lerobot/course/libero_corrections_public37_reviewed19_v4",
+      "source_file": "data/lerobot/course/libero_corrections_public37_reviewed19_v4/data/chunk-000/episode_000028.parquet",
+      "source_sha256": "1f9668ebb567e018686be6d540b654e3326491641fa98748b37ba8b3cea485e9",
+      "bundle": "point-11.npz",
+      "bundle_sha256": "ee50908f699a1b46cf831ee6ee8e8d814f02b0360c84779f14b26f896a748994",
+      "gt_first": [
+        -0.14464285969734192,
+        -0.09910714626312256,
+        -0.824999988079071,
+        -0.020357143133878708,
+        -0.18321429193019867,
+        -0.004285714123398066,
+        1.0
+      ]
+    },
+    {
+      "id": 12,
+      "group": "public_holdout_closed_move",
+      "episode": 0,
+      "frame": 82,
+      "dataset": "data/lerobot/course/libero_corrections_public37_v1_holdout",
+      "source_file": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000000.parquet",
+      "source_sha256": "31278dd2e5f7ad073ef1c2925efa526199d19caa2dca019b6ce15c45d7a37344",
+      "bundle": "point-12.npz",
+      "bundle_sha256": "944c3a10da52211abbbf48cad5a93ba073d6fc025e947cfa7912d2b9709ae844",
+      "gt_first": [
+        0.4312500059604645,
+        -0.6776785850524902,
+        -0.05089285597205162,
+        0.03750000149011612,
+        0.028928572311997414,
+        -0.0803571417927742,
+        1.0
+      ]
+    },
+    {
+      "id": 13,
+      "group": "public_holdout_closed_move",
+      "episode": 2,
+      "frame": 85,
+      "dataset": "data/lerobot/course/libero_corrections_public37_v1_holdout",
+      "source_file": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000002.parquet",
+      "source_sha256": "fc9ea3f57b48d1a5f01ef1b6df55dcf373b654444af7e3826f894bacbd939082",
+      "bundle": "point-13.npz",
+      "bundle_sha256": "ed564854273ccb0dff8a5022e090c06ce4d503097632b3e76c76e6ab60305dd3",
+      "gt_first": [
+        0.3482142984867096,
+        -0.6428571343421936,
+        0.01607142947614193,
+        0.01607142947614193,
+        0.0,
+        -0.1071428582072258,
+        1.0
+      ]
+    },
+    {
+      "id": 14,
+      "group": "public_holdout_closed_move",
+      "episode": 5,
+      "frame": 74,
+      "dataset": "data/lerobot/course/libero_corrections_public37_v1_holdout",
+      "source_file": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000005.parquet",
+      "source_sha256": "64148b6c275ff5f30482fa4506f671d3884cdaaaa407083074c762b647f3402a",
+      "bundle": "point-14.npz",
+      "bundle_sha256": "39f791f4a615803ab3c3dbbb79ff65e3947de63f32ebd554ae979f33f31ac3d8",
+      "gt_first": [
+        0.5464285612106323,
+        -0.4151785671710968,
+        -0.06428571790456772,
+        0.020357143133878708,
+        0.0,
+        -0.15321429073810577,
+        1.0
+      ]
+    },
+    {
+      "id": 15,
+      "group": "public_holdout_closed_move",
+      "episode": 8,
+      "frame": 81,
+      "dataset": "data/lerobot/course/libero_corrections_public37_v1_holdout",
+      "source_file": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000008.parquet",
+      "source_sha256": "cf652d7eb36b298bf5e1ed9fbb90df39b71ecc1fd85a837126b094477e2a3658",
+      "bundle": "point-15.npz",
+      "bundle_sha256": "3bbd53533d5f7e2e27bece47eb2d2442d0ee5fe97c546547b13de4e4150eeb08",
+      "gt_first": [
+        0.24910713732242584,
+        -0.5839285850524902,
+        -0.0,
+        0.034285712987184525,
+        -0.10928571224212646,
+        -0.040714286267757416,
+        1.0
+      ]
+    }
+  ],
+  "limitations": "16 observations are a small probe; not validation loss, full task success, or benchmark generalization"
+}

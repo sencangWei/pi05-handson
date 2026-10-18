@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 import subprocess
 
-from correction_data import digest
+from correction_data import APPROVAL, approval_checks, digest, load_frames
 from prepare_corrections import ASSET_ID, contained, jsonl, safe_name, verify_records
 from train_release_focus import positive_int, positive_learning_rate
 
@@ -91,6 +91,103 @@ def validate_expanded_public(root, manifest):
         raise ValueError("Expanded public exported file inventory or frame count differs")
 
 
+def validate_expanded_corrections(root, manifest):
+    """Validate a copied public training prefix and appended approved human episodes."""
+    base_path = contained(root, manifest["public_base_manifest"])
+    if base_path.parent != root / "evidence":
+        raise ValueError("Expanded correction base must be an evidence manifest")
+    base = json.loads(base_path.read_text())
+    if (base.get("ready") is not True or base.get("project_root") != str(root)
+            or base.get("dataset_kind") != "expanded_public_v1"):
+        raise ValueError("Expanded correction base is not the pinned public export")
+    verify_records(root, base["files"] + base["inputs"])
+    validate_expanded_public(root, base)
+    expected_inputs = {item["path"]: item for item in base["files"] + base["inputs"]}
+    expected_inputs[str(base_path.relative_to(root))] = {
+        "path": str(base_path.relative_to(root)), "bytes": base_path.stat().st_size, "sha256": digest(base_path)}
+    if {item["path"]: item for item in manifest["inputs"]} != expected_inputs:
+        raise ValueError("Expanded correction public base lineage differs")
+    inherited = ("source_repo", "source_revision", "task", "seed", "train_source_episode_ids",
+                 "holdout_source_episode_ids_excluded", "old_holdout_source_episode_ids_excluded",
+                 "holdout_episodes", "holdout_frames", "original_train_episodes", "original_train_frames",
+                 "normalization")
+    if any(manifest.get(key) != base.get(key) for key in inherited):
+        raise ValueError("Expanded correction public split or normalization differs")
+    if (manifest.get("human_corrections_included") is not True or manifest.get("approval_type") != APPROVAL
+            or manifest.get("sampling") != "uniform over combined public and correction frames"):
+        raise ValueError("Expanded correction sampling or human approval differs")
+    files = {item["path"]: item for item in manifest["files"]}
+    dataset = contained(root, manifest["dataset_dir"])
+    base_dataset = contained(root, base["dataset_dir"])
+    expected_files = {str(path.relative_to(root)) for path in dataset.rglob("*") if path.is_file()}
+    corrections, scenarios = [], {"train": set(), "holdout": set()}
+    correction_sources, control_dts = [], {}
+    metadata_paths = sorted(path for path in files if Path(path).parts[0] == "corrections"
+                            and Path(path).name == "metadata.json")
+    for relative in metadata_paths:
+        metadata_path = contained(root, relative)
+        metadata = json.loads(metadata_path.read_text())
+        if (metadata.get("status") != "approved" or metadata.get("approval_type") != APPROVAL
+                or metadata.get("human_actions_only") is not True or metadata.get("task") != base["task"]):
+            raise ValueError("Mixed dataset correction lacks matching task or human approval")
+        frames = load_frames(metadata_path.parent, metadata)
+        approval_checks(frames)
+        scenarios[metadata["split"]].add(metadata["scenario_key"])
+        corrections.append((metadata, len(frames)))
+        if metadata["split"] == "train":
+            directory = str(metadata_path.parent.relative_to(root))
+            correction_sources.append(directory)
+            control_dts[directory] = metadata["control_dt"]
+        expected_files.update(str(path.relative_to(root)) for path in metadata_path.parent.rglob("*") if path.is_file())
+    if set(files) != expected_files:
+        raise ValueError("Expanded correction raw file inventory differs")
+    if scenarios["train"] & scenarios["holdout"] or manifest["scenarios"] != {
+            key: sorted(values) for key, values in scenarios.items()}:
+        raise ValueError("Expanded correction scenario splits overlap or differ")
+    train = [(metadata, count) for metadata, count in corrections if metadata["split"] == "train"]
+    human_frames = sum(count for _, count in train)
+    if (not train or manifest.get("correction_train_episodes") != len(train)
+            or manifest.get("correction_train_frames") != human_frames
+            or manifest.get("correction_holdout_episodes_excluded") != len(corrections) - len(train)):
+        raise ValueError("Expanded correction human episode or frame counts differ")
+    episodes = jsonl(dataset / "meta/episodes.jsonl")
+    base_episodes = jsonl(base_dataset / "meta/episodes.jsonl")
+    expected_episodes = base_episodes + [
+        {"episode_index": idx, "tasks": [base["task"]], "length": count}
+        for idx, (_, count) in enumerate(train, start=len(base_episodes))]
+    timing = manifest.get("timing", {})
+    if (manifest.get("correction_source_directories") != correction_sources
+            or timing.get("physical_control_dt_by_episode") != control_dts
+            or timing.get("nominal_fps") != 10 or timing.get("nominal_dt") != .1
+            or timing.get("pauses_excluded") is not True or timing.get("one_frame_per_human_control_action") is not True):
+        raise ValueError("Expanded correction source ordering or timing differs")
+    info = json.loads((dataset / "meta/info.json").read_text())
+    base_info = json.loads((base_dataset / "meta/info.json").read_text())
+    total_frames = sum(row["length"] for row in expected_episodes)
+    stats = jsonl(dataset / "meta/episodes_stats.jsonl")
+    if (episodes != expected_episodes or [row.get("episode_index") for row in stats] != list(range(len(episodes)))
+            or info.get("total_episodes") != len(episodes)
+            or info.get("total_frames") != total_frames or manifest.get("train_episodes") != len(episodes)
+            or manifest.get("train_frames") != total_frames or info.get("fps") != base_info["fps"]
+            or info.get("features") != base_info["features"]
+            or jsonl(dataset / "meta/tasks.jsonl") != jsonl(base_dataset / "meta/tasks.jsonl")):
+        raise ValueError("Expanded correction exported metadata counts or task differ")
+    expected_dataset = {f"meta/{name}" for name in ("info.json", "episodes.jsonl", "episodes_stats.jsonl", "tasks.jsonl")}
+    import pyarrow.parquet as pq
+    for episode in episodes:
+        idx = episode["episode_index"]
+        relative = info["data_path"].format(episode_chunk=idx // info["chunks_size"], episode_index=idx)
+        expected_dataset.add(relative)
+        path = contained(root, str((dataset / relative).relative_to(root)))
+        if idx < len(base_episodes):
+            if digest(path) != digest(base_dataset / relative):
+                raise ValueError("Expanded correction public episode prefix changed")
+        elif pq.read_metadata(path).num_rows != episode["length"]:
+            raise ValueError("Expanded correction parquet frame count differs")
+    if {str(path.relative_to(dataset)) for path in dataset.rglob("*") if path.is_file()} != expected_dataset:
+        raise ValueError("Expanded correction dataset inventory differs")
+
+
 def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
     """Complete file validation before importing JAX, model configuration, or trainer."""
     root = Path(root or ROOT).resolve()
@@ -106,7 +203,8 @@ def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
             or manifest.get("dataset_dir") != f"data/lerobot/{expected_repo}"):
         raise ValueError("Correction dataset manifest is not ready or has incompatible lineage")
     expanded = manifest.get("dataset_kind") == "expanded_public_v1"
-    if not expanded and (manifest.get("dataset_kind") is not None or manifest.get("original_train_episodes") != 16
+    mixed = manifest.get("dataset_kind") == "expanded_public_corrections_v1"
+    if not (expanded or mixed) and (manifest.get("dataset_kind") is not None or manifest.get("original_train_episodes") != 16
                          or type(manifest.get("correction_train_episodes")) is not int
                          or manifest["correction_train_episodes"] < 1):
         raise ValueError("Correction dataset manifest is not ready or has incompatible lineage")
@@ -125,6 +223,8 @@ def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
     verify_records(root, files + manifest["inputs"])
     if expanded:
         validate_expanded_public(root, manifest)
+    elif mixed:
+        validate_expanded_corrections(root, manifest)
     norm = manifest["normalization"]
     if (norm.get("asset_id") != ASSET_ID or norm.get("recomputed") is not False
             or norm.get("path") != f"assets/pi05_handson_lora/{ASSET_ID}/norm_stats.json"):
@@ -166,7 +266,7 @@ def git_revision(directory):
 
 def build_record(cfg, manifest_path, manifest, parent, dry_run):
     source_files = ["correction_data.py", "prepare_corrections.py", "train_corrections.py", "course_config.py"]
-    if manifest.get("dataset_kind") == "expanded_public_v1":
+    if manifest.get("dataset_kind") in ("expanded_public_v1", "expanded_public_corrections_v1"):
         source_files.append("prepare_expanded_public.py")
     return {
         "experiment": cfg.exp_name, "new_updates": cfg.num_train_steps, "batch_size": cfg.batch_size,

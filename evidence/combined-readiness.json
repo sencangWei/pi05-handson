@@ -1,0 +1,45 @@
+{
+  "status": "READY",
+  "training_started_by_agent": false,
+  "dataset_manifest": "evidence/corrections-public37_human2_v1-manifest.json",
+  "dataset_manifest_sha256": "01eff97399d0feccc55862c230e05e46675378133b67ac1f8cb75e6168604f4e",
+  "public_train_episodes": 37,
+  "public_train_frames": 4400,
+  "human_train_episodes": 2,
+  "human_train_frames": 1755,
+  "total_train_episodes": 39,
+  "total_train_frames": 6155,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "human_sampling_share": 0.2851340373679935,
+  "human_source_directories": [
+    "corrections/human_1792298109792073701",
+    "corrections/human_1792302165387076969"
+  ],
+  "curation": "Complete user-approved trajectories; endpoint gates verified, not a per-action expert-quality certification",
+  "parent_checkpoint": "checkpoints/pi05_handson_lora/release_focus_2000/1999",
+  "new_updates": 3000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "sampler": "uniform",
+  "seed": 42,
+  "action_horizon": 10,
+  "lineage": "All parent model weights, fresh optimizer and scheduler; approved human experience included through new dataset, not inherited from previous ui_correct model.",
+  "verification": {
+    "combined_export_tests": 3,
+    "legacy_correction_tests": 6,
+    "trainer_tests": 12,
+    "workbench_tests": 20,
+    "real_tk_panel_tests": 39,
+    "total": 80,
+    "ruff": "PASS",
+    "independent_review": "No blocking findings",
+    "actual_training_loader": "evidence/combined-loader-check.json",
+    "cpu_dry_run": "evidence/combined-training-preflight.json"
+  },
+  "gui_form_screenshot": {
+    "path": "previews/combined-training-form.png",
+    "sha256": "bdcf39fe46a167140d13856b205af9b5ad732adf2783a60887c60f79da56cc6a"
+  },
+  "performance": "Not yet trained or evaluated; full endpoint-approved trajectories retain intermediate adjustment actions."
+}

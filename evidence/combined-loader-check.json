@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "loader": "openpi.training.data_loader.create_torch_dataset",
+  "train_episodes": 39,
+  "train_frames": 6155,
+  "public_episodes": 37,
+  "human_episodes": 2,
+  "human_frames": 1755,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "action_shape": [
+    10,
+    7
+  ],
+  "state_shape": [
+    8
+  ],
+  "all39_episode_end_windows_repeat_last_action": true,
+  "all1755_human_states_and_actions_exact": true,
+  "six_human_camera_pairs_exact": true,
+  "human_share_uniform": 0.2851340373679935,
+  "training_started": false,
+  "model_weights_loaded": false
+}

@@ -176,5 +176,79 @@ class ExpandedTrainingTests(unittest.TestCase):
             self.validate()
 
 
+@unittest.skipIf(pa is None, "CPU Arrow environment required")
+class MixedExpandedTrainingTests(ExpandedTrainingTests):
+    def setUp(self):
+        super().setUp()
+        self.base_path = self.path
+        record(self.root, "human-one", scenario="shift-1")
+        record(self.root, "human-two", scenario="shift-2")
+        record(self.root, "human-holdout", split="holdout", scenario="shift-heldout")
+        self.path = prepare(self.root, "mixed", base_manifest=self.base_path)
+        self.manifest = json.loads(self.path.read_text())
+
+    # Parent tests describe the public-only export; exercise mixed-specific gates instead.
+    def test_expanded_public_accepts_separate_holdout_and_preserves_original(self):
+        manifest, parent, _ = self.validate()
+        self.assertEqual((manifest["train_episodes"], manifest["train_frames"]), (39, 94))
+        self.assertEqual((manifest["holdout_episodes"], manifest["holdout_frames"]), (10, 20))
+        self.assertEqual((manifest["correction_train_episodes"], manifest["correction_train_frames"]), (2, 20))
+        self.assertEqual(manifest["correction_holdout_episodes_excluded"], 1)
+        self.assertEqual(parent, self.parent)
+        self.assertEqual(train.digest(self.root / "evidence/data_manifest.json"), self.original_hash)
+        self.assertFalse((self.root / "evidence/expanded-launch.json").exists())
+
+    def test_expanded_rejects_overlap_human_corrections_and_changed_source(self):
+        mutations = [
+            {"holdout_source_episode_ids_excluded": self.manifest["train_source_episode_ids"][:10]},
+            {"correction_train_episodes": 1}, {"correction_train_frames": 100},
+            {"human_corrections_included": False}, {"source_revision": "different"},
+            {"sampling": "uniform over public training frames"}, {"train_frames": 1},
+            {"correction_source_directories": []},
+            {"timing": {**self.manifest["timing"], "physical_control_dt_by_episode": {}}},
+            {"scenarios": {"train": ["shift-heldout"], "holdout": ["shift-heldout"]}},
+            {"inputs": [item for item in self.manifest["inputs"] if item["path"] != str(self.base_path.relative_to(self.root))]},
+        ]
+        for values in mutations:
+            self.path.write_text(json.dumps({**self.manifest, **values}))
+            with self.subTest(values=values), self.assertRaises(ValueError):
+                self.validate()
+
+    def test_expanded_rejects_holdout_inventory_and_rehashed_wrong_metadata(self):
+        from prepare_corrections import file_record
+        dataset = self.root / self.manifest["dataset_dir"]
+        info_path = dataset / "meta/info.json"
+        info = json.loads(info_path.read_text())
+        info_path.write_text(json.dumps({**info, "total_frames": 1}))
+        updated = file_record(self.root, info_path)
+        self.manifest["files"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["files"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "metadata counts"):
+            self.validate()
+
+    def test_rehashed_public_parquet_change_is_still_rejected(self):
+        import pyarrow.parquet as pq
+        from prepare_corrections import file_record
+        path = self.root / self.manifest["dataset_dir"] / "data/chunk-000/episode_000000.parquet"
+        table = pq.read_table(path)
+        pq.write_table(table.slice(0, 1), path)
+        updated = file_record(self.root, path)
+        self.manifest["files"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["files"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "public episode prefix changed"):
+            self.validate()
+
+    def test_rehashed_revoked_human_approval_is_rejected(self):
+        from prepare_corrections import file_record
+        path = self.root / "corrections/human-one/metadata.json"
+        metadata = json.loads(path.read_text())
+        path.write_text(json.dumps({**metadata, "status": "draft"}))
+        updated = file_record(self.root, path)
+        self.manifest["files"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["files"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "human approval"):
+            self.validate()
+
+
 if __name__ == "__main__":
     unittest.main()

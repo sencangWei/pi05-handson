@@ -1,4 +1,5 @@
 """Real Tk widgets with an explicitly fake backend; no simulation or model."""
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -350,8 +351,8 @@ class FakeCorrectionWorkbench(FakeWorkbench):
     def corrections_bundles(self):
         return self.bundle_paths
 
-    def prepare_corrections(self):
-        self.calls.append(("prepare_corrections",))
+    def prepare_corrections(self, base_manifest=None):
+        self.calls.append(("prepare_corrections", base_manifest) if base_manifest is not None else ("prepare_corrections",))
 
     def start_training(self, parent, steps, batch, learning_rate, uniform=False, correction_manifest=None):
         super().start_training(parent, steps, batch, learning_rate, uniform)
@@ -536,6 +537,47 @@ class CorrectionTests(PanelTests):
                                  "black bowl\n\n训练：16 条 / 1971 帧；留出：4 条 / 473 帧")
                 self.panel._refresh_workbench()
                 self.assertIn("训练：16 条 / 1971 帧", self.panel.dataset_var.get())
+
+    def test_mixed_dataset_hint_and_counts_keep_human_corrections_visible(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            manifest.write_text(json.dumps({
+                "dataset_kind": "expanded_public_corrections_v1", "original_train_episodes": 37,
+                "correction_train_episodes": 2, "task": "black bowl", "train_episodes": 39,
+                "train_frames": 6155, "holdout_episodes": 10, "holdout_frames": 1170}))
+            self.backend.bundle_paths = [str(manifest)]
+            self.panel.dataset_refresh_button.invoke()
+            self.panel.training_dataset_var.set(str(manifest))
+            self.panel._select_dataset()
+            self.assertEqual(self.panel.correction_dataset_hint.get(),
+                             "混合示范：37条公开＋2条人工纠正；10条公开留出，原归一化不变")
+            self.assertEqual(self.panel.dataset_var.get(),
+                             "black bowl\n\n训练：39 条 / 6155 帧；留出：10 条 / 1170 帧")
+            self.panel._refresh_workbench()
+            self.assertIn("训练：39 条 / 6155 帧", self.panel.dataset_var.get())
+            self.assertEqual(self.panel.sampler_var.get(), "均匀")
+            self.assertEqual(str(self.panel.sampler_combo.cget("state")), "disabled")
+            self.assertFalse(self.backend.calls)
+
+    def test_prepare_forwards_selected_expanded_or_mixed_dataset_only(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            self.backend.bundle_paths = [str(manifest)]
+            for kind in ("expanded_public_v1", "expanded_public_corrections_v1", None):
+                manifest.write_text(json.dumps({"dataset_kind": kind}))
+                self.panel.dataset_refresh_button.invoke()
+                self.panel.training_dataset_var.set(str(manifest))
+                self.panel.prepare_corrections_button.invoke()
+                expected = ("prepare_corrections", str(manifest)) if kind is not None else ("prepare_corrections",)
+                self.assertEqual(self.backend.calls[-1], expected)
+            before = len(self.backend.calls)
+            self.panel.training_dataset_var.set("unknown")
+            self.panel.prepare_corrections_button.invoke()
+            self.assertEqual(len(self.backend.calls), before)
+            self.panel.training_dataset_var.set(str(manifest))
+            manifest.unlink()
+            self.panel.prepare_corrections_button.invoke()
+            self.assertEqual(len(self.backend.calls), before)
 
     def test_prepare_data_only_dispatches_preparation(self):
         self.panel.prepare_corrections_button.invoke()

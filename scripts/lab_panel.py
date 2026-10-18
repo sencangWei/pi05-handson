@@ -468,6 +468,10 @@ class LabPanel:
                 if manifest.get("dataset_kind") == "expanded_public_v1":
                     hint = (f"公开示范扩充：{manifest['original_train_episodes']}条训练，"
                             f"{len(manifest['holdout_source_episode_ids_excluded'])}条留出；人工纠正暂未混入")
+                elif manifest.get("dataset_kind") == "expanded_public_corrections_v1":
+                    hint = (f"混合示范：{manifest['original_train_episodes']}条公开＋"
+                            f"{manifest['correction_train_episodes']}条人工纠正；"
+                            f"{manifest['holdout_episodes']}条公开留出，原归一化不变")
             except (OSError, ValueError, KeyError, TypeError):
                 hint = "训练数据清单无效，请刷新；启动前将重新校验"
         self.correction_dataset_hint.set(hint)
@@ -480,7 +484,7 @@ class LabPanel:
             if manifest_path is not None:
                 try:
                     manifest = json.loads(Path(manifest_path).read_text())
-                    if manifest.get("dataset_kind") == "expanded_public_v1":
+                    if manifest.get("dataset_kind") in ("expanded_public_v1", "expanded_public_corrections_v1"):
                         data = {key: manifest[key] for key in
                                 ("task", "train_episodes", "train_frames", "holdout_episodes", "holdout_frames")}
                 except (OSError, ValueError, KeyError, TypeError):
@@ -491,7 +495,17 @@ class LabPanel:
                              f"{data.get('holdout_frames', 0)} 帧")
 
     def _prepare_corrections(self):
-        self.lab.prepare_corrections()
+        selected = self.training_dataset_var.get()
+        if selected not in self.dataset_paths:
+            raise ValueError("请刷新并选择有效的训练数据集")
+        path = self.dataset_paths[selected]
+        manifest = json.loads(Path(path).read_text()) if path is not None else {}
+        if manifest.get("dataset_kind") in ("expanded_public_v1", "expanded_public_corrections_v1"):
+            self.lab.prepare_corrections(base_manifest=path)
+        elif manifest.get("dataset_kind") is None:
+            self.lab.prepare_corrections()
+        else:
+            raise ValueError("所选训练数据版本不受支持，请刷新")
         self._refresh_datasets()
 
     def _refresh_checkpoints(self):

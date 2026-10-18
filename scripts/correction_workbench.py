@@ -296,14 +296,35 @@ class CorrectionWorkbench(LabWorkbench):
                 pass
         return sorted(found, reverse=True)
 
-    def prepare_corrections(self):
+    def prepare_corrections(self, base_manifest=None):
         self._require_no_correction()
+        base = None
+        if base_manifest is not None:
+            selected = Path(base_manifest).resolve()
+            bundles = self.corrections_bundles()
+            if str(selected) not in bundles or selected.parent != (self.project / "evidence").resolve():
+                raise ValueError("请选择本项目有效的公开扩充或混合训练数据版本")
+            manifest = json.loads(selected.read_text())
+            if manifest.get("dataset_kind") == "expanded_public_v1":
+                base = selected
+            elif manifest.get("dataset_kind") == "expanded_public_corrections_v1":
+                relative = manifest.get("public_base_manifest")
+                if not isinstance(relative, str) or Path(relative).is_absolute() or ".." in Path(relative).parts:
+                    raise ValueError("公开扩充基座路径无效")
+                base = (self.project / relative).resolve()
+            else:
+                raise ValueError("所选版本没有公开扩充基座")
+            if (str(base) not in bundles or base.parent != (self.project / "evidence").resolve()
+                    or json.loads(base.read_text()).get("dataset_kind") != "expanded_public_v1"):
+                raise ValueError("公开扩充基座缺失或不属于本项目")
         def prepare():
             import os
             env = os.environ.copy()
             env["JAX_PLATFORMS"] = "cpu"
             command = [str(self.project / ".venv/bin/python"), "-u", "scripts/prepare_corrections.py",
                        "--project-root", str(self.project), "--name", f"human_{time.time_ns()}"]
+            if base is not None:
+                command.extend(["--base-manifest", str(base)])
             result = subprocess.run(command, cwd=self.project, env=env, capture_output=True, text=True, timeout=600)
             log = self.project / "logs" / f"correction_prepare_{time.time_ns()}.log"
             log.parent.mkdir(parents=True, exist_ok=True)
@@ -339,16 +360,18 @@ class CorrectionWorkbench(LabWorkbench):
         manifest = Path(correction_manifest).resolve()
         if str(manifest) not in self.corrections_bundles():
             raise ValueError("请先准备并选择本项目的训练数据版本")
-        expanded = json.loads(manifest.read_text()).get("dataset_kind") == "expanded_public_v1"
+        dataset_kind = json.loads(manifest.read_text()).get("dataset_kind", "corrections")
         parent, steps, batch_size, learning_rate = self.jobs.validate_training(parent, steps, batch_size, learning_rate)
         self._archive_scene("start_correction_training")
         self.jobs.stop_model()
         job = self.jobs.start_correction_training(parent, steps, batch_size, learning_rate, manifest)
         self.job_state = self.jobs.snapshot()
-        self.status = ("公开示范扩充微调已由你启动；人工纠正未混入，原数据和父 checkpoint 保留" if expanded
-                       else "纠正微调已由你启动；原数据和父 checkpoint 保留")
+        self.status = {
+            "expanded_public_v1": "公开示范扩充微调已由你启动；人工纠正未混入，原数据和父 checkpoint 保留",
+            "expanded_public_corrections_v1": "公开示范与人工纠正混合微调已由你启动；原数据和父 checkpoint 保留",
+        }.get(dataset_kind, "纠正微调已由你启动；原数据和父 checkpoint 保留")
         self.event("correction_training_started", manifest=str(manifest), parent=str(parent), log=job["log"],
-                   dataset_kind="expanded_public_v1" if expanded else "corrections")
+                   dataset_kind=dataset_kind)
 
     def reset(self, *args, **kwargs):
         self._require_no_correction()

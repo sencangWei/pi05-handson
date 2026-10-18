@@ -255,6 +255,53 @@ class CorrectionBackendTests(unittest.TestCase):
         self.assertIn("人工纠正未混入", self.lab.status)
         self.assertFalse(env.applied)
 
+    def test_mixed_training_retains_human_label_and_parameters(self):
+        evidence = self.root / "evidence"
+        evidence.mkdir()
+        manifest = evidence / "corrections-mixed-manifest.json"
+        manifest.write_text(json.dumps({"ready": True, "dataset_kind": "expanded_public_corrections_v1"}))
+        self.lab.start_training("parent", 3000, 4, 1e-5, uniform=True, correction_manifest=manifest)
+        self.jobs.start_correction_training.assert_called_once_with("parent", 3000, 4, 1e-5, manifest)
+        self.assertIn("公开示范与人工纠正混合", self.lab.status)
+        self.assertNotIn("未混入", self.lab.status)
+
+    def test_prepare_selected_expansion_resolves_base_without_using_latest_bundle(self):
+        evidence = self.root / "evidence"
+        evidence.mkdir()
+        public = evidence / "corrections-public37-manifest.json"
+        mixed = evidence / "corrections-mixed-manifest.json"
+        public.write_text(json.dumps({"ready": True, "dataset_kind": "expanded_public_v1"}))
+        mixed.write_text(json.dumps({"ready": True, "dataset_kind": "expanded_public_corrections_v1",
+                                     "public_base_manifest": str(public.relative_to(self.root))}))
+        for selected in (public, mixed):
+            with patch("correction_workbench.subprocess.run", return_value=SimpleNamespace(
+                    returncode=0, stdout="ready", stderr="")) as run:
+                self.lab.prepare_corrections(base_manifest=selected)
+                self.lab.background["correction_prepare"].result(timeout=2)
+                self.lab._collect_background()
+            command = run.call_args.args[0]
+            self.assertEqual(command[command.index("--base-manifest") + 1], str(public))
+            self.assertEqual(run.call_args.kwargs["env"]["JAX_PLATFORMS"], "cpu")
+
+    def test_prepare_refuses_missing_external_unknown_or_broken_expanded_base(self):
+        evidence = self.root / "evidence"
+        evidence.mkdir()
+        selected = evidence / "corrections-mixed-manifest.json"
+        values = [
+            {"ready": True},
+            {"ready": True, "dataset_kind": "unknown"},
+            {"ready": True, "dataset_kind": "expanded_public_corrections_v1", "public_base_manifest": "evidence/missing.json"},
+            {"ready": True, "dataset_kind": "expanded_public_corrections_v1", "public_base_manifest": "/tmp/external.json"},
+        ]
+        with patch("correction_workbench.subprocess.run") as run:
+            for value in values:
+                selected.write_text(json.dumps(value))
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    self.lab.prepare_corrections(base_manifest=selected)
+            with self.assertRaises(ValueError):
+                self.lab.prepare_corrections(base_manifest="/tmp/external.json")
+            run.assert_not_called()
+
     def test_prepare_only_starts_bounded_cpu_data_command_on_explicit_request(self):
         result = SimpleNamespace(returncode=0, stdout="ready", stderr="")
         with patch("correction_workbench.subprocess.run", return_value=result) as run:
@@ -264,6 +311,7 @@ class CorrectionBackendTests(unittest.TestCase):
             self.lab._collect_background()
         command = run.call_args.args[0]
         self.assertIn("scripts/prepare_corrections.py", command)
+        self.assertNotIn("--base-manifest", command)
         self.assertEqual(run.call_args.kwargs["env"]["JAX_PLATFORMS"], "cpu")
         self.assertIn("混合数据已生成", self.lab.correction_status)
 

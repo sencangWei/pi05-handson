@@ -53,7 +53,7 @@ def write_jsonl(path, values):
     path.write_text("".join(json.dumps(value, ensure_ascii=False, allow_nan=False) + "\n" for value in values))
 
 
-def prepare(root, name):
+def prepare(root, name, base_manifest=None):
     root, name = Path(root).resolve(), safe_name(name)
     repo_id = f"course/libero_corrections_{name}"
     output = root / "data/lerobot" / repo_id
@@ -65,13 +65,38 @@ def prepare(root, name):
     if (pinned.get("ready") is not True or pinned.get("train_episodes") != 16
             or set(pinned["train_source_episode_ids"]) & set(pinned["holdout_source_episode_ids"])):
         raise ValueError("Expected the pinned, disjoint 16-episode public training dataset")
-    original = contained(root, pinned["destination"])
-    original_files = [item for item in pinned["files"] if Path(item["path"]).is_relative_to(original.relative_to(root))]
+    base = None
+    inputs = [file_record(root, pinned_path)]
+    if base_manifest is not None:
+        from train_corrections import validate_expanded_public
+        base_path = Path(base_manifest)
+        if not base_path.is_absolute():
+            base_path = root / base_path
+        base_path = base_path.resolve()
+        if base_path.parent != root / "evidence":
+            raise ValueError("Public base must be an exported evidence manifest in this project")
+        base = json.loads(base_path.read_text())
+        if base.get("dataset_kind") != "expanded_public_v1" or base.get("ready") is not True or base.get("project_root") != str(root):
+            raise ValueError("Expected a ready expanded public-only base manifest")
+        verify_records(root, base["files"] + base["inputs"])
+        validate_expanded_public(root, base)
+        original = contained(root, base["dataset_dir"])
+        source_files = base["files"]
+        inputs += [file_record(root, base_path)] + base["files"] + base["inputs"]
+        inputs = list({item["path"]: item for item in inputs}.values())
+    else:
+        original = contained(root, pinned["destination"])
+        source_files = pinned["files"]
+    public_episodes = base["train_episodes"] if base else 16
+    public_frames = base["train_frames"] if base else pinned["train_frames"]
+    original_files = [item for item in source_files if Path(item["path"]).is_relative_to(original.relative_to(root))]
+    if base is None:
+        inputs += original_files
     verify_records(root, original_files)
     if {item["path"] for item in original_files} != {str(p.relative_to(root)) for p in original.rglob("*") if p.is_file()}:
         raise ValueError("Pinned public dataset inventory differs")
     info = json.loads((original / "meta/info.json").read_text())
-    if info["fps"] != 10 or info["total_episodes"] != 16:
+    if info["fps"] != 10 or info["total_episodes"] != public_episodes:
         raise ValueError("Public dataset contract differs")
     corrections, scenarios, raw_files = [], {"train": set(), "holdout": set()}, []
     for metadata_path in sorted((root / "corrections").glob("*/metadata.json")):
@@ -99,6 +124,9 @@ def prepare(root, name):
 
     norm = root / "assets/pi05_handson_lora" / ASSET_ID / "norm_stats.json"
     norm_record = file_record(root, norm)
+    if base is not None and (base["normalization"]["sha256"] != norm_record["sha256"]
+                             or base["normalization"].get("recomputed") is not False):
+        raise ValueError("Expanded public base normalization differs")
     output.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".corrections-stage-", dir=output.parent) as temporary:
@@ -106,13 +134,13 @@ def prepare(root, name):
         shutil.copytree(original, staging)
         episodes = jsonl(staging / "meta/episodes.jsonl")
         stats = jsonl(staging / "meta/episodes_stats.jsonl")
-        if len(episodes) != 16 or len(stats) != 16 or sum(ep["length"] for ep in episodes) != pinned["train_frames"]:
+        if len(episodes) != public_episodes or len(stats) != public_episodes or sum(ep["length"] for ep in episodes) != public_frames:
             raise ValueError("Original episode metadata differs from pinned counts")
         schema = pq.read_schema(original / "data/chunk-000/episode_000000.parquet")
         if set(schema.names) != {"image", "wrist_image", "state", "actions", "timestamp", "frame_index", "episode_index", "index", "task_index"}:
             raise ValueError("Unexpected original Arrow fields")
-        offset = pinned["train_frames"]
-        for episode_id, (_, metadata, frames) in enumerate(train, start=16):
+        offset = public_frames
+        for episode_id, (_, metadata, frames) in enumerate(train, start=public_episodes):
             rows = []
             for frame_id, frame in enumerate(frames):
                 row = {"state": frame["state"].tolist(), "actions": frame["action"].tolist(),
@@ -148,11 +176,11 @@ def prepare(root, name):
         manifest = {
             "ready": True, "project_root": str(root), "repo_id": repo_id,
             "dataset_dir": str(output.relative_to(root)), "task": pinned["task"],
-            "original_train_episodes": 16, "original_train_frames": pinned["train_frames"],
-            "correction_train_episodes": len(train), "correction_train_frames": offset - pinned["train_frames"],
+            "original_train_episodes": public_episodes, "original_train_frames": public_frames,
+            "correction_train_episodes": len(train), "correction_train_frames": offset - public_frames,
             "correction_holdout_episodes_excluded": len(corrections) - len(train),
             "old_holdout_source_episode_ids_excluded": pinned["holdout_source_episode_ids"],
-            "train_source_episode_ids": pinned["train_source_episode_ids"],
+            "train_source_episode_ids": base["train_source_episode_ids"] if base else pinned["train_source_episode_ids"],
             "approval_type": APPROVAL, "official_success_metric": False,
             "sampling": "uniform over combined public and correction frames",
             "normalization": {"asset_id": ASSET_ID, "recomputed": False, **norm_record},
@@ -162,8 +190,19 @@ def prepare(root, name):
                        "caveat": "Nominal timestamps follow the public 10 Hz convention; physical correction control_dt is recorded separately and may differ."},
             "scenarios": {key: sorted(values) for key, values in scenarios.items()},
             "files": dataset_files + raw_files,
-            "inputs": [file_record(root, pinned_path)] + original_files,
+            "inputs": inputs,
         }
+        if base is not None:
+            manifest.update(
+                dataset_kind="expanded_public_corrections_v1", human_corrections_included=True,
+                public_base_manifest=str(base_path.relative_to(root)),
+                train_episodes=len(episodes), train_frames=offset,
+                holdout_episodes=base["holdout_episodes"], holdout_frames=base["holdout_frames"],
+                holdout_source_episode_ids_excluded=base["holdout_source_episode_ids_excluded"],
+                source_repo=base["source_repo"], source_revision=base["source_revision"], seed=base["seed"],
+                correction_source_directories=[str(p.parent.relative_to(root)) for p, _, _ in train],
+                curation="Complete user-approved trajectories; endpoint gates verified, not a per-action expert-quality certification",
+            )
         # Recheck source snapshots immediately before publishing.
         verify_records(root, manifest["inputs"] + raw_files + [norm_record])
         staged_manifest = Path(temporary) / "manifest.json"
@@ -178,8 +217,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=ROOT)
     parser.add_argument("--name", required=True, type=safe_name)
+    parser.add_argument("--base-manifest", type=Path, help="Validated expanded public-only export to combine with approved human corrections")
     args = parser.parse_args(argv)
-    print(prepare(args.project_root, args.name))
+    print(prepare(args.project_root, args.name, args.base_manifest))
 
 
 if __name__ == "__main__":

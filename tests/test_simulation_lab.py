@@ -26,9 +26,11 @@ class FakeEnv:
         data = SimpleNamespace(get_joint_qpos=lambda joint: self.qpos,
                                get_joint_qvel=lambda joint: self.qvel,
                                set_joint_qpos=lambda joint, value: self.qpos.__setitem__(slice(None), value),
-                               set_joint_qvel=lambda joint, value: self.qvel.__setitem__(slice(None), value))
-        self.sim = SimpleNamespace(data=data)
-        self.env = SimpleNamespace(objects_dict={TARGET: SimpleNamespace(joints=["bowl"])})
+                               set_joint_qvel=lambda joint, value: self.qvel.__setitem__(slice(None), value),
+                               ncon=0, contact=[])
+        self.sim = SimpleNamespace(data=data, model=SimpleNamespace(
+            geom_id2name=lambda idx: ["bowl_geom", "plate_geom", "table_geom"][idx]))
+        self.env = SimpleNamespace(objects_dict={TARGET: SimpleNamespace(joints=["bowl"], contact_geoms=["bowl_geom"])})
 
     def get_sim_state(self):
         return np.concatenate((self.qpos, self.qvel, self.eef, [self.steps]))
@@ -273,6 +275,25 @@ class LabTests(unittest.TestCase):
         for value in (0.2, float("nan")):
             with self.assertRaises(ValueError):
                 move_bowl(env, obs, value, 0)
+
+    def test_rejects_deep_bowl_overlap_and_restores_pose_velocity(self):
+        env = self.lab.env
+        before, velocity = env.qpos.copy(), env.qvel.copy()
+        env.sim.data.ncon = 1
+        env.sim.data.contact = [SimpleNamespace(geom1=0, geom2=1, dist=-0.012)]
+        with self.assertRaisesRegex(ValueError, "重叠"):
+            move_bowl(env, self.lab.obs, .01, .01)
+        np.testing.assert_array_equal(env.qpos, before)
+        np.testing.assert_array_equal(env.qvel, velocity)
+        self.assertEqual(env.applied, [])
+
+    def test_allows_small_contact_tolerance_and_ignores_non_bowl_contacts(self):
+        env = self.lab.env
+        env.sim.data.contact = [SimpleNamespace(geom1=0, geom2=2, dist=-0.00001),
+                                SimpleNamespace(geom1=1, geom2=2, dist=-0.02)]
+        env.sim.data.ncon = len(env.sim.data.contact)
+        move_bowl(env, self.lab.obs, .01, .01)
+        self.assertEqual(env.applied, [])
 
     def test_invalid_reset_does_not_close_existing_scene(self):
         with self.assertRaises(ValueError):

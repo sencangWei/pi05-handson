@@ -1,0 +1,236 @@
+{
+  "meaning": "Independent isolated physical validation of initial-layout penetration guard",
+  "source_sha256": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+  "policy_loaded": false,
+  "gui_used": false,
+  "cases": [
+    {
+      "case": 49,
+      "dx": -0.013680781758957643,
+      "dy": 0.03973941368078176,
+      "expected": "allowed",
+      "error": null,
+      "outcome": "allowed",
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.008133730946544092,
+          0.3435498897555232,
+          0.8984038567263857
+        ],
+        "dx_m": -0.013680781758957643,
+        "dy_m": 0.03973941368078176
+      },
+      "requested_position_matches": true,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_before": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qpos_after": [
+        -0.008133730944713372,
+        0.34354988975428297,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qvel_before": [
+        4.467325377529312e-10,
+        -3.033614103844396e-10,
+        7.05144411157605e-06,
+        -2.1251993554012462e-07,
+        1.4683423966602568e-07,
+        -3.249310564081864e-11
+      ],
+      "target_qvel_after": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "target_qpos_exactly_restored": false,
+      "target_qvel_exactly_restored": false,
+      "entire_state_exactly_restored": false,
+      "residual_deep_penetrations": [],
+      "pass": true
+    },
+    {
+      "case": 50,
+      "dx": -0.013680781758957643,
+      "dy": -0.038110749185667744,
+      "expected": "rejected",
+      "error": "碗与盘子发生重叠（约7.1毫米）；请把碗挪远后再加载",
+      "outcome": "rejected",
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_before": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qpos_after": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qvel_before": [
+        4.467325377529312e-10,
+        -3.033614103844396e-10,
+        7.05144411157605e-06,
+        -2.1251993554012462e-07,
+        1.4683423966602568e-07,
+        -3.249310564081864e-11
+      ],
+      "target_qvel_after": [
+        4.467325377529312e-10,
+        -3.033614103844396e-10,
+        7.05144411157605e-06,
+        -2.1251993554012462e-07,
+        1.4683423966602568e-07,
+        -3.249310564081864e-11
+      ],
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": true,
+      "entire_state_exactly_restored": true,
+      "residual_deep_penetrations": [],
+      "pass": true
+    },
+    {
+      "case": 51,
+      "dx": -0.013680781758957643,
+      "dy": -0.05570032573289902,
+      "expected": "rejected",
+      "error": "碗与盘子发生重叠（约8.1毫米）；请把碗挪远后再加载",
+      "outcome": "rejected",
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_before": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qpos_after": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qvel_before": [
+        4.467325377529312e-10,
+        -3.033614103844396e-10,
+        7.05144411157605e-06,
+        -2.1251993554012462e-07,
+        1.4683423966602568e-07,
+        -3.249310564081864e-11
+      ],
+      "target_qvel_after": [
+        4.467325377529312e-10,
+        -3.033614103844396e-10,
+        7.05144411157605e-06,
+        -2.1251993554012462e-07,
+        1.4683423966602568e-07,
+        -3.249310564081864e-11
+      ],
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": true,
+      "entire_state_exactly_restored": true,
+      "residual_deep_penetrations": [],
+      "pass": true
+    },
+    {
+      "case": "zero",
+      "dx": 0.0,
+      "dy": 0.0,
+      "expected": "allowed",
+      "error": null,
+      "outcome": "allowed",
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0,
+        "dy_m": 0.0
+      },
+      "requested_position_matches": true,
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_before": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qpos_after": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015,
+        0.7071067829262199,
+        -2.7750053722029385e-05,
+        3.335927956654996e-06,
+        0.7071067788944877
+      ],
+      "target_qvel_before": [
+        4.467325377529312e-10,
+        -3.033614103844396e-10,
+        7.05144411157605e-06,
+        -2.1251993554012462e-07,
+        1.4683423966602568e-07,
+        -3.249310564081864e-11
+      ],
+      "target_qvel_after": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": false,
+      "entire_state_exactly_restored": false,
+      "residual_deep_penetrations": [],
+      "pass": true
+    }
+  ],
+  "source_unchanged_during_audit": true,
+  "status": "PASS"
+}

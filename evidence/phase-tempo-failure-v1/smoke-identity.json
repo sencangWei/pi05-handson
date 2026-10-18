@@ -1,0 +1,17 @@
+{
+  "initial_state.npy": {
+    "source": "97c4e8600f2fb7f54b67bc943b6d5bfa20820877d0dde3913536427022e0e104",
+    "replay": "97c4e8600f2fb7f54b67bc943b6d5bfa20820877d0dde3913536427022e0e104",
+    "identical": true
+  },
+  "initial-agentview.png": {
+    "source": "d6d5c311b7bd283c1eceead972d888c7d9da4d97d9b297ef5a9a6d2e5c30c236",
+    "replay": "d6d5c311b7bd283c1eceead972d888c7d9da4d97d9b297ef5a9a6d2e5c30c236",
+    "identical": true
+  },
+  "initial-wrist.png": {
+    "source": "902035d819c434bf256623f558af34e2e752734c1fa2c32098e86714984cde53",
+    "replay": "902035d819c434bf256623f558af34e2e752734c1fa2c32098e86714984cde53",
+    "identical": true
+  }
+}

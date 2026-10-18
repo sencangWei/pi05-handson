@@ -1,0 +1,514 @@
+{
+  "status": "READ_ONLY_INTERFACE_AUDIT_NO_CONFIRMED_NEW_INTERFACE_BUG_WITH_INTENTIONAL_PROPRIO_EXCLUSION",
+  "checkpoint": "ui_correct_1792341395770417042/4999",
+  "manifest": "evidence/corrections-public37_tempo_v1-manifest.json",
+  "manifest_sha256": "c7792a86de4d3637f8169bae9cbceae339360ed344966e45b404dfa1a3a8d91f",
+  "constraints": "No GPU/model service/simulation/GUI calls. Only this new report is written.",
+  "orientation": {
+    "public": {
+      "frames": 4400,
+      "state3_minmax": [
+        2.643383264541626,
+        3.384528160095215
+      ],
+      "state3_quantiles_0_1_50_99_100": [
+        2.643383264541626,
+        2.729270279407501,
+        3.1317310333251953,
+        3.2871841526031496,
+        3.384528160095215
+      ],
+      "axisnorm_quantiles_0_1_50_99_100": [
+        3.0015642760986188,
+        3.037441634039516,
+        3.1609585755921907,
+        3.362839694298463,
+        3.392540838575753
+      ],
+      "axisnorm_above_pi": 3119,
+      "state3_above_pi": 1852,
+      "maximum_adjacent_axisangle_L2_jump_rad": 0.05540506841230735,
+      "adjacent_pi_crossings": 113
+    },
+    "human": {
+      "frames": 9121,
+      "state3_minmax": [
+        2.5895426273345947,
+        3.2333524227142334
+      ],
+      "state3_quantiles_0_1_50_99_100": [
+        2.5895426273345947,
+        2.595868968963623,
+        3.125476121902466,
+        3.2027594566345217,
+        3.2333524227142334
+      ],
+      "axisnorm_quantiles_0_1_50_99_100": [
+        2.8396114823110397,
+        2.8463684574554144,
+        3.1917189697290134,
+        3.3497799520499845,
+        3.354234750146206
+      ],
+      "axisnorm_above_pi": 7374,
+      "state3_above_pi": 4124,
+      "maximum_adjacent_axisangle_L2_jump_rad": 0.018213154582973377,
+      "adjacent_pi_crossings": 16
+    },
+    "synthetic_pi_crossing": [
+      {
+        "input_x_rotation_rad": 3.1315926535897933,
+        "output_axisangle": [
+          3.1315926535897933,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "input_x_rotation_rad": 3.141592653589793,
+        "output_axisangle": [
+          3.141592653589793,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "input_x_rotation_rad": 3.151592653589793,
+        "output_axisangle": [
+          3.151592653589793,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "conclusion": "Both public and human contain >pi axisangle with no large per-episode jumps. Additionally this checkpoint deliberately ignores numericstate, so state_3=3.2 cannot directly cause an input branch shift in this model. The camera-observed physical orientation can still differ; that is distinct from numericaxisangle encoding.",
+    "latest_rollout_snapshots": [
+      {
+        "file": ".local/phase-tempo-failure-v1/scene-049-actions-snapshot.csv",
+        "rows": 284,
+        "state3_minmax": [
+          3.1397244432045643,
+          3.274510121455649
+        ],
+        "axisnorm_minmax": [
+          3.1409426870243484,
+          3.3120648885452013
+        ],
+        "maximum_adjacent_axisangle_L2_jump_rad": 0.03193335791240898
+      },
+      {
+        "file": ".local/phase-tempo-failure-v1/scene-050-actions-snapshot.csv",
+        "rows": 298,
+        "state3_minmax": [
+          3.1397244432045643,
+          3.214451051660854
+        ],
+        "axisnorm_minmax": [
+          3.1409426870243484,
+          3.219540874674938
+        ],
+        "maximum_adjacent_axisangle_L2_jump_rad": 0.02992401427070247
+      },
+      {
+        "file": ".local/phase-tempo-failure-v1/scene-051-actions-snapshot.csv",
+        "rows": 800,
+        "state3_minmax": [
+          3.1396663451974556,
+          3.2664918314064533
+        ],
+        "axisnorm_minmax": [
+          3.1409426870243484,
+          3.295521719053026
+        ],
+        "maximum_adjacent_axisangle_L2_jump_rad": 0.012379011400489626
+      }
+    ]
+  },
+  "data_alignment": {
+    "human_source_export_exact_samples": {
+      "count": 57,
+      "fields": [
+        "state",
+        "actions",
+        "image",
+        "wrist_image"
+      ],
+      "samples": [
+        {
+          "episode": 37,
+          "exported_frame": 0,
+          "source_frame": 425
+        },
+        {
+          "episode": 37,
+          "exported_frame": 105,
+          "source_frame": 530
+        },
+        {
+          "episode": 37,
+          "exported_frame": 209,
+          "source_frame": 634
+        },
+        {
+          "episode": 38,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 38,
+          "exported_frame": 22,
+          "source_frame": 22
+        },
+        {
+          "episode": 38,
+          "exported_frame": 44,
+          "source_frame": 44
+        },
+        {
+          "episode": 39,
+          "exported_frame": 0,
+          "source_frame": 430
+        },
+        {
+          "episode": 39,
+          "exported_frame": 45,
+          "source_frame": 475
+        },
+        {
+          "episode": 39,
+          "exported_frame": 89,
+          "source_frame": 519
+        },
+        {
+          "episode": 40,
+          "exported_frame": 0,
+          "source_frame": 770
+        },
+        {
+          "episode": 40,
+          "exported_frame": 68,
+          "source_frame": 838
+        },
+        {
+          "episode": 40,
+          "exported_frame": 135,
+          "source_frame": 905
+        },
+        {
+          "episode": 41,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 41,
+          "exported_frame": 292,
+          "source_frame": 292
+        },
+        {
+          "episode": 41,
+          "exported_frame": 584,
+          "source_frame": 584
+        },
+        {
+          "episode": 42,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 42,
+          "exported_frame": 398,
+          "source_frame": 398
+        },
+        {
+          "episode": 42,
+          "exported_frame": 795,
+          "source_frame": 795
+        },
+        {
+          "episode": 43,
+          "exported_frame": 0,
+          "source_frame": 67
+        },
+        {
+          "episode": 43,
+          "exported_frame": 307,
+          "source_frame": 374
+        },
+        {
+          "episode": 43,
+          "exported_frame": 613,
+          "source_frame": 680
+        },
+        {
+          "episode": 44,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 44,
+          "exported_frame": 332,
+          "source_frame": 332
+        },
+        {
+          "episode": 44,
+          "exported_frame": 664,
+          "source_frame": 664
+        },
+        {
+          "episode": 45,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 45,
+          "exported_frame": 367,
+          "source_frame": 367
+        },
+        {
+          "episode": 45,
+          "exported_frame": 734,
+          "source_frame": 734
+        },
+        {
+          "episode": 46,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 46,
+          "exported_frame": 312,
+          "source_frame": 312
+        },
+        {
+          "episode": 46,
+          "exported_frame": 624,
+          "source_frame": 624
+        },
+        {
+          "episode": 47,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 47,
+          "exported_frame": 405,
+          "source_frame": 405
+        },
+        {
+          "episode": 47,
+          "exported_frame": 809,
+          "source_frame": 809
+        },
+        {
+          "episode": 48,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 48,
+          "exported_frame": 392,
+          "source_frame": 392
+        },
+        {
+          "episode": 48,
+          "exported_frame": 784,
+          "source_frame": 784
+        },
+        {
+          "episode": 49,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 49,
+          "exported_frame": 325,
+          "source_frame": 325
+        },
+        {
+          "episode": 49,
+          "exported_frame": 649,
+          "source_frame": 649
+        },
+        {
+          "episode": 50,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 50,
+          "exported_frame": 272,
+          "source_frame": 272
+        },
+        {
+          "episode": 50,
+          "exported_frame": 544,
+          "source_frame": 544
+        },
+        {
+          "episode": 51,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 51,
+          "exported_frame": 300,
+          "source_frame": 300
+        },
+        {
+          "episode": 51,
+          "exported_frame": 599,
+          "source_frame": 599
+        },
+        {
+          "episode": 52,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 52,
+          "exported_frame": 290,
+          "source_frame": 290
+        },
+        {
+          "episode": 52,
+          "exported_frame": 579,
+          "source_frame": 579
+        },
+        {
+          "episode": 53,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 53,
+          "exported_frame": 112,
+          "source_frame": 112
+        },
+        {
+          "episode": 53,
+          "exported_frame": 224,
+          "source_frame": 224
+        },
+        {
+          "episode": 54,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 54,
+          "exported_frame": 102,
+          "source_frame": 102
+        },
+        {
+          "episode": 54,
+          "exported_frame": 204,
+          "source_frame": 204
+        },
+        {
+          "episode": 55,
+          "exported_frame": 0,
+          "source_frame": 0
+        },
+        {
+          "episode": 55,
+          "exported_frame": 110,
+          "source_frame": 110
+        },
+        {
+          "episode": 55,
+          "exported_frame": 219,
+          "source_frame": 219
+        }
+      ],
+      "checked": "first/middle/last in every one of19 clips; raw NPZ andmetadata SHA checked. Both RGB arrays exact after PNG decode."
+    },
+    "public_state_actions_all_exact_rows": 4400
+  },
+  "normalization": {
+    "training_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "checkpoint_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "exact_same_bytes": true,
+    "semantics": "Shared LeRobotLiberoDataConfig transforms at training and inference; extra_delta_transform=False; checkpoint stats loaded by create_trained_policy; gripper output sign remains+close/-open."
+  },
+  "source_findings": [
+    {
+      "topic": "RGB",
+      "files": [
+        "scripts/correction_workbench.py:40",
+        "scripts/simulation_lab.py:336",
+        "scripts/evaluate_libero.py:239",
+        "openpi/examples/libero/main.py:114"
+      ],
+      "evidence": "Both cameras double-axis flip before recording/inference; exported human image bytes decode to original recorded arrays. Official OpenPI LIBERO inference uses same180degree flip. Training ResizeImages224 and inference preprocessing both use pad resize."
+    },
+    {
+      "topic": "pre-action observation",
+      "files": [
+        "scripts/correction_workbench.py:200",
+        "scripts/simulation_lab.py:327",
+        "scripts/simulation_lab.py:375",
+        "scripts/prepare_corrections.py:227"
+      ],
+      "evidence": "Human pre-action state+RGB regenerated together, then action executed. Inference regenerates current obs then checks generation+state digest before stepping. Export uses state, not post_state. Public source conversion copies state/actions unchanged."
+    },
+    {
+      "topic": "public alignment upstream",
+      "url": "https://github.com/openvla/openvla/blob/main/experiments/robot/libero/regenerate_libero_dataset.py#L121-L157",
+      "evidence": "OpenVLA modified LIBERO regeneration stores obs/state/images before env.step(action), and converts quat via robosuite quat2axisangle. This external source is current upstream provenance context, not byte-pinned proof of source generation revision."
+    },
+    {
+      "topic": "action horizon",
+      "files": [
+        "scripts/course_config.py:14",
+        "openpi/src/openpi/training/data_loader.py:143",
+        "evidence/phase-tempo-v1/loader-check.json",
+        "scripts/simulation_lab.py:378"
+      ],
+      "evidence": "Horizon10 labels delta_timestamps=[0..9]/metadatafps; existing archived real-loader82starts exact comparison preserves actions/state/images and underlying episode boundaries. Interactive execution uses first action then replans, not action9 or chunk mean. End padding repeats episode final action; existing behavior, not discontinuous stitching."
+    },
+    {
+      "topic": "controller units",
+      "files": [
+        "openpi/third_party/libero/libero/libero/envs/env_wrapper.py:17",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/config/osc_pose.json",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/osc.py:234",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/utils/control_utils.py:150",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/models/grippers/panda_gripper.py:48"
+      ],
+      "evidence": "Same OSC_POSE world delta controller: clipped normalized xyz times.05m, rotationaxisangle times.5rad, Rdelta@Rcurrent. Default20Hz (.05s/controlstep). Gripper uses sign(action6) increment, +close/-open, not width target. No radians/degrees or world/eef mismatch identified."
+    }
+  ],
+  "boundaries": [
+    "No simulator replay performed; raw observed pose/image content cannot be physically reconstructed in this audit.",
+    "Public source images were not fully re-decoded here; official orientation convention and original export invariance were inspected. Human57sample image pairs were independently decoded and checked.",
+    "Nominal LeRobot10fps with live20Hz does not resample numerical action labels: dataset requests integer index offsets and each action remains one20Hz controlstep. It is misleading timing metadata, but not evidence of factor2 scaling of actions. Public no-op removal may shorten elapsed time between retained steps.",
+    "Cachedpost_state from env.step can precede finalsubstep. It is not training target state; both human and GUI policy regenerate full current observations before next action. Cachedpost-pre is unsuitable for fullstep displacement diagnostics.",
+    "Axisangle beyondpi is not itself a fault. Only simultaneous retraining+conversion with a coherent new representation could change it safely; no such change is necessary on present evidence.",
+    "This audit does not establish overfitting, successrate, release learning or a unique cause of slow carry."
+  ],
+  "necessary_fixes": [],
+  "minimum_next_validation": "First report the documented RGB+language-only design to the user. No interface fix supported. Separate fixedobservations teacher-action prediction checks from tasksuccess; do not wrapangles or hot-enable state on current checkpoint.",
+  "proprioception_consumption": {
+    "finding": "Current model deliberately excludes numeric8D proprioception. It consumes RGB+language; quaternion axisangle values and numeric grippergap do not affect its output through state inputs.",
+    "files": [
+      "scripts/course_config.py:21",
+      "openpi/src/openpi/transforms.py:250",
+      "openpi/src/openpi/models/pi0.py:93",
+      "openpi/src/openpi/models/pi0.py:151",
+      "openpi/src/openpi/training/config.py:745",
+      "README.md:37"
+    ],
+    "code_evidence": "pi05=True removes continuousstate_proj; discrete_state_input=False passes state=None to prompt tokenizer. Observation.state is only used for batch shape in sample_actions.",
+    "pure_transform_check": {
+      "different_input_states": 2,
+      "tokenizer_state_arguments": [
+        null,
+        null
+      ],
+      "model_constructed": false,
+      "GPU_or_inference_calls": false
+    },
+    "classification": "Documented existing design, inherited officialpi05_libero configuration; not new regression. Concrete limitation for disambiguating visually similar grasp/contact states, not evidence that it uniquely caused this failure.",
+    "minimum_change_boundary": "Do not enable state tokens only at serving. A numericstate-conditioned experiment needs consistent train+serveconfig and separately reviewed normalization/token quantization; no blind extra training recommendation."
+  }
+}

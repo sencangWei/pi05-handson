@@ -1,0 +1,512 @@
+{
+  "status": "EXISTING_LOG_SNAPSHOT",
+  "notes": [
+    "Fresh consecutive pre-state XYZ is primary displacement; cached post minus pre is not full step.",
+    "Interactive resets and differing shifts are not matched formal benchmark trials.",
+    "Active scene snapshot may not yet have final result."
+  ],
+  "scenes": [
+    {
+      "scene": "scene-049_init-024",
+      "snapshot_rows": 284,
+      "snapshot_csv_sha256": "1c12aa3a08098c431594f79bf1f92d0942518492448e3a78c0077a46fbeb6993",
+      "initial_sha": "23bf19a30c6716ccc3974734fd4e0109276d33ead333b436b5c73571ef8ae100",
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.008133730946544092,
+          0.3435498897555232,
+          0.8984038567263857
+        ],
+        "dx_m": -0.013680781758957643,
+        "dy_m": 0.03973941368078176
+      },
+      "result": {
+        "control_steps": 284,
+        "stop_reason": "reset",
+        "first_benchmark_success_control_steps": 130,
+        "final_benchmark_success": true,
+        "model_metadata": {
+          "course": "pi05 LoRA",
+          "task": "pick up the black bowl next to the plate and place it on the plate",
+          "action_horizon": 10,
+          "seed": 42,
+          "configuration": "pi05_handson_lora",
+          "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+          "checkpoint_step_index": "4999",
+          "model_stage": "ui_correct_1792341395770417042/4999",
+          "policy_sampling_seed_at_server_start": 0,
+          "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+          "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+        }
+      },
+      "first_On_csv": 129,
+      "last_on": true,
+      "first_close_csv": 50,
+      "final_bowl_xyz": [
+        0.05790224056666028,
+        0.18677710744171971,
+        0.906084703374643
+      ],
+      "bowl_peak_lift_m": 0.1551239726954875,
+      "final_bowl_lift_m": 0.007680702002670126,
+      "last100_open_count": 76,
+      "blocks": [
+        {
+          "start": 0,
+          "stop": 100,
+          "xyz_norm_median": 0.7817035393411892,
+          "fresh_eef_step_mm_median": 9.684525421308358,
+          "close_fraction": 0.48,
+          "finger_gap_median_m": 0.07776470825843403,
+          "bowl_net_xyz_m": [
+            0.05991669936298945,
+            -0.15881454099230488,
+            0.13718228484448758
+          ]
+        },
+        {
+          "start": 100,
+          "stop": 200,
+          "xyz_norm_median": 0.16344480594983984,
+          "fresh_eef_step_mm_median": 0.9793084505927551,
+          "close_fraction": 0.96,
+          "finger_gap_median_m": 0.011719654004137901,
+          "bowl_net_xyz_m": [
+            0.006418444416877674,
+            0.004956863149351898,
+            -0.11846213049774468
+          ]
+        },
+        {
+          "start": 200,
+          "stop": 284,
+          "xyz_norm_median": 0.1284581658332956,
+          "fresh_eef_step_mm_median": 1.4770036518640541,
+          "close_fraction": 0.10714285714285714,
+          "finger_gap_median_m": 0.07879058773542386,
+          "bowl_net_xyz_m": [
+            -0.0018187628515153043,
+            0.002871735547102988,
+            -0.005430621487357512
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "scene-050_init-024",
+      "snapshot_rows": 298,
+      "snapshot_csv_sha256": "f0c2f3d3a8bd85d574cb5b79a0be2baca0b1a62284f31ae8071e7f1a2615b24d",
+      "initial_sha": "2974513e3d9a132200a91ab1e6cd3222fcb7c7377f814ca1a7554aa2d2facb98",
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.008133730946544092,
+          0.2656997268890737,
+          0.8984038567263857
+        ],
+        "dx_m": -0.013680781758957643,
+        "dy_m": -0.038110749185667744
+      },
+      "result": {
+        "control_steps": 298,
+        "stop_reason": "reset",
+        "first_benchmark_success_control_steps": null,
+        "final_benchmark_success": false,
+        "model_metadata": {
+          "course": "pi05 LoRA",
+          "task": "pick up the black bowl next to the plate and place it on the plate",
+          "action_horizon": 10,
+          "seed": 42,
+          "configuration": "pi05_handson_lora",
+          "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+          "checkpoint_step_index": "4999",
+          "model_stage": "ui_correct_1792341395770417042/4999",
+          "policy_sampling_seed_at_server_start": 0,
+          "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+          "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+        }
+      },
+      "first_On_csv": null,
+      "last_on": false,
+      "first_close_csv": 106,
+      "final_bowl_xyz": [
+        0.006674993587478935,
+        0.24429376116766163,
+        0.9578958694699665
+      ],
+      "bowl_peak_lift_m": 0.05595550055127696,
+      "final_bowl_lift_m": 0.05595550055127696,
+      "last100_open_count": 0,
+      "blocks": [
+        {
+          "start": 0,
+          "stop": 100,
+          "xyz_norm_median": 0.29951374137158904,
+          "fresh_eef_step_mm_median": 4.356656309522663,
+          "close_fraction": 0.0,
+          "finger_gap_median_m": 0.07973156578044492,
+          "bowl_net_xyz_m": [
+            0.0008197818057477033,
+            0.0035413294483452318,
+            0.021175581334782145
+          ]
+        },
+        {
+          "start": 100,
+          "stop": 200,
+          "xyz_norm_median": 0.05393570621383817,
+          "fresh_eef_step_mm_median": 0.6047797189608202,
+          "close_fraction": 0.16,
+          "finger_gap_median_m": 0.07811262487632085,
+          "bowl_net_xyz_m": [
+            -0.002234729908693325,
+            -0.01199649340798653,
+            -0.0004469732306183749
+          ]
+        },
+        {
+          "start": 200,
+          "stop": 298,
+          "xyz_norm_median": 0.06415957934215052,
+          "fresh_eef_step_mm_median": 0.5757796912262847,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.012941799965488967,
+          "bowl_net_xyz_m": [
+            0.016210600487680075,
+            -0.010129887550711841,
+            0.03471870115915976
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "scene-051_init-024",
+      "snapshot_rows": 800,
+      "snapshot_csv_sha256": "45b101af50426c947e223c8be417d455e90935c5ffdfb1c2de22df001fdf5092",
+      "initial_sha": "06b17cdd95c00c61db7a7c92a257734cf6515072075df927f6d92e636b3f2831",
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.008133730946544092,
+          0.24811015034184242,
+          0.8984038567263857
+        ],
+        "dx_m": -0.013680781758957643,
+        "dy_m": -0.05570032573289902
+      },
+      "result": {
+        "control_steps": 800,
+        "stop_reason": "step_limit",
+        "first_benchmark_success_control_steps": null,
+        "final_benchmark_success": false,
+        "model_metadata": {
+          "course": "pi05 LoRA",
+          "task": "pick up the black bowl next to the plate and place it on the plate",
+          "action_horizon": 10,
+          "seed": 42,
+          "configuration": "pi05_handson_lora",
+          "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+          "checkpoint_step_index": "4999",
+          "model_stage": "ui_correct_1792341395770417042/4999",
+          "policy_sampling_seed_at_server_start": 0,
+          "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+          "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+        }
+      },
+      "first_On_csv": null,
+      "last_on": false,
+      "first_close_csv": 102,
+      "final_bowl_xyz": [
+        0.2539733701493331,
+        0.05283459576407973,
+        0.9973852712748018
+      ],
+      "bowl_peak_lift_m": 0.17031569906976585,
+      "final_bowl_lift_m": 0.07025089247173189,
+      "last100_open_count": 0,
+      "blocks": [
+        {
+          "start": 0,
+          "stop": 100,
+          "xyz_norm_median": 0.2760234880125586,
+          "fresh_eef_step_mm_median": 4.016975286893109,
+          "close_fraction": 0.0,
+          "finger_gap_median_m": 0.07973010876057465,
+          "bowl_net_xyz_m": [
+            -0.07569161990242998,
+            0.07455464418454244,
+            -0.02262862293282608
+          ]
+        },
+        {
+          "start": 100,
+          "stop": 200,
+          "xyz_norm_median": 0.09383013830367576,
+          "fresh_eef_step_mm_median": 1.1655653729597222,
+          "close_fraction": 0.58,
+          "finger_gap_median_m": 0.06492283303909605,
+          "bowl_net_xyz_m": [
+            0.02813650633786126,
+            -0.012447333499982005,
+            0.03054333224482675
+          ]
+        },
+        {
+          "start": 200,
+          "stop": 300,
+          "xyz_norm_median": 0.1564444673525281,
+          "fresh_eef_step_mm_median": 1.7520989147072077,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.004732384079900405,
+          "bowl_net_xyz_m": [
+            0.13966360662303057,
+            -0.1847543503874029,
+            0.09164837284976002
+          ]
+        },
+        {
+          "start": 300,
+          "stop": 400,
+          "xyz_norm_median": 0.08577509939901543,
+          "fresh_eef_step_mm_median": 0.7903964766344683,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.0047173455112241,
+          "bowl_net_xyz_m": [
+            0.056184050788000234,
+            -0.03802883050584427,
+            0.03786929385005067
+          ]
+        },
+        {
+          "start": 400,
+          "stop": 500,
+          "xyz_norm_median": 0.06020702107932187,
+          "fresh_eef_step_mm_median": 0.5130390932105053,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.004699823135362616,
+          "bowl_net_xyz_m": [
+            0.024877423857899594,
+            -0.0135441771108189,
+            0.02642592148974976
+          ]
+        },
+        {
+          "start": 500,
+          "stop": 600,
+          "xyz_norm_median": 0.0604467518969964,
+          "fresh_eef_step_mm_median": 0.5872458937511253,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.004678601383649449,
+          "bowl_net_xyz_m": [
+            0.04630450377125417,
+            -0.011394468039689791,
+            -0.01038974119535152
+          ]
+        },
+        {
+          "start": 600,
+          "stop": 700,
+          "xyz_norm_median": 0.06472141773145801,
+          "fresh_eef_step_mm_median": 0.6135687641282426,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.004653178270297615,
+          "bowl_net_xyz_m": [
+            0.026701917355674426,
+            -0.008912969357332635,
+            -0.04084557975217984
+          ]
+        },
+        {
+          "start": 700,
+          "stop": 800,
+          "xyz_norm_median": 0.04918133742851745,
+          "fresh_eef_step_mm_median": 0.49339633337557803,
+          "close_fraction": 1.0,
+          "finger_gap_median_m": 0.004623440444397239,
+          "bowl_net_xyz_m": [
+            0.012556152628551948,
+            0.003359420889490178,
+            -0.04356163504845789
+          ]
+        }
+      ]
+    }
+  ],
+  "training": {
+    "experiment": "ui_correct_1792341395770417042",
+    "new_updates": 5000,
+    "batch_size": 4,
+    "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+    "dataset_manifest": "/home/robot/.pi05-handson/evidence/corrections-public37_tempo_v1-manifest.json",
+    "learning_rate": {
+      "warmup_steps": 20,
+      "peak": 1e-05,
+      "final": 1e-05
+    },
+    "seed": 42,
+    "recovery_sampling": {
+      "profile": {
+        "path": "evidence/phase-tempo-v1-profile.json",
+        "sha256": "d809c74ceca5294e66cce1c06ba987532ead4bb05575fc5cca64b3c2684eb28d"
+      },
+      "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+      "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+      "repo_id": "course/libero_corrections_public37_reviewed19_v4",
+      "real_frames": 13521,
+      "virtual_frames": 200000,
+      "seed": 42,
+      "groups": [
+        {
+          "name": "public_complete_demos",
+          "ranges": [
+            [
+              0,
+              4400
+            ]
+          ],
+          "virtual_count": 140000,
+          "real_frames": 4400,
+          "probability": 0.7
+        },
+        {
+          "name": "previous_approved_corrections",
+          "ranges": [
+            [
+              4400,
+              5466
+            ]
+          ],
+          "virtual_count": 20000,
+          "real_frames": 1066,
+          "probability": 0.1
+        },
+        {
+          "name": "new_contact_and_other",
+          "ranges": [
+            [
+              5466,
+              5856
+            ],
+            [
+              6007,
+              6453
+            ],
+            [
+              6567,
+              7141
+            ],
+            [
+              7312,
+              7882
+            ],
+            [
+              8027,
+              8490
+            ],
+            [
+              8669,
+              9265
+            ],
+            [
+              9375,
+              10039
+            ],
+            [
+              10198,
+              10778
+            ],
+            [
+              10877,
+              11976
+            ],
+            [
+              12022,
+              12555
+            ],
+            [
+              12642,
+              13521
+            ]
+          ],
+          "virtual_count": 38000,
+          "real_frames": 6794,
+          "probability": 0.19
+        },
+        {
+          "name": "new_normal_transport",
+          "ranges": [
+            [
+              5856,
+              6007
+            ],
+            [
+              6453,
+              6567
+            ],
+            [
+              7141,
+              7312
+            ],
+            [
+              7882,
+              8027
+            ],
+            [
+              8490,
+              8669
+            ],
+            [
+              9265,
+              9375
+            ],
+            [
+              10039,
+              10198
+            ],
+            [
+              10778,
+              10877
+            ],
+            [
+              11976,
+              12022
+            ],
+            [
+              12555,
+              12642
+            ]
+          ],
+          "virtual_count": 2000,
+          "real_frames": 1261,
+          "probability": 0.01
+        }
+      ],
+      "sampling_indices_sha256": "99c315972597e1bc972f1db8b4d8b74fb55a2863311d6be71d8a96b9a841f429",
+      "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+    },
+    "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63"
+  },
+  "spatial_reference": {
+    "source_scene": "scene-049_init-024",
+    "meaning": "Final successfully placed bowl XY in same layout, approximate placement reference, not exact measured plate center",
+    "xyz": [
+      0.05790224056666028,
+      0.18677710744171971,
+      0.906084703374643
+    ],
+    "scene051_final_xy_error_m": 0.23745417303206107
+  }
+}

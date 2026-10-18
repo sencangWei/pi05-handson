@@ -26,6 +26,19 @@ def state_digest(state):
     return hashlib.sha256(np.asarray(state).tobytes()).hexdigest()
 
 
+def bowl_penetrations(env, tolerance_m=0.001):
+    """Return deep external contacts after forward; normal resting contacts are tolerated."""
+    target_geoms = set(env.env.objects_dict[TARGET].contact_geoms)
+    result = []
+    for contact in env.sim.data.contact[:env.sim.data.ncon]:
+        names = [env.sim.model.geom_id2name(int(g)) for g in (contact.geom1, contact.geom2)]
+        is_target = [name in target_geoms for name in names]
+        if sum(is_target) == 1 and float(contact.dist) < -tolerance_m:
+            result.append({"other_geom": names[0] if not is_target[0] else names[1],
+                           "depth_m": -float(contact.dist)})
+    return result
+
+
 def move_bowl(env, obs, dx, dy):
     """Edit a freshly reset scene; preserve height and rotation and refresh camera observations."""
     import numpy as np
@@ -39,14 +52,23 @@ def move_bowl(env, obs, dx, dy):
     if len(joints) != 1:
         raise ValueError("目标物体不是单个自由关节")
     joint = joints[0]
-    qpos = np.asarray(env.sim.data.get_joint_qpos(joint)).copy()
-    qvel = np.asarray(env.sim.data.get_joint_qvel(joint))
+    original_qpos = np.asarray(env.sim.data.get_joint_qpos(joint)).copy()
+    qvel = np.asarray(env.sim.data.get_joint_qvel(joint)).copy()
+    qpos = original_qpos.copy()
     if qpos.shape != (7,) or qvel.shape != (6,):
         raise ValueError("目标自由关节的维度不匹配")
     qpos[:2] += [dx, dy]
     env.sim.data.set_joint_qpos(joint, qpos)
     env.sim.data.set_joint_qvel(joint, np.zeros_like(qvel))
     fresh = env.regenerate_obs_from_state(env.get_sim_state())
+    overlaps = bowl_penetrations(env)
+    if overlaps:
+        deepest = max(overlaps, key=lambda item: item["depth_m"])
+        env.sim.data.set_joint_qpos(joint, original_qpos)
+        env.sim.data.set_joint_qvel(joint, qvel)
+        env.regenerate_obs_from_state(env.get_sim_state())
+        other = "盘子" if "plate" in (deepest["other_geom"] or "") else "其他物体"
+        raise ValueError(f"碗与{other}发生重叠（约{deepest['depth_m'] * 1000:.1f}毫米）；请把碗挪远后再加载")
     if not np.allclose(fresh[f"{TARGET}_pos"], after, atol=1e-6, rtol=0):
         raise ValueError("碗的位置更新与请求不一致")
     return fresh, {"before_xyz": before.tolist(), "after_xyz": after.tolist(), "dx_m": dx, "dy_m": dy}

@@ -1,0 +1,3400 @@
+{
+  "meaning": "Quadrant comparison using the same magnitude and separate diagnostic negative offsets; collision checked from actual MuJoCo geometry, never from sign",
+  "policy_loaded": false,
+  "gui_used": false,
+  "source_sha256": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+  "cases": [
+    {
+      "case": "++",
+      "dx": 0.013680781758957643,
+      "dy": 0.05570032573289902,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [],
+      "requested_pose_bowl_xyz": [
+        0.019227832573201913,
+        0.3595108018064002,
+        0.8984038856841015
+      ],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.019227832571371194,
+          0.35951080180764045,
+          0.8984038567263857
+        ],
+        "dx_m": 0.013680781758957643,
+        "dy_m": 0.05570032573289902
+      },
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": false,
+      "target_qvel_exactly_restored": false,
+      "entire_state_exactly_restored": false,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.0,
+      "consistent_guard_result": true
+    },
+    {
+      "case": "+-",
+      "dx": 0.013680781758957643,
+      "dy": -0.05570032573289902,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00771301054882895
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00771301054882895
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.005851448017508878
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.005851448017508878
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.005603662809098946
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g20",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.005146724840345732
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g20",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.005146724840345732
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004828459311634956
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g20",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004564338909237208
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g20",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004564338909237208
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00448889671444435
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g7",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0044367208383686366
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g8",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004278315483805901
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004217096100482895
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004168869883976993
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004168869883976993
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004161221276808216
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004119589991007418
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00406322489533956
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g7",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003795355390933337
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g19",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003387447630732122
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g1"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0033612182843129465
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g39",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0032489397459148413
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0030533783240492096
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g7",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002996978620165341
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g3",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0029853519706749578
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g19",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002934006500801644
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0028205886417118227
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0028205886417118227
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g8",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0025153537288918684
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g19",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002503407312789254
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g19",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0024801842533000757
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0020633660838521037
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g19",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.001897647618341628
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g19",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.001897647618341628
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g3",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0017989620125430394
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g3",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0017989620125430394
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g20",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0016113020399336061
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g8",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.001559734624296779
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g20",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0014459117607871974
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g1"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0012007569797213135
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g36",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0010864529729005929
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g36",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0010536119581892743
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g3",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.001001672731310643
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g9",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0009448530915978184
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g8",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0008570874946193692
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0008528517858864227
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0008528517858864227
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g25",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.000753494470221128
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g37",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0007205539334683936
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006902990716173415
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g9",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006455959082084237
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g25",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0005328036286077268
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g37",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0005274086474890733
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g37",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0005110719409651852
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g39",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0004567347745829918
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g3",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0003462663177760776
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g3",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0003462663177760776
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00034365338880666153
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00034365338880666153
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g39",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00021610225930356102
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g39",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00018568540777402727
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0001640124927384922
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0001640124927384922
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00013297144725162783
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00013297144725162783
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0017989620125430394
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0017989620125430394
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001001672731310643
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0029853519706749578
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.00771301054882895
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004168869883976993
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.0028205886417118227
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.00771301054882895
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004168869883976993
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.0028205886417118227
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0030533783240492096
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0012007569797213135
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.005851448017508878
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.005851448017508878
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00406322489533956
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.005603662809098946
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0020633660838521037
+        },
+        {
+          "other_geom": "plate_1_g1",
+          "depth_m": 0.0033612182843129465
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00448889671444435
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004161221276808216
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004217096100482895
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003795355390933337
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0044367208383686366
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.002996978620165341
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0025153537288918684
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.001559734624296779
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004278315483805901
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.001897647618341628
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.001897647618341628
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003387447630732122
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0024801842533000757
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002934006500801644
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.002503407312789254
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.005146724840345732
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004564338909237208
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.005146724840345732
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004564338909237208
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0016113020399336061
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0014459117607871974
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004828459311634956
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004119589991007418
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0010864529729005929
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0010536119581892743
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0032489397459148413
+        }
+      ],
+      "requested_pose_bowl_xyz": [
+        0.019227832573201913,
+        0.2481101503406022,
+        0.8984038856841015
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约7.7毫米）；请把碗挪远后再加载",
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": true,
+      "entire_state_exactly_restored": true,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.00771301054882895,
+      "consistent_guard_result": true
+    },
+    {
+      "case": "-+",
+      "dx": -0.013680781758957643,
+      "dy": 0.05570032573289902,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [],
+      "requested_pose_bowl_xyz": [
+        -0.008133730944713372,
+        0.3595108018064002,
+        0.8984038856841015
+      ],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.008133730946544092,
+          0.35951080180764045,
+          0.8984038567263857
+        ],
+        "dx_m": -0.013680781758957643,
+        "dy_m": 0.05570032573289902
+      },
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": false,
+      "target_qvel_exactly_restored": false,
+      "entire_state_exactly_restored": false,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.0,
+      "consistent_guard_result": true
+    },
+    {
+      "case": "--",
+      "dx": -0.013680781758957643,
+      "dy": -0.05570032573289902,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.008109360465604457
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.008109360465604457
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004942639236429362
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004942639236429362
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g7",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004771164959124093
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00469166027487477
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g6",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004363984837238636
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00435363116608842
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00435363116608842
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g8",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004330616472394419
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004292485068086245
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.004172594039646916
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g7",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003951423506700591
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g8",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003710764854543549
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g7",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003620863613651091
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003556982623986406
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003556982623986406
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.003463724719019376
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002738871891346878
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g21",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002738871891346878
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0023198351992812587
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g22",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002092097473118569
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g22",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.002092097473118569
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g22",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.001921765873110803
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g22",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.001921765873110803
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00168120480514076
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g9",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0015676129414799245
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g9",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0007039165580680923
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g25",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0007011934816326098
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006851451499017331
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g25",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006483967594008624
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006240040692617328
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006240040692617328
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g25",
+            "plate_1_g4"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0006103287828864559
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0005977297262848391
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g5",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0005977297262848391
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g26",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0005793999396098721
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g25",
+            "plate_1_g5"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.0004805026400192086
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g2"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00019803409961596606
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g4",
+            "plate_1_g3"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "plate_1_main"
+          ],
+          "distance_m": -0.00019803409961596606
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.003556982623986406
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.003556982623986406
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004292485068086245
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.008109360465604457
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.008109360465604457
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00469166027487477
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004363984837238636
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.004771164959124093
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003620863613651091
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.003951423506700591
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.003710764854543549
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004330616472394419
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.0015676129414799245
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.00435363116608842
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.004942639236429362
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002738871891346878
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.00435363116608842
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.004942639236429362
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002738871891346878
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.002092097473118569
+        },
+        {
+          "other_geom": "plate_1_g2",
+          "depth_m": 0.001921765873110803
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.002092097473118569
+        },
+        {
+          "other_geom": "plate_1_g3",
+          "depth_m": 0.001921765873110803
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.00168120480514076
+        },
+        {
+          "other_geom": "plate_1_g4",
+          "depth_m": 0.0023198351992812587
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.004172594039646916
+        },
+        {
+          "other_geom": "plate_1_g5",
+          "depth_m": 0.003463724719019376
+        }
+      ],
+      "requested_pose_bowl_xyz": [
+        -0.008133730944713372,
+        0.2481101503406022,
+        0.8984038856841015
+      ],
+      "outcome": "rejected",
+      "error": "碗与盘子发生重叠（约8.1毫米）；请把碗挪远后再加载",
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": true,
+      "entire_state_exactly_restored": true,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.008109360465604457,
+      "consistent_guard_result": true
+    },
+    {
+      "case": "negative_far",
+      "dx": -0.1,
+      "dy": -0.0557,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g33",
+            "akita_black_bowl_2_g24"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.0027994935466102463
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g34",
+            "akita_black_bowl_2_g23"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.002537144533874398
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g34",
+            "akita_black_bowl_2_g24"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.001952232035068742
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g34",
+            "akita_black_bowl_2_g24"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.0017881338110515442
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g34",
+            "akita_black_bowl_2_g24"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.001787965640534428
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g33",
+            "akita_black_bowl_2_g24"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.0008773603783690047
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g33",
+            "akita_black_bowl_2_g25"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.0005381249349503639
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g33",
+            "akita_black_bowl_2_g25"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.00038732678462915555
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g32",
+            "akita_black_bowl_2_g25"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.0002650601259175508
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g32",
+            "akita_black_bowl_2_g25"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -0.00017601031419252656
+        },
+        {
+          "geom_names": [
+            "akita_black_bowl_1_g34",
+            "akita_black_bowl_2_g23"
+          ],
+          "body_names": [
+            "akita_black_bowl_1_main",
+            "akita_black_bowl_2_main"
+          ],
+          "distance_m": -1.0419676686623195e-05
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [
+        {
+          "other_geom": "akita_black_bowl_2_g24",
+          "depth_m": 0.0027994935466102463
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g23",
+          "depth_m": 0.002537144533874398
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g24",
+          "depth_m": 0.001952232035068742
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g24",
+          "depth_m": 0.001787965640534428
+        },
+        {
+          "other_geom": "akita_black_bowl_2_g24",
+          "depth_m": 0.0017881338110515442
+        }
+      ],
+      "requested_pose_bowl_xyz": [
+        -0.09445294918575574,
+        0.2481104760735012,
+        0.8984038856841015
+      ],
+      "outcome": "rejected",
+      "error": "碗与其他物体发生重叠（约2.8毫米）；请把碗挪远后再加载",
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": true,
+      "entire_state_exactly_restored": true,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.0027994935466102463,
+      "consistent_guard_result": true
+    },
+    {
+      "case": "negative_small",
+      "dx": -0.01,
+      "dy": -0.01,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [],
+      "requested_pose_bowl_xyz": [
+        -0.0044529491857557306,
+        0.2938104760735012,
+        0.8984038856841015
+      ],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.004452949187586449,
+          0.2938104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": -0.01,
+        "dy_m": -0.01
+      },
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": false,
+      "target_qvel_exactly_restored": false,
+      "entire_state_exactly_restored": false,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.0,
+      "consistent_guard_result": true
+    },
+    {
+      "case": "zero",
+      "dx": 0.0,
+      "dy": 0.0,
+      "initial_bowl_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "requested_pose_negative_target_contacts": [
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.836068508900102e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.797740032829474e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.666710872817255e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.618455535868542e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.541896534618384e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.301939100355001e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.1381057502966483e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.132581464271295e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.08687098759261e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g38"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0843261273234407e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -3.0266307905819574e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9892952945220467e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.9558418275799422e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g40"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.83102748938152e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.827481948595499e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.492501382036856e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.4272367050593354e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g36"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.421712419033982e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g39"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.2933525400503978e-06
+        },
+        {
+          "geom_names": [
+            "table_collision",
+            "akita_black_bowl_1_g37"
+          ],
+          "body_names": [
+            "table",
+            "akita_black_bowl_1_main"
+          ],
+          "distance_m": -2.278426249284734e-06
+        }
+      ],
+      "guard_deep_contacts": [],
+      "requested_pose_bowl_xyz": [
+        0.00554705081424427,
+        0.3038104760735012,
+        0.8984038856841015
+      ],
+      "outcome": "allowed",
+      "error": null,
+      "edit_event": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0,
+        "dy_m": 0.0
+      },
+      "physics_step_calls": 0,
+      "simulation_time_unchanged": true,
+      "target_qpos_exactly_restored": true,
+      "target_qvel_exactly_restored": false,
+      "entire_state_exactly_restored": false,
+      "residual_deep_contacts": [],
+      "deepest_requested_penetration_m": 0.0,
+      "consistent_guard_result": true
+    }
+  ],
+  "limitations": [
+    "Guard classification is static geometry validity, not policy speed or success.",
+    "Each case independently creates layout 24; no policy calls or physics steps after initial creation/settling."
+  ],
+  "source_unchanged_during_audit": true,
+  "status": "PASS"
+}

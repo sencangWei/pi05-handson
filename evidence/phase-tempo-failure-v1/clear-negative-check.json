@@ -1,0 +1,38 @@
+{
+  "model_metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "configuration": "pi05_handson_lora",
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+    "checkpoint_step_index": "4999",
+    "model_stage": "ui_correct_1792341395770417042/4999",
+    "policy_sampling_seed_at_server_start": 0,
+    "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "initial_state_sha256": "c81a18cba1c0ad703794ae0fc1e3fdeb09f814c1195ffc2b3ecc7f1a123192e3",
+  "bowl_edit": {
+    "before_xyz": [
+      0.005547050812413551,
+      0.30381047607474143,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.004452949187586449,
+      0.2938104760747414,
+      0.8984038567263857
+    ],
+    "dx_m": -0.01,
+    "dy_m": -0.01
+  },
+  "control_steps": 800,
+  "first_benchmark_success_control_steps": 230,
+  "final_benchmark_success": true,
+  "wall_duration_s": 75.40269283892121,
+  "first_ten_step_full_gate_control_step": 263,
+  "full_gate_final_ten": true,
+  "csv_sha256": "4f94c5bf64d78abe16b6a48b81135befe77cd59b7975c298ca77e3d74bcda51f",
+  "note": "One isolated seed0 legal double-negative example; no broad reliability claim"
+}

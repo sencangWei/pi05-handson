@@ -1,0 +1,238 @@
+{
+  "status": "PASS",
+  "arms": [
+    {
+      "experiment": "retrain_teacher_1x_20261019",
+      "new_updates": 2000,
+      "batch_size": 4,
+      "seed": 42,
+      "action_horizon": 10,
+      "discrete_state_input": false,
+      "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "dataset_manifest": "/home/robot/.pi05-handson/evidence/tracking-teacher-retrain_rate1_mix_v2-manifest.json",
+      "dataset_manifest_sha256": "162c21d42441cdaaaa75691400269f5e1ad2bea312f5c3e536fc6814f833c776",
+      "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+      "source_commit": "b668a4db8171371e569c2b11e5ce7a598303fe84",
+      "source_sha256": {
+        "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+        "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+        "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699",
+        "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+        "curated_checks.py": "1a9d12bef9ff3314bd7251983b3ef699694f665f36d075d7bd22ef6a2db61206",
+        "prepare_tracking_teacher.py": "531af6a664d5411d2703ca2dc68df1b584dc325cb55732e6247824e53d135fbd",
+        "train_tracking_teacher.py": "06694a859b6dfd6f78d9cc3ffaa6a7672a9e19d0c070116c52d4a3890b1a294c",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "prepare_expanded_public.py": "f07dc6ce8dcf5863b475e9d85d3c885f82e63bdc0c63f0ca5844e62ba0ba1619",
+        "prepare_public_data.py": "ff8b2681ded6ce15b669d8d0e546b6b56013b972d374b8e93fdfd46409691def",
+        "recovery_sampling.py": "29aa84309d187445291eab4f750bf9ea178990b0a0f9fa7ba367610be1a025cf",
+        "train_release_focus.py": "e8debfca203b0f894f3e06f3c6621c83a7f5f933586a5af43569dc8fff60bd52"
+      },
+      "normalization": {
+        "asset_id": "course/libero_black_bowl",
+        "recomputed": false,
+        "path": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+        "bytes": 1966,
+        "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "learning_rate": {
+        "warmup_steps": 20,
+        "peak": 1e-05,
+        "final": 1e-05
+      },
+      "recovery_sampling": {
+        "profile": {
+          "path": "evidence/teacher-sampling-retrain_rate1_mix_v2-profile.json",
+          "sha256": "419637072ccbfdedb927059d4a9366aef3f8e0ac7d76e4b5b1a43e399578436d"
+        },
+        "base_manifest": "evidence/tracking-teacher-retrain_rate1_v2-manifest.json",
+        "base_manifest_sha256": "a67897fa794aed27d73e0449a62866c4a8839764008d1dd954e3e297b839f801",
+        "repo_id": "course/libero_tracking_teacher_retrain_rate1_v2",
+        "real_frames": 15052,
+        "virtual_frames": 100000,
+        "seed": 42,
+        "groups": [
+          {
+            "name": "public_complete_demos",
+            "ranges": [
+              [
+                0,
+                4400
+              ]
+            ],
+            "virtual_count": 60000,
+            "real_frames": 4400,
+            "probability": 0.6
+          },
+          {
+            "name": "all_approved_human",
+            "ranges": [
+              [
+                4400,
+                13521
+              ]
+            ],
+            "virtual_count": 20000,
+            "real_frames": 9121,
+            "probability": 0.2
+          },
+          {
+            "name": "validated_teacher_normal_carry",
+            "ranges": [
+              [
+                13921,
+                14052
+              ],
+              [
+                14668,
+                14793
+              ]
+            ],
+            "virtual_count": 15000,
+            "real_frames": 256,
+            "probability": 0.15
+          },
+          {
+            "name": "validated_teacher_contact_and_other",
+            "ranges": [
+              [
+                13521,
+                13921
+              ],
+              [
+                14052,
+                14668
+              ],
+              [
+                14793,
+                15052
+              ]
+            ],
+            "virtual_count": 5000,
+            "real_frames": 1275,
+            "probability": 0.05
+          }
+        ],
+        "sampling_indices_sha256": "7316b4d87ef7f0de165241b679576bd71c2a7a7bfbf26662a45867063feab4aa",
+        "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+      },
+      "dry_run": true
+    },
+    {
+      "experiment": "retrain_teacher_2x_20261019",
+      "new_updates": 2000,
+      "batch_size": 4,
+      "seed": 42,
+      "action_horizon": 10,
+      "discrete_state_input": false,
+      "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+      "dataset_manifest": "/home/robot/.pi05-handson/evidence/tracking-teacher-retrain_rate2_mix_v2-manifest.json",
+      "dataset_manifest_sha256": "cf958bdb56279cf2fa9d4f8a3c2c3f1a6257a7ac96c523bbf5bcb8ca97b22b0d",
+      "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+      "source_commit": "b668a4db8171371e569c2b11e5ce7a598303fe84",
+      "source_sha256": {
+        "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+        "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+        "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699",
+        "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+        "curated_checks.py": "1a9d12bef9ff3314bd7251983b3ef699694f665f36d075d7bd22ef6a2db61206",
+        "prepare_tracking_teacher.py": "531af6a664d5411d2703ca2dc68df1b584dc325cb55732e6247824e53d135fbd",
+        "train_tracking_teacher.py": "06694a859b6dfd6f78d9cc3ffaa6a7672a9e19d0c070116c52d4a3890b1a294c",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "prepare_expanded_public.py": "f07dc6ce8dcf5863b475e9d85d3c885f82e63bdc0c63f0ca5844e62ba0ba1619",
+        "prepare_public_data.py": "ff8b2681ded6ce15b669d8d0e546b6b56013b972d374b8e93fdfd46409691def",
+        "recovery_sampling.py": "29aa84309d187445291eab4f750bf9ea178990b0a0f9fa7ba367610be1a025cf",
+        "train_release_focus.py": "e8debfca203b0f894f3e06f3c6621c83a7f5f933586a5af43569dc8fff60bd52"
+      },
+      "normalization": {
+        "asset_id": "course/libero_black_bowl",
+        "recomputed": false,
+        "path": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+        "bytes": 1966,
+        "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "learning_rate": {
+        "warmup_steps": 20,
+        "peak": 1e-05,
+        "final": 1e-05
+      },
+      "recovery_sampling": {
+        "profile": {
+          "path": "evidence/teacher-sampling-retrain_rate2_mix_v2-profile.json",
+          "sha256": "1041e032a1a2280f2f93df4c83c9154cca0470446d15d1b10d4bad1438f4a5ff"
+        },
+        "base_manifest": "evidence/tracking-teacher-retrain_rate2_v2-manifest.json",
+        "base_manifest_sha256": "18df3c9c7e8d462fe130103253ee0a516119970f181c3ce947fe1712177a89f9",
+        "repo_id": "course/libero_tracking_teacher_retrain_rate2_v2",
+        "real_frames": 14915,
+        "virtual_frames": 100000,
+        "seed": 42,
+        "groups": [
+          {
+            "name": "public_complete_demos",
+            "ranges": [
+              [
+                0,
+                4400
+              ]
+            ],
+            "virtual_count": 60000,
+            "real_frames": 4400,
+            "probability": 0.6
+          },
+          {
+            "name": "all_approved_human",
+            "ranges": [
+              [
+                4400,
+                13521
+              ]
+            ],
+            "virtual_count": 20000,
+            "real_frames": 9121,
+            "probability": 0.2
+          },
+          {
+            "name": "validated_teacher_normal_carry",
+            "ranges": [
+              [
+                13921,
+                13982
+              ],
+              [
+                14598,
+                14656
+              ]
+            ],
+            "virtual_count": 15000,
+            "real_frames": 119,
+            "probability": 0.15
+          },
+          {
+            "name": "validated_teacher_contact_and_other",
+            "ranges": [
+              [
+                13521,
+                13921
+              ],
+              [
+                13982,
+                14598
+              ],
+              [
+                14656,
+                14915
+              ]
+            ],
+            "virtual_count": 5000,
+            "real_frames": 1275,
+            "probability": 0.05
+          }
+        ],
+        "sampling_indices_sha256": "b2165b08da27a5fc4aa522a4f380db9ac3a95fb39048283aaea956a65b135f5d",
+        "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+      },
+      "dry_run": true
+    }
+  ],
+  "no_weights_or_optimizer_loaded": true
+}

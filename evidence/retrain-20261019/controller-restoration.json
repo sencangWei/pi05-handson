@@ -1,0 +1,466 @@
+{
+  "status": "ORIGINAL_SPEED_CONTROLS_PASS_BOUNDED_RETIMING_PILOT_READY",
+  "training_data_generated": false,
+  "policy_used": false,
+  "gui_used": false,
+  "retiming_performed": false,
+  "method_count": 1,
+  "method": "After physical restore: controller.update(force=True), reset_goal(); retain original home nullspace initial_joint; infer initial gripper accumulator by inverse actuator-range mapping of first physical qpos.",
+  "ten_step_gate": {
+    "max_pre_eef_xyz_error_m": 0.003,
+    "max_returned_post_eef_xyz_error_m": 0.003,
+    "max_fresh_post_eef_xyz_error_m": 0.003,
+    "must_pass_both_sources_before_full": true
+  },
+  "source_evidence": [
+    {
+      "path": "/home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/robosuite/controllers/base_controller.py",
+      "lines": "125-161",
+      "meaning": "update(force=True) refreshes cached pose, velocities, joints, Jacobian and mass matrix",
+      "sha256": "61f99a2daeb4eb6e39bfb996d94c5a5689ef3bc771d030d070193ea56d6a8332"
+    },
+    {
+      "path": "/home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/robosuite/controllers/osc.py",
+      "lines": "202-266,366-383",
+      "meaning": "set_goal update can be cached; zero rotation preserves old goal_ori; reset_goal copies refreshed pose",
+      "sha256": "cfa62a0e719bc53ef0c701efa66f7b3e2272d4fca2150ec73c05bb145eba85cb"
+    },
+    {
+      "path": "/home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/robosuite/robots/manipulator.py",
+      "lines": "16-31",
+      "meaning": "Actuator target = range midpoint + half-range * normalized gripper accumulator",
+      "sha256": "d37ff4c00112cfba9bf4b96bf48ad5664422fd824dd4fbcd1eebda650a451b64"
+    },
+    {
+      "path": "/home/robot/.pi05-handson/.venv-sim/lib/python3.11/site-packages/robosuite/models/grippers/panda_gripper.py",
+      "lines": "43-62",
+      "meaning": "Accumulator clips previous action plus [-1,+1]*0.01*sign(command)",
+      "sha256": "a3760a8fc4599fa6f79914304b82466f3c1bda1a945943ca693bb57f00dc59eb"
+    }
+  ],
+  "limitations": [
+    "This reconstructs a consistent controller state, not serialized original controller internals.",
+    "Physical finger qpos does not uniquely determine original target/accumulator. Inverse mapping is an explicit initialization assumption; both sources start with at least 30 open commands.",
+    "Small prefix error and terminal task success do not establish whole-path equivalence or faster-teacher validity."
+  ],
+  "trials": [
+    {
+      "source": "/home/robot/.pi05-handson/corrections/human_1792316444273677599",
+      "source_metadata_sha256": "04352c3687814b10143c2d57c84d83f50fcb9e18015d9d229fc7fc5c23f1fadb",
+      "source_initial_state_sha256": "a018727fc8a4aa143bd99d747f81264f31a312f3771029adbdd7c31e5a184059",
+      "source_frame_count": 796,
+      "source_frame_checksums_verified": true,
+      "initial_physics_exactly_restored": true,
+      "initial_fresh_state8_error": [
+        5.3571605485025486e-11,
+        -3.3280266320545593e-09,
+        -4.8349019676763305e-08,
+        -8.147551167070333e-08,
+        1.4119632518738712e-08,
+        -2.8762713433216902e-08,
+        -8.727736172664535e-10,
+        1.2083882575120164e-09
+      ],
+      "initial_on": false,
+      "controller_restoration": [
+        {
+          "before": {
+            "ee_pos": [
+              -0.20813683595083216,
+              0.0015485363448326664,
+              1.1781754942158065
+            ],
+            "ee_ori_mat": [
+              [
+                -0.0024841964833414794,
+                0.9984495448123804,
+                -0.05560876937840583
+              ],
+              [
+                0.9999967403386781,
+                0.0024475436430228463,
+                -0.0007272153271811431
+              ],
+              [
+                -0.0005899829224161601,
+                -0.0556103946584096,
+                -0.9984523703843291
+              ]
+            ],
+            "goal_pos": [
+              -0.2081340911609005,
+              0.0015649252322378316,
+              1.178185380028037
+            ],
+            "goal_ori": [
+              [
+                -0.0004918296871690936,
+                0.9983867450712572,
+                -0.056777331476359764
+              ],
+              [
+                0.9999998786606131,
+                0.0004926243561613802,
+                0.0
+              ],
+              [
+                2.7969896363104485e-05,
+                -0.05677732458703325,
+                -0.9983868662149061
+              ]
+            ],
+            "initial_joint": [
+              0.0,
+              -0.161037389,
+              0.0,
+              -2.44459747,
+              0.0,
+              2.2267522,
+              0.7853981633974483
+            ],
+            "gripper_current_action": [
+              1.0,
+              -1.0
+            ]
+          },
+          "after": {
+            "ee_pos": [
+              0.009816433356629753,
+              0.21162028277903666,
+              1.0069303029083045
+            ],
+            "ee_ori_mat": [
+              [
+                0.22591600172494297,
+                0.8440998712094612,
+                0.4862688223491023
+              ],
+              [
+                0.9723131395589639,
+                -0.22600128816789744,
+                -0.05941865353100903
+              ],
+              [
+                0.05974210245381939,
+                0.4862291899615018,
+                -0.8717867032845681
+              ]
+            ],
+            "goal_pos": [
+              0.009816433356629753,
+              0.21162028277903666,
+              1.0069303029083045
+            ],
+            "goal_ori": [
+              [
+                0.22591600172494297,
+                0.8440998712094612,
+                0.4862688223491023
+              ],
+              [
+                0.9723131395589639,
+                -0.22600128816789744,
+                -0.05941865353100903
+              ],
+              [
+                0.05974210245381939,
+                0.4862291899615018,
+                -0.8717867032845681
+              ]
+            ],
+            "initial_joint": [
+              0.0,
+              -0.161037389,
+              0.0,
+              -2.44459747,
+              0.0,
+              2.2267522,
+              0.7853981633974483
+            ],
+            "gripper_current_action": [
+              0.9419703196206346,
+              -0.9357121876675164
+            ]
+          },
+          "physical_gripper_qpos": [
+            0.03883940639241269,
+            -0.03871424375335033
+          ],
+          "actuator_ctrlrange": [
+            [
+              0.0,
+              0.04
+            ],
+            [
+              -0.04,
+              0.0
+            ]
+          ]
+        }
+      ],
+      "status": "FULL_1X_COMPLETE",
+      "physical_state_unchanged_by_controller_refresh": true,
+      "executed_control_steps": 796,
+      "prefix_max_errors_m": {
+        "pre_eef_error_m": 0.0004191327854792007,
+        "returned_post_eef_error_m": 0.00042198093823370315,
+        "fresh_post_eef_error_m": 0.0004750202948710633
+      },
+      "prefix_gate_pass": true,
+      "terminal_checks": {
+        "last_ten_on": true,
+        "last_ten_actual_open": true,
+        "last_ten_open_command": true,
+        "final_retreat_ge_10cm": true
+      },
+      "terminal_gate_pass": true,
+      "reference_error_summary_m": {
+        "pre_eef_error_m": {
+          "mean": 0.00048373153713273927,
+          "max": 0.0007260260084652725
+        },
+        "returned_post_eef_error_m": {
+          "mean": 0.0006013658954688146,
+          "max": 0.0016807207841577308
+        },
+        "fresh_post_eef_error_m": {
+          "mean": 0.0008196761335822053,
+          "max": 0.001762709380483673
+        },
+        "fresh_post_bowl_error_m": {
+          "mean": 0.0007627237594972527,
+          "max": 0.009778511916679302
+        }
+      },
+      "final": {
+        "on": true,
+        "gap": 0.07993024804862611,
+        "distance": 0.18682016403724905
+      },
+      "bowl_error_peak_context": {
+        "step": "354",
+        "fresh_post_bowl_error_m": "0.009778511916679302",
+        "gap": "0.0041309644134888725",
+        "on": "False",
+        "command": "1.0",
+        "bowl_2": "0.9215990196596123",
+        "action_0": "0.0",
+        "action_1": "0.0",
+        "action_2": "0.10000000149011612"
+      },
+      "full_original_actions_verified_exact": true,
+      "source_metadata_unchanged": true
+    },
+    {
+      "source": "/home/robot/.pi05-handson/corrections/human_1792316988593839967",
+      "source_metadata_sha256": "576c8d6781913ee2933dfe68469e5295ccaa366db2310d23ff2790f4eb16af1b",
+      "source_initial_state_sha256": "deac21f7f942eee7c50ecb32f92d31afa87efd42ad709679c17e00204a7660ce",
+      "source_frame_count": 735,
+      "source_frame_checksums_verified": true,
+      "initial_physics_exactly_restored": true,
+      "initial_fresh_state8_error": [
+        7.973527046956086e-10,
+        -1.3538735244011946e-08,
+        1.6925349677343604e-08,
+        -3.788500935186789e-08,
+        7.978438576472513e-09,
+        -8.730889233810046e-09,
+        -2.638952320554999e-10,
+        -9.427095076786074e-10
+      ],
+      "initial_on": false,
+      "controller_restoration": [
+        {
+          "before": {
+            "ee_pos": [
+              -0.20813683595083216,
+              0.0015485363448326664,
+              1.1781754942158065
+            ],
+            "ee_ori_mat": [
+              [
+                -0.0024841964833414794,
+                0.9984495448123804,
+                -0.05560876937840583
+              ],
+              [
+                0.9999967403386781,
+                0.0024475436430228463,
+                -0.0007272153271811431
+              ],
+              [
+                -0.0005899829224161601,
+                -0.0556103946584096,
+                -0.9984523703843291
+              ]
+            ],
+            "goal_pos": [
+              -0.2081340911609005,
+              0.0015649252322378316,
+              1.178185380028037
+            ],
+            "goal_ori": [
+              [
+                -0.0004918296871690936,
+                0.9983867450712572,
+                -0.056777331476359764
+              ],
+              [
+                0.9999998786606131,
+                0.0004926243561613802,
+                0.0
+              ],
+              [
+                2.7969896363104485e-05,
+                -0.05677732458703325,
+                -0.9983868662149061
+              ]
+            ],
+            "initial_joint": [
+              0.0,
+              -0.161037389,
+              0.0,
+              -2.44459747,
+              0.0,
+              2.2267522,
+              0.7853981633974483
+            ],
+            "gripper_current_action": [
+              1.0,
+              -1.0
+            ]
+          },
+          "after": {
+            "ee_pos": [
+              -0.028117460332670298,
+              0.27088202672348705,
+              0.9135551025843768
+            ],
+            "ee_ori_mat": [
+              [
+                0.17658210780602804,
+                0.9031524392794871,
+                0.3913239458891946
+              ],
+              [
+                0.9842441071007241,
+                -0.16568403365467751,
+                -0.06174413842147783
+              ],
+              [
+                0.009071760594018513,
+                0.3960611978159748,
+                -0.9181793020670291
+              ]
+            ],
+            "goal_pos": [
+              -0.028117460332670298,
+              0.27088202672348705,
+              0.9135551025843768
+            ],
+            "goal_ori": [
+              [
+                0.17658210780602804,
+                0.9031524392794871,
+                0.3913239458891946
+              ],
+              [
+                0.9842441071007241,
+                -0.16568403365467751,
+                -0.06174413842147783
+              ],
+              [
+                0.009071760594018513,
+                0.3960611978159748,
+                -0.9181793020670291
+              ]
+            ],
+            "initial_joint": [
+              0.0,
+              -0.161037389,
+              0.0,
+              -2.44459747,
+              0.0,
+              2.2267522,
+              0.7853981633974483
+            ],
+            "gripper_current_action": [
+              0.9454793872611901,
+              -0.9449471036077768
+            ]
+          },
+          "physical_gripper_qpos": [
+            0.0389095877452238,
+            -0.03889894207215554
+          ],
+          "actuator_ctrlrange": [
+            [
+              0.0,
+              0.04
+            ],
+            [
+              -0.04,
+              0.0
+            ]
+          ]
+        }
+      ],
+      "status": "FULL_1X_COMPLETE",
+      "physical_state_unchanged_by_controller_refresh": true,
+      "executed_control_steps": 735,
+      "prefix_max_errors_m": {
+        "pre_eef_error_m": 0.0004684179250609425,
+        "returned_post_eef_error_m": 0.0004540205463467963,
+        "fresh_post_eef_error_m": 0.000738402720670574
+      },
+      "prefix_gate_pass": true,
+      "terminal_checks": {
+        "last_ten_on": true,
+        "last_ten_actual_open": true,
+        "last_ten_open_command": true,
+        "final_retreat_ge_10cm": true
+      },
+      "terminal_gate_pass": true,
+      "reference_error_summary_m": {
+        "pre_eef_error_m": {
+          "mean": 0.001505800710567281,
+          "max": 0.0024762023278604877
+        },
+        "returned_post_eef_error_m": {
+          "mean": 0.0016112767260933454,
+          "max": 0.0032193067689500693
+        },
+        "fresh_post_eef_error_m": {
+          "mean": 0.0017188571099876287,
+          "max": 0.003037165955673019
+        },
+        "fresh_post_bowl_error_m": {
+          "mean": 0.0019279477660314607,
+          "max": 0.003749193324387152
+        }
+      },
+      "final": {
+        "on": true,
+        "gap": 0.07998437761303714,
+        "distance": 0.18614990790448702
+      },
+      "bowl_error_peak_context": {
+        "step": "341",
+        "fresh_post_bowl_error_m": "0.003749193324387152",
+        "gap": "0.005395059117381931",
+        "on": "False",
+        "command": "1.0",
+        "bowl_2": "0.9623341387838794",
+        "action_0": "0.0",
+        "action_1": "0.0",
+        "action_2": "0.10000000149011612"
+      },
+      "full_original_actions_verified_exact": true,
+      "source_metadata_unchanged": true
+    }
+  ],
+  "retiming_qualified": true,
+  "qualification_note": "Only the restoration prerequisite for a separately bounded carry-retiming pilot is satisfied: both full replays place/release/retreat, with millimeter-level EEF deviation. It does not validate retimed data, faster actions, recovery generalization or a training fix. Source2 full fresh-post max3.04mm/returned-post3.22mm and source1 transient bowl max9.78mm remain explicitly recorded.",
+  "full_path_review_basis": "Post-run descriptive review of full pre-action EEF maximum error <=3mm plus terminal gates; only the ten-step gate was predeclared. Returned/fresh post errors are reported separately and are not asserted to be <=3mm.",
+  "replay_helper_sha256": "4655a4d2476f9de2242f362bbfed860174188bc0b79960711ef68f85689421f4"
+}

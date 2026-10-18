@@ -1,0 +1,292 @@
+{
+  "status": "FEASIBLE_CONDITIONAL_ON_TRAIN_SERVE_CONTRACT_PREFLIGHT",
+  "task": "现有数据不变的原生 state-conditioning 受控 A/B；只读可行性审查，不启动训练。",
+  "authorization_boundary": "用户已授权真正重训；本子任务只写本报告，不改 source/config/data，不运行 policy/simulation/GPU，不操作原 GUI。",
+  "inputs": {
+    "openpi_revision": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+    "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+    "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+    "suggested_same_sampler_manifest": "evidence/corrections-public37_tempo_v1-manifest.json",
+    "sampler_manifest_sha256": "c7792a86de4d3637f8169bae9cbceae339360ed344966e45b404dfa1a3a8d91f",
+    "retained_data": {
+      "approved_sources": 17,
+      "human_clips": 19,
+      "human_frames": 9121,
+      "public_train_episodes": 37,
+      "public_train_frames": 4400,
+      "total_frames": 13521,
+      "public_holdout_episodes_excluded": 10,
+      "drafts_excluded": true
+    },
+    "parent": "checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+    "parent_params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+    "normalization": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+    "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "tokenizer_path": "/home/robot/.cache/openpi/big_vision/paligemma_tokenizer.model",
+    "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6"
+  },
+  "verdict": {
+    "feasible": true,
+    "minimum_change": "只在实验配置中显式设置 discrete_state_input，并把同一值固定进训练记录和推理配置。无需改 tokenizer、上游 OpenPI、模型参数结构或原始数据。",
+    "not_a_fix_claim": "这是新的输入条件实验，不能承诺解决抓取覆盖、接触或慢搬运；不替代原速重放失败后的 teacher 数据门。",
+    "relationship_to_previous_plan": "旧计划将 state A/B 列为独立后续分支；用户这次明确要求重训后，可先选这个不依赖新 teacher 数据的分支。原速 replay 未复现阻止的是2x生成数据，不会让原始已批准监督帧自动失效。"
+  },
+  "pinned_source_findings": [
+    {
+      "file": "scripts/course_config.py:18",
+      "finding": "pi05=True, both Gemma variants LoRA, horizon10, discrete_state_input=False 当前硬编码。"
+    },
+    {
+      "file": "openpi/src/openpi/models/pi0_config.py:31",
+      "finding": "discrete_state_input 只被 ModelTransformFactory 读取；pi05 默认 max_token_len=200。切换该 flag 不改变 pi05 架构。"
+    },
+    {
+      "file": "openpi/src/openpi/models/pi0.py:93",
+      "finding": "只有 not pi05 才创建连续 state_proj。pi05 的离散状态通过已有语言 embedding 与前缀进入，不新增8维投影权重或词表。"
+    },
+    {
+      "file": "openpi/src/openpi/training/config.py:132",
+      "finding": "PI05 model transforms: ResizeImages → TokenizePrompt(discrete_state_input=flag) → PadStatesAndActions(action_dim)。先 tokenize8维，再 pad32维。"
+    },
+    {
+      "file": "openpi/src/openpi/training/config.py:181",
+      "finding": "PI05 use_quantile_norm=True；数据和推理均在 model transforms 前 Normalize。状态不是米/弧度原值直接做 digitize。"
+    },
+    {
+      "file": "openpi/src/openpi/models/tokenizer.py:24",
+      "finding": "True: np.digitize(normalized_state, np.linspace(-1,1,257)[:-1])-1，构造 Task/State/Action 格式；False: 原任务文本+换行。小于-1得-1，大于上界得255；没有对称clip。"
+    },
+    {
+      "file": "openpi/src/openpi/training/weight_loaders.py:38",
+      "finding": "CheckpointWeightLoader 读取整个父模型树，允许缺 LoRA 由参考树补齐；现有父模型已有同架构 LoRA。"
+    },
+    {
+      "file": "openpi/scripts/train.py:73",
+      "finding": "_load_weights_and_validate 必须 check_pytree_equality(check_shapes=True,check_dtypes=True)。本审查未加载父模型权重；实际启动仍应保留此原生 gate。"
+    },
+    {
+      "file": "scripts/train_corrections.py:305",
+      "finding": "现有 make_experiment 调用 make_config，再替换数据、父权重、batch/LR和保存周期；目前无 state flag。"
+    },
+    {
+      "file": "scripts/serve_checkpoint.py:38",
+      "finding": "现有 serve 总是调用默认 make_config(False)，不会从兼容权重树辨认训练时状态 flag；新 True checkpoint 必须有匹配 serve 合同。"
+    },
+    {
+      "file": "scripts/serve_position_study.py:46",
+      "finding": "诊断服务 metadata 当前硬编码 state_input=False；如用于新 state checkpoint，也必须从该 checkpoint 合同读取并校验。"
+    }
+  ],
+  "actual_cpu_checks": {
+    "policy_or_model_constructed": false,
+    "GPU_used": false,
+    "method": "JAX_PLATFORMS=cpu；真实固定 parquet state 全帧 + OpenPI Normalize/TokenizePrompt/PadStatesAndActions + 已缓存真实 SentencePiece tokenizer；未修改源码。",
+    "states_checked": 13521,
+    "unique_bin_strings": 13156,
+    "tokenizer_input_state_width": 8,
+    "state_width_after_padding": 32,
+    "max_token_len": 200,
+    "true_prompt_token_count_minmax": [
+      49,
+      58
+    ],
+    "true_prompt_token_count_p0_p50_p99_p100": [
+      49,
+      55,
+      57,
+      58
+    ],
+    "false_prompt_token_count": 17,
+    "no_current_data_truncation": true,
+    "state_changed_true_tokens_changed": true,
+    "state_changed_false_tokens_unchanged": true,
+    "max_token_len_change_required": false,
+    "tokenizer_source_change_required": false
+  },
+  "quantization_audit": {
+    "index_names": [
+      "eef_x",
+      "eef_y",
+      "eef_z",
+      "axisangle_x",
+      "axisangle_y",
+      "axisangle_z",
+      "finger_qpos_0",
+      "finger_qpos_1"
+    ],
+    "public": {
+      "frames": 4400,
+      "below_minus1_per_dim": [
+        48,
+        22,
+        125,
+        67,
+        76,
+        19,
+        35,
+        24
+      ],
+      "above_plus1_per_dim": [
+        59,
+        24,
+        33,
+        20,
+        23,
+        20,
+        36,
+        31
+      ],
+      "encoded_bin_minmax": [
+        -1,
+        255
+      ]
+    },
+    "human": {
+      "frames": 9121,
+      "below_minus1_per_dim": [
+        0,
+        0,
+        12,
+        340,
+        210,
+        0,
+        50,
+        2863
+      ],
+      "above_plus1_per_dim": [
+        231,
+        334,
+        24,
+        0,
+        0,
+        2414,
+        33,
+        49
+      ],
+      "encoded_bin_minmax": [
+        -1,
+        255
+      ],
+      "unique_bins_per_dim": [
+        169,
+        147,
+        255,
+        98,
+        71,
+        98,
+        145,
+        170
+      ]
+    },
+    "interpretation": "父模型公开数据 quantiles 对人工部分维度有饱和：axisangle_z 2414/9121 高于 q99约.7306，finger1 2863/9121低于 q01约-.03984。该 -1/255 是 tokenizer 数字文本，不是 embedding 下标越界；但会合并范围外数值，不能宣称所有8维信息无损。开/闭爪仍需通过真实样本不同bin与实际transform验证。",
+    "first_ab_policy": "保持父 stats 和上游 tokenizer 不变，记录饱和局限。不要为了让范围更好看而同时换norm或clip规则。若后续验证显示相关状态不可区分，再另做有版本的预处理实验并重新训练/serve匹配。"
+  },
+  "weight_compatibility": {
+    "architecture": "compatible by pinned source: pi05/variants/action_dim32/horizon10/max_len200 不变；state flag 不是参数树结构开关。",
+    "new_parameters": "none required; numeric bin strings use existing SentencePiece vocabulary/embedding。",
+    "initialization": "同一个父1999完整权重，fresh Adam/RNG/data cursor；不是 exact resume。仅 LoRA 可训练规则保持。",
+    "required_runtime_validation": "必须保留原生父权重 keys/shapes/dtypes gate，并确认没有意外新随机参数或改 freeze_filter；本报告没有声称实际GPU初始化已通过。",
+    "serving_detection": "True/False 参数树完全兼容，单看 checkpoint weights 无法可靠推断 state flag，所以缺少合同应拒绝当作新 True模型加载。旧无合同实验可保持原 False 路径。"
+  },
+  "minimal_implementation_proposal": [
+    {
+      "surface": "course_config.make_config",
+      "change": "增加默认False的显式 keyword flag，并传入 Pi0Config；不要把全局默认改True，不影响旧GUI/旧模型。"
+    },
+    {
+      "surface": "train_corrections.make_experiment/main/build_record",
+      "change": "传递显式 state flag；记录完整 pi05/variants/horizon/action_dim/max_token_len/discrete_state_input、tokenizerSHA、父/数据/采样/normalizationSHA。实验名区分 on/off，拒绝覆写旧目录。"
+    },
+    {
+      "surface": "checkpoint contract",
+      "change": "使用现有 evidence/{experiment}-launch.json 作为新实验合同，固定到checkpoint可读取的位置或加受控引用。保存checkpoint时的step与合同匹配；旧模型无字段默认False仅用于历史兼容。"
+    },
+    {
+      "surface": "serve_checkpoint / isolated study server",
+      "change": "新实验读取并校验其训练合同，将 cfg.model 用同flag构造，再 create_trained_policy；如允许CLI flag，应和合同不一致就拒绝。把flag和合同SHA写入 metadata。默认8755旧服务不动，新模型先隔离端口检查。"
+    },
+    {
+      "surface": "tests",
+      "change": "最小回归覆盖默认False兼容、显式True传递、launch字段、serve拒绝flag冲突、同图同文不同state的实际token变化/无截断。无需更换tokenizer、增加新模型类或改upstream。"
+    }
+  ],
+  "controlled_ab": {
+    "recommended_sampler": "两臂都用现有 tempo_v1 alias 的70/10/19/1 profile，保持与最新分支完全相同的数据和采样；若主负责人改选 reviewed19_v4 uniform，也必须两臂一起固定，不能 on/off 用不同采样。",
+    "control": {
+      "discrete_state_input": false,
+      "new_updates": 2000,
+      "batch_size": 4,
+      "learning_rate": 1e-05,
+      "seed": 42
+    },
+    "candidate": {
+      "discrete_state_input": true,
+      "new_updates": 2000,
+      "batch_size": 4,
+      "learning_rate": 1e-05,
+      "seed": 42
+    },
+    "common": "父1999、原数据17sources19clips、完整恢复、10holdout排除、10步action window、20步warmup、同freeze_filter、同normalization/tokenizer、num_workers0、freshoptimizer、采样索引种子全部相同。",
+    "sample_budget": "每臂2000×batch4=8000个观测起点；这不是8000独立轨迹，也不保证遍历13521真实起点。10动作窗口存在重叠。",
+    "checkpoint_indices": [
+      1000,
+      1999
+    ],
+    "checkpoint_count_boundary": "step index1000表示已执行1001次更新；1999表示2000次。不得把1000index写成恰好1000updates。",
+    "why_2000": "是有界输入条件方向性对照，与既有batch/LR一致；不是保证拟合完成或解决缺失覆盖。",
+    "invalid_comparison": "只训True2000、和旧False5000或不同父/不同采样比较，不能称state-only受控A/B。可保留旧模型为外部参考。",
+    "attribution_limit": "上游True同时改变prompt模板和增加状态数字，因此对照估计的是原生state-conditioning整条输入路径的效果；不能单独声称数字状态本身是唯一机制。若需机制隔离，可后续增常量state同模板控制，首轮无需增加第三训练臂。"
+  },
+  "must_pass_before_launch": [
+    {
+      "gate": "immutable data preflight",
+      "status": "required; existing trainer可用",
+      "checks": "新experiment目录/launch不存在；manifest及profile全部SHA和原17sources19clips/恢复/10holdout不变；父norm一致；不重新导出或生成teacher。"
+    },
+    {
+      "gate": "actual tokenizer contract",
+      "status": "PASS in this read-only review",
+      "checks": "13521真实state量化、8→token→32顺序、True变化/False不变、49..58<200、不截断；记录饱和。"
+    },
+    {
+      "gate": "train/serve same configuration",
+      "status": "NOT IMPLEMENTED by this review",
+      "checks": "显式flag贯穿配置/launch/metadata/serve；新True模型不能经默认False入口无提示加载。"
+    },
+    {
+      "gate": "CPU dry run and native loader",
+      "status": "required after minimal changes",
+      "checks": "两臂cfg仅预期flag/experiment不同，tokenizer+norm相同；加载同real samples，确认state tokens真实不同而动作/双RGB/10未来窗口/边界padding保持相同。"
+    },
+    {
+      "gate": "paired sampling",
+      "status": "required",
+      "checks": "冻结同manifest/profile/seed与前若干batch source-index identity。不要把数据loader随机增强等运行差异隐藏成state效果。"
+    },
+    {
+      "gate": "parent parameter validation",
+      "status": "native startup gate required; no weight load performed here",
+      "checks": "同父参数manifestSHA；OpenPI _load_weights_and_validate 结构/shape/dtype校验通过后才进入更新。"
+    },
+    {
+      "gate": "bounded runtime smoke",
+      "status": "future training owner gate",
+      "checks": "实际资源检查与首次loss/gradient finite、仅LoRA更新、checkpoint可保存；失败保留artifact，不悄悄退回False。该审查未调用GPU。"
+    }
+  ],
+  "evaluation_contract": {
+    "first": "同位置、同物理初态、同policy RNG seed/replan1；原有24矩阵位置只称validation/regression。",
+    "minimum": "复用计划4个位置×3策略seed×control/candidate=24 paired runs；父1999仅额外reference，不替代本轮False控制。",
+    "success": "每阶段抓取/抬起/搬运/On/连续10步开爪+真实gap≥6cm+离碗≥10cm分别报告，800步截尾。",
+    "time": "失败不能剔除后声称总体提速；不能用trainloss或teacher-forced单帧命中代替闭环任务成功。",
+    "stability": "已完成门后有界追加50步观察重抓/漂移，和旧早停结果区分。",
+    "final_generalization": "至少2个没有用于训练/选择checkpoint的新合法初态另作最终确认，现有10publicholdouts不进训练。"
+  },
+  "remaining_limits": [
+    "本报告的weights兼容是源码结构结论，未加载新模型或测试GPU内存。",
+    "数字state不含碗位置/触觉/接触力；只能帮助本体姿态与夹爪相位，不自动解决物体歧义。",
+    "保持原小动作标签不变，state-conditioning并不生成更快正确搬运目标。",
+    "原始示范中缺少home到中途接管状态的连续路径不会被state tokens自动补齐。",
+    "若因量化饱和后续改norm/token格式，必须另立一致train/serve实验，不能沿用本A/B结论。"
+  ]
+}

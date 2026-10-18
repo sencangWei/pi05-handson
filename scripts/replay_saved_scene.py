@@ -23,9 +23,13 @@ def main():
     parser.add_argument("--smoke", action="store_true")
     parser.add_argument("--stop-after-stable-release", action="store_true",
                         help="Stop after10 consecutive On, open, actual gap>=6cm and EEF-bowl>=10cm steps")
+    parser.add_argument("--post-release-steps", type=positive_int, default=0,
+                        help="Continue this many policy steps after the first stable release, within the total budget")
     args = parser.parse_args()
     if not 1 <= args.port <= 65535 or args.replan_steps > 10 or (not args.smoke and args.checkpoint is None):
         parser.error("Need port1..65535, replan1..10 and expected checkpoint unless smoke")
+    if args.post_release_steps and not args.stop_after_stable_release:
+        parser.error("--post-release-steps requires --stop-after-stable-release")
     source, output = args.source_scene.resolve(), args.output.resolve()
     if output.exists():
         raise FileExistsError(f"Refusing to overwrite {output}")
@@ -60,7 +64,9 @@ def main():
                  "untracked_native_gui_edits_possible": False,
                  "saved_scene_replay": str(source), "source_scene_sha256": hashlib.sha256((source / "scene.json").read_bytes()).hexdigest(),
                  "replan_steps": args.replan_steps, "max_steps": args.max_steps,
-                 "stop_policy": "ten-step stable released retreat or budget" if args.stop_after_stable_release else "fixed full budget; On never stops early",
+                 "post_release_steps_requested": args.post_release_steps,
+                 "stop_policy": (f"ten-step stable released retreat, then {args.post_release_steps} extra policy steps, or budget"
+                                 if args.stop_after_stable_release else "fixed full budget; On never stops early"),
                  "policy_rng": (f"Isolated server resets RNG per connection to seed {metadata['diagnostic_rng_reset_per_connection']}"
                                 if metadata is not None and "diagnostic_rng_reset_per_connection" in metadata
                                 else "Use a fresh isolated server per comparison; client.reset does not reset sampling RNG"),
@@ -70,6 +76,7 @@ def main():
         record.result["model_metadata"] = metadata
         plan = collections.deque()
         stable, completion = 0, False
+        completion_step = None
         start = time.monotonic()
         for _ in range(min(5, args.max_steps) if args.smoke else args.max_steps):
             obs = env.regenerate_obs_from_state(env.get_sim_state())  # Same fresh-observation timing as GUI.
@@ -95,12 +102,22 @@ def main():
             gap = float(np.abs(obs["robot0_gripper_qpos"]).sum())
             distance = float(np.linalg.norm(obs["robot0_eef_pos"] - obs["akita_black_bowl_1_pos"]))
             stable = stable + 1 if done and action[6] < 0 and gap >= .06 and distance >= .10 else 0
-            if args.stop_after_stable_release and stable >= 10:
+            if args.stop_after_stable_release and stable >= 10 and not completion:
                 completion = True
+                completion_step = record.result["control_steps"]
+            if completion and record.result["control_steps"] >= completion_step + args.post_release_steps:
                 break
         record.result["wall_duration_s"] = time.monotonic() - start
         record.result["ten_step_release_retreat_verified"] = completion
-        reason = "smoke_complete" if args.smoke else "stable_release_retreat" if completion else "step_limit"
+        record.result["first_ten_step_release_retreat_control_steps"] = completion_step
+        record.result["post_release_steps_executed"] = (record.result["control_steps"] - completion_step
+                                                        if completion_step is not None else 0)
+        record.result["post_release_followup_complete"] = (completion and
+            record.result["post_release_steps_executed"] == args.post_release_steps)
+        reason = ("smoke_complete" if args.smoke else "stable_release_retreat_followup"
+                  if record.result["post_release_followup_complete"] and args.post_release_steps
+                  else "stable_release_retreat" if completion and not args.post_release_steps
+                  else "step_limit_after_release" if completion else "step_limit")
         record.save(reason, env.get_sim_state(), obs)
         print(json.dumps(record.result), flush=True)
     except Exception as error:

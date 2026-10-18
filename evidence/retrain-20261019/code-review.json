@@ -1,0 +1,277 @@
+{
+  "status": "PASS_CODE_REVIEW",
+  "reviewer": "batch14_visual_b",
+  "review_scope": "Independent read-only review of generator/export/sampler/trainer; CPU-only tests and artifact report reads. No model, GPU, simulation, training, source-data or source-code modifications.",
+  "code_sha256": {
+    "scripts/generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+    "scripts/prepare_tracking_teacher.py": "531af6a664d5411d2703ca2dc68df1b584dc325cb55732e6247824e53d135fbd",
+    "scripts/train_tracking_teacher.py": "06694a859b6dfd6f78d9cc3ffaa6a7672a9e19d0c070116c52d4a3890b1a294c",
+    "scripts/prepare_teacher_sampling.py": "66a6ceeb745405c351b83dc16424fc4aa51aca64ca4bc0c0a8ee2ead20339ec5",
+    "tests/test_tracking_teacher.py": "d841a85645a44eb1b6cb2f63daf0c8d3da2aa50eb134b46ffe9c8d03e5a79617",
+    "tests/test_tracking_teacher_export.py": "cb9584da5e38b594f5ea793369356e996dad18f4546242d3f4a1f5eea1045331",
+    "tests/test_teacher_sampling.py": "07f80bb39b412c17bc27ab12fa021d57e0567cf347d78d127e17ac5b415b3183",
+    "scripts/replay_saved_scene.py": "769b19dc084744d1a51bdcb1f0a9adc0b47b6288977eed4abac2d74f95fee265"
+  },
+  "active_blockers": [],
+  "resolved_findings": [
+    {
+      "severity": "important",
+      "component": "prepare_tracking_teacher.load_teachers",
+      "finding": "Export/training acceptance initially did not require generator_version2 or audited-carry-only feedback, and did not compare noncarry generated actions to original source actions.",
+      "resolution": "Current source requires generator_version2, feedback_scope audited_carry_only, noncarry_action_policy exact_source_action and compares every noncarry float32 action byte-for-byte at its pinned source reference index. Legacy/missing contracts and rehashed wrong noncarry actions now have rejection tests.",
+      "status": "RESOLVED"
+    },
+    {
+      "severity": "important",
+      "component": "prepare_tracking_teacher.load_teachers",
+      "finding": "Teacher initial state checksum initially only matched its own metadata, not necessarily the approved original source checksum.",
+      "resolution": "metadata.initial_sim_state_sha256 and source_initial_sim_state_sha256 must both equal original initial_sim_state_sha256; actual initial array bytes are rehashed. Added self-consistent wrong-initial-state rejection test.",
+      "status": "RESOLVED"
+    }
+  ],
+  "checks": [
+    {
+      "topic": "temporal alignment",
+      "result": "PASS",
+      "evidence": "Generator computes pre=state8(obs) and both RGB arrays from the same obs before env.step(action); fresh post observations are obtained from the resulting current sim state and reused as next pre. Export requires post_state~next state; Arrow state/action/RGB compared against each saved NPZ."
+    },
+    {
+      "topic": "SO3 and physics",
+      "result": "PASS_WITH_STATED_LIMITS",
+      "evidence": "World rotation error is log(R_reference * R_actual^-1), matching left-multiplicative world delta. Only one initial state restoration; no per-frame reference teleports. Actual physics time must equal generated_count*.05 and carry quality gates limit tracking/drop error. Controller hidden cache restoration is approximate and explicitly disclosed; paired rate1 control pilots test this limitation."
+    },
+    {
+      "topic": "approval and original data preservation",
+      "result": "PASS",
+      "evidence": "Teacher source_kind offline_tracking_teacher, human_actions_only=False, approval_type None; no fake human approval. Base37 public +19 clips/17 sources and10 holdouts validated before teachers; prefix episode files unchanged byte-for-byte; selected ranges, source IDs, heldout IDs and norms inherited unchanged."
+    },
+    {
+      "topic": "future action windows and sampling",
+      "result": "PASS",
+      "evidence": "LeRobot creates native10-action windows within episode bounds; last9 starts use native terminal padding. RepeatedFrames remaps observation starts after native window construction, never stitches source gaps. Teacher sampling carry group requires all10 reference indices strictly inside protected carry;60/20/15/5 groups partition all real starts and each retained >=once. Alias exact-base equality and pinned SHA validated before training."
+    },
+    {
+      "topic": "training lineage",
+      "result": "PASS",
+      "evidence": "Parent numeric course checkpoint and matching norm validated; new experiment cannot overwrite existing checkpoint/launch. Fresh optimizer/data cursor/RNG lineage is explicit. Seed42, horizon10, pi05 discrete_state_inputFalse and LoRA freeze are maintained. Loader monkeypatch restored in finally."
+    }
+  ],
+  "verification": {
+    "independent_pre_hardening_cpu_tests": {
+      "command": "rtk proxy .venv/bin/python -m pytest -q tests/test_tracking_teacher.py tests/test_tracking_teacher_export.py tests/test_teacher_sampling.py",
+      "result": "29 passed in56.43s; this run loaded code before the acceptance hardening landed, not claimed to cover its new tests."
+    },
+    "independent_current_math_sampler_cpu_tests": {
+      "command": "rtk proxy .venv/bin/python -m pytest -q tests/test_tracking_teacher.py tests/test_teacher_sampling.py",
+      "result": "13 passed in0.16s"
+    },
+    "independent_current_ruff": {
+      "command": "rtk proxy .venv/bin/ruff check scripts/generate_tracking_teacher.py scripts/prepare_tracking_teacher.py scripts/train_tracking_teacher.py scripts/prepare_teacher_sampling.py tests/test_tracking_teacher.py tests/test_tracking_teacher_export.py tests/test_teacher_sampling.py",
+      "result": "All checks passed"
+    },
+    "export_owner_verification_at_matching_final_sha": {
+      "agent": "mixed_review",
+      "reported_result": "22 export tests passed110.56s, followed by1 newly added missing-scope test passed; all23 export cases verified across the two runs. Four actual v2 teachers load_teachers validation passed: rate1[796,735],rate2[726,668].",
+      "claimed_as_independent_full_run": false
+    },
+    "independent_current_missing_scope_cpu_test": {
+      "command": "rtk proxy .venv/bin/python -m pytest -q tests/test_tracking_teacher_export.py::test_missing_feedback_scope_is_rejected_before_reading_frames",
+      "result": "1 passed in0.13s"
+    }
+  },
+  "actual_v2_report_reads": [
+    {
+      "path": ".local/retrain-20261019/teacher-pilot/carry_only_v2/rate1/report.json",
+      "sha256": "46a8ce932440157a057299ae959bc6861cfe0d8bf8a507dca4a0f9cfb378da0d",
+      "status": "PASS",
+      "ready": true,
+      "sources": [
+        {
+          "directory": "/home/robot/.pi05-handson/.local/retrain-20261019/teacher-pilot/carry_only_v2/rate1/human_1792316988593839967",
+          "quality_gates": {
+            "terminal_on_last_ten": true,
+            "terminal_actual_open_last_ten": true,
+            "terminal_open_command_last_ten": true,
+            "terminal_retreat_ge_10cm": true,
+            "carry_position_p95_le_5mm": true,
+            "carry_orientation_p95_le_3deg": true,
+            "carry_not_dropped": true,
+            "carry_speedup_meets_declared_rate": true,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true
+          },
+          "quality_metrics": {
+            "terminal_on_last_ten": true,
+            "terminal_min_gap_m": 0.07998239994049072,
+            "terminal_open_command_last_ten": true,
+            "final_retreat_m": 0.18575939536094666,
+            "carry_position_error_p95_m": 0.0008552386886216127,
+            "carry_orientation_error_p95_deg": 0.18741451394148245,
+            "carry_min_bowl_height_delta_to_reference_m": -0.0007773041725158691,
+            "carry_relative_bowl_eef_error_max_m": 0.002176223322749138,
+            "carry_original_control_steps": 154,
+            "carry_generated_control_steps": 154,
+            "carry_control_step_speedup": 1.0,
+            "whole_episode_original_steps": 735,
+            "whole_episode_generated_steps": 735,
+            "whole_episode_control_step_speedup": 1.0,
+            "simulation_duration_s": 36.750000000009784,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true,
+            "video_frames": 736
+          }
+        },
+        {
+          "directory": "/home/robot/.pi05-handson/.local/retrain-20261019/teacher-pilot/carry_only_v2/rate1/human_1792316444273677599",
+          "quality_gates": {
+            "terminal_on_last_ten": true,
+            "terminal_actual_open_last_ten": true,
+            "terminal_open_command_last_ten": true,
+            "terminal_retreat_ge_10cm": true,
+            "carry_position_p95_le_5mm": true,
+            "carry_orientation_p95_le_3deg": true,
+            "carry_not_dropped": true,
+            "carry_speedup_meets_declared_rate": true,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true
+          },
+          "quality_metrics": {
+            "terminal_on_last_ten": true,
+            "terminal_min_gap_m": 0.07992666959762573,
+            "terminal_open_command_last_ten": true,
+            "final_retreat_m": 0.186948761343956,
+            "carry_position_error_p95_m": 0.0006096602190252162,
+            "carry_orientation_error_p95_deg": 0.22270429365162467,
+            "carry_min_bowl_height_delta_to_reference_m": -0.00044852495193481445,
+            "carry_relative_bowl_eef_error_max_m": 0.0018044736934825778,
+            "carry_original_control_steps": 160,
+            "carry_generated_control_steps": 160,
+            "carry_control_step_speedup": 1.0,
+            "whole_episode_original_steps": 796,
+            "whole_episode_generated_steps": 796,
+            "whole_episode_control_step_speedup": 1.0,
+            "simulation_duration_s": 39.799999999990725,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true,
+            "video_frames": 797
+          }
+        }
+      ]
+    },
+    {
+      "path": ".local/retrain-20261019/teacher-pilot/carry_only_v2/rate2/report.json",
+      "sha256": "691f4f8de3b0093bac0f4259099d5ed1e16b605e8e461e06989f28e6cea421b0",
+      "status": "PASS",
+      "ready": true,
+      "sources": [
+        {
+          "directory": "/home/robot/.pi05-handson/.local/retrain-20261019/teacher-pilot/carry_only_v2/rate2/human_1792316988593839967",
+          "quality_gates": {
+            "terminal_on_last_ten": true,
+            "terminal_actual_open_last_ten": true,
+            "terminal_open_command_last_ten": true,
+            "terminal_retreat_ge_10cm": true,
+            "carry_position_p95_le_5mm": true,
+            "carry_orientation_p95_le_3deg": true,
+            "carry_not_dropped": true,
+            "carry_speedup_meets_declared_rate": true,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true
+          },
+          "quality_metrics": {
+            "terminal_on_last_ten": true,
+            "terminal_min_gap_m": 0.07998239994049072,
+            "terminal_open_command_last_ten": true,
+            "final_retreat_m": 0.18534314632415771,
+            "carry_position_error_p95_m": 0.0019096258944980764,
+            "carry_orientation_error_p95_deg": 0.40335248868951135,
+            "carry_min_bowl_height_delta_to_reference_m": -0.0011506080627441406,
+            "carry_relative_bowl_eef_error_max_m": 0.0023386278189718723,
+            "carry_original_control_steps": 154,
+            "carry_generated_control_steps": 87,
+            "carry_control_step_speedup": 1.7701149425287357,
+            "whole_episode_original_steps": 735,
+            "whole_episode_generated_steps": 668,
+            "whole_episode_control_step_speedup": 1.1002994011976048,
+            "simulation_duration_s": 33.40000000000569,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true,
+            "video_frames": 669
+          }
+        },
+        {
+          "directory": "/home/robot/.pi05-handson/.local/retrain-20261019/teacher-pilot/carry_only_v2/rate2/human_1792316444273677599",
+          "quality_gates": {
+            "terminal_on_last_ten": true,
+            "terminal_actual_open_last_ten": true,
+            "terminal_open_command_last_ten": true,
+            "terminal_retreat_ge_10cm": true,
+            "carry_position_p95_le_5mm": true,
+            "carry_orientation_p95_le_3deg": true,
+            "carry_not_dropped": true,
+            "carry_speedup_meets_declared_rate": true,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true
+          },
+          "quality_metrics": {
+            "terminal_on_last_ten": true,
+            "terminal_min_gap_m": 0.07992666214704514,
+            "terminal_open_command_last_ten": true,
+            "final_retreat_m": 0.1876281052827835,
+            "carry_position_error_p95_m": 0.0016005959709614714,
+            "carry_orientation_error_p95_deg": 0.39262947968206374,
+            "carry_min_bowl_height_delta_to_reference_m": -0.0011105537414550781,
+            "carry_relative_bowl_eef_error_max_m": 0.001770295319147408,
+            "carry_original_control_steps": 160,
+            "carry_generated_control_steps": 90,
+            "carry_control_step_speedup": 1.7777777777777777,
+            "whole_episode_original_steps": 796,
+            "whole_episode_generated_steps": 726,
+            "whole_episode_control_step_speedup": 1.0964187327823691,
+            "simulation_duration_s": 36.29999999999888,
+            "continuous_physics_trajectory": true,
+            "actions_finite_and_bounded": true,
+            "reference_coverage_complete": true,
+            "video_frames": 727
+          }
+        }
+      ]
+    }
+  ],
+  "remaining_limits": [
+    "Successful teacher pilots cover two fixed approved train sources, not broad position generalization or model success.",
+    "Quality tracking aggregates are generated and pinned by the reviewed generator; this review did not rerun physics. Export directly recomputes terminal, continuity, provenance and noncarry checks.",
+    "P95 tracking gates allow some larger errors; max relative bowl/EEF and minimum height checks bound dropped-grasp cases but do not establish real-world grasp reliability.",
+    "Human data remains physically20Hz with nominal10Hz timestamp grid; each generated frame is a real native control action, with no fabricated resampling.",
+    "Current pi05 state-input=False limitation remains. Enabling state tokens requires a separate training-and-serving-consistent experiment.",
+    "Training start and final real-manifest dry-run/backup are owned by root; reviewer did not launch training."
+  ],
+  "followup_replay_review": {
+    "source": "scripts/replay_saved_scene.py",
+    "status": "PASS_STATIC_SEMANTICS_WITH_METRIC_LIMITS",
+    "counting": "First ten-step gate at c latches completion_step=c. The break condition count>=c+post_release_steps therefore executes exactly the requested number of additional actions; zero default stops on the same gate step as previous behavior.",
+    "budget": "The for loop remains bounded by max_steps. If c+requested exceeds budget, post_release_steps_executed reports the actual remainder and stop_reason is step_limit_after_release; if c+requested exactly equals budget the requested observation window is complete.",
+    "stability_metric_boundary": "post_release_followup_complete verifies requested followup action count only, not that On/open/gap/retreat remain continuously true in those steps. Historical first ten-step gate remains true after subsequent instability. Root confirmed new evaluation will independently analyze followup CSV and bowl drift.",
+    "legacy_summary_boundary": "The old24-run summarize_position_study.py expects first stable gate==stop and legacy stop_reason; root confirmed followup runs use separate analysis, not that legacy summary.",
+    "minor_cli_observation": "Explicit --post-release-steps0 is rejected by positive_int although omitted default0 is accepted. No impact on requested50 or legacy omitted option.",
+    "root_reported_verification": "Root reported RuffPASS and real5-step smoke with requested50/executed0/completeFalse; reviewer did not rerun simulation.",
+    "smoke_result_read": {
+      "control_steps": 5,
+      "post_release_steps_requested": 50,
+      "first_ten_step_release_retreat_control_steps": null,
+      "post_release_steps_executed": 0,
+      "post_release_followup_complete": false,
+      "ten_step_release_retreat_verified": false,
+      "stop_reason": "smoke_complete"
+    },
+    "smoke_result_sha256": "cd8391c8d23a0f8fc9c5c6ac08f1278d927d22ca64b3bb723b7cac4d77d51fde"
+  },
+  "final_snapshot_consistent": true
+}

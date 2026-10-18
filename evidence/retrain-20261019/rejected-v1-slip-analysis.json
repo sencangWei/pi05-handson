@@ -1,0 +1,3322 @@
+{
+  "status": "COMPLETE_READ_ONLY_FAILED_PILOT_ANALYSIS",
+  "new_simulation_runs": 0,
+  "thresholds_changed": false,
+  "source": "human_1792316988593839967",
+  "pilot_ready": false,
+  "metadata_status_remains": "rejected",
+  "peak": {
+    "generated_frame": 370,
+    "raw_reference": 389,
+    "reference_rate": 2,
+    "next_reference": 391,
+    "action": [
+      0.1870623677968979,
+      -0.00033348798751831055,
+      -0.011409521102905273,
+      -0.0028325486928224564,
+      0.0037647441495209932,
+      -9.716223576106131e-05,
+      1.0
+    ],
+    "raw_action": [
+      0.10000000149011612,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "teacher_pre_eef_xyz": [
+      -0.048555638641119,
+      0.23382894694805145,
+      1.0003281831741333
+    ],
+    "teacher_post_eef_xyz": [
+      -0.046171754598617554,
+      0.23376567661762238,
+      1.0000823736190796
+    ],
+    "teacher_post_bowl_xyz": [
+      -0.06818634271621704,
+      0.27062705159187317,
+      0.9403182864189148
+    ],
+    "reference_post_bowl_xyz": [
+      -0.0675429254770279,
+      0.27890223264694214,
+      0.9560419321060181
+    ],
+    "teacher_pre_gap_m": 0.00579217541962862,
+    "raw_pre_gap_m": 0.005326102487742901,
+    "teacher_post_gap_m": 0.004781955387443304,
+    "pre_eef_error_m": 0.0008626569178886712,
+    "pre_orientation_error_deg": 0.13499835930061102,
+    "height_delta_to_next_reference_m": -0.01572364568710327,
+    "relative_bowl_eef_error_m": 0.018375715240836143
+  },
+  "location": {
+    "carry_raw_interval": [
+      341,
+      495
+    ],
+    "accelerated_raw_interval": [
+      351,
+      485
+    ],
+    "protected_first_interval": [
+      341,
+      351
+    ],
+    "protected_last_interval": [
+      485,
+      495
+    ],
+    "acceleration_first_generated_frame": 351,
+    "peak_generated_frame": 370,
+    "peak_raw_reference": 389,
+    "peak_next_reference": 391,
+    "peak_generated_steps_after_acceleration_start": 19,
+    "peak_generated_steps_to_first_end_protection_frame": 48,
+    "peak_raw_steps_after_acceleration_start": 38,
+    "peak_raw_steps_before_end_protection": 96,
+    "peak_is_inside_ten_step_protection_boundary": false,
+    "source_motion_segments": [
+      {
+        "raw_start": 290,
+        "raw_stop": 345,
+        "action_xyz": [
+          0,
+          0,
+          0.1
+        ]
+      },
+      {
+        "raw_start": 345,
+        "raw_stop": 465,
+        "action_xyz": [
+          0.1,
+          0,
+          0
+        ]
+      },
+      {
+        "raw_start": 465,
+        "raw_stop": 510,
+        "action_xyz": [
+          0,
+          -0.1,
+          0
+        ]
+      }
+    ],
+    "peak_post_action_elapsed_since_first_accelerated_action_s": 1.0,
+    "peak_post_action_steps_until_end_protection": 47,
+    "peak_post_action_time_until_end_protection_s": 2.35
+  },
+  "measured_slip_window": {
+    "generated_post_frames": [
+      367,
+      370
+    ],
+    "physical_duration_s": 0.15,
+    "bowl_xyz_change_m": [
+      0.011700235307216644,
+      -0.013154476881027222,
+      -0.026110708713531494
+    ],
+    "eef_xyz_change_m": [
+      0.0071784742176532745,
+      -0.00018838047981262207,
+      -0.0007015466690063477
+    ],
+    "finger_gap_before_m": 0.010355374775826931,
+    "finger_gap_after_m": 0.004781955387443304
+  },
+  "observations": [
+    "All teacher/source gripper commands in the inspected carry window remain +1 (closed); there is no accidental release command.",
+    "Generated pre-carry grasp already differs: frame330 uses rate1 and has finger gap11.96mm vs source5.52mm despite EEF XYZ error0.10mm/orientation error0.17deg. At first2x frame351 gap10.97mm vs source5.45mm.",
+    "During generated367->370 the bowl abruptly lowers while the EEF remains close to its reference and the fingers close further. RGB contact sheets show a changed bowl position/tilt under the hand, followed by continued carrying, not a demonstrated complete drop onto the table.",
+    "Peak is far from both outer protection boundaries; reference advances monotonically by2, raw source is already a constant +X transport segment, and rotation corrections are small and smooth.",
+    "The original source has gradual bowl-height settling during +X carry and an earlier lift-to-X turn at raw345. This is not an originally frozen rigid grasp, but its nominal1x replay passed."
+  ],
+  "inferences": [
+    {
+      "hypothesis": "Bowl slips/reseats within a closed but different grasp contact",
+      "confidence": "high for relative displacement/reseating; contact force causality unmeasured",
+      "basis": "Abrupt bowl/EEF-relative motion and finger-gap reduction with continuously closed command and small EEF/rotation errors."
+    },
+    {
+      "hypothesis": "Transport acceleration or sustained faster motion amplifies a fragile grasp",
+      "confidence": "plausible, not isolated",
+      "basis": "Rate2 motion precedes the event, but grasp differences already existed during the rate1 prefix; a matched1x generated control was deliberately not run after the gate failure."
+    },
+    {
+      "hypothesis": "Reference-index discontinuity or a large pose-command/rotation jump",
+      "confidence": "not supported by saved traces",
+      "basis": "Steady rate2 reference mapping, constant source+X segment, small smooth commanded corrections and <=millimeter local EEF tracking."
+    }
+  ],
+  "not_claimed": [
+    "No claim that acceleration alone caused the event.",
+    "No claim that the original human demonstration is unusable.",
+    "No claim that end success cancels the failed no-drop proxy gate."
+  ],
+  "rgb_evidence": [
+    "grasp-context.png",
+    "slip-keyframes.png"
+  ],
+  "rgb_timing": "Stored RGB is each frame pre-action; peak post-frame370 is visible as pre-frame371, raw reference391.",
+  "inspected_rows": [
+    {
+      "generated_frame": 330,
+      "raw_reference": 330,
+      "reference_rate": 1,
+      "next_reference": 331,
+      "action": [
+        0.001337677240371704,
+        0.00028818845748901367,
+        0.10137925297021866,
+        -0.002823680406436324,
+        0.005032599437981844,
+        0.00018686610565055162,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09494815766811371,
+        0.2362072765827179,
+        0.9908418655395508
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09516851603984833,
+        0.23614370822906494,
+        0.9919091463088989
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12420538812875748,
+        0.2849870026111603,
+        0.9588630199432373
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11437509953975677,
+        0.2819044291973114,
+        0.9485540986061096
+      ],
+      "teacher_pre_gap_m": 0.011960912495851517,
+      "raw_pre_gap_m": 0.005517702549695969,
+      "teacher_post_gap_m": 0.011905442923307419,
+      "pre_eef_error_m": 9.714380576042458e-05,
+      "pre_orientation_error_deg": 0.16540316241060385,
+      "height_delta_to_next_reference_m": 0.010308921337127686,
+      "relative_bowl_eef_error_m": 0.014086638577282429
+    },
+    {
+      "generated_frame": 331,
+      "raw_reference": 331,
+      "reference_rate": 1,
+      "next_reference": 332,
+      "action": [
+        0.001529306173324585,
+        0.00032126903533935547,
+        0.10157237201929092,
+        -0.0028339619748294353,
+        0.005074741784483194,
+        0.00019246396550443023,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09516851603984833,
+        0.23614370822906494,
+        0.9919091463088989
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09538576751947403,
+        0.2360810488462448,
+        0.9929792284965515
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12434055656194687,
+        0.28495410084724426,
+        0.9598843455314636
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11457890272140503,
+        0.2818351984024048,
+        0.9495756030082703
+      ],
+      "teacher_pre_gap_m": 0.011905442923307419,
+      "raw_pre_gap_m": 0.0055143702775239944,
+      "teacher_post_gap_m": 0.011851051822304726,
+      "pre_eef_error_m": 0.00011084155266871676,
+      "pre_orientation_error_deg": 0.16660512504000363,
+      "height_delta_to_next_reference_m": 0.01030874252319336,
+      "relative_bowl_eef_error_m": 0.014012567698955536
+    },
+    {
+      "generated_frame": 332,
+      "raw_reference": 332,
+      "reference_rate": 1,
+      "next_reference": 333,
+      "action": [
+        0.001674741506576538,
+        0.0003483891487121582,
+        0.10172019153833389,
+        -0.002840195083990693,
+        0.005105671938508749,
+        0.00019721867283806205,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09538576751947403,
+        0.2360810488462448,
+        0.9929792284965515
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09559990465641022,
+        0.2360193282365799,
+        0.994051992893219
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12447377294301987,
+        0.2849217653274536,
+        0.960909366607666
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11478198319673538,
+        0.28176650404930115,
+        0.9505975842475891
+      ],
+      "teacher_pre_gap_m": 0.011851051822304726,
+      "raw_pre_gap_m": 0.005511040799319744,
+      "teacher_post_gap_m": 0.011797688901424408,
+      "pre_eef_error_m": 0.0001212970310007222,
+      "pre_orientation_error_deg": 0.16747010558097847,
+      "height_delta_to_next_reference_m": 0.010311782360076904,
+      "relative_bowl_eef_error_m": 0.01394022535532713
+    },
+    {
+      "generated_frame": 333,
+      "raw_reference": 333,
+      "reference_rate": 1,
+      "next_reference": 334,
+      "action": [
+        0.001774132251739502,
+        0.000368654727935791,
+        0.10182271152734756,
+        -0.002842389279976487,
+        0.0051253135316073895,
+        0.0002012092008953914,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09559990465641022,
+        0.2360193282365799,
+        0.994051992893219
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09581096470355988,
+        0.23595856130123138,
+        0.9951274991035461
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12460505217313766,
+        0.2848900258541107,
+        0.9619380235671997
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11498434841632843,
+        0.28169840574264526,
+        0.9516199827194214
+      ],
+      "teacher_pre_gap_m": 0.011797688901424408,
+      "raw_pre_gap_m": 0.005507713183760643,
+      "teacher_post_gap_m": 0.01174530666321516,
+      "pre_eef_error_m": 0.00012850800703745335,
+      "pre_orientation_error_deg": 0.16799611936642553,
+      "height_delta_to_next_reference_m": 0.01031804084777832,
+      "relative_bowl_eef_error_m": 0.013869507238268852
+    },
+    {
+      "generated_frame": 334,
+      "raw_reference": 334,
+      "reference_rate": 1,
+      "next_reference": 335,
+      "action": [
+        0.001828223466873169,
+        0.0003820657730102539,
+        0.10187993198633194,
+        -0.0028401704039424658,
+        0.0051339962519705296,
+        0.00020456942729651928,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09581096470355988,
+        0.23595856130123138,
+        0.9951274991035461
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09601905196905136,
+        0.23589873313903809,
+        0.9962056279182434
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12473446875810623,
+        0.28485894203186035,
+        0.9629703164100647
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11518597602844238,
+        0.28163084387779236,
+        0.9526429772377014
+      ],
+      "teacher_pre_gap_m": 0.01174530666321516,
+      "raw_pre_gap_m": 0.005504386965185404,
+      "teacher_post_gap_m": 0.011693859472870827,
+      "pre_eef_error_m": 0.00013250013580545783,
+      "pre_orientation_error_deg": 0.1681861253276,
+      "height_delta_to_next_reference_m": 0.010327339172363281,
+      "relative_bowl_eef_error_m": 0.01380050741136074
+    },
+    {
+      "generated_frame": 335,
+      "raw_reference": 335,
+      "reference_rate": 1,
+      "next_reference": 336,
+      "action": [
+        0.0018395483493804932,
+        0.0003886222839355469,
+        0.10189423710107803,
+        -0.0028341147117316723,
+        0.005132084712386131,
+        0.00020725677313748747,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09601905196905136,
+        0.23589873313903809,
+        0.9962056279182434
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09622428566217422,
+        0.2358398288488388,
+        0.9972862601280212
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12486211210489273,
+        0.28482845425605774,
+        0.9640059471130371
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11538688093423843,
+        0.28156381845474243,
+        0.9536665081977844
+      ],
+      "teacher_pre_gap_m": 0.011693859472870827,
+      "raw_pre_gap_m": 0.005501063074916601,
+      "teacher_post_gap_m": 0.011643311008810997,
+      "pre_eef_error_m": 0.00013344563194550574,
+      "pre_orientation_error_deg": 0.1680570655330906,
+      "height_delta_to_next_reference_m": 0.010339438915252686,
+      "relative_bowl_eef_error_m": 0.013733023777604103
+    },
+    {
+      "generated_frame": 336,
+      "raw_reference": 336,
+      "reference_rate": 1,
+      "next_reference": 337,
+      "action": [
+        0.0018101930618286133,
+        0.00038892030715942383,
+        0.10186920315027237,
+        -0.002824890660122037,
+        0.005120254587382078,
+        0.000209276782697998,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09622428566217422,
+        0.2358398288488388,
+        0.9972862601280212
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09642684459686279,
+        0.23578183352947235,
+        0.9983692765235901
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.1249881163239479,
+        0.28479859232902527,
+        0.9650447964668274
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11558704823255539,
+        0.28149738907814026,
+        0.9546905755996704
+      ],
+      "teacher_pre_gap_m": 0.011643311008810997,
+      "raw_pre_gap_m": 0.0054977405816316605,
+      "teacher_post_gap_m": 0.011593624018132687,
+      "pre_eef_error_m": 0.00013154820771887898,
+      "pre_orientation_error_deg": 0.16763497989687093,
+      "height_delta_to_next_reference_m": 0.010354220867156982,
+      "relative_bowl_eef_error_m": 0.013667093589901924
+    },
+    {
+      "generated_frame": 337,
+      "raw_reference": 337,
+      "reference_rate": 1,
+      "next_reference": 338,
+      "action": [
+        0.0017441809177398682,
+        0.00038295984268188477,
+        0.10180602222681046,
+        -0.0028113913722336292,
+        0.005099492147564888,
+        0.00021106803615111858,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09642684459686279,
+        0.23578183352947235,
+        0.9983692765235901
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09662693738937378,
+        0.23572473227977753,
+        0.9994544386863708
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12511266767978668,
+        0.2847693860530853,
+        0.9660866856575012
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11578648537397385,
+        0.28143149614334106,
+        0.9557153582572937
+      ],
+      "teacher_pre_gap_m": 0.011593624018132687,
+      "raw_pre_gap_m": 0.005494420416653156,
+      "teacher_post_gap_m": 0.011544765904545784,
+      "pre_eef_error_m": 0.0001269895292352885,
+      "pre_orientation_error_deg": 0.16692968911661238,
+      "height_delta_to_next_reference_m": 0.01037132740020752,
+      "relative_bowl_eef_error_m": 0.01360269170254469
+    },
+    {
+      "generated_frame": 338,
+      "raw_reference": 338,
+      "reference_rate": 1,
+      "next_reference": 339,
+      "action": [
+        0.0016456842422485352,
+        0.00037163496017456055,
+        0.10171065479516983,
+        -0.0027947723865509033,
+        0.005070605780929327,
+        0.00021250199642963707,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09662693738937378,
+        0.23572473227977753,
+        0.9994544386863708
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09682478755712509,
+        0.23566848039627075,
+        1.0005415678024292
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.1252359300851822,
+        0.28474074602127075,
+        0.9671313166618347
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11598517745733261,
+        0.28136616945266724,
+        0.9567407965660095
+      ],
+      "teacher_pre_gap_m": 0.011544765904545784,
+      "raw_pre_gap_m": 0.005491102114319801,
+      "teacher_post_gap_m": 0.011496705934405327,
+      "pre_eef_error_m": 0.00012013246305286884,
+      "pre_orientation_error_deg": 0.16597725963469,
+      "height_delta_to_next_reference_m": 0.010390520095825195,
+      "relative_bowl_eef_error_m": 0.013539759442210197
+    },
+    {
+      "generated_frame": 339,
+      "raw_reference": 339,
+      "reference_rate": 1,
+      "next_reference": 340,
+      "action": [
+        0.001519322395324707,
+        0.0003555417060852051,
+        0.10158548504114151,
+        -0.002775362692773342,
+        0.005034750327467918,
+        0.00021370772446971387,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09682478755712509,
+        0.23566848039627075,
+        1.0005415678024292
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09702064096927643,
+        0.23561303317546844,
+        1.001630425453186
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12535810470581055,
+        0.28471270203590393,
+        0.9681784510612488
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11618312448263168,
+        0.2813014090061188,
+        0.9577669501304626
+      ],
+      "teacher_pre_gap_m": 0.011496705934405327,
+      "raw_pre_gap_m": 0.005487785674631596,
+      "teacher_post_gap_m": 0.011449414305388927,
+      "pre_eef_error_m": 0.00011122621799586341,
+      "pre_orientation_error_deg": 0.164811342531268,
+      "height_delta_to_next_reference_m": 0.010411500930786133,
+      "relative_bowl_eef_error_m": 0.013478194363415241
+    },
+    {
+      "generated_frame": 340,
+      "raw_reference": 340,
+      "reference_rate": 1,
+      "next_reference": 341,
+      "action": [
+        0.0013700127601623535,
+        0.0003355741500854492,
+        0.10143766552209854,
+        -0.0027534819673746824,
+        0.00499315932393074,
+        0.0002147335180779919,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09702064096927643,
+        0.23561303317546844,
+        1.001630425453186
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09721475839614868,
+        0.2355583757162094,
+        1.0027207136154175
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12547942996025085,
+        0.2846852242946625,
+        0.9692277908325195
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11638031899929047,
+        0.2812372148036957,
+        0.9587939381599426
+      ],
+      "teacher_pre_gap_m": 0.011449414305388927,
+      "raw_pre_gap_m": 0.005484471097588539,
+      "teacher_post_gap_m": 0.011402865871787071,
+      "pre_eef_error_m": 0.00010070281132357195,
+      "pre_orientation_error_deg": 0.16346730895201605,
+      "height_delta_to_next_reference_m": 0.010433852672576904,
+      "relative_bowl_eef_error_m": 0.013418030925095081
+    },
+    {
+      "generated_frame": 341,
+      "raw_reference": 341,
+      "reference_rate": 1,
+      "next_reference": 342,
+      "action": [
+        0.0012029707431793213,
+        0.0003120303153991699,
+        0.10127077251672745,
+        -0.002730395644903183,
+        0.004947023466229439,
+        0.000215495252632536,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09721475839614868,
+        0.2355583757162094,
+        1.0027207136154175
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09740737825632095,
+        0.23550444841384888,
+        1.0038121938705444
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12560008466243744,
+        0.284658282995224,
+        0.9702790975570679
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11657676100730896,
+        0.28117358684539795,
+        0.9598217010498047
+      ],
+      "teacher_pre_gap_m": 0.011402865871787071,
+      "raw_pre_gap_m": 0.005481158383190632,
+      "teacher_post_gap_m": 0.011357033625245094,
+      "pre_eef_error_m": 8.887294825399294e-05,
+      "pre_orientation_error_deg": 0.16199244776115868,
+      "height_delta_to_next_reference_m": 0.010457396507263184,
+      "relative_bowl_eef_error_m": 0.013359257951378822
+    },
+    {
+      "generated_frame": 342,
+      "raw_reference": 342,
+      "reference_rate": 1,
+      "next_reference": 343,
+      "action": [
+        0.00102311372756958,
+        0.000286102294921875,
+        0.10108957439661026,
+        -0.0027055253740400076,
+        0.004897542297840118,
+        0.0002163634926546365,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09740737825632095,
+        0.23550444841384888,
+        1.0038121938705444
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09759876877069473,
+        0.23545120656490326,
+        1.0049046277999878
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.1257202923297882,
+        0.2846318781375885,
+        0.9713320136070251
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11697517335414886,
+        0.28104546666145325,
+        0.9619210958480835
+      ],
+      "teacher_pre_gap_m": 0.011357033625245094,
+      "raw_pre_gap_m": 0.005477847531437874,
+      "teacher_post_gap_m": 0.011311895214021206,
+      "pre_eef_error_m": 7.608852320117876e-05,
+      "pre_orientation_error_deg": 0.16040925047131718,
+      "height_delta_to_next_reference_m": 0.00941091775894165,
+      "relative_bowl_eef_error_m": 0.013311934657394886
+    },
+    {
+      "generated_frame": 343,
+      "raw_reference": 343,
+      "reference_rate": 1,
+      "next_reference": 344,
+      "action": [
+        0.0008359551429748535,
+        0.00025898218154907227,
+        0.10090122371912003,
+        -0.0026792241260409355,
+        0.0048461006954312325,
+        0.0002173758839489892,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09759876877069473,
+        0.23545120656490326,
+        1.0049046277999878
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09778917580842972,
+        0.23539863526821136,
+        1.0059977769851685
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12584026157855988,
+        0.2846059501171112,
+        0.9723863005638123
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11716914921998978,
+        0.2809835970401764,
+        0.962950587272644
+      ],
+      "teacher_pre_gap_m": 0.011311895214021206,
+      "raw_pre_gap_m": 0.005474538542330265,
+      "teacher_post_gap_m": 0.01126742735505104,
+      "pre_eef_error_m": 6.281110836425796e-05,
+      "pre_orientation_error_deg": 0.15875735998197935,
+      "height_delta_to_next_reference_m": 0.009435713291168213,
+      "relative_bowl_eef_error_m": 0.013255560770630836
+    },
+    {
+      "generated_frame": 344,
+      "raw_reference": 344,
+      "reference_rate": 1,
+      "next_reference": 345,
+      "action": [
+        0.0006464123725891113,
+        0.00023096799850463867,
+        0.10070810467004776,
+        -0.0026536136865615845,
+        0.004793619271367788,
+        0.00021822228154633194,
+        1.0
+      ],
+      "raw_action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09778917580842972,
+        0.23539863526821136,
+        1.0059977769851685
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09797881543636322,
+        0.23534666001796722,
+        1.0070914030075073
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12596018612384796,
+        0.2845804691314697,
+        0.9734417200088501
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11736226826906204,
+        0.2809222936630249,
+        0.9639803171157837
+      ],
+      "teacher_pre_gap_m": 0.01126742735505104,
+      "raw_pre_gap_m": 0.0054712314158678055,
+      "teacher_post_gap_m": 0.011223606765270233,
+      "pre_eef_error_m": 4.931037619826384e-05,
+      "pre_orientation_error_deg": 0.15708887681863495,
+      "height_delta_to_next_reference_m": 0.009461402893066406,
+      "relative_bowl_eef_error_m": 0.013200484216213226
+    },
+    {
+      "generated_frame": 345,
+      "raw_reference": 345,
+      "reference_rate": 1,
+      "next_reference": 346,
+      "action": [
+        0.10045880824327469,
+        0.00020325183868408203,
+        0.0005173683166503906,
+        -0.002626779954880476,
+        0.004741588141769171,
+        0.0002195483393734321,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09797881543636322,
+        0.23534666001796722,
+        1.0070914030075073
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09752151370048523,
+        0.23529572784900665,
+        1.007533311843872
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12542608380317688,
+        0.2845633327960968,
+        0.9738508462905884
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11706279218196869,
+        0.2808641195297241,
+        0.9645175337791443
+      ],
+      "teacher_pre_gap_m": 0.011223606765270233,
+      "raw_pre_gap_m": 0.005467926152050495,
+      "teacher_post_gap_m": 0.011180417612195015,
+      "pre_eef_error_m": 3.603765071602538e-05,
+      "pre_orientation_error_deg": 0.15541534715881614,
+      "height_delta_to_next_reference_m": 0.009333312511444092,
+      "relative_bowl_eef_error_m": 0.01314543280750513
+    },
+    {
+      "generated_frame": 346,
+      "raw_reference": 346,
+      "reference_rate": 1,
+      "next_reference": 347,
+      "action": [
+        0.10027671605348587,
+        0.00014990568161010742,
+        0.0003218650817871094,
+        -0.0025796876288950443,
+        0.004684822168201208,
+        0.0002316956961294636,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09752151370048523,
+        0.23529572784900665,
+        1.007533311843872
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09653762727975845,
+        0.23524533212184906,
+        1.007466435432434
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12436843663454056,
+        0.2845454812049866,
+        0.9737517833709717
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11616172641515732,
+        0.2808092534542084,
+        0.9644761681556702
+      ],
+      "teacher_pre_gap_m": 0.011180417612195015,
+      "raw_pre_gap_m": 0.005464485846459866,
+      "teacher_post_gap_m": 0.011137837544083595,
+      "pre_eef_error_m": 2.250776560686063e-05,
+      "pre_orientation_error_deg": 0.15335595398983906,
+      "height_delta_to_next_reference_m": 0.009275615215301514,
+      "relative_bowl_eef_error_m": 0.01309311855584383
+    },
+    {
+      "generated_frame": 347,
+      "raw_reference": 347,
+      "reference_rate": 1,
+      "next_reference": 348,
+      "action": [
+        0.1001482680439949,
+        8.07642936706543e-05,
+        0.00017642974853515625,
+        -0.0025511132553219795,
+        0.004609995987266302,
+        0.00030301910010166466,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09653762727975845,
+        0.23524533212184906,
+        1.007466435432434
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09544415771961212,
+        0.23518775403499603,
+        1.0072951316833496
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12320711463689804,
+        0.28451627492904663,
+        0.9735472202301025
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11512880772352219,
+        0.2807445824146271,
+        0.9643083810806274
+      ],
+      "teacher_pre_gap_m": 0.011137837544083595,
+      "raw_pre_gap_m": 0.005461262539029121,
+      "teacher_post_gap_m": 0.011095859110355377,
+      "pre_eef_error_m": 1.220996546180686e-05,
+      "pre_orientation_error_deg": 0.15118939283041888,
+      "height_delta_to_next_reference_m": 0.009238839149475098,
+      "relative_bowl_eef_error_m": 0.013042032718658447
+    },
+    {
+      "generated_frame": 348,
+      "raw_reference": 348,
+      "reference_rate": 1,
+      "next_reference": 349,
+      "action": [
+        0.1000979021191597,
+        3.695487976074219e-05,
+        0.00011444091796875,
+        -0.0025597759522497654,
+        0.0045110746286809444,
+        0.0004499381175264716,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09544415771961212,
+        0.23518775403499603,
+        1.0072951316833496
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09432801604270935,
+        0.23512205481529236,
+        1.0070997476577759
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12202637642621994,
+        0.2844769060611725,
+        0.9733184576034546
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11406693607568741,
+        0.2806699573993683,
+        0.9641116857528687
+      ],
+      "teacher_pre_gap_m": 0.011095859110355377,
+      "raw_pre_gap_m": 0.0054580168798565865,
+      "teacher_post_gap_m": 0.011054448783397675,
+      "pre_eef_error_m": 7.753535101073794e-06,
+      "pre_orientation_error_deg": 0.14914711953536836,
+      "height_delta_to_next_reference_m": 0.009206771850585938,
+      "relative_bowl_eef_error_m": 0.012992115691304207
+    },
+    {
+      "generated_frame": 349,
+      "raw_reference": 349,
+      "reference_rate": 1,
+      "next_reference": 350,
+      "action": [
+        0.10010043531656265,
+        -1.7881393432617188e-06,
+        0.0001049041748046875,
+        -0.00258271605707705,
+        0.004398183431476355,
+        0.0006122513441368937,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09432801604270935,
+        0.23512205481529236,
+        1.0070997476577759
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09320686012506485,
+        0.23505018651485443,
+        1.0068979263305664
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.12084262818098068,
+        0.28443026542663574,
+        0.97308349609375
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11299780011177063,
+        0.28058817982673645,
+        0.9639074206352234
+      ],
+      "teacher_pre_gap_m": 0.011054448783397675,
+      "raw_pre_gap_m": 0.005454730708152056,
+      "teacher_post_gap_m": 0.01101358886808157,
+      "pre_eef_error_m": 7.2620650826138444e-06,
+      "pre_orientation_error_deg": 0.14716566511416274,
+      "height_delta_to_next_reference_m": 0.009176075458526611,
+      "relative_bowl_eef_error_m": 0.012943646870553493
+    },
+    {
+      "generated_frame": 350,
+      "raw_reference": 350,
+      "reference_rate": 1,
+      "next_reference": 351,
+      "action": [
+        0.10011950880289078,
+        -5.364418029785156e-05,
+        0.00010251998901367188,
+        -0.0025975981261581182,
+        0.004284367896616459,
+        0.0007264058222062886,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09320686012506485,
+        0.23505018651485443,
+        1.0068979263305664
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09208964556455612,
+        0.2349892556667328,
+        1.0066955089569092
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.11966481804847717,
+        0.28439369797706604,
+        0.972848653793335
+      ],
+      "reference_post_bowl_xyz": [
+        -0.11193080991506577,
+        0.2805119454860687,
+        0.9637012481689453
+      ],
+      "teacher_pre_gap_m": 0.01101358886808157,
+      "raw_pre_gap_m": 0.005451431032270193,
+      "teacher_post_gap_m": 0.010973263531923294,
+      "pre_eef_error_m": 8.317157153214794e-06,
+      "pre_orientation_error_deg": 0.14503583984174173,
+      "height_delta_to_next_reference_m": 0.009147405624389648,
+      "relative_bowl_eef_error_m": 0.012896540574729443
+    },
+    {
+      "generated_frame": 351,
+      "raw_reference": 351,
+      "reference_rate": 2,
+      "next_reference": 353,
+      "action": [
+        0.20010505616664886,
+        -5.155801773071289e-05,
+        9.059906005859375e-05,
+        -0.0025955045130103827,
+        0.0041820029728114605,
+        0.0007715333485975862,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09208964556455612,
+        0.2349892556667328,
+        1.0066955089569092
+      ],
+      "teacher_post_eef_xyz": [
+        -0.09039335697889328,
+        0.2349422127008438,
+        1.0064198970794678
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.11788402497768402,
+        0.284381240606308,
+        0.9725366830825806
+      ],
+      "reference_post_bowl_xyz": [
+        -0.1098061203956604,
+        0.2803991436958313,
+        0.9632941484451294
+      ],
+      "teacher_pre_gap_m": 0.010973263531923294,
+      "raw_pre_gap_m": 0.00544813321903348,
+      "teacher_post_gap_m": 0.010933457873761654,
+      "pre_eef_error_m": 7.399762125714915e-06,
+      "pre_orientation_error_deg": 0.14272589155931156,
+      "height_delta_to_next_reference_m": 0.009242534637451172,
+      "relative_bowl_eef_error_m": 0.012843357399106026
+    },
+    {
+      "generated_frame": 352,
+      "raw_reference": 353,
+      "reference_rate": 2,
+      "next_reference": 355,
+      "action": [
+        0.21067146956920624,
+        -0.0008440017700195312,
+        -0.0023818016052246094,
+        -0.002978098578751087,
+        0.005124550312757492,
+        0.0011767206015065312,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.09039335697889328,
+        0.2349422127008438,
+        1.0064198970794678
+      ],
+      "teacher_post_eef_xyz": [
+        -0.08825838565826416,
+        0.23489688336849213,
+        1.0059680938720703
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.11565947532653809,
+        0.28437140583992004,
+        0.9720459580421448
+      ],
+      "reference_post_bowl_xyz": [
+        -0.10768023878335953,
+        0.28031519055366516,
+        0.962893545627594
+      ],
+      "teacher_pre_gap_m": 0.010933457873761654,
+      "raw_pre_gap_m": 0.00544155016541481,
+      "teacher_post_gap_m": 0.0108941113576293,
+      "pre_eef_error_m": 0.0005483281565830112,
+      "pre_orientation_error_deg": 0.17311186990087726,
+      "height_delta_to_next_reference_m": 0.009152412414550781,
+      "relative_bowl_eef_error_m": 0.012790104374289513
+    },
+    {
+      "generated_frame": 353,
+      "raw_reference": 355,
+      "reference_rate": 2,
+      "next_reference": 357,
+      "action": [
+        0.2124338299036026,
+        -0.0011357665061950684,
+        -0.0011706352233886719,
+        -0.0034756676759570837,
+        0.006358747370541096,
+        0.0013969229767099023,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.08825838565826416,
+        0.23489688336849213,
+        1.0059680938720703
+      ],
+      "teacher_post_eef_xyz": [
+        -0.08601683378219604,
+        0.23484529554843903,
+        1.0054404735565186
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.11333686858415604,
+        0.2843502163887024,
+        0.9714792370796204
+      ],
+      "reference_post_bowl_xyz": [
+        -0.10555257648229599,
+        0.2802489697933197,
+        0.9624967575073242
+      ],
+      "teacher_pre_gap_m": 0.0108941113576293,
+      "raw_pre_gap_m": 0.005434980615973473,
+      "teacher_post_gap_m": 0.010855252854526043,
+      "pre_eef_error_m": 0.000627017579972744,
+      "pre_orientation_error_deg": 0.2114232284566118,
+      "height_delta_to_next_reference_m": 0.008982479572296143,
+      "relative_bowl_eef_error_m": 0.012743317522108555
+    },
+    {
+      "generated_frame": 354,
+      "raw_reference": 357,
+      "reference_rate": 2,
+      "next_reference": 359,
+      "action": [
+        0.21204595267772675,
+        -0.0009545683860778809,
+        0.0016450881958007812,
+        -0.0038441556971520185,
+        0.007353887427598238,
+        0.001358671230264008,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.08601683378219604,
+        0.23484529554843903,
+        1.0054404735565186
+      ],
+      "teacher_post_eef_xyz": [
+        -0.08375425636768341,
+        0.23478935658931732,
+        1.004913330078125
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.11100032925605774,
+        0.2843211889266968,
+        0.9709140062332153
+      ],
+      "reference_post_bowl_xyz": [
+        -0.10342451184988022,
+        0.28019389510154724,
+        0.962101936340332
+      ],
+      "teacher_pre_gap_m": 0.010855252854526043,
+      "raw_pre_gap_m": 0.005428420379757881,
+      "teacher_post_gap_m": 0.01081686932593584,
+      "pre_eef_error_m": 0.0006097590085119009,
+      "pre_orientation_error_deg": 0.24088630443950326,
+      "height_delta_to_next_reference_m": 0.0088120698928833,
+      "relative_bowl_eef_error_m": 0.012701642699539661
+    },
+    {
+      "generated_frame": 355,
+      "raw_reference": 359,
+      "reference_rate": 2,
+      "next_reference": 361,
+      "action": [
+        0.21126393973827362,
+        -0.0006031990051269531,
+        0.004487037658691406,
+        -0.004069082904607058,
+        0.008088253438472748,
+        0.0011933791683986783,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.08375425636768341,
+        0.23478935658931732,
+        1.004913330078125
+      ],
+      "teacher_post_eef_xyz": [
+        -0.0814903974533081,
+        0.23473314940929413,
+        1.0044180154800415
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.10866732895374298,
+        0.28429022431373596,
+        0.9703824520111084
+      ],
+      "reference_post_bowl_xyz": [
+        -0.10128730535507202,
+        0.28012508153915405,
+        0.9617113471031189
+      ],
+      "teacher_pre_gap_m": 0.01081686932593584,
+      "raw_pre_gap_m": 0.005421866662800312,
+      "teacher_post_gap_m": 0.010778947733342648,
+      "pre_eef_error_m": 0.0006069877417758107,
+      "pre_orientation_error_deg": 0.2616250875586767,
+      "height_delta_to_next_reference_m": 0.008671104907989502,
+      "relative_bowl_eef_error_m": 0.01266234740614891
+    },
+    {
+      "generated_frame": 356,
+      "raw_reference": 361,
+      "reference_rate": 2,
+      "next_reference": 363,
+      "action": [
+        0.21068204939365387,
+        -0.0006395578384399414,
+        0.0067615509033203125,
+        -0.004127990920096636,
+        0.008605416864156723,
+        0.0010352872777730227,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.0814903974533081,
+        0.23473314940929413,
+        1.0044180154800415
+      ],
+      "teacher_post_eef_xyz": [
+        -0.07922478020191193,
+        0.23467881977558136,
+        1.003963589668274
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.10633593797683716,
+        0.28426051139831543,
+        0.9698936939239502
+      ],
+      "reference_post_bowl_xyz": [
+        -0.0991411879658699,
+        0.28004390001296997,
+        0.9613260626792908
+      ],
+      "teacher_pre_gap_m": 0.010778947733342648,
+      "raw_pre_gap_m": 0.005415318533778191,
+      "teacher_post_gap_m": 0.010741474106907845,
+      "pre_eef_error_m": 0.0006329172756522894,
+      "pre_orientation_error_deg": 0.2750276852006952,
+      "height_delta_to_next_reference_m": 0.008567631244659424,
+      "relative_bowl_eef_error_m": 0.012624945491552353
+    },
+    {
+      "generated_frame": 357,
+      "raw_reference": 363,
+      "reference_rate": 2,
+      "next_reference": 365,
+      "action": [
+        0.21025721728801727,
+        -0.0009334087371826172,
+        0.008318424224853516,
+        -0.004114394076168537,
+        0.00893002562224865,
+        0.0009464861359447241,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.07922478020191193,
+        0.23467881977558136,
+        1.003963589668274
+      ],
+      "teacher_post_eef_xyz": [
+        -0.07695166766643524,
+        0.23462620377540588,
+        1.003549575805664
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.10399984568357468,
+        0.2842322289943695,
+        0.9694474339485168
+      ],
+      "reference_post_bowl_xyz": [
+        -0.09698682278394699,
+        0.27995559573173523,
+        0.9609453678131104
+      ],
+      "teacher_pre_gap_m": 0.010741474106907845,
+      "raw_pre_gap_m": 0.005408778786659241,
+      "teacher_post_gap_m": 0.010704437270760536,
+      "pre_eef_error_m": 0.0006619627820327878,
+      "pre_orientation_error_deg": 0.28297595102377515,
+      "height_delta_to_next_reference_m": 0.008502066135406494,
+      "relative_bowl_eef_error_m": 0.012590707279741764
+    },
+    {
+      "generated_frame": 358,
+      "raw_reference": 365,
+      "reference_rate": 2,
+      "next_reference": 367,
+      "action": [
+        0.2098390907049179,
+        -0.0013655424118041992,
+        0.009167194366455078,
+        -0.0040781316347420216,
+        0.009082481265068054,
+        0.0008979547419585288,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.07695166766643524,
+        0.23462620377540588,
+        1.003549575805664
+      ],
+      "teacher_post_eef_xyz": [
+        -0.0746653750538826,
+        0.23457396030426025,
+        1.0031726360321045
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.10165320336818695,
+        0.28420397639274597,
+        0.9690399169921875
+      ],
+      "reference_post_bowl_xyz": [
+        -0.09482482820749283,
+        0.27986446022987366,
+        0.9605687260627747
+      ],
+      "teacher_pre_gap_m": 0.010704437270760536,
+      "raw_pre_gap_m": 0.005402246490120888,
+      "teacher_post_gap_m": 0.010667822323739529,
+      "pre_eef_error_m": 0.0006758509553037584,
+      "pre_orientation_error_deg": 0.2863771126568419,
+      "height_delta_to_next_reference_m": 0.008471190929412842,
+      "relative_bowl_eef_error_m": 0.012559953145682812
+    },
+    {
+      "generated_frame": 359,
+      "raw_reference": 367,
+      "reference_rate": 2,
+      "next_reference": 369,
+      "action": [
+        0.20927925407886505,
+        -0.001824498176574707,
+        0.009372234344482422,
+        -0.004030860494822264,
+        0.009080772288143635,
+        0.0008605176117271185,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.0746653750538826,
+        0.23457396030426025,
+        1.0031726360321045
+      ],
+      "teacher_post_eef_xyz": [
+        -0.07236205041408539,
+        0.23452071845531464,
+        1.0028283596038818
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.0992920845746994,
+        0.2841741740703583,
+        0.9686665534973145
+      ],
+      "reference_post_bowl_xyz": [
+        -0.09152726083993912,
+        0.2797267436981201,
+        0.9600031971931458
+      ],
+      "teacher_pre_gap_m": 0.010667822323739529,
+      "raw_pre_gap_m": 0.00539572024717927,
+      "teacher_post_gap_m": 0.010631617158651352,
+      "pre_eef_error_m": 0.0006657177582383156,
+      "pre_orientation_error_deg": 0.2856881975163887,
+      "height_delta_to_next_reference_m": 0.008663356304168701,
+      "relative_bowl_eef_error_m": 0.012543258257210255
+    },
+    {
+      "generated_frame": 360,
+      "raw_reference": 369,
+      "reference_rate": 2,
+      "next_reference": 371,
+      "action": [
+        0.20847056806087494,
+        -0.002232193946838379,
+        0.009007453918457031,
+        -0.003969361539930105,
+        0.00894199963659048,
+        0.0008187457569874823,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.07236205041408539,
+        0.23452071845531464,
+        1.0028283596038818
+      ],
+      "teacher_post_eef_xyz": [
+        -0.0700397938489914,
+        0.23446504771709442,
+        1.0025125741958618
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.0969143807888031,
+        0.2841414213180542,
+        0.9683229327201843
+      ],
+      "reference_post_bowl_xyz": [
+        -0.08935442566871643,
+        0.2796389162540436,
+        0.9596351981163025
+      ],
+      "teacher_pre_gap_m": 0.010631617158651352,
+      "raw_pre_gap_m": 0.005389200523495674,
+      "teacher_post_gap_m": 0.010595809668302536,
+      "pre_eef_error_m": 0.0006282264366745949,
+      "pre_orientation_error_deg": 0.28125390002140876,
+      "height_delta_to_next_reference_m": 0.008687734603881836,
+      "relative_bowl_eef_error_m": 0.012519268319010735
+    },
+    {
+      "generated_frame": 361,
+      "raw_reference": 371,
+      "reference_rate": 2,
+      "next_reference": 373,
+      "action": [
+        0.2073511928319931,
+        -0.002537369728088379,
+        0.00814199447631836,
+        -0.003888513194397092,
+        0.008683018386363983,
+        0.000768980011343956,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.0700397938489914,
+        0.23446504771709442,
+        1.0025125741958618
+      ],
+      "teacher_post_eef_xyz": [
+        -0.06769578158855438,
+        0.23439949750900269,
+        1.002221703529358
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.09451700001955032,
+        0.2840985953807831,
+        0.9680057764053345
+      ],
+      "reference_post_bowl_xyz": [
+        -0.08717984706163406,
+        0.2795538604259491,
+        0.9592697620391846
+      ],
+      "teacher_pre_gap_m": 0.010595809668302536,
+      "raw_pre_gap_m": 0.0053826868534088135,
+      "teacher_post_gap_m": 0.010560385882854462,
+      "pre_eef_error_m": 0.0005629616207443178,
+      "pre_orientation_error_deg": 0.27344357233662375,
+      "height_delta_to_next_reference_m": 0.008736014366149902,
+      "relative_bowl_eef_error_m": 0.012498047202825546
+    },
+    {
+      "generated_frame": 362,
+      "raw_reference": 373,
+      "reference_rate": 2,
+      "next_reference": 375,
+      "action": [
+        0.20584632456302643,
+        -0.0025850534439086914,
+        0.006830692291259766,
+        -0.003804805688560009,
+        0.008317125961184502,
+        0.0007158883381634951,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.06769578158855438,
+        0.23439949750900269,
+        1.002221703529358
+      ],
+      "teacher_post_eef_xyz": [
+        -0.06533189862966537,
+        0.23432661592960358,
+        1.0019522905349731
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.09210205078125,
+        0.2840481400489807,
+        0.9677115678787231
+      ],
+      "reference_post_bowl_xyz": [
+        -0.0850040540099144,
+        0.2794714868068695,
+        0.9589061737060547
+      ],
+      "teacher_pre_gap_m": 0.010560385882854462,
+      "raw_pre_gap_m": 0.005376179702579975,
+      "teacher_post_gap_m": 0.010525338351726532,
+      "pre_eef_error_m": 0.00046776150702498853,
+      "pre_orientation_error_deg": 0.2628178508151878,
+      "height_delta_to_next_reference_m": 0.008805394172668457,
+      "relative_bowl_eef_error_m": 0.012479758821427822
+    },
+    {
+      "generated_frame": 363,
+      "raw_reference": 375,
+      "reference_rate": 2,
+      "next_reference": 377,
+      "action": [
+        0.20398114621639252,
+        -0.002428889274597168,
+        0.005125999450683594,
+        -0.00372049817815423,
+        0.007861305959522724,
+        0.0006424768944270909,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.06533189862966537,
+        0.23432661592960358,
+        1.0019522905349731
+      ],
+      "teacher_post_eef_xyz": [
+        -0.06295178085565567,
+        0.23425035178661346,
+        1.0017002820968628
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.08967293798923492,
+        0.28399381041526794,
+        0.9674357771873474
+      ],
+      "reference_post_bowl_xyz": [
+        -0.0828273594379425,
+        0.27939164638519287,
+        0.9585440754890442
+      ],
+      "teacher_pre_gap_m": 0.010525338351726532,
+      "raw_pre_gap_m": 0.0053696781396865845,
+      "teacher_post_gap_m": 0.010490653105080128,
+      "pre_eef_error_m": 0.0003464999026618898,
+      "pre_orientation_error_deg": 0.24983688317690161,
+      "height_delta_to_next_reference_m": 0.008891701698303223,
+      "relative_bowl_eef_error_m": 0.012463602237403393
+    },
+    {
+      "generated_frame": 364,
+      "raw_reference": 377,
+      "reference_rate": 2,
+      "next_reference": 379,
+      "action": [
+        0.20182017982006073,
+        -0.0021526217460632324,
+        0.0031042098999023438,
+        -0.003627193858847022,
+        0.007334938272833824,
+        0.000546826224308461,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.06295178085565567,
+        0.23425035178661346,
+        1.0017002820968628
+      ],
+      "teacher_post_eef_xyz": [
+        -0.06055938079953194,
+        0.23417332768440247,
+        1.0014616250991821
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.08723316341638565,
+        0.2839382290840149,
+        0.9671740531921387
+      ],
+      "reference_post_bowl_xyz": [
+        -0.08064989745616913,
+        0.2793140709400177,
+        0.9581831097602844
+      ],
+      "teacher_pre_gap_m": 0.010490653105080128,
+      "raw_pre_gap_m": 0.0053631821647286415,
+      "teacher_post_gap_m": 0.010456323623657227,
+      "pre_eef_error_m": 0.0002096600946970284,
+      "pre_orientation_error_deg": 0.23494216691187975,
+      "height_delta_to_next_reference_m": 0.008990943431854248,
+      "relative_bowl_eef_error_m": 0.0124490512534976
+    },
+    {
+      "generated_frame": 365,
+      "raw_reference": 379,
+      "reference_rate": 2,
+      "next_reference": 381,
+      "action": [
+        0.19943763315677643,
+        -0.0018140673637390137,
+        0.0008344650268554688,
+        -0.0035197155084460974,
+        0.0067571233958005905,
+        0.0004363969201222062,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.06055938079953194,
+        0.23417332768440247,
+        1.0014616250991821
+      ],
+      "teacher_post_eef_xyz": [
+        -0.058158889412879944,
+        0.2340974509716034,
+        1.0012321472167969
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.08478639274835587,
+        0.2838834226131439,
+        0.9669219255447388
+      ],
+      "reference_post_bowl_xyz": [
+        -0.0784716010093689,
+        0.27923858165740967,
+        0.9578230381011963
+      ],
+      "teacher_pre_gap_m": 0.010456323623657227,
+      "raw_pre_gap_m": 0.0053566922433674335,
+      "teacher_post_gap_m": 0.010422339662909508,
+      "pre_eef_error_m": 0.00010372357064625248,
+      "pre_orientation_error_deg": 0.21862217723695887,
+      "height_delta_to_next_reference_m": 0.00909888744354248,
+      "relative_bowl_eef_error_m": 0.012435690499842167
+    },
+    {
+      "generated_frame": 366,
+      "raw_reference": 381,
+      "reference_rate": 2,
+      "next_reference": 383,
+      "action": [
+        0.19691583514213562,
+        -0.0014552474021911621,
+        -0.0015997886657714844,
+        -0.00339723052456975,
+        0.006147001404315233,
+        0.00031962175853550434,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.058158889412879944,
+        0.2340974509716034,
+        1.0012321472167969
+      ],
+      "teacher_post_eef_xyz": [
+        -0.05575450137257576,
+        0.2340240776538849,
+        1.0010075569152832
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.08233633637428284,
+        0.283830851316452,
+        0.9666749835014343
+      ],
+      "reference_post_bowl_xyz": [
+        -0.07628922164440155,
+        0.27916744351387024,
+        0.957464337348938
+      ],
+      "teacher_pre_gap_m": 0.010422339662909508,
+      "raw_pre_gap_m": 0.005350207909941673,
+      "teacher_post_gap_m": 0.0103886928409338,
+      "pre_eef_error_m": 0.00018834251386579126,
+      "pre_orientation_error_deg": 0.20141108669657795,
+      "height_delta_to_next_reference_m": 0.009210646152496338,
+      "relative_bowl_eef_error_m": 0.01242347527295351
+    },
+    {
+      "generated_frame": 367,
+      "raw_reference": 383,
+      "reference_rate": 2,
+      "next_reference": 385,
+      "action": [
+        0.19433942437171936,
+        -0.00110626220703125,
+        -0.004112720489501953,
+        -0.003261530539020896,
+        0.005523804109543562,
+        0.00020383069931995124,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.05575450137257576,
+        0.2340240776538849,
+        1.0010075569152832
+      ],
+      "teacher_post_eef_xyz": [
+        -0.05335022881627083,
+        0.233954057097435,
+        1.000783920288086
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.07988657802343369,
+        0.2837815284729004,
+        0.9664289951324463
+      ],
+      "reference_post_bowl_xyz": [
+        -0.07410518825054169,
+        0.27909865975379944,
+        0.9571069478988647
+      ],
+      "teacher_pre_gap_m": 0.0103886928409338,
+      "raw_pre_gap_m": 0.005344126373529434,
+      "teacher_post_gap_m": 0.010355374775826931,
+      "pre_eef_error_m": 0.0003541907644830644,
+      "pre_orientation_error_deg": 0.1838639718433891,
+      "height_delta_to_next_reference_m": 0.009322047233581543,
+      "relative_bowl_eef_error_m": 0.012411252595484257
+    },
+    {
+      "generated_frame": 368,
+      "raw_reference": 385,
+      "reference_rate": 2,
+      "next_reference": 387,
+      "action": [
+        0.1917908787727356,
+        -0.0007855892181396484,
+        -0.006625652313232422,
+        -0.0031161047518253326,
+        0.004905938170850277,
+        9.468122880207375e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.05335022881627083,
+        0.233954057097435,
+        1.000783920288086
+      ],
+      "teacher_post_eef_xyz": [
+        -0.05095033347606659,
+        0.2338901311159134,
+        1.0005589723587036
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.07087871432304382,
+        0.2812345325946808,
+        0.9586679339408875
+      ],
+      "reference_post_bowl_xyz": [
+        -0.07192004472017288,
+        0.2790313959121704,
+        0.9567506313323975
+      ],
+      "teacher_pre_gap_m": 0.010355374775826931,
+      "raw_pre_gap_m": 0.005338026210665703,
+      "teacher_post_gap_m": 0.008521215990185738,
+      "pre_eef_error_m": 0.0005289284745231271,
+      "pre_orientation_error_deg": 0.16652114262146075,
+      "height_delta_to_next_reference_m": 0.0019173026084899902,
+      "relative_bowl_eef_error_m": 0.0027487752959132195
+    },
+    {
+      "generated_frame": 369,
+      "raw_reference": 387,
+      "reference_rate": 2,
+      "next_reference": 389,
+      "action": [
+        0.18935848772525787,
+        -0.0005501508712768555,
+        -0.009088516235351562,
+        -0.0029740254394710064,
+        0.004314568359404802,
+        -1.3845888133801054e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.05095033347606659,
+        0.2338901311159134,
+        1.0005589723587036
+      ],
+      "teacher_post_eef_xyz": [
+        -0.048555638641119,
+        0.23382894694805145,
+        1.0003281831741333
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.062326304614543915,
+        0.2736048400402069,
+        0.9409950375556946
+      ],
+      "reference_post_bowl_xyz": [
+        -0.06973279267549515,
+        0.27896592020988464,
+        0.9563955664634705
+      ],
+      "teacher_pre_gap_m": 0.008521215990185738,
+      "raw_pre_gap_m": 0.005332014057785273,
+      "teacher_post_gap_m": 0.00579217541962862,
+      "pre_eef_error_m": 0.0007002599886618555,
+      "pre_orientation_error_deg": 0.15012291944585104,
+      "height_delta_to_next_reference_m": -0.015400528907775879,
+      "relative_bowl_eef_error_m": 0.01766369305551052
+    },
+    {
+      "generated_frame": 370,
+      "raw_reference": 389,
+      "reference_rate": 2,
+      "next_reference": 391,
+      "action": [
+        0.1870623677968979,
+        -0.00033348798751831055,
+        -0.011409521102905273,
+        -0.0028325486928224564,
+        0.0037647441495209932,
+        -9.716223576106131e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.048555638641119,
+        0.23382894694805145,
+        1.0003281831741333
+      ],
+      "teacher_post_eef_xyz": [
+        -0.046171754598617554,
+        0.23376567661762238,
+        1.0000823736190796
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.06818634271621704,
+        0.27062705159187317,
+        0.9403182864189148
+      ],
+      "reference_post_bowl_xyz": [
+        -0.0675429254770279,
+        0.27890223264694214,
+        0.9560419321060181
+      ],
+      "teacher_pre_gap_m": 0.00579217541962862,
+      "raw_pre_gap_m": 0.005326102487742901,
+      "teacher_post_gap_m": 0.004781955387443304,
+      "pre_eef_error_m": 0.0008626569178886712,
+      "pre_orientation_error_deg": 0.13499835930061102,
+      "height_delta_to_next_reference_m": -0.01572364568710327,
+      "relative_bowl_eef_error_m": 0.018375715240836143
+    },
+    {
+      "generated_frame": 371,
+      "raw_reference": 391,
+      "reference_rate": 2,
+      "next_reference": 393,
+      "action": [
+        0.1850183755159378,
+        -4.023313522338867e-05,
+        -0.01340031623840332,
+        -0.0026762455236166716,
+        0.003248506924137473,
+        -0.00015077876741997898,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.046171754598617554,
+        0.23376567661762238,
+        1.0000823736190796
+      ],
+      "teacher_post_eef_xyz": [
+        -0.043801650404930115,
+        0.2337103933095932,
+        0.9998267292976379
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.06521211564540863,
+        0.2717277705669403,
+        0.9406144022941589
+      ],
+      "reference_post_bowl_xyz": [
+        -0.06420843303203583,
+        0.27880850434303284,
+        0.9555073976516724
+      ],
+      "teacher_pre_gap_m": 0.004781955387443304,
+      "raw_pre_gap_m": 0.005320290569216013,
+      "teacher_post_gap_m": 0.004660355392843485,
+      "pre_eef_error_m": 0.0010050114942714572,
+      "pre_orientation_error_deg": 0.12065429275032873,
+      "height_delta_to_next_reference_m": -0.014892995357513428,
+      "relative_bowl_eef_error_m": 0.01727229543030262
+    },
+    {
+      "generated_frame": 372,
+      "raw_reference": 393,
+      "reference_rate": 2,
+      "next_reference": 395,
+      "action": [
+        0.18328917026519775,
+        0.00012665987014770508,
+        -0.015162229537963867,
+        -0.0025393664836883545,
+        0.0028014180716127157,
+        -0.0002130766661139205,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.043801650404930115,
+        0.2337103933095932,
+        0.9998267292976379
+      ],
+      "teacher_post_eef_xyz": [
+        -0.041443850845098495,
+        0.23365908861160278,
+        0.999559223651886
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.06257258355617523,
+        0.272500216960907,
+        0.9407999515533447
+      ],
+      "reference_post_bowl_xyz": [
+        -0.06201310455799103,
+        0.27874889969825745,
+        0.9551582336425781
+      ],
+      "teacher_pre_gap_m": 0.004660355392843485,
+      "raw_pre_gap_m": 0.005314578302204609,
+      "teacher_post_gap_m": 0.00458795391023159,
+      "pre_eef_error_m": 0.0011282300110906363,
+      "pre_orientation_error_deg": 0.10849091152970478,
+      "height_delta_to_next_reference_m": -0.014358282089233398,
+      "relative_bowl_eef_error_m": 0.016479719430208206
+    },
+    {
+      "generated_frame": 373,
+      "raw_reference": 395,
+      "reference_rate": 2,
+      "next_reference": 397,
+      "action": [
+        0.18184822797775269,
+        0.00024646520614624023,
+        -0.016652345657348633,
+        -0.0024209243711084127,
+        0.0024341833777725697,
+        -0.0002599355939310044,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.041443850845098495,
+        0.23365908861160278,
+        0.999559223651886
+      ],
+      "teacher_post_eef_xyz": [
+        -0.03910067304968834,
+        0.23361104726791382,
+        0.9992769956588745
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.059947460889816284,
+        0.27329686284065247,
+        0.940992534160614
+      ],
+      "reference_post_bowl_xyz": [
+        -0.059816762804985046,
+        0.2786908447742462,
+        0.9548112750053406
+      ],
+      "teacher_pre_gap_m": 0.00458795391023159,
+      "raw_pre_gap_m": 0.005308964289724827,
+      "teacher_post_gap_m": 0.004521128721535206,
+      "pre_eef_error_m": 0.0012317146174609661,
+      "pre_orientation_error_deg": 0.0986323554859555,
+      "height_delta_to_next_reference_m": -0.013818740844726562,
+      "relative_bowl_eef_error_m": 0.015684116631746292
+    },
+    {
+      "generated_frame": 374,
+      "raw_reference": 397,
+      "reference_rate": 2,
+      "next_reference": 399,
+      "action": [
+        0.18074427545070648,
+        0.00033169984817504883,
+        -0.017811059951782227,
+        -0.002318471670150757,
+        0.0021454121451824903,
+        -0.0002915462537202984,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.03910067304968834,
+        0.23361104726791382,
+        0.9992769956588745
+      ],
+      "teacher_post_eef_xyz": [
+        -0.03677252680063248,
+        0.2335660457611084,
+        0.9989792704582214
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.057336967438459396,
+        0.2741033434867859,
+        0.941187858581543
+      ],
+      "reference_post_bowl_xyz": [
+        -0.0576191246509552,
+        0.2786341905593872,
+        0.9544663429260254
+      ],
+      "teacher_pre_gap_m": 0.004521128721535206,
+      "raw_pre_gap_m": 0.005303457845002413,
+      "teacher_post_gap_m": 0.004461986478418112,
+      "pre_eef_error_m": 0.001311608706600964,
+      "pre_orientation_error_deg": 0.0908779699584949,
+      "height_delta_to_next_reference_m": -0.013278484344482422,
+      "relative_bowl_eef_error_m": 0.014898243360221386
+    },
+    {
+      "generated_frame": 375,
+      "raw_reference": 399,
+      "reference_rate": 2,
+      "next_reference": 401,
+      "action": [
+        0.17998729646205902,
+        0.0003859400749206543,
+        -0.01862168312072754,
+        -0.0022354975808411837,
+        0.0019374805269762874,
+        -0.0003095263382419944,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.03677252680063248,
+        0.2335660457611084,
+        0.9989792704582214
+      ],
+      "teacher_post_eef_xyz": [
+        -0.034459177404642105,
+        0.23352393507957458,
+        0.9986662864685059
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.05480801686644554,
+        0.27468374371528625,
+        0.941242516040802
+      ],
+      "reference_post_bowl_xyz": [
+        -0.05542004853487015,
+        0.27857884764671326,
+        0.954123318195343
+      ],
+      "teacher_pre_gap_m": 0.004461986478418112,
+      "raw_pre_gap_m": 0.005298123694956303,
+      "teacher_post_gap_m": 0.0044183144345879555,
+      "pre_eef_error_m": 0.0013669532490894198,
+      "pre_orientation_error_deg": 0.08521043408299381,
+      "height_delta_to_next_reference_m": -0.012880802154541016,
+      "relative_bowl_eef_error_m": 0.014330970123410225
+    },
+    {
+      "generated_frame": 376,
+      "raw_reference": 401,
+      "reference_rate": 2,
+      "next_reference": 403,
+      "action": [
+        0.17957401275634766,
+        0.0004106760025024414,
+        -0.019086599349975586,
+        -0.0021727336570620537,
+        0.0018108673393726349,
+        -0.0003149155527353287,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.034459177404642105,
+        0.23352393507957458,
+        0.9986662864685059
+      ],
+      "teacher_post_eef_xyz": [
+        -0.03215988352894783,
+        0.23348447680473328,
+        0.9983385801315308
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.05235539376735687,
+        0.2750636339187622,
+        0.9411627054214478
+      ],
+      "reference_post_bowl_xyz": [
+        -0.053219329565763474,
+        0.278524786233902,
+        0.953782320022583
+      ],
+      "teacher_pre_gap_m": 0.0044183144345879555,
+      "raw_pre_gap_m": 0.0052928924560546875,
+      "teacher_post_gap_m": 0.00439046323299408,
+      "pre_eef_error_m": 0.0013979342766106129,
+      "pre_orientation_error_deg": 0.0815292144261555,
+      "height_delta_to_next_reference_m": -0.012619614601135254,
+      "relative_bowl_eef_error_m": 0.013952105306088924
+    },
+    {
+      "generated_frame": 377,
+      "raw_reference": 403,
+      "reference_rate": 2,
+      "next_reference": 405,
+      "action": [
+        0.17949049174785614,
+        0.00040918588638305664,
+        -0.019217729568481445,
+        -0.0021305016707628965,
+        0.0017629439244046807,
+        -0.0003092195838689804,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.03215988352894783,
+        0.23348447680473328,
+        0.9983385801315308
+      ],
+      "teacher_post_eef_xyz": [
+        -0.029873419553041458,
+        0.23344749212265015,
+        0.9979972839355469
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.04996749758720398,
+        0.2752915024757385,
+        0.9409773349761963
+      ],
+      "reference_post_bowl_xyz": [
+        -0.051016759127378464,
+        0.2784719467163086,
+        0.953443169593811
+      ],
+      "teacher_pre_gap_m": 0.00439046323299408,
+      "raw_pre_gap_m": 0.005287716165184975,
+      "teacher_post_gap_m": 0.004373880103230476,
+      "pre_eef_error_m": 0.001405461342073977,
+      "pre_orientation_error_deg": 0.07971439647655126,
+      "height_delta_to_next_reference_m": -0.012465834617614746,
+      "relative_bowl_eef_error_m": 0.013710039667785168
+    },
+    {
+      "generated_frame": 378,
+      "raw_reference": 405,
+      "reference_rate": 2,
+      "next_reference": 407,
+      "action": [
+        0.1797126680612564,
+        0.0003841519355773926,
+        -0.019036531448364258,
+        -0.0021079969592392445,
+        0.0017884824192151427,
+        -0.0002939486876130104,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.029873419553041458,
+        0.23344749212265015,
+        0.9979972839355469
+      ],
+      "teacher_post_eef_xyz": [
+        -0.027598142623901367,
+        0.23341283202171326,
+        0.9976440668106079
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.04762347415089607,
+        0.2754341959953308,
+        0.9407272338867188
+      ],
+      "reference_post_bowl_xyz": [
+        -0.04881212115287781,
+        0.27842026948928833,
+        0.9531058669090271
+      ],
+      "teacher_pre_gap_m": 0.004373880103230476,
+      "raw_pre_gap_m": 0.005282573401927948,
+      "teacher_post_gap_m": 0.004363632760941982,
+      "pre_eef_error_m": 0.001391144352965057,
+      "pre_orientation_error_deg": 0.07964281629122245,
+      "height_delta_to_next_reference_m": -0.01237863302230835,
+      "relative_bowl_eef_error_m": 0.013544177636504173
+    },
+    {
+      "generated_frame": 379,
+      "raw_reference": 407,
+      "reference_rate": 2,
+      "next_reference": 409,
+      "action": [
+        0.18020783364772797,
+        0.00033676624298095703,
+        -0.01857757568359375,
+        -0.0021044278983026743,
+        0.0018804628634825349,
+        -0.0002707809617277235,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.027598142623901367,
+        0.23341283202171326,
+        0.9976440668106079
+      ],
+      "teacher_post_eef_xyz": [
+        -0.025332074612379074,
+        0.23338036239147186,
+        0.9972808361053467
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.0453452430665493,
+        0.27544450759887695,
+        0.9403931498527527
+      ],
+      "reference_post_bowl_xyz": [
+        -0.04660516977310181,
+        0.2783697247505188,
+        0.9527703523635864
+      ],
+      "teacher_pre_gap_m": 0.004363632760941982,
+      "raw_pre_gap_m": 0.005277452990412712,
+      "teacher_post_gap_m": 0.004352157935500145,
+      "pre_eef_error_m": 0.0013573593460023403,
+      "pre_orientation_error_deg": 0.08122108459330772,
+      "height_delta_to_next_reference_m": -0.01237720251083374,
+      "relative_bowl_eef_error_m": 0.013483090326189995
+    },
+    {
+      "generated_frame": 380,
+      "raw_reference": 409,
+      "reference_rate": 2,
+      "next_reference": 411,
+      "action": [
+        0.18093635141849518,
+        0.0002688169479370117,
+        -0.017877817153930664,
+        -0.002117068972438574,
+        0.0020298445597290993,
+        -0.00024123395269270986,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.025332074612379074,
+        0.23338036239147186,
+        0.9972808361053467
+      ],
+      "teacher_post_eef_xyz": [
+        -0.023073062300682068,
+        0.23334982991218567,
+        0.9969097971916199
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.043058130890131,
+        0.2754645347595215,
+        0.9400492310523987
+      ],
+      "reference_post_bowl_xyz": [
+        -0.04439563304185867,
+        0.2783202528953552,
+        0.9524365663528442
+      ],
+      "teacher_pre_gap_m": 0.004352157935500145,
+      "raw_pre_gap_m": 0.005272350739687681,
+      "teacher_post_gap_m": 0.00433533126488328,
+      "pre_eef_error_m": 0.001306819962337613,
+      "pre_orientation_error_deg": 0.0843068196183128,
+      "height_delta_to_next_reference_m": -0.012387335300445557,
+      "relative_bowl_eef_error_m": 0.013422098942101002
+    },
+    {
+      "generated_frame": 381,
+      "raw_reference": 411,
+      "reference_rate": 2,
+      "next_reference": 413,
+      "action": [
+        0.1818547546863556,
+        0.00018417835235595703,
+        -0.016983747482299805,
+        -0.002143368124961853,
+        0.0022262604907155037,
+        -0.0002068455796688795,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.023073062300682068,
+        0.23334982991218567,
+        0.9969097971916199
+      ],
+      "teacher_post_eef_xyz": [
+        -0.020818741992115974,
+        0.23332108557224274,
+        0.9965333342552185
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.040765292942523956,
+        0.275501012802124,
+        0.939703643321991
+      ],
+      "reference_post_bowl_xyz": [
+        -0.04218321666121483,
+        0.2782718241214752,
+        0.9521044492721558
+      ],
+      "teacher_pre_gap_m": 0.00433533126488328,
+      "raw_pre_gap_m": 0.005267263390123844,
+      "teacher_post_gap_m": 0.0043242694810032845,
+      "pre_eef_error_m": 0.0012427106266841292,
+      "pre_orientation_error_deg": 0.08873009376476992,
+      "height_delta_to_next_reference_m": -0.012400805950164795,
+      "relative_bowl_eef_error_m": 0.01335438247770071
+    },
+    {
+      "generated_frame": 382,
+      "raw_reference": 413,
+      "reference_rate": 2,
+      "next_reference": 415,
+      "action": [
+        0.1829153299331665,
+        8.434057235717773e-05,
+        -0.015943050384521484,
+        -0.002180559793487191,
+        0.0024586471263319254,
+        -0.00016928206605371088,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.020818741992115974,
+        0.23332108557224274,
+        0.9965333342552185
+      ],
+      "teacher_post_eef_xyz": [
+        -0.01856674998998642,
+        0.23329392075538635,
+        0.9961538910865784
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.03848429024219513,
+        0.275522381067276,
+        0.9393453598022461
+      ],
+      "reference_post_bowl_xyz": [
+        -0.03996758908033371,
+        0.2782244086265564,
+        0.9517739415168762
+      ],
+      "teacher_pre_gap_m": 0.0043242694810032845,
+      "raw_pre_gap_m": 0.005262190476059914,
+      "teacher_post_gap_m": 0.004317296203225851,
+      "pre_eef_error_m": 0.0011684111086651683,
+      "pre_orientation_error_deg": 0.09427046359601188,
+      "height_delta_to_next_reference_m": -0.012428581714630127,
+      "relative_bowl_eef_error_m": 0.013300350867211819
+    },
+    {
+      "generated_frame": 383,
+      "raw_reference": 415,
+      "reference_rate": 2,
+      "next_reference": 417,
+      "action": [
+        0.18407021462917328,
+        -2.771615982055664e-05,
+        -0.014805793762207031,
+        -0.0022257810924202204,
+        0.0027153308037668467,
+        -0.0001300524891121313,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.01856674998998642,
+        0.23329392075538635,
+        0.9961538910865784
+      ],
+      "teacher_post_eef_xyz": [
+        -0.016314754262566566,
+        0.23326803743839264,
+        0.9957737326622009
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.036209747195243835,
+        0.2755321264266968,
+        0.9389786720275879
+      ],
+      "reference_post_bowl_xyz": [
+        -0.03774842992424965,
+        0.2781779170036316,
+        0.9514449834823608
+      ],
+      "teacher_pre_gap_m": 0.004317296203225851,
+      "raw_pre_gap_m": 0.005257131531834602,
+      "teacher_post_gap_m": 0.004312588833272457,
+      "pre_eef_error_m": 0.0010873941937461495,
+      "pre_orientation_error_deg": 0.10065172620975935,
+      "height_delta_to_next_reference_m": -0.01246631145477295,
+      "relative_bowl_eef_error_m": 0.013256882317364216
+    },
+    {
+      "generated_frame": 384,
+      "raw_reference": 417,
+      "reference_rate": 2,
+      "next_reference": 419,
+      "action": [
+        0.18527203798294067,
+        -0.00014662742614746094,
+        -0.01361846923828125,
+        -0.00227624224498868,
+        0.0029848692938685417,
+        -9.061001765076071e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.016314754262566566,
+        0.23326803743839264,
+        0.9957737326622009
+      ],
+      "teacher_post_eef_xyz": [
+        -0.014060547575354576,
+        0.2332431524991989,
+        0.9953951835632324
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.033937595784664154,
+        0.27553296089172363,
+        0.9386075735092163
+      ],
+      "reference_post_bowl_xyz": [
+        -0.03436930850148201,
+        0.27810877561569214,
+        0.9509480595588684
+      ],
+      "teacher_pre_gap_m": 0.004312588833272457,
+      "raw_pre_gap_m": 0.005252086091786623,
+      "teacher_post_gap_m": 0.004309144802391529,
+      "pre_eef_error_m": 0.001002992270514369,
+      "pre_orientation_error_deg": 0.10756866274322757,
+      "height_delta_to_next_reference_m": -0.0123404860496521,
+      "relative_bowl_eef_error_m": 0.013209964148700237
+    },
+    {
+      "generated_frame": 385,
+      "raw_reference": 419,
+      "reference_rate": 2,
+      "next_reference": 421,
+      "action": [
+        0.1864757537841797,
+        -0.0002682209014892578,
+        -0.012428760528564453,
+        -0.0023283548653125763,
+        0.00325632537715137,
+        -5.2164374210406095e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.014060547575354576,
+        0.2332431524991989,
+        0.9953951835632324
+      ],
+      "teacher_post_eef_xyz": [
+        -0.01180211827158928,
+        0.2332189381122589,
+        0.9950202107429504
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.03166472911834717,
+        0.2755269408226013,
+        0.9382355213165283
+      ],
+      "reference_post_bowl_xyz": [
+        -0.03214483708143234,
+        0.2780643105506897,
+        0.9506234526634216
+      ],
+      "teacher_pre_gap_m": 0.004309144802391529,
+      "raw_pre_gap_m": 0.005247054621577263,
+      "teacher_post_gap_m": 0.004306415095925331,
+      "pre_eef_error_m": 0.0009184927330352366,
+      "pre_orientation_error_deg": 0.1146903939912836,
+      "height_delta_to_next_reference_m": -0.01238793134689331,
+      "relative_bowl_eef_error_m": 0.013180874288082123
+    },
+    {
+      "generated_frame": 386,
+      "raw_reference": 421,
+      "reference_rate": 2,
+      "next_reference": 423,
+      "action": [
+        0.18764029443264008,
+        -0.00038683414459228516,
+        -0.011277198791503906,
+        -0.0023805121891200542,
+        0.0035192943178117275,
+        -1.6347488781320862e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.01180211827158928,
+        0.2332189381122589,
+        0.9950202107429504
+      ],
+      "teacher_post_eef_xyz": [
+        -0.00953769963234663,
+        0.23319509625434875,
+        0.994650661945343
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.02938872016966343,
+        0.27551549673080444,
+        0.9378654956817627
+      ],
+      "reference_post_bowl_xyz": [
+        -0.029919210821390152,
+        0.27802062034606934,
+        0.9503005146980286
+      ],
+      "teacher_pre_gap_m": 0.004306415095925331,
+      "raw_pre_gap_m": 0.00524203572422266,
+      "teacher_post_gap_m": 0.0043040974996984005,
+      "pre_eef_error_m": 0.0008367905393242836,
+      "pre_orientation_error_deg": 0.12171995111246427,
+      "height_delta_to_next_reference_m": -0.01243501901626587,
+      "relative_bowl_eef_error_m": 0.013156380504369736
+    },
+    {
+      "generated_frame": 387,
+      "raw_reference": 423,
+      "reference_rate": 2,
+      "next_reference": 425,
+      "action": [
+        0.18872934579849243,
+        -0.0004976987838745117,
+        -0.010203123092651367,
+        -0.0024306161794811487,
+        0.003764880821108818,
+        1.5628966139047407e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.00953769963234663,
+        0.23319509625434875,
+        0.994650661945343
+      ],
+      "teacher_post_eef_xyz": [
+        -0.007265818305313587,
+        0.233171284198761,
+        0.9942879676818848
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.02710767835378647,
+        0.2754996120929718,
+        0.9374997615814209
+      ],
+      "reference_post_bowl_xyz": [
+        -0.027692366391420364,
+        0.2779776453971863,
+        0.9499791860580444
+      ],
+      "teacher_pre_gap_m": 0.0043040974996984005,
+      "raw_pre_gap_m": 0.0052370307967066765,
+      "teacher_post_gap_m": 0.0043020229786634445,
+      "pre_eef_error_m": 0.0007605577120557427,
+      "pre_orientation_error_deg": 0.12838112000092866,
+      "height_delta_to_next_reference_m": -0.012479424476623535,
+      "relative_bowl_eef_error_m": 0.013135426677763462
+    },
+    {
+      "generated_frame": 388,
+      "raw_reference": 425,
+      "reference_rate": 2,
+      "next_reference": 427,
+      "action": [
+        0.18971242010593414,
+        -0.0005948543548583984,
+        -0.009233951568603516,
+        -0.0024751387536525726,
+        0.0039855861105024815,
+        4.322815584600903e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.007265818305313587,
+        0.233171284198761,
+        0.9942879676818848
+      ],
+      "teacher_post_eef_xyz": [
+        -0.004985345993191004,
+        0.23314720392227173,
+        0.9939333200454712
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.02482021413743496,
+        0.2754800021648407,
+        0.9371402263641357
+      ],
+      "reference_post_bowl_xyz": [
+        -0.025464216247200966,
+        0.27793529629707336,
+        0.9496593475341797
+      ],
+      "teacher_pre_gap_m": 0.0043020229786634445,
+      "raw_pre_gap_m": 0.0052320389077067375,
+      "teacher_post_gap_m": 0.004300095606595278,
+      "pre_eef_error_m": 0.0006918347207829356,
+      "pre_orientation_error_deg": 0.13441044028479288,
+      "height_delta_to_next_reference_m": -0.012519121170043945,
+      "relative_bowl_eef_error_m": 0.01311702560633421
+    },
+    {
+      "generated_frame": 389,
+      "raw_reference": 427,
+      "reference_rate": 2,
+      "next_reference": 429,
+      "action": [
+        0.19056585431098938,
+        -0.0006735324859619141,
+        -0.008397102355957031,
+        -0.0025146901607513428,
+        0.0041755186393857,
+        6.516867142636329e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.004985345993191004,
+        0.23314720392227173,
+        0.9939333200454712
+      ],
+      "teacher_post_eef_xyz": [
+        -0.0026954959612339735,
+        0.2331225723028183,
+        0.9935874342918396
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.022525353357195854,
+        0.27545714378356934,
+        0.9367880821228027
+      ],
+      "reference_post_bowl_xyz": [
+        -0.023234650492668152,
+        0.2778935730457306,
+        0.9493408799171448
+      ],
+      "teacher_pre_gap_m": 0.004300095606595278,
+      "raw_pre_gap_m": 0.0052270605228841305,
+      "teacher_post_gap_m": 0.004298259969800711,
+      "pre_eef_error_m": 0.0006323925335891545,
+      "pre_orientation_error_deg": 0.13965036685285961,
+      "height_delta_to_next_reference_m": -0.012552797794342041,
+      "relative_bowl_eef_error_m": 0.013100670650601387
+    },
+    {
+      "generated_frame": 390,
+      "raw_reference": 429,
+      "reference_rate": 2,
+      "next_reference": 431,
+      "action": [
+        0.1912727802991867,
+        -0.0007286667823791504,
+        -0.007708072662353516,
+        -0.0025475004222244024,
+        0.004330071620643139,
+        8.10610072221607e-05,
+        1.0
+      ],
+      "raw_action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "teacher_pre_eef_xyz": [
+        -0.0026954959612339735,
+        0.2331225723028183,
+        0.9935874342918396
+      ],
+      "teacher_post_eef_xyz": [
+        -0.00039582536555826664,
+        0.2330971658229828,
+        0.9932507872581482
+      ],
+      "teacher_post_bowl_xyz": [
+        -0.020222503691911697,
+        0.27543142437934875,
+        0.9364442229270935
+      ],
+      "reference_post_bowl_xyz": [
+        -0.02100353129208088,
+        0.2778524160385132,
+        0.9490236043930054
+      ],
+      "teacher_pre_gap_m": 0.004298259969800711,
+      "raw_pre_gap_m": 0.005222095176577568,
+      "teacher_post_gap_m": 0.004296483471989632,
+      "pre_eef_error_m": 0.0005833304603584111,
+      "pre_orientation_error_deg": 0.14394203538577607,
+      "height_delta_to_next_reference_m": -0.012579381465911865,
+      "relative_bowl_eef_error_m": 0.01308564841747284
+    }
+  ],
+  "restored_original_1x_comparison": [
+    {
+      "step": "330",
+      "gap": "0.005421571751197996",
+      "bowl_2": "0.9505806668228454",
+      "pre_eef_error_m": "0.0022241947969425385"
+    },
+    {
+      "step": "341",
+      "gap": "0.005395059117381931",
+      "bowl_2": "0.9623341387838794",
+      "pre_eef_error_m": "0.0022610463286384824"
+    },
+    {
+      "step": "350",
+      "gap": "0.00537375115060248",
+      "bowl_2": "0.9650701578063509",
+      "pre_eef_error_m": "0.002274645605477319"
+    },
+    {
+      "step": "351",
+      "gap": "0.005371396826312991",
+      "bowl_2": "0.9648555113572294",
+      "pre_eef_error_m": "0.0022682001378816776"
+    },
+    {
+      "step": "367",
+      "gap": "0.005334524528324746",
+      "bowl_2": "0.9616108821221803",
+      "pre_eef_error_m": "0.0022682694170444756"
+    },
+    {
+      "step": "389",
+      "gap": "0.005285888542573737",
+      "bowl_2": "0.9574922549686103",
+      "pre_eef_error_m": "0.0022978805115667837"
+    }
+  ]
+}

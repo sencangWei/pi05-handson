@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "seed": 42,
+  "repo_id": "course/libero_tracking_teacher_retrain_rate1_v2",
+  "dataset_manifest": "evidence/tracking-teacher-retrain_rate1_v2-manifest.json",
+  "dataset_manifest_sha256": "a67897fa794aed27d73e0449a62866c4a8839764008d1dd954e3e297b839f801",
+  "virtual_frames": 100000,
+  "groups": [
+    {
+      "name": "public_complete_demos",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 60000
+    },
+    {
+      "name": "all_approved_human",
+      "ranges": [
+        [
+          4400,
+          13521
+        ]
+      ],
+      "virtual_count": 20000
+    },
+    {
+      "name": "validated_teacher_normal_carry",
+      "ranges": [
+        [
+          13921,
+          14052
+        ],
+        [
+          14668,
+          14793
+        ]
+      ],
+      "virtual_count": 15000
+    },
+    {
+      "name": "validated_teacher_contact_and_other",
+      "ranges": [
+        [
+          13521,
+          13921
+        ],
+        [
+          14052,
+          14668
+        ],
+        [
+          14793,
+          15052
+        ]
+      ],
+      "virtual_count": 5000
+    }
+  ]
+}

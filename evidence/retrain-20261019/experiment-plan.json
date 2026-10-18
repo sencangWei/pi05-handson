@@ -1,0 +1,62 @@
+{
+  "status": "READY",
+  "user_request": "\u91cd\u8bad\u7ec3",
+  "arms": {
+    "control": "retrain_teacher_1x_20261019",
+    "candidate": "retrain_teacher_2x_20261019"
+  },
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+  "parent_params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+  "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+  "new_updates_per_arm": 2000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "seed": 42,
+  "action_horizon": 10,
+  "discrete_state_input": false,
+  "optimizer_lineage": "same model parent; fresh Adam/RNG/data cursor for each arm, not resume",
+  "sampling_fraction": {
+    "public_complete_demos": 0.6,
+    "all_approved_human": 0.2,
+    "teacher_protected_normal_carry": 0.15,
+    "teacher_contact_and_other": 0.05
+  },
+  "phase_window_contract": "all10 native future labels inside the unprotected reviewed source carry interval; no stitching; every real start represented in sampler map",
+  "training_not_started_yet": true,
+  "candidate_gate": "two2x physical source rollouts pass all fixed geometric/continuity/release/tempo gates before publication; no rejected source used",
+  "followup_evaluation": {
+    "physical_cases": [
+      "zero",
+      "user054_neg_neg",
+      "user055_neg_neg",
+      "user057_pos_pos"
+    ],
+    "policy_seeds": [
+      0,
+      1,
+      2
+    ],
+    "layout_id": 24,
+    "sim_seed": 42,
+    "max_control_steps": 800,
+    "replan_steps": 1,
+    "stability_gate": "On+open+actual gap>=.06m+EEF-bowl>=.10m for10 consecutive steps; continue up to50 extra steps to observe bounded stability",
+    "comparison": "same cases/seeds across both arms, validation not unseen test"
+  },
+  "training_datasets": {
+    "rate1": {
+      "manifest": "evidence/tracking-teacher-retrain_rate1_mix_v2-manifest.json",
+      "frames": 15052
+    },
+    "rate2": {
+      "manifest": "evidence/tracking-teacher-retrain_rate2_mix_v2-manifest.json",
+      "frames": 14915
+    }
+  },
+  "data_intervention": "Actual matched physical re-recording, only carry reference clock1x vs2x; noncarry actions remain original. No rejectedv1 data included. Model/state/action/norm unchanged.",
+  "teacher_carry_speedups": [
+    1.7777777777777777,
+    1.7701149425287357
+  ]
+}

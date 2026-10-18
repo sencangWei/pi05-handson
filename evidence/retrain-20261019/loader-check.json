@@ -1,0 +1,214 @@
+{
+  "status": "PASS",
+  "method": "Native pinned OpenPI create_torch_dataset/transform_dataset with real Arrow RGB and frames; no weights/GPU/optimizer.",
+  "records": [
+    {
+      "rate": 1,
+      "repo_id": "course/libero_tracking_teacher_retrain_rate1_v2",
+      "frames": 15052,
+      "samples": [
+        {
+          "index": 13521,
+          "episode": 56,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 13919,
+          "episode": 56,
+          "local_frame": 398,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14307,
+          "episode": 56,
+          "local_frame": 786,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14316,
+          "episode": 56,
+          "local_frame": 795,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14317,
+          "episode": 57,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14684,
+          "episode": 57,
+          "local_frame": 367,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15042,
+          "episode": 57,
+          "local_frame": 725,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15051,
+          "episode": 57,
+          "local_frame": 734,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        }
+      ],
+      "state_input": false
+    },
+    {
+      "rate": 2,
+      "repo_id": "course/libero_tracking_teacher_retrain_rate2_v2",
+      "frames": 14915,
+      "samples": [
+        {
+          "index": 13521,
+          "episode": 56,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 13884,
+          "episode": 56,
+          "local_frame": 363,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14237,
+          "episode": 56,
+          "local_frame": 716,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14246,
+          "episode": 56,
+          "local_frame": 725,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14247,
+          "episode": 57,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14581,
+          "episode": 57,
+          "local_frame": 334,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14905,
+          "episode": 57,
+          "local_frame": 658,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14914,
+          "episode": 57,
+          "local_frame": 667,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        }
+      ],
+      "state_input": false
+    }
+  ]
+}

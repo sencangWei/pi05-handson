@@ -1,0 +1,29 @@
+{
+  "status": "V2_ENTRY_CONTRACT_VERIFIED_ON_FIXTURES_AND_FOUR_REAL_TEACHERS",
+  "source_sha256": {
+    "scripts/prepare_tracking_teacher.py": "531af6a664d5411d2703ca2dc68df1b584dc325cb55732e6247824e53d135fbd",
+    "scripts/train_tracking_teacher.py": "06694a859b6dfd6f78d9cc3ffaa6a7672a9e19d0c070116c52d4a3890b1a294c",
+    "tests/test_tracking_teacher_export.py": "cb9584da5e38b594f5ea793369356e996dad18f4546242d3f4a1f5eea1045331"
+  },
+  "checks": {
+    "fixture_suite": "22 passed in110.56s; strictv2 contract and noncarry/raw initial-state regressions included",
+    "sampling_override_failure_finally_test": "1 passed;15deselected",
+    "ruff": "PASS all3ownedfiles",
+    "real_rejected_rate2_pair": "PASS: readyFalse/statusrejected rejected before publication",
+    "native_lerobot_10future_window": "PASS fixture, no cross-episode stitching",
+    "sampling_alias": "PASS root prepare_teacher_sampling -> prepare_sampling -> strict train validator",
+    "missing_feedback_scope_test": "1 passed,22deselected in.13s",
+    "real_v2_rate1": "PASS full validation796+735frames",
+    "real_v2_rate2": "PASS full validation726+668frames",
+    "exact_noncarry_source_actions": "PASS float32 bitwise source/reference check on all4episodes",
+    "source_initial_identity": "PASS generated initialstateSHA equals originalsourceSHA"
+  },
+  "real_export_created": false,
+  "training_started": false,
+  "GPU_or_policy_or_simulation_called": false,
+  "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "data_contract": "Original public37 and17approvedsources/19clips unchanged; ten publicholdouts remain original and excluded. Teacher data is explicit nonhuman validated tracking teacher, never forged humanapproval.",
+  "real_pair_gate": "v1 rejected remains unchanged. Both real v2rate1/rate2 pairs pass the new strictentrycontract. This agent only validated them read-only; parent handles exportedmanifest/dryrun/training.",
+  "real_export_created_by_this_agent": false,
+  "training_started_by_this_agent": false
+}

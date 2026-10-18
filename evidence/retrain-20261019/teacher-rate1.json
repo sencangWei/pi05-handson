@@ -1,0 +1,87 @@
+{
+  "ready": true,
+  "status": "PASS",
+  "source_kind": "offline_tracking_teacher",
+  "reference_rate": 1,
+  "feedback_scope": "audited_carry_only",
+  "source_order": [
+    "human_1792316988593839967",
+    "human_1792316444273677599"
+  ],
+  "sources": [
+    {
+      "directory": "/home/robot/.pi05-handson/.local/retrain-20261019/teacher-pilot/carry_only_v2/rate1/human_1792316988593839967",
+      "quality_gates": {
+        "terminal_on_last_ten": true,
+        "terminal_actual_open_last_ten": true,
+        "terminal_open_command_last_ten": true,
+        "terminal_retreat_ge_10cm": true,
+        "carry_position_p95_le_5mm": true,
+        "carry_orientation_p95_le_3deg": true,
+        "carry_not_dropped": true,
+        "carry_speedup_meets_declared_rate": true,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true
+      },
+      "quality_metrics": {
+        "terminal_on_last_ten": true,
+        "terminal_min_gap_m": 0.07998239994049072,
+        "terminal_open_command_last_ten": true,
+        "final_retreat_m": 0.18575939536094666,
+        "carry_position_error_p95_m": 0.0008552386886216127,
+        "carry_orientation_error_p95_deg": 0.18741451394148245,
+        "carry_min_bowl_height_delta_to_reference_m": -0.0007773041725158691,
+        "carry_relative_bowl_eef_error_max_m": 0.002176223322749138,
+        "carry_original_control_steps": 154,
+        "carry_generated_control_steps": 154,
+        "carry_control_step_speedup": 1.0,
+        "whole_episode_original_steps": 735,
+        "whole_episode_generated_steps": 735,
+        "whole_episode_control_step_speedup": 1.0,
+        "simulation_duration_s": 36.750000000009784,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true,
+        "video_frames": 736
+      }
+    },
+    {
+      "directory": "/home/robot/.pi05-handson/.local/retrain-20261019/teacher-pilot/carry_only_v2/rate1/human_1792316444273677599",
+      "quality_gates": {
+        "terminal_on_last_ten": true,
+        "terminal_actual_open_last_ten": true,
+        "terminal_open_command_last_ten": true,
+        "terminal_retreat_ge_10cm": true,
+        "carry_position_p95_le_5mm": true,
+        "carry_orientation_p95_le_3deg": true,
+        "carry_not_dropped": true,
+        "carry_speedup_meets_declared_rate": true,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true
+      },
+      "quality_metrics": {
+        "terminal_on_last_ten": true,
+        "terminal_min_gap_m": 0.07992666959762573,
+        "terminal_open_command_last_ten": true,
+        "final_retreat_m": 0.186948761343956,
+        "carry_position_error_p95_m": 0.0006096602190252162,
+        "carry_orientation_error_p95_deg": 0.22270429365162467,
+        "carry_min_bowl_height_delta_to_reference_m": -0.00044852495193481445,
+        "carry_relative_bowl_eef_error_max_m": 0.0018044736934825778,
+        "carry_original_control_steps": 160,
+        "carry_generated_control_steps": 160,
+        "carry_control_step_speedup": 1.0,
+        "whole_episode_original_steps": 796,
+        "whole_episode_generated_steps": 796,
+        "whole_episode_control_step_speedup": 1.0,
+        "simulation_duration_s": 39.799999999990725,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true,
+        "video_frames": 797
+      }
+    }
+  ]
+}

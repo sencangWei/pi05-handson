@@ -1,0 +1,256 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "rate": 1,
+      "source": "human_1792316444273677599",
+      "frame_count": 796,
+      "noncarry_actions_verified_bitwise_equal": 636,
+      "sampled_frame_hashes_shapes_verified": [
+        0,
+        390,
+        400,
+        540,
+        550,
+        795
+      ],
+      "actual_video_frame_count": 797,
+      "actual_video_fps": 20.0,
+      "actual_video_shape": [
+        256,
+        512,
+        3
+      ],
+      "generator_hash_matches_current": true,
+      "quality_gates": {
+        "terminal_on_last_ten": true,
+        "terminal_actual_open_last_ten": true,
+        "terminal_open_command_last_ten": true,
+        "terminal_retreat_ge_10cm": true,
+        "carry_position_p95_le_5mm": true,
+        "carry_orientation_p95_le_3deg": true,
+        "carry_not_dropped": true,
+        "carry_speedup_meets_declared_rate": true,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true
+      },
+      "quality_metrics": {
+        "terminal_on_last_ten": true,
+        "terminal_min_gap_m": 0.07992666959762573,
+        "terminal_open_command_last_ten": true,
+        "final_retreat_m": 0.186948761343956,
+        "carry_position_error_p95_m": 0.0006096602190252162,
+        "carry_orientation_error_p95_deg": 0.22270429365162467,
+        "carry_min_bowl_height_delta_to_reference_m": -0.00044852495193481445,
+        "carry_relative_bowl_eef_error_max_m": 0.0018044736934825778,
+        "carry_original_control_steps": 160,
+        "carry_generated_control_steps": 160,
+        "carry_control_step_speedup": 1.0,
+        "whole_episode_original_steps": 796,
+        "whole_episode_generated_steps": 796,
+        "whole_episode_control_step_speedup": 1.0,
+        "simulation_duration_s": 39.799999999990725,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true,
+        "video_frames": 797
+      }
+    },
+    {
+      "rate": 1,
+      "source": "human_1792316988593839967",
+      "frame_count": 735,
+      "noncarry_actions_verified_bitwise_equal": 581,
+      "sampled_frame_hashes_shapes_verified": [
+        0,
+        341,
+        351,
+        485,
+        495,
+        734
+      ],
+      "actual_video_frame_count": 736,
+      "actual_video_fps": 20.0,
+      "actual_video_shape": [
+        256,
+        512,
+        3
+      ],
+      "generator_hash_matches_current": true,
+      "quality_gates": {
+        "terminal_on_last_ten": true,
+        "terminal_actual_open_last_ten": true,
+        "terminal_open_command_last_ten": true,
+        "terminal_retreat_ge_10cm": true,
+        "carry_position_p95_le_5mm": true,
+        "carry_orientation_p95_le_3deg": true,
+        "carry_not_dropped": true,
+        "carry_speedup_meets_declared_rate": true,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true
+      },
+      "quality_metrics": {
+        "terminal_on_last_ten": true,
+        "terminal_min_gap_m": 0.07998239994049072,
+        "terminal_open_command_last_ten": true,
+        "final_retreat_m": 0.18575939536094666,
+        "carry_position_error_p95_m": 0.0008552386886216127,
+        "carry_orientation_error_p95_deg": 0.18741451394148245,
+        "carry_min_bowl_height_delta_to_reference_m": -0.0007773041725158691,
+        "carry_relative_bowl_eef_error_max_m": 0.002176223322749138,
+        "carry_original_control_steps": 154,
+        "carry_generated_control_steps": 154,
+        "carry_control_step_speedup": 1.0,
+        "whole_episode_original_steps": 735,
+        "whole_episode_generated_steps": 735,
+        "whole_episode_control_step_speedup": 1.0,
+        "simulation_duration_s": 36.750000000009784,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true,
+        "video_frames": 736
+      }
+    },
+    {
+      "rate": 2,
+      "source": "human_1792316444273677599",
+      "frame_count": 726,
+      "noncarry_actions_verified_bitwise_equal": 636,
+      "sampled_frame_hashes_shapes_verified": [
+        0,
+        390,
+        400,
+        470,
+        480,
+        725
+      ],
+      "actual_video_frame_count": 727,
+      "actual_video_fps": 20.0,
+      "actual_video_shape": [
+        256,
+        512,
+        3
+      ],
+      "generator_hash_matches_current": true,
+      "quality_gates": {
+        "terminal_on_last_ten": true,
+        "terminal_actual_open_last_ten": true,
+        "terminal_open_command_last_ten": true,
+        "terminal_retreat_ge_10cm": true,
+        "carry_position_p95_le_5mm": true,
+        "carry_orientation_p95_le_3deg": true,
+        "carry_not_dropped": true,
+        "carry_speedup_meets_declared_rate": true,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true
+      },
+      "quality_metrics": {
+        "terminal_on_last_ten": true,
+        "terminal_min_gap_m": 0.07992666214704514,
+        "terminal_open_command_last_ten": true,
+        "final_retreat_m": 0.1876281052827835,
+        "carry_position_error_p95_m": 0.0016005959709614714,
+        "carry_orientation_error_p95_deg": 0.39262947968206374,
+        "carry_min_bowl_height_delta_to_reference_m": -0.0011105537414550781,
+        "carry_relative_bowl_eef_error_max_m": 0.001770295319147408,
+        "carry_original_control_steps": 160,
+        "carry_generated_control_steps": 90,
+        "carry_control_step_speedup": 1.7777777777777777,
+        "whole_episode_original_steps": 796,
+        "whole_episode_generated_steps": 726,
+        "whole_episode_control_step_speedup": 1.0964187327823691,
+        "simulation_duration_s": 36.29999999999888,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true,
+        "video_frames": 727
+      }
+    },
+    {
+      "rate": 2,
+      "source": "human_1792316988593839967",
+      "frame_count": 668,
+      "noncarry_actions_verified_bitwise_equal": 581,
+      "sampled_frame_hashes_shapes_verified": [
+        0,
+        341,
+        351,
+        418,
+        428,
+        667
+      ],
+      "actual_video_frame_count": 669,
+      "actual_video_fps": 20.0,
+      "actual_video_shape": [
+        256,
+        512,
+        3
+      ],
+      "generator_hash_matches_current": true,
+      "quality_gates": {
+        "terminal_on_last_ten": true,
+        "terminal_actual_open_last_ten": true,
+        "terminal_open_command_last_ten": true,
+        "terminal_retreat_ge_10cm": true,
+        "carry_position_p95_le_5mm": true,
+        "carry_orientation_p95_le_3deg": true,
+        "carry_not_dropped": true,
+        "carry_speedup_meets_declared_rate": true,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true
+      },
+      "quality_metrics": {
+        "terminal_on_last_ten": true,
+        "terminal_min_gap_m": 0.07998239994049072,
+        "terminal_open_command_last_ten": true,
+        "final_retreat_m": 0.18534314632415771,
+        "carry_position_error_p95_m": 0.0019096258944980764,
+        "carry_orientation_error_p95_deg": 0.40335248868951135,
+        "carry_min_bowl_height_delta_to_reference_m": -0.0011506080627441406,
+        "carry_relative_bowl_eef_error_max_m": 0.0023386278189718723,
+        "carry_original_control_steps": 154,
+        "carry_generated_control_steps": 87,
+        "carry_control_step_speedup": 1.7701149425287357,
+        "whole_episode_original_steps": 735,
+        "whole_episode_generated_steps": 668,
+        "whole_episode_control_step_speedup": 1.1002994011976048,
+        "simulation_duration_s": 33.40000000000569,
+        "continuous_physics_trajectory": true,
+        "actions_finite_and_bounded": true,
+        "reference_coverage_complete": true,
+        "video_frames": 669
+      }
+    }
+  ],
+  "additional_physics_runs": 0,
+  "matched_prefix_checks": [
+    {
+      "source": "human_1792316444273677599",
+      "frame_indices": [
+        0,
+        10,
+        389,
+        390,
+        399,
+        400
+      ],
+      "state_and_both_RGB_bitwise_equal": true
+    },
+    {
+      "source": "human_1792316988593839967",
+      "frame_indices": [
+        0,
+        10,
+        340,
+        341,
+        350,
+        351
+      ],
+      "state_and_both_RGB_bitwise_equal": true
+    }
+  ]
+}

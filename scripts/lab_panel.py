@@ -472,6 +472,10 @@ class LabPanel:
                     hint = (f"混合示范：{manifest['original_train_episodes']}条公开＋"
                             f"{manifest['correction_train_episodes']}条人工纠正；"
                             f"{manifest['holdout_episodes']}条公开留出，原归一化不变")
+                    if manifest.get("curation_selection"):
+                        hint = (f"精选纠正：{manifest['original_train_episodes']}条公开＋"
+                                f"{manifest['correction_train_episodes']}段连续片段/{manifest['correction_train_frames']}帧；"
+                                "原始录制保留，新录制需另行筛选")
             except (OSError, ValueError, KeyError, TypeError):
                 hint = "训练数据清单无效，请刷新；启动前将重新校验"
         self.correction_dataset_hint.set(hint)

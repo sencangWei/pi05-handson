@@ -299,6 +299,7 @@ class CorrectionWorkbench(LabWorkbench):
     def prepare_corrections(self, base_manifest=None):
         self._require_no_correction()
         base = None
+        selection = None
         if base_manifest is not None:
             selected = Path(base_manifest).resolve()
             bundles = self.corrections_bundles()
@@ -312,6 +313,14 @@ class CorrectionWorkbench(LabWorkbench):
                 if not isinstance(relative, str) or Path(relative).is_absolute() or ".." in Path(relative).parts:
                     raise ValueError("公开扩充基座路径无效")
                 base = (self.project / relative).resolve()
+                if "curation_selection" in manifest:
+                    relative_selection = manifest["curation_selection"]
+                    if (not isinstance(relative_selection, str) or Path(relative_selection).is_absolute()
+                            or ".." in Path(relative_selection).parts):
+                        raise ValueError("精选片段清单路径无效")
+                    selection = (self.project / relative_selection).resolve()
+                    if selection.parent != (self.project / "evidence").resolve() or not selection.is_file():
+                        raise ValueError("精选片段清单缺失或不属于本项目")
             else:
                 raise ValueError("所选版本没有公开扩充基座")
             if (str(base) not in bundles or base.parent != (self.project / "evidence").resolve()
@@ -325,6 +334,8 @@ class CorrectionWorkbench(LabWorkbench):
                        "--project-root", str(self.project), "--name", f"human_{time.time_ns()}"]
             if base is not None:
                 command.extend(["--base-manifest", str(base)])
+            if selection is not None:
+                command.extend(["--selection", str(selection)])
             result = subprocess.run(command, cwd=self.project, env=env, capture_output=True, text=True, timeout=600)
             log = self.project / "logs" / f"correction_prepare_{time.time_ns()}.log"
             log.parent.mkdir(parents=True, exist_ok=True)

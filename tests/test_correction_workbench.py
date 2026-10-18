@@ -283,6 +283,29 @@ class CorrectionBackendTests(unittest.TestCase):
             self.assertEqual(command[command.index("--base-manifest") + 1], str(public))
             self.assertEqual(run.call_args.kwargs["env"]["JAX_PLATFORMS"], "cpu")
 
+    def test_prepare_curated_selection_is_retained_and_missing_selection_rejected(self):
+        evidence = self.root / "evidence"
+        evidence.mkdir()
+        public = evidence / "corrections-public37-manifest.json"
+        mixed = evidence / "corrections-curated-manifest.json"
+        selection = evidence / "selection.json"
+        public.write_text(json.dumps({"ready": True, "dataset_kind": "expanded_public_v1"}))
+        selection.write_text('{}')
+        mixed.write_text(json.dumps({"ready": True, "dataset_kind": "expanded_public_corrections_v1",
+                                     "public_base_manifest": str(public.relative_to(self.root)),
+                                     "curation_selection": str(selection.relative_to(self.root))}))
+        with patch("correction_workbench.subprocess.run", return_value=SimpleNamespace(
+                returncode=0, stdout="ready", stderr="")) as run:
+            self.lab.prepare_corrections(base_manifest=mixed)
+            self.lab.background["correction_prepare"].result(timeout=2)
+            self.lab._collect_background()
+            command = run.call_args.args[0]
+            self.assertEqual(command[command.index("--selection") + 1], str(selection))
+        selection.unlink()
+        with patch("correction_workbench.subprocess.run") as run, self.assertRaises(ValueError):
+            self.lab.prepare_corrections(base_manifest=mixed)
+        run.assert_not_called()
+
     def test_prepare_refuses_missing_external_unknown_or_broken_expanded_base(self):
         evidence = self.root / "evidence"
         evidence.mkdir()

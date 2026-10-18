@@ -53,7 +53,62 @@ def write_jsonl(path, values):
     path.write_text("".join(json.dumps(value, ensure_ascii=False, allow_nan=False) + "\n" for value in values))
 
 
-def prepare(root, name, base_manifest=None):
+SELECTION_RULE = "one contiguous [start,stop) slice per source; no stitching or frame dropping"
+
+
+def load_selection(root, selection, task):
+    """Read a local, immutable contiguous-clip plan without changing source recordings."""
+    path = Path(selection)
+    if path.is_absolute():
+        path = path.relative_to(root)
+    path = contained(root, path)
+    if path.parent != root / "evidence" or path.suffix != ".json":
+        raise ValueError("Correction selection must be a JSON file in this project's evidence directory")
+    value = json.loads(path.read_text())
+    clips = value.get("clips")
+    if (type(value.get("schema_version")) is not int or value["schema_version"] != 1
+            or value.get("task") != task or value.get("rule") != SELECTION_RULE
+            or not isinstance(clips, list) or not clips):
+        raise ValueError("Correction selection schema, task or contiguous-slice rule differs")
+    sources = set()
+    for clip in clips:
+        if not isinstance(clip, dict) or set(clip) != {
+                "source_directory", "metadata_sha256", "source_frame_count", "start", "stop", "reason"}:
+            raise ValueError("Correction selection clip fields differ")
+        source = clip["source_directory"]
+        if not isinstance(source, str):
+            raise ValueError("Invalid correction selection source directory")
+        directory = contained(root, source)
+        if (directory.parent != root / "corrections" or not directory.name.startswith("human_")
+                or source != str(directory.relative_to(root))):
+            raise ValueError("Selection must reference an original human correction directory")
+        if source in sources:
+            raise ValueError("Only one contiguous selection per correction source is allowed")
+        sources.add(source)
+        start, stop, count = clip["start"], clip["stop"], clip["source_frame_count"]
+        if (any(type(number) is not int for number in (start, stop, count))
+                or not 0 <= start < stop <= count or stop - start < 10
+                or not isinstance(clip["metadata_sha256"], str)
+                or not re.fullmatch(r"[0-9a-f]{64}", clip["metadata_sha256"])
+                or not isinstance(clip["reason"], str) or not clip["reason"].strip()):
+            raise ValueError("Correction selection bounds, checksum or reason differ")
+    return path, clips
+
+
+def selected_frames(root, clip, metadata_path, metadata, frames):
+    if (str(metadata_path.parent.relative_to(root)) != clip["source_directory"]
+            or metadata.get("status") != "approved" or metadata.get("split") != "train"
+            or metadata.get("approval_type") != APPROVAL or metadata.get("human_actions_only") is not True
+            or digest(metadata_path) != clip["metadata_sha256"]
+            or metadata.get("frame_count") != clip["source_frame_count"]
+            or len(frames) != clip["source_frame_count"]):
+        raise ValueError("Selected correction source approval, metadata checksum or frame count differs")
+    selected = frames[clip["start"]:clip["stop"]]
+    approval_checks(selected)
+    return selected
+
+
+def prepare(root, name, base_manifest=None, selection=None):
     root, name = Path(root).resolve(), safe_name(name)
     repo_id = f"course/libero_corrections_{name}"
     output = root / "data/lerobot" / repo_id
@@ -65,6 +120,8 @@ def prepare(root, name, base_manifest=None):
     if (pinned.get("ready") is not True or pinned.get("train_episodes") != 16
             or set(pinned["train_source_episode_ids"]) & set(pinned["holdout_source_episode_ids"])):
         raise ValueError("Expected the pinned, disjoint 16-episode public training dataset")
+    if selection is not None and base_manifest is None:
+        raise ValueError("Correction selection requires an expanded public base")
     base = None
     inputs = [file_record(root, pinned_path)]
     if base_manifest is not None:
@@ -98,6 +155,10 @@ def prepare(root, name, base_manifest=None):
     info = json.loads((original / "meta/info.json").read_text())
     if info["fps"] != 10 or info["total_episodes"] != public_episodes:
         raise ValueError("Public dataset contract differs")
+    selection_path, clips = load_selection(root, selection, pinned["task"]) if selection is not None else (None, None)
+    if selection_path is not None:
+        inputs.append(file_record(root, selection_path))
+        inputs = list({item["path"]: item for item in inputs}.values())
     corrections, scenarios, raw_files = [], {"train": set(), "holdout": set()}, []
     for metadata_path in sorted((root / "corrections").glob("*/metadata.json")):
         metadata = json.loads(metadata_path.read_text())
@@ -114,6 +175,14 @@ def prepare(root, name, base_manifest=None):
     if scenarios["train"] & scenarios["holdout"]:
         raise ValueError("The same scenario_key occurs in train and holdout corrections")
     train = [record for record in corrections if record[1]["split"] == "train"]
+    if clips is not None:
+        sources = {str(path.parent.relative_to(root)): (path, metadata, frames) for path, metadata, frames in corrections}
+        train = []
+        for clip in clips:
+            if clip["source_directory"] not in sources:
+                raise ValueError("Selected correction source is missing or unapproved")
+            path, metadata, frames = sources[clip["source_directory"]]
+            train.append((path, metadata, selected_frames(root, clip, path, metadata, frames)))
     if not train:
         raise ValueError("No approved train correction episodes")
     # Arrow, PNG processing and statistics are needed only after input validation.
@@ -178,7 +247,7 @@ def prepare(root, name, base_manifest=None):
             "dataset_dir": str(output.relative_to(root)), "task": pinned["task"],
             "original_train_episodes": public_episodes, "original_train_frames": public_frames,
             "correction_train_episodes": len(train), "correction_train_frames": offset - public_frames,
-            "correction_holdout_episodes_excluded": len(corrections) - len(train),
+            "correction_holdout_episodes_excluded": sum(metadata["split"] == "holdout" for _, metadata, _ in corrections),
             "old_holdout_source_episode_ids_excluded": pinned["holdout_source_episode_ids"],
             "train_source_episode_ids": base["train_source_episode_ids"] if base else pinned["train_source_episode_ids"],
             "approval_type": APPROVAL, "official_success_metric": False,
@@ -203,6 +272,9 @@ def prepare(root, name, base_manifest=None):
                 correction_source_directories=[str(p.parent.relative_to(root)) for p, _, _ in train],
                 curation="Complete user-approved trajectories; endpoint gates verified, not a per-action expert-quality certification",
             )
+        if clips is not None:
+            manifest.update(curation_selection=str(selection_path.relative_to(root)), selected_source_ranges=clips,
+                            curation="Selected contiguous source clips; unchanged actions and observations, no stitching or frame dropping; endpoint gates verified")
         # Recheck source snapshots immediately before publishing.
         verify_records(root, manifest["inputs"] + raw_files + [norm_record])
         staged_manifest = Path(temporary) / "manifest.json"
@@ -218,8 +290,9 @@ def main(argv=None):
     parser.add_argument("--project-root", type=Path, default=ROOT)
     parser.add_argument("--name", required=True, type=safe_name)
     parser.add_argument("--base-manifest", type=Path, help="Validated expanded public-only export to combine with approved human corrections")
+    parser.add_argument("--selection", type=Path, help="Evidence JSON selecting one continuous approved clip per source (requires expanded public base)")
     args = parser.parse_args(argv)
-    print(prepare(args.project_root, args.name, args.base_manifest))
+    print(prepare(args.project_root, args.name, args.base_manifest, args.selection))
 
 
 if __name__ == "__main__":

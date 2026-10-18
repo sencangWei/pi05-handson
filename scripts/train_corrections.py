@@ -10,7 +10,7 @@ import re
 import subprocess
 
 from correction_data import APPROVAL, approval_checks, digest, load_frames
-from prepare_corrections import ASSET_ID, contained, jsonl, safe_name, verify_records
+from prepare_corrections import ASSET_ID, contained, jsonl, load_selection, safe_name, selected_frames, verify_records
 from train_release_focus import positive_int, positive_learning_rate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,8 +105,20 @@ def validate_expanded_corrections(root, manifest):
     expected_inputs = {item["path"]: item for item in base["files"] + base["inputs"]}
     expected_inputs[str(base_path.relative_to(root))] = {
         "path": str(base_path.relative_to(root)), "bytes": base_path.stat().st_size, "sha256": digest(base_path)}
+    clips = None
+    if "curation_selection" in manifest:
+        if not isinstance(manifest["curation_selection"], str) or not manifest["curation_selection"]:
+            raise ValueError("Missing correction selection path")
+        selection_path, clips = load_selection(root, manifest["curation_selection"], base["task"])
+        if manifest.get("selected_source_ranges") != clips:
+            raise ValueError("Correction selected ranges differ from the pinned selection")
+        expected_inputs[str(selection_path.relative_to(root))] = {
+            "path": str(selection_path.relative_to(root)), "bytes": selection_path.stat().st_size,
+            "sha256": digest(selection_path)}
+    elif "selected_source_ranges" in manifest:
+        raise ValueError("Selected correction ranges require a pinned selection file")
     if {item["path"]: item for item in manifest["inputs"]} != expected_inputs:
-        raise ValueError("Expanded correction public base lineage differs")
+        raise ValueError("Expanded correction public base or selection lineage differs")
     inherited = ("source_repo", "source_revision", "task", "seed", "train_source_episode_ids",
                  "holdout_source_episode_ids_excluded", "old_holdout_source_episode_ids_excluded",
                  "holdout_episodes", "holdout_frames", "original_train_episodes", "original_train_frames",
@@ -121,7 +133,8 @@ def validate_expanded_corrections(root, manifest):
     base_dataset = contained(root, base["dataset_dir"])
     expected_files = {str(path.relative_to(root)) for path in dataset.rglob("*") if path.is_file()}
     corrections, scenarios = [], {"train": set(), "holdout": set()}
-    correction_sources, control_dts = [], {}
+    clip_sources = {clip["source_directory"]: clip for clip in clips or []}
+    selected = {}
     metadata_paths = sorted(path for path in files if Path(path).parts[0] == "corrections"
                             and Path(path).name == "metadata.json")
     for relative in metadata_paths:
@@ -133,28 +146,35 @@ def validate_expanded_corrections(root, manifest):
         frames = load_frames(metadata_path.parent, metadata)
         approval_checks(frames)
         scenarios[metadata["split"]].add(metadata["scenario_key"])
-        corrections.append((metadata, len(frames)))
-        if metadata["split"] == "train":
-            directory = str(metadata_path.parent.relative_to(root))
-            correction_sources.append(directory)
-            control_dts[directory] = metadata["control_dt"]
+        directory = str(metadata_path.parent.relative_to(root))
+        corrections.append((directory, metadata, len(frames)))
+        if directory in clip_sources:
+            selected[directory] = (metadata, selected_frames(root, clip_sources[directory], metadata_path, metadata, frames))
         expected_files.update(str(path.relative_to(root)) for path in metadata_path.parent.rglob("*") if path.is_file())
     if set(files) != expected_files:
         raise ValueError("Expanded correction raw file inventory differs")
     if scenarios["train"] & scenarios["holdout"] or manifest["scenarios"] != {
             key: sorted(values) for key, values in scenarios.items()}:
         raise ValueError("Expanded correction scenario splits overlap or differ")
-    train = [(metadata, count) for metadata, count in corrections if metadata["split"] == "train"]
-    human_frames = sum(count for _, count in train)
+    if clips is None:
+        train = [(directory, metadata, count) for directory, metadata, count in corrections if metadata["split"] == "train"]
+    else:
+        if set(selected) != set(clip_sources):
+            raise ValueError("Selected correction source is missing or unapproved")
+        train = [(clip["source_directory"], selected[clip["source_directory"]][0], len(selected[clip["source_directory"]][1]))
+                 for clip in clips]
+    correction_sources = [directory for directory, _, _ in train]
+    control_dts = {directory: metadata["control_dt"] for directory, metadata, _ in train}
+    human_frames = sum(count for _, _, count in train)
     if (not train or manifest.get("correction_train_episodes") != len(train)
             or manifest.get("correction_train_frames") != human_frames
-            or manifest.get("correction_holdout_episodes_excluded") != len(corrections) - len(train)):
+            or manifest.get("correction_holdout_episodes_excluded") != sum(metadata["split"] == "holdout" for _, metadata, _ in corrections)):
         raise ValueError("Expanded correction human episode or frame counts differ")
     episodes = jsonl(dataset / "meta/episodes.jsonl")
     base_episodes = jsonl(base_dataset / "meta/episodes.jsonl")
     expected_episodes = base_episodes + [
         {"episode_index": idx, "tasks": [base["task"]], "length": count}
-        for idx, (_, count) in enumerate(train, start=len(base_episodes))]
+        for idx, (_, _, count) in enumerate(train, start=len(base_episodes))]
     timing = manifest.get("timing", {})
     if (manifest.get("correction_source_directories") != correction_sources
             or timing.get("physical_control_dt_by_episode") != control_dts
@@ -184,6 +204,29 @@ def validate_expanded_corrections(root, manifest):
                 raise ValueError("Expanded correction public episode prefix changed")
         elif pq.read_metadata(path).num_rows != episode["length"]:
             raise ValueError("Expanded correction parquet frame count differs")
+        elif clips is not None:
+            # Counts alone cannot prove that the declared interval is the exported one.
+            import io
+            import numpy as np
+            from PIL import Image
+            frames = selected[train[idx - len(base_episodes)][0]][1]
+            table = pq.read_table(path)
+            offset = sum(row["length"] for row in episodes[:idx])
+            if (table.schema != pq.read_schema(base_dataset / "data/chunk-000/episode_000000.parquet")
+                    or table["index"].to_pylist() != list(range(offset, offset + len(frames)))
+                    or not np.array_equal(np.asarray(table["timestamp"].to_pylist(), dtype=np.float32),
+                                          np.asarray([number / info["fps"] for number in range(len(frames))], dtype=np.float32))
+                    or table["episode_index"].to_pylist() != [idx] * len(frames)
+                    or table["frame_index"].to_pylist() != list(range(len(frames)))
+                    or table["task_index"].to_pylist() != [0] * len(frames)
+                    or not np.array_equal(np.asarray(table["state"].to_pylist(), dtype=np.float32), np.stack([frame["state"] for frame in frames]))
+                    or not np.array_equal(np.asarray(table["actions"].to_pylist(), dtype=np.float32), np.stack([frame["action"] for frame in frames]))):
+                raise ValueError("Selected correction actions, states or episode boundaries differ from raw slice")
+            for key in ("image", "wrist_image"):
+                for row, frame in zip(table[key].to_pylist(), frames, strict=True):
+                    with Image.open(io.BytesIO(row["bytes"])) as image:
+                        if not np.array_equal(np.asarray(image), frame[key]):
+                            raise ValueError("Selected correction camera payload differs from raw slice")
     if {str(path.relative_to(dataset)) for path in dataset.rglob("*") if path.is_file()} != expected_dataset:
         raise ValueError("Expanded correction dataset inventory differs")
 
@@ -204,6 +247,8 @@ def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
         raise ValueError("Correction dataset manifest is not ready or has incompatible lineage")
     expanded = manifest.get("dataset_kind") == "expanded_public_v1"
     mixed = manifest.get("dataset_kind") == "expanded_public_corrections_v1"
+    if not mixed and ("curation_selection" in manifest or "selected_source_ranges" in manifest):
+        raise ValueError("Correction selection requires an expanded mixed dataset")
     if not (expanded or mixed) and (manifest.get("dataset_kind") is not None or manifest.get("original_train_episodes") != 16
                          or type(manifest.get("correction_train_episodes")) is not int
                          or manifest["correction_train_episodes"] < 1):

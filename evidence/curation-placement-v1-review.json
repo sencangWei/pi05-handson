@@ -1,0 +1,62 @@
+{
+  "selection_sha256": "474938b32f6737740dd0a5b7931be66d4238639f5da68adb4ab2df99cadcdd4b",
+  "kind": "candidate human correction replay, not model evaluation",
+  "clips": [
+    {
+      "source_directory": "corrections/human_1792298109792073701",
+      "metadata_sha256": "c6d0d8e04723338bd327513d7aac9831bfac849ff6e0e6bb521f3178e0e44720",
+      "source_frame_count": 805,
+      "start": 425,
+      "stop": 635,
+      "reason": "保留末段持碗靠近、下降、横向校准、松爪和撤离；排除早期绕行及完成后多余抬升。起点已持碗，仅标为放置与释放纠正。",
+      "selected_frames": 210,
+      "video": ".local/curation-placement-v1/clip-01.mp4",
+      "video_sha256": "26fc269df6fe116b061bb1162e591fbcef632e202fe087949d23ccf75fa7a2b1",
+      "contact_sheet": ".local/curation-placement-v1/clip-01-contact.png",
+      "approval_checks": {
+        "ten_frames": true,
+        "task_done_last_ten": true,
+        "actual_fingers_open_last_ten": true,
+        "open_command_last_ten": true,
+        "eef_clear_of_bowl": true
+      },
+      "last10_min_finger_gap_m": 0.07951389253139496,
+      "last10_min_eef_bowl_distance_m": 0.10079019516706467,
+      "last10_bowl_xyz_range_m": [
+        8.195638656616211e-08,
+        1.4901161193847656e-08,
+        0.0
+      ],
+      "video_fps": 10,
+      "physical_control_dt": 0.05
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_frame_count": 950,
+      "start": 770,
+      "stop": 906,
+      "reason": "保留最后一次横向对准、下降放置、开夹和撤离；排除空夹绕行、姿态反复试探和完成后多余抬升。起点已持碗，不是重抓恢复示范。",
+      "selected_frames": 136,
+      "video": ".local/curation-placement-v1/clip-02.mp4",
+      "video_sha256": "cf6a8be677a9bd3d78aa5f166b3cb1a808dde6bc81bfdd90970685450a7d4aa0",
+      "contact_sheet": ".local/curation-placement-v1/clip-02-contact.png",
+      "approval_checks": {
+        "ten_frames": true,
+        "task_done_last_ten": true,
+        "actual_fingers_open_last_ten": true,
+        "open_command_last_ten": true,
+        "eef_clear_of_bowl": true
+      },
+      "last10_min_finger_gap_m": 0.07948031276464462,
+      "last10_min_eef_bowl_distance_m": 0.10057944804430008,
+      "last10_bowl_xyz_range_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "video_fps": 10,
+      "physical_control_dt": 0.05
+    }
+  ]
+}

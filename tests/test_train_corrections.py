@@ -250,5 +250,72 @@ class MixedExpandedTrainingTests(ExpandedTrainingTests):
             self.validate()
 
 
+@unittest.skipIf(pa is None, "CPU Arrow environment required")
+class SelectedCorrectionTrainingTests(unittest.TestCase):
+    def setUp(self):
+        ExpandedTrainingTests.setUp(self)
+        from test_combined_corrections import selection_fixture
+        self.selection_path, self.clip = selection_fixture(self.root)
+        record(self.root, "human_unselected", scenario="unselected")
+        record(self.root, "human_heldout", split="holdout", scenario="heldout")
+        self.path = prepare(self.root, "selected", self.path, selection=self.selection_path)
+        self.manifest = json.loads(self.path.read_text())
+
+    def validate(self):
+        return train.validate_inputs(self.path, self.parent, "selected_experiment", root=self.root)
+
+    def test_selected_counts_use_actual_raw_slice_and_preserve_sources(self):
+        metadata = self.root / self.clip["source_directory"] / "metadata.json"
+        before = train.digest(metadata)
+        manifest, _, _ = self.validate()
+        self.assertEqual((manifest["train_episodes"], manifest["train_frames"]), (38, 94))
+        self.assertEqual((manifest["correction_train_episodes"], manifest["correction_train_frames"]), (1, 20))
+        self.assertEqual(manifest["correction_source_directories"], [self.clip["source_directory"]])
+        self.assertEqual(train.digest(metadata), before)
+        self.assertEqual(json.loads(metadata.read_text())["frame_count"], 30)
+
+    def test_missing_selection_lineage_forged_ranges_or_counts_rejected(self):
+        mutations = [
+            {"inputs": [item for item in self.manifest["inputs"] if item["path"] != str(self.selection_path.relative_to(self.root))]},
+            {"selected_source_ranges": [{**self.clip, "start": 6}]},
+            {"curation_selection": ""}, {"curation_selection": "/tmp/external.json"},
+            {"correction_train_frames": 30}, {"train_frames": 104},
+        ]
+        for change in mutations:
+            self.path.write_text(json.dumps({**self.manifest, **change}))
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                self.validate()
+        removed = {key: value for key, value in self.manifest.items() if key != "curation_selection"}
+        self.path.write_text(json.dumps(removed))
+        with self.assertRaisesRegex(ValueError, "pinned selection"):
+            self.validate()
+
+    def test_rehashed_same_length_different_slice_cannot_relabel_export(self):
+        from prepare_corrections import file_record
+        selection = json.loads(self.selection_path.read_text())
+        shifted = {**self.clip, "start": 6, "stop": 26}
+        self.selection_path.write_text(json.dumps({**selection, "clips": [shifted]}))
+        updated = file_record(self.root, self.selection_path)
+        self.manifest["inputs"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["inputs"]]
+        self.manifest["selected_source_ranges"] = [shifted]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "actions, states or episode boundaries"):
+            self.validate()
+
+    def test_rehashed_parquet_episode_boundary_change_rejected(self):
+        import pyarrow.parquet as pq
+        from prepare_corrections import file_record
+        path = self.root / self.manifest["dataset_dir"] / "data/chunk-000/episode_000037.parquet"
+        table = pq.read_table(path)
+        column = table.schema.get_field_index("episode_index")
+        table = table.set_column(column, table.schema.field(column), pa.array([38] * 20, type=pa.int64()))
+        pq.write_table(table, path)
+        updated = file_record(self.root, path)
+        self.manifest["files"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["files"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "episode boundaries"):
+            self.validate()
+
+
 if __name__ == "__main__":
     unittest.main()

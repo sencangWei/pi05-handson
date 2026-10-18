@@ -317,5 +317,51 @@ class SelectedCorrectionTrainingTests(unittest.TestCase):
             self.validate()
 
 
+@unittest.skipIf(pa is None, "CPU Arrow environment required")
+class RecoveryPhaseTrainingTests(unittest.TestCase):
+    def setUp(self):
+        ExpandedTrainingTests.setUp(self)
+        from test_combined_corrections import recovery_selection_fixture
+        self.selection_path, self.clips = recovery_selection_fixture(self.root)
+        self.path = prepare(self.root, "recovery", self.path, selection=self.selection_path)
+        self.manifest = json.loads(self.path.read_text())
+
+    def validate(self):
+        return train.validate_inputs(self.path, self.parent, "recovery_experiment", root=self.root)
+
+    def test_multiple_ordered_intervals_per_source_pass_without_collapsing_episodes(self):
+        manifest, _, _ = self.validate()
+        self.assertEqual(manifest["correction_train_episodes"], 3)
+        self.assertEqual(manifest["correction_train_frames"], 50)
+        self.assertEqual(manifest["correction_holdout_episodes_excluded"], 0)
+        self.assertEqual(manifest["train_episodes"], 40)
+        self.assertEqual(len(set(manifest["correction_source_directories"])), 1)
+        self.assertEqual(manifest["selected_source_ranges"], self.clips)
+
+    def test_rehashed_reordered_phase_provenance_cannot_relabel_episode_order(self):
+        from prepare_corrections import file_record
+        value = json.loads(self.selection_path.read_text())
+        reordered = [self.clips[2], self.clips[1], self.clips[0]]
+        self.selection_path.write_text(json.dumps({**value, "clips": reordered}))
+        self.manifest["selected_source_ranges"] = reordered
+        updated = file_record(self.root, self.selection_path)
+        self.manifest["inputs"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["inputs"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "actions, states or episode boundaries"):
+            self.validate()
+
+    def test_rehashed_wrong_phase_kind_cannot_bypass_partial_checks(self):
+        from prepare_corrections import file_record
+        value = json.loads(self.selection_path.read_text())
+        forged = [self.clips[0], {**self.clips[1], "kind": "placement_release"}, self.clips[2]]
+        self.selection_path.write_text(json.dumps({**value, "clips": forged}))
+        self.manifest["selected_source_ranges"] = forged
+        updated = file_record(self.root, self.selection_path)
+        self.manifest["inputs"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["inputs"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaises(ValueError):
+            self.validate()
+
+
 if __name__ == "__main__":
     unittest.main()

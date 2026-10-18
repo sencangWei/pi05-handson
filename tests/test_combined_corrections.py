@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from correction_data import CorrectionRecorder, digest, write_json
-from prepare_corrections import SELECTION_RULE, prepare, verify_records
+from prepare_corrections import SELECTION_RULE, SELECTION_RULE_V2, load_selection, prepare, verify_records
 from test_correction_data import pa, pq, record
 from test_expanded_public import fixture, prepare as prepare_public
 
@@ -35,6 +35,42 @@ def selection_fixture(root, name="human_selected"):
     path = root / "evidence/correction-selection-fixture.json"
     write_json(path, {"schema_version": 1, "task": TASK, "rule": SELECTION_RULE, "clips": [clip]})
     return path, clip
+
+
+def recovery_selection_fixture(root):
+    import numpy as np
+    from test_correction_data import TASK
+    recorder = CorrectionRecorder(root / "corrections/human_recovery", {
+        "task": TASK, "split": "train", "scenario_key": "same-source-scenario", "source_scene": "fake fixture", "control_dt": .05})
+    state = np.zeros(8, np.float32)
+    state[2], state[6], state[7] = 1., .04, -.04
+    for idx in range(50):
+        post = state.copy()
+        bowl = np.array([.2, 0, .9], dtype=np.float32)
+        grip = -1
+        if idx < 10:
+            post[2] = 1 + (idx + 1) * .006
+        elif idx < 30:
+            rise = max(0, idx - 14) * .003
+            post[2], bowl[2] = 1.06 + rise, .9 + rise
+            if idx >= 15:
+                grip = 1
+        else:
+            post[2] = 1.105 + (idx - 29) * .005
+        post[6], post[7] = (.015, -.015) if grip > 0 else (.04, -.04)
+        image = np.full((256, 256, 3), idx, np.uint8)
+        recorder.append(state, [0, 0, .1, 0, 0, 0, grip], {"image": image, "wrist_image": image},
+                        post, bowl, idx >= 30)
+        state = post
+    recorder.finish(True)
+    source = {"source_directory": str(recorder.directory.relative_to(root)),
+              "metadata_sha256": digest(recorder.directory / "metadata.json"), "source_frame_count": 50,
+              "reason": "Synthetic phase gate fixture"}
+    clips = [{**source, "start": start, "stop": stop, "kind": kind} for start, stop, kind in
+             ((30, 50, "placement_release"), (0, 10, "lift_clearance"), (10, 30, "regrasp_lift"))]
+    path = root / "evidence/recovery-selection-fixture.json"
+    write_json(path, {"schema_version": 2, "task": TASK, "rule": SELECTION_RULE_V2, "clips": clips})
+    return path, clips
 
 
 @unittest.skipIf(pa is None, "CPU Arrow environment required")
@@ -166,6 +202,66 @@ class CombinedExportTests(unittest.TestCase):
         record(self.root, "human_held", split="holdout", scenario="overlap")
         with self.assertRaisesRegex(ValueError, "scenario_key"):
             prepare(self.root, "overlap", self.base_path, selection=selection)
+
+
+    def test_v2_nonoverlap_keeps_sidecar_order_and_v1_rejects_multi_source_clips(self):
+        selection, clip = selection_fixture(self.root)
+        value = json.loads(selection.read_text())
+        clips = [{**clip, "start": start, "stop": stop, "kind": kind} for start, stop, kind in
+                 ((20, 30, "placement_release"), (0, 10, "lift_clearance"), (10, 20, "regrasp_lift"))]
+        write_json(selection, {**value, "schema_version": 2, "rule": SELECTION_RULE_V2, "clips": clips})
+        _, loaded = load_selection(self.root, selection, self.base["task"])
+        self.assertEqual(loaded, clips)
+        invalid = [
+            [clips[0], clips[0]],
+            [clips[0], {**clips[1], "start": 15, "stop": 25}],
+            [{**clips[0], "kind": "made_up"}],
+            [{key: val for key, val in clips[0].items() if key != "kind"}],
+        ]
+        for bad in invalid:
+            write_json(selection, {**value, "schema_version": 2, "rule": SELECTION_RULE_V2, "clips": bad})
+            with self.subTest(clips=bad), self.assertRaises(ValueError):
+                load_selection(self.root, selection, self.base["task"])
+        # V1 continues to reject repeated sources even when their intervals do not overlap.
+        write_json(selection, {**value, "clips": [{key: val for key, val in row.items() if key != "kind"} for row in clips]})
+        with self.assertRaisesRegex(ValueError, "one contiguous"):
+            load_selection(self.root, selection, self.base["task"])
+
+
+    def test_v2_three_phases_from_one_source_are_separate_ordered_episodes(self):
+        from correction_data import load_frames
+        selection, clips = recovery_selection_fixture(self.root)
+        source = self.root / clips[0]["source_directory"]
+        metadata = json.loads((source / "metadata.json").read_text())
+        frames = load_frames(source, metadata)
+        self.assertFalse(any(bool(frame["done"]) for frame in frames[:30]))
+        result = prepare(self.root, "phases", self.base_path, selection=selection)
+        manifest = json.loads(result.read_text())
+        self.assertEqual((manifest["train_episodes"], manifest["train_frames"]), (40, 124))
+        self.assertEqual((manifest["correction_train_episodes"], manifest["correction_train_frames"]), (3, 50))
+        self.assertEqual(manifest["correction_holdout_episodes_excluded"], 0)
+        self.assertEqual(manifest["correction_source_directories"], [clips[0]["source_directory"]] * 3)
+        self.assertEqual(len(manifest["timing"]["physical_control_dt_by_episode"]), 1)
+        self.assertEqual(manifest["scenarios"], {"train": ["same-source-scenario"], "holdout": []})
+        offset = 74
+        for episode, clip in enumerate(clips, 37):
+            table = pq.read_table(self.root / manifest["dataset_dir"] / f"data/chunk-000/episode_{episode:06d}.parquet")
+            expected = frames[clip["start"]:clip["stop"]]
+            self.assertEqual(table["state"].to_pylist(), [frame["state"].tolist() for frame in expected])
+            self.assertEqual(table["actions"].to_pylist(), [frame["action"].tolist() for frame in expected])
+            self.assertEqual(table["episode_index"].to_pylist(), [episode] * len(expected))
+            self.assertEqual(table["frame_index"].to_pylist(), list(range(len(expected))))
+            self.assertEqual(table["index"].to_pylist(), list(range(offset, offset + len(expected))))
+            offset += len(expected)
+        verify_records(self.root, manifest["inputs"] + manifest["files"])
+
+    def test_v2_wrong_partial_phase_gate_rejects_export(self):
+        selection, clips = recovery_selection_fixture(self.root)
+        value = json.loads(selection.read_text())
+        write_json(selection, {**value, "clips": [{**clips[1], "kind": "regrasp_lift"}]})
+        with self.assertRaises(ValueError):
+            prepare(self.root, "wrongphase", self.base_path, selection=selection)
+        self.assertFalse((self.root / "evidence/corrections-wrongphase-manifest.json").exists())
 
 
 if __name__ == "__main__":

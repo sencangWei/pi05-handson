@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "selection": "evidence/curation-recovery-v2-selection.json",
+  "selection_sha256": "831a7e328491c34000509d7641e744577268748b76ec8963f5a132a8e4c5c4b1",
+  "user_confirmation": {
+    "placement": "两段都可以",
+    "recovery": "是，这两段也保留用于训练",
+    "client_date": "2026-10-18",
+    "timezone": "Asia/Shanghai"
+  },
+  "selected_frames": 481,
+  "public_frames": 4400,
+  "expected_train_frames": 4881,
+  "expected_train_episodes": 41,
+  "independent_human_source_recordings": 2,
+  "clip_checks": [
+    {
+      "source_directory": "corrections/human_1792298109792073701",
+      "start": 425,
+      "stop": 635,
+      "frames": 210,
+      "kind": "placement_release",
+      "checks": {
+        "ten_frames": true,
+        "task_done_last_ten": true,
+        "actual_fingers_open_last_ten": true,
+        "open_command_last_ten": true,
+        "eef_clear_of_bowl": true
+      },
+      "meaning": "Placement, opening and retreat observation gates; not an independent benchmark run"
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "start": 0,
+      "stop": 45,
+      "frames": 45,
+      "kind": "lift_clearance",
+      "checks": {
+        "upward_commands": true,
+        "eef_lift_at_least_4cm": true,
+        "eef_clears_bowl_at_least_9cm": true,
+        "bowl_not_lifted": true,
+        "bowl_stable_last_ten": true
+      },
+      "measures": {
+        "eef_lift_m": 0.056453168392181396,
+        "final_eef_bowl_distance_m": 0.12416581297361022,
+        "bowl_height_change_m": -0.017839908599853516,
+        "tail_bowl_position_range_m": 7.013683894722619e-06
+      },
+      "meaning": "Upward disengagement while bowl stays behind; does not prove an autonomous failure detector",
+      "official_task_success": false
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "start": 430,
+      "stop": 520,
+      "frames": 90,
+      "kind": "regrasp_lift",
+      "checks": {
+        "opens_before_close": true,
+        "fingers_opened_at_least_6cm": true,
+        "closed_commands_last_ten": true,
+        "fingers_closed_last_ten": true,
+        "eef_lift_at_least_2cm": true,
+        "bowl_lift_at_least_2cm": true,
+        "bowl_moves_with_eef_last_ten": true
+      },
+      "measures": {
+        "max_finger_gap_m": 0.07958821579813957,
+        "bowl_lift_since_before_close_m": 0.022354066371917725,
+        "eef_lift_since_close_m": 0.025454819202423096,
+        "tail_relative_position_range_m": 0.0016289096174479333
+      },
+      "meaning": "Open, close and short object lift; not long-duration grasp stability or completed placement",
+      "official_task_success": false
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "start": 770,
+      "stop": 906,
+      "frames": 136,
+      "kind": "placement_release",
+      "checks": {
+        "ten_frames": true,
+        "task_done_last_ten": true,
+        "actual_fingers_open_last_ten": true,
+        "open_command_last_ten": true,
+        "eef_clear_of_bowl": true
+      },
+      "meaning": "Placement, opening and retreat observation gates; not an independent benchmark run"
+    }
+  ],
+  "training_started_by_agent": false
+}

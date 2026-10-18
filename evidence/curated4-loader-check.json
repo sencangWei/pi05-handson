@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "loader": "openpi.training.data_loader.create_torch_dataset",
+  "dataset_manifest_sha256": "4ef579631c162d88acb66d0bd275026ff30de2e3b6531fb9464f09ff8412344f",
+  "train_episodes": 41,
+  "train_frames": 4881,
+  "selected_human_frames": 481,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "all41_episode_start_tail_and_end_action_windows_checked": true,
+  "action_shape": [
+    10,
+    7
+  ],
+  "state_shape": [
+    8
+  ],
+  "task_prompt_matches": true,
+  "all481_selected_raw_states_and_actions_exact": true,
+  "four_clips_independent_no_gap_stitching": true,
+  "raw_source_recordings": 2,
+  "last_four_boundaries": [
+    {
+      "episode": 37,
+      "start": 4400,
+      "frames": 210,
+      "last": 4609
+    },
+    {
+      "episode": 38,
+      "start": 4610,
+      "frames": 45,
+      "last": 4654
+    },
+    {
+      "episode": 39,
+      "start": 4655,
+      "frames": 90,
+      "last": 4744
+    },
+    {
+      "episode": 40,
+      "start": 4745,
+      "frames": 136,
+      "last": 4880
+    }
+  ],
+  "training_started": false,
+  "model_weights_loaded": false
+}

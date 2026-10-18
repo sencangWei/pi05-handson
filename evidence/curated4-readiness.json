@@ -1,0 +1,56 @@
+{
+  "status": "READY",
+  "dataset_manifest": "evidence/corrections-public37_curated4_v2-manifest.json",
+  "dataset_manifest_sha256": "4ef579631c162d88acb66d0bd275026ff30de2e3b6531fb9464f09ff8412344f",
+  "selection": "evidence/curation-recovery-v2-selection.json",
+  "selection_sha256": "831a7e328491c34000509d7641e744577268748b76ec8963f5a132a8e4c5c4b1",
+  "train_episodes": 41,
+  "train_frames": 4881,
+  "public_episodes": 37,
+  "public_frames": 4400,
+  "human_clips": 4,
+  "human_frames": 481,
+  "placement_clips": 2,
+  "placement_frames": 346,
+  "recovery_clips": 2,
+  "recovery_frames": 135,
+  "original_human_recordings": 2,
+  "human_sampling_fraction": 0.09854538004507273,
+  "recovery_sampling_fraction": 0.027658266748617086,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "parent_checkpoint": "checkpoints/pi05_handson_lora/release_focus_2000/1999",
+  "new_updates": 3000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "sampling": "uniform",
+  "seed": 42,
+  "action_horizon": 10,
+  "normalization_recomputed": false,
+  "user_review": {
+    "placement": "两段都可以",
+    "recovery": "是，这两段也保留用于训练",
+    "client_date": "2026-10-18",
+    "timezone": "Asia/Shanghai"
+  },
+  "verification": {
+    "unit_and_gui_tests": 73,
+    "ruff": "PASS",
+    "independent_review": "No blocking findings",
+    "actual_loader": "evidence/curated4-loader-check.json",
+    "cpu_dry_run": "evidence/curated4-training-preflight.json",
+    "phase_checks": "evidence/curation-recovery-v2-phase-checks.json"
+  },
+  "gui_screenshot": {
+    "path": "previews/curated4-training-form.png",
+    "sha256": "de186bb1b8eda7c019c6f62c44c3b50e67c2e9591af10b124fb1c6c128154e5c"
+  },
+  "training_started_by_agent": false,
+  "model_weights_loaded_by_preflight": false,
+  "limitations": [
+    "Four clips from two recordings/scenarios, not four independent scenarios",
+    "Recovery evidence is upward disengagement and short lift; no generalized autonomous recovery claim",
+    "Standard action-window tail padding repeats final upward action; no synthetic stop labels",
+    "Performance remains to be evaluated after user starts training"
+  ]
+}

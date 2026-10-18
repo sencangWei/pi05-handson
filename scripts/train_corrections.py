@@ -133,8 +133,8 @@ def validate_expanded_corrections(root, manifest):
     base_dataset = contained(root, base["dataset_dir"])
     expected_files = {str(path.relative_to(root)) for path in dataset.rglob("*") if path.is_file()}
     corrections, scenarios = [], {"train": set(), "holdout": set()}
-    clip_sources = {clip["source_directory"]: clip for clip in clips or []}
-    selected = {}
+    clip_sources = {clip["source_directory"] for clip in clips or []}
+    raw_sources = {}
     metadata_paths = sorted(path for path in files if Path(path).parts[0] == "corrections"
                             and Path(path).name == "metadata.json")
     for relative in metadata_paths:
@@ -149,7 +149,7 @@ def validate_expanded_corrections(root, manifest):
         directory = str(metadata_path.parent.relative_to(root))
         corrections.append((directory, metadata, len(frames)))
         if directory in clip_sources:
-            selected[directory] = (metadata, selected_frames(root, clip_sources[directory], metadata_path, metadata, frames))
+            raw_sources[directory] = (metadata_path, metadata, frames)
         expected_files.update(str(path.relative_to(root)) for path in metadata_path.parent.rglob("*") if path.is_file())
     if set(files) != expected_files:
         raise ValueError("Expanded correction raw file inventory differs")
@@ -159,10 +159,14 @@ def validate_expanded_corrections(root, manifest):
     if clips is None:
         train = [(directory, metadata, count) for directory, metadata, count in corrections if metadata["split"] == "train"]
     else:
-        if set(selected) != set(clip_sources):
+        if set(raw_sources) != clip_sources:
             raise ValueError("Selected correction source is missing or unapproved")
-        train = [(clip["source_directory"], selected[clip["source_directory"]][0], len(selected[clip["source_directory"]][1]))
-                 for clip in clips]
+        selected = []
+        train = []
+        for clip in clips:
+            metadata_path, metadata, frames = raw_sources[clip["source_directory"]]
+            selected.append(selected_frames(root, clip, metadata_path, metadata, frames))
+            train.append((clip["source_directory"], metadata, len(selected[-1])))
     correction_sources = [directory for directory, _, _ in train]
     control_dts = {directory: metadata["control_dt"] for directory, metadata, _ in train}
     human_frames = sum(count for _, _, count in train)
@@ -209,7 +213,7 @@ def validate_expanded_corrections(root, manifest):
             import io
             import numpy as np
             from PIL import Image
-            frames = selected[train[idx - len(base_episodes)][0]][1]
+            frames = selected[idx - len(base_episodes)]
             table = pq.read_table(path)
             offset = sum(row["length"] for row in episodes[:idx])
             if (table.schema != pq.read_schema(base_dataset / "data/chunk-000/episode_000000.parquet")
@@ -313,6 +317,10 @@ def build_record(cfg, manifest_path, manifest, parent, dry_run):
     source_files = ["correction_data.py", "prepare_corrections.py", "train_corrections.py", "course_config.py"]
     if manifest.get("dataset_kind") in ("expanded_public_v1", "expanded_public_corrections_v1"):
         source_files.append("prepare_expanded_public.py")
+    if manifest.get("curation_selection"):
+        selection = json.loads(contained(ROOT, manifest["curation_selection"]).read_text())
+        if selection["schema_version"] == 2:
+            source_files.append("curated_checks.py")
     return {
         "experiment": cfg.exp_name, "new_updates": cfg.num_train_steps, "batch_size": cfg.batch_size,
         "dataset_manifest": str(Path(manifest_path).resolve()), "dataset_manifest_sha256": digest(manifest_path),

@@ -476,6 +476,14 @@ class LabPanel:
                         hint = (f"精选纠正：{manifest['original_train_episodes']}条公开＋"
                                 f"{manifest['correction_train_episodes']}段连续片段/{manifest['correction_train_frames']}帧；"
                                 "原始录制保留，新录制需另行筛选")
+                        recoveries = sum(isinstance(clip, dict) and clip.get("kind") in
+                                         ("lift_clearance", "regrasp_lift")
+                                         for clip in manifest.get("selected_source_ranges", []))
+                        if recoveries:
+                            placements = manifest['correction_train_episodes'] - recoveries
+                            hint = (f"精选纠正：{manifest['original_train_episodes']}条公开＋"
+                                    f"{manifest['correction_train_episodes']}段/{manifest['correction_train_frames']}帧"
+                                    f"（放置{placements}、恢复{recoveries}）；原始录制保留")
             except (OSError, ValueError, KeyError, TypeError):
                 hint = "训练数据清单无效，请刷新；启动前将重新校验"
         self.correction_dataset_hint.set(hint)

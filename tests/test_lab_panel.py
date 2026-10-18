@@ -576,6 +576,25 @@ class CorrectionTests(PanelTests):
             self.assertIn("训练：39 条 / 4746 帧", self.panel.dataset_var.get())
             self.assertFalse(self.backend.calls)
 
+    def test_curated_recovery_phases_are_visible_and_never_start_training(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            manifest.write_text(json.dumps({
+                "dataset_kind": "expanded_public_corrections_v1", "original_train_episodes": 37,
+                "correction_train_episodes": 4, "correction_train_frames": 481,
+                "curation_selection": "evidence/selection.json", "task": "black bowl",
+                "selected_source_ranges": [{"kind": kind} for kind in
+                                           ("placement_release", "lift_clearance", "regrasp_lift", "placement_release")],
+                "train_episodes": 41, "train_frames": 4881, "holdout_episodes": 10, "holdout_frames": 1170}))
+            self.backend.bundle_paths = [str(manifest)]
+            self.panel.dataset_refresh_button.invoke()
+            self.panel.training_dataset_var.set(str(manifest))
+            self.panel._select_dataset()
+            self.assertEqual(self.panel.correction_dataset_hint.get(),
+                             "精选纠正：37条公开＋4段/481帧（放置2、恢复2）；原始录制保留")
+            self.assertIn("训练：41 条 / 4881 帧", self.panel.dataset_var.get())
+            self.assertFalse(self.backend.calls)
+
     def test_prepare_forwards_selected_expanded_or_mixed_dataset_only(self):
         with tempfile.TemporaryDirectory() as directory:
             manifest = Path(directory) / "manifest.json"

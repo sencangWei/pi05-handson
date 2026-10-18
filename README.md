@@ -389,3 +389,6 @@ rtk proxy .venv-sim/bin/python scripts/probe_corrections.py \
 新选择为`evidence/curation-batch14-reviewed-v4-selection.json`，导出版本`evidence/corrections-public37_reviewed19_v4-manifest.json`：37条公开＋19段人工，共56条／13521帧训练；公开留出仍10条／1170帧。新14段对应7个场景身份，均为布局24的不同碗偏移；多数教正常抓放，最后3段从已持碗开始，不能称为14个独立恢复场景。另用未训练的失败状态检查恢复。
 
 这是**均匀混合数据版本**；原“恢复重点”清单仍固定旧数据，不能当作已包含新录制。数据导出不启动训练。完整审阅和逐段区间见[复核报告](evidence/correction-batch14-review-v1/README.md)；本机双相机视频页为`.local/correction-batch14-review-v1/index.html`，按动作序号以10FPS播放，不是采集墙钟耗时。
+
+
+下一轮训练面板已准备为：`public37_reviewed19_v4`、父模型`ui_correct_1792311653585294069/1999`、新增5000步、Batch4、学习率1e-5、均匀采样。CPU dry-run已通过，未加载训练权重、创建优化器或开始训练。5000×4约为当前13521帧的1.48倍观测起点采样量，接近上一轮2000×4/5466；这是有界试验，不保证最优。仍由学习者在面板点击“开始训练”，软件自动生成新实验名，保存并关闭当前场景、停止本面板推理服务后开始。配置与校验见`evidence/reviewed19-v4-training-ready.json`，[面板截图](previews/reviewed19-v4-training-ready.png)。

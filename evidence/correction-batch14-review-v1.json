@@ -1,0 +1,267 @@
+{
+  "status": "READY_FOR_NEXT_TRAINING_EXPERIMENT",
+  "date": "2026-10-18",
+  "method": "Full-frame source hashes/contracts and terminal gates, paired-camera timeline review every30 actions plus all gripper transitions, dense local review of flagged intervals by independent reviewers and root. Not every video frame visually watched.",
+  "limitations": [
+    "Terminal gates do not certify every motion as expert quality.",
+    "Timeline plus local dense RGB inspection is not every-frame full-video viewing.",
+    "14 new records cover 7 scenario keys, all layout24 with bowl shifts; no new human holdout was recorded.",
+    "No recovery or benchmark improvement claimed before model training and evaluation."
+  ],
+  "new_approved_originals": 14,
+  "new_original_frames": 8122,
+  "new_selected_frames": 8055,
+  "removed_prefix_frames": 67,
+  "new_selected_clips": 14,
+  "previous_selected_clips_preserved": 5,
+  "previous_selected_frames_preserved": 1066,
+  "mixed_train_episodes_expected": 56,
+  "mixed_train_frames_expected": 13521,
+  "public_holdout_episodes": 10,
+  "public_holdout_frames": 1170,
+  "raw_data_changed": false,
+  "training_started": false,
+  "selection": "evidence/curation-batch14-reviewed-v4-selection.json",
+  "records": [
+    {
+      "source_directory": "corrections/human_1792316444273677599",
+      "source_frames": 796,
+      "selected_range": [
+        0,
+        796
+      ],
+      "selected_frames": 796,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792316642061092080",
+      "source_frames": 681,
+      "selected_range": [
+        67,
+        681
+      ],
+      "selected_frames": 614,
+      "decision": "trim_prefix",
+      "phase": "empty_gripper_open_regrasp_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "排除开头[0,67)闭爪空抓仍横移的操作，从第67帧开爪重新抓取起连续保留至松爪撤手；原件不改，不跨间隔拼接。"
+    },
+    {
+      "source_directory": "corrections/human_1792316796553277838",
+      "source_frames": 665,
+      "selected_range": [
+        0,
+        665
+      ],
+      "selected_frames": 665,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792316988593839967",
+      "source_frames": 735,
+      "selected_range": [
+        0,
+        735
+      ],
+      "selected_frames": 735,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792320596142609404",
+      "source_frames": 625,
+      "selected_range": [
+        0,
+        625
+      ],
+      "selected_frames": 625,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792320729171754480",
+      "source_frames": 810,
+      "selected_range": [
+        0,
+        810
+      ],
+      "selected_frames": 810,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792320881178092096",
+      "source_frames": 785,
+      "selected_range": [
+        0,
+        785
+      ],
+      "selected_frames": 785,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792321044770146509",
+      "source_frames": 650,
+      "selected_range": [
+        0,
+        650
+      ],
+      "selected_frames": 650,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": "Slow closed-gripper placement contact [478,510); On alone is not full release; retain context without increasing its sampling weight.",
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。 [478,510)有缓慢接触下探，原位碗高度仍下降约5.2mm后开爪，保留作接触放置；不称为理想快速释放或卡沿恢复。"
+    },
+    {
+      "source_directory": "corrections/human_1792321327539756305",
+      "source_frames": 545,
+      "selected_range": [
+        0,
+        545
+      ],
+      "selected_frames": 545,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792321449733577218",
+      "source_frames": 600,
+      "selected_range": [
+        0,
+        600
+      ],
+      "selected_frames": 600,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792321533232937641",
+      "source_frames": 580,
+      "selected_range": [
+        0,
+        580
+      ],
+      "selected_frames": 580,
+      "decision": "whole",
+      "phase": "grasp_transport_place",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。"
+    },
+    {
+      "source_directory": "corrections/human_1792321838302212936",
+      "source_frames": 225,
+      "selected_range": [
+        0,
+        225
+      ],
+      "selected_frames": 225,
+      "decision": "whole",
+      "phase": "placement_release_only",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "起点已经持碗，保留连续对准放置、松爪和撤手；不称为重新抓取恢复。"
+    },
+    {
+      "source_directory": "corrections/human_1792321887412888670",
+      "source_frames": 205,
+      "selected_range": [
+        0,
+        205
+      ],
+      "selected_frames": 205,
+      "decision": "whole",
+      "phase": "placement_release_only",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "起点已经持碗，保留连续对准放置、松爪和撤手；不称为重新抓取恢复。"
+    },
+    {
+      "source_directory": "corrections/human_1792322110720259274",
+      "source_frames": 220,
+      "selected_range": [
+        0,
+        220
+      ],
+      "selected_frames": 220,
+      "decision": "whole",
+      "phase": "placement_release_only",
+      "caution": null,
+      "gates": "PASS",
+      "reason": "起点已经持碗，保留连续对准放置、松爪和撤手；不称为重新抓取恢复。"
+    }
+  ],
+  "excluded_drafts": [
+    {
+      "source_directory": "corrections/human_1792315969515830691",
+      "status": "draft",
+      "frames": 218,
+      "metadata_sha256": "73717c076afcd5018134c2331703b3b1c30e7e2c012a9e136d302ac420451f1c",
+      "reason": "User excludes drafts"
+    },
+    {
+      "source_directory": "corrections/human_1792316140614411269",
+      "status": "draft",
+      "frames": 206,
+      "metadata_sha256": "ec0d7663342e09f67ee9be8e4e41596b0b2b69164fcbebdbb0a27c92e85dc4c1",
+      "reason": "User excludes drafts"
+    },
+    {
+      "source_directory": "corrections/human_1792322036524775135",
+      "status": "draft",
+      "frames": 385,
+      "metadata_sha256": "c5a1973c4c54e33b57fcd025e011471b58e9272ecf2801630979d4c9c45c9864",
+      "reason": "User excludes drafts"
+    }
+  ],
+  "audit_artifacts": [
+    "evidence/correction-batch14-review-v1/numeric-audit.json",
+    "evidence/correction-batch14-review-v1/visual-first7.json",
+    "evidence/correction-batch14-review-v1/visual-last7.json"
+  ],
+  "local_playback": ".local/correction-batch14-review-v1/index.html",
+  "slow_contact_resolution": {
+    "source_directory": "corrections/human_1792321044770146509",
+    "range": [
+      478,
+      510
+    ],
+    "post_bowl_z_m": [
+      0.91216,
+      0.90695
+    ],
+    "decision": "retain with caution; not inferred from On alone"
+  },
+  "dataset_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "dataset_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "export_validation": "evidence/correction-batch14-review-v1/export-validation.json"
+}

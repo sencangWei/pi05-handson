@@ -1,0 +1,28 @@
+{
+  "purpose": "local review video only, no source frame/action edits",
+  "source_range": [
+    67,
+    681
+  ],
+  "selected_video_frames": 614,
+  "fps": 10,
+  "command": [
+    "rtk",
+    "proxy",
+    "ffmpeg",
+    "-nostdin",
+    "-v",
+    "error",
+    "-n",
+    "-i",
+    ".local/correction-batch14-review-v1/human_1792316642061092080.mp4",
+    "-vf",
+    "select=gte(n\\,67),setpts=N/(10*TB)",
+    "-an",
+    "-c:v",
+    "libx264",
+    "-pix_fmt",
+    "yuv420p",
+    ".local/correction-batch14-review-v1/selected-human_1792316642061092080.mp4"
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "status": "VISUAL_REVIEW_COMPLETE_FIRST7",
+  "method": "人工查看全部21张每30步及所有夹爪变换边界双RGB接触页；另对第1/2/4/7段生成并查看局部密集原始双RGB，采样分别[288,325)每2步、[0,72)每5步、[568,606)每2步、[596,632)每2步。未逐帧观看完整MP4。",
+  "range_convention": "zero-based [start,stop)",
+  "limitations": [
+    "抽样图片可能漏掉两帧之间的瞬态接触、短时抖动或碰撞；不能把此审阅称作逐帧视频检查。",
+    "相机存在夹爪/碗局部遮挡，不能从图像精确证明接触力和抓取质量。",
+    "本次仅给出选片建议，不改变审批、数据、GUI、模型或训练。",
+    "前7段基本布局接近，仅图像不能证明独立泛化场景；按来源场景分组后再划分训练/测试。"
+  ],
+  "summary": {
+    "whole": 6,
+    "trim": 1,
+    "review_more": 0,
+    "clear_bad_complete_episode": 0
+  },
+  "records": [
+    {
+      "source_directory": "corrections/human_1792316444273677599",
+      "frames": 796,
+      "viewed_contact_pages": [
+        "human_1792316444273677599-p00.png",
+        "human_1792316444273677599-p01.png",
+        "human_1792316444273677599-p02.png"
+      ],
+      "findings": [
+        "开爪状态起始，先抬离/调整位置，再对准下降；314开始闭爪后碗随机械臂抬升搬运。",
+        "665附近放到盘上，666开始松爪；690至795可见夹爪逐步抬高撤离，碗留在盘上。",
+        "296至313接近抓取深度时持续下压但进展很小，随后闭爪能成功抓取；没有看到先抓空又持续压而不恢复的循环。"
+      ],
+      "suspicious_ranges": [
+        {
+          "range": [
+            296,
+            314
+          ],
+          "assessment": "接近抓取深度的低进展下探，约0.9秒；补看[288,325)每2步双RGB后仍不足以认定有害错误动作，暂保留，不跨中段拼接。"
+        }
+      ],
+      "recommendation": "whole",
+      "recommended_source_range": [
+        0,
+        796
+      ],
+      "reason": "抽样与关键边界双RGB显示完整有效操作；慢动作及必要撤离不足以判为坏示范。",
+      "confidence": "moderate"
+    },
+    {
+      "source_directory": "corrections/human_1792316642061092080",
+      "frames": 681,
+      "viewed_contact_pages": [
+        "human_1792316642061092080-p00.png",
+        "human_1792316642061092080-p01.png",
+        "human_1792316642061092080-p02.png"
+      ],
+      "findings": [
+        "起始闭爪但碗仍在桌上，0至66横移近碗侧且没有带起碗；67开始开爪后重新对准。",
+        "187闭爪，210至480碗随夹爪提升、搬运、下降至盘上；526松爪，随后撤离。",
+        "开头失败闭爪横移不适合作为理想恢复动作标签；保留从67开爪开始到完成的连续片段。"
+      ],
+      "suspicious_ranges": [
+        {
+          "range": [
+            0,
+            67
+          ],
+          "assessment": "闭爪空抓状态下横移而碗不跟随；建议去掉此开头，训练从67开爪的纠正开始。保留原件用于复盘。"
+        }
+      ],
+      "recommendation": "trim",
+      "recommended_source_range": [
+        67,
+        681
+      ],
+      "reason": "排除起始闭爪空抓横移，后续恢复成功且连续；仅为建议，未修改原件或选片。",
+      "confidence": "moderate"
+    },
+    {
+      "source_directory": "corrections/human_1792316796553277838",
+      "frames": 665,
+      "viewed_contact_pages": [
+        "human_1792316796553277838-p00.png",
+        "human_1792316796553277838-p01.png",
+        "human_1792316796553277838-p02.png"
+      ],
+      "findings": [
+        "起始开爪、抬离调整和再对准过程清楚；195闭爪后碗随夹爪上升。",
+        "搬运到盘上后550松爪，570至664持续撤手且碗稳定留盘。",
+        "没有可视的反复抓空或错误下压循环；动作较慢但方向有目的。"
+      ],
+      "suspicious_ranges": [],
+      "recommendation": "whole",
+      "recommended_source_range": [
+        0,
+        665
+      ],
+      "reason": "抽样与关键边界双RGB显示完整有效操作；慢动作及必要撤离不足以判为坏示范。",
+      "confidence": "moderate"
+    },
+    {
+      "source_directory": "corrections/human_1792316988593839967",
+      "frames": 735,
+      "viewed_contact_pages": [
+        "human_1792316988593839967-p00.png",
+        "human_1792316988593839967-p01.png",
+        "human_1792316988593839967-p02.png"
+      ],
+      "findings": [
+        "开爪抬起调整后对准碗，265闭爪，抓稳后抬起搬运。",
+        "576至599位于盘上接触阶段，低位移不属于空抓恢复失败；600松爪，后续抬离。",
+        "未见明显无效绕行；末段应保留放置接触到开爪撤手的连续关系。"
+      ],
+      "suspicious_ranges": [
+        {
+          "range": [
+            576,
+            600
+          ],
+          "assessment": "盘上接触到松爪前，属于合理放置过程，不因碗不跟随裁掉。"
+        }
+      ],
+      "recommendation": "whole",
+      "recommended_source_range": [
+        0,
+        735
+      ],
+      "reason": "抽样与关键边界双RGB显示完整有效操作；慢动作及必要撤离不足以判为坏示范。",
+      "confidence": "moderate"
+    },
+    {
+      "source_directory": "corrections/human_1792320596142609404",
+      "frames": 625,
+      "viewed_contact_pages": [
+        "human_1792320596142609404-p00.png",
+        "human_1792320596142609404-p01.png",
+        "human_1792320596142609404-p02.png"
+      ],
+      "findings": [
+        "开爪抬离/调整后接近碗，155闭爪并成功抬升，之后搬运至盘。",
+        "490松爪时post_On短暂为False，但510及以后碗回到稳定盘上状态；最终撤手充分。",
+        "单帧On反转不等于整段失败，双相机显示放置和后续撤手。"
+      ],
+      "suspicious_ranges": [
+        {
+          "range": [
+            490,
+            511
+          ],
+          "assessment": "松爪后短暂On=False再恢复，终点稳定；从双相机看不构成明显坏动作。"
+        }
+      ],
+      "recommendation": "whole",
+      "recommended_source_range": [
+        0,
+        625
+      ],
+      "reason": "抽样与关键边界双RGB显示完整有效操作；慢动作及必要撤离不足以判为坏示范。",
+      "confidence": "moderate"
+    },
+    {
+      "source_directory": "corrections/human_1792320729171754480",
+      "frames": 810,
+      "viewed_contact_pages": [
+        "human_1792320729171754480-p00.png",
+        "human_1792320729171754480-p01.png",
+        "human_1792320729171754480-p02.png"
+      ],
+      "findings": [
+        "开爪对准阶段有180至240左右的小幅往返修正，之后270闭爪可抓起碗。",
+        "闭爪搬运后585开爪，630至809夹爪继续抬高/侧移撤离。",
+        "动作不够最短但修正有目的，未见反复错误下压。数值门后183帧包含明显撤离，不能全部直接当无用等待裁掉。"
+      ],
+      "suspicious_ranges": [
+        {
+          "range": [
+            180,
+            241
+          ],
+          "assessment": "开爪对准中的左右修正，未见抓空循环；暂保留。"
+        },
+        {
+          "range": [
+            627,
+            810
+          ],
+          "assessment": "完成门后仍有抬高及侧向撤手，不能按数字阈值直接裁尾。"
+        }
+      ],
+      "recommendation": "whole",
+      "recommended_source_range": [
+        0,
+        810
+      ],
+      "reason": "抽样与关键边界双RGB显示完整有效操作；慢动作及必要撤离不足以判为坏示范。",
+      "confidence": "moderate"
+    },
+    {
+      "source_directory": "corrections/human_1792320881178092096",
+      "frames": 785,
+      "viewed_contact_pages": [
+        "human_1792320881178092096-p00.png",
+        "human_1792320881178092096-p01.png",
+        "human_1792320881178092096-p02.png"
+      ],
+      "findings": [
+        "起始开爪调整后对准并260闭爪抓取；成功提升和搬运。",
+        "604至624闭爪低位移发生于盘上放置接触，625开爪；660以后继续撤手，碗稳定留盘。",
+        "无明显闭爪空抓持续尝试；应保留放置接触、开爪、撤手的衔接。"
+      ],
+      "suspicious_ranges": [
+        {
+          "range": [
+            604,
+            625
+          ],
+          "assessment": "盘上放置接触，补看[596,632)每2步双RGB，未见掉碗或抓空，不裁。"
+        }
+      ],
+      "recommendation": "whole",
+      "recommended_source_range": [
+        0,
+        785
+      ],
+      "reason": "抽样与关键边界双RGB显示完整有效操作；慢动作及必要撤离不足以判为坏示范。",
+      "confidence": "moderate"
+    }
+  ]
+}

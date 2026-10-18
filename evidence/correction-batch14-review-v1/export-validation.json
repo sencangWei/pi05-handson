@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "train_episodes": 56,
+  "train_frames": 13521,
+  "human_clips": 19,
+  "human_frames": 9121,
+  "new_selected_frames": 8055,
+  "public_holdout_episodes": 10,
+  "public_holdout_frames": 1170,
+  "all19_episode_lengths_match_selection": true,
+  "source_rows_checked": 47,
+  "state_action_both_rgb_exact_match": true,
+  "trimmed_episode_first10_rows_match_source67to76": true,
+  "old5_clips_unchanged": true,
+  "three_drafts_excluded_and_metadata_unchanged": true,
+  "normalization_recomputed": false,
+  "exporter_full_arrow_roundtrip": "completed successfully for all exported episodes",
+  "training_started": false
+}

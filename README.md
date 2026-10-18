@@ -380,3 +380,12 @@ rtk proxy .venv-sim/bin/python scripts/probe_corrections.py \
 **当前恢复重点数据版本固定了来源清单，新录制不会自动加入。** 完成复核后需要生成新的选择清单、混合数据和采样配置再训练；不要把重新训练旧版本当作已经使用新示范。摇杆改进的是采集操作，是否改善模型恢复能力仍须另行训练和评测。
 
 界面实拍：[鼠标摇杆](previews/manual-controls-v1-panel.png)、[透视坐标轴](previews/manual-controls-v1-axes-perspective.png)、[俯视坐标轴](previews/manual-controls-v1-axes-top.png)。截图仅加载暂停场景，控制步与人工录制均为0，不是策略恢复演示。
+
+
+### 新14段人工示范：复核与第四版数据
+
+逐段双RGB关键帧及疑点加密检查、全帧哈希和数据契约校验后，新14段中13段完整保留；`human_1792316642061092080`排除开头67步空夹闭爪移动，连续保留`[67,681)`，合计8055步。3段草稿按用户要求排除，原件不变。旧4段精选及585步完整恢复均原样保留。方法不是逐帧看完全部视频，末端合格门也不等于每个动作最优。
+
+新选择为`evidence/curation-batch14-reviewed-v4-selection.json`，导出版本`evidence/corrections-public37_reviewed19_v4-manifest.json`：37条公开＋19段人工，共56条／13521帧训练；公开留出仍10条／1170帧。新14段对应7个场景身份，均为布局24的不同碗偏移；多数教正常抓放，最后3段从已持碗开始，不能称为14个独立恢复场景。另用未训练的失败状态检查恢复。
+
+这是**均匀混合数据版本**；原“恢复重点”清单仍固定旧数据，不能当作已包含新录制。数据导出不启动训练。完整审阅和逐段区间见[复核报告](evidence/correction-batch14-review-v1/README.md)；本机双相机视频页为`.local/correction-batch14-review-v1/index.html`，按动作序号以10FPS播放，不是采集墙钟耗时。

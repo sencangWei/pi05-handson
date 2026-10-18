@@ -1,0 +1,197 @@
+{
+  "reviewer": "batch14_visual_b",
+  "method": "Viewed every generated contact sheet for source indices 7..13: two raw policy cameras (image and wrist_image), frames sampled every 30 control steps plus all gripper transition boundaries and final endpoints. For human_1792321044770146509, additionally viewed raw dual RGB at every 5 steps over 465..525 and inspected every action in [478,510). No simulator or policy calls.",
+  "limitations": [
+    "This is sampled image review, not frame-by-frame viewing of the full MP4s.",
+    "Occluded contact forces, grasp stability between sampled frames, and exact onset of every failure cannot be certified from contact sheets alone.",
+    "No claim that every approved clip teaches recovery; last three begin with an already held bowl and mainly cover placement/release.",
+    "Recommendations do not alter source recordings or select training data."
+  ],
+  "range_convention": "zero-based [start,stop); page frame shows pre-action RGB, post_On is result of that action",
+  "records": [
+    {
+      "source_directory": "corrections/human_1792321044770146509",
+      "frames": 650,
+      "viewed_contact_pages": [
+        "human_1792321044770146509-p00.png",
+        "human_1792321044770146509-p01.png",
+        "human_1792321044770146509-p02.png"
+      ],
+      "findings": [
+        "开爪从目标附近调整并接近；205闭爪后可见碗随末端抬升和搬运；约480起碗在盘上；510开爪，随后抬高撤离，649仍稳定落盘。",
+        "未见多轮抓空或无效反复抓取。连续搬运略慢，动作链完整。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            478,
+            510
+          ],
+          "severity": "minor_quality_review",
+          "finding": "碗已接触盘面后仍闭爪连续Z=-0.1共32步，末端净下移约1.66cm；510才开爪。加密双RGB见碗保持在盘附近，没有再带走。不是抓取失败反复下压循环，但该段可能强化放置后继续压低，应保留疑点供最终取舍。"
+        },
+        {
+          "range": [
+            556,
+            650
+          ],
+          "severity": "tail_candidate",
+          "finding": "仍有抬高/撤离及稳定收尾。不能只按首次终点门裁掉；若压缩尾部，应保留完整撤手和最终稳定窗口。"
+        }
+      ],
+      "recommendation": "review_more",
+      "reason": "主体抓放可用；需人工决定是否保留放置后的32步额外下探。不要直接删除中间32步并拼接两侧动作窗口。"
+    },
+    {
+      "source_directory": "corrections/human_1792321327539756305",
+      "frames": 545,
+      "viewed_contact_pages": [
+        "human_1792321327539756305-p00.png",
+        "human_1792321327539756305-p01.png",
+        "human_1792321327539756305-p02.png"
+      ],
+      "findings": [
+        "初始开爪，约0..205有提起/平移调整后对准目标，205闭爪；抓稳后搬运，约420落盘；425开爪，随后的撤手清楚，544稳定。",
+        "接近轨迹有适度横向修正，没有看见重复抓空或越压越深的循环。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            478,
+            545
+          ],
+          "severity": "tail_candidate",
+          "finding": "撤手及稳定结束过程，仍有有效位移，不能按数值尾部候选整体删掉。"
+        }
+      ],
+      "recommendation": "whole",
+      "reason": "抓取、放置、释放、撤手链连续，抽样画面未见需剔除的错误动作段。"
+    },
+    {
+      "source_directory": "corrections/human_1792321449733577218",
+      "frames": 600,
+      "viewed_contact_pages": [
+        "human_1792321449733577218-p00.png",
+        "human_1792321449733577218-p01.png",
+        "human_1792321449733577218-p02.png"
+      ],
+      "findings": [
+        "从较高开爪状态接近目标；215闭爪后抬升搬运，约449落盘；450开爪，510后逐步撤手，599碗稳定在盘中。",
+        "有正常对准修正；未见多次抓空/错误下压循环。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            505,
+            600
+          ],
+          "severity": "tail_candidate",
+          "finding": "该区间仍展示抬手离开目标的动作，最后短保持正常；不能等同全是无用尾帧。"
+        }
+      ],
+      "recommendation": "whole",
+      "reason": "完整抓放链可用，不建议仅凭重复指令或慢动作裁切。"
+    },
+    {
+      "source_directory": "corrections/human_1792321533232937641",
+      "frames": 580,
+      "viewed_contact_pages": [
+        "human_1792321533232937641-p00.png",
+        "human_1792321533232937641-p01.png"
+      ],
+      "findings": [
+        "从目标旁开爪状态接近；195闭爪，约210后抬起搬运；449落盘，450开爪，510..579撤手并保持。",
+        "搬运轨迹清楚、碗没有在途中掉落；抽样未见恢复失败循环。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            502,
+            580
+          ],
+          "severity": "tail_candidate",
+          "finding": "释放后的撤手仍有明显运动，应保留足够完整的收尾。"
+        }
+      ],
+      "recommendation": "whole",
+      "reason": "抓放完整，抽样画面质量足够，不需要强行制造恢复标签。"
+    },
+    {
+      "source_directory": "corrections/human_1792321838302212936",
+      "frames": 225,
+      "viewed_contact_pages": [
+        "human_1792321838302212936-p00.png"
+      ],
+      "findings": [
+        "开始时已闭爪持碗且靠近盘面；0..110调整姿态/落点后放稳；110开爪，随后撤离，224仍落盘。",
+        "本段没有从空爪找碗或重新抓取的部分；应归类放置/释放修正，而非完整重抓恢复。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            163,
+            225
+          ],
+          "severity": "tail_candidate",
+          "finding": "仍有从碗上方抬起撤手，不是全段静止。"
+        }
+      ],
+      "recommendation": "whole",
+      "reason": "短而连续的持碗放置/释放示范，可保留；勿称其已覆盖抓空恢复。"
+    },
+    {
+      "source_directory": "corrections/human_1792321887412888670",
+      "frames": 205,
+      "viewed_contact_pages": [
+        "human_1792321887412888670-p00.png"
+      ],
+      "findings": [
+        "开始即持碗，0..100对准盘子并下降；100开爪后短暂post_On为False，但随后120起恢复True且保持；开爪撤手后204稳定。",
+        "没有看到碗随开爪后末端被带走；短暂On切换符合释放接触变化，不能单帧判失败。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            99,
+            121
+          ],
+          "severity": "release_contact_reviewed",
+          "finding": "99为On、100为非On，120又为On；接触页两路画面最终一致放置，抽样未见掉出盘子。"
+        },
+        {
+          "range": [
+            141,
+            205
+          ],
+          "severity": "tail_candidate",
+          "finding": "释放后撤手与稳定，建议保留完整动作末尾。"
+        }
+      ],
+      "recommendation": "whole",
+      "reason": "有效放置/释放示范，短暂接触标签切换不构成否决。"
+    },
+    {
+      "source_directory": "corrections/human_1792322110720259274",
+      "frames": 220,
+      "viewed_contact_pages": [
+        "human_1792322110720259274-p00.png"
+      ],
+      "findings": [
+        "初始已闭爪持碗；0..125调整并下降放置；125开爪，150开始可见撤手，219稳定落盘。",
+        "不覆盖重抓，但展示不同目标/碗位置下的放置与松爪撤手。"
+      ],
+      "suspect_intervals": [
+        {
+          "range": [
+            162,
+            220
+          ],
+          "severity": "tail_candidate",
+          "finding": "开爪后抬手仍在进行，应保持完整释放及撤离。"
+        }
+      ],
+      "recommendation": "whole",
+      "reason": "完整的持碗放置片段，抽样未见应剔除错误操作。"
+    }
+  ]
+}

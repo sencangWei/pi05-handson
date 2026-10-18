@@ -1,0 +1,658 @@
+{
+  "source_repo": "physical-intelligence/libero",
+  "source_revision": "a4336d589d589045d1c56423ffdf3b88a0e19b1f",
+  "task": "pick up the black bowl next to the plate and place it on the plate",
+  "seed": 42,
+  "split_rule": "preserve original 16/4; rank remaining by sha256('42:episode_id'); first six holdout",
+  "train_source_episode_ids": [
+    1280,
+    1285,
+    1293,
+    1307,
+    1332,
+    1342,
+    1346,
+    1348,
+    1363,
+    1372,
+    1387,
+    1392,
+    1393,
+    1403,
+    1409,
+    1413,
+    1417,
+    1438,
+    1451,
+    1459,
+    1467,
+    1471,
+    1488,
+    1507,
+    1515,
+    1536,
+    1540,
+    1542,
+    1546,
+    1552,
+    1565,
+    1572,
+    1584,
+    1599,
+    1609,
+    1621,
+    1623
+  ],
+  "holdout_source_episode_ids_excluded": [
+    1464,
+    1503,
+    1513,
+    1533,
+    1547,
+    1630,
+    1639,
+    1648,
+    1671,
+    1678
+  ],
+  "preserved_train_source_episode_ids": [
+    1280,
+    1285,
+    1293,
+    1307,
+    1332,
+    1342,
+    1346,
+    1348,
+    1363,
+    1372,
+    1387,
+    1392,
+    1393,
+    1403,
+    1409,
+    1413
+  ],
+  "old_holdout_source_episode_ids_excluded": [
+    1639,
+    1648,
+    1671,
+    1678
+  ],
+  "additional_holdout_source_episode_ids": [
+    1464,
+    1503,
+    1513,
+    1533,
+    1547,
+    1630
+  ],
+  "train_episodes": 37,
+  "holdout_episodes": 10,
+  "train_frames": 4400,
+  "holdout_frames": 1170,
+  "dataset_kind": "expanded_public_v1",
+  "ready": true,
+  "project_root": "/home/robot/.pi05-handson",
+  "repo_id": "course/libero_corrections_public37_v1",
+  "dataset_dir": "data/lerobot/course/libero_corrections_public37_v1",
+  "holdout_repo_id": "course/libero_corrections_public37_v1_holdout",
+  "holdout_dataset_dir": "data/lerobot/course/libero_corrections_public37_v1_holdout",
+  "original_train_episodes": 37,
+  "original_train_frames": 4400,
+  "correction_train_episodes": 0,
+  "correction_train_frames": 0,
+  "correction_holdout_episodes_excluded": 0,
+  "human_corrections_included": false,
+  "normalization": {
+    "asset_id": "course/libero_black_bowl",
+    "recomputed": false,
+    "path": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+    "bytes": 1966,
+    "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "sampling": "uniform over public training frames",
+  "scenarios": {
+    "train": [],
+    "holdout": []
+  },
+  "timing": {
+    "nominal_fps": 10,
+    "nominal_dt": 0.1,
+    "pauses_excluded": true
+  },
+  "files": [
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000000.parquet",
+      "bytes": 13166711,
+      "sha256": "7edbb5d25afe67f940081df3500500be0dd71830c44ca7ea81be48080cc1c595"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000001.parquet",
+      "bytes": 15518443,
+      "sha256": "cb85781d218e756e2a8a794bda2dd0392aebff031d3819093292cc419f020b83"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000002.parquet",
+      "bytes": 15672334,
+      "sha256": "45971560808651d94284bb2a4e70f62a45d7ca75522e8b409b2c43c8fb941611"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000003.parquet",
+      "bytes": 17829425,
+      "sha256": "d256cc96c3f6868059e0456c257245fd66793169c69e5d72c90497d7fe2873e8"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000004.parquet",
+      "bytes": 16368128,
+      "sha256": "d1461cdd14d277fe3db5551f0a4f87b6a76c1945ad163e2ee942de79b5f77550"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000005.parquet",
+      "bytes": 15742270,
+      "sha256": "96802aae6461789e19753f91a3da40047f03309450eb91d6fcc0708ee2170f5f"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000006.parquet",
+      "bytes": 15869776,
+      "sha256": "0093071d0da746823830b21e8d7c2af6bf24ba94eeb5d4cf39dcd77f39739262"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000007.parquet",
+      "bytes": 14186064,
+      "sha256": "59d114b6669faf6664351576109a0b45df2d31cf30f4059249ed22eafba49241"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000008.parquet",
+      "bytes": 20443105,
+      "sha256": "5c0dda1911dd9eadbcc72556412344170debbdd834c826a9c7c8efeb81286b4f"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000009.parquet",
+      "bytes": 13896253,
+      "sha256": "f434d53eed3a86c6337d4e0c50da4dd83cac12b441032539123255f0311746a1"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000010.parquet",
+      "bytes": 16979118,
+      "sha256": "12cce440118bc334773366d5a64f0fcc07ee7434f50e8c6f9dc7cf40a2734ea9"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000011.parquet",
+      "bytes": 15796767,
+      "sha256": "5f879002cd69c63d113a9c176290417579cac9b54a7ef843a152c275118bdebb"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000012.parquet",
+      "bytes": 13819452,
+      "sha256": "7e5742930f94a8ee18f67aa24812db958bc89de7577f8a7c76e1affb41ae8e89"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000013.parquet",
+      "bytes": 18388283,
+      "sha256": "f289854e4e4dd7471bcc55f22325d4f290426aa352877bd32b4848ace3c3c795"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000014.parquet",
+      "bytes": 13176334,
+      "sha256": "18809b2d8f5c869788109df0a06ca3fb7225205a484bd71187a1c04dab6665b8"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000015.parquet",
+      "bytes": 13125320,
+      "sha256": "4a01ae9edff4f2c2cfca7c9ea4e51832ad51fb026ee32efa8f56be7b649fb066"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000016.parquet",
+      "bytes": 12664712,
+      "sha256": "b98c5e716e5071d5bcfbe571228def232c38b6694967560823e2feb3b333b5ed"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000017.parquet",
+      "bytes": 13528299,
+      "sha256": "0a9bdc07850d528470059476b92c12e3c4410b6d447be33f83fab6a6cd147f7b"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000018.parquet",
+      "bytes": 14161556,
+      "sha256": "f47e138dbde96be7db2b44c868d5678a3d2d03ccf18be81c4b6a2b46485864b3"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000019.parquet",
+      "bytes": 12422175,
+      "sha256": "ac6c120f6d433e5f519cb44efe7abd868f921ab3092d901bffdf08bfd48f6b2c"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000020.parquet",
+      "bytes": 13706666,
+      "sha256": "36e5953dbcedc1f946459235a4b73d018f27f070c080386e90f05c15b823f713"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000021.parquet",
+      "bytes": 12263983,
+      "sha256": "91b992e0bfc734dac1d6847e727749d351e1774c4414b87a711845ab9be78b32"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000022.parquet",
+      "bytes": 17592667,
+      "sha256": "a09fea4ba33c53cf56cf1804ec66fb0508ced304914161e9d469d5ea6975ace4"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000023.parquet",
+      "bytes": 13468336,
+      "sha256": "3c6ce619b7605bb8e971cf9ea7323f00514414214555157cef101bf887c8b5bc"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000024.parquet",
+      "bytes": 14050678,
+      "sha256": "69c9873f7e8fb27a5812a61dbea332754205d901822c9cac6dc825c243744c9a"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000025.parquet",
+      "bytes": 15282348,
+      "sha256": "d2f9c36e492d2bbaaf57fc4458fbf3c7d950beb90bfa5cabb945f47c1d00c317"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000026.parquet",
+      "bytes": 13868975,
+      "sha256": "d9ffc9df1433cc44840e4b09e0b31ae100bf23155dbb58f2409f3d7adf6e4adb"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000027.parquet",
+      "bytes": 14911795,
+      "sha256": "5f1544dabcacb828732995513eaa66b3575728b9a5ea89c29ba42311fa10cf86"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000028.parquet",
+      "bytes": 22451654,
+      "sha256": "1f9668ebb567e018686be6d540b654e3326491641fa98748b37ba8b3cea485e9"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000029.parquet",
+      "bytes": 13965929,
+      "sha256": "347ed0d9f8981de4aec2c6a9308031a6abe1231ceccc87ea6c7021a81ba22d1f"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000030.parquet",
+      "bytes": 14614130,
+      "sha256": "79b8e56aae1b2cda9fd709a9838f3ae5dd5b1f08b4a815f7a7aaab4d7891243d"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000031.parquet",
+      "bytes": 15126003,
+      "sha256": "81759c859720c4454dcf991aaa7dced3ac1d566cc5c3e04fb91b5cf7f99f5aa1"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000032.parquet",
+      "bytes": 14544733,
+      "sha256": "8e8e234ff02b914986d5b62508f3df57cdb8700ef4c0cbbff86298fbd12827fc"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000033.parquet",
+      "bytes": 14796669,
+      "sha256": "ca0ab9830fca49f67352d1003f7afc67636eba4b6c4843831e5ede5cc0921d5a"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000034.parquet",
+      "bytes": 13068739,
+      "sha256": "a99d9a1d76bf9c138f491702e69c66ecb175c5ac256b03124e78d1e4eae8a0da"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000035.parquet",
+      "bytes": 18883403,
+      "sha256": "fcccd84667f1669630aae1d135b38d1a89f597aea3b2b77742617088ae3bb8b9"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/data/chunk-000/episode_000036.parquet",
+      "bytes": 17260852,
+      "sha256": "a16c414a0cfa3d3ef62f1fe53c5778e106365b690c0fd19a3988ca211cf1fca0"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/meta/episodes.jsonl",
+      "bytes": 4352,
+      "sha256": "5e0c9f4e11f1b56e9b1842ee9643b5a038a015207f58318cfc29d529708724ac"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/meta/episodes_stats.jsonl",
+      "bytes": 91316,
+      "sha256": "032693d82fca54f5a6fb7710acb85fa9d6bafda37ed6abc0bbb5541e995f395a"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/meta/info.json",
+      "bytes": 1611,
+      "sha256": "376dfea902a1b7d1f7ef08dae4997fbf98de090dbfc324fce762ccfe42ed5af6"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1/meta/tasks.jsonl",
+      "bytes": 96,
+      "sha256": "388e57320fc7785fe35c1fdc4da9aacf5406d850b872d4acd4ae6edb0e6c9ccf"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000000.parquet",
+      "bytes": 14250943,
+      "sha256": "31278dd2e5f7ad073ef1c2925efa526199d19caa2dca019b6ce15c45d7a37344"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000001.parquet",
+      "bytes": 13302336,
+      "sha256": "4f31e9a6d9eee4cae59783a06fa53567a59df6fdd29ca65957aa6550a46cc5a1"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000002.parquet",
+      "bytes": 14110692,
+      "sha256": "fc9ea3f57b48d1a5f01ef1b6df55dcf373b654444af7e3826f894bacbd939082"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000003.parquet",
+      "bytes": 21122570,
+      "sha256": "57a6940454bb6c6d6251aae7d53ee10039def2729eb1d594309fd8d38826b694"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000004.parquet",
+      "bytes": 12777582,
+      "sha256": "11ccd8c23e0c1269e324305366108dc08a2df80e47790ec8f0d5d0afed0ff328"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000005.parquet",
+      "bytes": 12911110,
+      "sha256": "64148b6c275ff5f30482fa4506f671d3884cdaaaa407083074c762b647f3402a"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000006.parquet",
+      "bytes": 15013672,
+      "sha256": "6b3c7bee273bdafa61c5868e50cf83f74ca2e635c818568f69c3062727741e7d"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000007.parquet",
+      "bytes": 17445137,
+      "sha256": "70027187571ec3547155e86779db944c7c4ffd1ecd0920bcaf69528853a38ead"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000008.parquet",
+      "bytes": 15303937,
+      "sha256": "cf652d7eb36b298bf5e1ed9fbb90df39b71ecc1fd85a837126b094477e2a3658"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/data/chunk-000/episode_000009.parquet",
+      "bytes": 12410827,
+      "sha256": "8227ab6a182abc46ac7485359343cd8e40f68d813a2dd3a6192c411c0745971d"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/meta/episodes.jsonl",
+      "bytes": 1168,
+      "sha256": "bb57f8a13dc226d1701570be06ba1d5ae5ea2b8206ec004878d4319fe4a4cf8b"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/meta/episodes_stats.jsonl",
+      "bytes": 24710,
+      "sha256": "8115e3fb97e2a28aee685705bbcc62d1d2e0098e568ab0692bbea1e6400eedc8"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/meta/info.json",
+      "bytes": 1611,
+      "sha256": "6d85839affbc38c07e22a102f6c4ac24cc0976dfcc500b405d322da5c5b47162"
+    },
+    {
+      "path": "data/lerobot/course/libero_corrections_public37_v1_holdout/meta/tasks.jsonl",
+      "bytes": 96,
+      "sha256": "388e57320fc7785fe35c1fdc4da9aacf5406d850b872d4acd4ae6edb0e6c9ccf"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "evidence/data_manifest.json",
+      "bytes": 9389,
+      "sha256": "4f32b07dfe7d257691a83abf8cc0d935bca1d14e48654d2b27e6055321509138"
+    },
+    {
+      "path": "data/raw_public/meta/info.json",
+      "bytes": 2131,
+      "sha256": "77c0da93c67960bac803a8ea25dabf380d752c26c1d91c54151121dd10e7d82f"
+    },
+    {
+      "path": "data/raw_public/meta/tasks.jsonl",
+      "bytes": 3375,
+      "sha256": "e72ef3cf7ca7a3abe70b3e142a0d1acf2719d2a3f27598869092cc4f1762bb99"
+    },
+    {
+      "path": "data/raw_public/meta/episodes.jsonl",
+      "bytes": 180384,
+      "sha256": "0479a2ced6117700e4638a1da54dccd9f60ae5f47485ea6d91390c869befcf08"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001280.parquet",
+      "bytes": 13168544,
+      "sha256": "2a32de3c43ea575cfbf5b4a660dd54467fb3752b3258f23df6fb87e1dc32f6f6"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001285.parquet",
+      "bytes": 15520475,
+      "sha256": "1bc9cf6135711b1c8f611b4491a4f3c05fe528346f47ea9e7eb9ce4458874e2d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001293.parquet",
+      "bytes": 15674291,
+      "sha256": "6508911b5bdf401cb917c128d5e9c75b05e7f80a1d7a22ec79f5372120817e51"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001307.parquet",
+      "bytes": 17831314,
+      "sha256": "ae7adc4438f3e7d96f73568c253f4accc471bd21de75fb2f82d2d559af500251"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001332.parquet",
+      "bytes": 16370132,
+      "sha256": "f4bbe7896565a3b7d2e46dd6cec96fff7df16d1ebf8c9c13dbb7f1dc60d0662f"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001342.parquet",
+      "bytes": 15744275,
+      "sha256": "3f83929a6599823c4fe624ab2ca74b699bde36f8c67b04e3234d9121cf2d2b23"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001346.parquet",
+      "bytes": 15871701,
+      "sha256": "cb94e72c196eef5ba560b810f8e1bc6889e17cf37ee57a9517e80105d54d86f5"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001348.parquet",
+      "bytes": 14187937,
+      "sha256": "c1d0054ac21c7cf1161acef2ecc85a98049412eaa02b1785f668a5ecd51a96cf"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001363.parquet",
+      "bytes": 20445080,
+      "sha256": "4f5c5d9f8698eb65a3b042918ecbae02663b884e853c8f2dd0e4713290a2bcc0"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001372.parquet",
+      "bytes": 13898121,
+      "sha256": "504a5a75916c69eb0f086d079e3bfcbf1d33b61341f48e1f46bef0cddb900b1d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001387.parquet",
+      "bytes": 16980959,
+      "sha256": "757df67cf2446cbf4b3a8b91ae335bd2c81ee45e4c7e025d0b4f7181288dfa4d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001392.parquet",
+      "bytes": 15798717,
+      "sha256": "e75ebc96d2714042d6efa0804055d625eb069efa439544d9028e4ced0fe975c1"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001393.parquet",
+      "bytes": 13821337,
+      "sha256": "c5c970a802cfb77fb495a923f70ae46e442f3118c29f79c2c68651289b681ff8"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001403.parquet",
+      "bytes": 18390139,
+      "sha256": "cb19b2ee4624026a45fac28d469c839ac0eb5faf48cc9610eb9126dda8fde640"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001409.parquet",
+      "bytes": 13178223,
+      "sha256": "088a997cd4ee2c662744df19057a3a53701b3a3b5fd2cfdb72bcc75b73e153aa"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001413.parquet",
+      "bytes": 13125192,
+      "sha256": "f410d029136f4016e9c4f82d87d9d48fdc5e725068a150361d722d680f60ade0"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001417.parquet",
+      "bytes": 12664582,
+      "sha256": "b74bced6f07f00725b614f2f6001e7049a0aef08a5ef2e3a1355643cd21ba183"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001438.parquet",
+      "bytes": 13530093,
+      "sha256": "2aeccdc3649fed9506cf8fd223e2575a948953eba3002a2d0d6e2a70e256c223"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001451.parquet",
+      "bytes": 14163450,
+      "sha256": "734eeac47f05f9267039da13b45b36896f91c622efa6a1124dc99165ab06cf71"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001459.parquet",
+      "bytes": 12422046,
+      "sha256": "a8d30a06ff9dfa218a0d29fb8462b32a1f5fa668f93040c581840bca78eea2a8"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001464.parquet",
+      "bytes": 14252824,
+      "sha256": "1767d15313eabbc87e3c9dd329fc5914f5287951176b2cb70f3bd30b80d974f0"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001467.parquet",
+      "bytes": 13708546,
+      "sha256": "e7badc969d5b9bef5486265094a34d45c8ddfa06ef14e830e15bdd2fa189c23b"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001471.parquet",
+      "bytes": 12263854,
+      "sha256": "006677131821748dbbe4cddfca24fc9ce28e1a78cd9b97917130505364a68fb0"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001488.parquet",
+      "bytes": 17594569,
+      "sha256": "55247b28e449e796cc30f0399824c95239fdbae15555eccbafb33a356c461ac6"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001503.parquet",
+      "bytes": 13304144,
+      "sha256": "7a6bd2a135864b4faa9d42816057e6193f7dd5301a7d115446969f5d8d840d80"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001507.parquet",
+      "bytes": 13470181,
+      "sha256": "61012f597a30c748d3a9f5b51616c67d164b8827fc23d7a249bf4fb51249dfc2"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001513.parquet",
+      "bytes": 14112584,
+      "sha256": "7fe5d671b3fc52b9926a22dc71b849b8a22645a15983c7fbd292b7f0f58f6a5b"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001515.parquet",
+      "bytes": 14052561,
+      "sha256": "579f609b9c6db576006c129e627603f13525acd3559a9385d10231b9d42c160c"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001533.parquet",
+      "bytes": 21124809,
+      "sha256": "16e7c436f69dfd7981da809566b595737d65ff5176ca464d81ba90175477aaab"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001536.parquet",
+      "bytes": 15284305,
+      "sha256": "8d3b92b451926c4b04541788151fa9fa55939898cef81f8c912c3043c4e9a51c"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001540.parquet",
+      "bytes": 13870813,
+      "sha256": "2380a925eb60930c830b3c37ccf655eabcb0410aa580ffb5fac655d2626e08aa"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001542.parquet",
+      "bytes": 14913752,
+      "sha256": "4228d8e2c0a02bc209765f727c7b7bdb92176b015e4a3df3dbb4e0f6d348ac5d"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001546.parquet",
+      "bytes": 22453800,
+      "sha256": "f495ad76e7f0ee9c25527e8420fa07193c7fcce2f48b87ff6e0aa12dd324b0d1"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001547.parquet",
+      "bytes": 12779402,
+      "sha256": "fc3966fb18e9309c5abc2a4b1e732f4a106b91e378beb98a884410b8790c9df4"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001552.parquet",
+      "bytes": 13967791,
+      "sha256": "94e2aaff6965d983b7fd34a66ca69052e346097381a36b61a61c0a17180d64ba"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001565.parquet",
+      "bytes": 14616006,
+      "sha256": "1019267d8f03a7e39220338c73f9d6f7b140f6fef88c4f42641dd0e2a7308ae4"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001572.parquet",
+      "bytes": 15127852,
+      "sha256": "f1b7e0f5c75620e7e2332d943fa42b601f828ad5d28ee8d6309a973bfde73714"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001584.parquet",
+      "bytes": 14546586,
+      "sha256": "9dc01e456f70370bda3bd275d0e9c0d1815aaf6eef115784ed7928a34b1ef3bb"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001599.parquet",
+      "bytes": 14798576,
+      "sha256": "aabc58f92b5d4e7832e92dd4396d3585570e2fcb4d36e2377e8036b38943aa74"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001609.parquet",
+      "bytes": 13068610,
+      "sha256": "958ee1294c76ecbf7a94b1189599ea65fedc45b5f870ccbfb58942e18d7a4de2"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001621.parquet",
+      "bytes": 18885363,
+      "sha256": "d47a77dc9e64f66e9b0b329adc7a2068c08d61487a05df4e854e8139122d6f40"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001623.parquet",
+      "bytes": 17262854,
+      "sha256": "a51c7c4935b98c0565b6007b51c081c58c433352620afd33b73b449a8d534c58"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001630.parquet",
+      "bytes": 12910984,
+      "sha256": "e80308e4853773242f45db7340118772edd294b1c42eff32173e6b9c0d4c1e90"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001639.parquet",
+      "bytes": 15015580,
+      "sha256": "64e4a8db86c71226cf8677301a75fa73772f644f88eb96b57300fb6c99043ee3"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001648.parquet",
+      "bytes": 17446991,
+      "sha256": "615e71cda91a42004c980611fdb9db7db2274a5ec966d5822e62a6fd546cdccb"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001671.parquet",
+      "bytes": 15305946,
+      "sha256": "e97cc1a427bbb24a72030a4a49cf55e1dba65ea33af445dcfbd25719ac88f891"
+    },
+    {
+      "path": "data/raw_public/data/chunk-001/episode_001678.parquet",
+      "bytes": 12410697,
+      "sha256": "e89fb49adc36b8bedc63490f8164caeaac8773c08df65f0de3b2d478c4957452"
+    }
+  ]
+}

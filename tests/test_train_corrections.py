@@ -1,6 +1,7 @@
 import contextlib
 import dataclasses
 import io
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -110,6 +111,69 @@ class TrainingTests(unittest.TestCase):
         self.assertEqual(cfg.save_interval, 1000)
         self.assertEqual(cfg.lr_schedule.peak_lr, 5e-5)
         self.assertEqual(base.data.repo_id, "original")
+
+
+@unittest.skipIf(pa is None, "CPU Arrow environment required")
+class ExpandedTrainingTests(unittest.TestCase):
+    def setUp(self):
+        from test_expanded_public import fixture
+        from prepare_expanded_public import prepare as expand
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        fixture(self.root)
+        self.original_hash = train.digest(self.root / "evidence/data_manifest.json")
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.path = expand(self.root)
+        self.manifest = json.loads(self.path.read_text())
+        self.parent = self.root / "checkpoints/pi05_handson_lora/parent/9"
+        (self.parent / "params").mkdir(parents=True)
+        (self.parent / "params/manifest.ocdbt").write_text("fixture; never loaded")
+        norm = self.parent / "assets/course/libero_black_bowl/norm_stats.json"
+        norm.parent.mkdir(parents=True)
+        norm.write_text('{"fixed":true}')
+
+    def validate(self):
+        return train.validate_inputs(self.path, self.parent, "expanded", root=self.root)
+
+    def test_expanded_public_accepts_separate_holdout_and_preserves_original(self):
+        manifest, parent, _ = self.validate()
+        self.assertEqual((manifest["train_episodes"], manifest["holdout_episodes"]), (37, 10))
+        self.assertEqual(parent, self.parent)
+        self.assertEqual(train.digest(self.root / "evidence/data_manifest.json"), self.original_hash)
+        self.assertFalse((self.root / "evidence/expanded-launch.json").exists())
+
+    def test_expanded_rejects_overlap_human_corrections_and_changed_source(self):
+        mutations = [
+            {"holdout_source_episode_ids_excluded": self.manifest["train_source_episode_ids"][:10]},
+            {"correction_train_episodes": 1, "correction_train_frames": 10, "human_corrections_included": True},
+            {"source_revision": "different"},
+            {"dataset_kind": "unrecognized_public"},
+            {"preserved_train_source_episode_ids": []},
+            {"holdout_dataset_dir": self.manifest["dataset_dir"]},
+            {"train_frames": 1},
+        ]
+        for values in mutations:
+            self.path.write_text(json.dumps({**self.manifest, **values}))
+            with self.subTest(values=values), self.assertRaises(ValueError):
+                self.validate()
+
+    def test_expanded_rejects_holdout_inventory_and_rehashed_wrong_metadata(self):
+        from prepare_corrections import file_record
+        holdout = self.root / self.manifest["holdout_dataset_dir"]
+        extra = holdout / "unexpected.txt"
+        extra.write_text("not inventoried")
+        with self.assertRaisesRegex(ValueError, "inventory"):
+            self.validate()
+        extra.unlink()
+        info_path = holdout / "meta/info.json"
+        info = json.loads(info_path.read_text())
+        info_path.write_text(json.dumps({**info, "total_episodes": 37}))
+        updated = file_record(self.root, info_path)
+        self.manifest["files"] = [updated if item["path"] == updated["path"] else item for item in self.manifest["files"]]
+        self.path.write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "metadata counts"):
+            self.validate()
 
 
 if __name__ == "__main__":

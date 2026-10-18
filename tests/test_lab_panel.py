@@ -506,6 +506,37 @@ class CorrectionTests(PanelTests):
             self.assertEqual(self.backend.calls[-1], ("start_training", self.backend.checkpoint_list[0],
                                                      2000, 4, 5e-5, False))
 
+    def test_expanded_dataset_hint_identifies_public_only_demonstration_holdout(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            manifest.write_text('{"dataset_kind":"expanded_public_v1","original_train_episodes":37,'
+                                '"holdout_source_episode_ids_excluded":[0,1,2,3,4,5,6,7,8,9],'
+                                '"task":"black bowl","train_episodes":37,"train_frames":4400,'
+                                '"holdout_episodes":10,"holdout_frames":1170}')
+            self.backend.bundle_paths = [str(manifest)]
+            self.panel.dataset_refresh_button.invoke()
+            self.panel.training_dataset_var.set(str(manifest))
+            self.panel._select_dataset()
+            self.assertEqual(self.panel.correction_dataset_hint.get(),
+                             "公开示范扩充：37条训练，10条留出；人工纠正暂未混入")
+            self.assertEqual(self.panel.sampler_var.get(), "均匀")
+            self.assertEqual(str(self.panel.sampler_combo.cget("state")), "disabled")
+            self.assertFalse(self.backend.calls)
+            expected = "black bowl\n\n训练：37 条 / 4400 帧；留出：10 条 / 1170 帧"
+            self.assertEqual(self.panel.dataset_var.get(), expected)
+            with patch.object(self.backend, "dataset_info", return_value={
+                    "task": "black bowl", "train_episodes": 16, "train_frames": 1971,
+                    "holdout_episodes": 4, "holdout_frames": 473}):
+                self.panel._refresh_workbench()
+                self.panel._refresh_workbench()
+                self.assertEqual(self.panel.dataset_var.get(), expected)
+                self.panel.training_dataset_var.set("原始示范")
+                self.panel._select_dataset()
+                self.assertEqual(self.panel.dataset_var.get(),
+                                 "black bowl\n\n训练：16 条 / 1971 帧；留出：4 条 / 473 帧")
+                self.panel._refresh_workbench()
+                self.assertIn("训练：16 条 / 1971 帧", self.panel.dataset_var.get())
+
     def test_prepare_data_only_dispatches_preparation(self):
         self.panel.prepare_corrections_button.invoke()
         self.assertEqual(self.backend.calls, [("prepare_corrections",)])

@@ -331,3 +331,9 @@ cd ~/.pi05-handson
 .venv-sim/bin/python -u scripts/simulation_lab.py --resume-correction corrections/recovered_770_20261018
 ```
 末帧观测可能早于最后物理子步，位置/轴角边界允许1mm/1mrad；完整 MuJoCo 状态本身必须与保存快照一致（绝对误差不大于1e-12）。本次实测观测差约0.134mm，快照状态恢复误差为0。
+
+### 扩充公开数据：第二阶段
+
+已准备独立的 **37条/4400帧训练、10条/1170帧留出** 版本，保留原16/4划分和旧课程数据。面板刷新数据列表后选择 `corrections-public37_v1-manifest.json`。两段人工纠正先单独复核，本轮训练数据不混入。
+
+完整说明、父模型选择、参数和恢复补录方法见 [数据扩充与复核](docs/data_coverage_v2.md)。本轮建议从 `release_focus_2000/1999` 开始新增3000步、batch4、学习率1e-5、均匀采样，由学习者启动训练。已通过实际数据加载与训练dry-run，不表示新模型已训练或已获得恢复能力。

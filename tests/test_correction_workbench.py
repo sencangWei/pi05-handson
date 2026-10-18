@@ -241,6 +241,20 @@ class CorrectionBackendTests(unittest.TestCase):
         self.jobs.start_correction_training.assert_called_once_with("parent", 10, 2, 1e-4, manifest)
         self.jobs.start_training.assert_not_called()
 
+    def test_expanded_public_training_preserves_user_parameters_and_labels_data(self):
+        evidence = self.root / "evidence"
+        evidence.mkdir()
+        manifest = evidence / "corrections-public37_v1-manifest.json"
+        manifest.write_text(json.dumps({"ready": True, "dataset_kind": "expanded_public_v1"}))
+        env = self.lab.env
+        self.assertFalse(self.jobs.start_correction_training.called)
+        with self.assertRaisesRegex(ValueError, "均匀"):
+            self.lab.start_training("parent", 3000, 4, 1e-5, correction_manifest=manifest)
+        self.lab.start_training("parent", 3000, 4, 1e-5, uniform=True, correction_manifest=manifest)
+        self.jobs.start_correction_training.assert_called_once_with("parent", 3000, 4, 1e-5, manifest)
+        self.assertIn("人工纠正未混入", self.lab.status)
+        self.assertFalse(env.applied)
+
     def test_prepare_only_starts_bounded_cpu_data_command_on_explicit_request(self):
         result = SimpleNamespace(returncode=0, stdout="ready", stderr="")
         with patch("correction_workbench.subprocess.run", return_value=result) as run:

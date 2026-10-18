@@ -1,6 +1,7 @@
 """Start a separate course fine-tune from an immutable correction dataset."""
 import argparse
 import dataclasses
+import hashlib
 import importlib.util
 import json
 import os
@@ -9,10 +10,85 @@ import re
 import subprocess
 
 from correction_data import digest
-from prepare_corrections import ASSET_ID, contained, safe_name, verify_records
+from prepare_corrections import ASSET_ID, contained, jsonl, safe_name, verify_records
 from train_release_focus import positive_int, positive_learning_rate
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def validate_expanded_public(root, manifest):
+    """Accept only the pinned 37/10 public export, with no human trajectories."""
+    source = {"source_repo": "physical-intelligence/libero",
+              "source_revision": "a4336d589d589045d1c56423ffdf3b88a0e19b1f",
+              "task": "pick up the black bowl next to the plate and place it on the plate"}
+    pinned = json.loads((root / "evidence/data_manifest.json").read_text())
+    if any(manifest.get(key) != value or pinned.get(key) != value for key, value in source.items()):
+        raise ValueError("Expanded public source revision or task differs")
+    train, holdout = manifest["train_source_episode_ids"], manifest["holdout_source_episode_ids_excluded"]
+    old_train, old_holdout = pinned["train_source_episode_ids"], pinned["holdout_source_episode_ids"]
+    if (pinned.get("ready") is not True or len(set(old_train)) != 16 or len(set(old_holdout)) != 4
+            or set(old_train) & set(old_holdout) or manifest.get("seed") != 42
+            or len(train) != 37 or len(set(train)) != 37 or len(holdout) != 10 or len(set(holdout)) != 10
+            or any(type(idx) is not int for idx in train + holdout)
+            or train != sorted(train) or holdout != sorted(holdout) or set(train) & set(holdout)
+            or manifest.get("preserved_train_source_episode_ids") != sorted(old_train)
+            or manifest.get("old_holdout_source_episode_ids_excluded") != sorted(old_holdout)
+            or not set(old_train) <= set(train) or not set(old_holdout) <= set(holdout)):
+        raise ValueError("Expanded public training and holdout sources overlap or lineage differs")
+    if (manifest.get("original_train_episodes") != 37 or manifest.get("train_episodes") != 37
+            or manifest.get("holdout_episodes") != 10 or manifest.get("correction_train_episodes") != 0
+            or manifest.get("correction_train_frames") != 0 or manifest.get("correction_holdout_episodes_excluded") != 0
+            or manifest.get("human_corrections_included") is not False
+            or manifest.get("scenarios") != {"train": [], "holdout": []}
+            or manifest.get("sampling") != "uniform over public training frames"):
+        raise ValueError("Expanded public export must contain 37/10 public episodes and no human corrections")
+    raw = root / "data/raw_public"
+    info = json.loads((raw / "meta/info.json").read_text())
+    source_episodes = {row["episode_index"]: row for row in jsonl(raw / "meta/episodes.jsonl")
+                       if row["tasks"] == [source["task"]]}
+    all_ids = set(train + holdout)
+    remaining = all_ids - set(old_train) - set(old_holdout)
+    additional = sorted(sorted(remaining, key=lambda idx: hashlib.sha256(f"42:{idx}".encode()).hexdigest())[:6])
+    if (len(source_episodes) != 47 or all_ids != set(source_episodes)
+            or manifest.get("additional_holdout_source_episode_ids") != additional
+            or set(holdout) != set(old_holdout + additional)):
+        raise ValueError("Expanded public split differs from the pinned seed-42 source split")
+    inputs = {item["path"]: item for item in manifest["inputs"]}
+    expected_inputs = {"evidence/data_manifest.json"}
+    for name in ("info.json", "episodes.jsonl", "tasks.jsonl"):
+        path = f"data/raw_public/meta/{name}"
+        expected_inputs.add(path)
+        if inputs.get(path) != next((item for item in pinned["files"] if item["path"] == path), None):
+            raise ValueError("Expanded public metadata differs from original pinned inputs")
+    for idx in all_ids:
+        relative = info["data_path"].format(episode_chunk=idx // info["chunks_size"], episode_index=idx)
+        expected_inputs.add(str(Path("data/raw_public") / relative))
+    if set(inputs) != expected_inputs:
+        raise ValueError("Expanded public input inventory differs")
+    expected_files = set()
+    for split, ids in (("train", train), ("holdout", holdout)):
+        repo = manifest["repo_id"] + ("_holdout" if split == "holdout" else "")
+        relative = f"data/lerobot/{repo}"
+        if split == "holdout" and (manifest.get("holdout_repo_id") != repo or manifest.get("holdout_dataset_dir") != relative):
+            raise ValueError("Expanded holdout must use a separate dataset directory")
+        dataset = contained(root, relative)
+        records = jsonl(dataset / "meta/episodes.jsonl")
+        frames = sum(source_episodes[idx]["length"] for idx in ids)
+        exported_info = json.loads((dataset / "meta/info.json").read_text())
+        if (manifest.get(f"{split}_frames") != frames or exported_info.get("total_episodes") != len(ids)
+                or exported_info.get("total_frames") != frames or exported_info.get("fps") != 10
+                or records != [{"episode_index": number, "tasks": [source["task"]],
+                                "length": source_episodes[idx]["length"]} for number, idx in enumerate(ids)]
+                or jsonl(dataset / "meta/tasks.jsonl") != [{"task_index": 0, "task": source["task"]}]):
+            raise ValueError("Expanded public dataset metadata counts or task differ")
+        expected_files.update(f"{relative}/meta/{name}" for name in
+                              ("info.json", "episodes.jsonl", "episodes_stats.jsonl", "tasks.jsonl"))
+        expected_files.update(f"{relative}/data/chunk-000/episode_{number:06d}.parquet" for number in range(len(ids)))
+        if {str(path.relative_to(root)) for path in dataset.rglob("*") if path.is_file()} != {
+                path for path in expected_files if Path(path).is_relative_to(relative)}:
+            raise ValueError("Expanded public dataset inventory differs")
+    if manifest.get("original_train_frames") != manifest["train_frames"] or {item["path"] for item in manifest["files"]} != expected_files:
+        raise ValueError("Expanded public exported file inventory or frame count differs")
 
 
 def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
@@ -27,10 +103,12 @@ def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
     expected_repo = f"course/libero_corrections_{name}"
     if (manifest.get("ready") is not True or manifest.get("project_root") != str(root)
             or manifest.get("repo_id") != expected_repo
-            or manifest.get("dataset_dir") != f"data/lerobot/{expected_repo}"
-            or manifest.get("original_train_episodes") != 16
-            or type(manifest.get("correction_train_episodes")) is not int
-            or manifest["correction_train_episodes"] < 1):
+            or manifest.get("dataset_dir") != f"data/lerobot/{expected_repo}"):
+        raise ValueError("Correction dataset manifest is not ready or has incompatible lineage")
+    expanded = manifest.get("dataset_kind") == "expanded_public_v1"
+    if not expanded and (manifest.get("dataset_kind") is not None or manifest.get("original_train_episodes") != 16
+                         or type(manifest.get("correction_train_episodes")) is not int
+                         or manifest["correction_train_episodes"] < 1):
         raise ValueError("Correction dataset manifest is not ready or has incompatible lineage")
     scenarios = manifest["scenarios"]
     if set(scenarios["train"]) & set(scenarios["holdout"]):
@@ -45,6 +123,8 @@ def validate_inputs(manifest_path, parent_checkpoint, experiment, *, root=None):
     if not manifest.get("inputs") or not any(item["path"] == "evidence/data_manifest.json" for item in manifest["inputs"]):
         raise ValueError("Missing pinned public dataset lineage")
     verify_records(root, files + manifest["inputs"])
+    if expanded:
+        validate_expanded_public(root, manifest)
     norm = manifest["normalization"]
     if (norm.get("asset_id") != ASSET_ID or norm.get("recomputed") is not False
             or norm.get("path") != f"assets/pi05_handson_lora/{ASSET_ID}/norm_stats.json"):
@@ -85,10 +165,14 @@ def git_revision(directory):
 
 
 def build_record(cfg, manifest_path, manifest, parent, dry_run):
+    source_files = ["correction_data.py", "prepare_corrections.py", "train_corrections.py", "course_config.py"]
+    if manifest.get("dataset_kind") == "expanded_public_v1":
+        source_files.append("prepare_expanded_public.py")
     return {
         "experiment": cfg.exp_name, "new_updates": cfg.num_train_steps, "batch_size": cfg.batch_size,
         "dataset_manifest": str(Path(manifest_path).resolve()), "dataset_manifest_sha256": digest(manifest_path),
         "repo_id": manifest["repo_id"], "sampling": manifest["sampling"],
+        "dataset_kind": manifest.get("dataset_kind", "corrections"),
         "parent_checkpoint": str(parent), "parent_params_manifest_sha256": digest(parent / "params/manifest.ocdbt"),
         "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
         "seed": cfg.seed, "action_horizon": cfg.model.action_horizon,
@@ -100,8 +184,7 @@ def build_record(cfg, manifest_path, manifest, parent, dry_run):
         "source_commit": git_revision(ROOT), "openpi_commit": git_revision(ROOT / "openpi"),
         "source_worktree_status": subprocess.check_output(
             ["rtk", "proxy", "git", "-C", str(ROOT), "status", "--porcelain"], text=True).splitlines(),
-        "source_sha256": {name: digest(ROOT / "scripts" / name) for name in
-                          ("correction_data.py", "prepare_corrections.py", "train_corrections.py", "course_config.py")},
+        "source_sha256": {name: digest(ROOT / "scripts" / name) for name in source_files},
         "input_files": manifest["files"] + manifest["inputs"],
         "wandb_enabled": cfg.wandb_enabled, "dry_run": dry_run,
     }

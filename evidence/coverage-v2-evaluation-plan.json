@@ -1,0 +1,95 @@
+{
+  "status": "DECLARED_NOT_EXECUTED",
+  "seed": 42,
+  "policy_sampling_seed_at_server_start": 0,
+  "replan_steps": 1,
+  "models": {
+    "parent": "checkpoints/pi05_handson_lora/release_focus_2000/1999",
+    "previous_human_finetune": "checkpoints/pi05_handson_lora/ui_correct_1792302925929811127/999",
+    "expanded_candidate": "after user training; record exact checkpoint and params hash"
+  },
+  "offline_holdout": {
+    "manifest": "evidence/corrections-public37_v1-manifest.json",
+    "split": "holdout",
+    "episodes": 10,
+    "frames": 1170,
+    "training_excluded": true,
+    "purpose": "fixed demonstration validation; no claim of unseen layouts"
+  },
+  "normal": {
+    "initial_state_ids": [
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "bowl_offsets_m": [
+      [
+        0,
+        0
+      ]
+    ],
+    "max_control_steps": 220,
+    "trials_per_model": 5
+  },
+  "position_variation": {
+    "initial_state_ids": [
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "bowl_offsets_m": [
+      [
+        -0.03,
+        0
+      ],
+      [
+        0.03,
+        0
+      ],
+      [
+        0,
+        -0.03
+      ],
+      [
+        0,
+        0.03
+      ]
+    ],
+    "max_control_steps": 220,
+    "trials_per_model": 20,
+    "setup_guard": "Use existing fresh-scene relocation checks; geometry failures reported separately, never omitted silently"
+  },
+  "recovery": {
+    "status": "REQUIRES_SAVED_SCENARIOS_AND_OPERATOR_SETUP",
+    "types": [
+      "missed grasp or rim obstruction",
+      "bowl slips or moves",
+      "misaligned placement then lift and replace"
+    ],
+    "scenarios_per_type": 3,
+    "max_control_steps": 350,
+    "protocol": "Create and hash fixed simulator snapshots once, use the same snapshots for each model; no human actions after autonomous evaluation begins; quarantine these from training",
+    "recording": "record full physics state, task resource hashes, controller reset policy and intervention history",
+    "trials_per_model": 9
+  },
+  "metrics": [
+    "official On success / attempted trials",
+    "full release and retreat success / attempted trials",
+    "recovery success / recovery trials",
+    "control steps and inference calls",
+    "exceptions and setup failures reported explicitly"
+  ],
+  "full_release_definition": {
+    "final_ten_on": true,
+    "final_ten_actual_finger_gap_m_at_least": 0.06,
+    "final_ten_open_command": true,
+    "final_eef_to_bowl_distance_m_at_least": 0.1,
+    "video_review_required": true
+  },
+  "selection": "Keep this fixed evaluation suite for comparison; additional tuning uses separately labeled development scenarios; do not describe repeatedly tuned evaluation as blind final test",
+  "claim_boundary": "No training or new physics rollout executed by data preparation; no recovery success claim"
+}

@@ -1,0 +1,312 @@
+{
+  "status": "READY",
+  "manifest": "evidence/corrections-public37_v1-manifest.json",
+  "manifest_sha256": "d9e337242f62555c9a4dbe8359debaefcf7925f86e99d45bbbfcc3915701a84d",
+  "train_episodes": 37,
+  "train_frames": 4400,
+  "holdout_episodes": 10,
+  "holdout_frames": 1170,
+  "original16_and4_splits_preserved": true,
+  "all_old_manifest_files_unchanged": true,
+  "human_recordings_included_this_round": false,
+  "all47_public_episodes_end_with_open_command": true,
+  "release_coverage": [
+    {
+      "source_id": 1280,
+      "frames": 107,
+      "terminal_open_frames": 7,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1285,
+      "frames": 125,
+      "terminal_open_frames": 11,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1293,
+      "frames": 121,
+      "terminal_open_frames": 10,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1307,
+      "frames": 138,
+      "terminal_open_frames": 13,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1332,
+      "frames": 125,
+      "terminal_open_frames": 10,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1342,
+      "frames": 126,
+      "terminal_open_frames": 14,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1346,
+      "frames": 123,
+      "terminal_open_frames": 14,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1348,
+      "frames": 114,
+      "terminal_open_frames": 6,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1363,
+      "frames": 164,
+      "terminal_open_frames": 14,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1372,
+      "frames": 115,
+      "terminal_open_frames": 6,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1387,
+      "frames": 138,
+      "terminal_open_frames": 15,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1392,
+      "frames": 122,
+      "terminal_open_frames": 7,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1393,
+      "frames": 109,
+      "terminal_open_frames": 5,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1403,
+      "frames": 137,
+      "terminal_open_frames": 45,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1409,
+      "frames": 110,
+      "terminal_open_frames": 14,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1413,
+      "frames": 97,
+      "terminal_open_frames": 4,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1417,
+      "frames": 96,
+      "terminal_open_frames": 6,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1438,
+      "frames": 106,
+      "terminal_open_frames": 9,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1451,
+      "frames": 111,
+      "terminal_open_frames": 17,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1459,
+      "frames": 100,
+      "terminal_open_frames": 6,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1464,
+      "frames": 113,
+      "terminal_open_frames": 9,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1467,
+      "frames": 109,
+      "terminal_open_frames": 13,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1471,
+      "frames": 95,
+      "terminal_open_frames": 8,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1488,
+      "frames": 133,
+      "terminal_open_frames": 13,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1503,
+      "frames": 105,
+      "terminal_open_frames": 9,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1507,
+      "frames": 107,
+      "terminal_open_frames": 12,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1513,
+      "frames": 111,
+      "terminal_open_frames": 4,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1515,
+      "frames": 114,
+      "terminal_open_frames": 4,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1533,
+      "frames": 165,
+      "terminal_open_frames": 32,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1536,
+      "frames": 121,
+      "terminal_open_frames": 19,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1540,
+      "frames": 104,
+      "terminal_open_frames": 9,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1542,
+      "frames": 117,
+      "terminal_open_frames": 13,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1546,
+      "frames": 173,
+      "terminal_open_frames": 12,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1547,
+      "frames": 104,
+      "terminal_open_frames": 5,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1552,
+      "frames": 110,
+      "terminal_open_frames": 11,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1565,
+      "frames": 110,
+      "terminal_open_frames": 4,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1572,
+      "frames": 116,
+      "terminal_open_frames": 12,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1584,
+      "frames": 115,
+      "terminal_open_frames": 11,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1599,
+      "frames": 116,
+      "terminal_open_frames": 7,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1609,
+      "frames": 99,
+      "terminal_open_frames": 6,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1621,
+      "frames": 150,
+      "terminal_open_frames": 15,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1623,
+      "frames": 127,
+      "terminal_open_frames": 16,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1630,
+      "frames": 99,
+      "terminal_open_frames": 6,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1639,
+      "frames": 116,
+      "terminal_open_frames": 13,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1648,
+      "frames": 140,
+      "terminal_open_frames": 12,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1671,
+      "frames": 120,
+      "terminal_open_frames": 14,
+      "last_command_open": true
+    },
+    {
+      "source_id": 1678,
+      "frames": 97,
+      "terminal_open_frames": 7,
+      "last_command_open": true
+    }
+  ],
+  "action_window": 10,
+  "seed": 42,
+  "normalization_recomputed": false,
+  "training_started": false,
+  "review_page_local": ".local/correction-review-20261018-v2/index.html",
+  "suggested_parent": "release_focus_2000/1999",
+  "suggested_new_updates": 3000,
+  "suggested_batch": 4,
+  "suggested_learning_rate": 1e-05,
+  "meaningful_tests_passed": 68,
+  "separate_holdout_not_unseen_layout_claim": true,
+  "gui_training_form_prefilled": true,
+  "gui_screenshot": "previews/coverage-v2-training-form.png",
+  "gui_screenshot_sha256": "3acd9c5bd739d296e488d53fe8a89ba6d7bfc0f865a8de4f8e6a54f3b8a10d20",
+  "gui_confirmation": "37/4400 and 10/1170 shown; parent release_focus_2000/1999; steps3000,batch4,lr1e-5,uniform; start not invoked"
+}

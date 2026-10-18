@@ -335,17 +335,20 @@ class CorrectionWorkbench(LabWorkbench):
         if status["training"]["running"] or (status["port_busy"] and not status["model"]["owned"]):
             raise ValueError("请先结束训练或在原终端退出外部模型服务")
         if not uniform:
-            raise ValueError("纠正混合数据使用均匀采样，请选择均匀")
+            raise ValueError("所选数据版本使用均匀采样，请选择均匀")
         manifest = Path(correction_manifest).resolve()
         if str(manifest) not in self.corrections_bundles():
-            raise ValueError("请先准备并选择本项目的纠正数据版本")
+            raise ValueError("请先准备并选择本项目的训练数据版本")
+        expanded = json.loads(manifest.read_text()).get("dataset_kind") == "expanded_public_v1"
         parent, steps, batch_size, learning_rate = self.jobs.validate_training(parent, steps, batch_size, learning_rate)
         self._archive_scene("start_correction_training")
         self.jobs.stop_model()
         job = self.jobs.start_correction_training(parent, steps, batch_size, learning_rate, manifest)
         self.job_state = self.jobs.snapshot()
-        self.status = "纠正微调已由你启动；原数据和父 checkpoint 保留"
-        self.event("correction_training_started", manifest=str(manifest), parent=str(parent), log=job["log"])
+        self.status = ("公开示范扩充微调已由你启动；人工纠正未混入，原数据和父 checkpoint 保留" if expanded
+                       else "纠正微调已由你启动；原数据和父 checkpoint 保留")
+        self.event("correction_training_started", manifest=str(manifest), parent=str(parent), log=job["log"],
+                   dataset_kind="expanded_public_v1" if expanded else "corrections")
 
     def reset(self, *args, **kwargs):
         self._require_no_correction()

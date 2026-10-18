@@ -3,6 +3,7 @@
 import math
 import base64
 import io
+import json
 from pathlib import Path
 import subprocess
 import time
@@ -455,11 +456,39 @@ class LabPanel:
         self._select_dataset()
 
     def _select_dataset(self, _event=None):
-        correction = self.dataset_paths.get(self.training_dataset_var.get()) is not None
+        manifest_path = self.dataset_paths.get(self.training_dataset_var.get())
+        correction = manifest_path is not None
         if correction:
             self.sampler_var.set("均匀")
         self.sampler_combo.configure(state="disabled" if correction else "readonly")
-        self.correction_dataset_hint.set("纠正数据：原示范与人工纠正均匀混合，原归一化不变" if correction else "")
+        hint = "纠正数据：原示范与人工纠正均匀混合，原归一化不变" if correction else ""
+        if manifest_path is not None:
+            try:
+                manifest = json.loads(Path(manifest_path).read_text())
+                if manifest.get("dataset_kind") == "expanded_public_v1":
+                    hint = (f"公开示范扩充：{manifest['original_train_episodes']}条训练，"
+                            f"{len(manifest['holdout_source_episode_ids_excluded'])}条留出；人工纠正暂未混入")
+            except (OSError, ValueError, KeyError, TypeError):
+                hint = "训练数据清单无效，请刷新；启动前将重新校验"
+        self.correction_dataset_hint.set(hint)
+        self._refresh_dataset_info()
+
+    def _refresh_dataset_info(self):
+        data = self.lab.dataset_info()
+        if self._correction:
+            manifest_path = self.dataset_paths.get(self.training_dataset_var.get())
+            if manifest_path is not None:
+                try:
+                    manifest = json.loads(Path(manifest_path).read_text())
+                    if manifest.get("dataset_kind") == "expanded_public_v1":
+                        data = {key: manifest[key] for key in
+                                ("task", "train_episodes", "train_frames", "holdout_episodes", "holdout_frames")}
+                except (OSError, ValueError, KeyError, TypeError):
+                    self.dataset_var.set("所选训练数据清单无效，请刷新数据集")
+                    return
+        self.dataset_var.set(f"{data.get('task', '')}\n\n训练：{data.get('train_episodes', 0)} 条 / "
+                             f"{data.get('train_frames', 0)} 帧；留出：{data.get('holdout_episodes', 0)} 条 / "
+                             f"{data.get('holdout_frames', 0)} 帧")
 
     def _prepare_corrections(self):
         self.lab.prepare_corrections()
@@ -530,10 +559,7 @@ class LabPanel:
         self.connection_var.set(f"{state.get('connection', '')}\n\n模型：{job_label(model)}；训练：{job_label(training)}")
         for name in ("model_log", "training_log"):
             self._update_log(getattr(self, name), state.get(name, ""))
-        data = self.lab.dataset_info()
-        self.dataset_var.set(f"{data.get('task', '')}\n\n训练：{data.get('train_episodes', 0)} 条 / "
-                             f"{data.get('train_frames', 0)} 帧；留出：{data.get('holdout_episodes', 0)} 条 / "
-                             f"{data.get('holdout_frames', 0)} 帧")
+        self._refresh_dataset_info()
 
     def _selected_result(self):
         selection = self.results_tree.selection()

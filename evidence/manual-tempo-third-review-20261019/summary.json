@@ -1,0 +1,452 @@
+{
+  "frames": 340,
+  "gripper_segments": [
+    {
+      "command": "open",
+      "start": 0,
+      "end": 74
+    },
+    {
+      "command": "close",
+      "start": 75,
+      "end": 174
+    },
+    {
+      "command": "open",
+      "start": 175,
+      "end": 189
+    },
+    {
+      "command": "close",
+      "start": 190,
+      "end": 294
+    },
+    {
+      "command": "open",
+      "start": 295,
+      "end": 339
+    }
+  ],
+  "close_frames": 205,
+  "open_frames": 135,
+  "on_frames": 56,
+  "approval_gates": {
+    "ten_frames": true,
+    "task_done_last_ten": true,
+    "actual_fingers_open_last_ten": true,
+    "open_command_last_ten": true,
+    "eef_clear_of_bowl": true
+  },
+  "curation_status": "reviewed_candidate_requires_segment_selection",
+  "automatically_selected_for_training": false,
+  "source": "corrections/human_1792405333386801102",
+  "metadata_sha256": "c52e50db56ffd9982a13d07b60c5b44af86f9ebd2ac6ef0963b102daadee9f2f",
+  "action_runs": [
+    {
+      "start": 0,
+      "end": 19,
+      "action": [
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 20,
+      "end": 44,
+      "action": [
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 45,
+      "end": 74,
+      "action": [
+        0.0,
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 75,
+      "end": 84,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 85,
+      "end": 94,
+      "action": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 95,
+      "end": 114,
+      "action": [
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 115,
+      "end": 124,
+      "action": [
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 125,
+      "end": 129,
+      "action": [
+        0.0,
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 130,
+      "end": 134,
+      "action": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 135,
+      "end": 139,
+      "action": [
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 140,
+      "end": 174,
+      "action": [
+        0.0,
+        0.0,
+        -0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 175,
+      "end": 184,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 185,
+      "end": 189,
+      "action": [
+        0.0,
+        0.0,
+        -0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 190,
+      "end": 199,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 200,
+      "end": 214,
+      "action": [
+        0.0,
+        0.0,
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 215,
+      "end": 269,
+      "action": [
+        -0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 270,
+      "end": 294,
+      "action": [
+        0.0,
+        0.0,
+        -0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 295,
+      "end": 304,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 305,
+      "end": 329,
+      "action": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 330,
+      "end": 339,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    }
+  ],
+  "visual_indices": [
+    0,
+    16,
+    19,
+    20,
+    33,
+    44,
+    45,
+    50,
+    67,
+    74,
+    75,
+    84,
+    85,
+    94,
+    95,
+    101,
+    114,
+    115,
+    118,
+    124,
+    125,
+    129,
+    130,
+    134,
+    135,
+    139,
+    140,
+    152,
+    169,
+    174,
+    175,
+    184,
+    185,
+    186,
+    189,
+    190,
+    199,
+    200,
+    203,
+    214,
+    215,
+    220,
+    237,
+    254,
+    269,
+    270,
+    271,
+    288,
+    294,
+    295,
+    304,
+    305,
+    322,
+    329,
+    330,
+    339
+  ],
+  "scenario": {
+    "layout_id": 24,
+    "bowl_edit": {
+      "before_xyz": [
+        0.005547050812413551,
+        0.30381047607474143,
+        0.8984038567263857
+      ],
+      "after_xyz": [
+        -0.07085744356960892,
+        0.2708516745766141,
+        0.8984038567263857
+      ],
+      "dx_m": -0.07640449438202247,
+      "dy_m": -0.03295880149812734
+    },
+    "task_metadata": {
+      "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+      "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+    }
+  },
+  "physical_control_dt": 0.05,
+  "manual_motion_profile": {
+    "normal_translation": 0.6,
+    "precision_translation": 0.1,
+    "ui_rotation": 0.1,
+    "translation_limit": 0.8,
+    "recording": "actual normalized actions unchanged; preset switch records no step"
+  },
+  "review_verdict": "KEEP_PLACEMENT_CORRECTION_CANDIDATE; do not import whole as fast transport template",
+  "visual_review_scope": "56 sampled pre-action dual-camera frames including all action-run boundaries; no physics replay",
+  "review_notes": "Two close/open cycles. Initial pickup and transport followed by opening, reclosing and placement correction. Preserve original; select training spans only after further review. Later horizontal motion 215:270 uses precision amplitude 0.1 for 55 actions.",
+  "fresh_pre_movement_intervals": [
+    {
+      "start_inclusive": 95,
+      "end_exclusive": 125,
+      "median_mm_per_step": 6.93025541305542
+    },
+    {
+      "start_inclusive": 215,
+      "end_exclusive": 270,
+      "median_mm_per_step": 0.9634562730789185
+    }
+  ],
+  "video_fps": 20,
+  "video_timing": "One pre-action RGB per 20Hz control action; operator waits omitted; post_On is post-action label",
+  "decoded_frames": 340,
+  "video_sha256": "8987c283fdad2f544aab16a7d514442b43a59450403792e5087102314fc18832",
+  "source_frame_comparisons": [
+    {
+      "frame": 0,
+      "mae": 1.9032618204752605
+    },
+    {
+      "frame": 75,
+      "mae": 2.2901891072591147
+    },
+    {
+      "frame": 125,
+      "mae": 2.184107462565104
+    },
+    {
+      "frame": 175,
+      "mae": 2.1175257364908853
+    },
+    {
+      "frame": 190,
+      "mae": 2.1020609537760415
+    },
+    {
+      "frame": 215,
+      "mae": 2.3119710286458335
+    },
+    {
+      "frame": 270,
+      "mae": 2.0904871622721353
+    },
+    {
+      "frame": 295,
+      "mae": 2.4822489420572915
+    },
+    {
+      "frame": 339,
+      "mae": 2.0099868774414062
+    }
+  ],
+  "source_unchanged": true,
+  "training_data_modified": false
+}

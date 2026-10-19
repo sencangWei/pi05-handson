@@ -1,0 +1,40 @@
+{
+  "status": "READY_FOR_LEARNER_GUI_SELECTION",
+  "training_started": false,
+  "launch_owner": "learner",
+  "parent_checkpoint": "checkpoints/pi05_handson_lora/my_first_200/9999",
+  "steps": 2000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "seed": 42,
+  "sampling": "uniform",
+  "action_horizon": 10,
+  "evaluation": {
+    "paired_models": [
+      "parent_public10000",
+      "candidate_manual_tempo",
+      "current_negative_quadrants"
+    ],
+    "replan_steps": 1,
+    "max_steps": 800,
+    "seeds": [
+      0,
+      1
+    ],
+    "training_positions_are_diagnostics_not_holdout": true,
+    "fixed_test_suite": "evidence/precorrection-comparison-20261019",
+    "followup_requirement": "After first success continue 50 control steps; report On, actual release, stability, carry motion and wall time separately.",
+    "stop_rule": "Do not promote on a successful demo alone; review failures and regressions against all controls.",
+    "new_position_holdout": "Choose and freeze additional offsets not in training and valid collision-free task geometry before first candidate evaluation; this preparation does not claim a final generalization suite."
+  },
+  "deferred_candidates": [
+    "corrections/human_1792404027525762765",
+    "corrections/human_1792405333386801102"
+  ],
+  "data_handling": "All originals/drafts/previous datasets preserved; no action scaling, no stitching, no synthetic speedup.",
+  "validation": {
+    "dry_run": "PASS",
+    "loader_windows": 129,
+    "all1046_human_labels_exact": true
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><title>人工纠错前后模型对照</title><style>body{max-width:1200px;margin:30px auto;font:18px sans-serif;background:#f4f4f4;color:#222}section{padding:20px;background:white;margin:20px 0}video{width:100%;max-width:1024px}table{border-collapse:collapse}td,th{border:1px solid #bbb;padding:8px}a{color:#1658a4}</style><h1>人工纠错前模型 vs 当前模型</h1><p>本组严格完成：原模型1/6，当前模型3/6。当前模型仍慢且有失败；不能唯一归因于人工数据。两版都是已训练任务模型。</p><p>左边：人工纠错前的一万步模型。右边：当前实验模型。按控制步同步；20FPS为物理20Hz回放，省略推理等待，不是墙钟速度。短侧结束后标明冻结。</p><p><a href="README.md">详细报告</a> · <a href="summary.json">逐次指标与验证</a></p>
+<section><h2>较远负偏移（−8.46, −4.83cm）</h2><video controls preload="metadata" poster="negative_slow-seed0-comparison.png" src="negative_slow-seed0-comparison.mp4"></video><h3>全部原始记录（10FPS，包含失败）</h3><table><tr><th>seed</th><th>人工纠错前</th><th>当前模型</th></tr>
+<tr><td>0</td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/control/seed-0/negative_slow/video.mp4">800步未完成</a></td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/candidate/seed-0/negative_slow/video.mp4">800步未完成</a></td>
+</tr>
+<tr><td>1</td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/control/seed-1/negative_slow/video.mp4">800步未完成</a></td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/candidate/seed-1/negative_slow/video.mp4">完成 678步</a></td>
+</tr>
+</table></section>
+<section><h2>较近负偏移（−2.73, −3.11cm）</h2><video controls preload="metadata" poster="near_negative_control-seed0-comparison.png" src="near_negative_control-seed0-comparison.mp4"></video><h3>全部原始记录（10FPS，包含失败）</h3><table><tr><th>seed</th><th>人工纠错前</th><th>当前模型</th></tr>
+<tr><td>0</td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/control/seed-0/near_negative_control/video.mp4">800步未完成</a></td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/candidate/seed-0/near_negative_control/video.mp4">完成 401步</a></td>
+</tr>
+<tr><td>1</td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/control/seed-1/near_negative_control/video.mp4">完成 252步</a></td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/candidate/seed-1/near_negative_control/video.mp4">完成 395步</a></td>
+</tr>
+</table></section>
+<section><h2>正偏移边缘（+7.94, +5.32cm）</h2><video controls preload="metadata" poster="positive_edge_failure-seed0-comparison.png" src="positive_edge_failure-seed0-comparison.mp4"></video><h3>全部原始记录（10FPS，包含失败）</h3><table><tr><th>seed</th><th>人工纠错前</th><th>当前模型</th></tr>
+<tr><td>0</td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/control/seed-0/positive_edge_failure/video.mp4">800步未完成</a></td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/candidate/seed-0/positive_edge_failure/video.mp4">800步未完成</a></td>
+</tr>
+<tr><td>1</td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/control/seed-1/positive_edge_failure/video.mp4">800步未完成</a></td>
+<td><a href="../../evaluations/precorrection-comparison-20261019/candidate/seed-1/positive_edge_failure/video.mp4">800步未完成</a></td>
+</tr>
+</table></section>

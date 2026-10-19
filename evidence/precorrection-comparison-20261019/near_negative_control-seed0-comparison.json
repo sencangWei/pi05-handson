@@ -1,0 +1,65 @@
+{
+  "status": "VERIFIED",
+  "case": "near_negative_control",
+  "policy_seed": 0,
+  "selection": "Every preregistered case is rendered; primary negative_slow was fixed before results.",
+  "frames": 801,
+  "fps": 20,
+  "source_videos_sha256": [
+    "f33b5e94267a641791a02bdc5d3d2638439e4eb3ce07ee863305243459e28777",
+    "5fd6bbaf20e9e3c0414930d2821d20800c44e35cf300aff483bd31b394b4435c"
+  ],
+  "video_sha256": "c15d283d89f50c5166436ec1f54985df292ab2f4048612855fd8f9626eee1921",
+  "alignment": "framei = source min(i,N), initial frame0; visibly frozen after each shorter run.",
+  "timing": "20FPS native physics20Hz, inference waits omitted; not wall-clock speed.",
+  "decoded_source_comparisons": [
+    {
+      "output_frame": 0,
+      "side": 0,
+      "source_frame": 0,
+      "rgb_mae": 1.330997995329324
+    },
+    {
+      "output_frame": 0,
+      "side": 1,
+      "source_frame": 0,
+      "rgb_mae": 1.3300524934383202
+    },
+    {
+      "output_frame": 100,
+      "side": 0,
+      "source_frame": 100,
+      "rgb_mae": 1.4441727633455268
+    },
+    {
+      "output_frame": 100,
+      "side": 1,
+      "source_frame": 100,
+      "rgb_mae": 1.4105325293983921
+    },
+    {
+      "output_frame": 300,
+      "side": 0,
+      "source_frame": 300,
+      "rgb_mae": 1.4011498439663546
+    },
+    {
+      "output_frame": 300,
+      "side": 1,
+      "source_frame": 300,
+      "rgb_mae": 1.4073227313121293
+    },
+    {
+      "output_frame": 800,
+      "side": 0,
+      "source_frame": 800,
+      "rgb_mae": 1.5547822762312191
+    },
+    {
+      "output_frame": 800,
+      "side": 1,
+      "source_frame": 401,
+      "rgb_mae": 1.2623444830222994
+    }
+  ]
+}

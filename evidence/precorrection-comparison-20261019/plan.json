@@ -1,0 +1,66 @@
+{
+  "status": "FROZEN_BEFORE_NEW_RESULTS",
+  "arms": {
+    "control": "checkpoints/pi05_handson_lora/my_first_200/9999",
+    "candidate": "checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999"
+  },
+  "arm_meanings": {
+    "control": "First10000updates public16episodes, before manual corrections; not raw official base",
+    "candidate": "Current negative-quadrants experimental model after multiple fine-tuning rounds"
+  },
+  "policy_seeds": [
+    0,
+    1
+  ],
+  "evaluation_cases": [
+    {
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "max_steps": 800,
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-004_init-024",
+      "scene_sha256": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+      "initial_state_file_sha256": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942"
+    },
+    {
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "max_steps": 800,
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-005_init-024",
+      "scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+      "initial_state_file_sha256": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+    },
+    {
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "max_steps": 800,
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-007_init-024",
+      "scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+      "initial_state_file_sha256": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+    }
+  ],
+  "action_horizon": 10,
+  "discrete_state_input": false,
+  "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+  "replan_steps": 1,
+  "post_release_steps": 50,
+  "comparison_scope": "Small paired development experiment, cumulative before/after, not causal isolation of human data. No training or live GUI/service changes. No task-success claim from On only.",
+  "params_manifest_sha256": {
+    "control": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+    "candidate": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261"
+  },
+  "source_sha256": {
+    "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "serve_position_study.py": "437967f7ae4350b33f6a0a5fe417d34374f85ed0a6700bf4b117401d5546a63f",
+    "replay_saved_scene.py": "4262bb96785e4cabdcdafcce4cddba479061edfe4268997a45b112dc80a2c671",
+    "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+    "summarize_negative_recovery.py": "20ea169ab62284b712733da22211dbf9c42199f799d8c4cb460f91fe8c91f130"
+  },
+  "code_head": "a316b7101da60cdedb564884cd871e5c5277f070",
+  "predeclared_video_case": "negative_slow/seed-0",
+  "limits": [
+    "Same seeds mean equal initial diffusion RNG per connection, not identical subsequent observations or action streams.",
+    "Both learned checkpoints, not a comparison with an untouched official foundation model.",
+    "Public data coverage and cumulative training budgets differ as well as human data.",
+    "All three positions were seen during diagnosis; no independent test-success estimate."
+  ]
+}

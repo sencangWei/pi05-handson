@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "valid_trials": 12,
+  "video_decode_checks": [
+    {
+      "arm": "control",
+      "case": "negative_slow",
+      "seed": 0,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "4bb839cd6c6976720cc080757231a24a52fdac382500cea691f99b2395f0e368"
+    },
+    {
+      "arm": "control",
+      "case": "near_negative_control",
+      "seed": 0,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "f33b5e94267a641791a02bdc5d3d2638439e4eb3ce07ee863305243459e28777"
+    },
+    {
+      "arm": "control",
+      "case": "positive_edge_failure",
+      "seed": 0,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "f8e6b5d226b7032ca03d6335ccda902ce3513c823720842fa4d4304ea383a736"
+    },
+    {
+      "arm": "control",
+      "case": "negative_slow",
+      "seed": 1,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "b4bd0303fda90536e7059feb13825174d3cf17c9c32f5019471a45b49b42d490"
+    },
+    {
+      "arm": "control",
+      "case": "near_negative_control",
+      "seed": 1,
+      "decoded_frames": 253,
+      "fps": 10.0,
+      "video_sha256": "cd6e3af35da7814011eceef36cfd6a987bb95f16063c61e576d74182e7177bb9"
+    },
+    {
+      "arm": "control",
+      "case": "positive_edge_failure",
+      "seed": 1,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "5d38606f7b3443a9c845b0288b5d668b376a29bde4723b21b29b3140df12df8f"
+    },
+    {
+      "arm": "candidate",
+      "case": "negative_slow",
+      "seed": 0,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "2597dcbd9c2418707325898f7d35c5626c9fd1188dca340c8f23e8c60bbdb68a"
+    },
+    {
+      "arm": "candidate",
+      "case": "near_negative_control",
+      "seed": 0,
+      "decoded_frames": 402,
+      "fps": 10.0,
+      "video_sha256": "5fd6bbaf20e9e3c0414930d2821d20800c44e35cf300aff483bd31b394b4435c"
+    },
+    {
+      "arm": "candidate",
+      "case": "positive_edge_failure",
+      "seed": 0,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "0e4e450696ab913f4fe42206c3408cd6c8883be29d82718ca00cb8432366ea5d"
+    },
+    {
+      "arm": "candidate",
+      "case": "negative_slow",
+      "seed": 1,
+      "decoded_frames": 679,
+      "fps": 10.0,
+      "video_sha256": "7d1507e809bf5093270ff192a472f7cc9923291247c0a3422b83f5390017ce51"
+    },
+    {
+      "arm": "candidate",
+      "case": "near_negative_control",
+      "seed": 1,
+      "decoded_frames": 396,
+      "fps": 10.0,
+      "video_sha256": "715ea50cd6d6a2d3886bbb16ea9452ee0efc27c7099e12388a210be7c6a717e5"
+    },
+    {
+      "arm": "candidate",
+      "case": "positive_edge_failure",
+      "seed": 1,
+      "decoded_frames": 801,
+      "fps": 10.0,
+      "video_sha256": "1a61b0e0c1582a95163a55c403cf6935d88b1c2739cbdd0f10ce9c094d0975b4"
+    }
+  ],
+  "source_pins_and_model_manifests_unchanged": true,
+  "owned_diagnostic_server_stopped": true,
+  "original_live_gui_and_service_pids_preserved": [
+    3638666,
+    3560511
+  ]
+}

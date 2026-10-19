@@ -1,0 +1,2084 @@
+{
+  "status": "COMPLETE",
+  "plan_sha256": "b1591997d5e2a7079c6ba5fe5d1952b26f1a8300c683e81d45b83ebc36de9658",
+  "plan": {
+    "status": "FROZEN_BEFORE_NEW_RESULTS",
+    "arms": {
+      "control": "checkpoints/pi05_handson_lora/my_first_200/9999",
+      "candidate": "checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999"
+    },
+    "arm_meanings": {
+      "control": "First10000updates public16episodes, before manual corrections; not raw official base",
+      "candidate": "Current negative-quadrants experimental model after multiple fine-tuning rounds"
+    },
+    "policy_seeds": [
+      0,
+      1
+    ],
+    "evaluation_cases": [
+      {
+        "case": "negative_slow",
+        "role": "latest_user_development",
+        "max_steps": 800,
+        "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-004_init-024",
+        "scene_sha256": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+        "initial_state_file_sha256": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942"
+      },
+      {
+        "case": "near_negative_control",
+        "role": "latest_user_development",
+        "max_steps": 800,
+        "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-005_init-024",
+        "scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+        "initial_state_file_sha256": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+      },
+      {
+        "case": "positive_edge_failure",
+        "role": "latest_user_development",
+        "max_steps": 800,
+        "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-007_init-024",
+        "scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+        "initial_state_file_sha256": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+      }
+    ],
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "replan_steps": 1,
+    "post_release_steps": 50,
+    "comparison_scope": "Small paired development experiment, cumulative before/after, not causal isolation of human data. No training or live GUI/service changes. No task-success claim from On only.",
+    "params_manifest_sha256": {
+      "control": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+      "candidate": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261"
+    },
+    "source_sha256": {
+      "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+      "serve_position_study.py": "437967f7ae4350b33f6a0a5fe417d34374f85ed0a6700bf4b117401d5546a63f",
+      "replay_saved_scene.py": "4262bb96785e4cabdcdafcce4cddba479061edfe4268997a45b112dc80a2c671",
+      "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+      "summarize_negative_recovery.py": "20ea169ab62284b712733da22211dbf9c42199f799d8c4cb460f91fe8c91f130"
+    },
+    "code_head": "a316b7101da60cdedb564884cd871e5c5277f070",
+    "predeclared_video_case": "negative_slow/seed-0",
+    "limits": [
+      "Same seeds mean equal initial diffusion RNG per connection, not identical subsequent observations or action streams.",
+      "Both learned checkpoints, not a comparison with an untouched official foundation model.",
+      "Public data coverage and cumulative training budgets differ as well as human data.",
+      "All three positions were seen during diagnosis; no independent test-success estimate."
+    ]
+  },
+  "planned_runs": 12,
+  "completed_valid_runs": 12,
+  "arms": {
+    "control": {
+      "planned_trials": 6,
+      "completed_trials": 6,
+      "strict_successes": 1,
+      "task_On_trials": 2,
+      "no_release_right_censored_at_budget": 5,
+      "by_role": {
+        "latest_user_development": {
+          "planned_trials": 6,
+          "completed_trials": 6,
+          "strict_successes": 1,
+          "task_On_trials": 2,
+          "no_release_right_censored_at_budget": 5
+        }
+      }
+    },
+    "candidate": {
+      "planned_trials": 6,
+      "completed_trials": 6,
+      "strict_successes": 3,
+      "task_On_trials": 3,
+      "no_release_right_censored_at_budget": 3,
+      "by_role": {
+        "latest_user_development": {
+          "planned_trials": 6,
+          "completed_trials": 6,
+          "strict_successes": 3,
+          "task_On_trials": 3,
+          "no_release_right_censored_at_budget": 3
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "arm": "control",
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/control/seed-0/negative_slow",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.2996209303869565,
+            "median": 0.23436209972107558
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.1094214523788664,
+            "median": 0.3919220370512905
+          },
+          "low_action_closed_not_On_frames": 57,
+          "longest_low_action_closed_not_On": {
+            "steps": 3,
+            "start_control_step": 413,
+            "end_control_step": 415
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 10,
+            "mean": 0.5271177625560546,
+            "median": 0.5076073381937068
+          }
+        }
+      },
+      "initial_state_sha256": "7f2a0ecbe6dcc41694779b553a76a49310ea129ade13cf31ccdce42acf9984a7",
+      "source_scene_sha256": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+        "model_stage": "my_first_200/9999",
+        "params_manifest_sha256": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "b4906ef20de8da855fb5395c5f8552eb391b52aee7fe2375ca980aee1ae11c2d",
+        "result.json": "4a55aa3aa5cc90714671cbf69ca89a7b595310152d63b7fbff7a0e24ee62298e",
+        "scene.json": "32aef86432aceb948df4c1385f070c23bdb3316350263fb868f2e10c4e3d7417",
+        "initial_state.npy": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": null,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 7.055440444401763,
+            "action_xyz_norm_median": 0.6733466069937022,
+            "closed_command_fraction": 0.32
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 0.4291946551607173,
+            "action_xyz_norm_median": 0.15279298019642878,
+            "closed_command_fraction": 0.94
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 0.433148933915917,
+            "action_xyz_norm_median": 0.17549393241772698,
+            "closed_command_fraction": 0.92
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 0.39755973249731424,
+            "action_xyz_norm_median": 0.19487914373383242,
+            "closed_command_fraction": 0.9
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 0.24384508965876367,
+            "action_xyz_norm_median": 0.1442961974024024,
+            "closed_command_fraction": 0.99
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 0.37322426959254995,
+            "action_xyz_norm_median": 0.23900285132133464,
+            "closed_command_fraction": 0.98
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 0.37501921073074174,
+            "action_xyz_norm_median": 0.31883722112524293,
+            "closed_command_fraction": 0.92
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 0.4830915842718615,
+            "action_xyz_norm_median": 0.4182915751365157,
+            "closed_command_fraction": 0.89
+          }
+        ]
+      },
+      "video_sha256": "4bb839cd6c6976720cc080757231a24a52fdac382500cea691f99b2395f0e368"
+    },
+    {
+      "arm": "control",
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/control/seed-0/near_negative_control",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": false,
+        "first_On_control_step": 103,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.5866774863617455,
+            "median": 0.5971445679607816
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 5.051213267052686,
+            "median": 3.015692337127271
+          },
+          "low_action_closed_not_On_frames": 2,
+          "longest_low_action_closed_not_On": {
+            "steps": 1,
+            "start_control_step": 630,
+            "end_control_step": 630
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "dca28d585c9a85aa04b384d969b80fd2d7c90cda6cc4f3ee637969a0b06845ec",
+      "source_scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+        "model_stage": "my_first_200/9999",
+        "params_manifest_sha256": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "33431dfbc8dc3882834e6326e2c735c19ffb6713ecbf76ef8fceabf0e77d1c63",
+        "result.json": "ed539c5835d2388ca6dd3d549bea5237257d898c291d3821dfa3b4ba35eeb1f0",
+        "scene.json": "881ecae141b98ee7ee94a99eb857503644472b216250d2dff02f44c48933cc89",
+        "initial_state.npy": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 72,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 9.750665845020691,
+            "action_xyz_norm_median": 0.7983250698714797,
+            "closed_command_fraction": 0.46
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 1.6225953621758542,
+            "action_xyz_norm_median": 0.29961533661659145,
+            "closed_command_fraction": 0.95
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 1.107881412651667,
+            "action_xyz_norm_median": 0.386114658327103,
+            "closed_command_fraction": 0.97
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 0.7722052425072844,
+            "action_xyz_norm_median": 0.4681497566361716,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 3.696706554905534,
+            "action_xyz_norm_median": 0.6797722983411909,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 5.878949043282672,
+            "action_xyz_norm_median": 0.7789469548823591,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 7.17406683453695,
+            "action_xyz_norm_median": 0.6969104133083518,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 6.613625284242141,
+            "action_xyz_norm_median": 0.7326089875714006,
+            "closed_command_fraction": 1.0
+          }
+        ]
+      },
+      "video_sha256": "f33b5e94267a641791a02bdc5d3d2638439e4eb3ce07ee863305243459e28777"
+    },
+    {
+      "arm": "control",
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/control/seed-0/positive_edge_failure",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.4196810216634793,
+            "median": 0.36400382311315016
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 3.4521788496217165,
+            "median": 2.326868195266055
+          },
+          "low_action_closed_not_On_frames": 0,
+          "longest_low_action_closed_not_On": {
+            "steps": 0,
+            "start_control_step": null,
+            "end_control_step": null
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "4ce320d60be11c49ae47cd84de31b81d40f7f9ef6ec7f3fa2bdf5343a435500c",
+      "source_scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+        "model_stage": "my_first_200/9999",
+        "params_manifest_sha256": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "c157a2235ccb278bbc32b4037aca439c562c82be1a17933ebc3d77b91e0bc54b",
+        "result.json": "7e0abbcc368c4ff2d3e59a4c7cff64fc7ac8341514140ed699080011dbebc431",
+        "scene.json": "b5f88ba56bd6fca5e4d7acf958984ba8c31c157185544cf50648ff51696d3385",
+        "initial_state.npy": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 72,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 9.863332713528786,
+            "action_xyz_norm_median": 0.8239053256745508,
+            "closed_command_fraction": 0.44
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 3.7219678535904874,
+            "action_xyz_norm_median": 0.3414343600265507,
+            "closed_command_fraction": 0.4
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 2.006572129177692,
+            "action_xyz_norm_median": 0.18693976153199182,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 2.405969869250145,
+            "action_xyz_norm_median": 0.27394403117565475,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 2.664663365774806,
+            "action_xyz_norm_median": 0.35882185438870484,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 2.615596784205983,
+            "action_xyz_norm_median": 0.3923470551138885,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 2.1250656143079385,
+            "action_xyz_norm_median": 0.3612116961757923,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 1.1586166088207752,
+            "action_xyz_norm_median": 0.4322924895924577,
+            "closed_command_fraction": 0.12
+          }
+        ]
+      },
+      "video_sha256": "f8e6b5d226b7032ca03d6335ccda902ce3513c823720842fa4d4304ea383a736"
+    },
+    {
+      "arm": "control",
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/control/seed-1/negative_slow",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.5153407397584574,
+            "median": 0.5116822435623485
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 6.641435846384169,
+            "median": 5.685285657875145
+          },
+          "low_action_closed_not_On_frames": 21,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 339,
+            "end_control_step": 340
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 1,
+            "mean": 4.321173042259785,
+            "median": 4.321173042259785
+          }
+        }
+      },
+      "initial_state_sha256": "7f2a0ecbe6dcc41694779b553a76a49310ea129ade13cf31ccdce42acf9984a7",
+      "source_scene_sha256": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+        "model_stage": "my_first_200/9999",
+        "params_manifest_sha256": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "2781ecbe7fb3eed1c67b282cfe80b2665bd4c1938c5e76bdc2c9a1801f30dd39",
+        "result.json": "00ad3137f64af0feec410fa6cc991648b4621e194ea0167679272f0a808cbce0",
+        "scene.json": "5998d8ca50d9439af023df28a5f593527b16cbfbd2f1b7b16c355612155496ae",
+        "initial_state.npy": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 73,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 8.930546761489483,
+            "action_xyz_norm_median": 0.7259572011404153,
+            "closed_command_fraction": 0.41
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 4.965985559717773,
+            "action_xyz_norm_median": 0.5893431286697277,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 4.019796046619302,
+            "action_xyz_norm_median": 0.41219527085167595,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 6.152225078484377,
+            "action_xyz_norm_median": 0.43578118973634405,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 5.54385664670175,
+            "action_xyz_norm_median": 0.4505913330820418,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 4.9846097770238025,
+            "action_xyz_norm_median": 0.44058034661821943,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 5.534261943130446,
+            "action_xyz_norm_median": 0.4909961151215482,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 6.3966328906597365,
+            "action_xyz_norm_median": 0.6173114522429964,
+            "closed_command_fraction": 1.0
+          }
+        ]
+      },
+      "video_sha256": "b4bd0303fda90536e7059feb13825174d3cf17c9c32f5019471a45b49b42d490"
+    },
+    {
+      "arm": "control",
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/control/seed-1/near_negative_control",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 252,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 103,
+        "first_ten_step_release_control_step": 202,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.4278099943427133e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 252,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 252,
+            "mean": 0.5046289858205922,
+            "median": 0.41045917775618557
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 251,
+            "mean": 4.907053449969905,
+            "median": 3.0777446528168175
+          },
+          "low_action_closed_not_On_frames": 0,
+          "longest_low_action_closed_not_On": {
+            "steps": 0,
+            "start_control_step": null,
+            "end_control_step": null
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "dca28d585c9a85aa04b384d969b80fd2d7c90cda6cc4f3ee637969a0b06845ec",
+      "source_scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+        "model_stage": "my_first_200/9999",
+        "params_manifest_sha256": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "e282cad8950f0c44f04a2ed3f69cc156e70f3de1e6848cf817c822a20207e99d",
+        "result.json": "5712e98d4e78d0387fa1543d3278f2dcaa6b006a8940c52bf885f8d2553087e3",
+        "scene.json": "698d0094d57ff9a765139bf15927cfad0a03e95f1f152a0943b998e8497a3f80",
+        "initial_state.npy": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 73,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 9.480250763873254,
+            "action_xyz_norm_median": 0.8055884622339718,
+            "closed_command_fraction": 0.43
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 1.6350522270227794,
+            "action_xyz_norm_median": 0.35330972489333917,
+            "closed_command_fraction": 0.62
+          },
+          {
+            "control_steps": [
+              201,
+              252
+            ],
+            "fresh_pre_state_move_median_mm": 2.332944967937612,
+            "action_xyz_norm_median": 0.22820634549957514,
+            "closed_command_fraction": 0.0
+          }
+        ]
+      },
+      "video_sha256": "cd6e3af35da7814011eceef36cfd6a987bb95f16063c61e576d74182e7177bb9"
+    },
+    {
+      "arm": "control",
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/control/seed-1/positive_edge_failure",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.43839468190860914,
+            "median": 0.3828417409363671
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 4.43703777725676,
+            "median": 3.0716111730201043
+          },
+          "low_action_closed_not_On_frames": 29,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 249,
+            "end_control_step": 250
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 3,
+            "mean": 0.7275360878810622,
+            "median": 0.5236275224323327
+          }
+        }
+      },
+      "initial_state_sha256": "4ce320d60be11c49ae47cd84de31b81d40f7f9ef6ec7f3fa2bdf5343a435500c",
+      "source_scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+        "model_stage": "my_first_200/9999",
+        "params_manifest_sha256": "5c2445c1dd96375ca5ca5d3d639db3b259040355a793f688ebc07381c60c7a9b",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "5e9cfa085a72b6b434dff8863dcb2d79bb2468b2235d719bf734a61011298f9d",
+        "result.json": "38a807e50fe4f0db233269477e8fcfd63f0aa96b1e5dfd922e9568580d6f00d6",
+        "scene.json": "37ea191cd8afc051ad4df5a52a4fd8a7e6763a75d57d7d53e24241daaae43d10",
+        "initial_state.npy": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 73,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 10.156007099688377,
+            "action_xyz_norm_median": 0.8559405508722108,
+            "closed_command_fraction": 0.43
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 1.3617282077330335,
+            "action_xyz_norm_median": 0.40767786112047966,
+            "closed_command_fraction": 0.92
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 1.0775351334550671,
+            "action_xyz_norm_median": 0.3287980384459962,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 2.947742958774937,
+            "action_xyz_norm_median": 0.4318186947780602,
+            "closed_command_fraction": 0.98
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 3.9502952157487536,
+            "action_xyz_norm_median": 0.43916203857092584,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 4.265108688887959,
+            "action_xyz_norm_median": 0.3463806896847358,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 3.4051843559163193,
+            "action_xyz_norm_median": 0.2652332223980425,
+            "closed_command_fraction": 0.98
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 3.231037568641563,
+            "action_xyz_norm_median": 0.3415565358937638,
+            "closed_command_fraction": 1.0
+          }
+        ]
+      },
+      "video_sha256": "5d38606f7b3443a9c845b0288b5d668b376a29bde4723b21b29b3140df12df8f"
+    },
+    {
+      "arm": "candidate",
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/candidate/seed-0/negative_slow",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.0667815703828312,
+            "median": 0.03680129199009799
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 0.6860235817952192,
+            "median": 0.2950232377500035
+          },
+          "low_action_closed_not_On_frames": 2,
+          "longest_low_action_closed_not_On": {
+            "steps": 1,
+            "start_control_step": 528,
+            "end_control_step": 528
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "7f2a0ecbe6dcc41694779b553a76a49310ea129ade13cf31ccdce42acf9984a7",
+      "source_scene_sha256": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "84194b1e1c8e834eb7292fb54f6f4360f47a6e0a4fe866f3ff9409d596b0b99e",
+        "result.json": "efe9198713cc970120ce4f03338235d5de1e21af0f44b56209005085f8850a1a",
+        "scene.json": "32aef86432aceb948df4c1385f070c23bdb3316350263fb868f2e10c4e3d7417",
+        "initial_state.npy": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": null,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 2.483831486076418,
+            "action_xyz_norm_median": 0.18562891134044052,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 0.7429083668820207,
+            "action_xyz_norm_median": 0.06717389857333328,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 0.33584406892316654,
+            "action_xyz_norm_median": 0.03559972684387916,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 0.27897674952871493,
+            "action_xyz_norm_median": 0.032683711953520336,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 0.2534230161600439,
+            "action_xyz_norm_median": 0.029925031742583475,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 0.2702103222164631,
+            "action_xyz_norm_median": 0.03301071391006617,
+            "closed_command_fraction": 0.01
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 0.20820738688346319,
+            "action_xyz_norm_median": 0.031061172612542612,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 0.1907775957671059,
+            "action_xyz_norm_median": 0.027414905625833964,
+            "closed_command_fraction": 0.01
+          }
+        ]
+      },
+      "video_sha256": "2597dcbd9c2418707325898f7d35c5626c9fd1188dca340c8f23e8c60bbdb68a"
+    },
+    {
+      "arm": "candidate",
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/candidate/seed-0/near_negative_control",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 401,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 293,
+        "first_ten_step_release_control_step": 351,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.151997268579808e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 401,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 401,
+            "mean": 0.20667826210699372,
+            "median": 0.12169347699144666
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 400,
+            "mean": 2.561108933737513,
+            "median": 1.5579408958411771
+          },
+          "low_action_closed_not_On_frames": 36,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 210,
+            "end_control_step": 213
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 11,
+            "mean": 0.7015582919881759,
+            "median": 0.6724097302834321
+          }
+        }
+      },
+      "initial_state_sha256": "dca28d585c9a85aa04b384d969b80fd2d7c90cda6cc4f3ee637969a0b06845ec",
+      "source_scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "f19dcf5bc653e0bec2474649e39ab8a25e3d4d363984f1f4f71621ee7850d7d7",
+        "result.json": "8dfa63c37c1b62f01e6a539b13f80af9175dfb2d8a6ee2181afb105454bee045",
+        "scene.json": "881ecae141b98ee7ee94a99eb857503644472b216250d2dff02f44c48933cc89",
+        "initial_state.npy": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 167,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 3.7305023513201365,
+            "action_xyz_norm_median": 0.3049769711356061,
+            "closed_command_fraction": 0.01
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 2.3994106612346413,
+            "action_xyz_norm_median": 0.19263372507116439,
+            "closed_command_fraction": 0.54
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 1.427199149993023,
+            "action_xyz_norm_median": 0.11436643526878304,
+            "closed_command_fraction": 0.97
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 0.941200943404375,
+            "action_xyz_norm_median": 0.06923236532029045,
+            "closed_command_fraction": 0.02
+          },
+          {
+            "control_steps": [
+              401,
+              401
+            ],
+            "fresh_pre_state_move_median_mm": null,
+            "action_xyz_norm_median": 0.061686560188623694,
+            "closed_command_fraction": 0.0
+          }
+        ]
+      },
+      "video_sha256": "5fd6bbaf20e9e3c0414930d2821d20800c44e35cf300aff483bd31b394b4435c"
+    },
+    {
+      "arm": "candidate",
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/candidate/seed-0/positive_edge_failure",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1164228097562952,
+            "median": 0.061317319489869904
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.298191894401393,
+            "median": 0.6366029436445211
+          },
+          "low_action_closed_not_On_frames": 197,
+          "longest_low_action_closed_not_On": {
+            "steps": 16,
+            "start_control_step": 572,
+            "end_control_step": 587
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 107,
+            "mean": 0.6015575581605063,
+            "median": 0.5707863142091772
+          }
+        }
+      },
+      "initial_state_sha256": "4ce320d60be11c49ae47cd84de31b81d40f7f9ef6ec7f3fa2bdf5343a435500c",
+      "source_scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "781bbc65bbf2aed1228c90769016c1b0b2100fa49c1bfc4c06c5d1ff69d91384",
+        "result.json": "efe5ebbbf21af84b4049a165959381e579a29c21a92f0429ba2028f6a816812e",
+        "scene.json": "b5f88ba56bd6fca5e4d7acf958984ba8c31c157185544cf50648ff51696d3385",
+        "initial_state.npy": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 475,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 6.341896570346974,
+            "action_xyz_norm_median": 0.4811603306096198,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 0.38106129991766324,
+            "action_xyz_norm_median": 0.04017489752285573,
+            "closed_command_fraction": 0.01
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 0.23855985647754402,
+            "action_xyz_norm_median": 0.03326735655532535,
+            "closed_command_fraction": 0.01
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 0.3731321581824443,
+            "action_xyz_norm_median": 0.037463998778178555,
+            "closed_command_fraction": 0.07
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 0.6387467819281248,
+            "action_xyz_norm_median": 0.049562699116335054,
+            "closed_command_fraction": 0.56
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 0.8204548365126043,
+            "action_xyz_norm_median": 0.06803232653343574,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 0.8571284930256947,
+            "action_xyz_norm_median": 0.08508899297416378,
+            "closed_command_fraction": 0.99
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 0.7393991780582988,
+            "action_xyz_norm_median": 0.07665276381840615,
+            "closed_command_fraction": 1.0
+          }
+        ]
+      },
+      "video_sha256": "0e4e450696ab913f4fe42206c3408cd6c8883be29d82718ca00cb8432366ea5d"
+    },
+    {
+      "arm": "candidate",
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/candidate/seed-1/negative_slow",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 678,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 580,
+        "first_ten_step_release_control_step": 628,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.8974080074218444e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 678,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 678,
+            "mean": 0.13635019993422345,
+            "median": 0.08183135797810381
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 677,
+            "mean": 1.63453277541174,
+            "median": 1.0157291170406708
+          },
+          "low_action_closed_not_On_frames": 71,
+          "longest_low_action_closed_not_On": {
+            "steps": 9,
+            "start_control_step": 437,
+            "end_control_step": 445
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 31,
+            "mean": 0.638669360115545,
+            "median": 0.5572075156035932
+          }
+        }
+      },
+      "initial_state_sha256": "7f2a0ecbe6dcc41694779b553a76a49310ea129ade13cf31ccdce42acf9984a7",
+      "source_scene_sha256": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "c5d687740a7db4a56e08bc113201e0efc328df556ac82de9463f82598c905093",
+        "result.json": "93072782bddf24545c19970db2397929dcb3a49c3754a56ec7b1797708caf269",
+        "scene.json": "5998d8ca50d9439af023df28a5f593527b16cbfbd2f1b7b16c355612155496ae",
+        "initial_state.npy": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 354,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 1.7849776394525505,
+            "action_xyz_norm_median": 0.13504382780878632,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 0.8666273177396445,
+            "action_xyz_norm_median": 0.06753614647919377,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 0.7260239507370888,
+            "action_xyz_norm_median": 0.06837577912263339,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 2.1702015025522576,
+            "action_xyz_norm_median": 0.16553875368680582,
+            "closed_command_fraction": 0.7
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 1.141598189882694,
+            "action_xyz_norm_median": 0.09118812279833766,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 1.4214154739745402,
+            "action_xyz_norm_median": 0.10819069366089418,
+            "closed_command_fraction": 0.77
+          },
+          {
+            "control_steps": [
+              601,
+              678
+            ],
+            "fresh_pre_state_move_median_mm": 0.6731429364000225,
+            "action_xyz_norm_median": 0.054851737837614004,
+            "closed_command_fraction": 0.0
+          }
+        ]
+      },
+      "video_sha256": "7d1507e809bf5093270ff192a472f7cc9923291247c0a3422b83f5390017ce51"
+    },
+    {
+      "arm": "candidate",
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/candidate/seed-1/near_negative_control",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 395,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 297,
+        "first_ten_step_release_control_step": 345,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.9387573082825407e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 395,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 395,
+            "mean": 0.20207275115269446,
+            "median": 0.11852756895803293
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 394,
+            "mean": 2.4975321709085807,
+            "median": 1.5131759587558768
+          },
+          "low_action_closed_not_On_frames": 45,
+          "longest_low_action_closed_not_On": {
+            "steps": 5,
+            "start_control_step": 143,
+            "end_control_step": 147
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 15,
+            "mean": 0.7613548101343731,
+            "median": 0.7869713813581629
+          }
+        }
+      },
+      "initial_state_sha256": "dca28d585c9a85aa04b384d969b80fd2d7c90cda6cc4f3ee637969a0b06845ec",
+      "source_scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "34ac7aa7204577fd1beec0d6f199e2dd35c952cd83df1af6fc3b49425e259b14",
+        "result.json": "b5f22a4b442e4a4a354889a558f6fccf869114fda2b47996e3ddbcb31ed9e79e",
+        "scene.json": "698d0094d57ff9a765139bf15927cfad0a03e95f1f152a0943b998e8497a3f80",
+        "initial_state.npy": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 167,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 3.730117477704167,
+            "action_xyz_norm_median": 0.23543208641945995,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 2.3235726357430244,
+            "action_xyz_norm_median": 0.16642830911229092,
+            "closed_command_fraction": 0.66
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 1.3325364915982687,
+            "action_xyz_norm_median": 0.10336147067081186,
+            "closed_command_fraction": 0.97
+          },
+          {
+            "control_steps": [
+              301,
+              395
+            ],
+            "fresh_pre_state_move_median_mm": 0.9985515429806264,
+            "action_xyz_norm_median": 0.07082727476802225,
+            "closed_command_fraction": 0.0
+          }
+        ]
+      },
+      "video_sha256": "715ea50cd6d6a2d3886bbb16ea9452ee0efc27c7099e12388a210be7c6a717e5"
+    },
+    {
+      "arm": "candidate",
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/precorrection-comparison-20261019/candidate/seed-1/positive_edge_failure",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.13265954282292866,
+            "median": 0.08274076013319216
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.4496163290781772,
+            "median": 0.8946269360234883
+          },
+          "low_action_closed_not_On_frames": 228,
+          "longest_low_action_closed_not_On": {
+            "steps": 7,
+            "start_control_step": 680,
+            "end_control_step": 686
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 106,
+            "mean": 0.6541667207547892,
+            "median": 0.6516422483976673
+          }
+        }
+      },
+      "initial_state_sha256": "4ce320d60be11c49ae47cd84de31b81d40f7f9ef6ec7f3fa2bdf5343a435500c",
+      "source_scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "2469211053de6a9aad4141eb0165474ae4aaae61fcc7af37cb3eb6a75fad5dd8",
+        "result.json": "c6fcc3bf1dc0bfe9bfa0e8bdde12d6faa4d89f834b3b03b15c077a765dce6e95",
+        "scene.json": "37ea191cd8afc051ad4df5a52a4fd8a7e6763a75d57d7d53e24241daaae43d10",
+        "initial_state.npy": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+      },
+      "fresh_movement": {
+        "definition": "Adjacent fresh pre-state XYZ, mm/control-step; 100-step bins, no wall-time conversion. Bowl lift uses cached post-state and is not proof of stable grasp.",
+        "first_cached_bowl_lift_2cm_step": 335,
+        "bins": [
+          {
+            "control_steps": [
+              1,
+              100
+            ],
+            "fresh_pre_state_move_median_mm": 5.442432083348904,
+            "action_xyz_norm_median": 0.4263409869904956,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              101,
+              200
+            ],
+            "fresh_pre_state_move_median_mm": 0.6118361120146619,
+            "action_xyz_norm_median": 0.05654190798708241,
+            "closed_command_fraction": 0.0
+          },
+          {
+            "control_steps": [
+              201,
+              300
+            ],
+            "fresh_pre_state_move_median_mm": 0.26549257960906164,
+            "action_xyz_norm_median": 0.0356741750324194,
+            "closed_command_fraction": 0.19
+          },
+          {
+            "control_steps": [
+              301,
+              400
+            ],
+            "fresh_pre_state_move_median_mm": 0.8519400819870664,
+            "action_xyz_norm_median": 0.07008398195082038,
+            "closed_command_fraction": 0.97
+          },
+          {
+            "control_steps": [
+              401,
+              500
+            ],
+            "fresh_pre_state_move_median_mm": 0.8823789511304235,
+            "action_xyz_norm_median": 0.08839386616978098,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              501,
+              600
+            ],
+            "fresh_pre_state_move_median_mm": 1.051022977696635,
+            "action_xyz_norm_median": 0.1021659047123733,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              601,
+              700
+            ],
+            "fresh_pre_state_move_median_mm": 1.1207962753525234,
+            "action_xyz_norm_median": 0.09103697138810306,
+            "closed_command_fraction": 1.0
+          },
+          {
+            "control_steps": [
+              701,
+              800
+            ],
+            "fresh_pre_state_move_median_mm": 1.0355243926562008,
+            "action_xyz_norm_median": 0.10057466938491641,
+            "closed_command_fraction": 1.0
+          }
+        ]
+      },
+      "video_sha256": "1a61b0e0c1582a95163a55c403cf6935d88b1c2739cbdd0f10ce9c094d0975b4"
+    }
+  ],
+  "pairs": [
+    {
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "negative_slow",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "near_negative_control",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": 143
+    },
+    {
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "positive_edge_failure",
+      "role": "latest_user_development",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    }
+  ],
+  "limits": [
+    "Case roles are predeclared in the plan; training-source cases and independent-position cases must be reported separately.",
+    "Small paired development study, not a benchmark success rate or unseen-position guarantee. One training seed42; policy seeds vary sampling only.",
+    "Strict success needs the first ten consecutive release gates followed by fifty policy steps maintaining the same gates and <=5mm maximum bowl drift.",
+    "Missing, invalid, exceptional or short-followup trials are not silently counted as task failures. No release at the full budget is right censored.",
+    "Completion time includes the fifty-step followup. Paired time deltas require both strict successes and identical saved initial state.",
+    "Motion uses adjacent post-observation positions. Closed/not-On/low-action runs are diagnostic proxies, not verified grasps or causes.",
+    "No model, inference, simulator or training is loaded by this summarizer."
+  ]
+}

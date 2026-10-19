@@ -1,0 +1,5 @@
+DIAGNOSTIC_READY /home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999 port=8756 seed=1
+INFO:websockets.server:server listening on 127.0.0.1:8756
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open

@@ -1,17 +1,19 @@
 {
   "status": "PASS",
-  "targeted_tests": 48,
+  "targeted_tests": 50,
   "tests": [
     "test_placement_teacher_export.py",
     "test_train_placement_teacher.py",
     "test_placement_recovery_teacher.py",
     "test_retargeted_task_teacher.py",
-    "test_summarize_negative_recovery.py"
+    "test_summarize_negative_recovery.py",
+    "test_replay_holding_state.py"
   ],
   "ruff": "PASS for all new scripts/tests and both reproduction helpers",
   "actual_new_teachers": 8,
   "raw_generated_frames": 2513,
   "native_loader_exact_samples": 32,
   "training_started": false,
-  "learned_policy_fix_verified": false
+  "learned_policy_fix_verified": false,
+  "holding_evaluator_patch": "Explicit canonical controller reconstruction required for saved holding states; old affected trials excluded and rerun."
 }

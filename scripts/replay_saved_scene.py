@@ -21,6 +21,8 @@ def main():
     parser.add_argument("--max-steps", type=positive_int, default=800)
     parser.add_argument("--replan-steps", type=positive_int, default=1)
     parser.add_argument("--smoke", action="store_true")
+    parser.add_argument("--initialize-saved-controller", action="store_true",
+                        help="Reconstruct OSC goals and gripper accumulator for saved mid-task physical states")
     parser.add_argument("--stop-after-stable-release", action="store_true",
                         help="Stop after10 consecutive On, open, actual gap>=6cm and EEF-bowl>=10cm steps")
     parser.add_argument("--post-release-steps", type=positive_int, default=0,
@@ -36,6 +38,8 @@ def main():
     original = json.loads((source / "scene.json").read_text())
     if original["task_language"] != TASK_LANGUAGE:
         raise ValueError("Saved scene task differs")
+    if original.get("source_kind") == "exact_saved_failure_holding_state" and not args.initialize_saved_controller:
+        raise ValueError("Saved holding states require --initialize-saved-controller before policy evaluation")
     os.environ.setdefault("MUJOCO_GL", "egl")
     import numpy as np
     from openpi_client import image_tools
@@ -60,11 +64,16 @@ def main():
         obs = env.regenerate_obs_from_state(saved)
         if state_digest(env.get_sim_state()) != state_digest(saved):
             raise ValueError("Physics initial-state roundtrip changed")
+        controller_initialization = None
+        if args.initialize_saved_controller:
+            from generate_tracking_teacher import restore_controller
+            controller_initialization = restore_controller(env)
         scene = {**original, "interactive_experiment": False, "formal_benchmark": False,
                  "untracked_native_gui_edits_possible": False,
                  "saved_scene_replay": str(source), "source_scene_sha256": hashlib.sha256((source / "scene.json").read_bytes()).hexdigest(),
                  "replan_steps": args.replan_steps, "max_steps": args.max_steps,
                  "post_release_steps_requested": args.post_release_steps,
+                 "controller_initialization": controller_initialization,
                  "stop_policy": (f"ten-step stable released retreat, then {args.post_release_steps} extra policy steps, or budget"
                                  if args.stop_after_stable_release else "fixed full budget; On never stops early"),
                  "policy_rng": (f"Isolated server resets RNG per connection to seed {metadata['diagnostic_rng_reset_per_connection']}"

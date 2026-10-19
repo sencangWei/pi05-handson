@@ -173,6 +173,22 @@ def test_full_plan_success_and_paired_completion_delta(tmp_path):
     assert roles["independent_position_holdout"]["strict_successes"] == 2
 
 
+def test_saved_holding_trial_requires_declared_controller_reconstruction(tmp_path):
+    path, spec = plan(tmp_path, cases=1, seeds=(0,))
+    spec["holding_controller_initialization"] = "canonical"
+    spec["evaluation_cases"][0]["role"] = "training_holding_state"
+    path.write_text(json.dumps(spec))
+    directory = trial(tmp_path / "runs", spec)
+    result = summarize(path, tmp_path / "runs")
+    assert result["runs"][0]["status"] == "INVALID"
+    assert result["runs"][0]["validations"]["holding_controller_initialization"] is False
+    metadata = json.loads((directory / "result.json").read_text())
+    metadata["controller_initialization"] = [{"method": "fixture canonical reconstruction"}]
+    (directory / "result.json").write_text(json.dumps(metadata))
+    result = summarize(path, tmp_path / "runs")
+    assert result["runs"][0]["status"] == "COMPLETE"
+
+
 @pytest.mark.parametrize("corrupt", [{"success": True}, {"success": "False"},
                                      {"ten_step_release_retreat_verified": "False"}])
 def test_forged_success_or_string_json_booleans_invalid_not_success(tmp_path, corrupt):

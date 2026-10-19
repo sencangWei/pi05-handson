@@ -19,3 +19,7 @@
 源码在scripts/generate_placement_recovery_teacher.py、generate_retargeted_task_teacher.py、prepare_placement_teacher.py、train_placement_teacher.py。原始NPZ仍在本地.local/negative-recovery-20261019，原人工原件在corrections；本证据包保存生成metadata/每帧哈希、源初末状态、双摄视频、阶段记录与审计，不把未上传的原始数据称为远端数据备份。源场景快照另见source-scenes；完整teacher均使用同一固定脚本版本。
 
 experiment-plan.json在训练前冻结训练预算、采样比例和两arm各20次评测。训练位置、历史开发对照与两个未用于teacher的相邻位置分别报告，单训练seed42、2个策略seed，不是LIBERO官方benchmark或真机结果。
+
+## 持碗评测初态修正
+
+新加的holding评测场景只恢复MuJoCo物理状态时，旧home开爪累计量仍在，会在闭爪命令下先张开爪子、使碗掉落。已用相同前两条闭爪命令隔离A/B实证；加入显式--initialize-saved-controller，持碗场景漏该参数会在创建仿真前拒绝。受影响的无恢复评测保留为诊断，不计模型分数；同种子规范重跑。home评测保持原初始化流程，不能把新评测器缺陷当作之前GUI慢动作的根因。teacher代码与数据均不因此修改。

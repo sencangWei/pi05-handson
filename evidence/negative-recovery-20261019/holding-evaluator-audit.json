@@ -1,0 +1,262 @@
+{
+  "status": "LEGACY_HOLDING_DEFECT_CONFIRMED_CANONICAL_START_VALIDATED_WITH_TWO_FIXED_ACTIONS",
+  "scope": "Original read-only evidence plus authorized isolated offscreen real-physics A/B with identical two recorded actions per branch, no model/server/GUI/active-evaluation/plan/source edits. Eight diagnostic holding actions total across two probe versions. Each branch uses standard evaluator task.create home setup before restoring the saved state.",
+  "run": "evaluations/negative-recovery-20261019/control/seed-0/holding008",
+  "run_publication_at_first_inspection": "actions.csv present and still growing; result.json not yet published. Findings concern the stable first10rows only, not a final task outcome.",
+  "finding": "Saved holding qpos/qvel and both initial RGBs match the teacher, but the old replay path does not restore the Python gripper accumulator or canonical controller goals. Starting from a home-open control state causes an opening transient despite the first two policy commands being close. This contaminates the holding-recovery evaluation start.",
+  "evidence": {
+    "initial_comparison": {
+      "max_abs_initial_state8_difference": 6.770588445448311e-08,
+      "initial_agent_rgb_equal": true,
+      "initial_wrist_rgb_equal": true,
+      "teacher_first_close_command": 1.0,
+      "teacher_first_post_gap_m": 0.003597453935071826,
+      "teacher_first_post_bowl_z_m": 1.1315823793411255,
+      "physical_state_matches_planned_holding_initial": true,
+      "physical_state_matches_teacher_initial": true
+    },
+    "initial_bowl_z_m": 1.1310009475039524,
+    "initial_gap_m": 0.0035808500862118207,
+    "first10": [
+      {
+        "control_step": 1,
+        "gripper_command": 0.9953360997488501,
+        "pre_gap_m": 0.0035808500862118207,
+        "post_gap_m": 0.016140611635337705,
+        "post_bowl_z_m": 1.127142808324878
+      },
+      {
+        "control_step": 2,
+        "gripper_command": 1.0128927758550645,
+        "pre_gap_m": 0.018363214885587155,
+        "post_gap_m": 0.033562419887540024,
+        "post_bowl_z_m": 1.1025416302348865
+      },
+      {
+        "control_step": 3,
+        "gripper_command": -0.9993522163966894,
+        "pre_gap_m": 0.03588748549678862,
+        "post_gap_m": 0.045207277286411995,
+        "post_bowl_z_m": 1.0567026248495779
+      },
+      {
+        "control_step": 4,
+        "gripper_command": -0.9955856778007746,
+        "pre_gap_m": 0.04734500254467794,
+        "post_gap_m": 0.055302437833404716,
+        "post_bowl_z_m": 0.9912710561953363
+      },
+      {
+        "control_step": 5,
+        "gripper_command": -1.0050632978960277,
+        "pre_gap_m": 0.05778276353165555,
+        "post_gap_m": 0.0644005054527699,
+        "post_bowl_z_m": 0.9082675266824062
+      },
+      {
+        "control_step": 6,
+        "gripper_command": -1.0166349494185447,
+        "pre_gap_m": 0.06641911627756172,
+        "post_gap_m": 0.07018413284903507,
+        "post_bowl_z_m": 0.9006017677969532
+      },
+      {
+        "control_step": 7,
+        "gripper_command": -0.9955720879349709,
+        "pre_gap_m": 0.07150790989293636,
+        "post_gap_m": 0.07352255889135072,
+        "post_bowl_z_m": 0.8993873192776873
+      },
+      {
+        "control_step": 8,
+        "gripper_command": -1.0024485600316524,
+        "pre_gap_m": 0.07436750308639441,
+        "post_gap_m": 0.07543688857658055,
+        "post_bowl_z_m": 0.898322361269379
+      },
+      {
+        "control_step": 9,
+        "gripper_command": -0.9966036064332128,
+        "pre_gap_m": 0.07596868484703832,
+        "post_gap_m": 0.0765332346286442,
+        "post_bowl_z_m": 0.8983780493794374
+      },
+      {
+        "control_step": 10,
+        "gripper_command": -1.001314640702486,
+        "pre_gap_m": 0.07686439337809936,
+        "post_gap_m": 0.07716078463561658,
+        "post_bowl_z_m": 0.8983966762546877
+      }
+    ],
+    "bowl_drop_by_second_close_step_m": 0.02845931726906592,
+    "first_policy_open_control_step": 3,
+    "teacher_canonical_controller": [
+      {
+        "method": "update(force=True),reset_goal; inverse actuator-range gripper qpos mapping",
+        "not_exact_hidden_controller_restoration": true,
+        "goal_pos": [
+          0.13333306849306806,
+          -0.10318181370209711,
+          1.1722289535969792
+        ],
+        "goal_ori": [
+          [
+            0.009630464519681976,
+            0.9632602446185262,
+            0.26839701058430104
+          ],
+          [
+            0.9964786982559716,
+            0.013112402367074567,
+            -0.08281466552637513
+          ],
+          [
+            -0.08329140456983898,
+            0.2682494474209,
+            -0.9597420361134352
+          ]
+        ],
+        "initial_joint": [
+          0.0,
+          -0.161037389,
+          0.0,
+          -2.44459747,
+          0.0,
+          2.2267522,
+          0.7853981633974483
+        ],
+        "gripper_qpos": [
+          0.0017040176779606583,
+          -0.0018768324082511624
+        ],
+        "gripper_accumulator": [
+          -0.9147991161019671,
+          0.9061583795874418
+        ]
+      }
+    ],
+    "source_refs": [
+      "scripts/replay_saved_scene.py:57",
+      "scripts/replay_saved_scene.py:60",
+      "scripts/simulation_lab.py:102",
+      "scripts/evaluate_libero.py:23",
+      "openpi/third_party/libero/libero/libero/envs/env_wrapper.py:139",
+      ".venv-sim/lib/python3.11/site-packages/robosuite/models/grippers/panda_gripper.py:55",
+      ".venv-sim/lib/python3.11/site-packages/robosuite/models/grippers/panda_gripper.py:61",
+      ".venv-sim/lib/python3.11/site-packages/robosuite/environments/base.py:391",
+      ".venv-sim/lib/python3.11/site-packages/robosuite/robots/single_arm.py:258",
+      "scripts/generate_tracking_teacher.py:90"
+    ]
+  },
+  "mechanism": {
+    "old_replay": "task.create(home), including10open dummy control steps, then regenerate_obs_from_state(saved). regenerate only restores physical state/forward/observations and does not update gripper.current_action.",
+    "gripper_contract": "format_action accumulates [-1,+1]*.01*sign(command), clipped[-1,1], and runs every internal physics step. Native20Hz/.002s means25updates per action. Home opening250updates saturates[+1,-1], whereas teacher restores approximately[-.914799,+.906158] from saved closed qpos.",
+    "pure_numpy_native_update_arithmetic": [
+      {
+        "control_step": 1,
+        "home_accumulator_after_close": [
+          0.7499999999999998,
+          -0.7499999999999998
+        ],
+        "canonical_accumulator_after_close": [
+          -1.0,
+          1.0
+        ]
+      },
+      {
+        "control_step": 2,
+        "home_accumulator_after_close": [
+          0.49999999999999956,
+          -0.49999999999999956
+        ],
+        "canonical_accumulator_after_close": [
+          -1.0,
+          1.0
+        ]
+      }
+    ],
+    "not_a_physics_counterfactual": "Superseded by actual_same_action_ab: identical initial integration state and identical two recorded actions now compared in real isolated physics."
+  },
+  "required_followup": [
+    "Exclude or archive current legacy holding008/009 runs as legacy-controller diagnostics; do not mix them into canonical holding-recovery success counts.",
+    "For holding cases only, apply the same canonical restore_controller helper used by the successful teacher after restoring the exact saved integration state and before any policy action. Record initialization method, accumulator/goal pose and source code SHA in evaluation metadata.",
+    "Rerun BOTH control and candidate for BOTH holding sources and predeclared seeds with the same canonical initialization. Preserve the previous home-start evaluation path for all home cases to retain that matched comparison.",
+    "The bounded identical-action controller-only holding check is now complete and passes the canonical no-artificial-opening criterion for two steps; no more diagnostic steps were run."
+  ],
+  "limits": [
+    "Canonical restore is shared deterministic initialization, not exact recovery of original hidden controller history.",
+    "The existing policy emits open on its third action after the gripper has already widened and the bowl has fallen28.46mm; those later actions cannot establish behavior from an undisturbed held initial state.",
+    "Teacher first action has different xyz commands, so its good first response is supporting context rather than a controlled same-action causal experiment.",
+    "Correct canonical evaluation may still fail due to policy behavior. This audit does not predict improved success or imply the model learned placement recovery.",
+    "The A/B establishes an evaluator initialization defect. It cannot explain the original GUI slow carry behavior, whose GUI had a continuous live controller state."
+  ],
+  "evidence_sha256": {
+    "evaluations/negative-recovery-20261019/control/seed-0/holding008/scene.json": "c335209e3aed8d11a1f99163d09ac289fe9cb789e8ebc63e7124c242ad718f3c",
+    "evaluations/negative-recovery-20261019/control/seed-0/holding008/initial_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe",
+    "evaluations/negative-recovery-20261019/control/seed-0/holding008/initial-agentview.png": "b405b56bd92b4678a6bf811f103f9e9553f9769d35f39e5911dc79179d287b38",
+    "evaluations/negative-recovery-20261019/control/seed-0/holding008/initial-wrist.png": "6917e3b4becf5864f69f3a5081c9f4c0e294623bba1ad0e389aa2e02d770769f",
+    ".local/negative-recovery-20261019/holding-scenes/holding008/initial_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe",
+    ".local/negative-recovery-20261019/pilot/scene008-final-v1/metadata.json": "72e96d3f2efd20f75416aeeba0c007d83f596f062783887e76bd4b6b01f047a9",
+    ".local/negative-recovery-20261019/pilot/scene008-final-v1/frame-000000.npz": "7ff821b0f9dd5ab553d497648a869db84567b329ea19d6b1422b76269178677f"
+  },
+  "first10_csv_rows_canonical_json_sha256": "fa5e1f34563c4b4261e032caffaeca75fe48cdc2b9b8f1fb32169effb74a8ba7",
+  "actual_same_action_ab": {
+    "artifact": ".local/negative-recovery-20261019/holding-controller-ab-probe-v2.json",
+    "script": ".local/negative-recovery-20261019/holding-controller-ab-probe.py",
+    "script_sha256": "d1659734905a98b29bf01466f4eb5e8f4d6c76d8a9727781774e81032c6d07ed",
+    "result_sha256": "00463bf794e5ce94adf3c97944b7d1fed9ad71c13260c0cb18f8ea18868d48b0",
+    "diagnostic_steps_this_probe": 4,
+    "diagnostic_steps_total_v1_v2": 8,
+    "source_state_sha256": "3d04cad150098d40165468d95a5a0a74eeff46bdab9c83f2a444230db55ec09d",
+    "same_fixed_actions": true,
+    "same_initial_physical_state": true,
+    "no_policy_or_privileged_action_generation": true,
+    "legacy_first_two_cached_rows_match_original": [
+      {
+        "control_step": 1,
+        "cached_gap_exact": true,
+        "cached_bowl_z_exact": true
+      },
+      {
+        "control_step": 2,
+        "cached_gap_exact": true,
+        "cached_bowl_z_exact": true
+      }
+    ],
+    "legacy_after_two": {
+      "cached_gap_m": 0.033562419887540024,
+      "fresh_gap_m": 0.03588748549678862,
+      "cached_bowl_z_m": 1.1025416302348865,
+      "fresh_bowl_z_m": 1.094695762161043,
+      "fresh_bowl_drop_m": 0.036305185342909496
+    },
+    "canonical_after_two": {
+      "cached_gap_m": 0.0035898047779196448,
+      "fresh_gap_m": 0.0035889937402768463,
+      "cached_bowl_z_m": 1.1315017715883395,
+      "fresh_bowl_z_m": 1.131541976017351,
+      "fresh_bowl_height_change_m": 0.0005410285133986559
+    },
+    "v1_observation_note": "Original v1 artifact/script retained. V1 refreshed after step and again before the next step, altering the cached second observation. V2 refreshes once and reuses it as next pre-observation; cached original CSV responses now exactly match. Fresh final physical state/response is identical across both versions."
+  },
+  "new_evaluator_flag_review": {
+    "status": "PASS_STATIC_AND_SHARED_HELPER_PHYSICS_CHECK",
+    "references": [
+      "scripts/replay_saved_scene.py:24",
+      "scripts/replay_saved_scene.py:66",
+      "scripts/replay_saved_scene.py:68",
+      "scripts/replay_saved_scene.py:74",
+      "evidence/negative-recovery-20261019/run_evaluation.py:66",
+      "evidence/negative-recovery-20261019/run_evaluation.py:80"
+    ],
+    "finding": "Opt-in flag defaultsFalse; only holding role gets --initialize-saved-controller. After exact physical-state restore it calls generate_tracking_teacher.restore_controller and records returned initialization. No privileged object-pose-based action generation is introduced into policy evaluation. Home path retains previous initialization.",
+    "source_sha256": {
+      "scripts/replay_saved_scene.py": "4262bb96785e4cabdcdafcce4cddba479061edfe4268997a45b112dc80a2c671",
+      "scripts/generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+      "evidence/negative-recovery-20261019/run_evaluation.py": "3c64023b4abbb03e963ec22d0c0920a60b925c0d84ab866f73aa43d8c0865977"
+    }
+  },
+  "conclusion": "Legacy holding scores are contaminated by the home-open gripper accumulator and must remain archived diagnostics. Canonical restore removes the demonstrated opening/drop transient for the same two recorded close actions. Both-arm holding reruns are needed for policy outcome conclusions; home-start results remain on their original matched path.",
+  "run_path_semantics": "Historical pre-repair slot. Owner archives the legacy directory before reusing the same path for canonical reruns; the first10rows content digest and saved evidence values identify the inspected legacy execution."
+}

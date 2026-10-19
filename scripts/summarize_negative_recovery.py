@@ -150,6 +150,9 @@ def read_run(directory, plan, case, arm, seed, project_root):
             and metadata["diagnostic_rng_reset_per_connection"] == seed,
             "model_contract": metadata.get("action_horizon") == plan.get("action_horizon", 10)
             and metadata.get("state_input") is plan.get("discrete_state_input", False),
+            "holding_controller_initialization": bool(result.get("controller_initialization"))
+            if plan.get("holding_controller_initialization") == "canonical"
+            and case["role"] == "training_holding_state" else True,
             "normalization": metadata.get("norm_stats_sha256") == plan.get("normalization_sha256")
             if "normalization_sha256" in plan else True,
             "budget_and_replanning": equal_int("max_steps", case["max_steps"])

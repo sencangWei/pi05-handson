@@ -1,0 +1,439 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "timestamp_utc": "2026-10-19T06:01:52.878342+00:00",
+  "command_argv": [
+    "rtk",
+    "proxy",
+    "env",
+    "JAX_PLATFORMS=cpu",
+    ".venv/bin/python",
+    "-u",
+    "scripts/train_placement_teacher.py",
+    "--manifest",
+    "evidence/placement-teacher-negative_quadrants_mix_v1-manifest.json",
+    "--parent-checkpoint",
+    "checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+    "--experiment",
+    "negative_quadrants_20261019",
+    "--steps",
+    "2000",
+    "--batch-size",
+    "4",
+    "--learning-rate",
+    "1e-5",
+    "--dry-run"
+  ],
+  "working_directory": "/home/robot/.pi05-handson",
+  "stdout_stderr_log": "logs/negative-recovery-training-dry-run.log",
+  "log_sha256": "d32bdb898a5505924c1e1227b930ffb6bad0afb3cb5693887b264c29d3f4a3a8",
+  "log_bytes": 3114959,
+  "dry_run_pass_marker": "DRY_RUN_PASS: no model weights loaded, no optimizer created, no training started",
+  "created_launch_file": false,
+  "created_checkpoint_directory": false,
+  "paths_checked_absent_before_and_after": [
+    "evidence/negative_quadrants_20261019-launch.json",
+    "checkpoints/pi05_handson_lora/negative_quadrants_20261019"
+  ],
+  "actual_configuration": {
+    "experiment": "negative_quadrants_20261019",
+    "new_updates": 2000,
+    "batch_size": 4,
+    "seed": 42,
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "learning_rate": {
+      "warmup_steps": 20,
+      "peak": 1e-05,
+      "final": 1e-05
+    },
+    "optimizer": "AdamW, clip gradient norm 1.0; only LoRA trainable",
+    "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+    "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+    "parent_params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+    "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+    "checkpoint_save_steps": [
+      1000,
+      1999
+    ],
+    "final_step_index": 1999
+  },
+  "dataset": {
+    "manifest": "evidence/placement-teacher-negative_quadrants_mix_v1-manifest.json",
+    "sha256": "ce68f5a773c907575864e06f5b82ad231c576de73653b4382ee88c19de590829",
+    "kind": "placement_teacher_v1",
+    "train_episodes": 64,
+    "train_frames": 16034,
+    "public_demonstration_episodes": 37,
+    "approved_original_human_sources": 17,
+    "approved_selected_human_clips": 19,
+    "unchanged_human_source_ranges": true,
+    "teacher_episodes": 8,
+    "teacher_frames": 2513,
+    "base_manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+    "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+    "base_holdout": {
+      "episodes": 10,
+      "frames": 1170,
+      "source_episode_ids_excluded": [
+        1464,
+        1503,
+        1513,
+        1533,
+        1547,
+        1630,
+        1639,
+        1648,
+        1671,
+        1678
+      ],
+      "scenarios_excluded": []
+    },
+    "train_holdout_disjoint": true
+  },
+  "sampling": {
+    "profile": {
+      "path": "evidence/placement-sampling-negative_quadrants_v1-profile.json",
+      "sha256": "317f6584f60428aa89ff85d1526cf71db1c8dda5c76d0e12e34aad126ae9704b"
+    },
+    "base_manifest": "evidence/placement-teacher-negative_quadrants_v1-manifest.json",
+    "base_manifest_sha256": "221ba0ba93f1eced9b3f5808ba311a58703bc6ebe3d2d960d36993dd44512a0c",
+    "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+    "real_frames": 16034,
+    "virtual_frames": 100000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete_demos",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 35000,
+        "real_frames": 4400,
+        "probability": 0.35
+      },
+      {
+        "name": "all_approved_human",
+        "ranges": [
+          [
+            4400,
+            13521
+          ]
+        ],
+        "virtual_count": 25000,
+        "real_frames": 9121,
+        "probability": 0.25
+      },
+      {
+        "name": "new_complete_negative_position_teachers",
+        "ranges": [
+          [
+            13521,
+            15576
+          ]
+        ],
+        "virtual_count": 30000,
+        "real_frames": 2055,
+        "probability": 0.3
+      },
+      {
+        "name": "new_failed_holding_state_placement_teachers",
+        "ranges": [
+          [
+            15576,
+            16034
+          ]
+        ],
+        "virtual_count": 10000,
+        "real_frames": 458,
+        "probability": 0.1
+      }
+    ],
+    "sampling_indices_sha256": "9ad318bf5a381dee84432780f0dceeb8995c1675c49bb130eb7fccca07f8cd6b",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  },
+  "teachers": [
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/scene008-formal-v1",
+      "metadata_sha256": "4be272aa8c9061b1fd85d3f757a34bec79f1bef7c65e62b419c6894122237b8f",
+      "source_kind": "offline_retargeted_task_teacher",
+      "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024",
+      "frame_count": 352,
+      "source_state_file": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024/initial_state.npy",
+      "source_state_file_sha256": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e",
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/scene009-formal-v1",
+      "metadata_sha256": "a5e0ae623ff5eb7da1c92298dbcd9cc13e745d39641dc7a38b5f1ac6f5ff814e",
+      "source_kind": "offline_retargeted_task_teacher",
+      "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024",
+      "frame_count": 352,
+      "source_state_file": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024/initial_state.npy",
+      "source_state_file_sha256": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4",
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/train-negpos-near-formal-v1",
+      "metadata_sha256": "f482faa94c5413f47730a6cbf9fc9a92172baa9ca24cf920b6c7818e6887c39f",
+      "source_kind": "offline_retargeted_task_teacher",
+      "source_scene": ".local/negative-recovery-20261019/scenes/train_negpos_near",
+      "frame_count": 344,
+      "source_state_file": ".local/negative-recovery-20261019/scenes/train_negpos_near/initial_state.npy",
+      "source_state_file_sha256": "42543ce4d424e899ec9e87dd5dc24a411a4293e3388274be3d19ac7062dd61a2",
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/train-negpos-far-formal-v1",
+      "metadata_sha256": "0e438e6cf465a4c3bfea49b0830bcf9d46c78dc7928ab104c6919d3c2dd36133",
+      "source_kind": "offline_retargeted_task_teacher",
+      "source_scene": ".local/negative-recovery-20261019/scenes-v2/train_negpos_far",
+      "frame_count": 346,
+      "source_state_file": ".local/negative-recovery-20261019/scenes-v2/train_negpos_far/initial_state.npy",
+      "source_state_file_sha256": "91ac6371c1b1da4aefb0fcbb829ebeb6423c4c3ddfb802880d511a4403fedd2b",
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/user054-formal-v1",
+      "metadata_sha256": "7c501ea8968118e6ba2547771222437b772a4dc91d95ed59d05c8adcfd141d59",
+      "source_kind": "offline_retargeted_task_teacher",
+      "source_scene": ".local/position-study-v1/sources/user054_neg_neg",
+      "frame_count": 331,
+      "source_state_file": ".local/position-study-v1/sources/user054_neg_neg/initial_state.npy",
+      "source_state_file_sha256": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937",
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/user055-formal-v1",
+      "metadata_sha256": "c39680ae4f63402b54861ae13d22ca5b28305704101eed5fbe283e8b51d93c6d",
+      "source_kind": "offline_retargeted_task_teacher",
+      "source_scene": ".local/position-study-v1/sources/user055_neg_neg",
+      "frame_count": 330,
+      "source_state_file": ".local/position-study-v1/sources/user055_neg_neg/initial_state.npy",
+      "source_state_file_sha256": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6",
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/pilot/scene008-final-v1",
+      "metadata_sha256": "72e96d3f2efd20f75416aeeba0c007d83f596f062783887e76bd4b6b01f047a9",
+      "source_kind": "offline_placement_recovery_teacher",
+      "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024",
+      "frame_count": 241,
+      "source_state_file": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024/final_state.npy",
+      "source_state_file_sha256": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe",
+      "source_code_sha256": {
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d"
+      }
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/pilot/scene009-final-v1",
+      "metadata_sha256": "b330c86e4b9dd4ecff138a196ed851fae7cbf4edb1cbaeb2f48862a9ad6678a8",
+      "source_kind": "offline_placement_recovery_teacher",
+      "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024",
+      "frame_count": 217,
+      "source_state_file": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024/final_state.npy",
+      "source_state_file_sha256": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b",
+      "source_code_sha256": {
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d"
+      }
+    }
+  ],
+  "source_commit": "586c7c20a28f7f58c721f0210b0a8afd172ca4ef",
+  "openpi_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+  "source_worktree_status_at_dry_run": [
+    " M logs/18-serve-10000.log",
+    "?? .planning/correction-batch14-review-v1/",
+    "?? .planning/manual-controls-v1/",
+    "?? .planning/phase-tempo-failure-v1/",
+    "?? .planning/phase-tempo-v1/",
+    "?? .planning/position-study-v1/",
+    "?? .planning/postgrasp-slow-v1/",
+    "?? .planning/recovery-focus-v1/",
+    "?? .planning/recovery-v3-diagnosis/",
+    "?? .planning/recovery585-v3/",
+    "?? .planning/retrain-20261019/",
+    "?? .planning/reviewed19-training-ready/",
+    "?? evaluations/interactive_lab_20261018_005444_1792256084346163072/",
+    "?? evaluations/interactive_lab_20261018_013915_1792258755052393577/",
+    "?? evaluations/interactive_lab_20261018_123330_1792298010869590151/",
+    "?? evaluations/interactive_lab_20261018_133726_1792301846250165870/",
+    "?? evaluations/interactive_lab_20261018_133921_1792301961272048211/",
+    "?? evaluations/interactive_lab_20261018_134241_1792302161003168373/",
+    "?? evaluations/interactive_lab_20261018_144742_1792306062258625251/",
+    "?? evaluations/interactive_lab_20261018_144950_1792306190911408929/",
+    "?? evaluations/interactive_lab_20261018_150313_1792306993965959505/",
+    "?? evaluations/interactive_lab_20261018_152628_1792308388078217247/",
+    "?? evaluations/interactive_lab_20261018_165905_1792313945855890490/",
+    "?? evaluations/interactive_lab_20261018_171240_1792314760568183609/",
+    "?? evaluations/interactive_lab_20261018_171827_1792315107234606914/",
+    "?? evaluations/interactive_lab_20261018_172125_1792315285667491937/",
+    "?? evaluations/interactive_lab_retrain_review_1792383683641025226/",
+    "?? evaluations/live_followup_20261017_220726_867368049/",
+    "?? evaluations/live_view_20261017_215937_300540391/",
+    "?? evaluations/negative-recovery-20261019/",
+    "?? evaluations/release_focus_20261017_233142_391180239/",
+    "?? evidence/corrections-human_1792299081397332053-manifest.json",
+    "?? evidence/corrections-human_1792302581426075020-manifest.json",
+    "?? evidence/negative-recovery-20261019/evaluation-control-progress.json",
+    "?? evidence/ui_correct_1792299396056546839-launch.json",
+    "?? evidence/ui_correct_1792302925929811127-launch.json",
+    "?? evidence/ui_correct_1792308600740118554-launch.json",
+    "?? evidence/ui_correct_1792311653585294069-launch.json",
+    "?? evidence/ui_correct_1792324180062259097-launch.json",
+    "?? evidence/ui_correct_1792341395770417042-launch.json",
+    "?? logs/combined-panel-restart.log",
+    "?? logs/combined-public37-human2-export.log",
+    "?? logs/correction_prepare_1792299102416024233.log",
+    "?? logs/correction_prepare_1792302627099455939.log",
+    "?? logs/coverage-v2-export.log",
+    "?? logs/curated4-panel-restart.log",
+    "?? logs/lab-launcher-20261018-005444-pfnthc6w.log",
+    "?? logs/lab-launcher-20261018-013915-2a327log.log",
+    "?? logs/lab-launcher-20261018-123330-6ajf8539.log",
+    "?? logs/lab-launcher-20261018-133726-byrk116i.log",
+    "?? logs/lab-launcher-20261018-133921-16tiqrc4.log",
+    "?? logs/lab-launcher-20261018-144742-0b2j530l.log",
+    "?? logs/lab-launcher-20261018-144950-x9t1l1rv.log",
+    "?? logs/lab-launcher-20261018-150313-iuegz9ae.log",
+    "?? logs/lab-launcher-20261018-152627-99udjunb.log",
+    "?? logs/lab-launcher-20261018-165905-wlweg9ov.log",
+    "?? logs/lab-launcher-20261018-171240-ut8xqsjl.log",
+    "?? logs/lab-launcher-20261018-171827-gkhiale4.log",
+    "?? logs/lab-launcher-20261018-172125-9vtl709j.log",
+    "?? logs/lab-launcher.lock",
+    "?? logs/live_followup_20261017_220726_867368049.log",
+    "?? logs/live_view_20261017_215937_300540391.log",
+    "?? logs/model-switch-20261019-ready-gui.log",
+    "?? logs/negative-recovery-eval-control-seed0-heldout_far.log",
+    "?? logs/negative-recovery-eval-control-seed0-heldout_mid.log",
+    "?? logs/negative-recovery-eval-control-seed0-holding008.log",
+    "?? logs/negative-recovery-eval-control-seed0-positive057.log",
+    "?? logs/negative-recovery-eval-control-seed0-server.log",
+    "?? logs/negative-recovery-eval-control-seed0-user008.log",
+    "?? logs/negative-recovery-eval-control-seed0-user009.log",
+    "?? logs/negative-recovery-eval-control-seed0-user054.log",
+    "?? logs/negative-recovery-eval-control-seed0-user055.log",
+    "?? logs/negative-recovery-eval-control-seed0-zero.log",
+    "?? logs/negative-recovery-loader-check.log",
+    "?? logs/negative-recovery-training-dry-run.log",
+    "?? logs/release_focus_20261017_233142_391180239.log",
+    "?? logs/retrain-20261019-evaluation-driver.log",
+    "?? logs/retrain-20261019-export-rate1.log",
+    "?? logs/retrain-20261019-export-rate2.log",
+    "?? logs/retrain-20261019-followup-smoke.log",
+    "?? logs/retrain-20261019-loader-check.log",
+    "?? logs/retrain-20261019-sampling-rate1.log",
+    "?? logs/retrain-20261019-sampling-rate2.log",
+    "?? logs/retrain-20261019-supervisor.log",
+    "?? logs/retrain-eval-candidate-seed0-server.log",
+    "?? logs/retrain-eval-candidate-seed1-server.log",
+    "?? logs/retrain-eval-candidate-seed2-server.log",
+    "?? logs/retrain-eval-candidate__seed0__user054_neg_neg.log",
+    "?? logs/retrain-eval-candidate__seed0__user055_neg_neg.log",
+    "?? logs/retrain-eval-candidate__seed0__user057_pos_pos.log",
+    "?? logs/retrain-eval-candidate__seed0__zero.log",
+    "?? logs/retrain-eval-candidate__seed1__user054_neg_neg.log",
+    "?? logs/retrain-eval-candidate__seed1__user055_neg_neg.log",
+    "?? logs/retrain-eval-candidate__seed1__user057_pos_pos.log",
+    "?? logs/retrain-eval-candidate__seed1__zero.log",
+    "?? logs/retrain-eval-candidate__seed2__user054_neg_neg.log",
+    "?? logs/retrain-eval-candidate__seed2__user055_neg_neg.log",
+    "?? logs/retrain-eval-candidate__seed2__user057_pos_pos.log",
+    "?? logs/retrain-eval-candidate__seed2__zero.log",
+    "?? logs/retrain-eval-control-seed0-server.log",
+    "?? logs/retrain-eval-control-seed1-server.log",
+    "?? logs/retrain-eval-control-seed2-server.log",
+    "?? logs/retrain-eval-control__seed0__user054_neg_neg.log",
+    "?? logs/retrain-eval-control__seed0__user055_neg_neg.log",
+    "?? logs/retrain-eval-control__seed0__user057_pos_pos.log",
+    "?? logs/retrain-eval-control__seed0__zero.log",
+    "?? logs/retrain-eval-control__seed1__user054_neg_neg.log",
+    "?? logs/retrain-eval-control__seed1__user055_neg_neg.log",
+    "?? logs/retrain-eval-control__seed1__user057_pos_pos.log",
+    "?? logs/retrain-eval-control__seed1__zero.log",
+    "?? logs/retrain-eval-control__seed2__user054_neg_neg.log",
+    "?? logs/retrain-eval-control__seed2__user055_neg_neg.log",
+    "?? logs/retrain-eval-control__seed2__user057_pos_pos.log",
+    "?? logs/retrain-eval-control__seed2__zero.log",
+    "?? logs/serve-release-focus-20261017_232625_872713205.log",
+    "?? logs/ui_model_1792300580468254245.log",
+    "?? logs/ui_model_1792300599182979538.log",
+    "?? logs/ui_model_1792303924248837550.log",
+    "?? logs/ui_model_1792310288885075594.log",
+    "?? logs/ui_model_1792310299032731333.log",
+    "?? logs/ui_model_1792310299667534618.log",
+    "?? logs/ui_model_1792310299955375598.log",
+    "?? logs/ui_model_1792312572480020605.log",
+    "?? logs/ui_model_1792336227863071857.log",
+    "?? logs/ui_model_1792343744304638190.log",
+    "?? logs/ui_model_1792343751060635293.log",
+    "?? logs/ui_model_1792370877308336149.log",
+    "?? logs/ui_model_1792383579482734325.log",
+    "?? logs/ui_training_1792299396056567376.log",
+    "?? logs/ui_training_1792302925929829152.log",
+    "?? logs/ui_training_1792308600740144938.log",
+    "?? logs/ui_training_1792311653585322989.log",
+    "?? logs/ui_training_1792324180062288166.log",
+    "?? logs/ui_training_1792341395770447823.log"
+  ],
+  "source_sha256": {
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+    "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699",
+    "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "curated_checks.py": "1a9d12bef9ff3314bd7251983b3ef699694f665f36d075d7bd22ef6a2db61206",
+    "prepare_placement_teacher.py": "ee6c8c9352551cff623dc79321d0fd6ca6a62016c3aa196d4da17f3dd58122b7",
+    "train_placement_teacher.py": "3a7600b5470845ee4896b9e6f72b493d72a81c179141a71194eb3006cba829b2",
+    "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16",
+    "prepare_tracking_teacher.py": "531af6a664d5411d2703ca2dc68df1b584dc325cb55732e6247824e53d135fbd",
+    "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+    "prepare_expanded_public.py": "f07dc6ce8dcf5863b475e9d85d3c885f82e63bdc0c63f0ca5844e62ba0ba1619",
+    "prepare_public_data.py": "ff8b2681ded6ce15b669d8d0e546b6b56013b972d374b8e93fdfd46409691def",
+    "recovery_sampling.py": "29aa84309d187445291eab4f750bf9ea178990b0a0f9fa7ba367610be1a025cf",
+    "train_release_focus.py": "e8debfca203b0f894f3e06f3c6621c83a7f5f933586a5af43569dc8fff60bd52"
+  },
+  "teacher_and_source_metadata_current_hashes_match_record": true,
+  "full_input_hash_record_location": "Full JSON configuration and every input hash are retained in stdout_stderr_log; this report summarizes without duplicating its3MB inventory.",
+  "training_started": false,
+  "limitations": [
+    "This is a real configuration/data dry-run on CPU. No model weight loading, optimizer creation or training occurred.",
+    "Passing data/configuration checks does not predict learned recovery or full-task success."
+  ]
+}

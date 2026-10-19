@@ -29,10 +29,13 @@ def main():
     global STATUS
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--arm", required=True, choices=list(PLAN["arms"]))
+    parser.add_argument("--holding-only", action="store_true",
+                        help="Rerun only archived invalid holding trials, with canonical controller initialization")
     args = parser.parse_args()
-    STATUS = ROOT / f"evidence/negative-recovery-20261019/evaluation-{args.arm}-progress.json"
+    suffix = "-holding-repair" if args.holding_only else ""
+    STATUS = ROOT / f"evidence/negative-recovery-20261019/evaluation-{args.arm}{suffix}-progress.json"
     arm_output = OUT / args.arm
-    arm_output.mkdir(parents=True, exist_ok=False)
+    arm_output.mkdir(parents=True, exist_ok=args.holding_only)
     progress = {"status": "RUNNING", "completed": [], "commands": []}
     save(progress)
     try:
@@ -40,7 +43,7 @@ def main():
             checkpoint = ROOT / "checkpoints/pi05_handson_lora" / experiment / "1999"
             assert (checkpoint / "params/manifest.ocdbt").is_file(), str(checkpoint)
             for seed in PLAN["policy_seeds"]:
-                log = ROOT / f"logs/negative-recovery-eval-{arm}-seed{seed}-server.log"
+                log = ROOT / f"logs/negative-recovery-eval-{arm}-seed{seed}{suffix}-server.log"
                 command = [str(ROOT / ".venv/bin/python"), "-u", str(ROOT / "scripts/serve_position_study.py"),
                            "--checkpoint", str(checkpoint), "--port", "8756", "--seed", str(seed)]
                 progress["commands"].append(command)
@@ -60,6 +63,8 @@ def main():
                             raise TimeoutError(str(log))
                         time.sleep(2)
                     for spec in PLAN["evaluation_cases"]:
+                        if args.holding_only and spec["role"] != "training_holding_state":
+                            continue
                         case = spec["case"]
                         source = ROOT / spec["source_scene"]
                         import hashlib
@@ -72,10 +77,12 @@ def main():
                                    "--output", str(destination), "--checkpoint", str(checkpoint), "--port", "8756",
                                    "--max-steps", str(spec["max_steps"]), "--replan-steps", "1",
                                    "--stop-after-stable-release", "--post-release-steps", "50"]
+                        if spec["role"] == "training_holding_state":
+                            command.append("--initialize-saved-controller")
                         progress["active_trial"] = str(destination.relative_to(OUT))
                         progress["commands"].append(command)
                         save(progress)
-                        with (ROOT / f"logs/negative-recovery-eval-{arm}-seed{seed}-{case}.log").open("xb") as stream:
+                        with (ROOT / f"logs/negative-recovery-eval-{arm}-seed{seed}-{case}{suffix}.log").open("xb") as stream:
                             subprocess.run(command, cwd=ROOT, env=ENV, stdout=stream,
                                            stderr=subprocess.STDOUT, check=True, timeout=600)
                         result = json.loads((destination / "result.json").read_text())

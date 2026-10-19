@@ -115,5 +115,7 @@
     "Development positions that supplied teachers are not heldout generalization.",
     "Only2 held-out positions,2 policy seeds,1 training seed; no benchmark or hardware claim.",
     "Offline privileged teacher success is not learned policy success."
-  ]
+  ],
+  "holding_controller_initialization": "canonical",
+  "evaluation_protocol_amendment": "Holding-state trials require consistent OSC goals/gripper-accumulator initialization matching offline teacher; no-restore diagnostics are archived and excluded. Home trials preserve original initialization. This amendment precedes candidate evaluation."
 }

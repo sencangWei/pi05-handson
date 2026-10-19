@@ -1,0 +1,80 @@
+{
+  "status": "FROZEN_BEFORE_NEW_RESULTS",
+  "parent": "checkpoints/pi05_handson_lora/ui_correct_1792406592268062907/1999",
+  "candidate_experiment": "intervention_focus_20261020",
+  "new_updates": 1000,
+  "batch_size": 4,
+  "learning_rate": 5e-06,
+  "seed": 42,
+  "selection": "evidence/curation-intervention-focus-v1-selection.json",
+  "sampling": "uniform over selected public+human frames; no extra oversampling",
+  "dataset_name": "public37_intervention_focus_v1",
+  "policy_seeds": [
+    0,
+    1
+  ],
+  "cases": [
+    {
+      "case": "human_1792432520316693621",
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432520316693621",
+      "max_steps": 600,
+      "initialize_saved_controller": true,
+      "scene_sha256": "ceb0a04194704e9f6fea5966e73321494a338d2a2e27e8499557f63c09b2d560",
+      "initial_state_file_sha256": "b8c9fac7531afa90af19276fc32e698b3958f1085424dd20092777e1a6a85d70"
+    },
+    {
+      "case": "human_1792432737067825465",
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432737067825465",
+      "max_steps": 600,
+      "initialize_saved_controller": true,
+      "scene_sha256": "a52790aed2c0f59fdd264adb6667ff92aeb49a567ddac6f24c0acdc8e6070d9b",
+      "initial_state_file_sha256": "9e1c4e9813ee615b7bf3ee2f1dc5b185e087468edfc6fe7e2d83b192490e092d"
+    },
+    {
+      "case": "human_1792432847602743021",
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432847602743021",
+      "max_steps": 600,
+      "initialize_saved_controller": true,
+      "scene_sha256": "c7a2402714d4ed2efe9fb60b7f5d75adc48c9e0009fa4a22abc059fb509d48ca",
+      "initial_state_file_sha256": "50867957d29a552950533d7d547353d004a1b9064376e7a808c296cb776757e6"
+    },
+    {
+      "case": "human_1792432933673921805",
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432933673921805",
+      "max_steps": 600,
+      "initialize_saved_controller": true,
+      "scene_sha256": "9e70eb22d4b4542982965411c237deb4c773c429b240d09d795b2f09801e8882",
+      "initial_state_file_sha256": "69f23188406bb4f62ef318a8ccadae6661163d5f13cfb2adef4af305706e87a7"
+    },
+    {
+      "case": "near_negative_control",
+      "role": "previous_development_regression_control",
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-005_init-024",
+      "max_steps": 600,
+      "initialize_saved_controller": false,
+      "scene_sha256": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+      "initial_state_file_sha256": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a"
+    },
+    {
+      "case": "positive_edge_failure",
+      "role": "previous_development_regression_control",
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-007_init-024",
+      "max_steps": 600,
+      "initialize_saved_controller": false,
+      "scene_sha256": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+      "initial_state_file_sha256": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26"
+    }
+  ],
+  "replan_steps": 1,
+  "post_release_steps": 50,
+  "limits": [
+    "Training takeovers are diagnostics, not independent generalization tests.",
+    "Prior controls have been observed during development, not untouched held-out success estimates.",
+    "Small before/after fine-tune comparison, not same-budget causal isolation.",
+    "All cases replay physical states with declared controller initialization; GUI continuation is not bit-exact."
+  ]
+}

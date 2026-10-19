@@ -1,0 +1,30 @@
+{
+  "layout_id": 24,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.005547050812413551,
+      0.30381047607474143,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.06037055218384113,
+      0.21242470828447926,
+      0.8984038567263857
+    ],
+    "dx_m": -0.06591760299625468,
+    "dy_m": -0.09138576779026217
+  },
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "initial_state_sha256": "d0b96f355cb21e1418c3e62876e6979bf04099e08e65ea3dce73032b5cb6eaed",
+  "task_language": "pick up the black bowl next to the plate and place it on the plate",
+  "source_kind": "exact_saved_failure_holding_state",
+  "source_correction": "corrections/human_1792432933673921805",
+  "source_metadata_sha256": "bb0ccc8a48b922ec936aaec9e9d5a624926a68b8e9c305eea8b3e7338d25e5de",
+  "formal_benchmark": false,
+  "comparison_role": "trained_intervention_initial_state_diagnostic",
+  "controller_limit": "MuJoCo physical state exact; hidden OSC and gripper internal state reconstructed, not bit-exact GUI continuation."
+}

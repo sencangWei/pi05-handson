@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "selected_at_utc": "2026-10-19T06:22:28.005921+00:00",
+  "case": "user008",
+  "policy_seed": 0,
+  "selection": "Plan first case and first seed, fixed before candidate result exists; do not replace this case after success/failure.",
+  "candidate_result_existed_at_selection": false,
+  "plan_sha256": "ab270ccb8cf28e57556143d07ad132baec2878eeb4685c0f14f9eeb3364bef10",
+  "renderer_sha256": "8f5b4c5fcbf72fc68829c5926323ed737150db7ece84003f0d1d56497a9001b8"
+}

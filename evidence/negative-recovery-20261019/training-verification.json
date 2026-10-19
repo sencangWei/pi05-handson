@@ -1,0 +1,343 @@
+{
+  "status": "PASS",
+  "experiment": "negative_quadrants_20261019",
+  "log": "logs/ui_training_1792390504392667072.log",
+  "log_sha256": "c761301f94e23c4fc8da41bc3554459d10c6e05e478a2a8f4883350d51f62080",
+  "launch_manifest": "evidence/negative_quadrants_20261019-launch.json",
+  "launch_manifest_sha256": "7bddfa04eaf24279e8e0c9ff14b1b5f18e655979f16faa2841a815fd6c019f8b",
+  "configuration": {
+    "new_updates": 2000,
+    "batch_size": 4,
+    "seed": 42,
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "learning_rate": {
+      "warmup_steps": 20,
+      "peak": 1e-05,
+      "final": 1e-05
+    },
+    "optimizer": "AdamW, clip gradient norm 1.0; only LoRA trainable",
+    "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+    "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+    "parent_params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+    "dataset_manifest": "/home/robot/.pi05-handson/evidence/placement-teacher-negative_quadrants_mix_v1-manifest.json",
+    "dataset_manifest_sha256": "ce68f5a773c907575864e06f5b82ad231c576de73653b4382ee88c19de590829",
+    "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+    "source_commit": "72f6dadf02b07110a8650b88d39614e96ba546ba",
+    "openpi_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+    "base_holdout": {
+      "episodes": 10,
+      "frames": 1170,
+      "source_episode_ids_excluded": [
+        1464,
+        1503,
+        1513,
+        1533,
+        1547,
+        1630,
+        1639,
+        1648,
+        1671,
+        1678
+      ],
+      "scenarios_excluded": []
+    }
+  },
+  "sampling": {
+    "profile": {
+      "path": "evidence/placement-sampling-negative_quadrants_v1-profile.json",
+      "sha256": "317f6584f60428aa89ff85d1526cf71db1c8dda5c76d0e12e34aad126ae9704b"
+    },
+    "base_manifest": "evidence/placement-teacher-negative_quadrants_v1-manifest.json",
+    "base_manifest_sha256": "221ba0ba93f1eced9b3f5808ba311a58703bc6ebe3d2d960d36993dd44512a0c",
+    "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+    "real_frames": 16034,
+    "virtual_frames": 100000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete_demos",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 35000,
+        "real_frames": 4400,
+        "probability": 0.35
+      },
+      {
+        "name": "all_approved_human",
+        "ranges": [
+          [
+            4400,
+            13521
+          ]
+        ],
+        "virtual_count": 25000,
+        "real_frames": 9121,
+        "probability": 0.25
+      },
+      {
+        "name": "new_complete_negative_position_teachers",
+        "ranges": [
+          [
+            13521,
+            15576
+          ]
+        ],
+        "virtual_count": 30000,
+        "real_frames": 2055,
+        "probability": 0.3
+      },
+      {
+        "name": "new_failed_holding_state_placement_teachers",
+        "ranges": [
+          [
+            15576,
+            16034
+          ]
+        ],
+        "virtual_count": 10000,
+        "real_frames": 458,
+        "probability": 0.1
+      }
+    ],
+    "sampling_indices_sha256": "9ad318bf5a381dee84432780f0dceeb8995c1675c49bb130eb7fccca07f8cd6b",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  },
+  "logged_statistics": {
+    "first_index": 0,
+    "last_index": 1990,
+    "count": 200,
+    "expected_stride": 10,
+    "all_expected_indices_present_once": true,
+    "all_loss_grad_norm_param_norm_finite": true,
+    "first_loss": 0.0047,
+    "last_logged_loss": 0.0102,
+    "min_loss": 0.0033,
+    "max_loss": 0.0231,
+    "first20_logged_mean_loss": 0.012385,
+    "last20_logged_mean_loss": 0.009819999999999999,
+    "meaning": "Step0 summarizes its first update; subsequent logged values average the preceding10 training updates. Last nine updates are not separately printed."
+  },
+  "checkpoint": {
+    "directory": "checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+    "stored_train_state_step": 2000,
+    "optimizer_schedule_count_scalars": {
+      "opt_state.1.0.count": 2000,
+      "opt_state.1.2.count": 2000
+    },
+    "metadata_and_norm_sha256": {
+      "_CHECKPOINT_METADATA": "62b53efdb48e8ce14f533f477741b9e6c76262daf68a61c39d280734cc8d2595",
+      "params/manifest.ocdbt": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+      "params/_METADATA": "88464a384c524c50fa1a92c1685d23a79570c62807a0ccf021f5f9307fff137c",
+      "train_state/manifest.ocdbt": "c33f7b79e6647fca5c05004c35a177d045622d65b2457704935fd4a4d26b2387",
+      "train_state/_METADATA": "63e1f2c02ddf178de1a69bb753e0a664dc8cc04f5a040f8478856590e3ffdd89",
+      "assets/course/libero_black_bowl/norm_stats.json": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+    },
+    "components_present": [
+      "params",
+      "train_state",
+      "assets"
+    ],
+    "asynchronous_save_completion_log_lines": [
+      "14:30:23.851 [I] Finished asynchronous save (blocking + background) in 48.73 seconds to /home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999 (3514411:async_checkpointer.py:412)",
+      "14:30:23.852 [I] [process=0][thread=MainThread][step=1999][wait_until_finished] Done waiting for Save Finalize thread (save_finalize) running at step=1999. (3514411:checkpoint_manager.py:2010)"
+    ],
+    "norm_matches_parent_and_course": true
+  },
+  "lora_only_evidence": {
+    "optimizer_mu_tensor_count": 20,
+    "optimizer_nu_tensor_count": 20,
+    "all_optimizer_moment_parameter_paths_contain_lora": true,
+    "trainable_tensor_paths": [
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "attn_vec_einsum",
+        "lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "attn_vec_einsum",
+        "lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "attn_vec_einsum_1",
+        "lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "attn_vec_einsum_1",
+        "lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "kv_einsum",
+        "lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "kv_einsum",
+        "lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "kv_einsum_1",
+        "lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "kv_einsum_1",
+        "lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "q_einsum",
+        "lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "q_einsum",
+        "lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "q_einsum_1",
+        "lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "attn",
+        "q_einsum_1",
+        "lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp",
+        "gating_einsum_lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp",
+        "gating_einsum_lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp",
+        "linear_lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp",
+        "linear_lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp_1",
+        "gating_einsum_lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp_1",
+        "gating_einsum_lora_b",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp_1",
+        "linear_lora_a",
+        "value"
+      ],
+      [
+        "PaliGemma",
+        "llm",
+        "layers",
+        "mlp_1",
+        "linear_lora_b",
+        "value"
+      ]
+    ],
+    "course_config_sha256_matches_launch": true,
+    "filter_source": "scripts/course_config.py freezes nnx.Param except PathRegex(.*lora.*); trainer differentiates/updates config.trainable_filter only."
+  },
+  "loss_plot": {
+    "path": "evidence/negative-recovery-20261019/training-loss.png",
+    "sha256": "ff0f89cccdd9515ad91466e24bd06accf3adcdb4164dcb93828d212bd56548d3",
+    "method": "Matplotlib; logged means and trailing10logged-value mean, no invented validation curve."
+  },
+  "limitations": [
+    "Training loss is not rollout success, release quality or recovery/generalization ability; policy evaluation is handled separately.",
+    "No model parameters or optimizer moment arrays were loaded. Only scalar counters and serialized optimizer path metadata were read.",
+    "Frozen weights were not independently compared byte-for-byte with the parent; LoRA-only evidence is the pinned freeze filter and saved optimizer tensor inventory.",
+    "No subprocess exit code is claimed by this read-only audit; final async-save completion and saved2000update counters establish checkpoint completion."
+  ]
+}

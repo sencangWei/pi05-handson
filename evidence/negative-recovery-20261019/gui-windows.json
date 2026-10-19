@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "windows": [
+    {
+      "window": 69206063,
+      "name": "MuJoCo : base",
+      "pid": [
+        3562229
+      ],
+      "screen_xy": [
+        902,
+        97
+      ],
+      "size": [
+        1646,
+        960
+      ],
+      "visible": true
+    },
+    {
+      "window": 65011890,
+      "name": "LIBERO 仿真实验面板 — 负偏移增补实验版（仍有失败）",
+      "pid": null,
+      "screen_xy": [
+        70,
+        97
+      ],
+      "size": [
+        820,
+        1260
+      ],
+      "visible": true
+    }
+  ],
+  "screenshot": "Two owned client window captures placed side by side; excludes desktop and window decorations."
+}

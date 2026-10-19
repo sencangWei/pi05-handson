@@ -1,0 +1,12 @@
+{
+  "reason": "Canonical reconstruction required for mid-task holding state; first2 legacy holding trials opened gripper under close command. Guard stopped legacy seed1 holding before simulation.",
+  "archived_invalid_holding_runs": [
+    "evaluations/negative-recovery-20261019/diagnostic_without_controller_restore/control/seed-0/holding008",
+    "evaluations/negative-recovery-20261019/diagnostic_without_controller_restore/control/seed-0/holding009"
+  ],
+  "valid_home_runs_retained": 16,
+  "holding_trials_to_rerun": 4,
+  "classification": "EVALUATION_INITIALIZATION_DEFECT; not model success/failure and not a training failure",
+  "candidate_evaluation_started": false,
+  "no_outcome_based_selection": true
+}

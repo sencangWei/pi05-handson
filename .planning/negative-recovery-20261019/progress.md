@@ -3,3 +3,7 @@
 All8 teachers validated:6 home-to-release2055frames +2 held-recovery458. Original public37/human17 sources/reviewed19 retained. Native pinned loader32actual samples matched exactstate/RGB and future10 action windows incl episodeendpadding. New export64episodes16034frames.48targetedtestsPASS,RuffPASS. Oldcontrol20trial arm running isolated8756; GUI8755 untouched. RealCPUtrain dryrun pendingalias.
 
 Found real evaluator artifact in new holding cases:without controller restoration, first2 closecommands opened actualgap3.58->16.14->33.56mm and bowl fell28.46mm before first modelopen. These4 holding diagnosticruns mustbe archived and rerun canonical;16home cases preserve original codepath. Addedopt-in restoreflag, holding-only repair runner, explicitsummarygate. Not rootcause ofprior GUI slowpolicy.
+
+2026-10-19 14:30 CST: actual 2000updates reached finalindex1999, asynchronous save still in progress. Control20 valid:6 strict successes;14 no release800. Candidate watcher57645 remains sole launch owner. GUI bootstrap prepared separately, will start paused only after evaluation.
+
+Final matrix40/40valid,20paired:6/20→13/20 strict. Trainingpositions2/8→5/8,controls4/4→4/4,heldout0/4→3/4,holding0/4→1/4. Holding008seed0 and009seed1 only short positivegrippercommand invalidates strict followup, allphysical gates remainstable. GUI PID3562229,service3560511 restored experimental modelpaused0actions atlayout24,dx-.0400749/dy+.0692884,windowscheckedvisible/nonoverlap. Adapter remote download+71tensorreconstructionPASS. Finalbackupinprogress.

@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "summary_sha256": "eb3ade730b37b4b25fa1022b4a885181266c20de84e297ccf31547eca9bd4555",
+  "reviewer": "mixed_review independent read-only 40-CSV audit",
+  "valid_runs": 40,
+  "matched_pairs": 20,
+  "strict_counts": {
+    "control": 6,
+    "candidate": 13
+  },
+  "promotion": "FAIL heldout_far seed0",
+  "holding_followup_exceptions": [
+    {
+      "case": "holding008",
+      "seed": 0,
+      "only_failed_gate": "open_command",
+      "control_steps": [
+        449
+      ]
+    },
+    {
+      "case": "holding009",
+      "seed": 1,
+      "only_failed_gate": "open_command",
+      "control_steps": [
+        552,
+        559
+      ]
+    }
+  ],
+  "all_other_holding_followup_gates_pass": true,
+  "common_success_pairs": 6,
+  "faster_pairs": "user008 two seeds only",
+  "slower_pairs": "zero and positive057 both seeds",
+  "limits": "Before/after additional fine-tuning, not same-budget data-only causal A/B."
+}

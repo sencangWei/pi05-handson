@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "date": "2026-10-19",
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q tests/test_placement_teacher_export.py tests/test_train_placement_teacher.py tests/test_placement_recovery_teacher.py tests/test_retargeted_task_teacher.py tests/test_summarize_negative_recovery.py tests/test_replay_holding_state.py",
+    "exit_code": 0,
+    "result": "50 passed in 10.15s"
+  },
+  "ruff": {
+    "exit_code": 0,
+    "result": "All checks passed!",
+    "includes": "eight capability/replay/summary/renderer scripts and six targeted test files"
+  },
+  "limits": "Code checks do not establish learned policy success; separate fixed paired rollout matrix is required.",
+  "additional_diagnostic_helpers": {
+    "ruff": "PASS",
+    "files": [
+      "evidence/negative-recovery-20261019/describe_remaining_failures.py",
+      ".local/negative-recovery-20261019/verify_final_remote.py"
+    ],
+    "runtime": "Remaining-failure descriptor executed successfully against all40 valid runs; remote restore verifier executes after final push."
+  }
+}

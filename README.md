@@ -4,7 +4,13 @@
 
 **任务：** `pick up the black bowl next to the plate and place it on the plate`。
 
-## 实测结果
+## 2026-10-19 负偏移增补实验
+
+追加8条离线示范后实际微调2000步，严格释放/撤离及50步稳定检查从6/20→13/20。常规对照4/4保留，留出位置3/4、失败持碗恢复1/4，仍未达到预声明推荐切换门槛；新模型为实验版。两次持碗后续失败仅因短促闭爪指令，碗保持物理稳定。
+
+[完整报告与全部失败](evidence/negative-recovery-20261019/README.md) · [固定左右同步演示](evidence/negative-recovery-20261019/user008-seed0-comparison.mp4) · [实验权重备份](https://github.com/sencangWei/pi05-handson/releases/tag/negative-quadrants-20261019)。仅部分场景变快，不能声称全面修复或真机泛化。
+
+## 第一课实测结果
 
 最终 checkpoint 为 `9999`，即完成 10000 次参数更新。固定预测动作窗口为 10，最终评测每执行 1 步就重新观察。每次测试最多执行 220 步，采用 LIBERO 自带任务成功判定。
 

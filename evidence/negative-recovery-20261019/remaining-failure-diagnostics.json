@@ -1,0 +1,299 @@
+{
+  "status": "COMPLETE",
+  "summary_sha256": "eb3ade730b37b4b25fa1022b4a885181266c20de84e297ccf31547eca9bd4555",
+  "trials": [
+    {
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 0,
+      "control_steps": 800,
+      "csv_sha256": "049dd9285d046f8043ef2ea787fe9f54c2d05737db2bde3a986950b32ad25b4b",
+      "any_On": true,
+      "maximum_target_bowl_rise_from_first_post_cm": 16.202227773904266,
+      "final_target_bowl_minus_first_post_cm": [
+        9.503402262249438,
+        -4.0496968116289835,
+        1.1868696717360017
+      ],
+      "final_eef_target_distance_cm": 5.899729947764612,
+      "last100_post_to_post_eef_median_displacement_mm": 0.9254048462811316,
+      "last100_requested_action_xyz_median_norm": 0.0961300951765044,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 800,
+          "mean": 0.10940444779826977,
+          "median": 0.07677644000724754
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.2045104788364331,
+          "median": 0.8484755785888062
+        },
+        "low_action_closed_not_On_frames": 237,
+        "longest_low_action_closed_not_On": {
+          "steps": 14,
+          "start_control_step": 500,
+          "end_control_step": 513
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 142,
+          "mean": 0.4791143156953342,
+          "median": 0.4045345825631825
+        }
+      }
+    },
+    {
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 0,
+      "control_steps": 800,
+      "csv_sha256": "eae1abefa5601cc8af3bf60917012bfc98e7eb7ba113abe44449ea2ff6fc1c35",
+      "any_On": false,
+      "maximum_target_bowl_rise_from_first_post_cm": 12.13612884169729,
+      "final_target_bowl_minus_first_post_cm": [
+        2.374137764132578,
+        -7.50941107592468,
+        12.019132492812624
+      ],
+      "final_eef_target_distance_cm": 6.0432901091365965,
+      "last100_post_to_post_eef_median_displacement_mm": 0.9247536855442604,
+      "last100_requested_action_xyz_median_norm": 0.07383660750288182,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 800,
+          "mean": 0.08830550319716757,
+          "median": 0.05346932924540973
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.9859064560292735,
+          "median": 0.5775271436419164
+        },
+        "low_action_closed_not_On_frames": 252,
+        "longest_low_action_closed_not_On": {
+          "steps": 42,
+          "start_control_step": 414,
+          "end_control_step": 455
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 180,
+          "mean": 0.43512419970345156,
+          "median": 0.3840938906752959
+        }
+      }
+    },
+    {
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "control_steps": 800,
+      "csv_sha256": "22c35aa1a6dd0d2f57eccc63a8dcfe30138ddf0bedb1a06aac2ba924b98eef5a",
+      "any_On": false,
+      "maximum_target_bowl_rise_from_first_post_cm": 9.82708261432208e-06,
+      "final_target_bowl_minus_first_post_cm": [
+        6.744493852295363e-10,
+        -4.939992859220865e-10,
+        9.82708261432208e-06
+      ],
+      "final_eef_target_distance_cm": 10.830059305074686,
+      "last100_post_to_post_eef_median_displacement_mm": 0.3331490712929731,
+      "last100_requested_action_xyz_median_norm": 0.04349832032604731,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 800,
+          "mean": 0.09462088324053414,
+          "median": 0.05020540029615794
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.9963391969061296,
+          "median": 0.4146444787424508
+        },
+        "low_action_closed_not_On_frames": 521,
+        "longest_low_action_closed_not_On": {
+          "steps": 25,
+          "start_control_step": 433,
+          "end_control_step": 457
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 400,
+          "mean": 0.33090815545082924,
+          "median": 0.29061702257974914
+        }
+      }
+    },
+    {
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "control_steps": 461,
+      "csv_sha256": "f992e2250e66c5b264ad22ae018f271640b738d885fb70892d0a754d0feea85b",
+      "any_On": true,
+      "maximum_target_bowl_rise_from_first_post_cm": 3.1186295876411307,
+      "final_target_bowl_minus_first_post_cm": [
+        -9.630010328443811,
+        25.63748392262602,
+        -22.47706009017706
+      ],
+      "final_eef_target_distance_cm": 10.81140743189784,
+      "last100_post_to_post_eef_median_displacement_mm": 0.2888981401952169,
+      "last100_requested_action_xyz_median_norm": 0.03482213981008282,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 461,
+          "mean": 0.11265391378081249,
+          "median": 0.09706121091161647
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 460,
+          "mean": 1.2972757689997725,
+          "median": 1.2015586249677028
+        },
+        "low_action_closed_not_On_frames": 37,
+        "longest_low_action_closed_not_On": {
+          "steps": 4,
+          "start_control_step": 165,
+          "end_control_step": 168
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 8,
+          "mean": 0.7410206868965148,
+          "median": 0.6492472650707363
+        }
+      }
+    },
+    {
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 1,
+      "control_steps": 800,
+      "csv_sha256": "916f735dc31a289eb3289dcfb9459a360104b266eb65b5e7229f55932cf692a7",
+      "any_On": true,
+      "maximum_target_bowl_rise_from_first_post_cm": 17.99396625205564,
+      "final_target_bowl_minus_first_post_cm": [
+        12.371467751210528,
+        -3.215075671164627,
+        1.049000613289841
+      ],
+      "final_eef_target_distance_cm": 5.8982633273864735,
+      "last100_post_to_post_eef_median_displacement_mm": 1.6366441303087242,
+      "last100_requested_action_xyz_median_norm": 0.1330512816727708,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 800,
+          "mean": 0.1145072034407508,
+          "median": 0.06483092869515522
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 799,
+          "mean": 1.3064817153800303,
+          "median": 0.7419139199654643
+        },
+        "low_action_closed_not_On_frames": 66,
+        "longest_low_action_closed_not_On": {
+          "steps": 5,
+          "start_control_step": 551,
+          "end_control_step": 555
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 22,
+          "mean": 0.8201046965517225,
+          "median": 0.7229476464825805
+        }
+      }
+    },
+    {
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "control_steps": 800,
+      "csv_sha256": "630abe9c674254e3d595f21eba4b7b2bee35baca8bad8e76a78b385f2fd2ffa3",
+      "any_On": true,
+      "maximum_target_bowl_rise_from_first_post_cm": 1.9546973958725067,
+      "final_target_bowl_minus_first_post_cm": [
+        -9.526493822378661,
+        23.92801413907552,
+        -22.363680449608935
+      ],
+      "final_eef_target_distance_cm": 10.271289737766697,
+      "last100_post_to_post_eef_median_displacement_mm": 0.17198129075787888,
+      "last100_requested_action_xyz_median_norm": 0.024921607705916372,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 800,
+          "mean": 0.08404676210213109,
+          "median": 0.05907371831570868
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 799,
+          "mean": 0.8905428511258954,
+          "median": 0.5453919177687993
+        },
+        "low_action_closed_not_On_frames": 31,
+        "longest_low_action_closed_not_On": {
+          "steps": 3,
+          "start_control_step": 129,
+          "end_control_step": 131
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 6,
+          "mean": 0.9820539327918114,
+          "median": 0.8487363416744385
+        }
+      }
+    },
+    {
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "control_steps": 567,
+      "csv_sha256": "8674b7b9aed84bb079f2e00e00ba3652869cbccd26009115f50ffcecd85361f3",
+      "any_On": true,
+      "maximum_target_bowl_rise_from_first_post_cm": 1.2321209335556915,
+      "final_target_bowl_minus_first_post_cm": [
+        -11.535118435963994,
+        23.86260741664169,
+        -17.90662780760156
+      ],
+      "final_eef_target_distance_cm": 10.942080546639009,
+      "last100_post_to_post_eef_median_displacement_mm": 0.41921124262466514,
+      "last100_requested_action_xyz_median_norm": 0.036391161702996486,
+      "summary_diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 567,
+          "mean": 0.10837859297867887,
+          "median": 0.09007100943504366
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 566,
+          "mean": 1.0271373912279034,
+          "median": 0.733435031910385
+        },
+        "low_action_closed_not_On_frames": 45,
+        "longest_low_action_closed_not_On": {
+          "steps": 4,
+          "start_control_step": 84,
+          "end_control_step": 87
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 12,
+          "mean": 0.8017053678112309,
+          "median": 0.7499015687205057
+        }
+      }
+    }
+  ],
+  "limits": [
+    "These are observed positions/actions, not verified grasp/contact labels or causal diagnoses.",
+    "Rises are measured relative to the first post observation; held-state cases already start above the table.",
+    "Action XYZ is a normalized controller request, not meters or a joint displacement.",
+    "Small but nonzero observed movement is distinct from an early step-budget termination; causes require controlled follow-up studies."
+  ]
+}

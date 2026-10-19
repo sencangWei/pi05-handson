@@ -1,0 +1,12 @@
+DIAGNOSTIC_READY /home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999 port=8756 seed=0
+INFO:websockets.server:server listening on 127.0.0.1:8756
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open
+INFO:websockets.server:connection open

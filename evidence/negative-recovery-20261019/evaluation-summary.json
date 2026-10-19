@@ -1,0 +1,3996 @@
+{
+  "status": "COMPLETE",
+  "plan_sha256": "ab270ccb8cf28e57556143d07ad132baec2878eeb4685c0f14f9eeb3364bef10",
+  "plan": {
+    "status": "DATA_VALIDATION_IN_PROGRESS",
+    "hypothesis": "Complete legal trajectories in missing negative-X positive-Y views and actual failure-state placement recoveries improve closed-loop placement; existing approved data retained.",
+    "arms": {
+      "control": "retrain_teacher_1x_20261019",
+      "candidate": "negative_quadrants_20261019"
+    },
+    "checkpoint_step": 1999,
+    "parent_checkpoint": "checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+    "training_seed": 42,
+    "new_updates": 2000,
+    "batch_size": 4,
+    "learning_rate": 1e-05,
+    "optimizer": "fresh AdamW, LoRA only, not exact resume",
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "planned_sampling": {
+      "public": 0.35,
+      "all_approved_human": 0.25,
+      "new_complete_teachers": 0.3,
+      "new_holding_recovery_teachers": 0.1
+    },
+    "policy_seeds": [
+      0,
+      1
+    ],
+    "evaluation_cases": [
+      {
+        "case": "user008",
+        "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024",
+        "role": "training_position",
+        "max_steps": 800,
+        "scene_sha256": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+        "initial_state_file_sha256": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e"
+      },
+      {
+        "case": "user009",
+        "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024",
+        "role": "training_position",
+        "max_steps": 800,
+        "scene_sha256": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+        "initial_state_file_sha256": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4"
+      },
+      {
+        "case": "user054",
+        "source_scene": ".local/position-study-v1/sources/user054_neg_neg",
+        "role": "training_position",
+        "max_steps": 800,
+        "scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+        "initial_state_file_sha256": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+      },
+      {
+        "case": "user055",
+        "source_scene": ".local/position-study-v1/sources/user055_neg_neg",
+        "role": "training_position",
+        "max_steps": 800,
+        "scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+        "initial_state_file_sha256": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+      },
+      {
+        "case": "zero",
+        "source_scene": ".local/position-study-v1/sources/zero",
+        "role": "development_control",
+        "max_steps": 800,
+        "scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+        "initial_state_file_sha256": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+      },
+      {
+        "case": "positive057",
+        "source_scene": ".local/position-study-v1/sources/user057_pos_pos",
+        "role": "development_control",
+        "max_steps": 800,
+        "scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+        "initial_state_file_sha256": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+      },
+      {
+        "case": "heldout_mid",
+        "source_scene": ".local/negative-recovery-20261019/scenes-v2/holdout_negpos_mid",
+        "role": "heldout_position",
+        "max_steps": 800,
+        "scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+        "initial_state_file_sha256": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005"
+      },
+      {
+        "case": "heldout_far",
+        "source_scene": ".local/negative-recovery-20261019/scenes-v2/holdout_negpos_far",
+        "role": "heldout_position",
+        "max_steps": 800,
+        "scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+        "initial_state_file_sha256": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8"
+      },
+      {
+        "case": "holding008",
+        "source_scene": ".local/negative-recovery-20261019/holding-scenes/holding008",
+        "role": "training_holding_state",
+        "max_steps": 800,
+        "scene_sha256": "9c1d08bfde6af7b22e78cbfa6042de799e70f9399d22bac713262c703ec0486c",
+        "initial_state_file_sha256": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe"
+      },
+      {
+        "case": "holding009",
+        "source_scene": ".local/negative-recovery-20261019/holding-scenes/holding009",
+        "role": "training_holding_state",
+        "max_steps": 800,
+        "scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+        "initial_state_file_sha256": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b"
+      }
+    ],
+    "replan_steps": 1,
+    "post_release_steps": 50,
+    "success": "Recompute first10 consecutive On+open command+actual gap>=.06m+EEF-bowl>=.10m, then50 additional policy steps retaining all gates and bowl motion<=.005m.",
+    "promotion_rule": "Candidate must improve paired failed-position/holding completions, preserve both positive controls across seeds, and pass both held-out positions across seeds; otherwise keep candidate experimental.",
+    "limits": [
+      "Development positions that supplied teachers are not heldout generalization.",
+      "Only2 held-out positions,2 policy seeds,1 training seed; no benchmark or hardware claim.",
+      "Offline privileged teacher success is not learned policy success."
+    ],
+    "holding_controller_initialization": "canonical",
+    "evaluation_protocol_amendment": "Holding-state trials require consistent OSC goals/gripper-accumulator initialization matching offline teacher; no-restore diagnostics are archived and excluded. Home trials preserve original initialization. This amendment precedes candidate evaluation."
+  },
+  "planned_runs": 40,
+  "completed_valid_runs": 40,
+  "arms": {
+    "control": {
+      "planned_trials": 20,
+      "completed_trials": 20,
+      "strict_successes": 6,
+      "task_On_trials": 7,
+      "no_release_right_censored_at_budget": 14,
+      "by_role": {
+        "training_position": {
+          "planned_trials": 8,
+          "completed_trials": 8,
+          "strict_successes": 2,
+          "task_On_trials": 3,
+          "no_release_right_censored_at_budget": 6
+        },
+        "development_control": {
+          "planned_trials": 4,
+          "completed_trials": 4,
+          "strict_successes": 4,
+          "task_On_trials": 4,
+          "no_release_right_censored_at_budget": 0
+        },
+        "heldout_position": {
+          "planned_trials": 4,
+          "completed_trials": 4,
+          "strict_successes": 0,
+          "task_On_trials": 0,
+          "no_release_right_censored_at_budget": 4
+        },
+        "training_holding_state": {
+          "planned_trials": 4,
+          "completed_trials": 4,
+          "strict_successes": 0,
+          "task_On_trials": 0,
+          "no_release_right_censored_at_budget": 4
+        }
+      }
+    },
+    "candidate": {
+      "planned_trials": 20,
+      "completed_trials": 20,
+      "strict_successes": 13,
+      "task_On_trials": 18,
+      "no_release_right_censored_at_budget": 5,
+      "by_role": {
+        "training_position": {
+          "planned_trials": 8,
+          "completed_trials": 8,
+          "strict_successes": 5,
+          "task_On_trials": 7,
+          "no_release_right_censored_at_budget": 3
+        },
+        "development_control": {
+          "planned_trials": 4,
+          "completed_trials": 4,
+          "strict_successes": 4,
+          "task_On_trials": 4,
+          "no_release_right_censored_at_budget": 0
+        },
+        "heldout_position": {
+          "planned_trials": 4,
+          "completed_trials": 4,
+          "strict_successes": 3,
+          "task_On_trials": 3,
+          "no_release_right_censored_at_budget": 1
+        },
+        "training_holding_state": {
+          "planned_trials": 4,
+          "completed_trials": 4,
+          "strict_successes": 1,
+          "task_On_trials": 4,
+          "no_release_right_censored_at_budget": 1
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "arm": "control",
+      "case": "user008",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/user008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 638,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 300,
+        "first_ten_step_release_control_step": 588,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.33499251459691e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 638,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 638,
+            "mean": 0.21728266584254266,
+            "median": 0.11010488738449122
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 637,
+            "mean": 1.9938183556781346,
+            "median": 0.8664455964602853
+          },
+          "low_action_closed_not_On_frames": 112,
+          "longest_low_action_closed_not_On": {
+            "steps": 17,
+            "start_control_step": 230,
+            "end_control_step": 246
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 76,
+            "mean": 0.6830813658612592,
+            "median": 0.5106927385066747
+          }
+        }
+      },
+      "initial_state_sha256": "b070349aecf00857edc38280bd3e1d27bb06054945e491fb6975418609f88ee6",
+      "source_scene_sha256": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "746878798be636289bee4acd4ebfc279238abfa4e07c0e598d02fead0dc316a1",
+        "result.json": "b6ee01286308e4e82f748913ce9d7adf52d2ebdd71e5c6e5d80bdf5b645447c6",
+        "scene.json": "758ad851a3be1c7317dca168af51df60f853a80bb4fa9a061b2d7b92aa2e6c47",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user009",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/user009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 764,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.15168139922888954,
+            "median": 0.06655788407043003
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.6991240821253861,
+            "median": 0.679692308541765
+          },
+          "low_action_closed_not_On_frames": 334,
+          "longest_low_action_closed_not_On": {
+            "steps": 26,
+            "start_control_step": 408,
+            "end_control_step": 433
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 266,
+            "mean": 0.37711530561514317,
+            "median": 0.3328498241027218
+          }
+        }
+      },
+      "initial_state_sha256": "2778c4c54aa5e75cc95173998f1aa2e01477cb218af8ea4dc22bc9e7454a2b18",
+      "source_scene_sha256": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "9c913b559e4c31df3708401c5557a226d12b543012649e15ebbdf69049a4f903",
+        "result.json": "45ae16822c619a6f8b6ea419377da9bc573feec19c673fdece3045f879598279",
+        "scene.json": "a5b7e17ef828fa277b736bb06e5856ec0378c4c2ecbc2cba7fc28dd5d1bee3d8",
+        "initial_state.npy": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/user054",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.11811101789072687,
+            "median": 0.06560135969009219
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.3289749150449786,
+            "median": 0.7305212908852962
+          },
+          "low_action_closed_not_On_frames": 257,
+          "longest_low_action_closed_not_On": {
+            "steps": 16,
+            "start_control_step": 616,
+            "end_control_step": 631
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 173,
+            "mean": 0.5932598551423469,
+            "median": 0.5633438408549506
+          }
+        }
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "972a3cddcdf22bc169666bae7556d19119294c7a0a1cf46c726781f74509798b",
+        "result.json": "3fafce72fe6725a0a1ad6016788f6f40c9ae826ee9329e5c5802e2349da8f988",
+        "scene.json": "cc85ff1f7fbb3becdb3e32dd568fc2e8fea2641d0b9059e4e869de684dd827a1",
+        "initial_state.npy": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/user055",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10417258162799296,
+            "median": 0.06321375331795459
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.1545325792922467,
+            "median": 0.6822473901214431
+          },
+          "low_action_closed_not_On_frames": 226,
+          "longest_low_action_closed_not_On": {
+            "steps": 25,
+            "start_control_step": 714,
+            "end_control_step": 738
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 160,
+            "mean": 0.5872959256551693,
+            "median": 0.5756760932798295
+          }
+        }
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "6f719a6e614461f688fc7fdf45d5ec449cddd943ab32eb745b8c6b4eef62058f",
+        "result.json": "02caabbe71c6678e9d12850d082c6d3f5fb7abd42b565d11030874249e475b28",
+        "scene.json": "06976cc68132281293531f884a11bc2f44bf91fd8324295406aa5540aa728000",
+        "initial_state.npy": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "zero",
+      "role": "development_control",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 306,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 222,
+        "first_ten_step_release_control_step": 256,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.025506040835519e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 306,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 306,
+            "mean": 0.28525009699710563,
+            "median": 0.13092287522458113
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 305,
+            "mean": 3.374254599103872,
+            "median": 1.7195556842787547
+          },
+          "low_action_closed_not_On_frames": 56,
+          "longest_low_action_closed_not_On": {
+            "steps": 6,
+            "start_control_step": 130,
+            "end_control_step": 135
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 28,
+            "mean": 0.8841540666999611,
+            "median": 0.6940113244753009
+          }
+        }
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "163107a6da8dc79e800dbc419c62e65693b60db98026f8ce77943be9fdc6b3b8",
+        "result.json": "cfa58331990a4b4ce8cbdacb87decfe49c2c41ceaf40d4fe160c269006c48312",
+        "scene.json": "f0dfd03f9c8848561ff8bba1595c681de6755437738a49a443fea479ee2ae402",
+        "initial_state.npy": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "positive057",
+      "role": "development_control",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/positive057",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 256,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 144,
+        "first_ten_step_release_control_step": 206,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.549292594929941e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 256,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 256,
+            "mean": 0.3868583779773074,
+            "median": 0.22029273120232873
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 255,
+            "mean": 4.597550870078218,
+            "median": 2.651387635325112
+          },
+          "low_action_closed_not_On_frames": 3,
+          "longest_low_action_closed_not_On": {
+            "steps": 1,
+            "start_control_step": 104,
+            "end_control_step": 104
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "9c5b1f409a6aca49e3a684a538dad7f18e60394bb0b0a24f7b5ae2bc99eda5ba",
+        "result.json": "de0396fb7f369f0c3e912981a2b3b5b5f3db4d74c935381bd5991154b4fb3ca4",
+        "scene.json": "52711f7331b6bb9b9e024498994f71c72a068e718f6fa9fda48dc4614e96ef29",
+        "initial_state.npy": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "heldout_mid",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/heldout_mid",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1444495925550248,
+            "median": 0.06277549114641506
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.6148838837409507,
+            "median": 0.5594848360422118
+          },
+          "low_action_closed_not_On_frames": 523,
+          "longest_low_action_closed_not_On": {
+            "steps": 39,
+            "start_control_step": 414,
+            "end_control_step": 452
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 428,
+            "mean": 0.45691735511763715,
+            "median": 0.4231683720086268
+          }
+        }
+      },
+      "initial_state_sha256": "05a10196d0e76db5fd8a7cbaba2f19b79d4c7c3e43f21a3ab05304f186626041",
+      "source_scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "5b29e3765e7f0b8675cb57689734ea2c9ef17e2896c6b9753a217f1ed3df75d3",
+        "result.json": "b9d11891649c63551d171fb29253fd896af6741cc4be114fb7f0585f03f507ec",
+        "scene.json": "2930212bd70bbdfd70f752d5f097c875a7e964b550e39e986ce96a4a0d274e61",
+        "initial_state.npy": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/heldout_far",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.11730797195235297,
+            "median": 0.060170643716184025
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.28009943378669,
+            "median": 0.6588283181086894
+          },
+          "low_action_closed_not_On_frames": 255,
+          "longest_low_action_closed_not_On": {
+            "steps": 31,
+            "start_control_step": 590,
+            "end_control_step": 620
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 189,
+            "mean": 0.42460423752551335,
+            "median": 0.38925548074827393
+          }
+        }
+      },
+      "initial_state_sha256": "c22a04a892ba6f1b6743534e716fd4f8cebcd5b916463978a35f8cd54bb88a72",
+      "source_scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "04119a4abfa2bcd5c686e50f23fd455b46be737a0903ab3941a4e9b2fc9d3d9f",
+        "result.json": "3340c029156999f58bb7a2507bb3700a6f8459494da9d926d2cd7ce010524079",
+        "scene.json": "0092d0487e160c548a1bcc40a0e4f7bebd97517f3d1348fd8f37401b4a4ebf7e",
+        "initial_state.npy": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/holding008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.06835374438493652,
+            "median": 0.05561924597884073
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 0.8579339385608633,
+            "median": 0.4982820614560998
+          },
+          "low_action_closed_not_On_frames": 602,
+          "longest_low_action_closed_not_On": {
+            "steps": 25,
+            "start_control_step": 719,
+            "end_control_step": 743
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 461,
+            "mean": 0.5638261182563826,
+            "median": 0.40194070431140394
+          }
+        }
+      },
+      "initial_state_sha256": "3d04cad150098d40165468d95a5a0a74eeff46bdab9c83f2a444230db55ec09d",
+      "source_scene_sha256": "9c1d08bfde6af7b22e78cbfa6042de799e70f9399d22bac713262c703ec0486c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "b01ad7ca816e34feccb652cb7876e10fdc56656f326caa277e5f96ae8e69a690",
+        "result.json": "f58ec267c81b96ecc0169f357a5b57eefafffb95a02ad0bc56392b3e4ce0e34c",
+        "scene.json": "f576b0bad3db139686ae5201493eb572e3adf6105c101fa247afaa69bd7bcf5b",
+        "initial_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/holding009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.06886302610084623,
+            "median": 0.050526591452334
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.0899621935142627,
+            "median": 0.6091628566372044
+          },
+          "low_action_closed_not_On_frames": 110,
+          "longest_low_action_closed_not_On": {
+            "steps": 7,
+            "start_control_step": 44,
+            "end_control_step": 50
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 51,
+            "mean": 0.5354931404824238,
+            "median": 0.555324874819639
+          }
+        }
+      },
+      "initial_state_sha256": "7faffbde028b606fd8aa3a5ce31ce4901983664593d3df8f9762b892bef80646",
+      "source_scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "d13256b00aa6fa29d30109d68b1533302e55b7a5ce0d8f122f7def0e116b8f9f",
+        "result.json": "9a84c289a72810f6be2c53ec7134dedad79bd668298d447d2131022d77cfe85e",
+        "scene.json": "42390280f2ba6bcc591d4eca9c6d0e072e6492d6aa8d1f17988d0dc20b8185c1",
+        "initial_state.npy": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user008",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/user008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 545,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 390,
+        "first_ten_step_release_control_step": 495,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.911310741914304e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 545,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 545,
+            "mean": 0.2548453069474492,
+            "median": 0.1559613034149985
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 544,
+            "mean": 2.3830226656642357,
+            "median": 0.9624154290933815
+          },
+          "low_action_closed_not_On_frames": 53,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 79,
+            "end_control_step": 80
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 9,
+            "mean": 0.5476886543896593,
+            "median": 0.345850557490577
+          }
+        }
+      },
+      "initial_state_sha256": "b070349aecf00857edc38280bd3e1d27bb06054945e491fb6975418609f88ee6",
+      "source_scene_sha256": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "1e98b6c1cc3d8c145b9db328359f22a798628b5cee05e0a351425f410e61aa2a",
+        "result.json": "07bc6327d4abba9c8fb7c7b2834f40ec2883d2f98fa6fa2e6ae3bc3d3f8e1466",
+        "scene.json": "849bd67eb524f2eb3daf4b1d6ee428ff6cabc697c5117892fc7c0df94a4a4125",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user009",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/user009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1709274617771015,
+            "median": 0.08913049532377569
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.5662496721964796,
+            "median": 0.7422473152546196
+          },
+          "low_action_closed_not_On_frames": 322,
+          "longest_low_action_closed_not_On": {
+            "steps": 19,
+            "start_control_step": 610,
+            "end_control_step": 628
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 187,
+            "mean": 0.4640438319505705,
+            "median": 0.42538306310873725
+          }
+        }
+      },
+      "initial_state_sha256": "2778c4c54aa5e75cc95173998f1aa2e01477cb218af8ea4dc22bc9e7454a2b18",
+      "source_scene_sha256": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "35a99a85837d473925141d817effd5f1a9a921712928b1d74161382d2e053165",
+        "result.json": "a44045878a1fe63a3be622559835f96e7aa63bb7ce187261adeab7800d71b721",
+        "scene.json": "3bf6c32a34be6e84bfb850f001c07f6453bab5a178c326644d2f16c8e1006e26",
+        "initial_state.npy": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/user054",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1067726088467997,
+            "median": 0.06509216259089859
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.1610208370093107,
+            "median": 0.7071106771090893
+          },
+          "low_action_closed_not_On_frames": 208,
+          "longest_low_action_closed_not_On": {
+            "steps": 24,
+            "start_control_step": 702,
+            "end_control_step": 725
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 141,
+            "mean": 0.6440797637588752,
+            "median": 0.5720181857342644
+          }
+        }
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "32196304831f959b03ff0d94a43329338c9396d1d237e8aaabd12c48c777286b",
+        "result.json": "15069451986991201fc63bc80e4f445261918056198c54fe2cc48b61b57b55a8",
+        "scene.json": "203c9636bb18a014c1d6362bd5c63a0778224d399661d77c209f06716e5a917a",
+        "initial_state.npy": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/user055",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10212454895895018,
+            "median": 0.057415140235332396
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.1029164896442771,
+            "median": 0.6035635527738266
+          },
+          "low_action_closed_not_On_frames": 185,
+          "longest_low_action_closed_not_On": {
+            "steps": 30,
+            "start_control_step": 702,
+            "end_control_step": 731
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 141,
+            "mean": 0.5610733818748639,
+            "median": 0.5237150299580303
+          }
+        }
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "4df4e7719183425690e36572d4683daa9963f91845c8ac56d6cb780f20a14088",
+        "result.json": "c96c856328b2dcf777d24c62645d5e4e837b2cfe083aa606df3bdfc6fb55d9e6",
+        "scene.json": "bcb5ef8d53bbb378d8bb3d7505a962aab443fdd56d32ab7169bb06b37b62c670",
+        "initial_state.npy": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "zero",
+      "role": "development_control",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 237,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 141,
+        "first_ten_step_release_control_step": 187,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.754394439823112e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 237,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 237,
+            "mean": 0.3773014910552358,
+            "median": 0.22956833169644728
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 236,
+            "mean": 4.593264699457942,
+            "median": 2.755393120337198
+          },
+          "low_action_closed_not_On_frames": 10,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 103,
+            "end_control_step": 104
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 2,
+            "mean": 1.0048105519625425,
+            "median": 1.0048105519625425
+          }
+        }
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "27bdd9dd63bc0101d969e5b11e289da74d1c507993f0842b57d388ee0258123b",
+        "result.json": "9fb80b71fe51af27413b4ede055b3a30793d4fcfec7386b25c2d847d03e459ca",
+        "scene.json": "2d2d6e8971fb125a81c41f9ebe720d2eb939141e5f09a042eaa13a29a1943a54",
+        "initial_state.npy": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "positive057",
+      "role": "development_control",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/positive057",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 372,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 141,
+        "first_ten_step_release_control_step": 322,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.502168385618813e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 372,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 372,
+            "mean": 0.3270052913177698,
+            "median": 0.20075015463800844
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 371,
+            "mean": 3.4788145120143255,
+            "median": 1.3953863610093502
+          },
+          "low_action_closed_not_On_frames": 1,
+          "longest_low_action_closed_not_On": {
+            "steps": 1,
+            "start_control_step": 137,
+            "end_control_step": 137
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "3656905e62f462bc1625a23218aa6e1f3eae4b4d4d9e8f49f78487144a12bf87",
+        "result.json": "41571b6bbd997bab7a1f816bd0e0d803ea893423a1a65fd8cbf068b09c92a895",
+        "scene.json": "6d769b53079fdc1c4f1b9c17ed31114aa5d78206ff60006d479016aca02a2cf6",
+        "initial_state.npy": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "heldout_mid",
+      "role": "heldout_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/heldout_mid",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.14380988912648793,
+            "median": 0.0664966135051285
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.5850079368434304,
+            "median": 0.600509833144471
+          },
+          "low_action_closed_not_On_frames": 501,
+          "longest_low_action_closed_not_On": {
+            "steps": 30,
+            "start_control_step": 306,
+            "end_control_step": 335
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 373,
+            "mean": 0.4533758158779889,
+            "median": 0.43453267751234
+          }
+        }
+      },
+      "initial_state_sha256": "05a10196d0e76db5fd8a7cbaba2f19b79d4c7c3e43f21a3ab05304f186626041",
+      "source_scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "0d0ab01c49312ff8fe084991b3a741d8c792f9ace49d4ffee677d5ad09987195",
+        "result.json": "25a8cac69dd2d17c52ef8ece47f1ee401f71e82bd51ab57ab91d94bc958aeb32",
+        "scene.json": "7366dee4bdce6ee12069b548722b71dab22aeb589fc80caca83b373ece54eef7",
+        "initial_state.npy": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/heldout_far",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.0821507021646244,
+            "median": 0.04289874102764113
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 0.8575782579918366,
+            "median": 0.35152976208158593
+          },
+          "low_action_closed_not_On_frames": 0,
+          "longest_low_action_closed_not_On": {
+            "steps": 0,
+            "start_control_step": null,
+            "end_control_step": null
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "initial_state_sha256": "c22a04a892ba6f1b6743534e716fd4f8cebcd5b916463978a35f8cd54bb88a72",
+      "source_scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "9e4ef60e84208c345c23487df6f35ab33bbefb5d118f4745207457491d106578",
+        "result.json": "894b4b499035e58cf364a859c4c9588321c4a5abb1072f90e3c8794911af916d",
+        "scene.json": "8585d1fb0550fc3906b716f8914342b7139a3e5e0f0bad0b38aebf66a28da9da",
+        "initial_state.npy": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/holding008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.08012444213225887,
+            "median": 0.06301921057209126
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.358620929205932,
+            "median": 0.666008145015778
+          },
+          "low_action_closed_not_On_frames": 515,
+          "longest_low_action_closed_not_On": {
+            "steps": 21,
+            "start_control_step": 38,
+            "end_control_step": 58
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 346,
+            "mean": 1.0474704472547025,
+            "median": 0.4952183883366528
+          }
+        }
+      },
+      "initial_state_sha256": "3d04cad150098d40165468d95a5a0a74eeff46bdab9c83f2a444230db55ec09d",
+      "source_scene_sha256": "9c1d08bfde6af7b22e78cbfa6042de799e70f9399d22bac713262c703ec0486c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "9deeaa47d71e7f7573f140c265ab9b1042b46bd572929ffacdd5a0b06d4bc5b8",
+        "result.json": "aeb4b876b9562ef5084d0ea1ab7a1b0390793c4fab4ccc29878e48342a9eb0c5",
+        "scene.json": "c79c772dc2f989e136c324add4ac79fb158196edc44bd687aaef515076809519",
+        "initial_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe"
+      }
+    },
+    {
+      "arm": "control",
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/holding009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.07616317217026147,
+            "median": 0.055780932640804415
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.6877962156126607,
+            "median": 0.9128155291692337
+          },
+          "low_action_closed_not_On_frames": 164,
+          "longest_low_action_closed_not_On": {
+            "steps": 11,
+            "start_control_step": 26,
+            "end_control_step": 36
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 97,
+            "mean": 0.8321084938136396,
+            "median": 0.5251111294397822
+          }
+        }
+      },
+      "initial_state_sha256": "7faffbde028b606fd8aa3a5ce31ce4901983664593d3df8f9762b892bef80646",
+      "source_scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "77b84026663b7550a53790e120b47c483007a6678dcb251d5650b8ed0f6029f1",
+        "result.json": "79c4fa9288eb7438abc8ca1ba92c423fdd4d526cee02741d2768cade46910d81",
+        "scene.json": "c7fb7f1c22e66b2cd283ad1bad9bb81d27228cb35cced4c240c9156295ede2d2",
+        "initial_state.npy": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user008",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/user008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 382,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 280,
+        "first_ten_step_release_control_step": 332,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.319321542908129e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 382,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 382,
+            "mean": 0.23957254755472507,
+            "median": 0.16084878165998157
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 381,
+            "mean": 2.9601132702457713,
+            "median": 2.077710433419966
+          },
+          "low_action_closed_not_On_frames": 28,
+          "longest_low_action_closed_not_On": {
+            "steps": 11,
+            "start_control_step": 109,
+            "end_control_step": 119
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 13,
+            "mean": 0.4965876359710007,
+            "median": 0.4211722532749649
+          }
+        }
+      },
+      "initial_state_sha256": "b070349aecf00857edc38280bd3e1d27bb06054945e491fb6975418609f88ee6",
+      "source_scene_sha256": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "a2d0b1543b0f3c1a63bcfb24ce8701426fb74d9be251e9455b40979f6818b443",
+        "result.json": "0582cb85e71f6feb3cafe4a9113eecb91a24b050072f2cd0afbe6a94cf88b840",
+        "scene.json": "49d1b8f6749aa13300ae136c39ce9a2d1e5fb1e791f3c4d94350a216ab40eb19",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user009",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/user009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 305,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 234,
+        "first_ten_step_release_control_step": 255,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.686851307013092e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 305,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 305,
+            "mean": 0.2530200767906557,
+            "median": 0.18323003430644288
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 304,
+            "mean": 3.0744341826089046,
+            "median": 2.463877932063215
+          },
+          "low_action_closed_not_On_frames": 24,
+          "longest_low_action_closed_not_On": {
+            "steps": 10,
+            "start_control_step": 110,
+            "end_control_step": 119
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 11,
+            "mean": 0.3267309089506222,
+            "median": 0.25965692007091024
+          }
+        }
+      },
+      "initial_state_sha256": "2778c4c54aa5e75cc95173998f1aa2e01477cb218af8ea4dc22bc9e7454a2b18",
+      "source_scene_sha256": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "dae3d111f3d7b3d29ff2c6fd0d7edd67e27f5ce2b94925fe75589f81f5d6c331",
+        "result.json": "f6054ee1b1e38cfa4d1745edb3142663f6eb91f1622a2320d57726480d3c8d32",
+        "scene.json": "6dbfb24eb2d5c151a3e1177c1cbf0e11496ffe13810f1865edd44f6b242af649",
+        "initial_state.npy": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/user054",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 749,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10940444779826977,
+            "median": 0.07677644000724754
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.2045104788364331,
+            "median": 0.8484755785888062
+          },
+          "low_action_closed_not_On_frames": 237,
+          "longest_low_action_closed_not_On": {
+            "steps": 14,
+            "start_control_step": 500,
+            "end_control_step": 513
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 142,
+            "mean": 0.4791143156953342,
+            "median": 0.4045345825631825
+          }
+        }
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "049dd9285d046f8043ef2ea787fe9f54c2d05737db2bde3a986950b32ad25b4b",
+        "result.json": "93a7e039aa7d54dc1308da2b93d6d7ac02d025e275a4907ae7a2f2531dfa80f4",
+        "scene.json": "f4b205e857d7d57987385ec5134dfe4663b01ae075c140b0e59b7d55136fe1df",
+        "initial_state.npy": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/user055",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.08830550319716757,
+            "median": 0.05346932924540973
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 0.9859064560292735,
+            "median": 0.5775271436419164
+          },
+          "low_action_closed_not_On_frames": 252,
+          "longest_low_action_closed_not_On": {
+            "steps": 42,
+            "start_control_step": 414,
+            "end_control_step": 455
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 180,
+            "mean": 0.43512419970345156,
+            "median": 0.3840938906752959
+          }
+        }
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "eae1abefa5601cc8af3bf60917012bfc98e7eb7ba113abe44449ea2ff6fc1c35",
+        "result.json": "820925496b22e2cf40010de837ee7d30aac72d74475f8580095728816e92ce59",
+        "scene.json": "2e4e507414d5bdcc81f6ff4672c557649dde7926a60dbb8ad7cc08da0eb44ad8",
+        "initial_state.npy": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "zero",
+      "role": "development_control",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 314,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 225,
+        "first_ten_step_release_control_step": 264,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.5665189948913385e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 314,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 314,
+            "mean": 0.27430615787080753,
+            "median": 0.16103030427299841
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 313,
+            "mean": 3.3965576070092065,
+            "median": 2.1265902923332787
+          },
+          "low_action_closed_not_On_frames": 21,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 212,
+            "end_control_step": 215
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 4,
+            "mean": 0.8324242012466772,
+            "median": 0.8750989239079634
+          }
+        }
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "4d976c824c0ea3c09c78992a6f87f49196cde2ccb8c3cc7317547a24a5d0277f",
+        "result.json": "2951da71295512c5018ccc42b7d3c7a32be16e0af887a47445a3313867a986a5",
+        "scene.json": "d61226ed8cb8dbcd51c28dcc2edd0692e9d888a205f2e3af4a53ad5810f4b707",
+        "initial_state.npy": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "positive057",
+      "role": "development_control",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/positive057",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 382,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 267,
+        "first_ten_step_release_control_step": 332,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.4990116943704897e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 382,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 382,
+            "mean": 0.22540362784512055,
+            "median": 0.10909003225299091
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 381,
+            "mean": 2.784579281984817,
+            "median": 1.3604370891730584
+          },
+          "low_action_closed_not_On_frames": 61,
+          "longest_low_action_closed_not_On": {
+            "steps": 7,
+            "start_control_step": 113,
+            "end_control_step": 119
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 33,
+            "mean": 0.5779814853183023,
+            "median": 0.5894378765052387
+          }
+        }
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "c623214c99ff80c9c4eee498aa43f6e9e6b872ec0381446f76a153436c826e5c",
+        "result.json": "056be6bcccb46e5bafb9bc83eea78c89a8e66157ddaec1fad52d4bd4f3abefc1",
+        "scene.json": "0e56df86903ad90677b193bb9448c3782f35463c75256973fe0a2cd233704a74",
+        "initial_state.npy": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "heldout_mid",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/heldout_mid",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 348,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 242,
+        "first_ten_step_release_control_step": 298,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.313390542215627e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 348,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 348,
+            "mean": 0.2527947909802052,
+            "median": 0.16560917743265213
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 347,
+            "mean": 3.1134358462152756,
+            "median": 2.3036512002471854
+          },
+          "low_action_closed_not_On_frames": 24,
+          "longest_low_action_closed_not_On": {
+            "steps": 5,
+            "start_control_step": 106,
+            "end_control_step": 110
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 7,
+            "mean": 0.700278241459967,
+            "median": 0.42318851479216635
+          }
+        }
+      },
+      "initial_state_sha256": "05a10196d0e76db5fd8a7cbaba2f19b79d4c7c3e43f21a3ab05304f186626041",
+      "source_scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "b57b19d8f2be35bc453c0c8033df9cc3ea82765bfe7610670590d4dd99590a6d",
+        "result.json": "627ccee9575efd72f56d0bad8661f472ce149bbe45af9c7624468e833896d385",
+        "scene.json": "b8698a8a9112fbdb29cf8c93b06a0658a90a8fe874d9111227dbe43493984d49",
+        "initial_state.npy": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/heldout_far",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.09462088324053414,
+            "median": 0.05020540029615794
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 0.9963391969061296,
+            "median": 0.4146444787424508
+          },
+          "low_action_closed_not_On_frames": 521,
+          "longest_low_action_closed_not_On": {
+            "steps": 25,
+            "start_control_step": 433,
+            "end_control_step": 457
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 400,
+            "mean": 0.33090815545082924,
+            "median": 0.29061702257974914
+          }
+        }
+      },
+      "initial_state_sha256": "c22a04a892ba6f1b6743534e716fd4f8cebcd5b916463978a35f8cd54bb88a72",
+      "source_scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "22c35aa1a6dd0d2f57eccc63a8dcfe30138ddf0bedb1a06aac2ba924b98eef5a",
+        "result.json": "f857e6d3fb7eda91228c7985994fe8d64300edd2c86930fc7ff01528c99e58df",
+        "scene.json": "8a2d319ff7007702f9727bcdc1e674f5f08cf37623b86d13fd61d6a0f2b5b415",
+        "initial_state.npy": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/holding008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 461,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 273,
+        "first_ten_step_release_control_step": 411,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": false,
+          "first_gate_violation_control_step": 449,
+          "maximum_bowl_drift_m": 3.941944826877609e-07,
+          "strict_success": false
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 461,
+            "mean": 0.11265391378081249,
+            "median": 0.09706121091161647
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 460,
+            "mean": 1.2972757689997725,
+            "median": 1.2015586249677028
+          },
+          "low_action_closed_not_On_frames": 37,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 165,
+            "end_control_step": 168
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 8,
+            "mean": 0.7410206868965148,
+            "median": 0.6492472650707363
+          }
+        }
+      },
+      "initial_state_sha256": "3d04cad150098d40165468d95a5a0a74eeff46bdab9c83f2a444230db55ec09d",
+      "source_scene_sha256": "9c1d08bfde6af7b22e78cbfa6042de799e70f9399d22bac713262c703ec0486c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "f992e2250e66c5b264ad22ae018f271640b738d885fb70892d0a754d0feea85b",
+        "result.json": "a43de0c900a56854597aaa72746185e00e3161bb4f28e5ef006c35857cd81398",
+        "scene.json": "f576b0bad3db139686ae5201493eb572e3adf6105c101fa247afaa69bd7bcf5b",
+        "initial_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-0/holding009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 268,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 199,
+        "first_ten_step_release_control_step": 218,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.554910268277238e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 268,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 268,
+            "mean": 0.12815084535450275,
+            "median": 0.11931450716066486
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 267,
+            "mean": 1.484249315148926,
+            "median": 1.4160086690193532
+          },
+          "low_action_closed_not_On_frames": 24,
+          "longest_low_action_closed_not_On": {
+            "steps": 3,
+            "start_control_step": 106,
+            "end_control_step": 108
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 4,
+            "mean": 0.8426828973860279,
+            "median": 0.6895835219801325
+          }
+        }
+      },
+      "initial_state_sha256": "7faffbde028b606fd8aa3a5ce31ce4901983664593d3df8f9762b892bef80646",
+      "source_scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "77b8f0d09f9cb67a5a2d75af8e980fd1cfcef12a0e9c12e1634ba9a01da01a78",
+        "result.json": "cb92c2136c4e801560e357f5f2ff766b2cd590f42aeff4641a3531f761f55c7a",
+        "scene.json": "42390280f2ba6bcc591d4eca9c6d0e072e6492d6aa8d1f17988d0dc20b8185c1",
+        "initial_state.npy": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user008",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/user008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 385,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 279,
+        "first_ten_step_release_control_step": 335,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.5168333244507314e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 385,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 385,
+            "mean": 0.2437362927071058,
+            "median": 0.16337185404116553
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 384,
+            "mean": 3.0222146922778137,
+            "median": 2.132888319755348
+          },
+          "low_action_closed_not_On_frames": 17,
+          "longest_low_action_closed_not_On": {
+            "steps": 8,
+            "start_control_step": 122,
+            "end_control_step": 129
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 11,
+            "mean": 0.7619046088501793,
+            "median": 0.6483203429623275
+          }
+        }
+      },
+      "initial_state_sha256": "b070349aecf00857edc38280bd3e1d27bb06054945e491fb6975418609f88ee6",
+      "source_scene_sha256": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "24f042dd159faa5dd9014ecd2374f8cfce2c880e385c8bc06a0de7f417251e7b",
+        "result.json": "7612ef1b53bd58f86a2aef2238192979c30f4dc297418ede4b229a6a1d178349",
+        "scene.json": "849bd67eb524f2eb3daf4b1d6ee428ff6cabc697c5117892fc7c0df94a4a4125",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user009",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/user009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 591,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 305,
+        "first_ten_step_release_control_step": 541,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.006490945825353e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 591,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 591,
+            "mean": 0.1902784453978594,
+            "median": 0.1290253991039517
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 590,
+            "mean": 1.9807630444324,
+            "median": 1.2838994804162775
+          },
+          "low_action_closed_not_On_frames": 24,
+          "longest_low_action_closed_not_On": {
+            "steps": 5,
+            "start_control_step": 121,
+            "end_control_step": 125
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 9,
+            "mean": 0.765162105598383,
+            "median": 0.9468499732264031
+          }
+        }
+      },
+      "initial_state_sha256": "2778c4c54aa5e75cc95173998f1aa2e01477cb218af8ea4dc22bc9e7454a2b18",
+      "source_scene_sha256": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "4be755a8c92705d598a363d9480c06dd3ce14baf6278cc17443d5528cc10fecb",
+        "result.json": "6901b704b4dd2878cf55ee18bcfc8c14c88968c10ce671213e409825301a9ebd",
+        "scene.json": "3bf6c32a34be6e84bfb850f001c07f6453bab5a178c326644d2f16c8e1006e26",
+        "initial_state.npy": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/user054",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 674,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 570,
+        "first_ten_step_release_control_step": 624,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.955517762250867e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 674,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 674,
+            "mean": 0.12606088431979565,
+            "median": 0.08938890861849096
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 673,
+            "mean": 1.4731402271853924,
+            "median": 1.0523420835093091
+          },
+          "low_action_closed_not_On_frames": 114,
+          "longest_low_action_closed_not_On": {
+            "steps": 9,
+            "start_control_step": 434,
+            "end_control_step": 442
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 55,
+            "mean": 0.6320536220289984,
+            "median": 0.5456069706849219
+          }
+        }
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "545faa01bd2db915d855cf83670f5f0acbcc0c01fa81172139190fe090e10bbd",
+        "result.json": "4ef074a47ba817c62e62fc7b61089228b262616e366907d2029b91e1bc892a09",
+        "scene.json": "203c9636bb18a014c1d6362bd5c63a0778224d399661d77c209f06716e5a917a",
+        "initial_state.npy": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/user055",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 776,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1145072034407508,
+            "median": 0.06483092869515522
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.3064817153800303,
+            "median": 0.7419139199654643
+          },
+          "low_action_closed_not_On_frames": 66,
+          "longest_low_action_closed_not_On": {
+            "steps": 5,
+            "start_control_step": 551,
+            "end_control_step": 555
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 22,
+            "mean": 0.8201046965517225,
+            "median": 0.7229476464825805
+          }
+        }
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "916f735dc31a289eb3289dcfb9459a360104b266eb65b5e7229f55932cf692a7",
+        "result.json": "035154e7189e2d9037fff17feeddbe786d0474ad8ff34d7f737b74ce270451cf",
+        "scene.json": "bcb5ef8d53bbb378d8bb3d7505a962aab443fdd56d32ab7169bb06b37b62c670",
+        "initial_state.npy": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "zero",
+      "role": "development_control",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 322,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 229,
+        "first_ten_step_release_control_step": 272,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.334997320311358e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 322,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 322,
+            "mean": 0.25725156162607143,
+            "median": 0.15804919507237228
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 321,
+            "mean": 3.2092108212836394,
+            "median": 2.023557756044766
+          },
+          "low_action_closed_not_On_frames": 22,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 102,
+            "end_control_step": 105
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 9,
+            "mean": 0.639422626004518,
+            "median": 0.6945286159294884
+          }
+        }
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "3926a6a3c55871906fd8d20b83e6c9ec5f1fbec4f2a2457107c2888a17e8c0fe",
+        "result.json": "c77b58559426970c192f53554af874f57030a3d0564cb99d0e9ee1090d26a364",
+        "scene.json": "2d2d6e8971fb125a81c41f9ebe720d2eb939141e5f09a042eaa13a29a1943a54",
+        "initial_state.npy": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "positive057",
+      "role": "development_control",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/positive057",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 429,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 312,
+        "first_ten_step_release_control_step": 379,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.1629031942207093e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 429,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 429,
+            "mean": 0.2072554429441316,
+            "median": 0.11273942506558628
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 428,
+            "mean": 2.5780935130655447,
+            "median": 1.4314401223206317
+          },
+          "low_action_closed_not_On_frames": 55,
+          "longest_low_action_closed_not_On": {
+            "steps": 10,
+            "start_control_step": 260,
+            "end_control_step": 269
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 30,
+            "mean": 0.6262688306925193,
+            "median": 0.5976995622476005
+          }
+        }
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "4565c460e31f9c160dfdb1f5d4f8cc7b79b98b67032c8e7d26d23cab9ed2e05b",
+        "result.json": "9e6455b560f55152a9bc556fefe53bb6e95b8b428769b301f0353eb56f0aeb24",
+        "scene.json": "6d769b53079fdc1c4f1b9c17ed31114aa5d78206ff60006d479016aca02a2cf6",
+        "initial_state.npy": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "heldout_mid",
+      "role": "heldout_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/heldout_mid",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 405,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 287,
+        "first_ten_step_release_control_step": 355,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.862725809453928e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 405,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 405,
+            "mean": 0.2255455606754359,
+            "median": 0.14541127513679028
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 404,
+            "mean": 2.7889755081089076,
+            "median": 1.7362045336252394
+          },
+          "low_action_closed_not_On_frames": 38,
+          "longest_low_action_closed_not_On": {
+            "steps": 7,
+            "start_control_step": 122,
+            "end_control_step": 128
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 16,
+            "mean": 0.6264782932897932,
+            "median": 0.5477804520733003
+          }
+        }
+      },
+      "initial_state_sha256": "05a10196d0e76db5fd8a7cbaba2f19b79d4c7c3e43f21a3ab05304f186626041",
+      "source_scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "77f5db3aad6f7f675ec5018ca1ae4ba58709e7685e9d2992ffc16862da4d8bf4",
+        "result.json": "05ac29e2fbc94c721892e079b8bcce1531ffea36725cea0df7397d6dcb71e8e3",
+        "scene.json": "7366dee4bdce6ee12069b548722b71dab22aeb589fc80caca83b373ece54eef7",
+        "initial_state.npy": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/heldout_far",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 607,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 497,
+        "first_ten_step_release_control_step": 557,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.5548074312439806e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 607,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 607,
+            "mean": 0.19295016750116845,
+            "median": 0.12983822820075447
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 606,
+            "mean": 2.3150954531068675,
+            "median": 1.6195992188124935
+          },
+          "low_action_closed_not_On_frames": 77,
+          "longest_low_action_closed_not_On": {
+            "steps": 6,
+            "start_control_step": 321,
+            "end_control_step": 326
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 29,
+            "mean": 0.559026225046343,
+            "median": 0.44058024384753947
+          }
+        }
+      },
+      "initial_state_sha256": "c22a04a892ba6f1b6743534e716fd4f8cebcd5b916463978a35f8cd54bb88a72",
+      "source_scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "883af99822f3b9da3ac4244e1e1c54c8d0f4d7eeb9f465e20f17daf1d956fd7a",
+        "result.json": "3ccb2c4a5ab1c5d0d4c06bf80753d38b0e7b95e6236868a4ba8c5405b0a2315b",
+        "scene.json": "8585d1fb0550fc3906b716f8914342b7139a3e5e0f0bad0b38aebf66a28da9da",
+        "initial_state.npy": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/holding008",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 258,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.08404676210213109,
+            "median": 0.05907371831570868
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 0.8905428511258954,
+            "median": 0.5453919177687993
+          },
+          "low_action_closed_not_On_frames": 31,
+          "longest_low_action_closed_not_On": {
+            "steps": 3,
+            "start_control_step": 129,
+            "end_control_step": 131
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 6,
+            "mean": 0.9820539327918114,
+            "median": 0.8487363416744385
+          }
+        }
+      },
+      "initial_state_sha256": "3d04cad150098d40165468d95a5a0a74eeff46bdab9c83f2a444230db55ec09d",
+      "source_scene_sha256": "9c1d08bfde6af7b22e78cbfa6042de799e70f9399d22bac713262c703ec0486c",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "630abe9c674254e3d595f21eba4b7b2bee35baca8bad8e76a78b385f2fd2ffa3",
+        "result.json": "d072629113095abbd41d7107063f032d99ea3c0c4092aaa5a4bd7404cbe57e64",
+        "scene.json": "c79c772dc2f989e136c324add4ac79fb158196edc44bd687aaef515076809519",
+        "initial_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe"
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/candidate/seed-1/holding009",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state": true,
+        "source_scene": true,
+        "plan_scene_pin": true,
+        "plan_state_pin": true,
+        "checkpoint": true,
+        "policy_seed": true,
+        "model_contract": true,
+        "holding_controller_initialization": true,
+        "normalization": true,
+        "budget_and_replanning": true,
+        "control_steps": true,
+        "On_labels": true,
+        "release_labels": true,
+        "followup_labels": true,
+        "video_frame_count": true
+      },
+      "metrics": {
+        "control_steps": 567,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 241,
+        "first_ten_step_release_control_step": 517,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": false,
+          "first_gate_violation_control_step": 552,
+          "maximum_bowl_drift_m": 3.528388936760192e-07,
+          "strict_success": false
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 567,
+            "mean": 0.10837859297867887,
+            "median": 0.09007100943504366
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 566,
+            "mean": 1.0271373912279034,
+            "median": 0.733435031910385
+          },
+          "low_action_closed_not_On_frames": 45,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 84,
+            "end_control_step": 87
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 12,
+            "mean": 0.8017053678112309,
+            "median": 0.7499015687205057
+          }
+        }
+      },
+      "initial_state_sha256": "7faffbde028b606fd8aa3a5ce31ce4901983664593d3df8f9762b892bef80646",
+      "source_scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "8674b7b9aed84bb079f2e00e00ba3652869cbccd26009115f50ffcecd85361f3",
+        "result.json": "b9b4044cdf209413f278d5f3691a6f6cb666f8c0e514afd6195b8186e42bc5af",
+        "scene.json": "c7fb7f1c22e66b2cd283ad1bad9bb81d27228cb35cced4c240c9156295ede2d2",
+        "initial_state.npy": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b"
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "case": "user008",
+      "role": "training_position",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": -256
+    },
+    {
+      "case": "user008",
+      "role": "training_position",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": -160
+    },
+    {
+      "case": "user009",
+      "role": "training_position",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "user009",
+      "role": "training_position",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "user054",
+      "role": "training_position",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "user055",
+      "role": "training_position",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "zero",
+      "role": "development_control",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": 8
+    },
+    {
+      "case": "zero",
+      "role": "development_control",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": 85
+    },
+    {
+      "case": "positive057",
+      "role": "development_control",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": 126
+    },
+    {
+      "case": "positive057",
+      "role": "development_control",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": 57
+    },
+    {
+      "case": "heldout_mid",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "heldout_mid",
+      "role": "heldout_position",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "heldout_far",
+      "role": "heldout_position",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "holding008",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": true
+      },
+      "candidate_minus_control_completion_steps": null
+    },
+    {
+      "case": "holding009",
+      "role": "training_holding_state",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "strict_success": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_completion_steps": null
+    }
+  ],
+  "limits": [
+    "Case roles are predeclared in the plan; training-source cases and independent-position cases must be reported separately.",
+    "Small paired development study, not a benchmark success rate or unseen-position guarantee. One training seed42; policy seeds vary sampling only.",
+    "Strict success needs the first ten consecutive release gates followed by fifty policy steps maintaining the same gates and <=5mm maximum bowl drift.",
+    "Missing, invalid, exceptional or short-followup trials are not silently counted as task failures. No release at the full budget is right censored.",
+    "Completion time includes the fifty-step followup. Paired time deltas require both strict successes and identical saved initial state.",
+    "Motion uses adjacent post-observation positions. Closed/not-On/low-action runs are diagnostic proxies, not verified grasps or causes.",
+    "No model, inference, simulator or training is loaded by this summarizer."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "EXPERIMENTAL_NOT_PROMOTED",
+  "summary_sha256": "eb3ade730b37b4b25fa1022b4a885181266c20de84e297ccf31547eca9bd4555",
+  "promotion_checks": {
+    "target_cases_improved": true,
+    "development_controls_preserved": true,
+    "all_heldout_positions_both_seeds_pass": false
+  },
+  "gui_checkpoint": "checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+  "gui_purpose": "User-requested manual inspection of the experimental candidate, not a promotion or fixed claim.",
+  "gui_label": "负偏移增补实验版（仍有失败）",
+  "recommended_parent_checkpoint": "checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+  "control_strict_successes": 6,
+  "candidate_strict_successes": 13,
+  "planned_trials_per_arm": 20,
+  "limits": "Paired before/after fine-tuning, not a same-budget causal A/B. Holding followup gates can fail despite bowl stability."
+}

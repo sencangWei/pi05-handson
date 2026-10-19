@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "status": "VERIFIED",
+  "primary_case": "user008",
+  "policy_seed": 0,
+  "selection": "Fixed plan first case and seed before candidate results; failures never replaced by another case.",
+  "evaluation_role": "training_position",
+  "not_heldout_benchmark": true,
+  "plan_sha256": "ab270ccb8cf28e57556143d07ad132baec2878eeb4685c0f14f9eeb3364bef10",
+  "source_code_sha256": "8f5b4c5fcbf72fc68829c5926323ed737150db7ece84003f0d1d56497a9001b8",
+  "video": "user008-seed0-comparison.mp4",
+  "video_sha256": "ab8009c7735e578ec9aecb22cdc08c96b1ad7105ecc9549be3a1a7e81bff9ca8",
+  "poster": "user008-seed0-comparison.png",
+  "poster_frame": 300,
+  "poster_sha256": "84160379bdcb09c9106338cd244967336a6fbd8df61fba11095561b6ca285f51",
+  "output_fps": 20,
+  "output_frames": 639,
+  "output_size": [
+    1024,
+    768
+  ],
+  "timing": "Native20Hz control-step replay; original10FPS sources replayed at20FPS without dropping or inventing source steps. Inference pauses omitted; not wall-time speed.",
+  "alignment": "Output frame i uses source frame min(i,N); initial frame0, one frame per action. Short side visibly frozen after its final frame.",
+  "strict_pass_definition": "First10 consecutive On+open command+actual gap>=.06m+EEF-bowl>=.10m; then50 actual policy steps maintaining every term and bowl drift<=.005m.",
+  "sources": {
+    "control": {
+      "directory": "evaluations/negative-recovery-20261019/control/seed-0/user008",
+      "sha256": {
+        "scene.json": "758ad851a3be1c7317dca168af51df60f853a80bb4fa9a061b2d7b92aa2e6c47",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e",
+        "actions.csv": "746878798be636289bee4acd4ebfc279238abfa4e07c0e598d02fead0dc316a1",
+        "result.json": "b6ee01286308e4e82f748913ce9d7adf52d2ebdd71e5c6e5d80bdf5b645447c6",
+        "video.mp4": "ef8a79d219d5eeedb6919c2507ad7a2ea8b5f81670cfd6deebfdc1a9d450b456"
+      },
+      "input_fps": 10,
+      "input_frames": 639,
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "strict_pass": true,
+      "metrics": {
+        "control_steps": 638,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 70,
+        "first_lift_over_2cm_control_step": 96,
+        "first_On_control_step": 300,
+        "first_stable_release_control_step": 588,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 288,
+          "observed_actions_from_first_On_through_stop": 339,
+          "close_command_fraction": 0.6194690265486725,
+          "actual_open_gap_fraction": 0.3303834808259587
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 588,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 102,
+          "frames": 196,
+          "action_xyz_norm": {
+            "n": 196,
+            "mean": 0.1905159812534901,
+            "median": 0.07883187961774012
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 195,
+            "mean": 2.215397937910028,
+            "median": 1.0634514357795004
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 638,
+            "mean": 0.21728266584254266,
+            "median": 0.11010488738449122
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 637,
+            "mean": 2.000467601210964,
+            "median": 0.8774448228185745
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 588,
+          "maximum_bowl_drift_3d_m": 9.33499251459691e-09,
+          "maximum_bowl_drift_xy_m": 9.331953765061667e-09,
+          "final_bowl_drift_3d_m": 9.33499251459691e-09
+        }
+      }
+    },
+    "candidate": {
+      "directory": "evaluations/negative-recovery-20261019/candidate/seed-0/user008",
+      "sha256": {
+        "scene.json": "49d1b8f6749aa13300ae136c39ce9a2d1e5fb1e791f3c4d94350a216ab40eb19",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e",
+        "actions.csv": "a2d0b1543b0f3c1a63bcfb24ce8701426fb74d9be251e9455b40979f6818b443",
+        "result.json": "0582cb85e71f6feb3cafe4a9113eecb91a24b050072f2cd0afbe6a94cf88b840",
+        "video.mp4": "e150a349d8229141793fa7efe33dd07b3befe01250d17abb3978014a41f9a852"
+      },
+      "input_fps": 10,
+      "input_frames": 383,
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "strict_pass": true,
+      "metrics": {
+        "control_steps": 382,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 100,
+        "first_lift_over_2cm_control_step": 133,
+        "first_On_control_step": 280,
+        "first_stable_release_control_step": 332,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 52,
+          "observed_actions_from_first_On_through_stop": 103,
+          "close_command_fraction": 0.04854368932038835,
+          "actual_open_gap_fraction": 0.8640776699029126
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 332,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 137,
+          "frames": 136,
+          "action_xyz_norm": {
+            "n": 136,
+            "mean": 0.27907183113625245,
+            "median": 0.1812954034660564
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 135,
+            "mean": 3.408643332442455,
+            "median": 2.3607124252554246
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 382,
+            "mean": 0.23957254755472507,
+            "median": 0.16084878165998157
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 381,
+            "mean": 2.961862540795498,
+            "median": 2.0898858985148503
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 332,
+          "maximum_bowl_drift_3d_m": 9.319321542908129e-09,
+          "maximum_bowl_drift_xy_m": 9.316298297996039e-09,
+          "final_bowl_drift_3d_m": 9.319321542908129e-09
+        }
+      }
+    }
+  },
+  "decode_verification": {
+    "frames": 639,
+    "fps": 20.0,
+    "sample_source_frame_comparisons": [
+      {
+        "output_frame": 0,
+        "arm": "control",
+        "source_frame": 0,
+        "camera_rgb_mae": 1.3028609664351851
+      },
+      {
+        "output_frame": 0,
+        "arm": "candidate",
+        "source_frame": 0,
+        "camera_rgb_mae": 1.299773685515873
+      },
+      {
+        "output_frame": 100,
+        "arm": "control",
+        "source_frame": 100,
+        "camera_rgb_mae": 1.3926762979497354
+      },
+      {
+        "output_frame": 100,
+        "arm": "candidate",
+        "source_frame": 100,
+        "camera_rgb_mae": 1.378631107390873
+      },
+      {
+        "output_frame": 300,
+        "arm": "control",
+        "source_frame": 300,
+        "camera_rgb_mae": 1.4295725343088623
+      },
+      {
+        "output_frame": 300,
+        "arm": "candidate",
+        "source_frame": 300,
+        "camera_rgb_mae": 1.3950272817460319
+      },
+      {
+        "output_frame": 638,
+        "arm": "control",
+        "source_frame": 638,
+        "camera_rgb_mae": 1.4181599289021165
+      },
+      {
+        "output_frame": 638,
+        "arm": "candidate",
+        "source_frame": 382,
+        "camera_rgb_mae": 1.2168511284722223
+      }
+    ]
+  },
+  "preregistered_selection": {
+    "path": "user008-seed0-comparison.selection.json",
+    "sha256": "f804300bf36c7661d1033f90301680a3d15de61cb2e6937edb2eefb61c77dbfd",
+    "record": {
+      "schema_version": 1,
+      "selected_at_utc": "2026-10-19T06:22:28.005921+00:00",
+      "case": "user008",
+      "policy_seed": 0,
+      "selection": "Plan first case and first seed, fixed before candidate result exists; do not replace this case after success/failure.",
+      "candidate_result_existed_at_selection": false,
+      "plan_sha256": "ab270ccb8cf28e57556143d07ad132baec2878eeb4685c0f14f9eeb3364bef10",
+      "renderer_sha256": "8f5b4c5fcbf72fc68829c5926323ed737150db7ece84003f0d1d56497a9001b8"
+    }
+  },
+  "external_ffprobe_verification": {
+    "path": "user008-seed0-comparison.ffprobe.json",
+    "sha256": "200366ee79f868ff43378f1690e0b7f9867c21781f67f1b143b59fc919a091eb",
+    "stream": {
+      "width": 1024,
+      "height": 768,
+      "avg_frame_rate": "20/1",
+      "duration": "31.950000",
+      "nb_frames": "639",
+      "nb_read_frames": "639"
+    }
+  },
+  "visual_review": {
+    "poster_checked": true,
+    "final_frame_checked": true,
+    "final_sample": "user008-seed0-comparison.final.png",
+    "findings": "Both sources remain actual single global-camera recordings. Text is legible; candidate visibly frozen after382 while control continues to638. Both final strict gates pass in this fixed training-position slice."
+  }
+}

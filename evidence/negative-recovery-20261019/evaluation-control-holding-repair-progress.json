@@ -1,0 +1,133 @@
+{
+  "status": "COMPLETE",
+  "completed": [
+    {
+      "run": "control/seed-0/holding008",
+      "control_steps": 800,
+      "first_release": null
+    },
+    {
+      "run": "control/seed-0/holding009",
+      "control_steps": 800,
+      "first_release": null
+    },
+    {
+      "run": "control/seed-1/holding008",
+      "control_steps": 800,
+      "first_release": null
+    },
+    {
+      "run": "control/seed-1/holding009",
+      "control_steps": 800,
+      "first_release": null
+    }
+  ],
+  "commands": [
+    [
+      "/home/robot/.pi05-handson/.venv/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/serve_position_study.py",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "--port",
+      "8756",
+      "--seed",
+      "0"
+    ],
+    [
+      "/home/robot/.pi05-handson/.venv-sim/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/replay_saved_scene.py",
+      "--source-scene",
+      "/home/robot/.pi05-handson/.local/negative-recovery-20261019/holding-scenes/holding008",
+      "--output",
+      "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/holding008",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "--port",
+      "8756",
+      "--max-steps",
+      "800",
+      "--replan-steps",
+      "1",
+      "--stop-after-stable-release",
+      "--post-release-steps",
+      "50",
+      "--initialize-saved-controller"
+    ],
+    [
+      "/home/robot/.pi05-handson/.venv-sim/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/replay_saved_scene.py",
+      "--source-scene",
+      "/home/robot/.pi05-handson/.local/negative-recovery-20261019/holding-scenes/holding009",
+      "--output",
+      "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-0/holding009",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "--port",
+      "8756",
+      "--max-steps",
+      "800",
+      "--replan-steps",
+      "1",
+      "--stop-after-stable-release",
+      "--post-release-steps",
+      "50",
+      "--initialize-saved-controller"
+    ],
+    [
+      "/home/robot/.pi05-handson/.venv/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/serve_position_study.py",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "--port",
+      "8756",
+      "--seed",
+      "1"
+    ],
+    [
+      "/home/robot/.pi05-handson/.venv-sim/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/replay_saved_scene.py",
+      "--source-scene",
+      "/home/robot/.pi05-handson/.local/negative-recovery-20261019/holding-scenes/holding008",
+      "--output",
+      "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/holding008",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "--port",
+      "8756",
+      "--max-steps",
+      "800",
+      "--replan-steps",
+      "1",
+      "--stop-after-stable-release",
+      "--post-release-steps",
+      "50",
+      "--initialize-saved-controller"
+    ],
+    [
+      "/home/robot/.pi05-handson/.venv-sim/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/replay_saved_scene.py",
+      "--source-scene",
+      "/home/robot/.pi05-handson/.local/negative-recovery-20261019/holding-scenes/holding009",
+      "--output",
+      "/home/robot/.pi05-handson/evaluations/negative-recovery-20261019/control/seed-1/holding009",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "--port",
+      "8756",
+      "--max-steps",
+      "800",
+      "--replan-steps",
+      "1",
+      "--stop-after-stable-release",
+      "--post-release-steps",
+      "50",
+      "--initialize-saved-controller"
+    ]
+  ]
+}

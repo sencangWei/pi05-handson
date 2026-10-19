@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/robot/.pi05-handson/scripts/replay_saved_scene.py", line 142, in <module>
+    main()
+  File "/home/robot/.pi05-handson/scripts/replay_saved_scene.py", line 42, in main
+    raise ValueError("Saved holding states require --initialize-saved-controller before policy evaluation")
+ValueError: Saved holding states require --initialize-saved-controller before policy evaluation

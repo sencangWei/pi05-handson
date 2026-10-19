@@ -1,0 +1,88 @@
+{
+  "layout_id": 24,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.005547050812413551,
+      0.30381047607474143,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.066363061547137,
+      0.37309886558785005,
+      0.8984038567263857
+    ],
+    "dx_m": -0.07191011235955055,
+    "dy_m": 0.06928838951310862
+  },
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "initial_state_sha256": "7faffbde028b606fd8aa3a5ce31ce4901983664593d3df8f9762b892bef80646",
+  "task_language": "pick up the black bowl next to the plate and place it on the plate",
+  "interactive_experiment": false,
+  "formal_benchmark": false,
+  "untracked_native_gui_edits_possible": false,
+  "replan_steps": 1,
+  "max_steps": 800,
+  "post_success_steps": null,
+  "physics_horizon_ignored": true,
+  "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+  "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+  "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+  "policy_rng": "Isolated server resets RNG per connection to seed 0",
+  "derived_holding_source": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024/final_state.npy",
+  "derived_holding_source_sha256": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b",
+  "source_kind": "exact_saved_failure_holding_state",
+  "training_use": "offline teacher initial state; policy actions never used as expert labels",
+  "saved_scene_replay": "/home/robot/.pi05-handson/.local/negative-recovery-20261019/holding-scenes/holding009",
+  "source_scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+  "post_release_steps_requested": 50,
+  "controller_initialization": [
+    {
+      "method": "update(force=True),reset_goal; inverse actuator-range gripper qpos mapping",
+      "not_exact_hidden_controller_restoration": true,
+      "goal_pos": [
+        0.17142170195555612,
+        -0.09355705328426192,
+        1.1477330177363863
+      ],
+      "goal_ori": [
+        [
+          -0.015461476685940195,
+          0.9462482332368932,
+          0.3230715459998692
+        ],
+        [
+          0.9979900064742481,
+          -0.005255084044687192,
+          0.06315323482776716
+        ],
+        [
+          0.061456405005645726,
+          0.32339861655198643,
+          -0.9442650290548944
+        ]
+      ],
+      "initial_joint": [
+        0.0,
+        -0.161037389,
+        0.0,
+        -2.44459747,
+        0.0,
+        2.2267522,
+        0.7853981633974483
+      ],
+      "gripper_qpos": [
+        0.0022648469046944075,
+        -0.0021198969266664424
+      ],
+      "gripper_accumulator": [
+        -0.8867576547652797,
+        0.894005153666678
+      ]
+    }
+  ],
+  "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG"
+}

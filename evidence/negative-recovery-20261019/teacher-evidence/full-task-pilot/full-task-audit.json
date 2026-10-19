@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "method": "All NPZ SHA/shape/finite/pre-post continuity/initial SHA/code SHA/source SHA and final60 gates independently reloaded through strict placement loader. Visual inspection uses seven actual MP4 keyframes per trajectory, not continuous viewing.",
+  "limits": [
+    "Privileged offline full-task teachers, not trained policy evaluation or unseen generalization.",
+    "No human approval is claimed.",
+    "Same layout24/seed42; reference scene006 supplies grasp geometry, carry uses fresh privileged bowl feedback."
+  ],
+  "teachers": [
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/scene008-formal-v1",
+      "metadata_sha256": "4be272aa8c9061b1fd85d3f757a34bec79f1bef7c65e62b419c6894122237b8f",
+      "strict_loader": "PASS",
+      "frames": 352,
+      "simulation_duration_s": 17.600000000000847,
+      "phases": {
+        "hover": {
+          "frames": 49,
+          "range_halfopen": [
+            0,
+            49
+          ],
+          "action_xyz_norm_mean": 0.6145163774490356,
+          "eef_movement_mean_mm_per_native_step": 8.011021656079256
+        },
+        "descend": {
+          "frames": 55,
+          "range_halfopen": [
+            49,
+            104
+          ],
+          "action_xyz_norm_mean": 0.19369661808013916,
+          "eef_movement_mean_mm_per_native_step": 2.486917412501167
+        },
+        "close": {
+          "frames": 24,
+          "range_halfopen": [
+            104,
+            128
+          ],
+          "action_xyz_norm_mean": 0.017050325870513916,
+          "eef_movement_mean_mm_per_native_step": 0.08603365828700286
+        },
+        "lift": {
+          "frames": 35,
+          "range_halfopen": [
+            128,
+            163
+          ],
+          "action_xyz_norm_mean": 0.4257427453994751,
+          "eef_movement_mean_mm_per_native_step": 5.485372192093304
+        },
+        "carry": {
+          "frames": 31,
+          "range_halfopen": [
+            163,
+            194
+          ],
+          "action_xyz_norm_mean": 0.5130093693733215,
+          "eef_movement_mean_mm_per_native_step": 6.59925969798238
+        },
+        "lower": {
+          "frames": 70,
+          "range_halfopen": [
+            194,
+            264
+          ],
+          "action_xyz_norm_mean": 0.1775825023651123,
+          "eef_movement_mean_mm_per_native_step": 2.2942509152926505
+        },
+        "release": {
+          "frames": 16,
+          "range_halfopen": [
+            264,
+            280
+          ],
+          "action_xyz_norm_mean": 0.005717538297176361,
+          "eef_movement_mean_mm_per_native_step": 0.08486263116225246
+        },
+        "retreat": {
+          "frames": 22,
+          "range_halfopen": [
+            280,
+            302
+          ],
+          "action_xyz_norm_mean": 0.25,
+          "eef_movement_mean_mm_per_native_step": 3.2204711090096017
+        },
+        "followup": {
+          "frames": 50,
+          "range_halfopen": [
+            302,
+            352
+          ],
+          "action_xyz_norm_mean": 0.0056034899316728115,
+          "eef_movement_mean_mm_per_native_step": 0.06966666233779506
+        }
+      },
+      "first_on_control_step": 267,
+      "first_ten_gate_control_step": 302,
+      "followup_steps": 50,
+      "terminal60_all_four_gates": true,
+      "last50_bowl_drift_max_m": 0.0,
+      "max_target_lift_m": 0.1889156699180603,
+      "terminal_min_actual_gap_m": 0.07876375317573547,
+      "terminal_min_retreat_m": 0.1010960191488266,
+      "quality_gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      },
+      "visual_keyframes": "visual-keyframes.png",
+      "visual_findings": "Target bowl visibly moves from edited table position to lifted carry, then original plate; final keyframe shows bowl on plate with fingers open and end effector raised. Wrist camera partially occludes bowl during grasp/carry; strict named-target pose and physical gates supplement these sparse keyframes."
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/scene009-formal-v1",
+      "metadata_sha256": "a5e0ae623ff5eb7da1c92298dbcd9cc13e745d39641dc7a38b5f1ac6f5ff814e",
+      "strict_loader": "PASS",
+      "frames": 352,
+      "simulation_duration_s": 17.600000000000847,
+      "phases": {
+        "hover": {
+          "frames": 47,
+          "range_halfopen": [
+            0,
+            47
+          ],
+          "action_xyz_norm_mean": 0.6187024116516113,
+          "eef_movement_mean_mm_per_native_step": 8.06992062109899
+        },
+        "descend": {
+          "frames": 54,
+          "range_halfopen": [
+            47,
+            101
+          ],
+          "action_xyz_norm_mean": 0.19438791275024414,
+          "eef_movement_mean_mm_per_native_step": 2.5061403026079967
+        },
+        "close": {
+          "frames": 24,
+          "range_halfopen": [
+            101,
+            125
+          ],
+          "action_xyz_norm_mean": 0.015921546146273613,
+          "eef_movement_mean_mm_per_native_step": 0.09675529910661378
+        },
+        "lift": {
+          "frames": 35,
+          "range_halfopen": [
+            125,
+            160
+          ],
+          "action_xyz_norm_mean": 0.4267757833003998,
+          "eef_movement_mean_mm_per_native_step": 5.484759973894272
+        },
+        "carry": {
+          "frames": 33,
+          "range_halfopen": [
+            160,
+            193
+          ],
+          "action_xyz_norm_mean": 0.5212534070014954,
+          "eef_movement_mean_mm_per_native_step": 6.6731776124938875
+        },
+        "lower": {
+          "frames": 71,
+          "range_halfopen": [
+            193,
+            264
+          ],
+          "action_xyz_norm_mean": 0.17764291167259216,
+          "eef_movement_mean_mm_per_native_step": 2.2810649431743464
+        },
+        "release": {
+          "frames": 16,
+          "range_halfopen": [
+            264,
+            280
+          ],
+          "action_xyz_norm_mean": 0.005442504771053791,
+          "eef_movement_mean_mm_per_native_step": 0.08461428259920467
+        },
+        "retreat": {
+          "frames": 22,
+          "range_halfopen": [
+            280,
+            302
+          ],
+          "action_xyz_norm_mean": 0.25,
+          "eef_movement_mean_mm_per_native_step": 3.220703082413159
+        },
+        "followup": {
+          "frames": 50,
+          "range_halfopen": [
+            302,
+            352
+          ],
+          "action_xyz_norm_mean": 0.0055814506486058235,
+          "eef_movement_mean_mm_per_native_step": 0.06966739645577036
+        }
+      },
+      "first_on_control_step": 267,
+      "first_ten_gate_control_step": 302,
+      "followup_steps": 50,
+      "terminal60_all_four_gates": true,
+      "last50_bowl_drift_max_m": 0.0,
+      "max_target_lift_m": 0.1889699101448059,
+      "terminal_min_actual_gap_m": 0.07876372337341309,
+      "terminal_min_retreat_m": 0.10074694454669952,
+      "quality_gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      },
+      "visual_keyframes": "visual-keyframes.png",
+      "visual_findings": "Target bowl visibly moves from edited table position to lifted carry, then original plate; final keyframe shows bowl on plate with fingers open and end effector raised. Wrist camera partially occludes bowl during grasp/carry; strict named-target pose and physical gates supplement these sparse keyframes."
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/train-negpos-near-formal-v1",
+      "metadata_sha256": "f482faa94c5413f47730a6cbf9fc9a92172baa9ca24cf920b6c7818e6887c39f",
+      "strict_loader": "PASS",
+      "frames": 344,
+      "simulation_duration_s": 17.20000000000107,
+      "phases": {
+        "hover": {
+          "frames": 46,
+          "range_halfopen": [
+            0,
+            46
+          ],
+          "action_xyz_norm_mean": 0.6136310696601868,
+          "eef_movement_mean_mm_per_native_step": 7.9984135227277875
+        },
+        "descend": {
+          "frames": 55,
+          "range_halfopen": [
+            46,
+            101
+          ],
+          "action_xyz_norm_mean": 0.19305284321308136,
+          "eef_movement_mean_mm_per_native_step": 2.484235010871833
+        },
+        "close": {
+          "frames": 24,
+          "range_halfopen": [
+            101,
+            125
+          ],
+          "action_xyz_norm_mean": 0.01683562807738781,
+          "eef_movement_mean_mm_per_native_step": 0.07937422492432233
+        },
+        "lift": {
+          "frames": 35,
+          "range_halfopen": [
+            125,
+            160
+          ],
+          "action_xyz_norm_mean": 0.42579302191734314,
+          "eef_movement_mean_mm_per_native_step": 5.486112320795655
+        },
+        "carry": {
+          "frames": 26,
+          "range_halfopen": [
+            160,
+            186
+          ],
+          "action_xyz_norm_mean": 0.5091079473495483,
+          "eef_movement_mean_mm_per_native_step": 6.503995078114363
+        },
+        "lower": {
+          "frames": 70,
+          "range_halfopen": [
+            186,
+            256
+          ],
+          "action_xyz_norm_mean": 0.1779458224773407,
+          "eef_movement_mean_mm_per_native_step": 2.2930455610289107
+        },
+        "release": {
+          "frames": 16,
+          "range_halfopen": [
+            256,
+            272
+          ],
+          "action_xyz_norm_mean": 0.0059341019950807095,
+          "eef_movement_mean_mm_per_native_step": 0.09119322584183465
+        },
+        "retreat": {
+          "frames": 22,
+          "range_halfopen": [
+            272,
+            294
+          ],
+          "action_xyz_norm_mean": 0.25,
+          "eef_movement_mean_mm_per_native_step": 3.2204074668698013
+        },
+        "followup": {
+          "frames": 50,
+          "range_halfopen": [
+            294,
+            344
+          ],
+          "action_xyz_norm_mean": 0.005583626683801413,
+          "eef_movement_mean_mm_per_native_step": 0.06965328160731588
+        }
+      },
+      "first_on_control_step": 259,
+      "first_ten_gate_control_step": 294,
+      "followup_steps": 50,
+      "terminal60_all_four_gates": true,
+      "last50_bowl_drift_max_m": 0.0,
+      "max_target_lift_m": 0.18873673677444458,
+      "terminal_min_actual_gap_m": 0.07876375317573547,
+      "terminal_min_retreat_m": 0.10123258829116821,
+      "quality_gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      },
+      "visual_keyframes": "visual-keyframes.png",
+      "visual_findings": "Target bowl visibly moves from edited table position to lifted carry, then original plate; final keyframe shows bowl on plate with fingers open and end effector raised. Wrist camera partially occludes bowl during grasp/carry; strict named-target pose and physical gates supplement these sparse keyframes."
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/train-negpos-far-formal-v1",
+      "metadata_sha256": "0e438e6cf465a4c3bfea49b0830bcf9d46c78dc7928ab104c6919d3c2dd36133",
+      "strict_loader": "PASS",
+      "frames": 346,
+      "simulation_duration_s": 17.300000000001013,
+      "phases": {
+        "hover": {
+          "frames": 44,
+          "range_halfopen": [
+            0,
+            44
+          ],
+          "action_xyz_norm_mean": 0.6131615042686462,
+          "eef_movement_mean_mm_per_native_step": 8.016929649536245
+        },
+        "descend": {
+          "frames": 54,
+          "range_halfopen": [
+            44,
+            98
+          ],
+          "action_xyz_norm_mean": 0.19356095790863037,
+          "eef_movement_mean_mm_per_native_step": 2.496742749052053
+        },
+        "close": {
+          "frames": 24,
+          "range_halfopen": [
+            98,
+            122
+          ],
+          "action_xyz_norm_mean": 0.01515448559075594,
+          "eef_movement_mean_mm_per_native_step": 0.08850349149724934
+        },
+        "lift": {
+          "frames": 35,
+          "range_halfopen": [
+            122,
+            157
+          ],
+          "action_xyz_norm_mean": 0.426954448223114,
+          "eef_movement_mean_mm_per_native_step": 5.485628691634962
+        },
+        "carry": {
+          "frames": 29,
+          "range_halfopen": [
+            157,
+            186
+          ],
+          "action_xyz_norm_mean": 0.5136964917182922,
+          "eef_movement_mean_mm_per_native_step": 6.5391404586362425
+        },
+        "lower": {
+          "frames": 72,
+          "range_halfopen": [
+            186,
+            258
+          ],
+          "action_xyz_norm_mean": 0.17717033624649048,
+          "eef_movement_mean_mm_per_native_step": 2.2647182114370583
+        },
+        "release": {
+          "frames": 16,
+          "range_halfopen": [
+            258,
+            274
+          ],
+          "action_xyz_norm_mean": 0.004952411632984877,
+          "eef_movement_mean_mm_per_native_step": 0.07520705872821054
+        },
+        "retreat": {
+          "frames": 22,
+          "range_halfopen": [
+            274,
+            296
+          ],
+          "action_xyz_norm_mean": 0.25,
+          "eef_movement_mean_mm_per_native_step": 3.220809454267675
+        },
+        "followup": {
+          "frames": 50,
+          "range_halfopen": [
+            296,
+            346
+          ],
+          "action_xyz_norm_mean": 0.005595356225967407,
+          "eef_movement_mean_mm_per_native_step": 0.06967613208189505
+        }
+      },
+      "first_on_control_step": 261,
+      "first_ten_gate_control_step": 296,
+      "followup_steps": 50,
+      "terminal60_all_four_gates": true,
+      "last50_bowl_drift_max_m": 1.4901161193847656e-08,
+      "max_target_lift_m": 0.1887403130531311,
+      "terminal_min_actual_gap_m": 0.07876370847225189,
+      "terminal_min_retreat_m": 0.10035820305347443,
+      "quality_gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      },
+      "visual_keyframes": "visual-keyframes.png",
+      "visual_findings": "Target bowl visibly moves from edited table position to lifted carry, then original plate; final keyframe shows bowl on plate with fingers open and end effector raised. Wrist camera partially occludes bowl during grasp/carry; strict named-target pose and physical gates supplement these sparse keyframes."
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/user054-formal-v1",
+      "metadata_sha256": "7c501ea8968118e6ba2547771222437b772a4dc91d95ed59d05c8adcfd141d59",
+      "strict_loader": "PASS",
+      "frames": 331,
+      "simulation_duration_s": 16.55000000000143,
+      "phases": {
+        "hover": {
+          "frames": 33,
+          "range_halfopen": [
+            0,
+            33
+          ],
+          "action_xyz_norm_mean": 0.5945773124694824,
+          "eef_movement_mean_mm_per_native_step": 7.82657756159703
+        },
+        "descend": {
+          "frames": 53,
+          "range_halfopen": [
+            33,
+            86
+          ],
+          "action_xyz_norm_mean": 0.19403959810733795,
+          "eef_movement_mean_mm_per_native_step": 2.510294562012379
+        },
+        "close": {
+          "frames": 24,
+          "range_halfopen": [
+            86,
+            110
+          ],
+          "action_xyz_norm_mean": 0.015003216452896595,
+          "eef_movement_mean_mm_per_native_step": 0.09748936705970361
+        },
+        "lift": {
+          "frames": 35,
+          "range_halfopen": [
+            110,
+            145
+          ],
+          "action_xyz_norm_mean": 0.42732489109039307,
+          "eef_movement_mean_mm_per_native_step": 5.489590311689036
+        },
+        "carry": {
+          "frames": 21,
+          "range_halfopen": [
+            145,
+            166
+          ],
+          "action_xyz_norm_mean": 0.4900396764278412,
+          "eef_movement_mean_mm_per_native_step": 5.95064266096978
+        },
+        "lower": {
+          "frames": 76,
+          "range_halfopen": [
+            166,
+            242
+          ],
+          "action_xyz_norm_mean": 0.17667604982852936,
+          "eef_movement_mean_mm_per_native_step": 2.233022747340759
+        },
+        "release": {
+          "frames": 16,
+          "range_halfopen": [
+            242,
+            258
+          ],
+          "action_xyz_norm_mean": 0.004183273762464523,
+          "eef_movement_mean_mm_per_native_step": 0.061632608058914684
+        },
+        "retreat": {
+          "frames": 23,
+          "range_halfopen": [
+            258,
+            281
+          ],
+          "action_xyz_norm_mean": 0.25,
+          "eef_movement_mean_mm_per_native_step": 3.223662826475566
+        },
+        "followup": {
+          "frames": 50,
+          "range_halfopen": [
+            281,
+            331
+          ],
+          "action_xyz_norm_mean": 0.005584165919572115,
+          "eef_movement_mean_mm_per_native_step": 0.06958645283134501
+        }
+      },
+      "first_on_control_step": 245,
+      "first_ten_gate_control_step": 281,
+      "followup_steps": 50,
+      "terminal60_all_four_gates": true,
+      "last50_bowl_drift_max_m": 0.0,
+      "max_target_lift_m": 0.18785244226455688,
+      "terminal_min_actual_gap_m": 0.07881668210029602,
+      "terminal_min_retreat_m": 0.10257887095212936,
+      "quality_gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      },
+      "visual_keyframes": "visual-keyframes.png",
+      "visual_findings": "Target bowl visibly moves from edited table position to lifted carry, then original plate; final keyframe shows bowl on plate with fingers open and end effector raised. Wrist camera partially occludes bowl during grasp/carry; strict named-target pose and physical gates supplement these sparse keyframes."
+    },
+    {
+      "directory": ".local/negative-recovery-20261019/full-task-pilot/user055-formal-v1",
+      "metadata_sha256": "c39680ae4f63402b54861ae13d22ca5b28305704101eed5fbe283e8b51d93c6d",
+      "strict_loader": "PASS",
+      "frames": 330,
+      "simulation_duration_s": 16.500000000001457,
+      "phases": {
+        "hover": {
+          "frames": 30,
+          "range_halfopen": [
+            0,
+            30
+          ],
+          "action_xyz_norm_mean": 0.6040884852409363,
+          "eef_movement_mean_mm_per_native_step": 7.929847319610417
+        },
+        "descend": {
+          "frames": 53,
+          "range_halfopen": [
+            30,
+            83
+          ],
+          "action_xyz_norm_mean": 0.19381819665431976,
+          "eef_movement_mean_mm_per_native_step": 2.518076135530927
+        },
+        "close": {
+          "frames": 24,
+          "range_halfopen": [
+            83,
+            107
+          ],
+          "action_xyz_norm_mean": 0.013933089561760426,
+          "eef_movement_mean_mm_per_native_step": 0.09734719211943836
+        },
+        "lift": {
+          "frames": 35,
+          "range_halfopen": [
+            107,
+            142
+          ],
+          "action_xyz_norm_mean": 0.42797860503196716,
+          "eef_movement_mean_mm_per_native_step": 5.490119090037687
+        },
+        "carry": {
+          "frames": 23,
+          "range_halfopen": [
+            142,
+            165
+          ],
+          "action_xyz_norm_mean": 0.5033801794052124,
+          "eef_movement_mean_mm_per_native_step": 6.117030846602891
+        },
+        "lower": {
+          "frames": 76,
+          "range_halfopen": [
+            165,
+            241
+          ],
+          "action_xyz_norm_mean": 0.1770482063293457,
+          "eef_movement_mean_mm_per_native_step": 2.240763661623197
+        },
+        "release": {
+          "frames": 16,
+          "range_halfopen": [
+            241,
+            257
+          ],
+          "action_xyz_norm_mean": 0.004486216232180595,
+          "eef_movement_mean_mm_per_native_step": 0.06844090482616139
+        },
+        "retreat": {
+          "frames": 23,
+          "range_halfopen": [
+            257,
+            280
+          ],
+          "action_xyz_norm_mean": 0.25,
+          "eef_movement_mean_mm_per_native_step": 3.2235827428572206
+        },
+        "followup": {
+          "frames": 50,
+          "range_halfopen": [
+            280,
+            330
+          ],
+          "action_xyz_norm_mean": 0.0055792974308133125,
+          "eef_movement_mean_mm_per_native_step": 0.06957925538586096
+        }
+      },
+      "first_on_control_step": 244,
+      "first_ten_gate_control_step": 280,
+      "followup_steps": 50,
+      "terminal60_all_four_gates": true,
+      "last50_bowl_drift_max_m": 1.4901161193847656e-08,
+      "max_target_lift_m": 0.18806201219558716,
+      "terminal_min_actual_gap_m": 0.07881668210029602,
+      "terminal_min_retreat_m": 0.10276004672050476,
+      "quality_gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "source_code_sha256": {
+        "generate_retargeted_task_teacher.py": "2156483f2c344ef0732e9792e33a923b768fb8dbfe26c2368bd45b6a610fb36e",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16"
+      },
+      "visual_keyframes": "visual-keyframes.png",
+      "visual_findings": "Target bowl visibly moves from edited table position to lifted carry, then original plate; final keyframe shows bowl on plate with fingers open and end effector raised. Wrist camera partially occludes bowl during grasp/carry; strict named-target pose and physical gates supplement these sparse keyframes."
+    }
+  ]
+}

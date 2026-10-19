@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "seed": 42,
+  "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+  "dataset_manifest": "evidence/placement-teacher-negative_quadrants_v1-manifest.json",
+  "dataset_manifest_sha256": "221ba0ba93f1eced9b3f5808ba311a58703bc6ebe3d2d960d36993dd44512a0c",
+  "virtual_frames": 100000,
+  "groups": [
+    {
+      "name": "public_complete_demos",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 35000
+    },
+    {
+      "name": "all_approved_human",
+      "ranges": [
+        [
+          4400,
+          13521
+        ]
+      ],
+      "virtual_count": 25000
+    },
+    {
+      "name": "new_complete_negative_position_teachers",
+      "ranges": [
+        [
+          13521,
+          15576
+        ]
+      ],
+      "virtual_count": 30000
+    },
+    {
+      "name": "new_failed_holding_state_placement_teachers",
+      "ranges": [
+        [
+          15576,
+          16034
+        ]
+      ],
+      "virtual_count": 10000
+    }
+  ]
+}

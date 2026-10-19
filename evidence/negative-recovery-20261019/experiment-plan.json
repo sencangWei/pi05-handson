@@ -1,0 +1,119 @@
+{
+  "status": "DATA_VALIDATION_IN_PROGRESS",
+  "hypothesis": "Complete legal trajectories in missing negative-X positive-Y views and actual failure-state placement recoveries improve closed-loop placement; existing approved data retained.",
+  "arms": {
+    "control": "retrain_teacher_1x_20261019",
+    "candidate": "negative_quadrants_20261019"
+  },
+  "checkpoint_step": 1999,
+  "parent_checkpoint": "checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+  "training_seed": 42,
+  "new_updates": 2000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "optimizer": "fresh AdamW, LoRA only, not exact resume",
+  "action_horizon": 10,
+  "discrete_state_input": false,
+  "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+  "planned_sampling": {
+    "public": 0.35,
+    "all_approved_human": 0.25,
+    "new_complete_teachers": 0.3,
+    "new_holding_recovery_teachers": 0.1
+  },
+  "policy_seeds": [
+    0,
+    1
+  ],
+  "evaluation_cases": [
+    {
+      "case": "user008",
+      "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024",
+      "role": "training_position",
+      "max_steps": 800,
+      "scene_sha256": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+      "initial_state_file_sha256": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e"
+    },
+    {
+      "case": "user009",
+      "source_scene": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024",
+      "role": "training_position",
+      "max_steps": 800,
+      "scene_sha256": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+      "initial_state_file_sha256": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4"
+    },
+    {
+      "case": "user054",
+      "source_scene": ".local/position-study-v1/sources/user054_neg_neg",
+      "role": "training_position",
+      "max_steps": 800,
+      "scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "initial_state_file_sha256": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+    },
+    {
+      "case": "user055",
+      "source_scene": ".local/position-study-v1/sources/user055_neg_neg",
+      "role": "training_position",
+      "max_steps": 800,
+      "scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "initial_state_file_sha256": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+    },
+    {
+      "case": "zero",
+      "source_scene": ".local/position-study-v1/sources/zero",
+      "role": "development_control",
+      "max_steps": 800,
+      "scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "initial_state_file_sha256": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+    },
+    {
+      "case": "positive057",
+      "source_scene": ".local/position-study-v1/sources/user057_pos_pos",
+      "role": "development_control",
+      "max_steps": 800,
+      "scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "initial_state_file_sha256": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+    },
+    {
+      "case": "heldout_mid",
+      "source_scene": ".local/negative-recovery-20261019/scenes-v2/holdout_negpos_mid",
+      "role": "heldout_position",
+      "max_steps": 800,
+      "scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+      "initial_state_file_sha256": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005"
+    },
+    {
+      "case": "heldout_far",
+      "source_scene": ".local/negative-recovery-20261019/scenes-v2/holdout_negpos_far",
+      "role": "heldout_position",
+      "max_steps": 800,
+      "scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+      "initial_state_file_sha256": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8"
+    },
+    {
+      "case": "holding008",
+      "source_scene": ".local/negative-recovery-20261019/holding-scenes/holding008",
+      "role": "training_holding_state",
+      "max_steps": 800,
+      "scene_sha256": "9c1d08bfde6af7b22e78cbfa6042de799e70f9399d22bac713262c703ec0486c",
+      "initial_state_file_sha256": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe"
+    },
+    {
+      "case": "holding009",
+      "source_scene": ".local/negative-recovery-20261019/holding-scenes/holding009",
+      "role": "training_holding_state",
+      "max_steps": 800,
+      "scene_sha256": "7007c28acf217dea13c397b73d2b2c3aa441735ba3df3fe9ca5d9df268189254",
+      "initial_state_file_sha256": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b"
+    }
+  ],
+  "replan_steps": 1,
+  "post_release_steps": 50,
+  "success": "Recompute first10 consecutive On+open command+actual gap>=.06m+EEF-bowl>=.10m, then50 additional policy steps retaining all gates and bowl motion<=.005m.",
+  "promotion_rule": "Candidate must improve paired failed-position/holding completions, preserve both positive controls across seeds, and pass both held-out positions across seeds; otherwise keep candidate experimental.",
+  "limits": [
+    "Development positions that supplied teachers are not heldout generalization.",
+    "Only2 held-out positions,2 policy seeds,1 training seed; no benchmark or hardware claim.",
+    "Offline privileged teacher success is not learned policy success."
+  ]
+}

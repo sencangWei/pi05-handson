@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "plain_manifest_sha256": "221ba0ba93f1eced9b3f5808ba311a58703bc6ebe3d2d960d36993dd44512a0c",
+  "focused_manifest_sha256": "ce68f5a773c907575864e06f5b82ad231c576de73653b4382ee88c19de590829",
+  "train_episodes": 64,
+  "train_frames": 16034,
+  "public_episodes": 37,
+  "approved_human_sources": 17,
+  "reviewed_human_clips": 19,
+  "new_complete_teachers": 6,
+  "new_holding_recovery_teachers": 2,
+  "new_frames": 2513,
+  "holdout_episodes_excluded": 10,
+  "original_prefix_byte_identical": true,
+  "all_new_RGB_state_action_indices_recomputed": true,
+  "sampling": {
+    "profile": {
+      "path": "evidence/placement-sampling-negative_quadrants_v1-profile.json",
+      "sha256": "317f6584f60428aa89ff85d1526cf71db1c8dda5c76d0e12e34aad126ae9704b"
+    },
+    "base_manifest": "evidence/placement-teacher-negative_quadrants_v1-manifest.json",
+    "base_manifest_sha256": "221ba0ba93f1eced9b3f5808ba311a58703bc6ebe3d2d960d36993dd44512a0c",
+    "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+    "real_frames": 16034,
+    "virtual_frames": 100000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete_demos",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 35000,
+        "real_frames": 4400,
+        "probability": 0.35
+      },
+      {
+        "name": "all_approved_human",
+        "ranges": [
+          [
+            4400,
+            13521
+          ]
+        ],
+        "virtual_count": 25000,
+        "real_frames": 9121,
+        "probability": 0.25
+      },
+      {
+        "name": "new_complete_negative_position_teachers",
+        "ranges": [
+          [
+            13521,
+            15576
+          ]
+        ],
+        "virtual_count": 30000,
+        "real_frames": 2055,
+        "probability": 0.3
+      },
+      {
+        "name": "new_failed_holding_state_placement_teachers",
+        "ranges": [
+          [
+            15576,
+            16034
+          ]
+        ],
+        "virtual_count": 10000,
+        "real_frames": 458,
+        "probability": 0.1
+      }
+    ],
+    "sampling_indices_sha256": "9ad318bf5a381dee84432780f0dceeb8995c1675c49bb130eb7fccca07f8cd6b",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  }
+}

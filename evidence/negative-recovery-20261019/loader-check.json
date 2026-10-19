@@ -1,0 +1,398 @@
+{
+  "status": "PASS",
+  "method": "Native pinned OpenPI create_torch_dataset/transform_dataset with real Arrow RGB and frames; no weights/GPU/optimizer.",
+  "records": [
+    {
+      "source_kind": "placement_teacher_v1",
+      "repo_id": "course/libero_placement_teacher_negative_quadrants_v1",
+      "frames": 16034,
+      "samples": [
+        {
+          "index": 13521,
+          "episode": 56,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 13697,
+          "episode": 56,
+          "local_frame": 176,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 13863,
+          "episode": 56,
+          "local_frame": 342,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 13872,
+          "episode": 56,
+          "local_frame": 351,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 13873,
+          "episode": 57,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14049,
+          "episode": 57,
+          "local_frame": 176,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14215,
+          "episode": 57,
+          "local_frame": 342,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14224,
+          "episode": 57,
+          "local_frame": 351,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14225,
+          "episode": 58,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14397,
+          "episode": 58,
+          "local_frame": 172,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14559,
+          "episode": 58,
+          "local_frame": 334,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14568,
+          "episode": 58,
+          "local_frame": 343,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14569,
+          "episode": 59,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14742,
+          "episode": 59,
+          "local_frame": 173,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14905,
+          "episode": 59,
+          "local_frame": 336,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14914,
+          "episode": 59,
+          "local_frame": 345,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 14915,
+          "episode": 60,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15080,
+          "episode": 60,
+          "local_frame": 165,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15236,
+          "episode": 60,
+          "local_frame": 321,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15245,
+          "episode": 60,
+          "local_frame": 330,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15246,
+          "episode": 61,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15411,
+          "episode": 61,
+          "local_frame": 165,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15566,
+          "episode": 61,
+          "local_frame": 320,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15575,
+          "episode": 61,
+          "local_frame": 329,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15576,
+          "episode": 62,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15696,
+          "episode": 62,
+          "local_frame": 120,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15807,
+          "episode": 62,
+          "local_frame": 231,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15816,
+          "episode": 62,
+          "local_frame": 240,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15817,
+          "episode": 63,
+          "local_frame": 0,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 15925,
+          "episode": 63,
+          "local_frame": 108,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 16024,
+          "episode": 63,
+          "local_frame": 207,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        },
+        {
+          "index": 16033,
+          "episode": 63,
+          "local_frame": 216,
+          "ten_actions_exact": true,
+          "state_and_both_RGB_exact": true,
+          "model_action_shape": [
+            10,
+            32
+          ],
+          "used_prompt_tokens": 17
+        }
+      ],
+      "state_input": false
+    }
+  ]
+}

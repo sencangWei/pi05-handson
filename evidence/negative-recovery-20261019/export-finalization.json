@@ -1,0 +1,22 @@
+{
+  "reason": "Before training input freeze, include the successful geometry-reference files in the source inventory; dataset bytes unchanged.",
+  "draft_input_count": 13334,
+  "final_input_count": 13337,
+  "added_inputs": [
+    {
+      "path": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-006_init-024/scene.json",
+      "bytes": 1308,
+      "sha256": "c953754c39239672fa9da310b71db4478adebec685ce2fe0c6b6aacc40984f61"
+    },
+    {
+      "path": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-006_init-024/result.json",
+      "bytes": 2380,
+      "sha256": "a56270635fd6ef821076bd3cc314ff5714937f8e176386d4c7b1f283682e0508"
+    },
+    {
+      "path": "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-006_init-024/actions.csv",
+      "bytes": 161944,
+      "sha256": "e41c7f6ce2fc6b3f7b67209cf9b0a627eedf4f959fe4a8b562de9bf932c47d1e"
+    }
+  ]
+}

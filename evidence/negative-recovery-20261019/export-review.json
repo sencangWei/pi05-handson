@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "scope": "Bounded read-only placement teacher exporter and training wrapper review, including their tests. Only this review artifact was written; no source/data changes, simulation, inference, GPU or training.",
+  "reviewed_sha256": {
+    "scripts/prepare_placement_teacher.py": "634dc8bc4e4d9d3dc040fd61e2b7b54b42972fd55a761bee94c9384a268032f3",
+    "tests/test_placement_teacher_export.py": "fa5ee1726d45ca11cb1c5f92e0fb3b61d0a2cb1bdf4731c30a7d6439e5840362",
+    "scripts/train_placement_teacher.py": "3a7600b5470845ee4896b9e6f72b493d72a81c179141a71194eb3006cba829b2",
+    "tests/test_train_placement_teacher.py": "8b9118fb6f92421608bce5d1f16fc8dd2d68eb5b93210d9be38779d95a7661cf"
+  },
+  "must_fix": [],
+  "optional": [
+    {
+      "id": "declared_source_files",
+      "references": [
+        "scripts/prepare_placement_teacher.py:55",
+        "scripts/prepare_placement_teacher.py:96"
+      ],
+      "finding": "The exact scene and selected physical state are checked and pinned, which is sufficient for the current physical start. Producer-declared source_files hashes for original result.json/actions.csv are not validated or included by that declaration; pinning them would make the failure-history provenance as explicit as the physical-state provenance.",
+      "minimal_change": "If the source_files field is part of the agreed producer contract, validate those existing records and include them in inputs_for; no replay is needed."
+    }
+  ],
+  "verified_good": [
+    "Strict ready=True/status=validated/train and explicit non-human source_kind/human_actions_only=False/approval_type=None; the raw user_run_policy_rollout label is rejected.",
+    "Initial simulation state equals the named original final/initial.npy exactly and declared content SHA; task/scenario and layout24 are bound to source scene.",
+    "Current author update now requires actual producer plus tracking helper and simulation_lab code hashes and verifies all supplied hashes.",
+    "All supplied and source-kind-specific mandatory producer/helper/simulation code hashes checked against actual current scripts.",
+    "Full unchanged human/public base is validated with load_base; new dataset copy appends standalone episodes. Existing base parquet files are compared byte-for-byte, endpoints/statistics/inventory are verified by validate_export.",
+    "Shared frame_table encodes actual full dual RGB as PNG plus unchanged state/action and fresh per-episode/global indices; Arrow roundtrip and validate_export compare whole teacher tables. No stitching, thinning or label multiplication found.",
+    "Original carry teacher exporter is imported for existing shared helpers only; this review made no changes to it.",
+    "Independent fixture export now proves original56public/human episodes byte-for-byte unchanged, counts/metadata equal, and export validator rejects teacher action alteration even after its parquet manifest hash is updated. Standalone episode ids/reset frame indices/native future-window semantics remain supplied by the shared frame_table and existing OpenPI loader.",
+    "Fresh wrapper review and8CPU tests confirm base approval first, plain/focused export identity checks, metadata provenance, stateFalse/horizon10/seed42/fresh/nooverwrite contract and finally-restored sampling override."
+  ],
+  "validation": {
+    "real_scene008": {
+      "load_teacher": "PASS",
+      "frames": 241,
+      "first_ten_step_control_count": 191,
+      "followup_frames": 50,
+      "maximum_followup_bowl_drift_m": 3.541965440945205e-07
+    },
+    "real_scene009": {
+      "load_teacher": "PASS",
+      "frames": 217,
+      "first_ten_step_control_count": 167,
+      "followup_frames": 50,
+      "maximum_followup_bowl_drift_m": 1.4901161193847656e-08
+    },
+    "current_test_file": {
+      "command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_placement_teacher_export.py",
+      "result": "8 passed in4.69s",
+      "coverage": "Terminal60 release/On/open/clearance, discontinuity, bounded actions, failed raw-rollout source label and fake-human rejection, drift despite On, actual small export/validate_export, unchanged56base episodes+10holdouts, rehashed altered action rejected."
+    },
+    "fresh_negative_contract_checks": {
+      "missing_no_unexpected_deep_target_contact": "REJECTED quality gates",
+      "missing_actual_generator_hash": "REJECTED generator source hashes",
+      "method": "In-memory patched metadata read only; no source files changed."
+    },
+    "fresh_actual_teacher_loads_after_fix": {
+      "scene008-final-v1": "PASS241frames",
+      "scene009-final-v1": "PASS217frames"
+    }
+  },
+  "remaining_limits": [
+    "The full-task retargeted generator schema/output has not been independently run in this slice; root requires it to reuse the same terminal_gates eight-gate contract. Mandatory producer filename is source-kind-specific.",
+    "No actual full new dataset export or native OpenPI future10 loader was executed by this reviewer. A miniature real append export/Arrow equality test passed; independent real-data loader acceptance remains the parent-side CPU gate before training.",
+    "This review does not establish that a learned policy reproduces the teacher or improves recovery."
+  ],
+  "resolved_findings": [
+    {
+      "id": "quality_gate_schema",
+      "resolution": "REQUIRED_GATES now requires all eight current producer gate names and exact boolean True. In-memory omission of no_unexpected_deep_target_contact rejected by fresh load_teacher."
+    },
+    {
+      "id": "new_fixture_test_scope",
+      "resolution": "Fake-human rejection tail restored to its original test scope. Expanded placement test file passes8tests."
+    },
+    {
+      "id": "required_producer_hash_and_temporal_checks",
+      "resolution": "Source-kind-specific producer + tracking helper + simulation_lab hashes are mandatory; native20Hz physical duration, first-ten count with exactly50followup, independent last50 drift and terminal60 release are enforced."
+    }
+  ],
+  "timing_and_padding_note": "Last60actions are actual continuous On/open/retreat observations, including50followup and<=5mm bowl drift. Keeping all rows and independent episode boundaries means native horizon10 stays within the episode and any terminal padding repeats an open stable terminal action; no source/carry stitching was found.",
+  "training_wrapper_review": {
+    "status": "PASS_NO_MUST_FIX",
+    "references": {
+      "base_first": "scripts/train_placement_teacher.py:18",
+      "alias_and_dataset_identity": "scripts/train_placement_teacher.py:26",
+      "full_export_validation": "scripts/train_placement_teacher.py:37",
+      "metadata_provenance": "scripts/train_placement_teacher.py:49",
+      "state_horizon_seed_fresh_contract": "scripts/train_placement_teacher.py:77",
+      "exclusive_launch_record": "scripts/train_placement_teacher.py:93",
+      "sampling_finally_restore": "scripts/train_placement_teacher.py:106"
+    },
+    "findings": [
+      "Original approved human/public validation cannot be bypassed by a generated manifest. load_base pins the same fixed reviewed19 base.",
+      "Focused alias must equal its checksummed plain export, which must identify its filename-derived placement repo and dataset directory. Existing prepare_sampling preserves future10 windows by start remap.",
+      "Parent/repository/experiment defaults and normalization are reused through make_experiment/build_record; state remainsFalse, horizon10,seed42,fresh optimizer and no overwrite.",
+      "Full teacher metadata SHA and source provenance are stored, including original holdout exclusion identity.",
+      "Dry-run returns before launch record creation and trainer import. Actual launch uses exclusive file creation. Process-local loader override is restored even if trainer import or execution raises."
+    ],
+    "test_command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider tests/test_train_placement_teacher.py",
+    "test_result": "8 passed in0.02s",
+    "validation_limit": "Wrapper tests mock config/parent and actual trainer execution to remain CPU-only. They prove routing, contract refusal and cleanup, not model initialization or GPU training."
+  }
+}

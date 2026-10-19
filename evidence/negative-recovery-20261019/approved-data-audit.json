@@ -1,0 +1,4543 @@
+{
+  "status": "COMPLETE",
+  "method": "Read-only all17 approved source metadata and raw NPZ numeric fields, verifying every raw NPZ SHA and inventory; all19 retained parquet file hashes and exact state/action equality to selected raw slices. No RGB decoding or new visual classification, simulation, policy, training or configuration edits.",
+  "manifest": "evidence/corrections-public37_reviewed19_v4-manifest.json",
+  "manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+  "selection": "evidence/curation-batch14-reviewed-v4-selection.json",
+  "selection_sha256": "e420ccbc3a364c37a6d634956cf4bbe0e1bb07ab1a887b1f48014b7c2a9bfdd0",
+  "summary": {
+    "approved_sources": 17,
+    "selected_clips": 19,
+    "raw_source_frames": 10462,
+    "selected_human_frames": 9121,
+    "negative_dx_dy": {
+      "sources": 14,
+      "clips": 16,
+      "frames": 8471,
+      "unique_scenarios": 8,
+      "dy_all_negative": true,
+      "world_bowl_y_range": [
+        0.22074858682392712,
+        0.28861047607474144
+      ]
+    },
+    "positive_dx_dy": {
+      "sources": 3,
+      "clips": 3,
+      "frames": 650
+    },
+    "negative_dx_positive_dy_sources": 0,
+    "all_source_trials_executed_policy_before_takeover": true,
+    "all_raw_initial_states_match_saved_takeover_state": true,
+    "all_selected_parquet_state_action_exact_to_raw_slice": true,
+    "ordered_open_to_close_lift_transport_release_proxy_clip_count": 12,
+    "retained_translation_le_002_frames": 638,
+    "retained_zero_translation_frames": 625,
+    "retained_low_translation_fraction": 0.06994847056243833,
+    "retained_max_zero_arm_six_dof_run_frames": 20,
+    "prior_visual_phase_counts": {
+      "placement_release_only": 5,
+      "partial_lift_clearance": 1,
+      "partial_regrasp_lift": 1,
+      "continuous_rim_stall_open_lift_realign_regrasp_transport_place": 1,
+      "grasp_transport_place": 10,
+      "empty_gripper_open_regrasp_place": 1
+    },
+    "all_raw_sources_tail_approval_checks_pass": true,
+    "retained_placement_release_tail_checks_pass": true,
+    "actual_selected_negative_worldX_first_frame_clips": 14,
+    "actual_selected_negative_worldX_first_frame_worldY_range": [
+      0.22077777981758118,
+      0.32002493739128113
+    ],
+    "all_selected_negative_worldX_and_worldY_ge_035_frames": 0
+  },
+  "sources": [
+    {
+      "name": "human_1792298109792073701",
+      "source_directory": "corrections/human_1792298109792073701",
+      "metadata_sha256": "c6d0d8e04723338bd327513d7aac9831bfac849ff6e0e6bb521f3178e0e44720",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 805,
+      "scenario_key": "97a64170ec4d7751681311e1797f512342b5b6df09b733944f59e443b0343f24",
+      "layout_id": 0,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.024660179258320286,
+          0.2816564568671224,
+          0.8984038567263857
+        ],
+        "dx_m": -0.031797235023041465,
+        "dy_m": -0.016589861751152065
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_123330_1792298010869590151/scene-001_init-000",
+      "source_trial": {
+        "control_steps": 178,
+        "ever_On": true,
+        "final_On": true,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.3724482976008213,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.018693387508392334,
+            0.1465616226196289,
+            0.9305196404457092
+          ],
+          "bowl_xyz_after_first_action": [
+            0.04744793847203255,
+            0.175773024559021,
+            0.9165230989456177
+          ],
+          "finger_gap_m": 0.012652333825826645,
+          "first_action": [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.018119242219232,
+          "eef_bowl_distance_m": 0.043313201516866684
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 550,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.050310567021369934,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 400,
+        "arm_translation_le_002_frames": 400,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            550,
+            570
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            45,
+            425
+          ],
+          [
+            550,
+            570
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.077678918838501,
+          "median": 1.1396901607513428,
+          "max": 6.103982448577881
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 0,
+        "first_lift_closed_proxy_frame": 54,
+        "bowl_height_max_above_scene_m": 0.07584151270797101,
+        "bowl_xy_total_path_m": 0.49150195717811584,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            625,
+            805
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.025308221578598022
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792302165387076969",
+      "source_directory": "corrections/human_1792302165387076969",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 950,
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.0702822990739885,
+          0.27520484396389655,
+          0.8984038567263857
+        ],
+        "dx_m": -0.07741935483870968,
+        "dy_m": -0.02304147465437788
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_123330_1792298010869590151/scene-005_init-000",
+      "source_trial": {
+        "control_steps": 220,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "step_limit"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.4034701837226126,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.0065717208199203014,
+            0.2213744968175888,
+            0.9198536276817322
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.07193868607282639,
+            0.2821745276451111,
+            0.9167758226394653
+          ],
+          "finger_gap_m": 0.0017003389075398445,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.018371965913079658,
+          "eef_bowl_distance_m": 0.08932500332593918
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 430,
+            "command": "open"
+          },
+          {
+            "frame": 490,
+            "command": "close"
+          },
+          {
+            "frame": 845,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.07894738763570786,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 200,
+        "arm_translation_le_002_frames": 200,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            295,
+            360
+          ],
+          [
+            520,
+            615
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.2205642461776733,
+          "median": 1.187935471534729,
+          "max": 6.482016086578369
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 842,
+        "first_lift_closed_proxy_frame": 547,
+        "bowl_height_max_above_scene_m": 0.0968855881970152,
+        "bowl_xy_total_path_m": 0.41990363597869873,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 490,
+          "lift_proxy": 547,
+          "bowl_xy_displaced_5cm_after_lift": 585,
+          "full_release_gate_frame": 896
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            896,
+            950
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.018863201141357422
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792311079911388886",
+      "source_directory": "corrections/human_1792311079911388886",
+      "metadata_sha256": "8854b2899d86fd152cfa90bc56ad095814e606f4bb4f7a15a83d6e85f733fb72",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 585,
+      "scenario_key": "611f445c39edbf1a9a11612b20b382cb7030cd70aef7eaeb47c32e2c4b0d936b",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.049752488358093365,
+          0.28860310280285206,
+          0.8984038567263857
+        ],
+        "dx_m": -0.055299539170506916,
+        "dy_m": -0.015207373271889394
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_152628_1792308388078217247/scene-003_init-024",
+      "source_trial": {
+        "control_steps": 220,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "step_limit"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.4099615383773338,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.014583929441869259,
+            0.2620304822921753,
+            0.9276666641235352
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.05781395733356476,
+            0.28721511363983154,
+            0.8968932032585144
+          ],
+          "finger_gap_m": 0.07942481338977814,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": -0.0015106534678712702,
+          "eef_bowl_distance_m": 0.058737609535455704
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 140,
+            "command": "close"
+          },
+          {
+            "frame": 475,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.08205129206180573,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 105,
+        "arm_translation_le_002_frames": 105,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            565,
+            585
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            200,
+            255
+          ],
+          [
+            565,
+            585
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0788657665252686,
+          "median": 1.1910310983657837,
+          "max": 4.421097278594971
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 466,
+        "first_lift_closed_proxy_frame": 189,
+        "bowl_height_max_above_scene_m": 0.05001404526641218,
+        "bowl_xy_total_path_m": 0.32489636540412903,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 140,
+          "lift_proxy": 189,
+          "bowl_xy_displaced_5cm_after_lift": 304,
+          "full_release_gate_frame": 514
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            514,
+            585
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.01519697904586792
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792316444273677599",
+      "source_directory": "corrections/human_1792316444273677599",
+      "metadata_sha256": "04352c3687814b10143c2d57c84d83f50fcb9e18015d9d229fc7fc5c23f1fadb",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 796,
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04975294918758645,
+          0.28861047607474144,
+          0.8984038567263857
+        ],
+        "dx_m": -0.0553,
+        "dy_m": -0.0152
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-004_init-024",
+      "source_trial": {
+        "control_steps": 800,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "step_limit"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.34779146460154403,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.009816433303058147,
+            0.2116202861070633,
+            1.0069303512573242
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.056650057435035706,
+            0.2965722978115082,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.0775536522269249,
+          "first_action": [
+            0.0027255681343376637,
+            -0.012952910736203194,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.15301170945167542
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 314,
+            "command": "close"
+          },
+          {
+            "frame": 666,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09411588311195374,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 38,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0845855474472046,
+          "median": 1.1623128652572632,
+          "max": 1.3794209957122803
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 659,
+        "first_lift_closed_proxy_frame": 354,
+        "bowl_height_max_above_scene_m": 0.06439563277175275,
+        "bowl_xy_total_path_m": 0.3236654996871948,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 314,
+          "lift_proxy": 354,
+          "bowl_xy_displaced_5cm_after_lift": 429,
+          "full_release_gate_frame": 718
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            718,
+            796
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004464512690901756
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792316642061092080",
+      "source_directory": "corrections/human_1792316642061092080",
+      "metadata_sha256": "897cf43c30ed15bc3677b3c743f3f508cf1073b05b069f238d1d4cc621d722e9",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 681,
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04975294918758645,
+          0.28861047607474144,
+          0.8984038567263857
+        ],
+        "dx_m": -0.0553,
+        "dy_m": -0.0152
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-005_init-024",
+      "source_trial": {
+        "control_steps": 182,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.3513566169880392,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.022346291691064835,
+            0.21188916265964508,
+            1.0166652202606201
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.04975295066833496,
+            0.2886104881763458,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.001994004938751459,
+          "first_action": [
+            0.005106774624437094,
+            -0.011076154187321663,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.15833556652069092
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 67,
+            "command": "open"
+          },
+          {
+            "frame": 187,
+            "command": "close"
+          },
+          {
+            "frame": 526,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0934377983212471,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 44,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1549568176269531,
+          "median": 1.2638546228408813,
+          "max": 1.4640742540359497
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 508,
+        "first_lift_closed_proxy_frame": 230,
+        "bowl_height_max_above_scene_m": 0.11028542759826032,
+        "bowl_xy_total_path_m": 0.21066910028457642,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 187,
+          "lift_proxy": 230,
+          "bowl_xy_displaced_5cm_after_lift": 355,
+          "full_release_gate_frame": 587
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            587,
+            681
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.003930443897843361
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792316796553277838",
+      "source_directory": "corrections/human_1792316796553277838",
+      "metadata_sha256": "f9c7d7bcf0cc19f10b48b4e05cd818d0fd0e00a87456b67686e2da4bea7e0dff",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 665,
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04975294918758645,
+          0.28861047607474144,
+          0.8984038567263857
+        ],
+        "dx_m": -0.0553,
+        "dy_m": -0.0152
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-006_init-024",
+      "source_trial": {
+        "control_steps": 133,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.43796976286530115,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.009340583346784115,
+            0.27834486961364746,
+            0.917590320110321
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.08387386053800583,
+            0.32002493739128113,
+            0.9083117246627808
+          ],
+          "finger_gap_m": 0.07901832461357117,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.009907867936395087,
+          "eef_bowl_distance_m": 0.10252927243709564
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 195,
+            "command": "close"
+          },
+          {
+            "frame": 550,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09448651969432831,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 33,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.20085608959198,
+          "median": 1.2456269264221191,
+          "max": 2.2941324710845947
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 549,
+        "first_lift_closed_proxy_frame": 236,
+        "bowl_height_max_above_scene_m": 0.108298685578607,
+        "bowl_xy_total_path_m": 0.35189878940582275,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 195,
+          "lift_proxy": 236,
+          "bowl_xy_displaced_5cm_after_lift": 344,
+          "full_release_gate_frame": 572
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            572,
+            665
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.008440732955932617
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792316988593839967",
+      "source_directory": "corrections/human_1792316988593839967",
+      "metadata_sha256": "576c8d6781913ee2933dfe68469e5295ccaa366db2310d23ff2790f4eb16af1b",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 735,
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.0833780306208112,
+          0.2673283913841877,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08892508143322475,
+        "dy_m": -0.03648208469055375
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-009_init-024",
+      "source_trial": {
+        "control_steps": 159,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.41829616473733144,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.028117461130023003,
+            0.2708820402622223,
+            0.9135550856590271
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.12326568365097046,
+            0.28329604864120483,
+            0.9044818878173828
+          ],
+          "finger_gap_m": 0.07780852913856506,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.006078031090997138,
+          "eef_bowl_distance_m": 0.09638264775276184
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 265,
+            "command": "close"
+          },
+          {
+            "frame": 600,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0931972861289978,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 50,
+        "arm_translation_le_002_frames": 50,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            590,
+            610
+          ],
+          [
+            715,
+            735
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            590,
+            610
+          ],
+          [
+            715,
+            735
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.07863187789917,
+          "median": 1.1521532535552979,
+          "max": 1.2810077667236328
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 575,
+        "first_lift_closed_proxy_frame": 312,
+        "bowl_height_max_above_scene_m": 0.06611367705275861,
+        "bowl_xy_total_path_m": 0.2868839502334595,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 265,
+          "lift_proxy": 312,
+          "bowl_xy_displaced_5cm_after_lift": 396,
+          "full_release_gate_frame": 642
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            642,
+            735
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.002930058166384697
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792320596142609404",
+      "source_directory": "corrections/human_1792320596142609404",
+      "metadata_sha256": "de327fefcd630ff66479aa25cad0d1bc21392e730eb0294d0e5e6098f09398e7",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 625,
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.0833780306208112,
+          0.2673283913841877,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08892508143322475,
+        "dy_m": -0.03648208469055375
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-010_init-024",
+      "source_trial": {
+        "control_steps": 146,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.38540648035857106,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.017262082546949387,
+            0.2297438383102417,
+            0.9331617951393127
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.11412777751684189,
+            0.28350991010665894,
+            0.9049025774002075
+          ],
+          "finger_gap_m": 0.0021238599438220263,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.006498720673821845,
+          "eef_bowl_distance_m": 0.11433432251214981
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 155,
+            "command": "close"
+          },
+          {
+            "frame": 490,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09360001236200333,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 40,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1538324356079102,
+          "median": 1.1815874576568604,
+          "max": 2.4524388313293457
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 476,
+        "first_lift_closed_proxy_frame": 186,
+        "bowl_height_max_above_scene_m": 0.058363344697259345,
+        "bowl_xy_total_path_m": 0.2959822416305542,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 155,
+          "lift_proxy": 186,
+          "bowl_xy_displaced_5cm_after_lift": 247,
+          "full_release_gate_frame": 529
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            529,
+            625
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004253476858139038
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792320729171754480",
+      "source_directory": "corrections/human_1792320729171754480",
+      "metadata_sha256": "eb9072888be7080bac6274c250250638a5e2bd76f430799dae484128d32af0e8",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 810,
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09445294918758645,
+          0.23345216988581635,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.07035830618892508
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-011_init-024",
+      "source_trial": {
+        "control_steps": 120,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.4044000927875362,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.011124223470687866,
+            0.24844560027122498,
+            0.9256539940834045
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.09732402861118317,
+            0.233942911028862,
+            0.8984023928642273
+          ],
+          "finger_gap_m": 0.0029295345302671194,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": -1.4638621583795697e-06,
+          "eef_bowl_distance_m": 0.09156081825494766
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 270,
+            "command": "close"
+          },
+          {
+            "frame": 585,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09382718056440353,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 50,
+        "arm_translation_le_002_frames": 50,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            790,
+            810
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            790,
+            810
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0991175174713135,
+          "median": 1.160973072052002,
+          "max": 1.3575851917266846
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 558,
+        "first_lift_closed_proxy_frame": 335,
+        "bowl_height_max_above_scene_m": 0.05844863894393293,
+        "bowl_xy_total_path_m": 0.25382715463638306,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 270,
+          "lift_proxy": 335,
+          "bowl_xy_displaced_5cm_after_lift": 410,
+          "full_release_gate_frame": 626
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            626,
+            810
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004119357094168663
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792320881178092096",
+      "source_directory": "corrections/human_1792320881178092096",
+      "metadata_sha256": "bddc0d0a2b6b1a86895b4a657a83fb0991755e222427678a8b23ef915c7e6830",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 785,
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09445294918758645,
+          0.23345216988581635,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.07035830618892508
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-013_init-024",
+      "source_trial": {
+        "control_steps": 52,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.3711075330458571,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.03568701818585396,
+            0.22935056686401367,
+            1.0157665014266968
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.09445294737815857,
+            0.23345217108726501,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.07976354658603668,
+          "first_action": [
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.17529165744781494
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 260,
+            "command": "close"
+          },
+          {
+            "frame": 625,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09617835283279419,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 30,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.154809594154358,
+          "median": 1.1913996934890747,
+          "max": 2.4899635314941406
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 589,
+        "first_lift_closed_proxy_frame": 299,
+        "bowl_height_max_above_scene_m": 0.09086480381896345,
+        "bowl_xy_total_path_m": 0.2614360451698303,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 260,
+          "lift_proxy": 299,
+          "bowl_xy_displaced_5cm_after_lift": 397,
+          "full_release_gate_frame": 665
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            665,
+            785
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00436750054359436
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792321044770146509",
+      "source_directory": "corrections/human_1792321044770146509",
+      "metadata_sha256": "842b6b5d10f1b76ba1a90e4301065fa92e0a891af18c4884a3beee70a118a71a",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 650,
+      "scenario_key": "78a2565d1fb84021d470db2a166ad2557fa0e01fb91e5ac594897d92c82080c9",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09445294918758645,
+          0.22074858682392712,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.08306188925081433
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-014_init-024",
+      "source_trial": {
+        "control_steps": 78,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.4002119520542522,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.01276317611336708,
+            0.24049943685531616,
+            0.9234187006950378
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.09514371305704117,
+            0.22077777981758118,
+            0.8981943726539612
+          ],
+          "finger_gap_m": 0.02118033543229103,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": -0.00020948407242449285,
+          "eef_bowl_distance_m": 0.08838417381048203
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 205,
+            "command": "close"
+          },
+          {
+            "frame": 510,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0938461646437645,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 40,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0984306335449219,
+          "median": 1.1552356481552124,
+          "max": 1.374874234199524
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 476,
+        "first_lift_closed_proxy_frame": 253,
+        "bowl_height_max_above_scene_m": 0.05670597794463483,
+        "bowl_xy_total_path_m": 0.2424577921628952,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 205,
+          "lift_proxy": 253,
+          "bowl_xy_displaced_5cm_after_lift": 323,
+          "full_release_gate_frame": 555
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            555,
+            650
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.0047096870839595795
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792321327539756305",
+      "source_directory": "corrections/human_1792321327539756305",
+      "metadata_sha256": "ec005078b6952b4c598299759e9f70622179c801197ca452f9c1205ae4dacaea",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 545,
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04819887752634866,
+          0.23921764219851993,
+          0.8984038567263857
+        ],
+        "dx_m": -0.05374592833876221,
+        "dy_m": -0.0645928338762215
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-020_init-024",
+      "source_trial": {
+        "control_steps": 227,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.3615528882646957,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.014245593920350075,
+            0.22342436015605927,
+            0.9991855025291443
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.05737212300300598,
+            0.24341453611850739,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.0034209219738841057,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.12524212896823883
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 205,
+            "command": "close"
+          },
+          {
+            "frame": 425,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0926605612039566,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 40,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0965840816497803,
+          "median": 1.1817216873168945,
+          "max": 1.6033060550689697
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 418,
+        "first_lift_closed_proxy_frame": 241,
+        "bowl_height_max_above_scene_m": 0.03504678252150861,
+        "bowl_xy_total_path_m": 0.1863943338394165,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 205,
+          "lift_proxy": 241,
+          "bowl_xy_displaced_5cm_after_lift": 288,
+          "full_release_gate_frame": 477
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            477,
+            545
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00433293916285038
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792321449733577218",
+      "source_directory": "corrections/human_1792321449733577218",
+      "metadata_sha256": "e9804b6de7ad91103204043cfb09db86bbcd82999608af6d60f1c48db0adce92",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 600,
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04819887752634866,
+          0.23921764219851993,
+          0.8984038567263857
+        ],
+        "dx_m": -0.05374592833876221,
+        "dy_m": -0.0645928338762215
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-022_init-024",
+      "source_trial": {
+        "control_steps": 24,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.23486614795497804,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.03556390479207039,
+            0.16006647050380707,
+            1.1622865200042725
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.04837551712989807,
+            0.23931534588336945,
+            0.8984103798866272
+          ],
+          "finger_gap_m": 0.07920531183481216,
+          "first_action": [
+            0.0,
+            0.0,
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 6.523160241522774e-06,
+          "eef_bowl_distance_m": 0.27581721544265747
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 215,
+            "command": "close"
+          },
+          {
+            "frame": 450,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0950000137090683,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 30,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.2170963287353516,
+          "median": 1.2843742370605469,
+          "max": 6.219759464263916
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 439,
+        "first_lift_closed_proxy_frame": 257,
+        "bowl_height_max_above_scene_m": 0.0664363169949278,
+        "bowl_xy_total_path_m": 0.193639874458313,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 215,
+          "lift_proxy": 257,
+          "bowl_xy_displaced_5cm_after_lift": 329,
+          "full_release_gate_frame": 504
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            504,
+            600
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004180282354354858
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792321533232937641",
+      "source_directory": "corrections/human_1792321533232937641",
+      "metadata_sha256": "042e7a5bf2b6acf494f500872b1563e7efd6e29597dedbfb9124a43f2e7dd3f1",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 580,
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04819887752634866,
+          0.23921764219851993,
+          0.8984038567263857
+        ],
+        "dx_m": -0.05374592833876221,
+        "dy_m": -0.0645928338762215
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-023_init-024",
+      "source_trial": {
+        "control_steps": 69,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.40518644762933054,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.0024358651135116816,
+            0.2407667338848114,
+            0.9279562830924988
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.05201837047934532,
+            0.24170315265655518,
+            0.898544430732727
+          ],
+          "finger_gap_m": 0.0773538202047348,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.0001405740063413763,
+          "eef_bowl_distance_m": 0.0618966706097126
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 195,
+            "command": "close"
+          },
+          {
+            "frame": 450,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09482759982347488,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 30,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1674151420593262,
+          "median": 1.2507339715957642,
+          "max": 2.073277235031128
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 439,
+        "first_lift_closed_proxy_frame": 235,
+        "bowl_height_max_above_scene_m": 0.054779198197625556,
+        "bowl_xy_total_path_m": 0.21516737341880798,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 195,
+          "lift_proxy": 235,
+          "bowl_xy_displaced_5cm_after_lift": 300,
+          "full_release_gate_frame": 501
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            501,
+            580
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.0043020956218242645
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792321838302212936",
+      "source_directory": "corrections/human_1792321838302212936",
+      "metadata_sha256": "f2e46bc03a7e4b46eecfc4a14974dea5287b51e035c6e2f0484e8e46954cad6b",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 225,
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.10424411921632235,
+          0.33573230017897593,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0986970684039088,
+        "dy_m": 0.031921824104234525
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-030_init-024",
+      "source_trial": {
+        "control_steps": 153,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.382337094318422,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.04774777218699455,
+            0.15510836243629456,
+            0.9391692280769348
+          ],
+          "bowl_xyz_after_first_action": [
+            0.07722856104373932,
+            0.19277836382389069,
+            0.9075964093208313
+          ],
+          "finger_gap_m": 0.011092618107795715,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.009192552594445624,
+          "eef_bowl_distance_m": 0.05731482431292534
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 110,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09111113101243973,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.169588327407837,
+          "median": 1.3020603656768799,
+          "max": 2.377267599105835
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 102,
+        "first_lift_closed_proxy_frame": 24,
+        "bowl_height_max_above_scene_m": 0.04967620613982526,
+        "bowl_xy_total_path_m": 0.07309910655021667,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            162,
+            225
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00640732329338789
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792321887412888670",
+      "source_directory": "corrections/human_1792321887412888670",
+      "metadata_sha256": "0f030ee770076970aa52146318422ce3e4125cc28cf890666510f1942b8bd03c",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 205,
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.10424411921632235,
+          0.33573230017897593,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0986970684039088,
+        "dy_m": 0.031921824104234525
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-031_init-024",
+      "source_trial": {
+        "control_steps": 98,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.4080603869794315,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.11795302480459213,
+            0.17149370908737183,
+            1.0012656450271606
+          ],
+          "bowl_xyz_after_first_action": [
+            0.12958796322345734,
+            0.20710155367851257,
+            0.9513741135597229
+          ],
+          "finger_gap_m": 0.004425691440701485,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.052970256833337226,
+          "eef_bowl_distance_m": 0.062389545142650604
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 100,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09024392068386078,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1822288036346436,
+          "median": 1.2951951026916504,
+          "max": 2.6628541946411133
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 99,
+        "first_lift_closed_proxy_frame": 0,
+        "bowl_height_max_above_scene_m": 0.0633804464619383,
+        "bowl_xy_total_path_m": 0.08096537739038467,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            140,
+            205
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.002086542546749115
+      },
+      "hash_inventory_verified": true
+    },
+    {
+      "name": "human_1792322110720259274",
+      "source_directory": "corrections/human_1792322110720259274",
+      "metadata_sha256": "9a7e201239e5631aa519cacddb13a69a96831001cb273c94c9663673533a30f1",
+      "status": "approved",
+      "split": "train",
+      "raw_frames": 220,
+      "scenario_key": "e8aaa0e96edaa3b88d61f6efd0e7ba8b777aafa51ac6935e22d4fca70a31b6b0",
+      "layout_id": 24,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.10424411921632235,
+          0.4038104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": 0.0986970684039088,
+        "dy_m": 0.1
+      },
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261018_172125_1792315285667491937/scene-034_init-024",
+      "source_trial": {
+        "control_steps": 108,
+        "ever_On": false,
+        "final_On": false,
+        "stop_reason": "human_takeover"
+      },
+      "raw_initial_sim_state_matches_source_trial_final": true,
+      "raw_initial_state_sha_matches_metadata": true,
+      "distance_raw_first_eef_to_source_home_m": 0.4060750576456331,
+      "raw_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.11853709816932678,
+            0.16851049661636353,
+            1.0040934085845947
+          ],
+          "bowl_xyz_after_first_action": [
+            0.12494204938411713,
+            0.2081259787082672,
+            0.950792670249939
+          ],
+          "finger_gap_m": 0.004755785688757896,
+          "first_action": [
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.05238881352355329,
+          "eef_bowl_distance_m": 0.06671865284442902
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 125,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09090910851955414,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1766656637191772,
+          "median": 1.315064549446106,
+          "max": 2.8947861194610596
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 104,
+        "first_lift_closed_proxy_frame": 0,
+        "bowl_height_max_above_scene_m": 0.07187220099379865,
+        "bowl_xy_total_path_m": 0.08986717462539673,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            161,
+            220
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00468812882900238
+      },
+      "hash_inventory_verified": true
+    }
+  ],
+  "clips": [
+    {
+      "episode_index": 37,
+      "source": "human_1792298109792073701",
+      "source_directory": "corrections/human_1792298109792073701",
+      "range": [
+        425,
+        635
+      ],
+      "frames": 210,
+      "kind": "placement_release",
+      "selection_reason": "保留末段持碗靠近、下降、横向校准、松爪和撤离；排除早期绕行及完成后多余抬升。起点已持碗，仅标为放置与释放纠正。",
+      "scenario_key": "97a64170ec4d7751681311e1797f512342b5b6df09b733944f59e443b0343f24",
+      "layout_id": 0,
+      "dx_m": -0.031797235023041465,
+      "dy_m": -0.016589861751152065,
+      "world_bowl_xyz_at_original_scene": [
+        -0.024660179258320286,
+        0.2816564568671224,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "1cb5c6e0ea5191488d0d61b59e689683ec6468ab71d3c2d95753cf9882c722c7",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.05116088315844536,
+            0.22217774391174316,
+            0.9920223355293274
+          ],
+          "bowl_xyz_after_first_action": [
+            0.09476067870855331,
+            0.24201904237270355,
+            0.9740170836448669
+          ],
+          "finger_gap_m": 0.003968461882323027,
+          "first_action": [
+            0.0,
+            0.0,
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.07561322691848127,
+          "eef_bowl_distance_m": 0.05117429420351982
+        },
+        "gripper_transitions": [
+          {
+            "frame": 425,
+            "command": "close"
+          },
+          {
+            "frame": 550,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09047620743513107,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            550,
+            570
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            550,
+            570
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1565823554992676,
+          "median": 1.2826273441314697,
+          "max": 1.5130832195281982
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 548,
+        "first_lift_closed_proxy_frame": 425,
+        "bowl_height_max_above_scene_m": 0.07561322691848127,
+        "bowl_xy_total_path_m": 0.11155391484498978,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            625,
+            635
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004003763198852539,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            0.05844675749540329,
+            0.18935608863830566,
+            0.9062404632568359
+          ],
+          "max": [
+            0.0973200649023056,
+            0.24201904237270355,
+            0.9740170836448669
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "placement_release_only",
+      "prior_visual_evidence": "evidence/curation-batch14-reviewed-v4-selection.json",
+      "raw_prefix_excluded": [
+        0,
+        425
+      ],
+      "raw_suffix_excluded": [
+        635,
+        805
+      ]
+    },
+    {
+      "episode_index": 38,
+      "source": "human_1792302165387076969",
+      "source_directory": "corrections/human_1792302165387076969",
+      "range": [
+        0,
+        45
+      ],
+      "frames": 45,
+      "kind": "lift_clearance",
+      "selection_reason": "用户确认的抓取失败后抬起脱离；保留原始连续0–44帧，不与后续重抓跨间隔拼接。",
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "dx_m": -0.07741935483870968,
+      "dy_m": -0.02304147465437788,
+      "world_bowl_xyz_at_original_scene": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "98504d8665cb860ec356f7dd4b6a38a07d6175f5cefc33c68403a21caa3235e3",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.0065717208199203014,
+            0.2213744968175888,
+            0.9198536276817322
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.07193868607282639,
+            0.2821745276451111,
+            0.9167758226394653
+          ],
+          "finger_gap_m": 0.0017003389075398445,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.018371965913079658,
+          "eef_bowl_distance_m": 0.08932500332593918
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09999998658895493,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 0,
+        "arm_translation_le_002_frames": 0,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.2643959522247314,
+          "median": 1.2616581916809082,
+          "max": 1.388914704322815
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": null,
+        "first_lift_closed_proxy_frame": null,
+        "bowl_height_max_above_scene_m": 0.019236710099481025,
+        "bowl_xy_total_path_m": 0.00721751619130373,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [],
+        "tail_approval_checks": {
+          "passed": false,
+          "error": "Approval observation gates failed: task_done_last_ten, actual_fingers_open_last_ten, open_command_last_ten"
+        },
+        "state_post_to_next_pre_max_abs": 0.0012642145156860352,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.07639148086309433,
+            0.2821251153945923,
+            0.8989359140396118
+          ],
+          "max": [
+            -0.07187052071094513,
+            0.2864722013473511,
+            0.9176405668258667
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "partial_lift_clearance",
+      "prior_visual_evidence": "evidence/curation-batch14-reviewed-v4-selection.json",
+      "raw_suffix_excluded": [
+        45,
+        950
+      ]
+    },
+    {
+      "episode_index": 39,
+      "source": "human_1792302165387076969",
+      "source_directory": "corrections/human_1792302165387076969",
+      "range": [
+        430,
+        520
+      ],
+      "frames": 90,
+      "kind": "regrasp_lift",
+      "selection_reason": "用户确认的重新开爪、下探、闭爪和短距离提起；保留原始连续430–519帧，不以此宣称长期抓稳。",
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "dx_m": -0.07741935483870968,
+      "dy_m": -0.02304147465437788,
+      "world_bowl_xyz_at_original_scene": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "354d6253aec0f1d5446c5854a4b6883c1a597d5de1e1e578bc0e79c95034a9f0",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.07735072821378708,
+            0.2158866673707962,
+            0.9809490442276001
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.07613566517829895,
+            0.28638529777526855,
+            0.8988608717918396
+          ],
+          "finger_gap_m": 0.0009995661675930023,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.0004570150654539251,
+          "eef_bowl_distance_m": 0.10821276158094406
+        },
+        "gripper_transitions": [
+          {
+            "frame": 430,
+            "command": "open"
+          },
+          {
+            "frame": 490,
+            "command": "close"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.07777778059244156,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 0.9771229028701782,
+          "median": 1.1646485328674316,
+          "max": 1.5631959438323975
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": null,
+        "first_lift_closed_proxy_frame": null,
+        "bowl_height_max_above_scene_m": 0.02585819008757917,
+        "bowl_xy_total_path_m": 0.02264903299510479,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [],
+        "tail_approval_checks": {
+          "passed": false,
+          "error": "Approval observation gates failed: task_done_last_ten, actual_fingers_open_last_ten, open_command_last_ten, eef_clear_of_bowl"
+        },
+        "state_post_to_next_pre_max_abs": 0.0039305295795202255,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.07614562660455704,
+            0.27625200152397156,
+            0.8988510370254517
+          ],
+          "max": [
+            -0.06535903364419937,
+            0.2867058217525482,
+            0.9242620468139648
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "partial_regrasp_lift",
+      "prior_visual_evidence": "evidence/curation-batch14-reviewed-v4-selection.json",
+      "raw_prefix_excluded": [
+        0,
+        430
+      ],
+      "raw_suffix_excluded": [
+        520,
+        950
+      ]
+    },
+    {
+      "episode_index": 40,
+      "source": "human_1792302165387076969",
+      "source_directory": "corrections/human_1792302165387076969",
+      "range": [
+        770,
+        906
+      ],
+      "frames": 136,
+      "kind": "placement_release",
+      "selection_reason": "保留最后一次横向对准、下降放置、开夹和撤离；排除空夹绕行、姿态反复试探和完成后多余抬升。起点已持碗，不是重抓恢复示范。",
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "dx_m": -0.07741935483870968,
+      "dy_m": -0.02304147465437788,
+      "world_bowl_xyz_at_original_scene": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "1ab61530630a477ac7de843372011c1a7f2e71abe6f868016cb14bda0f8f1ed6",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.08574628084897995,
+            0.13849978148937225,
+            0.9993695020675659
+          ],
+          "bowl_xyz_after_first_action": [
+            0.09945604205131531,
+            0.18824753165245056,
+            0.9677316546440125
+          ],
+          "finger_gap_m": 0.004907464142888784,
+          "first_action": [
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.06932779791762678,
+          "eef_bowl_distance_m": 0.060528915375471115
+        },
+        "gripper_transitions": [
+          {
+            "frame": 770,
+            "command": "close"
+          },
+          {
+            "frame": 845,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09264706820249557,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 10,
+        "arm_translation_le_002_frames": 10,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1184085607528687,
+          "median": 1.185369610786438,
+          "max": 1.3539025783538818
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 842,
+        "first_lift_closed_proxy_frame": 770,
+        "bowl_height_max_above_scene_m": 0.06953242066314069,
+        "bowl_xy_total_path_m": 0.03732718527317047,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            896,
+            906
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.0019604526460170746,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            0.06804469972848892,
+            0.18322652578353882,
+            0.906476616859436
+          ],
+          "max": [
+            0.09945604205131531,
+            0.18824753165245056,
+            0.9679362773895264
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "placement_release_only",
+      "prior_visual_evidence": "evidence/curation-batch14-reviewed-v4-selection.json",
+      "raw_prefix_excluded": [
+        0,
+        770
+      ],
+      "raw_suffix_excluded": [
+        906,
+        950
+      ]
+    },
+    {
+      "episode_index": 41,
+      "source": "human_1792311079911388886",
+      "source_directory": "corrections/human_1792311079911388886",
+      "range": [
+        0,
+        585
+      ],
+      "frames": 585,
+      "kind": "placement_release",
+      "selection_reason": "保留本次卡碗沿现场到开爪、抬离、横移重新对准、下探重抓、持碗搬运、放置松爪撤手及保持的完整585步。不中途剪断；placement_release仅表示末尾放置门检查，不表示只保留放置片段；原有四段及原始录制保留。",
+      "scenario_key": "611f445c39edbf1a9a11612b20b382cb7030cd70aef7eaeb47c32e2c4b0d936b",
+      "layout_id": 24,
+      "dx_m": -0.055299539170506916,
+      "dy_m": -0.015207373271889394,
+      "world_bowl_xyz_at_original_scene": [
+        -0.049752488358093365,
+        0.28860310280285206,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "988c38404461e52273512fae30ca36f879a477c3a8a4438c9705116863223635",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.014583929441869259,
+            0.2620304822921753,
+            0.9276666641235352
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.05781395733356476,
+            0.28721511363983154,
+            0.8968932032585144
+          ],
+          "finger_gap_m": 0.07942481338977814,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": -0.0015106534678712702,
+          "eef_bowl_distance_m": 0.058737609535455704
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 140,
+            "command": "close"
+          },
+          {
+            "frame": 475,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.08205129206180573,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 105,
+        "arm_translation_le_002_frames": 105,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            565,
+            585
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            200,
+            255
+          ],
+          [
+            565,
+            585
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0788657665252686,
+          "median": 1.1910310983657837,
+          "max": 4.421097278594971
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 466,
+        "first_lift_closed_proxy_frame": 189,
+        "bowl_height_max_above_scene_m": 0.05001404526641218,
+        "bowl_xy_total_path_m": 0.32489636540412903,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 140,
+          "lift_proxy": 189,
+          "bowl_xy_displaced_5cm_after_lift": 304,
+          "full_release_gate_frame": 514
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            514,
+            585
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.01519697904586792,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.058612968772649765,
+            0.1915300041437149,
+            0.8968932032585144
+          ],
+          "max": [
+            0.07038131356239319,
+            0.2928854823112488,
+            0.9484179019927979
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "continuous_rim_stall_open_lift_realign_regrasp_transport_place",
+      "prior_visual_evidence": "evidence/curation-batch14-reviewed-v4-selection.json"
+    },
+    {
+      "episode_index": 42,
+      "source": "human_1792316444273677599",
+      "source_directory": "corrections/human_1792316444273677599",
+      "range": [
+        0,
+        796
+      ],
+      "frames": 796,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "dx_m": -0.0553,
+      "dy_m": -0.0152,
+      "world_bowl_xyz_at_original_scene": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "fb1e2351b1ceba95a79edf16875e976d17f24be52a663c5cceab135297392629",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.009816433303058147,
+            0.2116202861070633,
+            1.0069303512573242
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.056650057435035706,
+            0.2965722978115082,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.0775536522269249,
+          "first_action": [
+            0.0027255681343376637,
+            -0.012952910736203194,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.15301170945167542
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 314,
+            "command": "close"
+          },
+          {
+            "frame": 666,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09411588311195374,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 38,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0845855474472046,
+          "median": 1.1623128652572632,
+          "max": 1.3794209957122803
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 659,
+        "first_lift_closed_proxy_frame": 354,
+        "bowl_height_max_above_scene_m": 0.06439563277175275,
+        "bowl_xy_total_path_m": 0.3236654996871948,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 314,
+          "lift_proxy": 354,
+          "bowl_xy_displaced_5cm_after_lift": 429,
+          "full_release_gate_frame": 718
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            718,
+            796
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004464512690901756,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.06927897781133652,
+            0.1810293346643448,
+            0.8975789546966553
+          ],
+          "max": [
+            0.08724778890609741,
+            0.3198132812976837,
+            0.9627994894981384
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 43,
+      "source": "human_1792316642061092080",
+      "source_directory": "corrections/human_1792316642061092080",
+      "range": [
+        67,
+        681
+      ],
+      "frames": 614,
+      "kind": "placement_release",
+      "selection_reason": "排除开头[0,67)闭爪空抓仍横移的操作，从第67帧开爪重新抓取起连续保留至松爪撤手；原件不改，不跨间隔拼接。",
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "dx_m": -0.0553,
+      "dy_m": -0.0152,
+      "world_bowl_xyz_at_original_scene": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "4089d9c0b8732c5d4385f9aff64a7b7af48b58428200c9012c4dd1fdf0e8541c",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.051457978785037994,
+            0.20883364975452423,
+            1.0251988172531128
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.04975295066833496,
+            0.2886104881763458,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.0009995974833145738,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.1498136967420578
+        },
+        "gripper_transitions": [
+          {
+            "frame": 67,
+            "command": "open"
+          },
+          {
+            "frame": 187,
+            "command": "close"
+          },
+          {
+            "frame": 526,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09307130426168442,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 42,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.157889485359192,
+          "median": 1.2668430805206299,
+          "max": 1.4640742540359497
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 508,
+        "first_lift_closed_proxy_frame": 230,
+        "bowl_height_max_above_scene_m": 0.11028542759826032,
+        "bowl_xy_total_path_m": 0.21066910028457642,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 187,
+          "lift_proxy": 230,
+          "bowl_xy_displaced_5cm_after_lift": 355,
+          "full_release_gate_frame": 587
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            587,
+            681
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.003930443897843361,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.05191865935921669,
+            0.19549907743930817,
+            0.8979403972625732
+          ],
+          "max": [
+            0.06615608930587769,
+            0.28932633996009827,
+            1.008689284324646
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "empty_gripper_open_regrasp_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json",
+      "raw_prefix_excluded": [
+        0,
+        67
+      ]
+    },
+    {
+      "episode_index": 44,
+      "source": "human_1792316796553277838",
+      "source_directory": "corrections/human_1792316796553277838",
+      "range": [
+        0,
+        665
+      ],
+      "frames": 665,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "dx_m": -0.0553,
+      "dy_m": -0.0152,
+      "world_bowl_xyz_at_original_scene": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "c24611ad91d83f3045c741213e4ed02b2347fbdc008317dbf6ffd8b4ab4fd0bd",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.009340583346784115,
+            0.27834486961364746,
+            0.917590320110321
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.08387386053800583,
+            0.32002493739128113,
+            0.9083117246627808
+          ],
+          "finger_gap_m": 0.07901832461357117,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.009907867936395087,
+          "eef_bowl_distance_m": 0.10252927243709564
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 195,
+            "command": "close"
+          },
+          {
+            "frame": 550,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09448651969432831,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 33,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.20085608959198,
+          "median": 1.2456269264221191,
+          "max": 2.2941324710845947
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 549,
+        "first_lift_closed_proxy_frame": 236,
+        "bowl_height_max_above_scene_m": 0.108298685578607,
+        "bowl_xy_total_path_m": 0.35189878940582275,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 195,
+          "lift_proxy": 236,
+          "bowl_xy_displaced_5cm_after_lift": 344,
+          "full_release_gate_frame": 572
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            572,
+            665
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.008440732955932617,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.09534899145364761,
+            0.18506263196468353,
+            0.9059838652610779
+          ],
+          "max": [
+            0.055873990058898926,
+            0.3463100492954254,
+            1.0067025423049927
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 45,
+      "source": "human_1792316988593839967",
+      "source_directory": "corrections/human_1792316988593839967",
+      "range": [
+        0,
+        735
+      ],
+      "frames": 735,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "dx_m": -0.08892508143322475,
+      "dy_m": -0.03648208469055375,
+      "world_bowl_xyz_at_original_scene": [
+        -0.0833780306208112,
+        0.2673283913841877,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "aa0f3f4bb55fca17721abe2d1015a18dcde4ee4c091bde007b9faf705fed1d13",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.028117461130023003,
+            0.2708820402622223,
+            0.9135550856590271
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.12326568365097046,
+            0.28329604864120483,
+            0.9044818878173828
+          ],
+          "finger_gap_m": 0.07780852913856506,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.006078031090997138,
+          "eef_bowl_distance_m": 0.09638264775276184
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 265,
+            "command": "close"
+          },
+          {
+            "frame": 600,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0931972861289978,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 50,
+        "arm_translation_le_002_frames": 50,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            590,
+            610
+          ],
+          [
+            715,
+            735
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            590,
+            610
+          ],
+          [
+            715,
+            735
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.07863187789917,
+          "median": 1.1521532535552979,
+          "max": 1.2810077667236328
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 575,
+        "first_lift_closed_proxy_frame": 312,
+        "bowl_height_max_above_scene_m": 0.06611367705275861,
+        "bowl_xy_total_path_m": 0.2868839502334595,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 265,
+          "lift_proxy": 312,
+          "bowl_xy_displaced_5cm_after_lift": 396,
+          "full_release_gate_frame": 642
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            642,
+            735
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.002930058166384697,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.12378136813640594,
+            0.18858148157596588,
+            0.9038812518119812
+          ],
+          "max": [
+            0.044075123965740204,
+            0.28570443391799927,
+            0.9645175337791443
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 46,
+      "source": "human_1792320596142609404",
+      "source_directory": "corrections/human_1792320596142609404",
+      "range": [
+        0,
+        625
+      ],
+      "frames": 625,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "dx_m": -0.08892508143322475,
+      "dy_m": -0.03648208469055375,
+      "world_bowl_xyz_at_original_scene": [
+        -0.0833780306208112,
+        0.2673283913841877,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "f36d7771907782657cb0a95cd6931398012d0519120ffa7ffb96e99ee1afb37c",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.017262082546949387,
+            0.2297438383102417,
+            0.9331617951393127
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.11412777751684189,
+            0.28350991010665894,
+            0.9049025774002075
+          ],
+          "finger_gap_m": 0.0021238599438220263,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.006498720673821845,
+          "eef_bowl_distance_m": 0.11433432251214981
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 155,
+            "command": "close"
+          },
+          {
+            "frame": 490,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09360001236200333,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 40,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1538324356079102,
+          "median": 1.1815874576568604,
+          "max": 2.4524388313293457
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 476,
+        "first_lift_closed_proxy_frame": 186,
+        "bowl_height_max_above_scene_m": 0.058363344697259345,
+        "bowl_xy_total_path_m": 0.2959822416305542,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 155,
+          "lift_proxy": 186,
+          "bowl_xy_displaced_5cm_after_lift": 247,
+          "full_release_gate_frame": 529
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            529,
+            625
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004253476858139038,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.11412777751684189,
+            0.17870140075683594,
+            0.9029595255851746
+          ],
+          "max": [
+            0.05467229336500168,
+            0.28559795022010803,
+            0.956767201423645
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 47,
+      "source": "human_1792320729171754480",
+      "source_directory": "corrections/human_1792320729171754480",
+      "range": [
+        0,
+        810
+      ],
+      "frames": 810,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "dx_m": -0.1,
+      "dy_m": -0.07035830618892508,
+      "world_bowl_xyz_at_original_scene": [
+        -0.09445294918758645,
+        0.23345216988581635,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "b5aed4b42eeb8fc5eadb4a948bef92f813c0654962b86e9a5fc09003c98c79c1",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.011124223470687866,
+            0.24844560027122498,
+            0.9256539940834045
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.09732402861118317,
+            0.233942911028862,
+            0.8984023928642273
+          ],
+          "finger_gap_m": 0.0029295345302671194,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": -1.4638621583795697e-06,
+          "eef_bowl_distance_m": 0.09156081825494766
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 270,
+            "command": "close"
+          },
+          {
+            "frame": 585,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09382718056440353,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 50,
+        "arm_translation_le_002_frames": 50,
+        "zero_arm_six_dof_ranges_ge20_frames": [
+          [
+            790,
+            810
+          ]
+        ],
+        "translation_le_002_ranges_ge20_frames": [
+          [
+            790,
+            810
+          ]
+        ],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0991175174713135,
+          "median": 1.160973072052002,
+          "max": 1.3575851917266846
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 558,
+        "first_lift_closed_proxy_frame": 335,
+        "bowl_height_max_above_scene_m": 0.05844863894393293,
+        "bowl_xy_total_path_m": 0.25382715463638306,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 270,
+          "lift_proxy": 335,
+          "bowl_xy_displaced_5cm_after_lift": 410,
+          "full_release_gate_frame": 626
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            626,
+            810
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004119357094168663,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.09735792130231857,
+            0.19238358736038208,
+            0.8974894285202026
+          ],
+          "max": [
+            0.06564311683177948,
+            0.2512029707431793,
+            0.9568524956703186
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 48,
+      "source": "human_1792320881178092096",
+      "source_directory": "corrections/human_1792320881178092096",
+      "range": [
+        0,
+        785
+      ],
+      "frames": 785,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "dx_m": -0.1,
+      "dy_m": -0.07035830618892508,
+      "world_bowl_xyz_at_original_scene": [
+        -0.09445294918758645,
+        0.23345216988581635,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "b3e0b99e51883f15cb1df31f23287146b27654ac95554a0afbab8b7070415a17",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.03568701818585396,
+            0.22935056686401367,
+            1.0157665014266968
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.09445294737815857,
+            0.23345217108726501,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.07976354658603668,
+          "first_action": [
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.17529165744781494
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 260,
+            "command": "close"
+          },
+          {
+            "frame": 625,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09617835283279419,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 30,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.154809594154358,
+          "median": 1.1913996934890747,
+          "max": 2.4899635314941406
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 589,
+        "first_lift_closed_proxy_frame": 299,
+        "bowl_height_max_above_scene_m": 0.09086480381896345,
+        "bowl_xy_total_path_m": 0.2614360451698303,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 260,
+          "lift_proxy": 299,
+          "bowl_xy_displaced_5cm_after_lift": 397,
+          "full_release_gate_frame": 665
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            665,
+            785
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00436750054359436,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.10158075392246246,
+            0.18557138741016388,
+            0.8976614475250244
+          ],
+          "max": [
+            0.07244685292243958,
+            0.24988695979118347,
+            0.9892686605453491
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 49,
+      "source": "human_1792321044770146509",
+      "source_directory": "corrections/human_1792321044770146509",
+      "range": [
+        0,
+        650
+      ],
+      "frames": 650,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。 [478,510)有缓慢接触下探，原位碗高度仍下降约5.2mm后开爪，保留作接触放置；不称为理想快速释放或卡沿恢复。",
+      "scenario_key": "78a2565d1fb84021d470db2a166ad2557fa0e01fb91e5ac594897d92c82080c9",
+      "layout_id": 24,
+      "dx_m": -0.1,
+      "dy_m": -0.08306188925081433,
+      "world_bowl_xyz_at_original_scene": [
+        -0.09445294918758645,
+        0.22074858682392712,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "8ba3ce4c64a588967c65b26d83570fee3b2c18de5060070712f5b83cde3bb1df",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.01276317611336708,
+            0.24049943685531616,
+            0.9234187006950378
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.09514371305704117,
+            0.22077777981758118,
+            0.8981943726539612
+          ],
+          "finger_gap_m": 0.02118033543229103,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": -0.00020948407242449285,
+          "eef_bowl_distance_m": 0.08838417381048203
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 205,
+            "command": "close"
+          },
+          {
+            "frame": 510,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0938461646437645,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 40,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0984306335449219,
+          "median": 1.1552356481552124,
+          "max": 1.374874234199524
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 476,
+        "first_lift_closed_proxy_frame": 253,
+        "bowl_height_max_above_scene_m": 0.05670597794463483,
+        "bowl_xy_total_path_m": 0.2424577921628952,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 205,
+          "lift_proxy": 253,
+          "bowl_xy_displaced_5cm_after_lift": 323,
+          "full_release_gate_frame": 555
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            555,
+            650
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.0047096870839595795,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.1085512712597847,
+            0.18966415524482727,
+            0.8981589078903198
+          ],
+          "max": [
+            0.06011158972978592,
+            0.2370195835828781,
+            0.9551098346710205
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": "Slow closed-gripper placement contact [478,510); On alone is not full release; retain context without increasing its sampling weight.",
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 50,
+      "source": "human_1792321327539756305",
+      "source_directory": "corrections/human_1792321327539756305",
+      "range": [
+        0,
+        545
+      ],
+      "frames": 545,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "dx_m": -0.05374592833876221,
+      "dy_m": -0.0645928338762215,
+      "world_bowl_xyz_at_original_scene": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "484fd3ea750fe743e1f14a73997f922d9a4993f963ee63421f91eed000b02d90",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.014245593920350075,
+            0.22342436015605927,
+            0.9991855025291443
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.05737212300300598,
+            0.24341453611850739,
+            0.8984041213989258
+          ],
+          "finger_gap_m": 0.0034209219738841057,
+          "first_action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 2.6467254010675845e-07,
+          "eef_bowl_distance_m": 0.12524212896823883
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 205,
+            "command": "close"
+          },
+          {
+            "frame": 425,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0926605612039566,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 40,
+        "arm_translation_le_002_frames": 40,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.0965840816497803,
+          "median": 1.1817216873168945,
+          "max": 1.6033060550689697
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 418,
+        "first_lift_closed_proxy_frame": 241,
+        "bowl_height_max_above_scene_m": 0.03504678252150861,
+        "bowl_xy_total_path_m": 0.1863943338394165,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 205,
+          "lift_proxy": 241,
+          "bowl_xy_displaced_5cm_after_lift": 288,
+          "full_release_gate_frame": 477
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            477,
+            545
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00433293916285038,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.05791524797677994,
+            0.17733612656593323,
+            0.8973138332366943
+          ],
+          "max": [
+            0.05650901794433594,
+            0.24419943988323212,
+            0.9334506392478943
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 51,
+      "source": "human_1792321449733577218",
+      "source_directory": "corrections/human_1792321449733577218",
+      "range": [
+        0,
+        600
+      ],
+      "frames": 600,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "dx_m": -0.05374592833876221,
+      "dy_m": -0.0645928338762215,
+      "world_bowl_xyz_at_original_scene": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "6aaf7d70d9d1ec7ed4a432713c604224d6977d3e6fe15150349ef69705b5484a",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            -0.03556390479207039,
+            0.16006647050380707,
+            1.1622865200042725
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.04837551712989807,
+            0.23931534588336945,
+            0.8984103798866272
+          ],
+          "finger_gap_m": 0.07920531183481216,
+          "first_action": [
+            0.0,
+            0.0,
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 6.523160241522774e-06,
+          "eef_bowl_distance_m": 0.27581721544265747
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 215,
+            "command": "close"
+          },
+          {
+            "frame": 450,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.0950000137090683,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 30,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.2170963287353516,
+          "median": 1.2843742370605469,
+          "max": 6.219759464263916
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 439,
+        "first_lift_closed_proxy_frame": 257,
+        "bowl_height_max_above_scene_m": 0.0664363169949278,
+        "bowl_xy_total_path_m": 0.193639874458313,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 215,
+          "lift_proxy": 257,
+          "bowl_xy_displaced_5cm_after_lift": 329,
+          "full_release_gate_frame": 504
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            504,
+            600
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.004180282354354858,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.05192092806100845,
+            0.18269014358520508,
+            0.8984043002128601
+          ],
+          "max": [
+            0.081215038895607,
+            0.23932160437107086,
+            0.9648401737213135
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 52,
+      "source": "human_1792321533232937641",
+      "source_directory": "corrections/human_1792321533232937641",
+      "range": [
+        0,
+        580
+      ],
+      "frames": 580,
+      "kind": "placement_release",
+      "selection_reason": "保留连续抓取、搬运、放置、松爪与撤手；不按首次On或首次终点门截断必要撤手。",
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "dx_m": -0.05374592833876221,
+      "dy_m": -0.0645928338762215,
+      "world_bowl_xyz_at_original_scene": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "2abee978c6932017685b6d31218455f931693cb3202d2315514f1379b78a88fc",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.0024358651135116816,
+            0.2407667338848114,
+            0.9279562830924988
+          ],
+          "bowl_xyz_after_first_action": [
+            -0.05201837047934532,
+            0.24170315265655518,
+            0.898544430732727
+          ],
+          "finger_gap_m": 0.0773538202047348,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.0001405740063413763,
+          "eef_bowl_distance_m": 0.0618966706097126
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "open"
+          },
+          {
+            "frame": 195,
+            "command": "close"
+          },
+          {
+            "frame": 450,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09482759982347488,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 30,
+        "arm_translation_le_002_frames": 30,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1674151420593262,
+          "median": 1.2507339715957642,
+          "max": 2.073277235031128
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 439,
+        "first_lift_closed_proxy_frame": 235,
+        "bowl_height_max_above_scene_m": 0.054779198197625556,
+        "bowl_xy_total_path_m": 0.21516737341880798,
+        "ordered_close_lift_transport_release_proxy": {
+          "close": 195,
+          "lift_proxy": 235,
+          "bowl_xy_displaced_5cm_after_lift": 300,
+          "full_release_gate_frame": 501
+        },
+        "full_release_gate_runs_ge10": [
+          [
+            501,
+            580
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.0043020956218242645,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            -0.0571245476603508,
+            0.18211974203586578,
+            0.8983274698257446
+          ],
+          "max": [
+            0.07007423043251038,
+            0.2532087564468384,
+            0.9531830549240112
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "grasp_transport_place",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 53,
+      "source": "human_1792321838302212936",
+      "source_directory": "corrections/human_1792321838302212936",
+      "range": [
+        0,
+        225
+      ],
+      "frames": 225,
+      "kind": "placement_release",
+      "selection_reason": "起点已经持碗，保留连续对准放置、松爪和撤手；不称为重新抓取恢复。",
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "dx_m": 0.0986970684039088,
+      "dy_m": 0.031921824104234525,
+      "world_bowl_xyz_at_original_scene": [
+        0.10424411921632235,
+        0.33573230017897593,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "1d826c4e72a7511b21d8f1d584e0da89fd31da2260f61c7460dc7ca05e4ce116",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.04774777218699455,
+            0.15510836243629456,
+            0.9391692280769348
+          ],
+          "bowl_xyz_after_first_action": [
+            0.07722856104373932,
+            0.19277836382389069,
+            0.9075964093208313
+          ],
+          "finger_gap_m": 0.011092618107795715,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.009192552594445624,
+          "eef_bowl_distance_m": 0.05731482431292534
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 110,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09111113101243973,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.169588327407837,
+          "median": 1.3020603656768799,
+          "max": 2.377267599105835
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 102,
+        "first_lift_closed_proxy_frame": 24,
+        "bowl_height_max_above_scene_m": 0.04967620613982526,
+        "bowl_xy_total_path_m": 0.07309910655021667,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            162,
+            225
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00640732329338789,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            0.010672681033611298,
+            0.18229354918003082,
+            0.9062367081642151
+          ],
+          "max": [
+            0.07722856104373932,
+            0.19277836382389069,
+            0.9480800628662109
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "placement_release_only",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 54,
+      "source": "human_1792321887412888670",
+      "source_directory": "corrections/human_1792321887412888670",
+      "range": [
+        0,
+        205
+      ],
+      "frames": 205,
+      "kind": "placement_release",
+      "selection_reason": "起点已经持碗，保留连续对准放置、松爪和撤手；不称为重新抓取恢复。",
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "dx_m": 0.0986970684039088,
+      "dy_m": 0.031921824104234525,
+      "world_bowl_xyz_at_original_scene": [
+        0.10424411921632235,
+        0.33573230017897593,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "e34ac4fde8406702e70ebcc280096e2c938679c8b638efe804ab010d94c1fb71",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.11795302480459213,
+            0.17149370908737183,
+            1.0012656450271606
+          ],
+          "bowl_xyz_after_first_action": [
+            0.12958796322345734,
+            0.20710155367851257,
+            0.9513741135597229
+          ],
+          "finger_gap_m": 0.004425691440701485,
+          "first_action": [
+            0.0,
+            0.0,
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.052970256833337226,
+          "eef_bowl_distance_m": 0.062389545142650604
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 100,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09024392068386078,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1822288036346436,
+          "median": 1.2951951026916504,
+          "max": 2.6628541946411133
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 99,
+        "first_lift_closed_proxy_frame": 0,
+        "bowl_height_max_above_scene_m": 0.0633804464619383,
+        "bowl_xy_total_path_m": 0.08096537739038467,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            140,
+            205
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.002086542546749115,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            0.053240228444337845,
+            0.19922271370887756,
+            0.9064565896987915
+          ],
+          "max": [
+            0.129874125123024,
+            0.20710155367851257,
+            0.961784303188324
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "placement_release_only",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    },
+    {
+      "episode_index": 55,
+      "source": "human_1792322110720259274",
+      "source_directory": "corrections/human_1792322110720259274",
+      "range": [
+        0,
+        220
+      ],
+      "frames": 220,
+      "kind": "placement_release",
+      "selection_reason": "起点已经持碗，保留连续对准放置、松爪和撤手；不称为重新抓取恢复。",
+      "scenario_key": "e8aaa0e96edaa3b88d61f6efd0e7ba8b777aafa51ac6935e22d4fca70a31b6b0",
+      "layout_id": 24,
+      "dx_m": 0.0986970684039088,
+      "dy_m": 0.1,
+      "world_bowl_xyz_at_original_scene": [
+        0.10424411921632235,
+        0.4038104760747414,
+        0.8984038567263857
+      ],
+      "exported_numeric_exact": true,
+      "parquet_sha256": "67f755bcf13020bc881d63b33fc96f4f254107c8d4112eb122d6ac67a05bc9c4",
+      "retained_numeric": {
+        "start_observation": {
+          "eef_xyz": [
+            0.11853709816932678,
+            0.16851049661636353,
+            1.0040934085845947
+          ],
+          "bowl_xyz_after_first_action": [
+            0.12494204938411713,
+            0.2081259787082672,
+            0.950792670249939
+          ],
+          "finger_gap_m": 0.004755785688757896,
+          "first_action": [
+            -0.10000000149011612,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bowl_height_above_original_scene_m": 0.05238881352355329,
+          "eef_bowl_distance_m": 0.06671865284442902
+        },
+        "gripper_transitions": [
+          {
+            "frame": 0,
+            "command": "close"
+          },
+          {
+            "frame": 125,
+            "command": "open"
+          }
+        ],
+        "action_xyz_norm": {
+          "mean": 0.09090910851955414,
+          "median": 0.10000000149011612,
+          "max": 0.10000000149011612
+        },
+        "arm_translation_zero_frames": 20,
+        "arm_translation_le_002_frames": 20,
+        "zero_arm_six_dof_ranges_ge20_frames": [],
+        "translation_le_002_ranges_ge20_frames": [],
+        "fresh_adjacent_eef_displacement_mm": {
+          "mean": 1.1766656637191772,
+          "median": 1.315064549446106,
+          "max": 2.8947861194610596
+        },
+        "fresh_adjacent_eef_le_01mm_runs_ge20_intervals": [],
+        "first_On_frame": 104,
+        "first_lift_closed_proxy_frame": 0,
+        "bowl_height_max_above_scene_m": 0.07187220099379865,
+        "bowl_xy_total_path_m": 0.08986717462539673,
+        "ordered_close_lift_transport_release_proxy": null,
+        "full_release_gate_runs_ge10": [
+          [
+            161,
+            220
+          ]
+        ],
+        "tail_approval_checks": {
+          "ten_frames": true,
+          "task_done_last_ten": true,
+          "actual_fingers_open_last_ten": true,
+          "open_command_last_ten": true,
+          "eef_clear_of_bowl": true
+        },
+        "state_post_to_next_pre_max_abs": 0.00468812882900238,
+        "all_post_bowl_xyz_minmax": {
+          "min": [
+            0.06112696975469589,
+            0.19071125984191895,
+            0.9062260389328003
+          ],
+          "max": [
+            0.12682031095027924,
+            0.21094435453414917,
+            0.9702760577201843
+          ]
+        },
+        "negative_bowl_worldX_with_worldY_ge_035_frames": 0
+      },
+      "prior_visual_phase": "placement_release_only",
+      "prior_visual_caution": null,
+      "prior_visual_evidence": "evidence/correction-batch14-review-v1.json"
+    }
+  ],
+  "excluded_drafts": [
+    {
+      "source_directory": "corrections/human_1792315969515830691",
+      "status": "draft",
+      "frames": 218,
+      "metadata_sha256": "73717c076afcd5018134c2331703b3b1c30e7e2c012a9e136d302ac420451f1c",
+      "reason": "User excludes drafts"
+    },
+    {
+      "source_directory": "corrections/human_1792316140614411269",
+      "status": "draft",
+      "frames": 206,
+      "metadata_sha256": "ec0d7663342e09f67ee9be8e4e41596b0b2b69164fcbebdbb0a27c92e85dc4c1",
+      "reason": "User excludes drafts"
+    },
+    {
+      "source_directory": "corrections/human_1792322036524775135",
+      "status": "draft",
+      "frames": 385,
+      "metadata_sha256": "c5a1973c4c54e33b57fcd025e011471b58e9272ecf2801630979d4c9c45c9864",
+      "reason": "User excludes drafts"
+    }
+  ],
+  "definitions": {
+    "ranges": "zero-based source raw frame [start,stop); stationary interval ranges refer pre-frame i -> pre-frame i+1 and do not extend over clip boundaries",
+    "low_action": "translation norm <= .02, irrespective of gripper/rotation; not proof of bad data",
+    "zero_arm": "six arm coordinates zero, may still actively open/close gripper",
+    "near_stationary": "fresh pre-state EEF displacement <= .1mm per native .05s control interval, no contact diagnosis",
+    "bridge_proxy": "chronological open-to-close command transition within retained clip -> later closed+height>original scene+.03m -> subsequent bowlXY displacement>=.05m -> On/open/gap>=.06/EEFclearance>=.1 frame. Not verified grasp; gate persistence separately recorded."
+  },
+  "boundaries": [
+    "Negative-position demonstrations are present and substantial. All negative sources also have negative dy; current failures at positive dy/worldY=.3731 are not covered by the same position combination.",
+    "Source scene identifies original edited bowl location. At takeover bowl may already have moved; actual raw/clip start post_bowl and robot state are included separately.",
+    "Every human source begins after prior policy execution, with varying pose/history. Raw whole recording is not equivalent to a home-to-completion policy trajectory. Some retained clips intentionally start holding the bowl.",
+    "Numeric close/lift/carry proxies are not verified grasp; long low/zero-arm segments include legitimate careful placement, gripper actuation and terminal holds. No automatic exclusion is justified.",
+    "Prior selection reviewed the full585 recovery as continuous; the950source contributes three separate clips and excludes bridging intervals. They must not be described as one continuous retained recovery.",
+    "Approved gates establish endpoint observations, not complete task policy learning, universal recovery, or generalization. No source or clip was removed or changed."
+  ],
+  "source_grouping": [
+    {
+      "scenario_key": "97a64170ec4d7751681311e1797f512342b5b6df09b733944f59e443b0343f24",
+      "layout_id": 0,
+      "dx_m": -0.031797235023041465,
+      "dy_m": -0.016589861751152065,
+      "world_bowl_xyz": [
+        -0.024660179258320286,
+        0.2816564568671224,
+        0.8984038567263857
+      ],
+      "sources": 1,
+      "clips": 1,
+      "retained_frames": 210
+    },
+    {
+      "scenario_key": "35cebb49e1eec4789add1dc745c759dfa97deaff4805bb9087f5ee366af32348",
+      "layout_id": 0,
+      "dx_m": -0.07741935483870968,
+      "dy_m": -0.02304147465437788,
+      "world_bowl_xyz": [
+        -0.0702822990739885,
+        0.27520484396389655,
+        0.8984038567263857
+      ],
+      "sources": 1,
+      "clips": 3,
+      "retained_frames": 271
+    },
+    {
+      "scenario_key": "611f445c39edbf1a9a11612b20b382cb7030cd70aef7eaeb47c32e2c4b0d936b",
+      "layout_id": 24,
+      "dx_m": -0.055299539170506916,
+      "dy_m": -0.015207373271889394,
+      "world_bowl_xyz": [
+        -0.049752488358093365,
+        0.28860310280285206,
+        0.8984038567263857
+      ],
+      "sources": 1,
+      "clips": 1,
+      "retained_frames": 585
+    },
+    {
+      "scenario_key": "8191065b1afd648075c162ee81baec2bc7cc767534336f9952c443ac5307419f",
+      "layout_id": 24,
+      "dx_m": -0.0553,
+      "dy_m": -0.0152,
+      "world_bowl_xyz": [
+        -0.04975294918758645,
+        0.28861047607474144,
+        0.8984038567263857
+      ],
+      "sources": 3,
+      "clips": 3,
+      "retained_frames": 2075
+    },
+    {
+      "scenario_key": "b737a462c9c5c4bd69587caf43af4b4fa2acf8d454f2e5a43fda3f447a5f5d66",
+      "layout_id": 24,
+      "dx_m": -0.08892508143322475,
+      "dy_m": -0.03648208469055375,
+      "world_bowl_xyz": [
+        -0.0833780306208112,
+        0.2673283913841877,
+        0.8984038567263857
+      ],
+      "sources": 2,
+      "clips": 2,
+      "retained_frames": 1360
+    },
+    {
+      "scenario_key": "32d67b6a2f3a1a427b302d8d236751f6fe42764dc8f093f6e49e3fda1ea86eea",
+      "layout_id": 24,
+      "dx_m": -0.1,
+      "dy_m": -0.07035830618892508,
+      "world_bowl_xyz": [
+        -0.09445294918758645,
+        0.23345216988581635,
+        0.8984038567263857
+      ],
+      "sources": 2,
+      "clips": 2,
+      "retained_frames": 1595
+    },
+    {
+      "scenario_key": "78a2565d1fb84021d470db2a166ad2557fa0e01fb91e5ac594897d92c82080c9",
+      "layout_id": 24,
+      "dx_m": -0.1,
+      "dy_m": -0.08306188925081433,
+      "world_bowl_xyz": [
+        -0.09445294918758645,
+        0.22074858682392712,
+        0.8984038567263857
+      ],
+      "sources": 1,
+      "clips": 1,
+      "retained_frames": 650
+    },
+    {
+      "scenario_key": "e1f890ff495595ba5b451326c4b5ff08788ee02133d1508810ad2da3447e8ab8",
+      "layout_id": 24,
+      "dx_m": -0.05374592833876221,
+      "dy_m": -0.0645928338762215,
+      "world_bowl_xyz": [
+        -0.04819887752634866,
+        0.23921764219851993,
+        0.8984038567263857
+      ],
+      "sources": 3,
+      "clips": 3,
+      "retained_frames": 1725
+    },
+    {
+      "scenario_key": "f4aec28b183218467b9311d62b08c9f2fa7e8c6028b833b98d9a198128c8741c",
+      "layout_id": 24,
+      "dx_m": 0.0986970684039088,
+      "dy_m": 0.031921824104234525,
+      "world_bowl_xyz": [
+        0.10424411921632235,
+        0.33573230017897593,
+        0.8984038567263857
+      ],
+      "sources": 2,
+      "clips": 2,
+      "retained_frames": 430
+    },
+    {
+      "scenario_key": "e8aaa0e96edaa3b88d61f6efd0e7ba8b777aafa51ac6935e22d4fca70a31b6b0",
+      "layout_id": 24,
+      "dx_m": 0.0986970684039088,
+      "dy_m": 0.1,
+      "world_bowl_xyz": [
+        0.10424411921632235,
+        0.4038104760747414,
+        0.8984038567263857
+      ],
+      "sources": 1,
+      "clips": 1,
+      "retained_frames": 220
+    }
+  ],
+  "specific_recovery_coverage": {
+    "source950": {
+      "source": "human_1792302165387076969",
+      "raw_range": [
+        0,
+        950
+      ],
+      "kept_ranges": [
+        [
+          0,
+          45
+        ],
+        [
+          430,
+          520
+        ],
+        [
+          770,
+          906
+        ]
+      ],
+      "excluded_ranges": [
+        [
+          45,
+          430
+        ],
+        [
+          520,
+          770
+        ],
+        [
+          906,
+          950
+        ]
+      ],
+      "evidence": "Raw open command begins430, reclose490, lift>baseline3cm547, transport proxy585, open845. Retained regrasp clip stops520 before sustained lift/transport proxy; later770 placement is independent episode. No retained continuous clearance-to-place bridge from this source."
+    },
+    "source585": {
+      "source": "human_1792311079911388886",
+      "kept_range": [
+        0,
+        585
+      ],
+      "evidence": "Continuous approved recovery: open0, close140, lift proxy189, bowlXY>=5cm304, open475, full release gate514..585. Full585 bridge is included; cannot say recovery bridge is universally missing."
+    },
+    "trimmed_source681": {
+      "source": "human_1792316642061092080",
+      "raw_range": [
+        0,
+        681
+      ],
+      "kept_range": [
+        67,
+        681
+      ],
+      "excluded_range": [
+        0,
+        67
+      ],
+      "evidence": "Original closed empty-grip prefix removed by prior visual review; retained open67, close187, lift230, transport355, release526, full gate587..681 remains continuous."
+    },
+    "placement_only": "Five retained clips begin holding the bowl:805[425,635),950[770,906),and225/205/220-frame positives. Do not treat them as new-grasp demonstrations.",
+    "slow_contact_caution": {
+      "source": "human_1792321044770146509",
+      "range": [
+        478,
+        510
+      ],
+      "prior_evidence": "Prior root/dense visual review retained this slow closed-gripper contact segment because bowl descended ~5.2mm before open510; not stationary proof, not ideal rapid release or rim-stall recovery."
+    }
+  },
+  "root_cause_support": {
+    "supported": [
+      "Substantial negative dx/dy training corrections exist, with12 retained open-close-lift-transport-release numerical sequences and17 placement/release tail gates passing; simple missing-negative-data assertion is false.",
+      "Human source starts are24..800 prior policy actions after home, with raw initial EEF234.9..438.0mm from source-home EEF; these are successful human continuations of varied failure states, not home-to-finish expert trajectories.",
+      "Current negativeX-positiveY positions differ from all negative-source initial edits; this is a specific human coverage gap and a testable generalization hypothesis.",
+      "638/9121 retained frames (~7%) have translation norm<=.02;625 have zero translation. >=20 zero-arm runs are20frames=1s and occur at opening/terminal phases; wall-clock pauses are not labels. This does not support predominantly idle data as the sole explanation."
+    ],
+    "not_supported": [
+      "No claim that lack of human negativeX-positiveY combinations uniquely causes current model failure; public37 coverage was not audited here and policy may generalize.",
+      "No claim that approved endpoint gates prove policy recovery learning or human trajectory quality at every frame.",
+      "No overfitting diagnosis, global reachability conclusion, or need to delete/overwrite approved originals follows from this audit."
+    ]
+  },
+  "new_data_suggestions": [
+    "Preserve all17 approved sources/19 selected clips and the3 explicitly excluded drafts without changing status or training configuration.",
+    "If collecting a minimum addition, prioritize legal layout24 negativeX/positiveY starts matching failed008/009 (actualworldX≈-.0345/-.0664,Y≈.3731), using fresh physical scene and recording a successful home/approach→grasp→carry→place→open→retreat sequence with actual matching RGB/state/actions. Existing successful human negativeX/negativeY continuations remain useful.",
+    "Capture at least one continuous completion from an actual post-grasp wrong-transport/near-stall state at that combination, including correction back toward plate and explicit release/retreat; keep recovery and normal full-task provenance distinct.",
+    "Do not concatenate failed policy prefixes to human suffixes as an expert episode or infer a missing bridge by stitching the950source clips. Existing complete585 recovery can be retained unchanged.",
+    "Validate endpoint temporal gates and local action/state alignment, then evaluate on separately held-out nearby positions/seeds; no claim of improvement before that bounded test."
+  ]
+}

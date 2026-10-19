@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "frame_hashes_and_contracts_checked": 241,
+  "continuous_recorded_post_to_next_pre": true,
+  "quality_gates_independently_recomputed": {
+    "terminal_ten_on_open_gap_retreat": true,
+    "terminal_sixty_on_open_gap_retreat": true,
+    "fifty_followup_steps": true,
+    "followup_all_released": true,
+    "followup_bowl_motion_le_5mm": true,
+    "continuous_physics": true,
+    "no_unexpected_deep_target_contact": true,
+    "finite_bounded_actions": true
+  },
+  "source_files_unchanged": true,
+  "initial_state_hash_verified": true,
+  "decoded_video_frames": 242,
+  "video_rgb_shape": [
+    256,
+    512,
+    3
+  ],
+  "video_fps": 20,
+  "visual_contact_sheet": "scene008-final-v1-visual.png",
+  "visual_observation": "Actual two-camera sequence shows held bowl translated over plate at height, lowered, released, and hand raised clear; bowl remains on plate through final frame. This is offline geometry control, not learned recovery.",
+  "first_on_step": 162,
+  "first_ten_release_retreat_step": 191,
+  "fifty_followup_max_bowl_displacement_m": 3.541965440945205e-07,
+  "terminal_sixty_min_gap_m": 0.07839076966047287,
+  "terminal_sixty_min_retreat_m": 0.10023439675569534,
+  "generator_source_hash_current_match": true,
+  "metadata_file_sha256": "72e96d3f2efd20f75416aeeba0c007d83f596f062783887e76bd4b6b01f047a9",
+  "scope_limit": "Single final-state source pilot only; no policy loaded, no training or new scenario generated."
+}

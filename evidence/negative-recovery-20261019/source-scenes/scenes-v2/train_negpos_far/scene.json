@@ -1,0 +1,33 @@
+{
+  "layout_id": 24,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.005547050812413551,
+      0.30381047607474143,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.05945294918758645,
+      0.33881047607474146,
+      0.8984038567263857
+    ],
+    "dx_m": -0.065,
+    "dy_m": 0.035
+  },
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "initial_state_sha256": "b92afbbbe5fa9e5623039804fb303bdc7495dcf3fe85dea5812f5aa5a203e6d5",
+  "task_language": "pick up the black bowl next to the plate and place it on the plate",
+  "split": "train",
+  "source_kind": "predeclared_simulation_initial_state",
+  "formal_benchmark": false,
+  "setup_control_steps_before_recording": 10,
+  "control_actions_after_initial_state_saved": 0,
+  "source_code_sha256": {
+    "prepare_negative_recovery_scenes.py": "c2bc66e44b05f34f0af727c3efc922e92cbfe61840ac841b19f4c19618dbbeba",
+    "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d"
+  }
+}

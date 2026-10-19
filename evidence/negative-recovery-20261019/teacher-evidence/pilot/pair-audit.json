@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "same_generator_and_frozen_quality_gates": true,
+  "pilots": [
+    {
+      "scene": 8,
+      "status": "PASS",
+      "metadata_sha256": "72e96d3f2efd20f75416aeeba0c007d83f596f062783887e76bd4b6b01f047a9",
+      "frame_hashes_and_contracts_checked": 241,
+      "all_source_hashes_and_scenario_match": true,
+      "physics_duration_from_saved_states_s": 12.050000000014727,
+      "continuity": true,
+      "gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "video_frames": 242,
+      "video_shape": [
+        256,
+        512,
+        3
+      ],
+      "fps": 20,
+      "selected_video_frames": [
+        0,
+        73,
+        160,
+        241
+      ],
+      "first_on_step": 162,
+      "verified_release_retreat_step": 191,
+      "phase_counts": {
+        "carry": 72,
+        "lower": 87,
+        "release": 12,
+        "retreat": 20,
+        "followup": 50
+      },
+      "last60_all_on_open_gap_retreat": true,
+      "last60_min_gap_m": 0.07839076966047287,
+      "last60_min_retreat_m": 0.10023439675569534,
+      "postgate50_bowl_max_motion_m": 3.541965440945205e-07,
+      "final_bowl_xyz": [
+        0.062429048120975494,
+        0.1858574002981186,
+        0.9061869382858276
+      ],
+      "source_code_sha256": {
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d"
+      }
+    },
+    {
+      "scene": 9,
+      "status": "PASS",
+      "metadata_sha256": "b330c86e4b9dd4ecff138a196ed851fae7cbf4edb1cbaeb2f48862a9ad6678a8",
+      "frame_hashes_and_contracts_checked": 217,
+      "all_source_hashes_and_scenario_match": true,
+      "physics_duration_from_saved_states_s": 10.85000000001326,
+      "continuity": true,
+      "gates": {
+        "terminal_ten_on_open_gap_retreat": true,
+        "terminal_sixty_on_open_gap_retreat": true,
+        "fifty_followup_steps": true,
+        "followup_all_released": true,
+        "followup_bowl_motion_le_5mm": true,
+        "continuous_physics": true,
+        "no_unexpected_deep_target_contact": true,
+        "finite_bounded_actions": true
+      },
+      "video_frames": 218,
+      "video_shape": [
+        256,
+        512,
+        3
+      ],
+      "fps": 20,
+      "selected_video_frames": [
+        0,
+        76,
+        144,
+        217
+      ],
+      "first_on_step": 145,
+      "verified_release_retreat_step": 167,
+      "phase_counts": {
+        "carry": 75,
+        "lower": 68,
+        "release": 12,
+        "retreat": 12,
+        "followup": 50
+      },
+      "last60_all_on_open_gap_retreat": true,
+      "last60_min_gap_m": 0.07765954732894897,
+      "last60_min_retreat_m": 0.10035053640604019,
+      "postgate50_bowl_max_motion_m": 1.4901161193847656e-08,
+      "final_bowl_xyz": [
+        0.05776437371969223,
+        0.1878376603126526,
+        0.9061676263809204
+      ],
+      "source_code_sha256": {
+        "generate_placement_recovery_teacher.py": "4b668391c5ff0c5c2e71d52d9b96054da8b9247c052762efee7a65b72f684c16",
+        "generate_tracking_teacher.py": "28988638d390846f35ea786b4fc8edacab2c346613b65e004fcb506ad1e957b1",
+        "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d"
+      }
+    }
+  ],
+  "limits": [
+    "Only two already-held-bowl final-state recoveries, not new approach or grasp demonstrations.",
+    "No training/model inference performed. Privileged GT controller success is not policy recovery."
+  ]
+}

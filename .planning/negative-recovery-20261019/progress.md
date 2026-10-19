@@ -1,0 +1,3 @@
+2026-10-19: user confirmed data-quality-first corrective experiment. Existing GUI/model preserved. Delegated single complete recovery pilot and read-only actual approved-range coverage audit. Read current strict carry-only exporter; will not relax its provenance gates to accept new teacher kind.
+
+All8 teachers validated:6 home-to-release2055frames +2 held-recovery458. Original public37/human17 sources/reviewed19 retained. Native pinned loader32actual samples matched exactstate/RGB and future10 action windows incl episodeendpadding. New export64episodes16034frames.48targetedtestsPASS,RuffPASS. Oldcontrol20trial arm running isolated8756; GUI8755 untouched. RealCPUtrain dryrun pendingalias.

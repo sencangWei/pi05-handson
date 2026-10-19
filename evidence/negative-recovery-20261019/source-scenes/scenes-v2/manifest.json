@@ -1,0 +1,89 @@
+{
+  "cases": [
+    {
+      "case": "train_negpos_near",
+      "split": "train",
+      "directory": ".local/negative-recovery-20261019/scenes-v2/train_negpos_near",
+      "scene_sha256": "ea73e6dd0d333e7eada2731b923da3804d981d79fffa29071642223ec814839b",
+      "state_file_sha256": "42543ce4d424e899ec9e87dd5dc24a411a4293e3388274be3d19ac7062dd61a2",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.024452949187586448,
+          0.33881047607474146,
+          0.8984038567263857
+        ],
+        "dx_m": -0.03,
+        "dy_m": 0.035
+      }
+    },
+    {
+      "case": "train_negpos_far",
+      "split": "train",
+      "directory": ".local/negative-recovery-20261019/scenes-v2/train_negpos_far",
+      "scene_sha256": "2b4bdce012abe819d8c9272ca403995abcac15edf9fc9980f9849e0290541e5e",
+      "state_file_sha256": "91ac6371c1b1da4aefb0fcbb829ebeb6423c4c3ddfb802880d511a4403fedd2b",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.05945294918758645,
+          0.33881047607474146,
+          0.8984038567263857
+        ],
+        "dx_m": -0.065,
+        "dy_m": 0.035
+      }
+    },
+    {
+      "case": "holdout_negpos_mid",
+      "split": "holdout",
+      "directory": ".local/negative-recovery-20261019/scenes-v2/holdout_negpos_mid",
+      "scene_sha256": "4429807c18290fc1d705fd4237ffad7433e50aaa998a19209012cc82dcd8cd48",
+      "state_file_sha256": "113cb897fa5680067affbb62971f593c04bfa2f110c267e17d859c26af121005",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.04945294918758645,
+          0.3538104760747414,
+          0.8984038567263857
+        ],
+        "dx_m": -0.055,
+        "dy_m": 0.05
+      }
+    },
+    {
+      "case": "holdout_negpos_far",
+      "split": "holdout",
+      "directory": ".local/negative-recovery-20261019/scenes-v2/holdout_negpos_far",
+      "scene_sha256": "0d30650a148b3b9e26e6f82e607a20e07aabe0113cbe78b32e22d88de9541483",
+      "state_file_sha256": "c8634115da9d7f049a964b52d56bb1cda2adaa0ecac9b216b9da265be88a3ef8",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.07945294918758646,
+          0.37881047607474144,
+          0.8984038567263857
+        ],
+        "dx_m": -0.085,
+        "dy_m": 0.075
+      }
+    }
+  ],
+  "holdout_teacher_generation_allowed": false
+}

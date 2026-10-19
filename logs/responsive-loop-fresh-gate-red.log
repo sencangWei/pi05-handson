@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ ResponsiveTests.test_completion_rechecks_fresh_geometry_before_stopping ____
+
+self = <test_responsive_lab.ResponsiveTests testMethod=test_completion_rechecks_fresh_geometry_before_stopping>
+
+    def test_completion_rechecks_fresh_geometry_before_stopping(self):
+        action = np.array([0., 0, 0, 0, 0, 0, -1.])
+        self.lab.env.eef = self.lab.env.qpos[:3] + [0., 0., .04]
+        for _ in range(60):
+            self.lab._check_completion(action, True)
+>       self.assertFalse(self.lab.finished)
+E       AssertionError: True is not false
+
+tests/test_responsive_lab.py:115: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_responsive_lab.py::ResponsiveTests::test_completion_rechecks_fresh_geometry_before_stopping
+1 failed, 24 deselected in 0.02s

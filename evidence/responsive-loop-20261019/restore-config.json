@@ -1,0 +1,7 @@
+{
+  "scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_retrain_review_1792392618350437772/scene-003_init-024",
+  "layout_id": 24,
+  "dx_m": -0.062172284644194754,
+  "dy_m": -0.033707865168539325,
+  "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999"
+}

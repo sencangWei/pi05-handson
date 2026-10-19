@@ -12,10 +12,11 @@ import webbrowser
 from evaluate_libero import write_json
 from export_training_curves import parse_metrics
 from lab_jobs import LabJobs
-from simulation_lab import ROOT, PolicyConnection, SimulationLab
+from responsive_lab import ResponsiveSimulationLab
+from simulation_lab import ROOT, PolicyConnection
 
 
-class LabWorkbench(SimulationLab):
+class LabWorkbench(ResponsiveSimulationLab):
     def __init__(self, output, task, *, port=8755, jobs=None, root=ROOT, **kwargs):
         self.project = Path(root).resolve()
         self.port = port

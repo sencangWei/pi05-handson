@@ -1,0 +1,42 @@
+{
+  "status": "READY_PAUSED",
+  "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+  "metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "configuration": "pi05_handson_lora",
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+    "checkpoint_step_index": "1999",
+    "model_stage": "negative_quadrants_20261019/1999",
+    "policy_sampling_seed_at_server_start": 0,
+    "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "gui_pid": 3638666,
+  "output": "/home/robot/.pi05-handson/evaluations/interactive_lab_responsive_1792399080114971854",
+  "layout_id": 24,
+  "dx_m": -0.062172284644194754,
+  "dy_m": -0.033707865168539325,
+  "state": {
+    "status": "\u5df2\u52a0\u8f7d\uff0c\u6682\u505c\u4e2d\uff1b\u53ef\u8fd0\u884c\u6a21\u578b\u6216\u5355\u6b65",
+    "ready": true,
+    "running": false,
+    "finished": false,
+    "layout_id": 24,
+    "control_steps": 0,
+    "on_reached": false,
+    "model_name": "negative_quadrants_20261019/1999",
+    "output_dir": "/home/robot/.pi05-handson/evaluations/interactive_lab_responsive_1792399080114971854",
+    "model_path": "",
+    "waiting": false,
+    "training_running": false,
+    "current_result_path": "/home/robot/.pi05-handson/evaluations/interactive_lab_responsive_1792399080114971854/scene-002_init-024/result.json",
+    "correction_active": false
+  },
+  "model_selection_label": "pi05_handson_lora/negative_quadrants_20261019/1999",
+  "policy_actions_executed": 0,
+  "control_loop": "responsive_v1",
+  "startup_smoke_actions": 20
+}

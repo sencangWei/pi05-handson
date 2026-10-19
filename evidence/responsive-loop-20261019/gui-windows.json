@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "windows": [
+    {
+      "window": 65011890,
+      "name": "LIBERO 仿真实验面板 — 流畅交互版（实验模型）",
+      "native": false,
+      "xy": [
+        70,
+        97
+      ],
+      "size": [
+        820,
+        1260
+      ],
+      "visible": true
+    },
+    {
+      "window": 69206117,
+      "name": "MuJoCo : base",
+      "native": true,
+      "xy": [
+        902,
+        97
+      ],
+      "size": [
+        1646,
+        960
+      ],
+      "visible": true
+    }
+  ],
+  "capture": "Only two owned client window captures composed side by side; desktop/decorations excluded."
+}

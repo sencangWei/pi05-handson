@@ -1,0 +1,17 @@
+{
+  "server_command": [
+    "/home/robot/.pi05-handson/.venv/bin/python",
+    "-u",
+    "scripts/serve_position_study.py",
+    "--checkpoint",
+    "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+    "--port",
+    "8756",
+    "--seed",
+    "0"
+  ],
+  "server_pid": 3629554,
+  "source": "/home/robot/.pi05-handson/evidence/live-speed-20261019/scene-002_init-024",
+  "benchmark_source_sha256": "9b2e839ccd0fa1725175787a64ad8e19be101f0ac45258b9b1cf09115acd61ee",
+  "source_scene_sha256": "8eb0fde083fbded995e843ce21dcbe99396fe54dceeac4d884c2f7102a460222"
+}

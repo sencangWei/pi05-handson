@@ -1,0 +1,8 @@
+{"status": "TRAJECTORY_MISMATCH", "identical_actions_and_positions": false, "speedup": 1.625001905590637, "wall_time_reduction_fraction": 0.38461610625833}
+Traceback (most recent call last):
+  File "/home/robot/.pi05-handson/evidence/responsive-loop-20261019/benchmark.py", line 182, in <module>
+    run_arm(args.arm) if args.arm else orchestrate()
+                                       ^^^^^^^^^^^^^
+  File "/home/robot/.pi05-handson/evidence/responsive-loop-20261019/benchmark.py", line 167, in orchestrate
+    raise RuntimeError("Changed physical trajectory; do not deploy without investigation")
+RuntimeError: Changed physical trajectory; do not deploy without investigation

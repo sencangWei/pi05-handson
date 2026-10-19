@@ -1,0 +1,14 @@
+{
+  "task": "pick up the black bowl next to the plate and place it on the plate",
+  "layout_count": 50,
+  "source_sha256": {
+    "simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+    "lab_panel.py": "c003d4536d984f5fcc591a66bc55317b91e291e4b4441124eaac267c7aa1e517",
+    "lab_jobs.py": "d58619a9007c3bae00ada0ec1e6b822f74db0b92cd4ba4b8b13c4b1bcc51c1e8",
+    "correction_workbench.py": "7150297f8052e28e9c888d5269c2363675f7bc87dc518a332fbc44586c02c5c3",
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+    "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699"
+  },
+  "formal_benchmark": false
+}

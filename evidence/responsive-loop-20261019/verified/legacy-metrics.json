@@ -1,0 +1,38 @@
+{
+  "arm": "legacy",
+  "control_steps": 400,
+  "timed_loop_wall_s": 62.64349362300709,
+  "steps_per_second": 6.385339911072455,
+  "poll_callbacks": 1739,
+  "client_inference_calls": 400,
+  "client_inference_total_s": 26.788164484663866,
+  "client_inference_mean_s": 0.06697041121165967,
+  "main_thread_operations": {
+    "regenerate": {
+      "calls": 1739,
+      "total_s": 4.216404489823617,
+      "mean_s": 0.0024246144277306598
+    },
+    "physics_step": {
+      "calls": 400,
+      "total_s": 4.64746269735042,
+      "mean_s": 0.01161865674337605
+    }
+  },
+  "initial_state_sha256": "a89daed79b2b13c8f6755d7a7de4f66b6f8afd272f4caed0fa9ce35893335725",
+  "model_metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+    "model_stage": "negative_quadrants_20261019/1999",
+    "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "policy_sampling_seed_at_server_start": 0,
+    "diagnostic_rng_reset_per_connection": 0,
+    "model_source": "pinned OpenPI JAX Policy._rng",
+    "state_input": false
+  },
+  "scope": "Real policy, MuJoCo physics and EGL two-camera observations; manual poll cadence, no Tk widgets/native viewer/compositor. Warmup and final save/encoding excluded. Auto completion disabled for equal400step budget."
+}

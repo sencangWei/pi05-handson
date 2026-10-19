@@ -153,7 +153,8 @@ class LabPanel:
             model += f"\n{state['model_path']}"
         self.info_var.set(f"当前布局：{layout}    控制步数：{state['control_steps']}\n\n"
                           f"官方 On 判据：{reached}；松爪撤手请观察\n\n模型：{model}")
-        self.status_var.set(f"状态：{state['status']}\n\n结果目录：{state['output_dir']}")
+        performance = state.get("performance_text", "")
+        self.status_var.set(f"状态：{state['status']}\n{performance}\n\n结果目录：{state['output_dir']}")
 
     def _poll(self):
         if self._closed:
@@ -178,7 +179,9 @@ class LabPanel:
                 self._refresh_cameras()
             except Exception as error:
                 self._error(error)
-        self._after_id = self.root.after(30, self._poll)
+        state = self.lab.state()
+        active = state.get("running", False) or state.get("waiting", False)
+        self._after_id = self.root.after(10 if active else 30, self._poll)
 
     def _build_workbench(self):
         page = ttk.Frame(self.notebook, padding=12)

@@ -1,0 +1,20 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_NUMERICAL_LIMIT",
+  "core_tests": "121passed,5subtestspassed in13.76s",
+  "red_regressions": "Initial7failed/15passed; cached final-geometry check1failed before its fix. Red logs preserved.",
+  "ruff": "All changed runtime/test/benchmark/gate scripts pass.",
+  "teacher_source_pins_preserved": 8,
+  "legacy_simulation_lab_sha256": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+  "timed_module_sha256": "527898201008c190e166d666ab1c0bbf42e681e03737e09829294a0acdddce51",
+  "current_module_sha256": "b69107c9dfa480b7c3045b5588e2c5baf6d81c0009b2f5674813f343060d9892",
+  "changed_after_timed_run": [
+    "_check_completion"
+  ],
+  "explanation": "Only fresh final-completion geometry confirmation changed after timed run; this callback was disabled for fixed400budget comparison and independently tested in real physics. Exact timed module snapshot preserved. No bitwise physics guarantee; consult engineering-equivalence.json.",
+  "real_physics_gate": "PASS60steps,synthetic open/hold;0learnedmodelcalls",
+  "real_gui_smoke_steps": 20,
+  "real_gui_smoke_mean_action_interval_s": 0.12284189305194702,
+  "paused_reset_ready": true,
+  "gui_pid": 3638666,
+  "active_model_unchanged": "negative_quadrants_20261019/1999"
+}

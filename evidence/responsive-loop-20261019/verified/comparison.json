@@ -1,0 +1,87 @@
+{
+  "status": "TRAJECTORY_MISMATCH",
+  "identical_actions_and_positions": false,
+  "maximum_absolute_difference": 2.6940255581919814e-15,
+  "all400_physical_states_equal": false,
+  "physical_state_max_abs_diff": 4.514633111796229e-11,
+  "comparison_quantity": "Raw action7 plus fresh pre-state8 and every full physical integration state; cached post-observable fields are not physical integration states.",
+  "legacy": {
+    "arm": "legacy",
+    "control_steps": 400,
+    "timed_loop_wall_s": 62.64349362300709,
+    "steps_per_second": 6.385339911072455,
+    "poll_callbacks": 1739,
+    "client_inference_calls": 400,
+    "client_inference_total_s": 26.788164484663866,
+    "client_inference_mean_s": 0.06697041121165967,
+    "main_thread_operations": {
+      "regenerate": {
+        "calls": 1739,
+        "total_s": 4.216404489823617,
+        "mean_s": 0.0024246144277306598
+      },
+      "physics_step": {
+        "calls": 400,
+        "total_s": 4.64746269735042,
+        "mean_s": 0.01161865674337605
+      }
+    },
+    "initial_state_sha256": "a89daed79b2b13c8f6755d7a7de4f66b6f8afd272f4caed0fa9ce35893335725",
+    "model_metadata": {
+      "course": "pi05 LoRA",
+      "task": "pick up the black bowl next to the plate and place it on the plate",
+      "action_horizon": 10,
+      "seed": 42,
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+      "model_stage": "negative_quadrants_20261019/1999",
+      "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+      "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+      "policy_sampling_seed_at_server_start": 0,
+      "diagnostic_rng_reset_per_connection": 0,
+      "model_source": "pinned OpenPI JAX Policy._rng",
+      "state_input": false
+    },
+    "scope": "Real policy, MuJoCo physics and EGL two-camera observations; manual poll cadence, no Tk widgets/native viewer/compositor. Warmup and final save/encoding excluded. Auto completion disabled for equal400step budget."
+  },
+  "responsive": {
+    "arm": "responsive",
+    "control_steps": 400,
+    "timed_loop_wall_s": 39.53804696293082,
+    "steps_per_second": 10.116837596328995,
+    "poll_callbacks": 3201,
+    "client_inference_calls": 400,
+    "client_inference_total_s": 26.622242538956925,
+    "client_inference_mean_s": 0.06655560634739231,
+    "main_thread_operations": {
+      "regenerate": {
+        "calls": 800,
+        "total_s": 1.1633003461174667,
+        "mean_s": 0.0014541254326468334
+      },
+      "physics_step": {
+        "calls": 400,
+        "total_s": 4.4376445731613785,
+        "mean_s": 0.011094111432903446
+      }
+    },
+    "initial_state_sha256": "a89daed79b2b13c8f6755d7a7de4f66b6f8afd272f4caed0fa9ce35893335725",
+    "model_metadata": {
+      "course": "pi05 LoRA",
+      "task": "pick up the black bowl next to the plate and place it on the plate",
+      "action_horizon": 10,
+      "seed": 42,
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+      "model_stage": "negative_quadrants_20261019/1999",
+      "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+      "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+      "policy_sampling_seed_at_server_start": 0,
+      "diagnostic_rng_reset_per_connection": 0,
+      "model_source": "pinned OpenPI JAX Policy._rng",
+      "state_input": false
+    },
+    "scope": "Real policy, MuJoCo physics and EGL two-camera observations; manual poll cadence, no Tk widgets/native viewer/compositor. Warmup and final save/encoding excluded. Auto completion disabled for equal400step budget."
+  },
+  "wall_time_reduction_fraction": 0.36884032680435186,
+  "speedup": 1.5843851286265846,
+  "limits": "One order, one saved state, one policy seed. This validates scheduler overhead, not learned action efficiency or end-to-end native GUI speed."
+}

@@ -1,0 +1,1662 @@
+{
+  "status": "COMPLETE_DIAGNOSIS_ONLY",
+  "policy_calls": 0,
+  "physics_steps": 0,
+  "training_data_generated": false,
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "source_session": "/home/robot/.pi05-handson/evaluations/interactive_lab_responsive_1792399080114971854",
+  "trials": [
+    {
+      "scene": 4,
+      "source_sha256": {
+        "final_state.npy": "cc6c3ccb3e4ef11b1c743e59b9e971e4fa54477f2a9443000a3ecc910b202aef",
+        "initial_state.npy": "1542eecde988110b4ed0be3064b1598f7b5ae8748e70a638dc6090b825190942",
+        "timing.csv": "0411174dda133ec2189efadf09220af776b528621b415fc2314a27a1d812b5bc",
+        "scene.json": "593fad9b9970364413f777e268663bf266c4dd63a293302c926b7968067a9440",
+        "final-agentview.png": "e1a5917b5376b3d11c5dff543959eb7a2137d26e841f2dad79706e50c1e02ec3",
+        "initial-wrist.png": "94a6c01e206a4f654eb4ff8ac42c7b9dae0cc73c589a073efd82553fb7858e2f",
+        "actions.csv": "1709ed6ca7693bde4a01d2f7bfaf83c9a85160024b685e0a3b14825ac31aacb7",
+        "result.json": "7815a410ecd78195b1cf5914de166960a76157b861a10b70424ae0f34c4e4d19",
+        "initial-agentview.png": "e50bc6784333436e48a2538d0715838a07fa5cee2df8abb8dbbd318383eeb609",
+        "video.mp4": "d9b94c7314989562514d95055d95c562307d7a45804fd8f9b5e8e173049bf787"
+      },
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.07909714394414076,
+          0.25549586933316837,
+          0.8984038567263857
+        ],
+        "dx_m": -0.08464419475655431,
+        "dy_m": -0.048314606741573035
+      },
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_steps": 800,
+      "stop_reason": "step_limit",
+      "release_and_retreat_success": null,
+      "final_on": true,
+      "phases": [
+        {
+          "control_steps": [
+            1,
+            100
+          ],
+          "xyz_action_norm_median": 0.1289376993336457,
+          "fresh_pre_state_move_median_mm": 1.6511646023107254,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 0.00010902601443874005,
+          "mean_action_interval_s": 0.12284953210084239,
+          "mean_client_inference_s": 0.06770909559214487
+        },
+        {
+          "control_steps": [
+            101,
+            200
+          ],
+          "xyz_action_norm_median": 0.053030310753925836,
+          "fresh_pre_state_move_median_mm": 0.5074268561466205,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 0.00010902601443874005,
+          "mean_action_interval_s": 0.12240310793044046,
+          "mean_client_inference_s": 0.06734673248953187
+        },
+        {
+          "control_steps": [
+            201,
+            300
+          ],
+          "xyz_action_norm_median": 0.041215053984388975,
+          "fresh_pre_state_move_median_mm": 0.41733376540646305,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 0.00010902601443874005,
+          "mean_action_interval_s": 0.12272257523960434,
+          "mean_client_inference_s": 0.06690087918308564
+        },
+        {
+          "control_steps": [
+            301,
+            400
+          ],
+          "xyz_action_norm_median": 0.05700208111393368,
+          "fresh_pre_state_move_median_mm": 0.6451986130679801,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 0.00010902601443874005,
+          "mean_action_interval_s": 0.12197306278045289,
+          "mean_client_inference_s": 0.0674164538900368
+        },
+        {
+          "control_steps": [
+            401,
+            500
+          ],
+          "xyz_action_norm_median": 0.08211930117908328,
+          "fresh_pre_state_move_median_mm": 1.216719136829525,
+          "closed_command_fraction": 0.75,
+          "cached_bowl_max_lift_mm": 95.14523247843098,
+          "mean_action_interval_s": 0.12349828798905946,
+          "mean_client_inference_s": 0.06787714874837547
+        },
+        {
+          "control_steps": [
+            501,
+            600
+          ],
+          "xyz_action_norm_median": 0.09910287529011906,
+          "fresh_pre_state_move_median_mm": 1.4397716731424508,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 178.0062951009266,
+          "mean_action_interval_s": 0.12335767593001946,
+          "mean_client_inference_s": 0.0675173707853537
+        },
+        {
+          "control_steps": [
+            601,
+            700
+          ],
+          "xyz_action_norm_median": 0.08960953697914442,
+          "fresh_pre_state_move_median_mm": 1.1503556734852138,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 162.1540649001586,
+          "mean_action_interval_s": 0.1238657683308702,
+          "mean_client_inference_s": 0.06770697314641438
+        },
+        {
+          "control_steps": [
+            701,
+            800
+          ],
+          "xyz_action_norm_median": 0.0815841562327537,
+          "fresh_pre_state_move_median_mm": 1.170008129371046,
+          "closed_command_fraction": 0.23,
+          "cached_bowl_max_lift_mm": 41.48191744656571,
+          "mean_action_interval_s": 0.1275608428393025,
+          "mean_client_inference_s": 0.06756338042672723
+        }
+      ],
+      "timing_summary": {
+        "steps": 800,
+        "means": {
+          "action_interval_s": 0.12352970686102419,
+          "client_inference_s": 0.06750475428270875,
+          "server_infer_ms": 65.46362486027647,
+          "ready_to_step_s": 0.010963882655923953,
+          "apply_tick_s": 0.01547757332707988,
+          "eef_move_mm": 0.6379881946653893
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "states": {
+        "initial": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 752,
+              "target_pixel_bbox_xyxy": [
+                30,
+                133,
+                65,
+                159
+              ],
+              "target_center_depth_m": 1.0212291666538804,
+              "target_center_input_xy": [
+                49.68805425777171,
+                155.3589237668058
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 1138,
+              "target_pixel_bbox_xyxy": [
+                229,
+                51,
+                255,
+                108
+              ],
+              "target_center_depth_m": 0.36897819322189684,
+              "target_center_input_xy": [
+                241.73769666901345,
+                85.04256851191298
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.666710872817255e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.132581464271295e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.9558418275799422e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.421712419033982e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -3.1381057502966483e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.9892952945220467e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.4272367050593354e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.278426249284734e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.836068508900102e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.618455535868542e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.301939100355001e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.0843261273234407e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -3.0266307905819574e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.827481948595499e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.492501382036856e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.2933525400503978e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.797740032829474e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.541896534618384e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.08687098759261e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -2.83102748938152e-06
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 0.6331470909280248,
+          "state_unchanged": true,
+          "eef_xyz": [
+            -0.20813707982741433,
+            0.00154781811531885,
+            1.1781749925037863
+          ],
+          "bowl_xyz": [
+            -0.07909714394231004,
+            0.25549586933192814,
+            0.8984038856841015
+          ],
+          "actual_gripper_gap_m": 0.07745835327787623,
+          "on": false
+        },
+        "final": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 944,
+              "target_pixel_bbox_xyxy": [
+                46,
+                157,
+                85,
+                189
+              ],
+              "target_center_depth_m": 0.9177033180664534,
+              "target_center_input_xy": [
+                68.60477408990619,
+                182.20541793974476
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 7556,
+              "target_pixel_bbox_xyxy": [
+                120,
+                124,
+                235,
+                213
+              ],
+              "target_center_depth_m": 0.20606537589556762,
+              "target_center_input_xy": [
+                161.12661264024138,
+                172.82143233217874
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g37",
+                "plate_1_g1"
+              ],
+              "distance_m": -1.2843531160258367e-07
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g38",
+                "plate_1_g1"
+              ],
+              "distance_m": -1.308915384756813e-07
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g40",
+                "plate_1_g10"
+              ],
+              "distance_m": -2.1221356346560853e-07
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 1.019704147303818,
+          "state_unchanged": true,
+          "eef_xyz": [
+            0.03468521835771916,
+            0.12750069760280486,
+            1.015646759115698
+          ],
+          "bowl_xyz": [
+            0.04577699622150295,
+            0.1734177754694073,
+            0.9085492616317348
+          ],
+          "actual_gripper_gap_m": 0.07983538200434903,
+          "on": true
+        }
+      }
+    },
+    {
+      "scene": 5,
+      "source_sha256": {
+        "final_state.npy": "72af9c6dcb971031e609e517d35a0dd78be7cc6f568aa02d9732e86558372a66",
+        "initial_state.npy": "df8caec4a7f311a8e7d69fc734bf17088541c5b2b7554031068d144a4f0f8c8a",
+        "timing.csv": "64bf207ad2bb2aaee8c8e06687b1750dba41cc9234e9ea8ee56c416a2606311a",
+        "scene.json": "f10c3cfd4bfff06422707e81a471b106c691940c2168f410df1885024173a606",
+        "final-agentview.png": "7b08267d4c75a2969c28c2b399ff4c32f3e3dc5beda430e880c1e7a2cf0f7e3d",
+        "initial-wrist.png": "3fc08d7bcb0318a0bff97a43ed0512161c68cb153e4d4c38c4b23b5bd061ad22",
+        "actions.csv": "d9f5ed454f65007236ac32d922df98b0cc9cb0ba8abea1f27918a03634d8b82d",
+        "result.json": "2831df48b774f9f96211e3ad8185988d74c809c1034b9bd2a998dd268fc565d6",
+        "initial-agentview.png": "bf8968765a10ce479870327147a0eafb9a167f256ab6837329f9d8406fa80246",
+        "video.mp4": "7eaf33e1bbe0a776a48532efcbbc9ab6e347c0a14124bc05997c49e60f453479"
+      },
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.021793773157623902,
+          0.27272433375264404,
+          0.8984038567263857
+        ],
+        "dx_m": -0.027340823970037453,
+        "dy_m": -0.031086142322097377
+      },
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_steps": 426,
+      "stop_reason": "stable_release_complete",
+      "release_and_retreat_success": true,
+      "final_on": true,
+      "phases": [
+        {
+          "control_steps": [
+            1,
+            100
+          ],
+          "xyz_action_norm_median": 0.2551071812031461,
+          "fresh_pre_state_move_median_mm": 3.203689709067961,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 0.00010350913448586851,
+          "mean_action_interval_s": 0.12172710312168217,
+          "mean_client_inference_s": 0.06701062160078436
+        },
+        {
+          "control_steps": [
+            101,
+            200
+          ],
+          "xyz_action_norm_median": 0.14496391575447237,
+          "fresh_pre_state_move_median_mm": 1.9422873108712178,
+          "closed_command_fraction": 0.63,
+          "cached_bowl_max_lift_mm": 121.13171273945954,
+          "mean_action_interval_s": 0.12396690917899832,
+          "mean_client_inference_s": 0.06744349797721952
+        },
+        {
+          "control_steps": [
+            201,
+            300
+          ],
+          "xyz_action_norm_median": 0.09831504764079789,
+          "fresh_pre_state_move_median_mm": 1.2568407711746041,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 126.73695212234959,
+          "mean_action_interval_s": 0.12382049564039335,
+          "mean_client_inference_s": 0.0671045356115792
+        },
+        {
+          "control_steps": [
+            301,
+            400
+          ],
+          "xyz_action_norm_median": 0.10217301820910189,
+          "fresh_pre_state_move_median_mm": 1.321506653339868,
+          "closed_command_fraction": 0.29,
+          "cached_bowl_max_lift_mm": 41.52854135322881,
+          "mean_action_interval_s": 0.12355022291070782,
+          "mean_client_inference_s": 0.0670702328660991
+        },
+        {
+          "control_steps": [
+            401,
+            426
+          ],
+          "xyz_action_norm_median": 0.04959971005040909,
+          "fresh_pre_state_move_median_mm": 0.5813962880405287,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 9.09020132859606,
+          "mean_action_interval_s": 0.12409871622758846,
+          "mean_client_inference_s": 0.06680189761279437
+        }
+      ],
+      "timing_summary": {
+        "steps": 426,
+        "means": {
+          "action_interval_s": 0.12332073553876184,
+          "client_inference_s": 0.06713553554812411,
+          "server_infer_ms": 65.31916990599643,
+          "ready_to_step_s": 0.011284485831255521,
+          "apply_tick_s": 0.015269300560991635,
+          "eef_move_mm": 1.1233218371746683
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "states": {
+        "initial": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 844,
+              "target_pixel_bbox_xyxy": [
+                20,
+                144,
+                56,
+                173
+              ],
+              "target_center_depth_m": 0.9766472421999274,
+              "target_center_input_xy": [
+                40.70769544101117,
+                167.99906685892162
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 646,
+              "target_pixel_bbox_xyxy": [
+                238,
+                24,
+                255,
+                75
+              ],
+              "target_center_depth_m": 0.3657785101785572,
+              "target_center_input_xy": [
+                250.53391096788673,
+                58.555101259625765
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.666710872817255e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.132581464271295e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.9558418275799422e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.421712419033982e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -3.1381057502966483e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.9892952945220467e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.4272367050593354e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.278426249284734e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.836068508900102e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.618455535868542e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.301939100355001e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.0843261273234407e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -3.0266307905819574e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.827481948595499e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.492501382036856e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.2933525400503978e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.797740032829474e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.541896534618384e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.08687098759261e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -2.83102748938152e-06
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 0.6331470909280248,
+          "state_unchanged": true,
+          "eef_xyz": [
+            -0.20813707982741433,
+            0.00154781811531885,
+            1.1781749925037863
+          ],
+          "bowl_xyz": [
+            -0.021793773155793183,
+            0.2727243337514038,
+            0.8984038856841015
+          ],
+          "actual_gripper_gap_m": 0.07745835327787623,
+          "on": false
+        },
+        "final": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 960,
+              "target_pixel_bbox_xyxy": [
+                42,
+                123,
+                80,
+                187
+              ],
+              "target_center_depth_m": 0.9229617450122468,
+              "target_center_input_xy": [
+                62.906796062299065,
+                180.9288812736166
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 6822,
+              "target_pixel_bbox_xyxy": [
+                123,
+                120,
+                219,
+                213
+              ],
+              "target_center_depth_m": 0.24454816710298521,
+              "target_center_input_xy": [
+                161.09381975860612,
+                162.34777995233298
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g37",
+                "plate_1_g1"
+              ],
+              "distance_m": -2.269543144634657e-07
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g40",
+                "plate_1_g2"
+              ],
+              "distance_m": -1.4106617893174401e-08
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g40",
+                "plate_1_g3"
+              ],
+              "distance_m": -1.4106617893174401e-08
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g40",
+                "plate_1_g10"
+              ],
+              "distance_m": -2.0850270352596421e-07
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 1.0906084317179894,
+          "state_unchanged": true,
+          "eef_xyz": [
+            0.026693810346928644,
+            0.1421261919409767,
+            1.0546821451950104
+          ],
+          "bowl_xyz": [
+            0.03987006805539031,
+            0.19142986061239467,
+            0.9074942157255887
+          ],
+          "actual_gripper_gap_m": 0.079934635243406,
+          "on": true
+        }
+      }
+    },
+    {
+      "scene": 6,
+      "source_sha256": {
+        "final_state.npy": "5de331e547a151f58a86f42037a4c95962887b13fdf1d9ad0e2d53939dfc42b2",
+        "initial_state.npy": "934d3b3092b0d1c4e7c861ed13f37ef8c1f53e9660063754d7c36dbb52ba0ced",
+        "timing.csv": "a9233692f2b9bbb9d4284b070eb2496dd8a9f64ef36d1998c482d7313687ca97",
+        "scene.json": "a95649eef3f77f6ceb6d54ddc364a538840dfb0bd3091cf05ae596233ed5858d",
+        "final-agentview.png": "872aa97a6e643863d81541b9eccaf5a6397a8aec7dd4bb61cc2e2c04698ae1d4",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "a64c1acf34088de4f91e04e31cab286c3660c89ee28496dcd8b010a319779670",
+        "result.json": "38234fbbcd0e5c737e437cc94217e743e81aacbbbb4c35d0f2bfc8e0f70e410f",
+        "initial-agentview.png": "cf6b294be80eb2778c800a5f25d3bb3ad528bc1a0140fb916c7816639199a4b3",
+        "video.mp4": "50d762709e2aade4a492a45be94cbd49804e24b1664599a2e5e0209392420fce"
+      },
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.02614630174874314,
+          0.35699399667399234,
+          0.8984038567263857
+        ],
+        "dx_m": 0.02059925093632959,
+        "dy_m": 0.05318352059925093
+      },
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_steps": 270,
+      "stop_reason": "reset",
+      "release_and_retreat_success": null,
+      "final_on": true,
+      "phases": [
+        {
+          "control_steps": [
+            1,
+            100
+          ],
+          "xyz_action_norm_median": 0.5538359461609308,
+          "fresh_pre_state_move_median_mm": 6.740684923995919,
+          "closed_command_fraction": 0.24,
+          "cached_bowl_max_lift_mm": 57.046053598466706,
+          "mean_action_interval_s": 0.12342148284884076,
+          "mean_client_inference_s": 0.06773274374427274
+        },
+        {
+          "control_steps": [
+            101,
+            200
+          ],
+          "xyz_action_norm_median": 0.13078478040555785,
+          "fresh_pre_state_move_median_mm": 1.717590750517259,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 163.7964809062744,
+          "mean_action_interval_s": 0.12428716046037153,
+          "mean_client_inference_s": 0.06765681433491409
+        },
+        {
+          "control_steps": [
+            201,
+            270
+          ],
+          "xyz_action_norm_median": 0.08664084817631598,
+          "fresh_pre_state_move_median_mm": 1.1330370881765999,
+          "closed_command_fraction": 0.21428571428571427,
+          "cached_bowl_max_lift_mm": 45.14772513898602,
+          "mean_action_interval_s": 0.12405241442777748,
+          "mean_client_inference_s": 0.06725193052386333
+        }
+      ],
+      "timing_summary": {
+        "steps": 270,
+        "means": {
+          "action_interval_s": 0.1239074790260848,
+          "client_inference_s": 0.06757996646144117,
+          "server_infer_ms": 65.5443569183936,
+          "ready_to_step_s": 0.011382136858689289,
+          "apply_tick_s": 0.015300445241370687,
+          "eef_move_mm": 1.8304414639418496
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "states": {
+        "initial": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 678,
+              "target_pixel_bbox_xyxy": [
+                0,
+                155,
+                25,
+                185
+              ],
+              "target_center_depth_m": 0.9393499352985141,
+              "target_center_input_xy": [
+                9.559106752537417,
+                179.49558379207622
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 0,
+              "target_pixel_bbox_xyxy": null,
+              "target_center_depth_m": 0.3630515038547457,
+              "target_center_input_xy": [
+                290.12710768013017,
+                35.94630392692207
+              ],
+              "center_inside_image": false,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.666710872817255e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.132581464271295e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.9558418275799422e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.421712419033982e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -3.1381057502966483e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.9892952945220467e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.4272367050593354e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.278426249284734e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.836068508900102e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.618455535868542e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.301939100355001e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.0843261273234407e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -3.0266307905819574e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.827481948595499e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.492501382036856e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.2933525400503978e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.797740032829474e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.541896534618384e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.08687098759261e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -2.83102748938152e-06
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 0.6331470909280248,
+          "state_unchanged": true,
+          "eef_xyz": [
+            -0.20813707982741433,
+            0.00154781811531885,
+            1.1781749925037863
+          ],
+          "bowl_xyz": [
+            0.02614630175057386,
+            0.3569939966727521,
+            0.8984038856841015
+          ],
+          "actual_gripper_gap_m": 0.07745835327787623,
+          "on": false
+        },
+        "final": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 954,
+              "target_pixel_bbox_xyxy": [
+                40,
+                163,
+                80,
+                195
+              ],
+              "target_center_depth_m": 0.9006456317728202,
+              "target_center_input_xy": [
+                61.55163436869947,
+                188.751354208963
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 7849,
+              "target_pixel_bbox_xyxy": [
+                111,
+                120,
+                225,
+                213
+              ],
+              "target_center_depth_m": 0.21382953407536953,
+              "target_center_input_xy": [
+                157.5866781372006,
+                164.7759842710627
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g37",
+                "plate_1_g7"
+              ],
+              "distance_m": -2.0963619239405124e-07
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g38",
+                "plate_1_g1"
+              ],
+              "distance_m": -2.6385198463420366e-08
+            },
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g40",
+                "plate_1_g1"
+              ],
+              "distance_m": -2.3084440770897358e-07
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 0.9251535423797567,
+          "state_unchanged": true,
+          "eef_xyz": [
+            0.054787421508586114,
+            0.153015028355028,
+            1.0232161826028616
+          ],
+          "bowl_xyz": [
+            0.06915427091542566,
+            0.19075097068530397,
+            0.906750987988509
+          ],
+          "actual_gripper_gap_m": 0.07954912201967251,
+          "on": true
+        }
+      }
+    },
+    {
+      "scene": 7,
+      "source_sha256": {
+        "final_state.npy": "28df3dafd7881d8db036cf43099e1c57a308bd1430b138041e7ac0b3c1a43c4f",
+        "initial_state.npy": "6e1bae7a44ec0fc10c5581359e378d2b7f2d2b52d9674b74c24b5ef0cf751b26",
+        "timing.csv": "ee54996ff0e83608e1377840bfe6d84621518f5eeabbaf13ee71d3e93a1a7983",
+        "scene.json": "f5db5a6ac46b8bda4c84be2aaeab244ab9e43811093430195e1503ac747e2201",
+        "final-agentview.png": "ecac8c8fdc061462b9865d5215211f00cd7986e2001b49b86b5a7601990ccc0c",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "67886e9f45f250d842a61d786bc30f4556ef12a388c73c611d24c66e98583cea",
+        "result.json": "c7536738969b2d5d7ea93eba87e201181bcad8dbe805811ec8ce8270856fa900",
+        "initial-agentview.png": "0a062135dbc58d17def6911e5703d12b18bea19502ba2c8d986091d55eb911ce",
+        "video.mp4": "bc4bbac856db9eecafe4ff1f1e5d8042c4166ce334f6a69f626afacf9f775487"
+      },
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.08494779987608396,
+          0.35699399667399234,
+          0.8984038567263857
+        ],
+        "dx_m": 0.07940074906367041,
+        "dy_m": 0.05318352059925093
+      },
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/negative_quadrants_20261019/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "negative_quadrants_20261019/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "29604573a3c5f632c0a5e8f1954af4ba5d190dff37e4e58a82677c2f7182c261",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_steps": 800,
+      "stop_reason": "step_limit",
+      "release_and_retreat_success": null,
+      "final_on": false,
+      "phases": [
+        {
+          "control_steps": [
+            1,
+            100
+          ],
+          "xyz_action_norm_median": 0.4119467859844768,
+          "fresh_pre_state_move_median_mm": 5.664445087243398,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 0.00010902601443874005,
+          "mean_action_interval_s": 0.12264850263653154,
+          "mean_client_inference_s": 0.06727651298511773
+        },
+        {
+          "control_steps": [
+            101,
+            200
+          ],
+          "xyz_action_norm_median": 0.04651678941441223,
+          "fresh_pre_state_move_median_mm": 0.6037506206349746,
+          "closed_command_fraction": 0.0,
+          "cached_bowl_max_lift_mm": 3.576337745307412,
+          "mean_action_interval_s": 0.12294140996993519,
+          "mean_client_inference_s": 0.06782814145204612
+        },
+        {
+          "control_steps": [
+            201,
+            300
+          ],
+          "xyz_action_norm_median": 0.04234279809424957,
+          "fresh_pre_state_move_median_mm": 0.45763930532147357,
+          "closed_command_fraction": 0.44,
+          "cached_bowl_max_lift_mm": 17.685233475815632,
+          "mean_action_interval_s": 0.12397516686934978,
+          "mean_client_inference_s": 0.067730043430347
+        },
+        {
+          "control_steps": [
+            301,
+            400
+          ],
+          "xyz_action_norm_median": 0.04385251855879384,
+          "fresh_pre_state_move_median_mm": 0.32700605337869476,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 26.20189051123001,
+          "mean_action_interval_s": 0.12355680261040107,
+          "mean_client_inference_s": 0.06770646888413466
+        },
+        {
+          "control_steps": [
+            401,
+            500
+          ],
+          "xyz_action_norm_median": 0.04416217783175203,
+          "fresh_pre_state_move_median_mm": 0.3938123113137568,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 31.682586824768766,
+          "mean_action_interval_s": 0.12388595066964626,
+          "mean_client_inference_s": 0.06750135279959067
+        },
+        {
+          "control_steps": [
+            501,
+            600
+          ],
+          "xyz_action_norm_median": 0.03686774968778465,
+          "fresh_pre_state_move_median_mm": 0.2818512721975736,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 28.58527693762669,
+          "mean_action_interval_s": 0.12379498342052102,
+          "mean_client_inference_s": 0.06716815559542738
+        },
+        {
+          "control_steps": [
+            601,
+            700
+          ],
+          "xyz_action_norm_median": 0.052961397211645576,
+          "fresh_pre_state_move_median_mm": 0.44584637626894696,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 34.8228684219376,
+          "mean_action_interval_s": 0.12443620739039034,
+          "mean_client_inference_s": 0.0678930049506016
+        },
+        {
+          "control_steps": [
+            701,
+            800
+          ],
+          "xyz_action_norm_median": 0.04873283785583203,
+          "fresh_pre_state_move_median_mm": 0.4533340161156779,
+          "closed_command_fraction": 1.0,
+          "cached_bowl_max_lift_mm": 27.674984979288773,
+          "mean_action_interval_s": 0.12741705525899305,
+          "mean_client_inference_s": 0.06730968249379657
+        }
+      ],
+      "timing_summary": {
+        "steps": 800,
+        "means": {
+          "action_interval_s": 0.12408380397990024,
+          "client_inference_s": 0.06755167032388272,
+          "server_infer_ms": 65.48400550964288,
+          "ready_to_step_s": 0.01098197451181477,
+          "apply_tick_s": 0.015870669542055113,
+          "eef_move_mm": 0.521956055145582
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "states": {
+        "initial": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 554,
+              "target_pixel_bbox_xyxy": [
+                0,
+                168,
+                20,
+                201
+              ],
+              "target_center_depth_m": 0.8936024730251887,
+              "target_center_input_xy": [
+                3.5467895592911987,
+                194.90724238822497
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 0,
+              "target_pixel_bbox_xyxy": null,
+              "target_center_depth_m": 0.35978085999465503,
+              "target_center_input_xy": [
+                291.5427921293097,
+                7.888376236096758
+              ],
+              "center_inside_image": false,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.666710872817255e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -3.132581464271295e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.9558418275799422e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g36"
+              ],
+              "distance_m": -2.421712419033982e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -3.1381057502966483e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.9892952945220467e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.4272367050593354e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g37"
+              ],
+              "distance_m": -2.278426249284734e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.836068508900102e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.618455535868542e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.301939100355001e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g38"
+              ],
+              "distance_m": -3.0843261273234407e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -3.0266307905819574e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.827481948595499e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.492501382036856e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g39"
+              ],
+              "distance_m": -2.2933525400503978e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.797740032829474e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.541896534618384e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -3.08687098759261e-06
+            },
+            {
+              "geom_names": [
+                "table_collision",
+                "akita_black_bowl_1_g40"
+              ],
+              "distance_m": -2.83102748938152e-06
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 0.6331470909280248,
+          "state_unchanged": true,
+          "eef_xyz": [
+            -0.20813707982741433,
+            0.00154781811531885,
+            1.1781749925037863
+          ],
+          "bowl_xyz": [
+            0.08494779987791468,
+            0.3569939966727521,
+            0.8984038856841015
+          ],
+          "actual_gripper_gap_m": 0.07745835327787623,
+          "on": false
+        },
+        "final": {
+          "cameras": {
+            "agentview": {
+              "visible_target_pixels": 454,
+              "target_pixel_bbox_xyxy": [
+                0,
+                159,
+                25,
+                180
+              ],
+              "target_center_depth_m": 0.9133273091578347,
+              "target_center_input_xy": [
+                6.491471669956383,
+                179.17621265694092
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            },
+            "robot0_eye_in_hand": {
+              "visible_target_pixels": 9390,
+              "target_pixel_bbox_xyxy": [
+                0,
+                126,
+                129,
+                214
+              ],
+              "target_center_depth_m": 0.13549046212730875,
+              "target_center_input_xy": [
+                81.30119310371938,
+                164.26205667565105
+              ],
+              "center_inside_image": true,
+              "limits": "Visible pixels include occlusion. Projected body origin is not the object silhouette."
+            }
+          },
+          "contacts": [
+            {
+              "geom_names": [
+                "akita_black_bowl_1_g32",
+                "gripper0_finger1_collision"
+              ],
+              "distance_m": -9.818928868698471e-05
+            },
+            {
+              "geom_names": [
+                "gripper0_finger1_pad_collision",
+                "akita_black_bowl_1_g30"
+              ],
+              "distance_m": -0.0001223257509271647
+            },
+            {
+              "geom_names": [
+                "gripper0_finger1_pad_collision",
+                "akita_black_bowl_1_g31"
+              ],
+              "distance_m": -0.0001223257509271647
+            },
+            {
+              "geom_names": [
+                "gripper0_finger1_pad_collision",
+                "akita_black_bowl_1_g32"
+              ],
+              "distance_m": -0.0001596546285582653
+            },
+            {
+              "geom_names": [
+                "gripper0_finger2_pad_collision",
+                "akita_black_bowl_1_g30"
+              ],
+              "distance_m": -8.371559853811681e-05
+            },
+            {
+              "geom_names": [
+                "gripper0_finger2_pad_collision",
+                "akita_black_bowl_1_g30"
+              ],
+              "distance_m": -9.450600601600965e-05
+            },
+            {
+              "geom_names": [
+                "gripper0_finger2_pad_collision",
+                "akita_black_bowl_1_g31"
+              ],
+              "distance_m": -8.371559853811681e-05
+            },
+            {
+              "geom_names": [
+                "gripper0_finger2_pad_collision",
+                "akita_black_bowl_1_g31"
+              ],
+              "distance_m": -9.450600601600965e-05
+            },
+            {
+              "geom_names": [
+                "gripper0_finger2_pad_collision",
+                "akita_black_bowl_1_g32"
+              ],
+              "distance_m": -4.788960054460914e-05
+            },
+            {
+              "geom_names": [
+                "gripper0_finger2_pad_collision",
+                "akita_black_bowl_1_g32"
+              ],
+              "distance_m": -1.5021714591250832e-05
+            }
+          ],
+          "minimum_joint_limit_margin_rad": 0.33715326397494505,
+          "state_unchanged": true,
+          "eef_xyz": [
+            0.03326095951476987,
+            0.4038600659612642,
+            0.9490417599891966
+          ],
+          "bowl_xyz": [
+            0.04307437124110482,
+            0.35617086299889167,
+            0.9188611581099428
+          ],
+          "actual_gripper_gap_m": 0.005155090706340887,
+          "on": false
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Observational GUI trials, not independent seeded comparisons.",
+    "Fresh pre-state differences measure motion; cached post-state measures are labeled separately.",
+    "Initial/final contacts and visibility do not reconstruct intermediate history.",
+    "No motion probe: this audit cannot prove mechanical mobility or identify training root cause."
+  ],
+  "audit_script_sha256": "c9d63a779af290fb54b53384e6eaa72e3dbe2e692c9b8183616d974000598140"
+}

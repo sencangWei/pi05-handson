@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "unmodified_copies_sha256": {
+    "evidence/retrain-20261019/visual-review/control__seed0__zero.png": "5ab1f6562c71d696d78e53c77fe2b2798f18022383a8d0724c9f619066b37167",
+    "evidence/retrain-20261019/visual-review/control__seed0__user054_neg_neg.png": "882cd95ddea3938a4b5215c80f29e2b211ac8de801520dc8f3a01096831f996c",
+    "evidence/retrain-20261019/visual-review/control__seed0__user055_neg_neg.png": "e89eb1b81c8b989cc5dce35c828b1753bad5a4d5faa87bf617529eb5c73bcb39",
+    "evidence/retrain-20261019/visual-review/control__seed0__user057_pos_pos.png": "163400aee2270ab5bec525394519c5dd6eb39dbb38257f12aaeea3295d97752f",
+    "evidence/retrain-20261019/visual-review/candidate__seed0__zero.png": "2b60711577e96e63535302e8d9f8685b025ee7cca0859f7bb729255aa274961a",
+    "evidence/retrain-20261019/visual-review/candidate__seed0__user054_neg_neg.png": "1f92934d748e1789839404290111a2867f8ef0ce4994def26984ac8dcba46eff",
+    "evidence/retrain-20261019/visual-review/candidate__seed0__user055_neg_neg.png": "4c92ee8a607ee7fcd7c449d1f4d05d8f03badc843412cb568eaa81398e27cc61",
+    "evidence/retrain-20261019/visual-review/candidate__seed0__user057_pos_pos.png": "9b2acb2908b2348952bf57eef5d9d962c2b096a3442dcf6fada9b9c570deebc3"
+  }
+}

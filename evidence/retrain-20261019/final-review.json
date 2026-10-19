@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "Bounded independent read-only final report review; publication of final delivery remains a separate verification step.",
+  "reviewed_files_sha256": {
+    "README.md": "afbb3a19e40b0aff6fa598479eb894cd86aedc8985c0ac0b3504fae59b4a7d30",
+    "training-summary.json": "92606a3525dbf404d2845d54b8582e32ce7633dc750486326db1c99debe60d5c",
+    "followup-summary.json": "a6805732060d57e644eab15c1cd5391e5fc90890ea5c21648a6b16b30ad4d65b",
+    "artifact-verification.json": "6ece9ccea70f61fbcf85fe05bf9f13926d1bd3e24c028318d86feaf27aef9e13",
+    "service-restored.json": "1b575f2b0e3762529818584f544a273cf68e9c4bd22dd9730eb38809b02e7ce5"
+  },
+  "blocking_findings": [],
+  "verified": {
+    "raw_rollouts": 24,
+    "csv_control_step_and_first_consecutive_10_gate_matches_result_and_summary": true,
+    "control": {
+      "stable_release_events": 6,
+      "strict_50_followup_pass": 6,
+      "trials": 12,
+      "right_censored_at_800": 6
+    },
+    "candidate": {
+      "stable_release_events": 6,
+      "strict_50_followup_pass": 6,
+      "trials": 12,
+      "right_censored_at_800": 6
+    },
+    "paired_successes": {
+      "candidate_faster": 2,
+      "candidate_slower": 4
+    },
+    "paired_no_event_right_censored_at_800": 6,
+    "artifact_files_sha256_recomputed": 216,
+    "artifact_hash_mismatches": 0,
+    "both_training_log_and_launch_record_hashes_match": true,
+    "logged_step_1990_losses": {
+      "control": 0.0096,
+      "candidate": 0.0098
+    },
+    "original_8755_process_cmdline_matches_restored_checkpoint": true,
+    "original_gui_pid_2682724_exists": true,
+    "restoration_claim_does_not_claim_gui_hot_update_or_new_checkpoint_loaded": true,
+    "report_separates_local_training_rgb_teacher_and_full_weights_from_public_backup": true
+  },
+  "conclusion_boundaries": [
+    "Report does not claim overall candidate speed improvement, failed-position repair, unseen-position generalization, overfitting diagnosis, or disturbance recovery.",
+    "Strict release stability was observed for 50 additional actions; longer-horizon stability was not established.",
+    "The 800-step no-event trials are right censored, not evidence of permanent inability.",
+    "The original model service was restored; GUI live object and current layout/draft were not directly manipulated or independently deserialized by this review.",
+    "Existing remote-restore-proof covers an earlier commit and its recorded hashes. Final videos/CSV/logs/report publication and restoration proof must be verified after the pending final commit/push; this review does not certify that pending backup."
+  ],
+  "actions": "Read existing files, recomputed CSV gates and SHA256, inspected process cmdlines, wrote only this report; no new tests, inference, GPU, simulation, source edits, GUI operations, or process control."
+}

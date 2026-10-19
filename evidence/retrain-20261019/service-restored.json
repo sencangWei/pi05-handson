@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+  "state": {
+    "running": true,
+    "owned": true,
+    "pid": 3294869,
+    "log": "/home/robot/.pi05-handson/logs/ui_model_1792370877308336149.log"
+  },
+  "gui": "Existing GUI and active scene were not reset; old cached WS may require reconnect after first safe connection error.",
+  "metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "configuration": "pi05_handson_lora",
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+    "checkpoint_step_index": "4999",
+    "model_stage": "ui_correct_1792341395770417042/4999",
+    "policy_sampling_seed_at_server_start": 0,
+    "params_manifest_sha256": "1e1c7c146a70ce9ebd33a3f8fb9dab66ca0feb84f76516ad398f1f4a007dbc63",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "jobs": {
+    "model": {
+      "running": true,
+      "owned": true,
+      "pid": 3294869,
+      "log": "/home/robot/.pi05-handson/logs/ui_model_1792370877308336149.log"
+    },
+    "training": {
+      "running": false,
+      "owned": false,
+      "pid": null,
+      "log": "/home/robot/.pi05-handson/logs/ui_training_1792368435482309398.log"
+    },
+    "tensorboard": {
+      "running": true,
+      "owned": false,
+      "pid": null,
+      "log": ""
+    },
+    "port_busy": true
+  },
+  "gui_pid_preserved": 2682724,
+  "verification": "Fresh websocket metadata only; no policy inference or physical steps. Existing GUI layout/draft not reset."
+}

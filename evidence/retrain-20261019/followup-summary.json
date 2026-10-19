@@ -1,0 +1,5107 @@
+{
+  "status": "COMPLETE",
+  "experiment_plan_sha256": "a26b261ed03136aacd953670f778aa358e08d3e45212dad10ac5a547e5511333",
+  "plan": {
+    "status": "COMPLETE",
+    "user_request": "重训练",
+    "arms": {
+      "control": "retrain_teacher_1x_20261019",
+      "candidate": "retrain_teacher_2x_20261019"
+    },
+    "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+    "parent_params_manifest_sha256": "6268deb9505e8ed5d5757c6c1682e754106843f7e014dbd62a341c18f84eb469",
+    "base_manifest_sha256": "d93e92a156cd8166937bf8f2688d5825f00bd85a4d6816cceeac729eae9d18e5",
+    "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "new_updates_per_arm": 2000,
+    "batch_size": 4,
+    "learning_rate": 1e-05,
+    "seed": 42,
+    "action_horizon": 10,
+    "discrete_state_input": false,
+    "optimizer_lineage": "same model parent; fresh Adam/RNG/data cursor for each arm, not resume",
+    "sampling_fraction": {
+      "public_complete_demos": 0.6,
+      "all_approved_human": 0.2,
+      "teacher_protected_normal_carry": 0.15,
+      "teacher_contact_and_other": 0.05
+    },
+    "phase_window_contract": "all10 native future labels inside the unprotected reviewed source carry interval; no stitching; every real start represented in sampler map",
+    "training_not_started_yet": false,
+    "candidate_gate": "two2x physical source rollouts pass all fixed geometric/continuity/release/tempo gates before publication; no rejected source used",
+    "followup_evaluation": {
+      "physical_cases": [
+        "zero",
+        "user054_neg_neg",
+        "user055_neg_neg",
+        "user057_pos_pos"
+      ],
+      "policy_seeds": [
+        0,
+        1,
+        2
+      ],
+      "layout_id": 24,
+      "sim_seed": 42,
+      "max_control_steps": 800,
+      "replan_steps": 1,
+      "stability_gate": "On+open+actual gap>=.06m+EEF-bowl>=.10m for10 consecutive steps; continue up to50 extra steps to observe bounded stability",
+      "comparison": "same cases/seeds across both arms, validation not unseen test"
+    },
+    "training_datasets": {
+      "rate1": {
+        "manifest": "evidence/tracking-teacher-retrain_rate1_mix_v2-manifest.json",
+        "frames": 15052
+      },
+      "rate2": {
+        "manifest": "evidence/tracking-teacher-retrain_rate2_mix_v2-manifest.json",
+        "frames": 14915
+      }
+    },
+    "data_intervention": "Actual matched physical re-recording, only carry reference clock1x vs2x; noncarry actions remain original. No rejectedv1 data included. Model/state/action/norm unchanged.",
+    "teacher_carry_speedups": [
+      1.7777777777777777,
+      1.7701149425287357
+    ],
+    "run_progress": "evidence/retrain-20261019/run-progress.json"
+  },
+  "planned_runs": 24,
+  "completed_valid_runs": 24,
+  "pending_slots": [],
+  "input_errors": [],
+  "same_case_initial_identity_over_available_runs": {
+    "zero": true,
+    "user054_neg_neg": true,
+    "user055_neg_neg": true,
+    "user057_pos_pos": true
+  },
+  "runs": [
+    {
+      "arm": "candidate",
+      "case": "user054_neg_neg",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed0__user054_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "7a9762a3dafe7cc96bc190d74d9d8dc31671daf32a8160499067eb1253d78e90",
+        "result.json": "bac8a45053b219a6fbbae3291fe7ed9dd31709fcc38c886cd78a47da513ace47"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 387,
+        "first_lift_over_2cm_control_step": 500,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 516,
+          "frames": 285,
+          "action_xyz_norm": {
+            "n": 285,
+            "mean": 0.07842824526922812,
+            "median": 0.06863152001532175
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 284,
+            "mean": 0.8024606216231018,
+            "median": 0.7587241575007853
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.11257025978082115,
+            "median": 0.06696228170535348
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.2352361376623813,
+            "median": 0.7576069144302898
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.75185235589743,
+          "control_steps_per_wall_second": 12.166957604020205,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user055_neg_neg",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed0__user055_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "a9133dbc42508a92c0cf09763ce068e5d724b5ac5315cd9c39afcdac3b00c422",
+        "result.json": "30a9b63c6275bfb73e7e420e682ddd63d8f95c8b08d5ce5ddc675aad54a11fb8"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 449,
+        "first_lift_over_2cm_control_step": 551,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 555,
+          "frames": 245,
+          "action_xyz_norm": {
+            "n": 245,
+            "mean": 0.11870031777182764,
+            "median": 0.08996412488972173
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 243,
+            "mean": 1.3271443363815418,
+            "median": 1.011055971981122
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.12221978888098754,
+            "median": 0.07296293468262033
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.3481653758117584,
+            "median": 0.8199536025244826
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.91907204501331,
+          "control_steps_per_wall_second": 12.13609316972354,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user057_pos_pos",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed0__user057_pos_pos",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "fef93c7ad1b16f0255d84a353b03d02032e2ab52f7d257ed14fa8bc0ffd5fe46",
+        "result.json": "59333dbd945f813184a155ee37b145a8efd728f782ab8599b459f0b3d4c0be51"
+      },
+      "metrics": {
+        "control_steps": 318,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 64,
+        "first_lift_over_2cm_control_step": 82,
+        "first_On_control_step": 151,
+        "first_stable_release_control_step": 268,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 117,
+          "observed_actions_from_first_On_through_stop": 168,
+          "close_command_fraction": 0.44047619047619047,
+          "actual_open_gap_fraction": 0.4226190476190476
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 268,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 84,
+          "frames": 61,
+          "action_xyz_norm": {
+            "n": 61,
+            "mean": 0.48867909209708116,
+            "median": 0.4347099178786769
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 60,
+            "mean": 6.1677399448430315,
+            "median": 5.324212949084235
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 318,
+            "mean": 0.34155373092318403,
+            "median": 0.21419295325958815
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 317,
+            "mean": 3.8837944766359915,
+            "median": 2.026251165496338
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 268,
+          "maximum_bowl_drift_3d_m": 3.861069246444029e-07,
+          "maximum_bowl_drift_xy_m": 3.814764093967335e-07,
+          "final_bowl_drift_3d_m": 3.861069246444029e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 26.55050886294339,
+          "control_steps_per_wall_second": 11.977171572927304,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "zero",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed0__zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "255f25959d49fac1fc437fcf32262ed70ab6877d12c42bab78709bc33d6bf362",
+        "result.json": "8b2f2d2f67473a452f5afd35838024f1f8e1223bd820daf9d980cc9106dd48ea"
+      },
+      "metrics": {
+        "control_steps": 283,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 64,
+        "first_lift_over_2cm_control_step": 81,
+        "first_On_control_step": 185,
+        "first_stable_release_control_step": 233,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 48,
+          "observed_actions_from_first_On_through_stop": 99,
+          "close_command_fraction": 0.13131313131313133,
+          "actual_open_gap_fraction": 0.7575757575757576
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 233,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 83,
+          "frames": 95,
+          "action_xyz_norm": {
+            "n": 95,
+            "mean": 0.23942598761365388,
+            "median": 0.11564933722762717
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 94,
+            "mean": 2.9434115835348242,
+            "median": 1.6409442798507266
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 283,
+            "mean": 0.3353725990837162,
+            "median": 0.18291697974487992
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 282,
+            "mean": 3.9589218234644172,
+            "median": 2.262045481739542
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 233,
+          "maximum_bowl_drift_3d_m": 3.8563948870332084e-07,
+          "maximum_bowl_drift_xy_m": 3.8031319516186497e-07,
+          "final_bowl_drift_3d_m": 3.8563948870332084e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 33.13012553693261,
+          "control_steps_per_wall_second": 8.542074483977396,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user054_neg_neg",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed1__user054_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "2ce9b899ea0043429f95287893ee5d4472bc670a924541ad438f3cea91d76ba2",
+        "result.json": "869f2fe87d3baff4642e16d8c243a425284d6361f4c766511ab034576a30f6aa"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 412,
+        "first_lift_over_2cm_control_step": 457,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 498,
+          "frames": 290,
+          "action_xyz_norm": {
+            "n": 290,
+            "mean": 0.07526926618327844,
+            "median": 0.06915757113202853
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 288,
+            "mean": 0.7155414857129213,
+            "median": 0.6700760378761059
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.11478368832412897,
+            "median": 0.0689142708592107
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.2213448077721323,
+            "median": 0.7267833082248687
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.87242149899248,
+          "control_steps_per_wall_second": 12.144687895103962,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user055_neg_neg",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed1__user055_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "780110efec572d650287680ce9cb79d3ec7a6cb623dd999ef8f13b0873217f79",
+        "result.json": "6893245d5dc39b93edcf0691c5bf7f83b1efc60d2f910b7bf5d39f2afc850401"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 476,
+        "first_lift_over_2cm_control_step": 533,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 542,
+          "frames": 259,
+          "action_xyz_norm": {
+            "n": 259,
+            "mean": 0.08181359839064715,
+            "median": 0.0706871351616098
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 258,
+            "mean": 0.8388676092131658,
+            "median": 0.7728871465239144
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10907248581430473,
+            "median": 0.06475181246215271
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.1747293374313033,
+            "median": 0.7152406077150272
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.50703214900568,
+          "control_steps_per_wall_second": 12.212429318737547,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user057_pos_pos",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed1__user057_pos_pos",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "dfe7302dc3b4a842653fd55b70183e421477b21ce8d0f4d7f43a73791a096f1c",
+        "result.json": "90a839e2726989e9a42dd6092a36a86547162642f151cf33fe67dfa9494b1adb"
+      },
+      "metrics": {
+        "control_steps": 321,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 63,
+        "first_lift_over_2cm_control_step": 78,
+        "first_On_control_step": 136,
+        "first_stable_release_control_step": 271,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 135,
+          "observed_actions_from_first_On_through_stop": 186,
+          "close_command_fraction": 0.43010752688172044,
+          "actual_open_gap_fraction": 0.478494623655914
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 271,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 80,
+          "frames": 49,
+          "action_xyz_norm": {
+            "n": 49,
+            "mean": 0.6838111494991247,
+            "median": 0.705269349958373
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 48,
+            "mean": 8.45344375620445,
+            "median": 8.270672679927294
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 321,
+            "mean": 0.35961660054144,
+            "median": 0.22059824675969153
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 320,
+            "mean": 3.9817442466753596,
+            "median": 1.817304239257898
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 271,
+          "maximum_bowl_drift_3d_m": 3.8679119964383154e-07,
+          "maximum_bowl_drift_xy_m": 3.807025615436002e-07,
+          "final_bowl_drift_3d_m": 3.8679119964383154e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 26.713980246102437,
+          "control_steps_per_wall_second": 12.016180181417699,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "zero",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed1__zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "c1551d71e3b4053afb1cac0f0dd1bd5a562f5d7e68cc2af2818046763247f01b",
+        "result.json": "ffa4f03a81cf558dd8f63fd86d30ac8f09ef1856c9a9ba2c188336bbba04d561"
+      },
+      "metrics": {
+        "control_steps": 339,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 60,
+        "first_lift_over_2cm_control_step": 82,
+        "first_On_control_step": 141,
+        "first_stable_release_control_step": 289,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 148,
+          "observed_actions_from_first_On_through_stop": 199,
+          "close_command_fraction": 0.507537688442211,
+          "actual_open_gap_fraction": 0.40703517587939697
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 289,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 84,
+          "frames": 53,
+          "action_xyz_norm": {
+            "n": 53,
+            "mean": 0.4487576173841091,
+            "median": 0.39428755155455286
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 52,
+            "mean": 5.586724034073461,
+            "median": 4.613456489575862
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 339,
+            "mean": 0.31851023444046717,
+            "median": 0.17845025832680342
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 338,
+            "mean": 3.470744249310486,
+            "median": 1.5752554824856033
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 289,
+          "maximum_bowl_drift_3d_m": 3.061903540942074e-07,
+          "maximum_bowl_drift_xy_m": 3.0165017538743526e-07,
+          "final_bowl_drift_3d_m": 3.061903540942074e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 38.03851683600806,
+          "control_steps_per_wall_second": 8.912019400269978,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user054_neg_neg",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed2__user054_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "85a330656808bd9bc247866ae820f8888aa07ab8a54f3377b3a3c4c2389615e2",
+        "result.json": "d6b4bac1ee3970115192ef18d1de0d482697a05db7f70ed661926728c2a03f2f"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 337,
+        "first_lift_over_2cm_control_step": 470,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 483,
+          "frames": 311,
+          "action_xyz_norm": {
+            "n": 311,
+            "mean": 0.08860369972787319,
+            "median": 0.0814177349605392
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 309,
+            "mean": 0.8948290356053088,
+            "median": 0.8666711129124997
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1166087362645936,
+            "median": 0.07060400356270961
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.278508179169503,
+            "median": 0.7938216272785215
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.90234429202974,
+          "control_steps_per_wall_second": 12.139173630227786,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user055_neg_neg",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed2__user055_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "edcf2c066d22571bb97a2b9341c851e737d0265bb90a7d9c19f4cd60e2d09656",
+        "result.json": "735f31e4c7915dfb2b282831c125edad00a3621d6c570b1d584a6c98f9b0d525"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 469,
+        "first_lift_over_2cm_control_step": 523,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 548,
+          "frames": 253,
+          "action_xyz_norm": {
+            "n": 253,
+            "mean": 0.09717390604680422,
+            "median": 0.08176910479691737
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 252,
+            "mean": 1.0101842805001198,
+            "median": 0.9207486400609273
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.12022249163159376,
+            "median": 0.06955825123301448
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.2792713457842513,
+            "median": 0.7438407298366059
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.69940054707695,
+          "control_steps_per_wall_second": 12.17667122284867,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "user057_pos_pos",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed2__user057_pos_pos",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "e261a23f1f1810820c8eb265c86076f6bb1d829a90d2e03382c7e707a1aeb82c",
+        "result.json": "7cbbe1c8ae24efde1b5552feb777294e1c23a7fe07d5fb8d72408750cef4975a"
+      },
+      "metrics": {
+        "control_steps": 272,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 58,
+        "first_lift_over_2cm_control_step": 71,
+        "first_On_control_step": 129,
+        "first_stable_release_control_step": 222,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 93,
+          "observed_actions_from_first_On_through_stop": 144,
+          "close_command_fraction": 0.3680555555555556,
+          "actual_open_gap_fraction": 0.5208333333333334
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 222,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 73,
+          "frames": 50,
+          "action_xyz_norm": {
+            "n": 50,
+            "mean": 0.5906053673669072,
+            "median": 0.6110324188952998
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 49,
+            "mean": 7.532335024126888,
+            "median": 7.283847259282297
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 272,
+            "mean": 0.3710811870016914,
+            "median": 0.2093674947484414
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 271,
+            "mean": 4.376024482544689,
+            "median": 2.460296984805984
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 222,
+          "maximum_bowl_drift_3d_m": 3.9599180190484364e-07,
+          "maximum_bowl_drift_xy_m": 3.9005859465703554e-07,
+          "final_bowl_drift_3d_m": 3.9599180190484364e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 22.4724948030198,
+          "control_steps_per_wall_second": 12.103685077432939,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "candidate",
+      "case": "zero",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/candidate__seed2__zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+        "model_stage": "retrain_teacher_2x_20261019/1999",
+        "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "29469bf13e4c6a01ee327b7f2ab64353ab718850cf29a0722b35d53a5c3d831a",
+        "result.json": "4be0e926a7c10867015744fff0f465706fc54a3fb095ff44b4034c8b9c72a6b1"
+      },
+      "metrics": {
+        "control_steps": 280,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 58,
+        "first_lift_over_2cm_control_step": 72,
+        "first_On_control_step": 126,
+        "first_stable_release_control_step": 230,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 104,
+          "observed_actions_from_first_On_through_stop": 155,
+          "close_command_fraction": 0.3161290322580645,
+          "actual_open_gap_fraction": 0.5225806451612903
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 230,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 73,
+          "frames": 49,
+          "action_xyz_norm": {
+            "n": 49,
+            "mean": 0.44705975287859845,
+            "median": 0.37704229043863735
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 48,
+            "mean": 5.66505901724582,
+            "median": 4.331334957310904
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 280,
+            "mean": 0.34176480159015554,
+            "median": 0.1755378384127263
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 279,
+            "mean": 3.9986185630880016,
+            "median": 2.109691245682898
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 230,
+          "maximum_bowl_drift_3d_m": 3.597223339077716e-07,
+          "maximum_bowl_drift_xy_m": 3.543295812201764e-07,
+          "final_bowl_drift_3d_m": 3.597223339077716e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 32.896551213925704,
+          "control_steps_per_wall_second": 8.511530530333252,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user054_neg_neg",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed0__user054_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "d2c86f21d540f76f4bb32984bf2a1da6618eae3c8da735e03ca15edf6ee6d942",
+        "result.json": "6daee2f0dfaac16f79ec9c9165f6d043d3a918c0a676e2232ba53b26713c2288"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 461,
+        "first_lift_over_2cm_control_step": 498,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 507,
+          "frames": 293,
+          "action_xyz_norm": {
+            "n": 293,
+            "mean": 0.08605519830238904,
+            "median": 0.07339956259287624
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 291,
+            "mean": 0.9157151902741656,
+            "median": 0.7879724902623713
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.11298985330689691,
+            "median": 0.06618511136369026
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.2530688899331526,
+            "median": 0.7675061274841152
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 66.13385893194936,
+          "control_steps_per_wall_second": 12.096678054477158,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user055_neg_neg",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed0__user055_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "066f75d1efbaf4e6a377f1fe2f654bd5347aa3bd71f9c08d545787087a741422",
+        "result.json": "ed933cbb739b5fdbad8aaebd61a3fce069355e59946a1442d6c0e51a036d0d21"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 447,
+        "first_lift_over_2cm_control_step": 514,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 517,
+          "frames": 283,
+          "action_xyz_norm": {
+            "n": 283,
+            "mean": 0.08292085440848448,
+            "median": 0.06534609566127757
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 281,
+            "mean": 0.8874388357978543,
+            "median": 0.6634344598951102
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.11036639443652334,
+            "median": 0.06546879080011542
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.216489519039375,
+            "median": 0.6997815636803966
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 66.35872954700608,
+          "control_steps_per_wall_second": 12.055685897863814,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user057_pos_pos",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed0__user057_pos_pos",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "b9a71e04b69ac678d303f4c1fe7699e7ca6daae7eb83d2cb010375e468e76040",
+        "result.json": "0ecc0690e5ade867fa4be3115b98632d9f8f18fff7529c77740e90727f953945"
+      },
+      "metrics": {
+        "control_steps": 263,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 65,
+        "first_lift_over_2cm_control_step": 80,
+        "first_On_control_step": 146,
+        "first_stable_release_control_step": 213,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 67,
+          "observed_actions_from_first_On_through_stop": 118,
+          "close_command_fraction": 0.1440677966101695,
+          "actual_open_gap_fraction": 0.7288135593220338
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 213,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 81,
+          "frames": 56,
+          "action_xyz_norm": {
+            "n": 56,
+            "mean": 0.5371108206391318,
+            "median": 0.49794068555882365
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 55,
+            "mean": 6.8628138243825765,
+            "median": 6.203656509426353
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 263,
+            "mean": 0.3822268149061451,
+            "median": 0.21665079223440678
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 262,
+            "mean": 4.555682857864901,
+            "median": 2.5575241556969583
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 213,
+          "maximum_bowl_drift_3d_m": 3.4657041542613596e-07,
+          "maximum_bowl_drift_xy_m": 3.4177794030538087e-07,
+          "final_bowl_drift_3d_m": 3.4657041542613596e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 21.900618435931392,
+          "control_steps_per_wall_second": 12.00879330277301,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "zero",
+      "policy_seed": 0,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed0__zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 0,
+        "diagnostic_rng_reset_per_connection": 0,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "efa5411dfa29436a05873073ef4a18a64f51301fe87e79836a4af3d527e85401",
+        "result.json": "15d74060e3c7d407e09378e014d2aa56928177d06b955f41ac2249b5bf702274"
+      },
+      "metrics": {
+        "control_steps": 413,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 65,
+        "first_lift_over_2cm_control_step": 86,
+        "first_On_control_step": 270,
+        "first_stable_release_control_step": 363,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 93,
+          "observed_actions_from_first_On_through_stop": 144,
+          "close_command_fraction": 0.24305555555555555,
+          "actual_open_gap_fraction": 0.6666666666666666
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 363,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 88,
+          "frames": 173,
+          "action_xyz_norm": {
+            "n": 173,
+            "mean": 0.15181077287488934,
+            "median": 0.07268642465918951
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 171,
+            "mean": 1.7492634358048709,
+            "median": 0.9576453354354622
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 413,
+            "mean": 0.23406110551326753,
+            "median": 0.09553412681882373
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 412,
+            "mean": 2.6867210674718542,
+            "median": 1.1590883824927225
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 363,
+          "maximum_bowl_drift_3d_m": 4.0369269796165665e-07,
+          "maximum_bowl_drift_xy_m": 3.9813536525138584e-07,
+          "final_bowl_drift_3d_m": 4.0369269796165665e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 45.83942439605016,
+          "control_steps_per_wall_second": 9.009711737034527,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user054_neg_neg",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed1__user054_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "142e61f085a76d2bd399e452e3ebc8bbd560bfdb7d48cdfa7ae56cd059019508",
+        "result.json": "6676851d53260f1cd8aa48e8261dd01d24f894e43f99a49edddbda5debeea570"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 535,
+        "first_lift_over_2cm_control_step": 569,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 572,
+          "frames": 229,
+          "action_xyz_norm": {
+            "n": 229,
+            "mean": 0.08539467309501607,
+            "median": 0.07050143709513795
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 228,
+            "mean": 0.8861448088145212,
+            "median": 0.7496454507933811
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10384902641377693,
+            "median": 0.062280226302837846
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.1172046206069133,
+            "median": 0.6739855873568291
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.54194138292223,
+          "control_steps_per_wall_second": 12.205924681511645,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user055_neg_neg",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed1__user055_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "89a7bf493aef7e46fff7f7521871a78aeb50c904a232c8d739db5015d27e79c9",
+        "result.json": "4e1c17a1fce74072180836fc0ab4e84525334a3d80e96a95c45b3d2b63c75f27"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 465,
+        "first_lift_over_2cm_control_step": 522,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 529,
+          "frames": 272,
+          "action_xyz_norm": {
+            "n": 272,
+            "mean": 0.07380074835882086,
+            "median": 0.0633944452910189
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 271,
+            "mean": 0.7490860204310149,
+            "median": 0.653440143381241
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10370871214275952,
+            "median": 0.0625323566330179
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.1325878670034095,
+            "median": 0.6810769314051851
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 65.80902992689516,
+          "control_steps_per_wall_second": 12.15638645469612,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user057_pos_pos",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed1__user057_pos_pos",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "d49ae6b335957ff27c152e26013610d6bdc873d037f17c53500a5d49943595ea",
+        "result.json": "f47a7ad0ea47aec5e9ff3a1c22e1f9a9e2c46e253a5221197625580a8642cb3d"
+      },
+      "metrics": {
+        "control_steps": 297,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 64,
+        "first_lift_over_2cm_control_step": 82,
+        "first_On_control_step": 142,
+        "first_stable_release_control_step": 247,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 105,
+          "observed_actions_from_first_On_through_stop": 156,
+          "close_command_fraction": 0.3717948717948718,
+          "actual_open_gap_fraction": 0.5128205128205128
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 247,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 84,
+          "frames": 53,
+          "action_xyz_norm": {
+            "n": 53,
+            "mean": 0.6613990201542447,
+            "median": 0.674095344397016
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 52,
+            "mean": 8.161877705553554,
+            "median": 8.418487533037155
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 297,
+            "mean": 0.370536444377922,
+            "median": 0.23926418707087477
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 296,
+            "mean": 4.30447765196305,
+            "median": 2.5225929648378944
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 247,
+          "maximum_bowl_drift_3d_m": 3.4423446036545775e-07,
+          "maximum_bowl_drift_xy_m": 3.3856587485991257e-07,
+          "final_bowl_drift_3d_m": 3.4423446036545775e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 24.779289733967744,
+          "control_steps_per_wall_second": 11.98581570289599,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "zero",
+      "policy_seed": 1,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed1__zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 1,
+        "diagnostic_rng_reset_per_connection": 1,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "4fd41e05891fd8982b4390fe1bc88aa984c8cb758c7b6559c7efb53ccfb297dd",
+        "result.json": "a738c3fd509bc14afad85079dc7e941c8c3cad1e8d47616cae8e99f4dce059b8"
+      },
+      "metrics": {
+        "control_steps": 374,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 67,
+        "first_lift_over_2cm_control_step": 89,
+        "first_On_control_step": 158,
+        "first_stable_release_control_step": 324,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 166,
+          "observed_actions_from_first_On_through_stop": 217,
+          "close_command_fraction": 0.42857142857142855,
+          "actual_open_gap_fraction": 0.39631336405529954
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 324,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 91,
+          "frames": 62,
+          "action_xyz_norm": {
+            "n": 62,
+            "mean": 0.41424501015635834,
+            "median": 0.30265486331648234
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 61,
+            "mean": 5.040083623605083,
+            "median": 3.7703766217234795
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 374,
+            "mean": 0.2937200851772516,
+            "median": 0.1579957893998783
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 373,
+            "mean": 3.21608391047566,
+            "median": 1.443403445048985
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 324,
+          "maximum_bowl_drift_3d_m": 3.791147935651631e-07,
+          "maximum_bowl_drift_xy_m": 3.7357234408396734e-07,
+          "final_bowl_drift_3d_m": 3.791147935651631e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 41.17344158596825,
+          "control_steps_per_wall_second": 9.083525340457761,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user054_neg_neg",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed2__user054_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "ac565db9db63f39828ba1a096f0c6ca799b24a50ce262a7d0bc66d2c8feff416",
+        "result.json": "57398553d0db740e5e19965b7c52e836fc85434bca38c5e471a97a7f2fe029f2"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 337,
+        "first_lift_over_2cm_control_step": 566,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 581,
+          "frames": 219,
+          "action_xyz_norm": {
+            "n": 219,
+            "mean": 0.08653301569593319,
+            "median": 0.08193198318120934
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 217,
+            "mean": 0.8908770545005118,
+            "median": 0.8421060069614953
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10903713099442798,
+            "median": 0.061258451848451634
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.1943572698760876,
+            "median": 0.6675383736516277
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 66.23772711597849,
+          "control_steps_per_wall_second": 12.077709106763969,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user055_neg_neg",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed2__user055_neg_neg",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "b9518fcab4007c61a3751bfd516ff6f0edd1fe1a0bcdde0acb572da6af8cf2f6",
+        "result.json": "6435f4b243e62bacd4d6654d93df9e6d069bcb92aacd9d932ba89fa18e98bc04"
+      },
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_close_control_step": 500,
+        "first_lift_over_2cm_control_step": 567,
+        "first_On_control_step": null,
+        "first_stable_release_control_step": null,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": null,
+          "observed_actions_from_first_On_through_stop": 0,
+          "close_command_fraction": null,
+          "actual_open_gap_fraction": null
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 603,
+          "frames": 198,
+          "action_xyz_norm": {
+            "n": 198,
+            "mean": 0.08168331925681988,
+            "median": 0.07030526786268484
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 197,
+            "mean": 0.8526899123169659,
+            "median": 0.7543410715441476
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.10341724620433837,
+            "median": 0.06093136978526004
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 799,
+            "mean": 1.127918377586896,
+            "median": 0.6829828954002038
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "system_timing": {
+          "wall_duration_s": 66.38474227499682,
+          "control_steps_per_wall_second": 12.050961901546952,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "user057_pos_pos",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed2__user057_pos_pos",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "10940196e95b77cd23fdd38dd5df006505fae4850a7320d742aacdef6a663de6",
+        "result.json": "1b736c757863057d24b430a8ff8f2d1cbf0068c6092b121abb6ce26143caceca"
+      },
+      "metrics": {
+        "control_steps": 231,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 58,
+        "first_lift_over_2cm_control_step": 70,
+        "first_On_control_step": 121,
+        "first_stable_release_control_step": 181,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 60,
+          "observed_actions_from_first_On_through_stop": 111,
+          "close_command_fraction": 0.14414414414414414,
+          "actual_open_gap_fraction": 0.7027027027027027
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 181,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 72,
+          "frames": 45,
+          "action_xyz_norm": {
+            "n": 45,
+            "mean": 0.6508638216264744,
+            "median": 0.6866203386084011
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 44,
+            "mean": 8.171868389070305,
+            "median": 8.305592871901727
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 231,
+            "mean": 0.4157502278685645,
+            "median": 0.25236410930507513
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 230,
+            "mean": 5.112260030121443,
+            "median": 3.7285560969804536
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 181,
+          "maximum_bowl_drift_3d_m": 3.97787212202665e-07,
+          "maximum_bowl_drift_xy_m": 3.916345281106519e-07,
+          "final_bowl_drift_3d_m": 3.97787212202665e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 19.224635593942367,
+          "control_steps_per_wall_second": 12.01583243912241,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    },
+    {
+      "arm": "control",
+      "case": "zero",
+      "policy_seed": 2,
+      "directory": "/home/robot/.pi05-handson/evaluations/retrain-20261019/control__seed2__zero",
+      "status": "COMPLETE",
+      "validations": {
+        "initial_state_identity": true,
+        "source_scene_sha": true,
+        "checkpoint_stage": true,
+        "checkpoint_path_stage": true,
+        "normalization": true,
+        "model_contract": true,
+        "layout_sim_seed_guard": true,
+        "replan_budget_followup": true,
+        "steps_and_On": true,
+        "stable_event": true,
+        "followup_quantity_only": true,
+        "stop_and_budget": true,
+        "video_frame_contract": true
+      },
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+        "model_stage": "retrain_teacher_1x_20261019/1999",
+        "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+        "policy_sampling_seed_at_server_start": 2,
+        "diagnostic_rng_reset_per_connection": 2,
+        "model_source": "pinned OpenPI JAX Policy._rng",
+        "state_input": false
+      },
+      "source_sha256": {
+        "actions.csv": "6a195356a39ddb2739d186eb8e01911e704baa647f4aa9c9b6e40f08f37769da",
+        "result.json": "6dec3cae38f04f6c74110de5776d90e136d1663959331364ca98e3538591831a"
+      },
+      "metrics": {
+        "control_steps": 204,
+        "any_On": true,
+        "final_On": true,
+        "first_close_control_step": 52,
+        "first_lift_over_2cm_control_step": 74,
+        "first_On_control_step": 118,
+        "first_stable_release_control_step": 154,
+        "release_after_first_On": {
+          "steps_to_first_stable_release": 36,
+          "observed_actions_from_first_On_through_stop": 87,
+          "close_command_fraction": 0.09195402298850575,
+          "actual_open_gap_fraction": 0.8045977011494253
+        },
+        "time_to_stable_release": {
+          "observed_control_steps": 154,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "carry_proxy": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 75,
+          "frames": 36,
+          "action_xyz_norm": {
+            "n": 36,
+            "mean": 0.5832750852808729,
+            "median": 0.6879041970195905
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 35,
+            "mean": 7.541430706544829,
+            "median": 8.181915114502797
+          }
+        },
+        "all_motion_proxy": {
+          "action_xyz_norm": {
+            "n": 204,
+            "mean": 0.43048188479680155,
+            "median": 0.3089081132473525
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 203,
+            "mean": 5.284668456783144,
+            "median": 3.6613716295872574
+          }
+        },
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 154,
+          "maximum_bowl_drift_3d_m": 3.792449160521477e-07,
+          "maximum_bowl_drift_xy_m": 3.7365813995664494e-07,
+          "final_bowl_drift_3d_m": 3.792449160521477e-07
+        },
+        "system_timing": {
+          "wall_duration_s": 26.9074028119212,
+          "control_steps_per_wall_second": 7.581556697460921,
+          "meaning": "Inference/render/record system throughput; not physical robot velocity."
+        }
+      }
+    }
+  ],
+  "paired_case_seed_results": [
+    {
+      "case": "zero",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "stable_release_observed": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_steps_to_stable_release": -130,
+      "both_followups_quantity_complete": true,
+      "strict_50_step_gate_maintained": {
+        "control": true,
+        "candidate": true
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": 363,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": 233,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 363,
+          "maximum_bowl_drift_3d_m": 4.0369269796165665e-07,
+          "maximum_bowl_drift_xy_m": 3.9813536525138584e-07,
+          "final_bowl_drift_3d_m": 4.0369269796165665e-07
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 233,
+          "maximum_bowl_drift_3d_m": 3.8563948870332084e-07,
+          "maximum_bowl_drift_xy_m": 3.8031319516186497e-07,
+          "final_bowl_drift_3d_m": 3.8563948870332084e-07
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 88,
+          "frames": 173,
+          "action_xyz_norm": {
+            "n": 173,
+            "mean": 0.15181077287488934,
+            "median": 0.07268642465918951
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 171,
+            "mean": 1.7492634358048709,
+            "median": 0.9576453354354622
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 83,
+          "frames": 95,
+          "action_xyz_norm": {
+            "n": 95,
+            "mean": 0.23942598761365388,
+            "median": 0.11564933722762717
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 94,
+            "mean": 2.9434115835348242,
+            "median": 1.6409442798507266
+          }
+        }
+      }
+    },
+    {
+      "case": "zero",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "stable_release_observed": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_steps_to_stable_release": -35,
+      "both_followups_quantity_complete": true,
+      "strict_50_step_gate_maintained": {
+        "control": true,
+        "candidate": true
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": 324,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": 289,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 324,
+          "maximum_bowl_drift_3d_m": 3.791147935651631e-07,
+          "maximum_bowl_drift_xy_m": 3.7357234408396734e-07,
+          "final_bowl_drift_3d_m": 3.791147935651631e-07
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 289,
+          "maximum_bowl_drift_3d_m": 3.061903540942074e-07,
+          "maximum_bowl_drift_xy_m": 3.0165017538743526e-07,
+          "final_bowl_drift_3d_m": 3.061903540942074e-07
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 91,
+          "frames": 62,
+          "action_xyz_norm": {
+            "n": 62,
+            "mean": 0.41424501015635834,
+            "median": 0.30265486331648234
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 61,
+            "mean": 5.040083623605083,
+            "median": 3.7703766217234795
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 84,
+          "frames": 53,
+          "action_xyz_norm": {
+            "n": 53,
+            "mean": 0.4487576173841091,
+            "median": 0.39428755155455286
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 52,
+            "mean": 5.586724034073461,
+            "median": 4.613456489575862
+          }
+        }
+      }
+    },
+    {
+      "case": "zero",
+      "policy_seed": 2,
+      "status": "PAIRED",
+      "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "stable_release_observed": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_steps_to_stable_release": 76,
+      "both_followups_quantity_complete": true,
+      "strict_50_step_gate_maintained": {
+        "control": true,
+        "candidate": true
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": 154,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": 230,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 154,
+          "maximum_bowl_drift_3d_m": 3.792449160521477e-07,
+          "maximum_bowl_drift_xy_m": 3.7365813995664494e-07,
+          "final_bowl_drift_3d_m": 3.792449160521477e-07
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 230,
+          "maximum_bowl_drift_3d_m": 3.597223339077716e-07,
+          "maximum_bowl_drift_xy_m": 3.543295812201764e-07,
+          "final_bowl_drift_3d_m": 3.597223339077716e-07
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 75,
+          "frames": 36,
+          "action_xyz_norm": {
+            "n": 36,
+            "mean": 0.5832750852808729,
+            "median": 0.6879041970195905
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 35,
+            "mean": 7.541430706544829,
+            "median": 8.181915114502797
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 73,
+          "frames": 49,
+          "action_xyz_norm": {
+            "n": 49,
+            "mean": 0.44705975287859845,
+            "median": 0.37704229043863735
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 48,
+            "mean": 5.66505901724582,
+            "median": 4.331334957310904
+          }
+        }
+      }
+    },
+    {
+      "case": "user054_neg_neg",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "stable_release_observed": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_steps_to_stable_release": null,
+      "both_followups_quantity_complete": false,
+      "strict_50_step_gate_maintained": {
+        "control": null,
+        "candidate": null
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 507,
+          "frames": 293,
+          "action_xyz_norm": {
+            "n": 293,
+            "mean": 0.08605519830238904,
+            "median": 0.07339956259287624
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 291,
+            "mean": 0.9157151902741656,
+            "median": 0.7879724902623713
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 516,
+          "frames": 285,
+          "action_xyz_norm": {
+            "n": 285,
+            "mean": 0.07842824526922812,
+            "median": 0.06863152001532175
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 284,
+            "mean": 0.8024606216231018,
+            "median": 0.7587241575007853
+          }
+        }
+      }
+    },
+    {
+      "case": "user054_neg_neg",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "stable_release_observed": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_steps_to_stable_release": null,
+      "both_followups_quantity_complete": false,
+      "strict_50_step_gate_maintained": {
+        "control": null,
+        "candidate": null
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 572,
+          "frames": 229,
+          "action_xyz_norm": {
+            "n": 229,
+            "mean": 0.08539467309501607,
+            "median": 0.07050143709513795
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 228,
+            "mean": 0.8861448088145212,
+            "median": 0.7496454507933811
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 498,
+          "frames": 290,
+          "action_xyz_norm": {
+            "n": 290,
+            "mean": 0.07526926618327844,
+            "median": 0.06915757113202853
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 288,
+            "mean": 0.7155414857129213,
+            "median": 0.6700760378761059
+          }
+        }
+      }
+    },
+    {
+      "case": "user054_neg_neg",
+      "policy_seed": 2,
+      "status": "PAIRED",
+      "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "stable_release_observed": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_steps_to_stable_release": null,
+      "both_followups_quantity_complete": false,
+      "strict_50_step_gate_maintained": {
+        "control": null,
+        "candidate": null
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 581,
+          "frames": 219,
+          "action_xyz_norm": {
+            "n": 219,
+            "mean": 0.08653301569593319,
+            "median": 0.08193198318120934
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 217,
+            "mean": 0.8908770545005118,
+            "median": 0.8421060069614953
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 483,
+          "frames": 311,
+          "action_xyz_norm": {
+            "n": 311,
+            "mean": 0.08860369972787319,
+            "median": 0.0814177349605392
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 309,
+            "mean": 0.8948290356053088,
+            "median": 0.8666711129124997
+          }
+        }
+      }
+    },
+    {
+      "case": "user055_neg_neg",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "stable_release_observed": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_steps_to_stable_release": null,
+      "both_followups_quantity_complete": false,
+      "strict_50_step_gate_maintained": {
+        "control": null,
+        "candidate": null
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 517,
+          "frames": 283,
+          "action_xyz_norm": {
+            "n": 283,
+            "mean": 0.08292085440848448,
+            "median": 0.06534609566127757
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 281,
+            "mean": 0.8874388357978543,
+            "median": 0.6634344598951102
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 555,
+          "frames": 245,
+          "action_xyz_norm": {
+            "n": 245,
+            "mean": 0.11870031777182764,
+            "median": 0.08996412488972173
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 243,
+            "mean": 1.3271443363815418,
+            "median": 1.011055971981122
+          }
+        }
+      }
+    },
+    {
+      "case": "user055_neg_neg",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "stable_release_observed": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_steps_to_stable_release": null,
+      "both_followups_quantity_complete": false,
+      "strict_50_step_gate_maintained": {
+        "control": null,
+        "candidate": null
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 529,
+          "frames": 272,
+          "action_xyz_norm": {
+            "n": 272,
+            "mean": 0.07380074835882086,
+            "median": 0.0633944452910189
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 271,
+            "mean": 0.7490860204310149,
+            "median": 0.653440143381241
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 542,
+          "frames": 259,
+          "action_xyz_norm": {
+            "n": 259,
+            "mean": 0.08181359839064715,
+            "median": 0.0706871351616098
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 258,
+            "mean": 0.8388676092131658,
+            "median": 0.7728871465239144
+          }
+        }
+      }
+    },
+    {
+      "case": "user055_neg_neg",
+      "policy_seed": 2,
+      "status": "PAIRED",
+      "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "stable_release_observed": {
+        "control": false,
+        "candidate": false
+      },
+      "candidate_minus_control_steps_to_stable_release": null,
+      "both_followups_quantity_complete": false,
+      "strict_50_step_gate_maintained": {
+        "control": null,
+        "candidate": null
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": null,
+          "right_censored_at_control_steps": 800,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "right_censored": false,
+          "not_reached": true,
+          "maintained": {
+            "On": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": null,
+              "all_observed_steps": null,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": null,
+          "observed_instability": null,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": null,
+          "maximum_bowl_drift_3d_m": null,
+          "maximum_bowl_drift_xy_m": null,
+          "final_bowl_drift_3d_m": null
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 603,
+          "frames": 198,
+          "action_xyz_norm": {
+            "n": 198,
+            "mean": 0.08168331925681988,
+            "median": 0.07030526786268484
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 197,
+            "mean": 0.8526899123169659,
+            "median": 0.7543410715441476
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 548,
+          "frames": 253,
+          "action_xyz_norm": {
+            "n": 253,
+            "mean": 0.09717390604680422,
+            "median": 0.08176910479691737
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 252,
+            "mean": 1.0101842805001198,
+            "median": 0.9207486400609273
+          }
+        }
+      }
+    },
+    {
+      "case": "user057_pos_pos",
+      "policy_seed": 0,
+      "status": "PAIRED",
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "stable_release_observed": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_steps_to_stable_release": 55,
+      "both_followups_quantity_complete": true,
+      "strict_50_step_gate_maintained": {
+        "control": true,
+        "candidate": true
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": 213,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": 268,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 213,
+          "maximum_bowl_drift_3d_m": 3.4657041542613596e-07,
+          "maximum_bowl_drift_xy_m": 3.4177794030538087e-07,
+          "final_bowl_drift_3d_m": 3.4657041542613596e-07
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 268,
+          "maximum_bowl_drift_3d_m": 3.861069246444029e-07,
+          "maximum_bowl_drift_xy_m": 3.814764093967335e-07,
+          "final_bowl_drift_3d_m": 3.861069246444029e-07
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 81,
+          "frames": 56,
+          "action_xyz_norm": {
+            "n": 56,
+            "mean": 0.5371108206391318,
+            "median": 0.49794068555882365
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 55,
+            "mean": 6.8628138243825765,
+            "median": 6.203656509426353
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 84,
+          "frames": 61,
+          "action_xyz_norm": {
+            "n": 61,
+            "mean": 0.48867909209708116,
+            "median": 0.4347099178786769
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 60,
+            "mean": 6.1677399448430315,
+            "median": 5.324212949084235
+          }
+        }
+      }
+    },
+    {
+      "case": "user057_pos_pos",
+      "policy_seed": 1,
+      "status": "PAIRED",
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "stable_release_observed": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_steps_to_stable_release": 24,
+      "both_followups_quantity_complete": true,
+      "strict_50_step_gate_maintained": {
+        "control": true,
+        "candidate": true
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": 247,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": 271,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 247,
+          "maximum_bowl_drift_3d_m": 3.4423446036545775e-07,
+          "maximum_bowl_drift_xy_m": 3.3856587485991257e-07,
+          "final_bowl_drift_3d_m": 3.4423446036545775e-07
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 271,
+          "maximum_bowl_drift_3d_m": 3.8679119964383154e-07,
+          "maximum_bowl_drift_xy_m": 3.807025615436002e-07,
+          "final_bowl_drift_3d_m": 3.8679119964383154e-07
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 84,
+          "frames": 53,
+          "action_xyz_norm": {
+            "n": 53,
+            "mean": 0.6613990201542447,
+            "median": 0.674095344397016
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 52,
+            "mean": 8.161877705553554,
+            "median": 8.418487533037155
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 80,
+          "frames": 49,
+          "action_xyz_norm": {
+            "n": 49,
+            "mean": 0.6838111494991247,
+            "median": 0.705269349958373
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 48,
+            "mean": 8.45344375620445,
+            "median": 8.270672679927294
+          }
+        }
+      }
+    },
+    {
+      "case": "user057_pos_pos",
+      "policy_seed": 2,
+      "status": "PAIRED",
+      "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "stable_release_observed": {
+        "control": true,
+        "candidate": true
+      },
+      "candidate_minus_control_steps_to_stable_release": 41,
+      "both_followups_quantity_complete": true,
+      "strict_50_step_gate_maintained": {
+        "control": true,
+        "candidate": true
+      },
+      "censoring": {
+        "control": {
+          "observed_control_steps": 181,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        },
+        "candidate": {
+          "observed_control_steps": 222,
+          "right_censored_at_control_steps": null,
+          "truncated_before_budget": false
+        }
+      },
+      "followup": {
+        "control": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 181,
+          "maximum_bowl_drift_3d_m": 3.97787212202665e-07,
+          "maximum_bowl_drift_xy_m": 3.916345281106519e-07,
+          "final_bowl_drift_3d_m": 3.97787212202665e-07
+        },
+        "candidate": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "right_censored": false,
+          "not_reached": false,
+          "maintained": {
+            "On": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "open_command": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "actual_gap_ge_6cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "retreat_ge_10cm": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            },
+            "full_gate": {
+              "observed_fraction": 1.0,
+              "all_observed_steps": true,
+              "first_violation_control_step": null
+            }
+          },
+          "strict_50_step_gate_maintained": true,
+          "observed_instability": false,
+          "reclose_command_steps": 0,
+          "first_reclose_control_step": null,
+          "bowl_drift_anchor_control_step": 222,
+          "maximum_bowl_drift_3d_m": 3.9599180190484364e-07,
+          "maximum_bowl_drift_xy_m": 3.9005859465703554e-07,
+          "final_bowl_drift_3d_m": 3.9599180190484364e-07
+        }
+      },
+      "carry_proxy": {
+        "control": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 72,
+          "frames": 45,
+          "action_xyz_norm": {
+            "n": 45,
+            "mean": 0.6508638216264744,
+            "median": 0.6866203386084011
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 44,
+            "mean": 8.171868389070305,
+            "median": 8.305592871901727
+          }
+        },
+        "candidate": {
+          "definition": "closed command+post target z>initial+.03m+not On; not verified grasp",
+          "first_control_step": 73,
+          "frames": 50,
+          "action_xyz_norm": {
+            "n": 50,
+            "mean": 0.5906053673669072,
+            "median": 0.6110324188952998
+          },
+          "fresh_adjacent_eef_displacement_mm_per_control_step": {
+            "n": 49,
+            "mean": 7.532335024126888,
+            "median": 7.283847259282297
+          }
+        }
+      }
+    }
+  ],
+  "limits": [
+    "These are predeclared validation cases, not unseen tests or an unbiased generalization success rate.",
+    "Policy seeds0/1/2 vary sampling; all use simulation seed42/layout24 and the same saved state per case.",
+    "No stable release by800 is right-censored. Missing/invalid/exception runs are not silently counted as task failures.",
+    "A50-step complete followup is a quantity check. Only independently recomputed per-step terms describe maintained stability.",
+    "Incomplete followups have unknown full50-step outcomes even if every observed step passed; any observed violation is still reported.",
+    "Event-time deltas are computed only if both paired releases were observed, never substituting800 for censored times.",
+    "Carry and lift are diagnostic proxies, not verified grasps. Motion is fresh-state mm per control step; wall rate is system throughput.",
+    "No model/policy/physics/training is loaded by this analyzer."
+  ]
+}

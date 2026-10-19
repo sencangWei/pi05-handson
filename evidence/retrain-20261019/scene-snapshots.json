@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "byte_identical_copies": [
+    {
+      "case": "zero",
+      "source": "/home/robot/.pi05-handson/.local/position-study-v1/sources/zero",
+      "snapshot": "evidence/retrain-20261019/scenes/zero",
+      "sha256": {
+        "scene.json": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+        "initial_state.npy": "6d98110f2a15ba58b2080f0be2833748dc98182deb20872f75b58e58c86ac97c"
+      }
+    },
+    {
+      "case": "user054_neg_neg",
+      "source": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user054_neg_neg",
+      "snapshot": "evidence/retrain-20261019/scenes/user054_neg_neg",
+      "sha256": {
+        "scene.json": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+        "initial_state.npy": "22b230815d7a513525b7e31028c4b690a40d2d78713a9d3174ce72596c985937"
+      }
+    },
+    {
+      "case": "user055_neg_neg",
+      "source": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user055_neg_neg",
+      "snapshot": "evidence/retrain-20261019/scenes/user055_neg_neg",
+      "sha256": {
+        "scene.json": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+        "initial_state.npy": "6b9bafe7ad65e244b69b9f7184b37f6e6b67d7bf7123514d7bb4874ad4e323c6"
+      }
+    },
+    {
+      "case": "user057_pos_pos",
+      "source": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user057_pos_pos",
+      "snapshot": "evidence/retrain-20261019/scenes/user057_pos_pos",
+      "sha256": {
+        "scene.json": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+        "initial_state.npy": "7bfa07cec1d2c83152cc12ba9a5aa3213e78393f1443587d6544e880237eb6f6"
+      }
+    }
+  ]
+}

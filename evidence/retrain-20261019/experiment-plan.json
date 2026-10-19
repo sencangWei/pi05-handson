@@ -1,5 +1,5 @@
 {
-  "status": "RUNNING",
+  "status": "COMPLETE",
   "user_request": "\u91cd\u8bad\u7ec3",
   "arms": {
     "control": "retrain_teacher_1x_20261019",

@@ -1,0 +1,2151 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "scope": "Independent actual policy video inspection; seed0 four fixed initial scenes per matched model arm. No policy inference or physics executed by reviewer.",
+  "requested_trials": [
+    "control__seed0__zero",
+    "control__seed0__user054_neg_neg",
+    "control__seed0__user055_neg_neg",
+    "control__seed0__user057_pos_pos",
+    "candidate__seed0__zero",
+    "candidate__seed0__user054_neg_neg",
+    "candidate__seed0__user055_neg_neg",
+    "candidate__seed0__user057_pos_pos"
+  ],
+  "reviewed_trials": [
+    {
+      "trial": "control__seed0__zero",
+      "metrics": {
+        "trial": "control__seed0__zero",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 413,
+        "events": {
+          "first_close_command": 65,
+          "first_bowl_lift_25mm": 87,
+          "first_on": 270,
+          "first_open_gap_after_lift": 318,
+          "independent_ten_consecutive_release_retreat": 363,
+          "end": 413
+        },
+        "selected_video_frame_indices": [
+          0,
+          37,
+          60,
+          65,
+          75,
+          82,
+          87,
+          97,
+          112,
+          150,
+          187,
+          225,
+          262,
+          265,
+          270,
+          280,
+          300,
+          313,
+          318,
+          328,
+          337,
+          358,
+          363,
+          373,
+          375,
+          408,
+          413
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "dx_m": 0.0,
+            "dy_m": 0.0
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/zero",
+          "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 413,
+          "inference_calls": 413,
+          "success": true,
+          "first_benchmark_success_control_steps": 270,
+          "post_success_steps_executed": 143,
+          "final_benchmark_success": true,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+            "model_stage": "retrain_teacher_1x_20261019/1999",
+            "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 45.83942439605016,
+          "ten_step_release_retreat_verified": true,
+          "first_ten_step_release_retreat_control_steps": 363,
+          "post_release_steps_executed": 50,
+          "post_release_followup_complete": true,
+          "stop_reason": "stable_release_retreat_followup",
+          "final_state_sha256": "9d91ee59f7794ee8a432ed9211cde6bcc94d38e203fb165a6c2b85d8c6f62b5f",
+          "video": "video.mp4",
+          "video_frames": 414,
+          "video_fps": 10
+        },
+        "final": {
+          "on": true,
+          "open_command": true,
+          "finger_gap_m": 0.07990939578064676,
+          "eef_bowl_distance_m": 0.15681131284789987,
+          "bowl_xyz": [
+            0.05280482817915422,
+            0.18498650070748748,
+            0.9065717649205646
+          ],
+          "max_bowl_height_increase_m": 0.13903902621721953
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.39002747459060194,
+            "bowl_displacement_m": 0.09444767036720746,
+            "bowl_z_range_m": [
+              0.8972972087652651,
+              0.991538121326101
+            ],
+            "positive_grip_fraction": 0.36
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.12181191805577843,
+            "bowl_displacement_m": 0.12482667868605106,
+            "bowl_z_range_m": [
+              0.9649621093550523,
+              1.0374430781352464
+            ],
+            "positive_grip_fraction": 1.0
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 300,
+            "eef_displacement_m": 0.06217241060011733,
+            "bowl_displacement_m": 0.06197351891299945,
+            "bowl_z_range_m": [
+              0.9060954954672278,
+              0.9649911274474069
+            ],
+            "positive_grip_fraction": 0.95
+          },
+          {
+            "start_completed_step": 300,
+            "end_completed_step": 400,
+            "eef_displacement_m": 0.1133708097475607,
+            "bowl_displacement_m": 0.003747485242656191,
+            "bowl_z_range_m": [
+              0.9064256528689189,
+              0.9080656885479819
+            ],
+            "positive_grip_fraction": 0.06
+          },
+          {
+            "start_completed_step": 400,
+            "end_completed_step": 413,
+            "eef_displacement_m": 0.010739998092012214,
+            "bowl_displacement_m": 9.301101653653843e-08,
+            "bowl_z_range_m": [
+              0.9065717649205646,
+              0.9065717803006081
+            ],
+            "positive_grip_fraction": 0.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "15d74060e3c7d407e09378e014d2aa56928177d06b955f41ac2249b5bf702274",
+          "actions.csv": "efa5411dfa29436a05873073ef4a18a64f51301fe87e79836a4af3d527e85401",
+          "video.mp4": "0714b96c402f6dbcf96565844bbea910fc6b15b705d40c096d1ee9185820874b"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/control__seed0__zero/contact-sheet.png",
+        "post_gate_followup": {
+          "steps": 50,
+          "all_on": true,
+          "all_open_commands": true,
+          "min_actual_gap_m": 0.07959371966079742,
+          "max_bowl_displacement_from_gate_m": 4.0369269796165665e-07
+        }
+      },
+      "visual_review": {
+        "classification": "released_placement_and_retreat_observed",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              37,
+              60,
+              65,
+              75,
+              87
+            ],
+            "observation": "Arm approaches the target bowl, fingers close, and bowl visibly rises off the table beneath the gripper."
+          },
+          {
+            "steps": [
+              112,
+              150,
+              187,
+              225,
+              270
+            ],
+            "observation": "Bowl travels toward the plate and descends onto it. At first On frame270 the gripper remains close to and partly occludes the bowl; this alone is not released success."
+          },
+          {
+            "steps": [
+              300,
+              318,
+              337,
+              363,
+              413
+            ],
+            "observation": "Fingers open, arm retracts upward, and bowl remains visibly on the plate with hand separated through the final sampled frame."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_on_completed_step": 270,
+          "first_open_command_with_gap_ge_60mm_after_lift": 318,
+          "independent_ten_consecutive_on_open_gap_retreat_completed_step": 363,
+          "final_gap_m": 0.07990939578064676,
+          "final_eef_bowl_distance_m": 0.15681131284789987
+        },
+        "inferences": [
+          "Actual placement and retreat are jointly supported by visible separation, stationary bowl after release, and CSV open/gap/distance signals. This is one initial layout and one policy RNG seed, not a generalization estimate."
+        ]
+      }
+    },
+    {
+      "trial": "control__seed0__user054_neg_neg",
+      "metrics": {
+        "trial": "control__seed0__user054_neg_neg",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 800,
+        "events": {
+          "first_close_command": 461,
+          "first_bowl_lift_25mm": 501,
+          "first_on": null,
+          "first_open_gap_after_lift": null,
+          "independent_ten_consecutive_release_retreat": null,
+          "end": 800
+        },
+        "selected_video_frame_indices": [
+          0,
+          72,
+          145,
+          218,
+          290,
+          363,
+          436,
+          456,
+          461,
+          471,
+          496,
+          501,
+          509,
+          511,
+          581,
+          654,
+          727,
+          795,
+          800
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              -0.05862233029507831,
+              0.2165140591366307,
+              0.8984038567263857
+            ],
+            "dx_m": -0.06416938110749186,
+            "dy_m": -0.08729641693811076
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user054_neg_neg",
+          "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 800,
+          "inference_calls": 800,
+          "success": false,
+          "first_benchmark_success_control_steps": null,
+          "post_success_steps_executed": 0,
+          "final_benchmark_success": false,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+            "model_stage": "retrain_teacher_1x_20261019/1999",
+            "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 66.13385893194936,
+          "ten_step_release_retreat_verified": false,
+          "first_ten_step_release_retreat_control_steps": null,
+          "post_release_steps_executed": 0,
+          "post_release_followup_complete": false,
+          "stop_reason": "step_limit",
+          "final_state_sha256": "73646f62397849a7a17665737b1d6e257f2de941245fdf2b0c55497ce2daf266",
+          "video": "video.mp4",
+          "video_frames": 801,
+          "video_fps": 10
+        },
+        "final": {
+          "on": false,
+          "open_command": false,
+          "finger_gap_m": 0.004594731527657112,
+          "eef_bowl_distance_m": 0.058863099536845126,
+          "bowl_xyz": [
+            0.025427137565425112,
+            0.0808985861867882,
+            1.0898798622325196
+          ],
+          "max_bowl_height_increase_m": 0.1914758103144928
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.2963496256208828,
+            "bowl_displacement_m": 9.82708264988264e-08,
+            "bowl_z_range_m": [
+              0.8984040519180269,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.019513026954017906,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 300,
+            "eef_displacement_m": 0.0767932752128537,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 300,
+            "end_completed_step": 400,
+            "eef_displacement_m": 0.12761848068988335,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 400,
+            "end_completed_step": 500,
+            "eef_displacement_m": 0.020213631838663156,
+            "bowl_displacement_m": 0.029596785041583733,
+            "bowl_z_range_m": [
+              0.8981721624925245,
+              0.9233362126578899
+            ],
+            "positive_grip_fraction": 0.38
+          },
+          {
+            "start_completed_step": 500,
+            "end_completed_step": 600,
+            "eef_displacement_m": 0.11714318604562594,
+            "bowl_displacement_m": 0.11779811064616082,
+            "bowl_z_range_m": [
+              0.9240860846012283,
+              1.02606572171592
+            ],
+            "positive_grip_fraction": 1.0
+          },
+          {
+            "start_completed_step": 600,
+            "end_completed_step": 700,
+            "eef_displacement_m": 0.07131332899495499,
+            "bowl_displacement_m": 0.07328088845280664,
+            "bowl_z_range_m": [
+              1.0262933198535515,
+              1.0562430321422658
+            ],
+            "positive_grip_fraction": 0.99
+          },
+          {
+            "start_completed_step": 700,
+            "end_completed_step": 800,
+            "eef_displacement_m": 0.05729463198011718,
+            "bowl_displacement_m": 0.05977239934941264,
+            "bowl_z_range_m": [
+              1.0563422622711798,
+              1.0898798622325196
+            ],
+            "positive_grip_fraction": 1.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "6daee2f0dfaac16f79ec9c9165f6d043d3a918c0a676e2232ba53b26713c2288",
+          "actions.csv": "d2c86f21d540f76f4bb32984bf2a1da6618eae3c8da735e03ca15edf6ee6d942",
+          "video.mp4": "075aa6cafc15c2bf011a2d0e84c530d7fe357fb29eb5dab9413b533a74d0107d"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/control__seed0__user054_neg_neg/contact-sheet.png"
+      },
+      "visual_review": {
+        "classification": "prolonged_open_approach_then_lift_without_plate_placement_within_budget",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              72,
+              145,
+              218,
+              290,
+              363,
+              436
+            ],
+            "observation": "Bowl stays on the table while the open gripper approaches slowly and changes position above/around it. This is a long approach/localization phase, not repeated visibly empty closed grasps."
+          },
+          {
+            "steps": [
+              461,
+              471,
+              496,
+              501,
+              511,
+              581
+            ],
+            "observation": "Fingers close near the target bowl; subsequently the target bowl visibly rises and moves with the gripper."
+          },
+          {
+            "steps": [
+              654,
+              727,
+              800
+            ],
+            "observation": "Raised bowl is carried toward the rear/right relative to the visible front plate rather than descending onto that plate; final hand remains close to bowl and closed. No release or retreat from a placed bowl is visible."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 461,
+          "first_bowl_height_increase_ge_25mm_completed_step": 501,
+          "any_on": false,
+          "any_open_command_with_gap_ge_60mm_after_lift": false,
+          "final_gap_m": 0.004594731527657112,
+          "final_bowl_z_m": 1.0898798622325196,
+          "final_eef_bowl_distance_m": 0.058863099536845126,
+          "max_bowl_height_increase_m": 0.1914758103144928
+        },
+        "inferences": [
+          "Failure includes delayed acquisition plus transport that never completes at the plate before the800-step budget. The final segment still changes position, so frozen simulation is not supported.",
+          "Visible lift/co-motion is compatible with holding but does not establish secure contact geometry or exclude slip; dynamic wrist video/contact-force traces are absent."
+        ]
+      }
+    },
+    {
+      "trial": "control__seed0__user055_neg_neg",
+      "metrics": {
+        "trial": "control__seed0__user055_neg_neg",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 800,
+        "events": {
+          "first_close_command": 447,
+          "first_bowl_lift_25mm": 516,
+          "first_on": null,
+          "first_open_gap_after_lift": null,
+          "independent_ten_consecutive_release_retreat": null,
+          "end": 800
+        },
+        "selected_video_frame_indices": [
+          0,
+          72,
+          145,
+          218,
+          290,
+          363,
+          436,
+          442,
+          447,
+          457,
+          509,
+          511,
+          516,
+          526,
+          581,
+          654,
+          727,
+          795,
+          800
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              -0.07751483843840078,
+              0.20381047607474143,
+              0.8984038567263857
+            ],
+            "dx_m": -0.08306188925081433,
+            "dy_m": -0.1
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user055_neg_neg",
+          "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 800,
+          "inference_calls": 800,
+          "success": false,
+          "first_benchmark_success_control_steps": null,
+          "post_success_steps_executed": 0,
+          "final_benchmark_success": false,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+            "model_stage": "retrain_teacher_1x_20261019/1999",
+            "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 66.35872954700608,
+          "ten_step_release_retreat_verified": false,
+          "first_ten_step_release_retreat_control_steps": null,
+          "post_release_steps_executed": 0,
+          "post_release_followup_complete": false,
+          "stop_reason": "step_limit",
+          "final_state_sha256": "1b49d608792fe2b1ce65b4e1984ae03ef52865c48b65f22c2bca67b66a47bf6a",
+          "video": "video.mp4",
+          "video_frames": 801,
+          "video_fps": 10
+        },
+        "final": {
+          "on": false,
+          "open_command": false,
+          "finger_gap_m": 0.0048050334594594065,
+          "eef_bowl_distance_m": 0.050134751503770905,
+          "bowl_xyz": [
+            0.020330878130033085,
+            0.0904394590063224,
+            1.070724653410368
+          ],
+          "max_bowl_height_increase_m": 0.17232060149234119
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.2881131365965144,
+            "bowl_displacement_m": 9.827082649881734e-08,
+            "bowl_z_range_m": [
+              0.8984040519180269,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.041787120777436355,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 300,
+            "eef_displacement_m": 0.08033536051878737,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 300,
+            "end_completed_step": 400,
+            "eef_displacement_m": 0.09451087275891895,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 400,
+            "end_completed_step": 500,
+            "eef_displacement_m": 0.06195754809303735,
+            "bowl_displacement_m": 0.021152283185974716,
+            "bowl_z_range_m": [
+              0.8981615679067694,
+              0.9039692689494432
+            ],
+            "positive_grip_fraction": 0.27
+          },
+          {
+            "start_completed_step": 500,
+            "end_completed_step": 600,
+            "eef_displacement_m": 0.14762013603494983,
+            "bowl_displacement_m": 0.13602078835864528,
+            "bowl_z_range_m": [
+              0.9042688164572568,
+              1.025847270896599
+            ],
+            "positive_grip_fraction": 1.0
+          },
+          {
+            "start_completed_step": 600,
+            "end_completed_step": 700,
+            "eef_displacement_m": 0.05460166128784493,
+            "bowl_displacement_m": 0.055758097497167765,
+            "bowl_z_range_m": [
+              1.0260216548167553,
+              1.0507056633374243
+            ],
+            "positive_grip_fraction": 0.99
+          },
+          {
+            "start_completed_step": 700,
+            "end_completed_step": 800,
+            "eef_displacement_m": 0.05395586065406071,
+            "bowl_displacement_m": 0.0553048263068303,
+            "bowl_z_range_m": [
+              1.050925839076628,
+              1.070724653410368
+            ],
+            "positive_grip_fraction": 1.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "ed933cbb739b5fdbad8aaebd61a3fce069355e59946a1442d6c0e51a036d0d21",
+          "actions.csv": "066f75d1efbaf4e6a377f1fe2f654bd5347aa3bd71f9c08d545787087a741422",
+          "video.mp4": "294f3b04ee5e3554b440b424168479425054acd6d8126dd3ca44f11dfd702a19"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/control__seed0__user055_neg_neg/contact-sheet.png"
+      },
+      "visual_review": {
+        "classification": "prolonged_open_approach_then_lift_without_plate_placement_within_budget",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              72,
+              145,
+              218,
+              290,
+              363,
+              436
+            ],
+            "observation": "Target bowl remains at its initial table location for a long open-hand approach; gripper gradually comes down near clustered bowls."
+          },
+          {
+            "steps": [
+              447,
+              457,
+              509,
+              516,
+              526,
+              581
+            ],
+            "observation": "Closing starts transiently then reopens; by the500s the hand closes around target and visibly raises it from table."
+          },
+          {
+            "steps": [
+              654,
+              727,
+              800
+            ],
+            "observation": "Target remains carried high near the other bowls, away from front plate. It never visibly rests on the plate or separates from the gripper before budget end."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 447,
+          "first_bowl_lift_ge_25mm_completed_step": 516,
+          "any_on": false,
+          "final_actual_gap_m": 0.0048050334594594065,
+          "final_bowl_z_m": 1.070724653410368,
+          "final_eef_bowl_distance_m": 0.050134751503770905
+        },
+        "inferences": [
+          "The failure contains delayed acquisition and incomplete transport, not simply an absence of any grasp attempt. Lift/co-motion alone cannot verify secure contact or exclude slip. No evidence of a successful placement/release or a subsequent recovery is visible."
+        ]
+      }
+    },
+    {
+      "trial": "control__seed0__user057_pos_pos",
+      "metrics": {
+        "trial": "control__seed0__user057_pos_pos",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 263,
+        "events": {
+          "first_close_command": 65,
+          "first_bowl_lift_25mm": 80,
+          "first_on": 146,
+          "first_open_gap_after_lift": 178,
+          "independent_ten_consecutive_release_retreat": 213,
+          "end": 263
+        },
+        "selected_video_frame_indices": [
+          0,
+          23,
+          47,
+          60,
+          65,
+          71,
+          75,
+          80,
+          90,
+          95,
+          119,
+          141,
+          143,
+          146,
+          156,
+          167,
+          173,
+          178,
+          188,
+          191,
+          208,
+          213,
+          215,
+          223,
+          239,
+          258,
+          263
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              0.03193141563326044,
+              0.36504826109102806,
+              0.8984038567263857
+            ],
+            "dx_m": 0.02638436482084689,
+            "dy_m": 0.061237785016286635
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user057_pos_pos",
+          "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 263,
+          "inference_calls": 263,
+          "success": true,
+          "first_benchmark_success_control_steps": 146,
+          "post_success_steps_executed": 117,
+          "final_benchmark_success": true,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+            "model_stage": "retrain_teacher_1x_20261019/1999",
+            "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 21.900618435931392,
+          "ten_step_release_retreat_verified": true,
+          "first_ten_step_release_retreat_control_steps": 213,
+          "post_release_steps_executed": 50,
+          "post_release_followup_complete": true,
+          "stop_reason": "stable_release_retreat_followup",
+          "final_state_sha256": "9d7aa4de0fd278d2b2ef46f91f3ce4538c9c3409ee9029a28093a6c969aac03f",
+          "video": "video.mp4",
+          "video_frames": 264,
+          "video_fps": 10
+        },
+        "final": {
+          "on": true,
+          "open_command": true,
+          "finger_gap_m": 0.0799266561820493,
+          "eef_bowl_distance_m": 0.16052561845348567,
+          "bowl_xyz": [
+            0.04780939297647115,
+            0.1732658451490986,
+            0.90826501157428
+          ],
+          "max_bowl_height_increase_m": 0.16168152436730077
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.35624711156372,
+            "bowl_displacement_m": 0.21737307090916852,
+            "bowl_z_range_m": [
+              0.8977708913982354,
+              1.0600855762853276
+            ],
+            "positive_grip_fraction": 0.36
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.11543485093675551,
+            "bowl_displacement_m": 0.16074600480407292,
+            "bowl_z_range_m": [
+              0.9081935870206724,
+              1.0534942750480605
+            ],
+            "positive_grip_fraction": 0.62
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 263,
+            "eef_displacement_m": 0.06847738077555261,
+            "bowl_displacement_m": 4.264201205033287e-07,
+            "bowl_z_range_m": [
+              0.90826501157428,
+              0.9082650822434916
+            ],
+            "positive_grip_fraction": 0.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "0ecc0690e5ade867fa4be3115b98632d9f8f18fff7529c77740e90727f953945",
+          "actions.csv": "b9a71e04b69ac678d303f4c1fe7699e7ca6daae7eb83d2cb010375e468e76040",
+          "video.mp4": "b654753868864e64ddcf49707c4812f58aa8dd635ea0b17c37ed121abe39ce32"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/control__seed0__user057_pos_pos/contact-sheet.png",
+        "post_gate_followup": {
+          "steps": 50,
+          "all_on": true,
+          "all_open_commands": true,
+          "min_actual_gap_m": 0.07937049572528676,
+          "max_bowl_displacement_from_gate_m": 3.4657041542613596e-07
+        }
+      },
+      "visual_review": {
+        "classification": "released_placement_and_retreat_observed",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              47,
+              65,
+              75,
+              80,
+              95
+            ],
+            "observation": "Arm approaches target from the left edge of image, closes, raises bowl and translates it toward front plate."
+          },
+          {
+            "steps": [
+              119,
+              143,
+              146,
+              156
+            ],
+            "observation": "Bowl descends onto plate; hand remains close while On begins."
+          },
+          {
+            "steps": [
+              167,
+              178,
+              191,
+              213,
+              263
+            ],
+            "observation": "Fingers open, hand moves up and clear, and bowl remains on plate in later samples through final frame."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 65,
+          "first_bowl_lift_ge_25mm_completed_step": 80,
+          "first_on_completed_step": 146,
+          "first_open_with_gap_ge_60mm_after_lift_completed_step": 178,
+          "independent_ten_consecutive_release_retreat_completed_step": 213,
+          "final_actual_gap_m": 0.0799266561820493,
+          "final_eef_bowl_distance_m": 0.16052561845348567
+        },
+        "inferences": [
+          "Visible final separation/stability plus actual opening and distance signals support released placement for this scene/seed. It does not measure general recovery from imposed disturbance."
+        ]
+      }
+    },
+    {
+      "trial": "candidate__seed0__zero",
+      "metrics": {
+        "trial": "candidate__seed0__zero",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 283,
+        "events": {
+          "first_close_command": 64,
+          "first_bowl_lift_25mm": 82,
+          "first_on": 185,
+          "first_open_gap_after_lift": 209,
+          "independent_ten_consecutive_release_retreat": 233,
+          "end": 283
+        },
+        "selected_video_frame_indices": [
+          0,
+          25,
+          51,
+          59,
+          64,
+          74,
+          77,
+          82,
+          92,
+          102,
+          128,
+          154,
+          180,
+          185,
+          195,
+          204,
+          205,
+          209,
+          219,
+          228,
+          231,
+          233,
+          243,
+          257,
+          278,
+          283
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "dx_m": 0.0,
+            "dy_m": 0.0
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/zero",
+          "source_scene_sha256": "5a5f65e17d2bc61426c9ad2319a4c77262daec9159da8146a1c93ccd51e83d1a",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 283,
+          "inference_calls": 283,
+          "success": true,
+          "first_benchmark_success_control_steps": 185,
+          "post_success_steps_executed": 98,
+          "final_benchmark_success": true,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+            "model_stage": "retrain_teacher_2x_20261019/1999",
+            "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 33.13012553693261,
+          "ten_step_release_retreat_verified": true,
+          "first_ten_step_release_retreat_control_steps": 233,
+          "post_release_steps_executed": 50,
+          "post_release_followup_complete": true,
+          "stop_reason": "stable_release_retreat_followup",
+          "final_state_sha256": "957d55f8e17d30dc4072295110d3f9d78ef10534a81805ee0feb188784f012a8",
+          "video": "video.mp4",
+          "video_frames": 284,
+          "video_fps": 10
+        },
+        "final": {
+          "on": true,
+          "open_command": true,
+          "finger_gap_m": 0.07988221014943536,
+          "eef_bowl_distance_m": 0.17986969805480374,
+          "bowl_xyz": [
+            0.04345744757539044,
+            0.1828388443948421,
+            0.9074524342077617
+          ],
+          "max_bowl_height_increase_m": 0.12964511882659713
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.3575300887374534,
+            "bowl_displacement_m": 0.14532216461946962,
+            "bowl_z_range_m": [
+              0.8969234664842276,
+              1.0253981009810698
+            ],
+            "positive_grip_fraction": 0.37
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.14483307007141516,
+            "bowl_displacement_m": 0.1359688500165099,
+            "bowl_z_range_m": [
+              0.9062919979752327,
+              1.028049170744624
+            ],
+            "positive_grip_fraction": 0.97
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 283,
+            "eef_displacement_m": 0.1548399388618078,
+            "bowl_displacement_m": 0.0006821905433230898,
+            "bowl_z_range_m": [
+              0.9068525034251536,
+              0.9077797989345169
+            ],
+            "positive_grip_fraction": 0.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "8b2f2d2f67473a452f5afd35838024f1f8e1223bd820daf9d980cc9106dd48ea",
+          "actions.csv": "255f25959d49fac1fc437fcf32262ed70ab6877d12c42bab78709bc33d6bf362",
+          "video.mp4": "0821a6c9ed70b8d7330377b03364dec5483b1d8d336109421730b1c1516dc389"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/candidate__seed0__zero/contact-sheet.png",
+        "post_gate_followup": {
+          "steps": 50,
+          "all_on": true,
+          "all_open_commands": true,
+          "min_actual_gap_m": 0.07898902823190822,
+          "max_bowl_displacement_from_gate_m": 3.8563948870332084e-07
+        }
+      },
+      "visual_review": {
+        "classification": "released_placement_and_retreat_observed",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              51,
+              64,
+              74,
+              82,
+              102
+            ],
+            "observation": "Open hand approaches, closes around target bowl, and visibly lifts it off table."
+          },
+          {
+            "steps": [
+              128,
+              154,
+              180,
+              185,
+              195
+            ],
+            "observation": "Bowl is transported toward plate and lowered onto it; at185 On starts but gripper is still nearby."
+          },
+          {
+            "steps": [
+              204,
+              209,
+              219,
+              233,
+              283
+            ],
+            "observation": "Fingers open and hand retracts; the separated bowl remains on plate in following samples through final frame."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 64,
+          "first_bowl_lift_ge_25mm_completed_step": 82,
+          "first_on_completed_step": 185,
+          "first_open_gap_ge_60mm_after_lift_completed_step": 209,
+          "independent_ten_consecutive_release_retreat_completed_step": 233,
+          "final_actual_gap_m": 0.07988221014943536,
+          "final_eef_bowl_distance_m": 0.17986969805480374
+        },
+        "inferences": [
+          "This seed/layout visibly completes released placement earlier than the matched control:233 vs363 completed steps to the same independently recomputed10-step gate. Actual approach/closing onset is similar; task speed change is not an earlier video cutoff. One paired scene is insufficient for an overall speed claim."
+        ]
+      }
+    },
+    {
+      "trial": "candidate__seed0__user054_neg_neg",
+      "metrics": {
+        "trial": "candidate__seed0__user054_neg_neg",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 800,
+        "events": {
+          "first_close_command": 387,
+          "first_bowl_lift_25mm": 507,
+          "first_on": null,
+          "first_open_gap_after_lift": null,
+          "independent_ten_consecutive_release_retreat": null,
+          "end": 800
+        },
+        "selected_video_frame_indices": [
+          0,
+          72,
+          145,
+          218,
+          290,
+          363,
+          382,
+          387,
+          397,
+          436,
+          502,
+          507,
+          509,
+          517,
+          581,
+          654,
+          727,
+          795,
+          800
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              -0.05862233029507831,
+              0.2165140591366307,
+              0.8984038567263857
+            ],
+            "dx_m": -0.06416938110749186,
+            "dy_m": -0.08729641693811076
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user054_neg_neg",
+          "source_scene_sha256": "691924ff7d4f860076754c35433962a3298a94518acca0a8e8324ea32f758068",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 800,
+          "inference_calls": 800,
+          "success": false,
+          "first_benchmark_success_control_steps": null,
+          "post_success_steps_executed": 0,
+          "final_benchmark_success": false,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+            "model_stage": "retrain_teacher_2x_20261019/1999",
+            "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 65.75185235589743,
+          "ten_step_release_retreat_verified": false,
+          "first_ten_step_release_retreat_control_steps": null,
+          "post_release_steps_executed": 0,
+          "post_release_followup_complete": false,
+          "stop_reason": "step_limit",
+          "final_state_sha256": "e23a0c1671bff2e3dbd32bfa3f7e4052b6797791657677a244e5eb50aba6f023",
+          "video": "video.mp4",
+          "video_frames": 801,
+          "video_fps": 10
+        },
+        "final": {
+          "on": false,
+          "open_command": false,
+          "finger_gap_m": 0.0036988302285794195,
+          "eef_bowl_distance_m": 0.0556911330205242,
+          "bowl_xyz": [
+            0.00549181531487516,
+            0.12297444120699857,
+            1.063701033536387
+          ],
+          "max_bowl_height_increase_m": 0.16529698161836015
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.3034559534891368,
+            "bowl_displacement_m": 9.82708264988264e-08,
+            "bowl_z_range_m": [
+              0.8984040519180269,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.1258364852468388,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 300,
+            "eef_displacement_m": 0.05493261294188328,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 300,
+            "end_completed_step": 400,
+            "eef_displacement_m": 0.11189415208972064,
+            "bowl_displacement_m": 0.0037788918857392375,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.9019869452478637
+            ],
+            "positive_grip_fraction": 0.02
+          },
+          {
+            "start_completed_step": 400,
+            "end_completed_step": 500,
+            "eef_displacement_m": 0.04720029157065091,
+            "bowl_displacement_m": 0.023166627633644552,
+            "bowl_z_range_m": [
+              0.9022539166215021,
+              0.9189348588814086
+            ],
+            "positive_grip_fraction": 0.67
+          },
+          {
+            "start_completed_step": 500,
+            "end_completed_step": 600,
+            "eef_displacement_m": 0.07815458035478762,
+            "bowl_displacement_m": 0.07808119964123945,
+            "bowl_z_range_m": [
+              0.919493993829139,
+              0.9954756678054855
+            ],
+            "positive_grip_fraction": 1.0
+          },
+          {
+            "start_completed_step": 600,
+            "end_completed_step": 700,
+            "eef_displacement_m": 0.0706646195703503,
+            "bowl_displacement_m": 0.07117326877717169,
+            "bowl_z_range_m": [
+              0.9957869949527836,
+              1.0424343652337835
+            ],
+            "positive_grip_fraction": 1.0
+          },
+          {
+            "start_completed_step": 700,
+            "end_completed_step": 800,
+            "eef_displacement_m": 0.060057247856870444,
+            "bowl_displacement_m": 0.06144269900383727,
+            "bowl_z_range_m": [
+              1.042696197832191,
+              1.063701033536387
+            ],
+            "positive_grip_fraction": 1.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "bac8a45053b219a6fbbae3291fe7ed9dd31709fcc38c886cd78a47da513ace47",
+          "actions.csv": "7a9762a3dafe7cc96bc190d74d9d8dc31671daf32a8160499067eb1253d78e90",
+          "video.mp4": "68c5d96924941cc13cceb756c248a2f8349a29944d936ff761b3460681dda514"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/candidate__seed0__user054_neg_neg/contact-sheet.png"
+      },
+      "visual_review": {
+        "classification": "prolonged_approach_then_lift_without_plate_placement_within_budget",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              72,
+              145,
+              218,
+              290,
+              363
+            ],
+            "observation": "Bowl remains on table while hand approaches slowly and shifts over the clustered objects."
+          },
+          {
+            "steps": [
+              387,
+              397,
+              436,
+              502,
+              507,
+              581
+            ],
+            "observation": "Early close command is followed by open commands. Later hand closes and target bowl visibly rises and travels with it."
+          },
+          {
+            "steps": [
+              654,
+              727,
+              800
+            ],
+            "observation": "Bowl remains suspended near the rear bowls, separated in image from front plate; no lowering onto plate, opening, or retreat from a placed bowl is visible by final frame."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 387,
+          "first_bowl_lift_ge_25mm_completed_step": 507,
+          "any_on": false,
+          "final_actual_gap_m": 0.0036988302285794195,
+          "final_bowl_z_m": 1.063701033536387,
+          "final_eef_bowl_distance_m": 0.0556911330205242
+        },
+        "inferences": [
+          "Candidate does not resolve this displaced-scene failure within800 steps. Its first transient close is earlier than control, but actual25mm lift is later507vs501; neither reaches On. These signals do not support a successful faster transport/recovery in this case.",
+          "The hand and bowl are still moving in later segments; no evidence of a frozen viewer. Contact firmness remains unverified from one occluded camera."
+        ]
+      }
+    },
+    {
+      "trial": "candidate__seed0__user055_neg_neg",
+      "metrics": {
+        "trial": "candidate__seed0__user055_neg_neg",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 800,
+        "events": {
+          "first_close_command": 449,
+          "first_bowl_lift_25mm": 554,
+          "first_on": null,
+          "first_open_gap_after_lift": null,
+          "independent_ten_consecutive_release_retreat": null,
+          "end": 800
+        },
+        "selected_video_frame_indices": [
+          0,
+          72,
+          145,
+          218,
+          290,
+          363,
+          436,
+          444,
+          449,
+          459,
+          509,
+          549,
+          554,
+          564,
+          581,
+          654,
+          727,
+          795,
+          800
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              -0.07751483843840078,
+              0.20381047607474143,
+              0.8984038567263857
+            ],
+            "dx_m": -0.08306188925081433,
+            "dy_m": -0.1
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user055_neg_neg",
+          "source_scene_sha256": "870495b0f984b6ae945c304f805e2c388d12b8cc4db9455891d0823e2111c5b7",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 800,
+          "inference_calls": 800,
+          "success": false,
+          "first_benchmark_success_control_steps": null,
+          "post_success_steps_executed": 0,
+          "final_benchmark_success": false,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+            "model_stage": "retrain_teacher_2x_20261019/1999",
+            "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 65.91907204501331,
+          "ten_step_release_retreat_verified": false,
+          "first_ten_step_release_retreat_control_steps": null,
+          "post_release_steps_executed": 0,
+          "post_release_followup_complete": false,
+          "stop_reason": "step_limit",
+          "final_state_sha256": "8f5abb0e66497053e29c5f9acb9aedb86a5935c7360eaa4ac83d7b9c3c029b44",
+          "video": "video.mp4",
+          "video_frames": 801,
+          "video_fps": 10
+        },
+        "final": {
+          "on": false,
+          "open_command": false,
+          "finger_gap_m": 0.004935075926471112,
+          "eef_bowl_distance_m": 0.05154975831325462,
+          "bowl_xyz": [
+            0.047997272829505035,
+            0.0707851899671423,
+            1.0860300019275253
+          ],
+          "max_bowl_height_increase_m": 0.18762595000949844
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.29934338765287527,
+            "bowl_displacement_m": 9.827082649881734e-08,
+            "bowl_z_range_m": [
+              0.8984040519180269,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.07114537027251606,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 300,
+            "eef_displacement_m": 0.06341688888339164,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 300,
+            "end_completed_step": 400,
+            "eef_displacement_m": 0.06523229883408106,
+            "bowl_displacement_m": 0.0,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.898404150188853
+            ],
+            "positive_grip_fraction": 0.0
+          },
+          {
+            "start_completed_step": 400,
+            "end_completed_step": 500,
+            "eef_displacement_m": 0.08209640052960701,
+            "bowl_displacement_m": 0.01214622014223265,
+            "bowl_z_range_m": [
+              0.898404150188853,
+              0.9061759143909076
+            ],
+            "positive_grip_fraction": 0.13
+          },
+          {
+            "start_completed_step": 500,
+            "end_completed_step": 600,
+            "eef_displacement_m": 0.11588149133158283,
+            "bowl_displacement_m": 0.09519323937848509,
+            "bowl_z_range_m": [
+              0.9013525594042023,
+              0.9962123940396415
+            ],
+            "positive_grip_fraction": 0.91
+          },
+          {
+            "start_completed_step": 600,
+            "end_completed_step": 700,
+            "eef_displacement_m": 0.15499227604672322,
+            "bowl_displacement_m": 0.15534156950046094,
+            "bowl_z_range_m": [
+              0.9968154844624456,
+              1.0570429127677003
+            ],
+            "positive_grip_fraction": 0.99
+          },
+          {
+            "start_completed_step": 700,
+            "end_completed_step": 800,
+            "eef_displacement_m": 0.07152667147340457,
+            "bowl_displacement_m": 0.07376336411178504,
+            "bowl_z_range_m": [
+              1.0573059368890052,
+              1.0860300019275253
+            ],
+            "positive_grip_fraction": 1.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "30a9b63c6275bfb73e7e420e682ddd63d8f95c8b08d5ce5ddc675aad54a11fb8",
+          "actions.csv": "a9133dbc42508a92c0cf09763ce068e5d724b5ac5315cd9c39afcdac3b00c422",
+          "video.mp4": "103ae3458f2ced7bca8cecf9c06e3e87853bbf1ba3783444b0ffa786d937e1f6"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/candidate__seed0__user055_neg_neg/contact-sheet.png"
+      },
+      "visual_review": {
+        "classification": "prolonged_approach_then_lift_without_plate_placement_within_budget",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              72,
+              145,
+              218,
+              290,
+              363,
+              436
+            ],
+            "observation": "Bowl remains in starting cluster while open hand slowly moves toward it."
+          },
+          {
+            "steps": [
+              449,
+              459,
+              509,
+              549,
+              554,
+              581
+            ],
+            "observation": "A brief closing attempt reopens; subsequent closure and lifting visibly bring bowl off table by550s."
+          },
+          {
+            "steps": [
+              654,
+              727,
+              800
+            ],
+            "observation": "Hand carries raised bowl to the rear near the other bowls, with final bowl still suspended and plate empty. No visible release/withdrawal at plate."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 449,
+          "first_bowl_lift_ge_25mm_completed_step": 554,
+          "any_on": false,
+          "final_actual_gap_m": 0.004935075926471112,
+          "final_bowl_z_m": 1.0860300019275253,
+          "final_eef_bowl_distance_m": 0.05154975831325462
+        },
+        "inferences": [
+          "Candidate also fails this displaced scene within800 controlsteps, with25mm bowl lift later than control554vs516. This does not support a general approach/carry speed improvement over these negative-offset initializations.",
+          "Neither the image sequence nor CSV suggests the simulation froze. Visible co-motion does not by itself prove grasp security, and no explicit induced-failure recovery test was conducted."
+        ]
+      }
+    },
+    {
+      "trial": "candidate__seed0__user057_pos_pos",
+      "metrics": {
+        "trial": "candidate__seed0__user057_pos_pos",
+        "video_shape": [
+          256,
+          256,
+          3
+        ],
+        "control_steps": 318,
+        "events": {
+          "first_close_command": 64,
+          "first_bowl_lift_25mm": 83,
+          "first_on": 151,
+          "first_open_gap_after_lift": 248,
+          "independent_ten_consecutive_release_retreat": 268,
+          "end": 318
+        },
+        "selected_video_frame_indices": [
+          0,
+          28,
+          57,
+          59,
+          64,
+          74,
+          78,
+          83,
+          86,
+          93,
+          115,
+          144,
+          146,
+          151,
+          161,
+          173,
+          202,
+          231,
+          243,
+          248,
+          258,
+          260,
+          263,
+          268,
+          278,
+          289,
+          313,
+          318
+        ],
+        "result": {
+          "layout_id": 24,
+          "seed": 42,
+          "bowl_edit": {
+            "before_xyz": [
+              0.005547050812413551,
+              0.30381047607474143,
+              0.8984038567263857
+            ],
+            "after_xyz": [
+              0.03193141563326044,
+              0.36504826109102806,
+              0.8984038567263857
+            ],
+            "dx_m": 0.02638436482084689,
+            "dy_m": 0.061237785016286635
+          },
+          "task_metadata": {
+            "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+            "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+          },
+          "initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+          "task_language": "pick up the black bowl next to the plate and place it on the plate",
+          "interactive_experiment": false,
+          "formal_benchmark": false,
+          "untracked_native_gui_edits_possible": false,
+          "replan_steps": 1,
+          "max_steps": 800,
+          "post_success_steps": null,
+          "physics_horizon_ignored": true,
+          "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+          "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+          "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+          "policy_rng": "Isolated server resets RNG per connection to seed 0",
+          "guard_checked_no_deep_overlap": true,
+          "saved_scene_replay": "/home/robot/.pi05-handson/.local/position-study-v1/sources/user057_pos_pos",
+          "source_scene_sha256": "7444a517b7701cc68db9a08fc8405ecaa6492532f624183caf4bb131738149a0",
+          "post_release_steps_requested": 50,
+          "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+          "control_steps": 318,
+          "inference_calls": 318,
+          "success": true,
+          "first_benchmark_success_control_steps": 151,
+          "post_success_steps_executed": 167,
+          "final_benchmark_success": true,
+          "release_and_retreat_success": null,
+          "model_metadata": {
+            "course": "pi05 LoRA",
+            "task": "pick up the black bowl next to the plate and place it on the plate",
+            "action_horizon": 10,
+            "seed": 42,
+            "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+            "model_stage": "retrain_teacher_2x_20261019/1999",
+            "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+            "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+            "policy_sampling_seed_at_server_start": 0,
+            "diagnostic_rng_reset_per_connection": 0,
+            "model_source": "pinned OpenPI JAX Policy._rng",
+            "state_input": false
+          },
+          "wall_duration_s": 26.55050886294339,
+          "ten_step_release_retreat_verified": true,
+          "first_ten_step_release_retreat_control_steps": 268,
+          "post_release_steps_executed": 50,
+          "post_release_followup_complete": true,
+          "stop_reason": "stable_release_retreat_followup",
+          "final_state_sha256": "ffdb06bbd2d4da4b014efc1a5ca1bb4a317304aa995e2f8a6b0eb891fc30621b",
+          "video": "video.mp4",
+          "video_frames": 319,
+          "video_fps": 10
+        },
+        "final": {
+          "on": true,
+          "open_command": true,
+          "finger_gap_m": 0.0798631740915469,
+          "eef_bowl_distance_m": 0.168423354181556,
+          "bowl_xyz": [
+            0.062117471231953936,
+            0.1898690718378161,
+            0.9063168995051859
+          ],
+          "max_bowl_height_increase_m": 0.15362896821330485
+        },
+        "segments": [
+          {
+            "start_completed_step": 0,
+            "end_completed_step": 100,
+            "eef_displacement_m": 0.3710169058161193,
+            "bowl_displacement_m": 0.19956842135936564,
+            "bowl_z_range_m": [
+              0.898189817883343,
+              1.0513245298638938
+            ],
+            "positive_grip_fraction": 0.37
+          },
+          {
+            "start_completed_step": 100,
+            "end_completed_step": 200,
+            "eef_displacement_m": 0.17309878138188406,
+            "bowl_displacement_m": 0.16494422737370346,
+            "bowl_z_range_m": [
+              0.9071757158398136,
+              1.0520330201313317
+            ],
+            "positive_grip_fraction": 0.94
+          },
+          {
+            "start_completed_step": 200,
+            "end_completed_step": 300,
+            "eef_displacement_m": 0.12546747704034322,
+            "bowl_displacement_m": 0.016146944331920085,
+            "bowl_z_range_m": [
+              0.9062923837174458,
+              0.9082283468892349
+            ],
+            "positive_grip_fraction": 0.3
+          },
+          {
+            "start_completed_step": 300,
+            "end_completed_step": 318,
+            "eef_displacement_m": 0.014238647824154184,
+            "bowl_displacement_m": 1.260255069994808e-07,
+            "bowl_z_range_m": [
+              0.9063168995051859,
+              0.9063169189645487
+            ],
+            "positive_grip_fraction": 0.0
+          }
+        ],
+        "source_sha256": {
+          "result.json": "59333dbd945f813184a155ee37b145a8efd728f782ab8599b459f0b3d4c0be51",
+          "actions.csv": "fef93c7ad1b16f0255d84a353b03d02032e2ab52f7d257ed14fa8bc0ffd5fe46",
+          "video.mp4": "c66d15f84fb66386385b4740804c3c245386aab3ca98923c73182f453da761ed"
+        },
+        "contact_sheet": "/home/robot/.pi05-handson/.local/retrain-20261019/policy-visual-review/candidate__seed0__user057_pos_pos/contact-sheet.png",
+        "post_gate_followup": {
+          "steps": 50,
+          "all_on": true,
+          "all_open_commands": true,
+          "min_actual_gap_m": 0.07882564784518184,
+          "max_bowl_displacement_from_gate_m": 3.861069246444029e-07
+        }
+      },
+      "visual_review": {
+        "classification": "released_placement_and_retreat_observed_with_delayed_release",
+        "visual_observations": [
+          {
+            "steps": [
+              0,
+              57,
+              64,
+              74,
+              83,
+              115
+            ],
+            "observation": "Open hand approaches and closes on target bowl, then lifts and transports it toward plate."
+          },
+          {
+            "steps": [
+              146,
+              151,
+              161,
+              173,
+              202,
+              231
+            ],
+            "observation": "Bowl reaches plate area, but gripper remains close and closed for a prolonged placement/adjustment interval; On alone would prematurely imply task completion."
+          },
+          {
+            "steps": [
+              243,
+              248,
+              258,
+              268,
+              289,
+              318
+            ],
+            "observation": "Fingers finally open, hand retracts, and bowl remains visibly separated from hand on plate through final sampled frame."
+          }
+        ],
+        "numerical_cross_checks": {
+          "first_close_command_completed_step": 64,
+          "first_bowl_lift_ge_25mm_completed_step": 83,
+          "first_on_completed_step": 151,
+          "first_open_gap_ge_60mm_after_lift_completed_step": 248,
+          "independent_ten_consecutive_release_retreat_completed_step": 268,
+          "final_actual_gap_m": 0.0798631740915469,
+          "final_eef_bowl_distance_m": 0.168423354181556
+        },
+        "inferences": [
+          "Successful release/retreat is supported, but this candidate is slower than matched control213vs268 steps to verified gate. On-to-actual-open delay97steps vs control32steps; the video supports a lingering placement phase rather than an across-the-board speed improvement.",
+          "The agentview partially occludes finger/bowl contact during this interval, so the exact reason for delayed release cannot be inferred from image and command signals alone."
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Policy videos contain only dynamic256x256 agentview RGB, not dual-camera video. Initial wrist PNG is not a temporal wrist record.",
+    "Selected actual video frames are inspected alongside full actions.csv; contact surfaces may be occluded. No claim of exact grasp contact or universal recovery ability.",
+    "Video10FPS while controller dt=.05s: video replay is half physical speed. Completed controlstep equals its video frameindex; frame0 is initial.",
+    "Done/On alone is not released success. Command sign, actual finger gap, EEF-bowl separation and visual stability are considered separately.",
+    "These fixed initial-position evaluations are not explicit post-failure recovery/intervention tests; failure recovery ability cannot be established from their success alone."
+  ],
+  "pending_trials": [],
+  "paired_seed0_summary": [
+    {
+      "case": "zero",
+      "identical_initial_state_sha256": "8298d1982d53ef201090025e0255ea84c7035c0df50d322fed6f3c9b66652472",
+      "control_verified_release_step": 363,
+      "candidate_verified_release_step": 233,
+      "control_first_bowl_lift_25mm": 87,
+      "candidate_first_bowl_lift_25mm": 82,
+      "control_on_step": 270,
+      "candidate_on_step": 185,
+      "control_actual_open_step": 318,
+      "candidate_actual_open_step": 209
+    },
+    {
+      "case": "user054_neg_neg",
+      "identical_initial_state_sha256": "e3f1f130cf4b0a92cd36af3aee9f211b640d71332deeed1ec0f2d11afa325e4a",
+      "control_verified_release_step": null,
+      "candidate_verified_release_step": null,
+      "control_first_bowl_lift_25mm": 501,
+      "candidate_first_bowl_lift_25mm": 507,
+      "control_on_step": null,
+      "candidate_on_step": null,
+      "control_actual_open_step": null,
+      "candidate_actual_open_step": null
+    },
+    {
+      "case": "user055_neg_neg",
+      "identical_initial_state_sha256": "7c12e9da98287547aefe6636cef031271eed0941813d6e30d999fc16d95e2d79",
+      "control_verified_release_step": null,
+      "candidate_verified_release_step": null,
+      "control_first_bowl_lift_25mm": 516,
+      "candidate_first_bowl_lift_25mm": 554,
+      "control_on_step": null,
+      "candidate_on_step": null,
+      "control_actual_open_step": null,
+      "candidate_actual_open_step": null
+    },
+    {
+      "case": "user057_pos_pos",
+      "identical_initial_state_sha256": "6ad6aa4c658232739ef2324d6e9b65ab37a29e7c0944e53fe01f7c99e3830bbe",
+      "control_verified_release_step": 213,
+      "candidate_verified_release_step": 268,
+      "control_first_bowl_lift_25mm": 80,
+      "candidate_first_bowl_lift_25mm": 83,
+      "control_on_step": 146,
+      "candidate_on_step": 151,
+      "control_actual_open_step": 178,
+      "candidate_actual_open_step": 248
+    }
+  ],
+  "conclusion": {
+    "control_released_placements": 2,
+    "candidate_released_placements": 2,
+    "trials_per_arm": 4,
+    "finding": "Both arms visibly finish zero/user057 and fail to place user054/user055 within800steps. Candidate completes zero earlier, but has a longer closed-hand placement interval on user057. No general recovery/speed fix is established.",
+    "failure_stage": "For all four negative-offset trials (two models times two cases), long open approach is followed by actual off-table bowl transport that has not reached the plate by budget end; this is not a uniform no-close or no-release-only failure.",
+    "limit": "Only policy seed0 was visually reviewed. Parent evaluation matrix has additional seeds; their results are not silently included in these eight visual assessments."
+  },
+  "verification": [
+    {
+      "trial": "control__seed0__zero",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "control__seed0__user054_neg_neg",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "control__seed0__user055_neg_neg",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "control__seed0__user057_pos_pos",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "candidate__seed0__zero",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "candidate__seed0__user054_neg_neg",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "candidate__seed0__user055_neg_neg",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    },
+    {
+      "trial": "candidate__seed0__user057_pos_pos",
+      "source_hashes_unchanged": true,
+      "contact_sheet_actually_viewed": true,
+      "initial_frame_plus_one_per_action_consistent": true
+    }
+  ],
+  "method": "CPU-only actual MP4 decoding/contact sheets viewed using view_image; events independently recomputed from full CSV; result/checkpoint/source hashes retained. No physics, policy server calls, training, GUI changes or source edits."
+}

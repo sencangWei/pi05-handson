@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE",
+  "arms": [
+    {
+      "experiment": "retrain_teacher_1x_20261019",
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "log": "/home/robot/.pi05-handson/logs/ui_training_1792367545750354811.log",
+      "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+      "status": "COMPLETE",
+      "optimizer_updates": 2000,
+      "last_logged_step": 1990,
+      "first_logged_loss": 0.0342,
+      "last_logged_loss": 0.0096,
+      "mean_first_20_logged_losses": 0.018454999999999996,
+      "mean_last_20_logged_losses": 0.01483,
+      "log_sha256": "75a89700331406c64b9a1fd18f22641e75a7d6857284e084a8947938737f45e6",
+      "launch_record": "evidence/retrain_teacher_1x_20261019-launch.json",
+      "launch_record_sha256": "492f5cc719ddfe7dc5bce3636df963ba56a2db2bf62d34cdc4d0b01849478044",
+      "source_commit": "2c77964e23c235c9df31b97eb98924875610e05e",
+      "metric_limit": "Training logged loss only; does not establish task success or speed."
+    },
+    {
+      "experiment": "retrain_teacher_2x_20261019",
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+      "log": "/home/robot/.pi05-handson/logs/ui_training_1792368435482309398.log",
+      "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d",
+      "status": "COMPLETE",
+      "optimizer_updates": 2000,
+      "last_logged_step": 1990,
+      "first_logged_loss": 0.0391,
+      "last_logged_loss": 0.0098,
+      "mean_first_20_logged_losses": 0.019770000000000003,
+      "mean_last_20_logged_losses": 0.015154999999999997,
+      "log_sha256": "cbfdf16cf365ea193f2f687a4050007ac64891cfbda73d4ddac54583b8df3ffb",
+      "launch_record": "evidence/retrain_teacher_2x_20261019-launch.json",
+      "launch_record_sha256": "e6cc9c3aa4afad3085436571c58af924ef37f54a682f10169dc690482be4a365",
+      "source_commit": "2c77964e23c235c9df31b97eb98924875610e05e",
+      "metric_limit": "Training logged loss only; does not establish task success or speed."
+    }
+  ]
+}

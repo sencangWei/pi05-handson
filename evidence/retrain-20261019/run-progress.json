@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETE",
+  "phase": "training_evaluation_analysis_complete",
+  "completed_training": [
+    {
+      "experiment": "retrain_teacher_1x_20261019",
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "log": "/home/robot/.pi05-handson/logs/ui_training_1792367545750354811.log",
+      "params_manifest_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95"
+    },
+    {
+      "experiment": "retrain_teacher_2x_20261019",
+      "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_2x_20261019/1999",
+      "log": "/home/robot/.pi05-handson/logs/ui_training_1792368435482309398.log",
+      "params_manifest_sha256": "cbca666d6aaa453bde031adf365b3315979c79fcbe7285a3373b9ecafe82d89d"
+    }
+  ],
+  "analysis": "evidence/retrain-20261019/followup-summary.json"
+}

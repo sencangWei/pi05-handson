@@ -1,0 +1,87 @@
+{
+  "status": "READ_ONLY_RESTORE_ORIGINAL_SERVICE_PLAN_NO_GUI_ACTIONS",
+  "gui_pid": 2682724,
+  "selected_default": "Restore original8755 checkpoint after all evaluation processes release resources; do not switch the current GUI trial to a different checkpoint.",
+  "original_checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+  "source_sha256": {
+    "scripts/lab_jobs.py": "d58619a9007c3bae00ada0ec1e6b822f74db0b92cd4ba4b8b13c4b1bcc51c1e8",
+    "scripts/lab_workbench.py": "fb6432d32dfa84db45d65f09ccb88704ff46ceeb7228313022e853f7d47872a5",
+    "scripts/lab_panel.py": "18b62b3a231724e20e4a24da6179fb04b719a766822120bd4e998223afd69041",
+    "scripts/correction_workbench.py": "7150297f8052e28e9c888d5269c2363675f7bc87dc518a332fbc44586c02c5c3",
+    "scripts/simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d"
+  },
+  "observations": {
+    "registry_loading": "LabJobs.__init__ reads .local/lab-jobs.json once; snapshot only checks its in-memory records with UID/create_time/cmdline and probes port. It does not refresh external registry changes.",
+    "checkpoint_refresh": "LabPanel._refresh_checkpoints only rescans checkpoint files and updates combobox values. It does not start a model, change the current scene, or reload LabJobs records. Existing valid selection remains selected.",
+    "check_connection": "LabWorkbench.check_connection creates a fresh temporary PolicyConnection in a background probe and closes it afterward. It updates displayed identity; it does not clear the main self.policy socket.",
+    "different_model_guard": "SimulationLab.tick rejects metadata differing from record.result.model_metadata before env.step. Restoring the exact original checkpoint and matching metadata supports continuation; a new checkpoint requires a separate trial.",
+    "model_start_button": "LabWorkbench.start_model calls _archive_scene -> save -> _close_scene -> _new_connection. It saves the old result but closes the live environment. CorrectionWorkbench rejects start_model while an active correction exists.",
+    "no_disconnect_button": "The existing model buttons are start selected, stop panel model, check connection and refresh models. There is no independent disconnect/reconnect button and no existing external GUI IPC endpoint."
+  },
+  "minimal_no_scene_loss_sequence": [
+    {
+      "step": 1,
+      "owner": "root after completed evaluation",
+      "action": "Verify no active evaluation service/training and8755 free; use a fresh LabJobs(ROOT,port=8755).start_model(original_checkpoint). Let normal ownership checks apply; never stop a foreign process by port alone.",
+      "scene_or_draft_save": "None. Only backend process and registry change; GUI/environment stay untouched."
+    },
+    {
+      "step": 2,
+      "owner": "existing GUI",
+      "action": "Keep the scene paused. Clicking check connection verifies original model identity through a temporary connection; refresh models may list new checkpoints but must not be followed by start selected for this preserved scene.",
+      "scene_or_draft_save": "None. Camera/physics/current trial and active correction remain intact."
+    },
+    {
+      "step": 3,
+      "owner": "user when voluntarily resuming later",
+      "action": "The main socket may already be disconnected. If it still refers to the stopped server, the first inference request fails, clears its socket and pauses before env.step. Acknowledge the error, then run again to reconnect to original8755. If socket was alreadyNone, first run can execute normally.",
+      "important": "Do not press single-step merely as a presumed no-action reconnect test; if already connected it can advance physics."
+    }
+  ],
+  "precise_owner_process_api": {
+    "scope": "Only if code is already executing in the existing GUI process/Tk thread; not an external Python replacement or currently exposed button.",
+    "sequence": [
+      "Ensure view.paused=True, clear step_requested and native single_step so no action is requested.",
+      "lab._new_connection()",
+      "lab.check_connection()"
+    ],
+    "effects": "_new_connection increments generation, closes old PolicyConnection and creates a new one. It does not call save or _close_scene; physics, current record and active correction object remain. Pending old prediction generation becomes stale.",
+    "external_limitation": "A fresh LabJobs in another process cannot invoke this method on PID2682724. No supported button-only zero-motion forced reconnect exists without changing the application. Do not inject/debugger-patch the process merely to avoid one possible future reconnect error."
+  },
+  "registry_expectation": {
+    "restored_by_fresh_manager": "Fresh manager records and owns new PID in registry. Existing GUI retains old stopped PID in its memory, so its snapshot sees8755 busy but ownedFalse and displays external service.",
+    "button_state": "Old GUI model stop/start and training start remain disabled for that external service. This protects it from unintended takeover and does not prevent metadata probing or ordinary policy connections.",
+    "avoid": "Do not rewrite registry to fabricate ownership and do not claim refresh models imports the new registry. Backend management can continue through a fresh LabJobs outside GUI.",
+    "in_gui_rebind_if_owner_context_available": "lab.jobs=LabJobs(lab.project,lab.port); lab.job_state=lab.jobs.snapshot() would refresh ownership without closing scene, but no current external IPC/button exposes this; not required for default restore."
+  },
+  "save_semantics": {
+    "external_restore": "Does not save, approve, discard or move current scene/drafts. They remain as currently held in memory/on disk.",
+    "check_or_refresh": "Does not save the current trial or finalize an active correction.",
+    "explicit_save_button": "Saves current trial and marks it finished; active correction must be completed or saved as draft through its own workflow first.",
+    "finish_correction_false": "Explicitly writes a draft with final_sim_state and camera images; retains the live environment. It is a data operation and is not performed automatically by this restore plan.",
+    "start_model": "Archives/saves and closes scene; avoid for the no-loss default.",
+    "restart_gui": "Not requested and not part of this plan; would close live environment and finalize active correction as draft."
+  },
+  "new_checkpoint_later": {
+    "visibility": "Refresh models finds new retrain_teacher_1x_20261019 and retrain_teacher_2x_20261019 checkpoints. Listing does not mean loaded or upgraded.",
+    "workflow": "User deliberately finishes/saves any active correction, saves old trial, then uses selected-model start and loads a new scene. If original backend is externally owned to old GUI, manage it with its fresh external LabJobs owner first; do not bypass GUI external-service guard.",
+    "not_claimed": "No seamless new-model switch inside the existing old-model trial; no hot upgrade of GUI code or new collision guard in its already-loaded interpreter."
+  },
+  "supervisor_followup": {
+    "source_review": "Current supervise.py uses a separately created driver session and killpg(driver.pid) cleanup; root reports supervisor-only restart with original training retained. No process was changed in this review."
+  },
+  "side_effects": {
+    "files_written": [
+      ".local/retrain-20261019/gui-restore-review.json"
+    ],
+    "processes_stopped": false,
+    "GUI_or_model_calls": false,
+    "simulation_steps": false,
+    "source_modified": false
+  },
+  "limits": [
+    "This is current disk-source review; it does not inspect or mutate the old interpreter Python objects.",
+    "Whether the existing main PolicyConnection socket isNone/closed cannot be determined from registry files alone.",
+    "A successful temporary connection probe does not force-reconnect the main socket or certify task success."
+  ]
+}

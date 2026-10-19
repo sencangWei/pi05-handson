@@ -1,0 +1,33 @@
+{
+  "components": [
+    {
+      "component": "course",
+      "actual_path": "/home/robot/.pi05-handson",
+      "is_git_repository": true,
+      "origin": "https://github.com/sencangWei/pi05-handson.git",
+      "commit_at_inventory": "4479141854f5d8f410b0c797361d10d8f436976a",
+      "branch": "experiment/correction-learning",
+      "capability_changes": "course scripts and reports only"
+    },
+    {
+      "component": "openpi",
+      "actual_path": "/home/robot/.pi05-handson/openpi",
+      "is_git_repository": true,
+      "origin": "https://github.com/Physical-Intelligence/openpi.git",
+      "commit_at_inventory": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+      "branch": "",
+      "capability_changes": "none; source unchanged"
+    },
+    {
+      "component": "libero",
+      "actual_path": "/home/robot/.pi05-handson/openpi/third_party/libero",
+      "is_git_repository": true,
+      "origin": "https://github.com/Lifelong-Robot-Learning/LIBERO.git",
+      "commit_at_inventory": "f78abd68ee283de9f9be3c8f7e2a9ad60246e95c",
+      "branch": "",
+      "capability_changes": "none; source unchanged"
+    }
+  ],
+  "backup_branch": "experiment/correction-learning",
+  "weight_scope": "Complete weights and generated training RGB remain local; only named code/config/logs/evaluation artifacts published."
+}

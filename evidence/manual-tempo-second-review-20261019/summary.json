@@ -1,0 +1,332 @@
+{
+  "frames": 280,
+  "gripper_segments": [
+    {
+      "command": "open",
+      "start": 0,
+      "end": 129
+    },
+    {
+      "command": "close",
+      "start": 130,
+      "end": 239
+    },
+    {
+      "command": "open",
+      "start": 240,
+      "end": 279
+    }
+  ],
+  "close_frames": 110,
+  "open_frames": 170,
+  "on_frames": 39,
+  "approval_gates": {
+    "ten_frames": true,
+    "task_done_last_ten": true,
+    "actual_fingers_open_last_ten": true,
+    "open_command_last_ten": true,
+    "eef_clear_of_bowl": true
+  },
+  "curation_status": "reviewed_candidate",
+  "automatically_selected_for_training": false,
+  "source": "corrections/human_1792404996662425932",
+  "metadata_sha256": "dbdff3dff26502de44ae77d3da06e27a1b512ebf2d54e3e951415677c4841b03",
+  "action_runs": [
+    {
+      "start": 0,
+      "end": 39,
+      "action": [
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 40,
+      "end": 49,
+      "action": [
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 50,
+      "end": 99,
+      "action": [
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 100,
+      "end": 129,
+      "action": [
+        0.0,
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 130,
+      "end": 139,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 140,
+      "end": 149,
+      "action": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 150,
+      "end": 169,
+      "action": [
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 170,
+      "end": 184,
+      "action": [
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 185,
+      "end": 194,
+      "action": [
+        0.0,
+        0.0,
+        -0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 195,
+      "end": 204,
+      "action": [
+        0.0,
+        0.0,
+        -0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 205,
+      "end": 224,
+      "action": [
+        0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 225,
+      "end": 239,
+      "action": [
+        0.0,
+        0.0,
+        -0.10000000149011612,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "start": 240,
+      "end": 249,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 250,
+      "end": 269,
+      "action": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "start": 270,
+      "end": 279,
+      "action": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    }
+  ],
+  "visual_indices": [
+    0,
+    13,
+    27,
+    39,
+    40,
+    41,
+    49,
+    50,
+    55,
+    69,
+    83,
+    97,
+    99,
+    100,
+    111,
+    125,
+    129,
+    130,
+    139,
+    140,
+    149,
+    150,
+    153,
+    167,
+    169,
+    170,
+    181,
+    184,
+    185,
+    194,
+    195,
+    204,
+    205,
+    209,
+    223,
+    224,
+    225,
+    237,
+    239,
+    240,
+    249,
+    250,
+    251,
+    265,
+    269,
+    270,
+    279
+  ],
+  "manual_motion_profile": {
+    "normal_translation": 0.6,
+    "precision_translation": 0.1,
+    "ui_rotation": 0.1,
+    "translation_limit": 0.8,
+    "recording": "actual normalized actions unchanged; preset switch records no step"
+  },
+  "physical_control_dt": 0.05,
+  "review_verdict": "KEEP_FULL_TASK_CANDIDATE",
+  "visual_review_scope": "47 pre-action dual-camera samples, including all action-run boundaries; no physics replay",
+  "review_notes": "One close/open cycle with successful carry, placement, release and retreat. Initial lateral reversal at steps 40-59 is a minor approach inefficiency, not a failed grasp. Keep original unchanged; no automatic training import.",
+  "carry_interval_zero_based_half_open": [
+    150,
+    185
+  ],
+  "carry_fresh_pre_move_median_mm": 6.7859392166137695,
+  "video_fps": 20,
+  "video_timing": "One pre-action frame per 20Hz control action; operator pauses omitted; post_On is a post-action label",
+  "video_sha256": "2c9930103910b61e73b9a13d602a6ee4e770de9be10755ee689b70ddcedd51b7",
+  "decoded_frames": 280,
+  "source_frame_comparisons": [
+    {
+      "frame": 0,
+      "mae": 1.87225341796875
+    },
+    {
+      "frame": 100,
+      "mae": 1.9853973388671875
+    },
+    {
+      "frame": 130,
+      "mae": 2.5013860066731772
+    },
+    {
+      "frame": 150,
+      "mae": 2.5178705851236978
+    },
+    {
+      "frame": 185,
+      "mae": 2.2278162638346353
+    },
+    {
+      "frame": 240,
+      "mae": 2.2204666137695312
+    },
+    {
+      "frame": 279,
+      "mae": 2.1600265502929688
+    }
+  ],
+  "excluded_draft": "corrections/human_1792404881458601498",
+  "source_unchanged": true
+}

@@ -1,0 +1,32 @@
+{
+  "status": "STARTED_WAITING_FOR_OPTIMIZER_STEP",
+  "authorized_by_user": "你直接开始训练吧",
+  "launch_surface": "existing Chinese GUI Start Training button",
+  "registry": {
+    "pid": 3752659,
+    "log": "/home/robot/.pi05-handson/logs/ui_training_1792406592268090053.log",
+    "cmdline": [
+      "/home/robot/.pi05-handson/.venv/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/train_corrections.py",
+      "--manifest",
+      "/home/robot/.pi05-handson/evidence/corrections-public37_manual_tempo_pilot_v1-manifest.json",
+      "--parent-checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/my_first_200/9999",
+      "--steps",
+      "2000",
+      "--batch-size",
+      "4",
+      "--learning-rate",
+      "1e-05",
+      "--experiment",
+      "ui_correct_1792406592268062907"
+    ],
+    "create_time": 1792406591.63
+  },
+  "configuration_verified": true,
+  "other_gpu_tasks_terminated": false,
+  "stopped_owned_course_model_pid": 3560511,
+  "training_experiment": "ui_correct_1792406592268062907",
+  "note": "Process launched; wait for real Step log before claiming optimizer progress."
+}

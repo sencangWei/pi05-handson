@@ -1,0 +1,12 @@
+{
+  "status": "RUNNING",
+  "pid": 3752659,
+  "experiment": "ui_correct_1792406592268062907",
+  "log": "/home/robot/.pi05-handson/logs/ui_training_1792406592268090053.log",
+  "verified_steps": [
+    "Step 0: grad_norm=0.1849, loss=0.0306, param_norm=1803.5695",
+    "Step 10: grad_norm=0.2267, loss=0.0447, param_norm=1803.5696"
+  ],
+  "training_complete": false,
+  "actual_optimizer_updates_observed": true
+}

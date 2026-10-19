@@ -1,0 +1,37 @@
+{
+  "before": {
+    "model": {
+      "running": true,
+      "owned": true,
+      "pid": 2963355,
+      "log": "/home/robot/.pi05-handson/logs/ui_model_1792343751060635293.log"
+    },
+    "training": {
+      "running": false,
+      "owned": false,
+      "pid": null,
+      "log": "/home/robot/.pi05-handson/logs/ui_training_1792341395770447823.log"
+    },
+    "tensorboard": {
+      "running": true,
+      "owned": false,
+      "pid": null,
+      "log": ""
+    },
+    "port_busy": true
+  },
+  "record": {
+    "pid": 2963355,
+    "log": "/home/robot/.pi05-handson/logs/ui_model_1792343751060635293.log",
+    "cmdline": [
+      "/home/robot/.pi05-handson/.venv/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/serve_checkpoint.py",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792341395770417042/4999",
+      "--port",
+      "8755"
+    ],
+    "create_time": 1792343750.43
+  }
+}

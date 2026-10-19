@@ -1,5 +1,5 @@
 {
-  "status": "READY",
+  "status": "RUNNING",
   "user_request": "\u91cd\u8bad\u7ec3",
   "arms": {
     "control": "retrain_teacher_1x_20261019",
@@ -23,7 +23,7 @@
     "teacher_contact_and_other": 0.05
   },
   "phase_window_contract": "all10 native future labels inside the unprotected reviewed source carry interval; no stitching; every real start represented in sampler map",
-  "training_not_started_yet": true,
+  "training_not_started_yet": false,
   "candidate_gate": "two2x physical source rollouts pass all fixed geometric/continuity/release/tempo gates before publication; no rejected source used",
   "followup_evaluation": {
     "physical_cases": [
@@ -58,5 +58,6 @@
   "teacher_carry_speedups": [
     1.7777777777777777,
     1.7701149425287357
-  ]
+  ],
+  "run_progress": "evidence/retrain-20261019/run-progress.json"
 }

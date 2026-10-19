@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/home/robot/.pi05-handson/.venv/bin/python",
+    "-u",
+    "/home/robot/.pi05-handson/scripts/train_tracking_teacher.py",
+    "--manifest",
+    "/home/robot/.pi05-handson/evidence/tracking-teacher-retrain_rate1_mix_v2-manifest.json",
+    "--parent-checkpoint",
+    "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792311653585294069/1999",
+    "--experiment",
+    "retrain_teacher_1x_20261019",
+    "--steps",
+    "2000",
+    "--batch-size",
+    "4",
+    "--learning-rate",
+    "1e-5"
+  ],
+  "state": {
+    "running": true,
+    "owned": true,
+    "pid": 3232628,
+    "log": "/home/robot/.pi05-handson/logs/ui_training_1792367545750354811.log"
+  },
+  "kind": "training",
+  "status": "RUNNING"
+}

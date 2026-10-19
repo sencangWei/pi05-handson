@@ -1,0 +1,172 @@
+{
+  "status": "COMPLETE_READ_ONLY_DIAGNOSIS",
+  "model": "negative_quadrants_20261019/1999",
+  "session": "/home/robot/.pi05-handson/evaluations/interactive_lab_retrain_review_1792392618350437772",
+  "trials": [
+    {
+      "scene": 1,
+      "steps": 392,
+      "run_to_saved_s": 89.977524185,
+      "steps_per_run_to_saved_second": 4.356643545715049,
+      "nominal_physics_time_s": 19.6,
+      "first_target_bowl_rise_2cm_step": 124,
+      "first_On_step": 274,
+      "first_ten_step_release_and_retreat": 327,
+      "post_first_ten_step_release_actions": 65,
+      "phases": [
+        {
+          "start_control_step": 1,
+          "end_control_step": 100,
+          "median_xyz_action_norm": 0.4039921272763919,
+          "median_eef_move_mm": 2.248503290175261,
+          "target_bowl_z_min_m": 0.8984040411628386,
+          "target_bowl_z_max_m": 0.898404150188853
+        },
+        {
+          "start_control_step": 101,
+          "end_control_step": 200,
+          "median_xyz_action_norm": 0.2723845968661203,
+          "median_eef_move_mm": 1.1119629665838704,
+          "target_bowl_z_min_m": 0.898404150188853,
+          "target_bowl_z_max_m": 1.1147460313161497
+        },
+        {
+          "start_control_step": 201,
+          "end_control_step": 300,
+          "median_xyz_action_norm": 0.11383339265291556,
+          "median_eef_move_mm": 0.6809515825545402,
+          "target_bowl_z_min_m": 0.9063714691417458,
+          "target_bowl_z_max_m": 1.0506672705761615
+        },
+        {
+          "start_control_step": 301,
+          "end_control_step": 392,
+          "median_xyz_action_norm": 0.05033572261360922,
+          "median_eef_move_mm": 0.17604654216162932,
+          "target_bowl_z_min_m": 0.9064948706750273,
+          "target_bowl_z_max_m": 0.9064949688165568
+        }
+      ],
+      "source_sha256": {
+        "final_state.npy": "e1348ec057e5661e69baa73f6130161e7a7d83fc9134959c9748f545df5d1a9e",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e",
+        "scene.json": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+        "final-agentview.png": "ddf912a2320c5e8ecc4657f6e4140f4dcaed9b928d47fab315099428e80c7749",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "e4b0e87dc06b5367deb22b51dc40bf07b8fb166ac5d8519852616b33f8805a4a",
+        "result.json": "9eb25513039309b5c42a0736ba87e7ea6e2939047458aed93209dc93ab6fca50",
+        "initial-agentview.png": "c2541c5bcbc6a8b7de28c8e8eeba7ddb98b3b15dd8bdc5ff9f7ebbf417f2ab46",
+        "video.mp4": "ad8e8beba75a4b9a562201485d476600a3187679479216c7585349af8886a7f1"
+      }
+    },
+    {
+      "scene": 2,
+      "steps": 800,
+      "run_to_saved_s": 164.132628908,
+      "steps_per_run_to_saved_second": 4.8741070274845715,
+      "nominal_physics_time_s": 40.0,
+      "first_target_bowl_rise_2cm_step": 361,
+      "first_On_step": 588,
+      "first_ten_step_release_and_retreat": 643,
+      "post_first_ten_step_release_actions": 157,
+      "phases": [
+        {
+          "start_control_step": 1,
+          "end_control_step": 100,
+          "median_xyz_action_norm": 0.13129868447202636,
+          "median_eef_move_mm": 0.64996456331519,
+          "target_bowl_z_min_m": 0.8984040160130696,
+          "target_bowl_z_max_m": 0.898404150188853
+        },
+        {
+          "start_control_step": 101,
+          "end_control_step": 200,
+          "median_xyz_action_norm": 0.06167050258673621,
+          "median_eef_move_mm": 0.2607059585139079,
+          "target_bowl_z_min_m": 0.898404150188853,
+          "target_bowl_z_max_m": 0.898404150188853
+        },
+        {
+          "start_control_step": 201,
+          "end_control_step": 300,
+          "median_xyz_action_norm": 0.06613206171043104,
+          "median_eef_move_mm": 0.35672348725752673,
+          "target_bowl_z_min_m": 0.898404150188853,
+          "target_bowl_z_max_m": 0.898404150188853
+        },
+        {
+          "start_control_step": 301,
+          "end_control_step": 400,
+          "median_xyz_action_norm": 0.10131027293608683,
+          "median_eef_move_mm": 0.49435238253998026,
+          "target_bowl_z_min_m": 0.898404150188853,
+          "target_bowl_z_max_m": 0.9939201495903262
+        },
+        {
+          "start_control_step": 401,
+          "end_control_step": 500,
+          "median_xyz_action_norm": 0.09753100195678607,
+          "median_eef_move_mm": 0.6731789136194628,
+          "target_bowl_z_min_m": 0.9996371430602197,
+          "target_bowl_z_max_m": 1.074392086077128
+        },
+        {
+          "start_control_step": 501,
+          "end_control_step": 600,
+          "median_xyz_action_norm": 0.11388718071882067,
+          "median_eef_move_mm": 0.6396958333401426,
+          "target_bowl_z_min_m": 0.908343045473779,
+          "target_bowl_z_max_m": 1.0455080837271475
+        },
+        {
+          "start_control_step": 601,
+          "end_control_step": 700,
+          "median_xyz_action_norm": 0.05561666375002157,
+          "median_eef_move_mm": 0.29756757597922623,
+          "target_bowl_z_min_m": 0.9075882162044587,
+          "target_bowl_z_max_m": 0.9083076949463382
+        },
+        {
+          "start_control_step": 701,
+          "end_control_step": 800,
+          "median_xyz_action_norm": 0.03190773186283773,
+          "median_eef_move_mm": 0.13850840008218035,
+          "target_bowl_z_min_m": 0.9075886486866473,
+          "target_bowl_z_max_m": 0.9075887652809804
+        }
+      ],
+      "source_sha256": {
+        "final_state.npy": "7383259ad68eed280de63ae951ef847fcd4499e474fba2f2a988e64feac551d6",
+        "initial_state.npy": "2648c00ab7a2776fa54c55719d000cd88e19f44ada5e4bb0ba920c9a02f9c282",
+        "scene.json": "8eb0fde083fbded995e843ce21dcbe99396fe54dceeac4d884c2f7102a460222",
+        "final-agentview.png": "cca8ac8ac2b13d6ea8c9df26127d75017818e6db99ca1645d4d927eba7fc7f59",
+        "initial-wrist.png": "a3bb9c3c9adaa08102686066f122d9f54bebcf43c3fa1a3f2546fabf852cca72",
+        "actions.csv": "8785e28c82c50f56ca9323ae50c61a04bca106daf6caf8329e179478967d19e9",
+        "result.json": "c42752fdd655cd55f99ae2c15a544c7047bab7dc8a54f097aeb233a3c34ce88b",
+        "initial-agentview.png": "93e360637167ee7d2e3186e6dc2dd400ed4a78240800a97cf8c9147c63485a8d",
+        "video.mp4": "79330e395c9bde25a298cd4a02d92edf0baa3578b5d67ba3138b67956d686b4d"
+      }
+    }
+  ],
+  "isolated_fake_probe": {
+    "pending_poll_calls": 20,
+    "additional_camera_regenerations": 20,
+    "physics_steps": 0,
+    "real_model_requests": 0,
+    "meaning": "Control-flow demonstration only, not measured render or inference latency."
+  },
+  "code_findings": {
+    "simulation_lab.py:351": "Camera observations regenerated every tick, including unchanged state while inference pending.",
+    "simulation_lab.py:405": "next_step_time is set to post-step monotonic time plus control_dt, so next request waits after prior inference and step.",
+    "lab_panel.py:181": "Next poll is scheduled30ms after the callback ends.",
+    "simulation_lab.py:407": "Continues after official On; fixed800step cap; no stable-completion stopping."
+  },
+  "limits": [
+    "run_to_saved_s includes end/save/encoding and any user delay; not pure inference time or individual action latency.",
+    "No per-step inference/simulation timing was recorded in this GUI CSV; exact component fractions are unavailable.",
+    "GPU6percent/P8 observation was taken while paused, not evidence of utilization during inference.",
+    "Grasp has not been inferred from finger commands alone; target2cm rise and physical displacement are observed quantities.",
+    "No active window, inference RNG, model, data, step cap, rendering settings, process, or training was changed.",
+    "No learned-speed or UI-performance fix is claimed; source changes would need separate regression checks and next-launch validation."
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "records": [
+    {
+      "case": "scene-006_init-024",
+      "source": "/home/robot/.pi05-handson/evaluations/interactive_lab_retrain_review_1792383683641025226/scene-006_init-024",
+      "source_kind": "user_run_policy_rollout",
+      "training_allowed": false,
+      "why_not_training": "These actions contain observed policy failures and are evaluation evidence, not expert labels or approved corrections.",
+      "actual_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.035509597628892955,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": 0.029962546816479405,
+        "dy_m": 0.06928838951310862
+      },
+      "control_steps": 336,
+      "On": true,
+      "elapsed_first_run_to_save_includes_user_pause_or_delay_s": 68.823105211,
+      "files_sha256": {
+        "final_state.npy": "1537db541c1e0fecc7f1378e43ee7ed7ca8edda84978313c74d74f67d8f7320e",
+        "initial_state.npy": "9b9f230ddd6d901f8a9bcbb9e92944ea06d14ee8c287cce53d019284f37d0b40",
+        "scene.json": "c953754c39239672fa9da310b71db4478adebec685ce2fe0c6b6aacc40984f61",
+        "final-agentview.png": "5646d98f57d73375a9796733a6a757ab7856ff0d33cc2b4e9ba876b7a3a08638",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "e41c7f6ce2fc6b3f7b67209cf9b0a627eedf4f959fe4a8b562de9bf932c47d1e",
+        "result.json": "a56270635fd6ef821076bd3cc314ff5714937f8e176386d4c7b1f283682e0508",
+        "initial-agentview.png": "df19923823c810ed0985a4324d0483fd3d0b022e6140a8eb8b93015a257caaa2",
+        "video.mp4": "de8ad9cb8d658452a378eb4f9d4e3e17e57331f639c048cef6a555b6db3025de"
+      }
+    },
+    {
+      "case": "scene-007_init-024",
+      "source": "/home/robot/.pi05-handson/evaluations/interactive_lab_retrain_review_1792383683641025226/scene-007_init-024",
+      "source_kind": "user_run_policy_rollout",
+      "training_allowed": false,
+      "why_not_training": "These actions contain observed policy failures and are evaluation evidence, not expert labels or approved corrections.",
+      "actual_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.003674391636383588,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": -0.0018726591760299628,
+        "dy_m": 0.06928838951310862
+      },
+      "control_steps": 422,
+      "On": true,
+      "elapsed_first_run_to_save_includes_user_pause_or_delay_s": 86.747158181,
+      "files_sha256": {
+        "final_state.npy": "cd1c0972749a862459abb67f7d3d63313e9eb9e21916f584f04900d1252a22cb",
+        "initial_state.npy": "f68272636e8fe823d32a1d12b74ceb17a25d754dd578857dc72bea1685f45f37",
+        "scene.json": "36401bab4d8a811380c27930b46efc039db4df7f916fe9f6fb623ea764d12ae9",
+        "final-agentview.png": "8a0b5c73af48afe5ca11e66dd95177e925b99a8d0d1034b5d1471dd3d7bf3c39",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "f7ce0513085ec0a4f886b084f8c532df1086cd80fa140001f501a0468833ba70",
+        "result.json": "a87752569b8f35023ecc72bef5a9cf1cdff4bde636a95cf256454229f9d606c9",
+        "initial-agentview.png": "e95eee049a980f9764c013300bd908d898effe16ce0ac3978d8a7ee10733e18b",
+        "video.mp4": "465cdd0b23e078296a94e0496e4f456c9a35482ffe7c6f8c909977d99844218b"
+      }
+    },
+    {
+      "case": "scene-008_init-024",
+      "source": "/home/robot/.pi05-handson/evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024",
+      "source_kind": "user_run_policy_rollout",
+      "training_allowed": false,
+      "why_not_training": "These actions contain observed policy failures and are evaluation evidence, not expert labels or approved corrections.",
+      "actual_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.034527855554627646,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": -0.040074906367041196,
+        "dy_m": 0.06928838951310862
+      },
+      "control_steps": 800,
+      "On": false,
+      "elapsed_first_run_to_save_includes_user_pause_or_delay_s": 164.331545638,
+      "files_sha256": {
+        "final_state.npy": "1fcedf2802df5cffd8ebebc11b7301b66057718e13cbd5d7b6a16a66a09bffbe",
+        "initial_state.npy": "564d158b7db78e7c7c8d5ee6fa47abad1c0a1f8d170ef9412ed2476fca7ff49e",
+        "scene.json": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c",
+        "final-agentview.png": "b405b56bd92b4678a6bf811f103f9e9553f9769d35f39e5911dc79179d287b38",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "1951718ad667d8f0b90e9df1403c3182cccaf4456c3cf88d162e3d72b23c7e69",
+        "result.json": "8cc669e72137dcf7428ba7f8b64c78a8932515f0a00d918073d13a240f0f7f05",
+        "initial-agentview.png": "c2541c5bcbc6a8b7de28c8e8eeba7ddb98b3b15dd8bdc5ff9f7ebbf417f2ab46",
+        "video.mp4": "261cc4b5ace517001529f03d6e3f0be9006be639e7fd4e879ca3f01c7283376c"
+      }
+    },
+    {
+      "case": "scene-009_init-024",
+      "source": "/home/robot/.pi05-handson/evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024",
+      "source_kind": "user_run_policy_rollout",
+      "training_allowed": false,
+      "why_not_training": "These actions contain observed policy failures and are evaluation evidence, not expert labels or approved corrections.",
+      "actual_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/retrain_teacher_1x_20261019/1999",
+      "offset": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.066363061547137,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": -0.07191011235955055,
+        "dy_m": 0.06928838951310862
+      },
+      "control_steps": 800,
+      "On": false,
+      "elapsed_first_run_to_save_includes_user_pause_or_delay_s": 164.087424,
+      "files_sha256": {
+        "final_state.npy": "ccc075e8842a13a9246e4e153a76e266610c8fc5e06808f0f2c7b44da3eac36b",
+        "initial_state.npy": "4bbc4426d58e46355e9623b1f8e6abc70af93db23276c99730397a9d75bed6d4",
+        "scene.json": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22",
+        "final-agentview.png": "0c7796a2fac18f3d16db2172f43af0d67484dc3d43e7df4453540feff039cd8e",
+        "initial-wrist.png": "db7c82744ae7953f7e86b345aeb39af603e1186a2b56ab97d8459ecace2fb959",
+        "actions.csv": "4da63df841a515df2d5a658d57d7856a50a2d33bee328111c39623b6d97519bb",
+        "result.json": "25a03a915cb8937ac60018f0b3f5068fa60be5855c2952f4261a9c1e42d71055",
+        "initial-agentview.png": "8a02029a057c003d7d19cbbdc2a84dec5d54ae121fddd560e9c88bd49db21c3a",
+        "video.mp4": "e5b14859754855174656aefb2dee56b5d78bf8d75fff9d57cdf0f692b596225e"
+      }
+    }
+  ],
+  "paired_limit": "User runs share layout24 and simseed42 but server policy RNG advances between trials; signs are observational correlation, not isolated RNG-controlled causal tests."
+}

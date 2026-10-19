@@ -1,0 +1,378 @@
+{
+  "status": "COMPLETE_NO_CONCRETE_INTERFACE_SIGN_BUG_FOUND",
+  "scope": "Read-only current policy/control chain and four existing scene logs. No inference, simulation, GUI, process, data, or source mutation.",
+  "findings": [
+    {
+      "conclusion": "GUI dx/dy are world-coordinate offsets from the baseline bowl, not the final coordinates and not robot eef coordinates.",
+      "references": [
+        "scripts/simulation_lab.py:42",
+        "scripts/simulation_lab.py:48",
+        "scripts/simulation_lab.py:60",
+        "scripts/simulation_lab.py:74"
+      ],
+      "evidence": "Baseline bowl X=.00554705m; scene007 dx=-.00187266 yields bowl world X=+.00367439m. Scenes008/009 yield X=-.03452786/-.06636306m at identical Y=.37309887m. Negative GUI delta and negative world target are distinct."
+    },
+    {
+      "conclusion": "No sign-dependent action routing or negative-absolute-X branch found in the inspected executed path.",
+      "references": [
+        "scripts/simulation_lab.py:355",
+        "scripts/simulation_lab.py:367",
+        "scripts/simulation_lab.py:383",
+        "scripts/simulation_lab.py:400",
+        "scripts/simulation_lab.py:403",
+        "scripts/simulation_lab.py:133",
+        "openpi/src/openpi/policies/libero_policy.py:100"
+      ],
+      "evidence": "Fresh state/RGB query, one returned first action of the ten-action horizon sent unchanged as a 7-element list; no GUI displacement transform is applied to policy actions. CSV records that pre-controller action. State/request hashes discard stale predictions. Native controller subsequently applies its own symmetric clipping."
+    },
+    {
+      "conclusion": "Checkpoint normalization is unchanged; quantile normalization and inverse are affine with strictly positive scale, without quantile clipping or sign truncation.",
+      "references": [
+        "scripts/serve_checkpoint.py:35",
+        "scripts/serve_checkpoint.py:39",
+        "scripts/course_config.py:35",
+        "openpi/src/openpi/policies/policy_config.py:64",
+        "openpi/src/openpi/policies/policy_config.py:81",
+        "openpi/src/openpi/policies/policy_config.py:86",
+        "openpi/src/openpi/transforms.py:141",
+        "openpi/src/openpi/transforms.py:175"
+      ],
+      "evidence": "Parent, active checkpoint and training asset all SHA256 5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788. Action q01/q99 X=-.659193/.805798,Y=-.830897/.682889; both directions covered. Normalized zero need not mean physical zero; correct inverse restores it. Explicit ±.1 numerical round trip passed to <1e-15."
+    },
+    {
+      "conclusion": "Native OSC uses world-frame delta goals, symmetric input clipping and no configured Cartesian position boundary at X=0.",
+      "references": [
+        "openpi/third_party/libero/libero/libero/envs/env_wrapper.py:17",
+        "openpi/third_party/libero/libero/libero/envs/env_wrapper.py:27",
+        "openpi/third_party/libero/libero/libero/envs/env_wrapper.py:47",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/config/osc_pose.json:3",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/config/osc_pose.json:12",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/base_controller.py:117",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/base_controller.py:141",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/osc.py:235",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/controllers/osc.py:264",
+        ".venv-sim/lib/python3.11/site-packages/robosuite/utils/control_utils.py:136"
+      ],
+      "evidence": "20Hz control. Six arm commands clipped symmetrically [-1,1], xyz goal offset=.05m*action and axis-angle rotation=.5rad*action, fixed kp150/damping1, control_delta True, position_limits and orientation_limits None. EEF pose comes from world site_xpos/site_xmat. set_goal_position=current_world_position+delta. These are target offsets, not achieved displacement or direct velocity."
+    },
+    {
+      "conclusion": "No wrong slow-action map found in the actual control run sampling configuration.",
+      "references": [
+        "scripts/prepare_teacher_sampling.py:34",
+        "scripts/prepare_teacher_sampling.py:43",
+        "scripts/recovery_sampling.py:60",
+        "scripts/recovery_sampling.py:75",
+        "scripts/train_release_focus.py:52",
+        "scripts/train_tracking_teacher.py:84"
+      ],
+      "evidence": "Reconstructed pinned 100000-index map matches training launch SHA, covers all15052 real starts with no group overlap. Weights public60%, all approved human20%, original-rate teacher carry15%, teacher other5%. Wrapper returns original underlying sample with original native future10 window; no label scaling, cross-episode stitching or action clipping. Sampling can change learned preferences; it does not guarantee model speed. This is deliberately the 1x control model, not the 2x treatment."
+    },
+    {
+      "conclusion": "Numeric state is not a conditioning input for this pi05 model; absolute world X is not supplied as an explicit numeric decision feature.",
+      "references": [
+        "scripts/course_config.py:18",
+        "scripts/course_config.py:21",
+        "openpi/src/openpi/transforms.py:256",
+        "openpi/src/openpi/models/pi0.py:151"
+      ],
+      "evidence": "pi05=True, discrete_state_input=False removes state from tokenizer; pi05 suffix omits state projection. It remains RGB+text conditioned. Sending/normalizing state for common interface does not enable pose conditioning. Images can still encode position."
+    },
+    {
+      "conclusion": "Late failed-scene motion is not software zeroing: it includes small nonzero commands and measurable matching-direction movement.",
+      "references": [
+        "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-008_init-024/actions.csv",
+        "evaluations/interactive_lab_retrain_review_1792383683641025226/scene-009_init-024/actions.csv"
+      ],
+      "evidence": "Rows600..799 mean xyz norm .0620/.0678, adjacent freshly regenerated EEF positions move .519/.562mm per control step. Mean commands point +X/-Y/+Z. Both runs contain hundreds of negative X/Y commands; neither has an X/Y command beyond +/-1. Scene008 has only one Z component >1 in all800 steps, subject to ordinary symmetric native clipping."
+    }
+  ],
+  "sampling": {
+    "profile_sha_matches_launch": true,
+    "reconstructed_sampling_indices_sha256": "7316b4d87ef7f0de165241b679576bd71c2a7a7bfbf26662a45867063feab4aa",
+    "real_frames": 15052,
+    "virtual_frames": 100000,
+    "groups": [
+      {
+        "name": "public_complete_demos",
+        "real_frames": 4400,
+        "probability": 0.6
+      },
+      {
+        "name": "all_approved_human",
+        "real_frames": 9121,
+        "probability": 0.2
+      },
+      {
+        "name": "validated_teacher_normal_carry",
+        "real_frames": 256,
+        "probability": 0.15
+      },
+      {
+        "name": "validated_teacher_contact_and_other",
+        "real_frames": 1275,
+        "probability": 0.05
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "scene": 6,
+      "control_steps": 336,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.035509597628892955,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": 0.029962546816479405,
+        "dy_m": 0.06928838951310862
+      },
+      "any_official_On": true,
+      "first_On_control_steps": 153,
+      "stop_reason": "reset",
+      "model_stage": "retrain_teacher_1x_20261019/1999",
+      "params_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+      "negative_action_xyz_counts": [
+        179,
+        175,
+        149
+      ],
+      "xy_components_outside_native_unit_bounds": 0,
+      "xyz_components_outside_native_unit_bounds": 0,
+      "tail": {
+        "zero_based_control_rows_half_open": [
+          136,
+          336
+        ],
+        "mean_action_xyz_norm": 0.11971137709612016,
+        "median_action_xyz_norm": 0.0843960720926738,
+        "mean_action_xyz": [
+          -0.030479908048283974,
+          0.0016978277192147807,
+          0.013559713395323183
+        ],
+        "mean_fresh_adjacent_eef_displacement_mm": 1.204847914536624,
+        "net_eef_displacement_mm": [
+          -52.46101941673269,
+          -5.0868887168482315,
+          75.92437763476755
+        ]
+      },
+      "source_sha256": {
+        "actions.csv": "e41c7f6ce2fc6b3f7b67209cf9b0a627eedf4f959fe4a8b562de9bf932c47d1e",
+        "result.json": "a56270635fd6ef821076bd3cc314ff5714937f8e176386d4c7b1f283682e0508",
+        "scene.json": "c953754c39239672fa9da310b71db4478adebec685ce2fe0c6b6aacc40984f61"
+      }
+    },
+    {
+      "scene": 7,
+      "control_steps": 422,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          0.003674391636383588,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": -0.0018726591760299628,
+        "dy_m": 0.06928838951310862
+      },
+      "any_official_On": true,
+      "first_On_control_steps": 130,
+      "stop_reason": "reset",
+      "model_stage": "retrain_teacher_1x_20261019/1999",
+      "params_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+      "negative_action_xyz_counts": [
+        214,
+        218,
+        131
+      ],
+      "xy_components_outside_native_unit_bounds": 0,
+      "xyz_components_outside_native_unit_bounds": 0,
+      "tail": {
+        "zero_based_control_rows_half_open": [
+          222,
+          422
+        ],
+        "mean_action_xyz_norm": 0.07311040572642796,
+        "median_action_xyz_norm": 0.06191420724463831,
+        "mean_action_xyz": [
+          0.005984828133050193,
+          0.001802907699218525,
+          0.051266839348650145
+        ],
+        "mean_fresh_adjacent_eef_displacement_mm": 0.8306877032181612,
+        "net_eef_displacement_mm": [
+          13.739499121453544,
+          4.169424980514619,
+          129.09335217767293
+        ]
+      },
+      "source_sha256": {
+        "actions.csv": "f7ce0513085ec0a4f886b084f8c532df1086cd80fa140001f501a0468833ba70",
+        "result.json": "a87752569b8f35023ecc72bef5a9cf1cdff4bde636a95cf256454229f9d606c9",
+        "scene.json": "36401bab4d8a811380c27930b46efc039db4df7f916fe9f6fb623ea764d12ae9"
+      }
+    },
+    {
+      "scene": 8,
+      "control_steps": 800,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.034527855554627646,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": -0.040074906367041196,
+        "dy_m": 0.06928838951310862
+      },
+      "any_official_On": false,
+      "first_On_control_steps": null,
+      "stop_reason": "step_limit",
+      "model_stage": "retrain_teacher_1x_20261019/1999",
+      "params_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+      "negative_action_xyz_counts": [
+        258,
+        644,
+        287
+      ],
+      "xy_components_outside_native_unit_bounds": 0,
+      "xyz_components_outside_native_unit_bounds": 1,
+      "tail": {
+        "zero_based_control_rows_half_open": [
+          600,
+          800
+        ],
+        "mean_action_xyz_norm": 0.06200310727607869,
+        "median_action_xyz_norm": 0.05735460915076677,
+        "mean_action_xyz": [
+          0.013873177428571375,
+          -0.019910036110806335,
+          0.03236970537603052
+        ],
+        "mean_fresh_adjacent_eef_displacement_mm": 0.5189124441519074,
+        "net_eef_displacement_mm": [
+          23.779381427893473,
+          -42.698037483335774,
+          65.59148840687068
+        ]
+      },
+      "source_sha256": {
+        "actions.csv": "1951718ad667d8f0b90e9df1403c3182cccaf4456c3cf88d162e3d72b23c7e69",
+        "result.json": "8cc669e72137dcf7428ba7f8b64c78a8932515f0a00d918073d13a240f0f7f05",
+        "scene.json": "030bfb3bccab7c8246a845fce15a97abb4a235103baaeec0e1b0a39cae1a5e2c"
+      }
+    },
+    {
+      "scene": 9,
+      "control_steps": 800,
+      "bowl_edit": {
+        "before_xyz": [
+          0.005547050812413551,
+          0.30381047607474143,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.066363061547137,
+          0.37309886558785005,
+          0.8984038567263857
+        ],
+        "dx_m": -0.07191011235955055,
+        "dy_m": 0.06928838951310862
+      },
+      "any_official_On": false,
+      "first_On_control_steps": null,
+      "stop_reason": "step_limit",
+      "model_stage": "retrain_teacher_1x_20261019/1999",
+      "params_sha256": "fc49d8fee6bbb31a91f4852e1878d53cf1d5a3755b3a020f3e36dcf562fd4d95",
+      "negative_action_xyz_counts": [
+        251,
+        569,
+        349
+      ],
+      "xy_components_outside_native_unit_bounds": 0,
+      "xyz_components_outside_native_unit_bounds": 0,
+      "tail": {
+        "zero_based_control_rows_half_open": [
+          600,
+          800
+        ],
+        "mean_action_xyz_norm": 0.06780497100896542,
+        "median_action_xyz_norm": 0.05898381671551048,
+        "mean_action_xyz": [
+          0.02128215731771427,
+          -0.030016677572768137,
+          0.01304956426378371
+        ],
+        "mean_fresh_adjacent_eef_displacement_mm": 0.5619384409172421,
+        "net_eef_displacement_mm": [
+          41.45557387020851,
+          -61.71781682135318,
+          16.12903227091289
+        ]
+      },
+      "source_sha256": {
+        "actions.csv": "4da63df841a515df2d5a658d57d7856a50a2d33bee328111c39623b6d97519bb",
+        "result.json": "25a03a915cb8937ac60018f0b3f5068fa60be5855c2952f4261a9c1e42d71055",
+        "scene.json": "ac6c365acec1d5f9b73b02a2e5d1d67961bc1ae5a0a1281a223a9d688ef6be22"
+      }
+    }
+  ],
+  "not_established": [
+    "No model-side numerical output audit before unnormalization or fresh teacher-forced inference was performed. Existing CSV contains final de-normalized pre-controller actions.",
+    "No independent controlled reachability/contact test at the stalled poses was run. Cartesian position_limits=None and positive/negative action delivery do not prove collision-free reachability at the requested bowl pose/orientation.",
+    "OSC torque saturation, joint-limit proximity, singularity/Jacobian conditioning and contact force at stalls cannot be resolved from these CSVs; joint qpos/qvel, controller goals, actuator controls and contact data are not logged per step. Joint torque clipping exists at single_arm.py:254.",
+    "The scene006/007 success flag means some official On predicate; their336/422 are total executed steps, with first On153/130. Full release/retreat requires separate temporal inspection.",
+    "This is a four sequential GUI trial comparison with continuing model RNG, not a matched-seed causal test across the sign boundary. It does not establish overfit, an absolute-X learned boundary, or a single root cause."
+  ],
+  "minimal_next_validation": "Use the already logged stall windows to separate command magnitude/direction from observed response; if physical reachability remains disputed, a separately authorized isolated fixed-pose/manual-controller check at one saved stalled pose should log joint limits, controller goal error, torques and contacts. No code repair is justified by this audit alone.",
+  "source_sha256": {
+    "scripts/simulation_lab.py": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+    "scripts/serve_checkpoint.py": "97f9e7b4b544e7bdc9c3e0de626cf53008f988a05c6b7c8f9179e693933a13d6",
+    "scripts/course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "openpi/src/openpi/policies/policy_config.py": "aaf42ab04a33b6c91d2447926211646c33ebd8ebfa427f026d7b6c4f7c45ec52",
+    "openpi/src/openpi/transforms.py": "a1b94e9e72849a18834778f229c6bb389a495eb7fbe0aa800edea728b9424ff4",
+    "scripts/recovery_sampling.py": "29aa84309d187445291eab4f750bf9ea178990b0a0f9fa7ba367610be1a025cf"
+  },
+  "official_libero_state_contract": {
+    "pinned_openpi_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+    "related_upstream_worktree_diff_empty": true,
+    "official_task_config": {
+      "file": "openpi/src/openpi/training/config.py:744",
+      "pi05": true,
+      "action_horizon": 10,
+      "discrete_state_input": false,
+      "extra_delta_transform": false
+    },
+    "generic_class_default": {
+      "file": "openpi/src/openpi/models/pi0_config.py:40",
+      "pi05_discrete_state_input_when_unspecified": true,
+      "interpretation": "The explicit official pi05_libero task override, not the generic class default, controls this LIBERO setup."
+    },
+    "official_example_references": [
+      "openpi/examples/libero/README.md:31",
+      "openpi/examples/libero/README.md:66"
+    ],
+    "conclusion": "Course discrete_state_input=False matches the pinned official pi05_libero configuration and the official example. RGB+text-only conditioning is real, but is not evidence of a course deviation or an interface bug.",
+    "deferred_state_ab_boundary": "Prior independently measured True prompt tokens49..58 versus False17, max_token_len200, architecture/LoRA compatibility constraints are in evidence/retrain-20261019/deferred-state-ab-design.json. Enabling True would be a separate train+serve matched experiment, not a serving-only fix. No state flag was changed or experiment launched.",
+    "source_sha256": {
+      "openpi/src/openpi/training/config.py": "c34231f888dba5dc981d808765b3d98775ab845b04313bf53fcecd567c520b0d",
+      "openpi/src/openpi/models/pi0_config.py": "d321858c30b398126035ea2b6da09e1c422eeeebb5ebf8df631daf9dc77647fa",
+      "openpi/examples/libero/README.md": "a2caaf5459c4b01837b73aa93a6f69e8cdf10385b39c34eba36afa85f83fafe9"
+    }
+  }
+}

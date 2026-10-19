@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED_RECORDING_CONTROLS_ONLY",
+  "tests": "103passed,5subtests in15.09s; extra actual820px panel layout test1passed",
+  "red_tests": "3new behavior tests failed on old code; logs/manual-tempo-controls-red.log",
+  "ruff": "PASS",
+  "real_physics_branches": 48,
+  "real_physics_control_steps": 480,
+  "actual_gui_recording_smoke_steps": 3,
+  "policy_inference_calls": 0,
+  "previous_approved_recordings": 17,
+  "approved_metadata_unchanged": true,
+  "existing_teacher_source_pins_unchanged": 8,
+  "legacy_simulation_lab_sha256": "d5270cca34ebd42baa1fc8f2a9f312a359df221dcdc7fece82d71cac6cd31f1d",
+  "ready_gui_pid": 3708227,
+  "model_service_pid_preserved": 3560511,
+  "training_started": false,
+  "source_sha256": {
+    "correction_workbench.py": "a3a829cb9ebf2969f306dfb64d952d0bef271d4d28ac55ea9db072bcaaa861c6",
+    "lab_panel.py": "2e59960f89ddf301fc3ef59dde8d34026f19cc80e370d5b343ffa2d76644d55c",
+    "manual_joystick.py": "440c8e68063099be45d5393ad8ae619866e29dae4c5f33b3c7c694f58aafc3f9",
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "responsive_lab.py": "b69107c9dfa480b7c3045b5588e2c5baf6d81c0009b2f5674813f343060d9892"
+  },
+  "gui_snapshot_limit": "Read-only Tcl send was rejected by Xserver security; no authorization settings changed. Bootstrap asserts paused0steps/no correction; owned XRes PID window capture corroborates the recording page."
+}

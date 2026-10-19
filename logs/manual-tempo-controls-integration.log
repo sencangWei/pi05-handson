@@ -1,0 +1,49 @@
+.......................................................F........... [ 65%]
+.F..................................                                     [100%]
+=================================== FAILURES ===================================
+_______ CorrectionTests.test_fourth_page_is_idle_until_explicit_takeover _______
+
+self = <test_lab_panel.CorrectionTests testMethod=test_fourth_page_is_idle_until_explicit_takeover>
+
+    def test_fourth_page_is_idle_until_explicit_takeover(self):
+        names = [self.panel.notebook.tab(tab, "text") for tab in self.panel.notebook.tabs()]
+        self.assertEqual(names, ["仿真操作", "模型与训练", "结果与录像", "人工纠正"])
+        self.assertEqual(self.backend.calls, [])
+        self.assertEqual(self.backend.camera_reads, 0)
+>       self.assertEqual(self.panel.jog_scale_var.get(), "0.1")
+E       AssertionError: '0.6' != '0.1'
+E       - 0.6
+E       ?   ^
+E       + 0.1
+E       ?   ^
+
+tests/test_lab_panel.py:404: AssertionError
+_ CorrectionTests.test_translation_presets_stop_joystick_and_keep_rotation_precise _
+
+self = <test_lab_panel.CorrectionTests testMethod=test_translation_presets_stop_joystick_and_keep_rotation_precise>
+
+    def test_translation_presets_stop_joystick_and_keep_rotation_precise(self):
+        self._begin()
+        self.assertEqual(self.panel.jog_scale_var.get(), "0.6")
+        self.panel.jog_buttons[(0, 1)].invoke()
+        self.assertEqual(self.backend.calls[-1], ("manual_jog", 0, 1, .6, 5))
+        self.panel.jog_buttons[(3, 1)].invoke()
+        self.assertEqual(self.backend.calls[-1], ("manual_jog", 3, 1, .1, 5))
+        before = list(self.backend.calls)
+        self.panel.translation_joystick._held = True
+        self.panel.translation_joystick._vector = (1., 0.)
+        self.panel.precision_motion_button.invoke()
+        self.assertFalse(self.panel.translation_joystick._held)
+        self.assertEqual(self.backend.calls, before)
+>       self.assertEqual(self.panel.jog_scale_var.get(), "0.6")
+E       AssertionError: '0.1' != '0.6'
+E       - 0.1
+E       ?   ^
+E       + 0.6
+E       ?   ^
+
+tests/test_lab_panel.py:383: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_lab_panel.py::CorrectionTests::test_fourth_page_is_idle_until_explicit_takeover
+FAILED tests/test_lab_panel.py::CorrectionTests::test_translation_presets_stop_joystick_and_keep_rotation_precise
+2 failed, 101 passed, 5 subtests passed in 15.04s

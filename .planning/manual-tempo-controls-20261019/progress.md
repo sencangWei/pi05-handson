@@ -1,0 +1,3 @@
+Implemented only2runtimefiles+2testfiles. New3tests RED; integrationfirst101passed/2failed due mistaken test expectation edits, corrected; final103passed+5subtests. Additional820px layout test1PASS. Isolated realphysics calibration480steps and actualGUI3stepdraft smoke PASS. UpdatedGUI3708227 ready0paused, original service3560511 preserved.
+Errors: initial combined patch expected wrong test classname and applied nothing; corrected targeted patch. Tcl send read-only rejected byXserver authorization; no security changes, used bootstrap assertions and owned-window XRes capture.
+Remaining: final task-only commit/push, fetched-diff reconstruction and content/tree verification.

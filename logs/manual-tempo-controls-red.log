@@ -1,0 +1,54 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_ CorrectionBackendTests.test_normal_translation_records_larger_labels_without_changing_rotation _
+
+self = <test_correction_workbench.CorrectionBackendTests testMethod=test_normal_translation_records_larger_labels_without_changing_rotation>
+
+    def test_normal_translation_records_larger_labels_without_changing_rotation(self):
+        self.lab.begin_correction()
+>       self.lab.manual_jog(0, 1, .6, 2)
+
+tests/test_correction_workbench.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <correction_workbench.CorrectionWorkbench object at 0x7a42a1b2e1d0>
+axis = 0, sign = 1, scale = 0.6, repeats = 2
+
+    def manual_jog(self, axis, sign, scale, repeats):
+        if type(axis) is not int or axis not in range(6) or type(sign) is not int or sign not in (-1, 1):
+            raise ValueError("请选择 XYZ 或 Rx/Ry/Rz 的正负方向")
+        if isinstance(scale, bool) or not np.isfinite(scale) or not .05 <= scale <= .3:
+>           raise ValueError("动作幅度须为 0.05～0.3")
+E           ValueError: 动作幅度须为 0.05～0.3
+
+scripts/correction_workbench.py:233: ValueError
+_ CorrectionBackendTests.test_new_recording_identifies_translation_and_rotation_limits _
+
+self = <test_correction_workbench.CorrectionBackendTests testMethod=test_new_recording_identifies_translation_and_rotation_limits>
+
+    def test_new_recording_identifies_translation_and_rotation_limits(self):
+        self.lab.begin_correction()
+>       profile = self.lab.correction.metadata["manual_motion_profile"]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'manual_motion_profile'
+
+tests/test_correction_workbench.py:137: KeyError
+_ CorrectionTests.test_translation_presets_stop_joystick_and_keep_rotation_precise _
+
+self = <test_lab_panel.CorrectionTests testMethod=test_translation_presets_stop_joystick_and_keep_rotation_precise>
+
+    def test_translation_presets_stop_joystick_and_keep_rotation_precise(self):
+        self._begin()
+>       self.assertEqual(self.panel.jog_scale_var.get(), "0.6")
+E       AssertionError: '0.1' != '0.6'
+E       - 0.1
+E       ?   ^
+E       + 0.6
+E       ?   ^
+
+tests/test_lab_panel.py:372: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_correction_workbench.py::CorrectionBackendTests::test_normal_translation_records_larger_labels_without_changing_rotation
+FAILED tests/test_correction_workbench.py::CorrectionBackendTests::test_new_recording_identifies_translation_and_rotation_limits
+FAILED tests/test_lab_panel.py::CorrectionTests::test_translation_presets_stop_joystick_and_keep_rotation_precise
+3 failed in 0.45s

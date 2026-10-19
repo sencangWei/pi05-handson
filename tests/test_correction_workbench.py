@@ -103,7 +103,7 @@ class CorrectionBackendTests(unittest.TestCase):
         self.lab.manual_translate(1, 0, .1)
         self.assertEqual(self.lab.env.applied[-1][6], 1)
         self.assertEqual(self.lab.correction.count, 3)
-        for x, y, scale in [(1, 1, .1), (float("nan"), 0, .1), (1, 0, .4)]:
+        for x, y, scale in [(1, 1, .1), (float("nan"), 0, .1), (1, 0, .81)]:
             with self.assertRaises(ValueError):
                 self.lab.manual_translate(x, y, scale)
         self.assertEqual(self.lab.correction.count, 3)
@@ -116,6 +116,28 @@ class CorrectionBackendTests(unittest.TestCase):
         self.lab.view.translation_basis = lambda: (np.array([1., 0]), np.array([1., 0]))
         self.lab.manual_translate(2**-.5, 2**-.5, .1)
         self.assertAlmostEqual(np.linalg.norm(self.lab.env.applied[-1][:2]), .1)
+
+    def test_normal_translation_records_larger_labels_without_changing_rotation(self):
+        self.lab.begin_correction()
+        self.lab.manual_jog(0, 1, .6, 2)
+        for index in range(2):
+            with np.load(self.lab.correction.directory / f"frame-{index:06d}.npz") as frame:
+                np.testing.assert_allclose(frame["action"], [.6, 0, 0, 0, 0, 0, -1])
+        self.lab.view.translation_basis = lambda: (np.array([1., 0]), np.array([0., 1]))
+        self.lab.manual_translate(.6, .8, .6)
+        np.testing.assert_allclose(self.lab.env.applied[-1], [.36, .48, 0, 0, 0, 0, -1])
+        with self.assertRaises(ValueError):
+            self.lab.manual_jog(3, 1, .6, 1)
+        with self.assertRaises(ValueError):
+            self.lab.manual_translate(1, 0, .81)
+        self.assertEqual(self.lab.correction.count, 3)
+
+    def test_new_recording_identifies_translation_and_rotation_limits(self):
+        self.lab.begin_correction()
+        profile = self.lab.correction.metadata["manual_motion_profile"]
+        self.assertEqual(profile["normal_translation"], .6)
+        self.assertEqual(profile["precision_translation"], .1)
+        self.assertEqual(profile["ui_rotation"], .1)
 
     def test_rejected_approval_can_continue_then_open_hold_and_save(self):
         self.lab.begin_correction()

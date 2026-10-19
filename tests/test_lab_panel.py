@@ -367,6 +367,36 @@ class CorrectionTests(PanelTests):
         self.panel.load_button.invoke()
         self.panel.correction_start_button.invoke()
 
+    def test_translation_presets_stop_joystick_and_keep_rotation_precise(self):
+        self._begin()
+        self.assertEqual(self.panel.jog_scale_var.get(), "0.6")
+        self.panel.jog_buttons[(0, 1)].invoke()
+        self.assertEqual(self.backend.calls[-1], ("manual_jog", 0, 1, .6, 5))
+        self.panel.jog_buttons[(3, 1)].invoke()
+        self.assertEqual(self.backend.calls[-1], ("manual_jog", 3, 1, .1, 5))
+        before = list(self.backend.calls)
+        self.panel.translation_joystick._held = True
+        self.panel.translation_joystick._vector = (1., 0.)
+        self.panel.precision_motion_button.invoke()
+        self.assertFalse(self.panel.translation_joystick._held)
+        self.assertEqual(self.backend.calls, before)
+        self.assertEqual(self.panel.jog_scale_var.get(), "0.1")
+        with patch.object(self.backend, "manual_translate", create=True) as move:
+            self.panel._joystick_move(1, 0)
+            move.assert_called_once_with(1, 0, scale=.1)
+        self.panel.normal_motion_button.invoke()
+        self.assertEqual(self.panel.jog_scale_var.get(), "0.6")
+        self.assertIn("旋转", self.panel.motion_hint_var.get())
+
+    def test_manual_axis_buttons_fit_the_recording_panel(self):
+        self.root.geometry("820x1260+0+0")
+        self.root.deiconify()
+        self.panel.notebook.select(self.panel.correction_page)
+        self.root.update()
+        right = self.panel.correction_page.winfo_rootx() + self.panel.correction_page.winfo_width()
+        for button in self.panel.jog_buttons.values():
+            self.assertLessEqual(button.winfo_rootx() + button.winfo_width(), right)
+
     def test_resume_draft_without_loaded_scene_then_gates_second_resume(self):
         with patch("lab_panel.filedialog.askdirectory", return_value="/tmp/draft"):
             self.panel.correction_resume_button.invoke()
@@ -380,7 +410,7 @@ class CorrectionTests(PanelTests):
         self.assertEqual(names, ["仿真操作", "模型与训练", "结果与录像", "人工纠正"])
         self.assertEqual(self.backend.calls, [])
         self.assertEqual(self.backend.camera_reads, 0)
-        self.assertEqual(self.panel.jog_scale_var.get(), "0.1")
+        self.assertEqual(self.panel.jog_scale_var.get(), "0.6")
         self.assertEqual(self.panel.jog_repeats_var.get(), "5")
         for button in (self.panel.correction_start_button, self.panel.hold_button,
                        self.panel.correction_approve_button, self.panel.correction_draft_button):
@@ -402,7 +432,7 @@ class CorrectionTests(PanelTests):
         self.assertEqual(str(self.panel.correction_split_combo.cget("state")), "disabled")
         for (axis, sign), button in self.panel.jog_buttons.items():
             button.invoke()
-            self.assertEqual(self.backend.calls[-1], ("manual_jog", axis, sign, 0.1, 5))
+            self.assertEqual(self.backend.calls[-1], ("manual_jog", axis, sign, .1 if axis >= 3 else .6, 5))
         self.panel.gripper_open_button.invoke()
         self.panel.gripper_close_button.invoke()
         self.panel.hold_button.invoke()
@@ -421,7 +451,7 @@ class CorrectionTests(PanelTests):
         self.assertTrue(self.panel.translation_joystick._enabled)
         with patch.object(self.backend, "manual_translate", create=True) as move:
             self.assertTrue(self.panel._joystick_move(.6, .8))
-            move.assert_called_once_with(.6, .8, scale=.1)
+            move.assert_called_once_with(.6, .8, scale=.6)
         with patch.object(self.backend, "manual_translate", create=True, side_effect=ValueError("stopped")):
             self.assertFalse(self.panel._joystick_move(1, 0))
         self.panel.notebook.select(0)
@@ -432,7 +462,7 @@ class CorrectionTests(PanelTests):
     def test_manual_validation_and_failed_approval_preserve_takeover(self):
         self._begin()
         before = list(self.backend.calls)
-        for scale, repeats in (("nan", "5"), ("0.31", "5"), ("0.1", "0"), ("0.1", "1.5")):
+        for scale, repeats in (("nan", "5"), ("0.81", "5"), ("0.1", "0"), ("0.1", "1.5")):
             self.panel.jog_scale_var.set(scale)
             self.panel.jog_repeats_var.set(repeats)
             self.panel.jog_buttons[(0, 1)].invoke()

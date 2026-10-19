@@ -1,0 +1,18 @@
+[
+  {
+    "xid": 69206117,
+    "pid": 3708227,
+    "title": "MuJoCo : base",
+    "width": 1646,
+    "height": 960,
+    "map_state": 2
+  },
+  {
+    "xid": 65012249,
+    "pid": 3708227,
+    "title": "LIBERO 仿真实验面板 — 普通/精细采集（实验模型）",
+    "width": 820,
+    "height": 1260,
+    "map_state": 2
+  }
+]

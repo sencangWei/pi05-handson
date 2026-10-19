@@ -345,14 +345,24 @@ class LabPanel:
         self.translation_joystick.grid(row=0, column=0, rowspan=4, sticky="n", padx=(0, 12))
         options = ttk.Frame(controls)
         options.grid(row=0, column=1, sticky="w", pady=4)
-        self.jog_scale_var = tk.StringVar(value="0.1")
+        self.motion_mode_var = tk.StringVar(value="普通移动")
+        self.normal_motion_button = ttk.Radiobutton(options, text="普通移动", value="普通移动",
+            variable=self.motion_mode_var, command=lambda: self._manual_motion_preset(.6))
+        self.normal_motion_button.grid(row=0, column=0, columnspan=2, sticky="w")
+        self.precision_motion_button = ttk.Radiobutton(options, text="精细移动", value="精细移动",
+            variable=self.motion_mode_var, command=lambda: self._manual_motion_preset(.1))
+        self.precision_motion_button.grid(row=0, column=2, columnspan=2, sticky="w")
+        self.jog_scale_var = tk.StringVar(value="0.6")
         self.jog_repeats_var = tk.StringVar(value="5")
-        ttk.Label(options, text="动作幅度 (0.05～0.3)").grid(row=0, column=0)
-        ttk.Spinbox(options, from_=0.05, to=0.3, increment=0.05, width=6,
-                    textvariable=self.jog_scale_var).grid(row=0, column=1, padx=6)
-        ttk.Label(options, text="按钮步数 (1～20)").grid(row=0, column=2)
+        ttk.Label(options, text="平移幅度 (0.05～0.8)").grid(row=1, column=0)
+        ttk.Spinbox(options, from_=0.05, to=0.8, increment=0.05, width=6,
+                    textvariable=self.jog_scale_var).grid(row=1, column=1, padx=6)
+        ttk.Label(options, text="按钮连续步数 (1～20)").grid(row=1, column=2)
         ttk.Spinbox(options, from_=1, to=20, width=5,
-                    textvariable=self.jog_repeats_var).grid(row=0, column=3, padx=6)
+                    textvariable=self.jog_repeats_var).grid(row=1, column=3, padx=6)
+        self.motion_hint_var = tk.StringVar(value="普通 0.6 用于空中搬运；精细 0.1 用于抓放。旋转固定 0.1。")
+        ttk.Label(options, textvariable=self.motion_hint_var, wraplength=410).grid(
+            row=2, column=0, columnspan=4, sticky="w", pady=(4, 0))
         legend = ttk.Frame(controls)
         legend.grid(row=1, column=1, sticky="w")
         for column, (text, color) in enumerate((("世界 X 红", "#ce2020"),
@@ -418,9 +428,13 @@ class LabPanel:
 
     def _manual_jog(self, axis, sign):
         scale, repeats = float(self.jog_scale_var.get()), int(self.jog_repeats_var.get())
-        if not math.isfinite(scale) or not 0.05 <= scale <= 0.3 or not 1 <= repeats <= 20:
-            raise ValueError("动作幅度须在 0.05～0.3，重复步数须为 1～20 的整数")
-        self.lab.manual_jog(axis, sign, scale=scale, repeats=repeats)
+        if not math.isfinite(scale) or not 0.05 <= scale <= 0.8 or not 1 <= repeats <= 20:
+            raise ValueError("平移幅度须在 0.05～0.8，连续步数须为 1～20 的整数")
+        self.lab.manual_jog(axis, sign, scale=.1 if axis >= 3 else scale, repeats=repeats)
+
+    def _manual_motion_preset(self, scale):
+        self.translation_joystick.stop()
+        self.jog_scale_var.set(str(scale))
 
     def _joystick_move(self, x, y):
         try:

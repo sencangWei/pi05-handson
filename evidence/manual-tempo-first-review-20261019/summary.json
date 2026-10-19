@@ -1,0 +1,97 @@
+{
+  "frames": 250,
+  "gripper_segments": [
+    {
+      "command": "open",
+      "start": 0,
+      "end": 164
+    },
+    {
+      "command": "close",
+      "start": 165,
+      "end": 219
+    },
+    {
+      "command": "open",
+      "start": 220,
+      "end": 249
+    }
+  ],
+  "close_frames": 55,
+  "open_frames": 195,
+  "on_frames": 35,
+  "approval_gates": {
+    "ten_frames": true,
+    "task_done_last_ten": true,
+    "actual_fingers_open_last_ten": true,
+    "open_command_last_ten": true,
+    "eef_clear_of_bowl": true
+  },
+  "curation_status": "pending_visual_review",
+  "automatically_selected_for_training": false,
+  "source": "corrections/human_1792404027525762765",
+  "metadata_sha256": "b6c9d8afa8de968a063950693e13dfbdef6b0b4946e31fb05753861ad96d8947",
+  "physical_control_dt": 0.05,
+  "playback_fps": 20,
+  "frame_count": 250,
+  "movement_labels": {
+    "0.0": 30,
+    "0.10000000149011612": 70,
+    "0.6000000238418579": 150
+  },
+  "carry_interval_zero_based_half_open": [
+    185,
+    205
+  ],
+  "carry_fresh_pre_move_median_mm": 7.865780830383301,
+  "last_ten_eef_bowl_distance_m": [
+    0.13166724145412445,
+    0.13452064990997314,
+    0.13502639532089233,
+    0.1350271999835968,
+    0.13492847979068756,
+    0.13472025096416473,
+    0.13464219868183136,
+    0.1345827579498291,
+    0.13453276455402374,
+    0.1344999223947525
+  ],
+  "review_status": "KEEP_ALIGNMENT_CORRECTION_CANDIDATE; not automatically imported",
+  "visual_review": "42 sampled pre-action dual-camera frames, including every command-run boundary; no full physics replay.",
+  "note": "An initial descent is followed by lifting/repositioning before the first close. Retain as alignment correction; do not describe it as a failed closed-gripper regrasp. Next collect a single-pass approach.",
+  "limits": "Movement uses adjacent fresh pre-state. On/final gates use recorded post-state and are not contact-force or fifty-step acceptance. Playback omits operator pauses. One demonstration does not establish learned recovery.",
+  "video_sha256": "a27192d55c4c8208e8d6affa1d2e7bba432aeab383ad6af0cfd744894fcfd894",
+  "decoded_frames": 250,
+  "source_frame_comparisons": [
+    {
+      "frame": 0,
+      "camera_rgb_mae": 1.83917236328125
+    },
+    {
+      "frame": 70,
+      "camera_rgb_mae": 2.1301142374674478
+    },
+    {
+      "frame": 115,
+      "camera_rgb_mae": 1.9727834065755208
+    },
+    {
+      "frame": 165,
+      "camera_rgb_mae": 2.1871236165364585
+    },
+    {
+      "frame": 185,
+      "camera_rgb_mae": 2.148284912109375
+    },
+    {
+      "frame": 220,
+      "camera_rgb_mae": 2.5247014363606772
+    },
+    {
+      "frame": 249,
+      "camera_rgb_mae": 2.4699503580729165
+    }
+  ],
+  "source_unchanged": true,
+  "review_source_sha256": "ebbf87310aab2239adbb9cfc6648d480203dfca1c088b9c431a7b6a0eb7a27b4"
+}

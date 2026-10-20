@@ -1,5 +1,14 @@
 # π0.5 LoRA：从示范数据到 LIBERO 仿真执行
 
+## 2026-10-20：同一位置调整前后 Demo
+
+[观看左右同步对比与三条新 Demo](https://github.com/sencangWei/pi05-handson/releases/tag/demo-comparison-20261020) · [完整处理措施与验证记录](https://github.com/sencangWei/pi05-handson/blob/experiment/correction-learning/evidence/demo-comparison-20261020/README.md)
+
+![黑碗 X/Y 均为 −10cm，左旧模型、右新模型](https://raw.githubusercontent.com/sencangWei/pi05-handson/91f7628129f4f4948cd00ec8f0eb7a8bb6447425/evidence/demo-comparison-20261020/comparison-poster.jpg)
+
+同一初始物理状态：旧模型 800 步未完成放置；新模型 408 步完成放稳、松爪和撤手。新增 4 条人工纠错、805 帧，保留旧数据，以公开示范/旧人工/新纠错 50%/20%/30% 抽样，继续进行 π0.5 LoRA 微调 2000 次更新。三条新录像均通过稳定收尾检查，但不代表总体成功率；两次 GUI 录屏的策略随机流未配对。发布页同时保留原片、原速面板对比和按控制步同步的固定相机对比。
+
+
 本项目记录一次亲手完成的机器人模仿学习实践：公开示范检查、数据准备、归一化、LoRA 微调、闭环仿真、失败分析和模型备份。使用预训练 π0.5 基座进行单任务微调。
 
 **任务：** `pick up the black bowl next to the plate and place it on the plate`。

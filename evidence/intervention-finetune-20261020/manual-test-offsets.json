@@ -1,0 +1,56 @@
+{
+  "layout_id": 24,
+  "environment_seed": 42,
+  "panel_unit": "cm",
+  "comparison_limit": "Fresh layout tests differ from saved mid-trajectory takeover diagnostics; no conclusion of general model failure from takeover results alone.",
+  "cases": [
+    {
+      "case": "human_1792432520316693621",
+      "dx_cm": -6.591760299625468,
+      "dy_cm": -9.138576779026216,
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432520316693621",
+      "mid_trajectory": true
+    },
+    {
+      "case": "human_1792432737067825465",
+      "dx_cm": -6.591760299625468,
+      "dy_cm": -9.138576779026216,
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432737067825465",
+      "mid_trajectory": true
+    },
+    {
+      "case": "human_1792432847602743021",
+      "dx_cm": -6.591760299625468,
+      "dy_cm": -9.138576779026216,
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432847602743021",
+      "mid_trajectory": true
+    },
+    {
+      "case": "human_1792432933673921805",
+      "dx_cm": -6.591760299625468,
+      "dy_cm": -9.138576779026216,
+      "role": "training_takeover_diagnostic",
+      "source_scene": "evidence/intervention-finetune-20261020/takeover-scenes/human_1792432933673921805",
+      "mid_trajectory": true
+    },
+    {
+      "case": "near_negative_control",
+      "dx_cm": -2.7340823970037453,
+      "dy_cm": -3.108614232209738,
+      "role": "previous_development_regression_control",
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-005_init-024",
+      "mid_trajectory": false
+    },
+    {
+      "case": "positive_edge_failure",
+      "dx_cm": 7.940074906367041,
+      "dy_cm": 5.318352059925093,
+      "role": "previous_development_regression_control",
+      "source_scene": "evidence/latest-approach-stall-20261019/source-trials/scene-007_init-024",
+      "mid_trajectory": false
+    }
+  ]
+}

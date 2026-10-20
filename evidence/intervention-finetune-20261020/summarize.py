@@ -63,7 +63,9 @@ def main():
             totals[arm][role] = {"trials": len(group), "strict_successes": sum(
                 r["metrics"]["followup"]["strict_success"] is True for r in group)}
     summary = {"status": "COMPLETE_DEVELOPMENT_COMPARISON", "promoted": False,
-               "arms": arms, "totals": totals, "records": records, "limits": plan["limits"]}
+               "arms": arms, "totals": totals, "records": records, "limits": plan["limits"],
+               "user_feedback": "User reports fresh-start GUI trials succeeded; no quantitative count supplied.",
+               "interpretation": "Saved mid-trajectory takeover diagnostics are not equivalent to fresh layout tests."}
     (HERE / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
     (HERE / "index.html").write_text(
         '<!doctype html><meta charset="utf-8"><title>新增人工干预微调对比</title>'
@@ -71,6 +73,9 @@ def main():
         '<h1>新增人工干预微调：训练前后对比</h1><p>4个训练接管现场、2个旧开发场景，各2个种子。'
         '严格通过要求连续10步放置、松爪、撤手后再观察50步，碗漂移不超过5毫米。'
         '这些是开发诊断，不是独立泛化成功率。控制器隐状态重建也不等于原GUI逐位续跑。</p>'
+        '<p><strong>请分别阅读：</strong>training_takeover_diagnostic 从中途持碗/卡住状态启动；'
+        'previous_development_regression_control 从保存的初始布局启动。前者失败不等于后者失败。'
+        '用户反馈当前模型在从初始布局启动的手动测试中成功；这里不把未统计次数的反馈编成成功率。</p>'
         '<p><a href="review/index.html">新增人工干预片段</a> · <a href="summary.json">完整指标与校验</a></p><pre>'
         + html.escape(json.dumps(totals, ensure_ascii=False, indent=2)) + '</pre>' + ''.join(cards))
     print(json.dumps(totals), flush=True)

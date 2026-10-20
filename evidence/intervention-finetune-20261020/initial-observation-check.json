@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "source": "corrections/human_1792432520316693621",
+      "state8_max_abs_error": 5.570418926126308e-08
+    },
+    {
+      "source": "corrections/human_1792432737067825465",
+      "state8_max_abs_error": 6.735832647208895e-08
+    },
+    {
+      "source": "corrections/human_1792432847602743021",
+      "state8_max_abs_error": 5.910835576550255e-08
+    },
+    {
+      "source": "corrections/human_1792432933673921805",
+      "state8_max_abs_error": 9.692922775528245e-08
+    }
+  ],
+  "limits": "Physical observation agreement, not hidden controller or policy RNG equivalence to original GUI."
+}

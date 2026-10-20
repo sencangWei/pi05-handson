@@ -1,0 +1,14 @@
+{
+  "status": "TRAINING_COMPLETE",
+  "experiment": "ui_correct_1792434450272918886",
+  "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+  "updates": 1000,
+  "final_index": 999,
+  "last_logged_metrics": [
+    "Step 970: grad_norm=0.1528, loss=0.0197, param_norm=1803.5745",
+    "Step 980: grad_norm=0.1622, loss=0.0192, param_norm=1803.5745",
+    "Step 990: grad_norm=0.1629, loss=0.0271, param_norm=1803.5745"
+  ],
+  "async_save_finished": true,
+  "log": "/home/robot/.pi05-handson/logs/ui_training_1792434450272961652.log"
+}

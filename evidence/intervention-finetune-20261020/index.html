@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><title>新增人工干预微调对比</title><style>body{max-width:1100px;margin:32px auto;font:18px sans-serif;line-height:1.6}video{max-width:100%}</style><h1>新增人工干预微调：训练前后对比</h1><p>4个训练接管现场、2个旧开发场景，各2个种子。严格通过要求连续10步放置、松爪、撤手后再观察50步，碗漂移不超过5毫米。这些是开发诊断，不是独立泛化成功率。控制器隐状态重建也不等于原GUI逐位续跑。</p><p><strong>请分别阅读：</strong>training_takeover_diagnostic 从中途持碗/卡住状态启动；previous_development_regression_control 从保存的初始布局启动。前者失败不等于后者失败。用户反馈当前模型在从初始布局启动的手动测试中成功；这里不把未统计次数的反馈编成成功率。</p><p><a href="review/index.html">新增人工干预片段</a> · <a href="summary.json">完整指标与校验</a></p><pre>{
+  &quot;parent&quot;: {
+    &quot;training_takeover_diagnostic&quot;: {
+      &quot;trials&quot;: 8,
+      &quot;strict_successes&quot;: 0
+    },
+    &quot;previous_development_regression_control&quot;: {
+      &quot;trials&quot;: 4,
+      &quot;strict_successes&quot;: 2
+    }
+  },
+  &quot;candidate&quot;: {
+    &quot;training_takeover_diagnostic&quot;: {
+      &quot;trials&quot;: 8,
+      &quot;strict_successes&quot;: 0
+    },
+    &quot;previous_development_regression_control&quot;: {
+      &quot;trials&quot;: 4,
+      &quot;strict_successes&quot;: 4
+    }
+  }
+}</pre><h3>parent / human_1792432520316693621</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/parent-human_1792432520316693621.mp4"></video><h3>parent / human_1792432737067825465</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/parent-human_1792432737067825465.mp4"></video><h3>parent / human_1792432847602743021</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/parent-human_1792432847602743021.mp4"></video><h3>parent / human_1792432933673921805</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/parent-human_1792432933673921805.mp4"></video><h3>parent / near_negative_control</h3><p>严格通过：True；控制步：202</p><video controls preload="metadata" width="768" src="videos/parent-near_negative_control.mp4"></video><h3>parent / positive_edge_failure</h3><p>严格通过：False；控制步：205</p><video controls preload="metadata" width="768" src="videos/parent-positive_edge_failure.mp4"></video><h3>candidate / human_1792432520316693621</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/candidate-human_1792432520316693621.mp4"></video><h3>candidate / human_1792432737067825465</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/candidate-human_1792432737067825465.mp4"></video><h3>candidate / human_1792432847602743021</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/candidate-human_1792432847602743021.mp4"></video><h3>candidate / human_1792432933673921805</h3><p>严格通过：None；控制步：600</p><video controls preload="metadata" width="768" src="videos/candidate-human_1792432933673921805.mp4"></video><h3>candidate / near_negative_control</h3><p>严格通过：True；控制步：201</p><video controls preload="metadata" width="768" src="videos/candidate-near_negative_control.mp4"></video><h3>candidate / positive_edge_failure</h3><p>严格通过：True；控制步：252</p><video controls preload="metadata" width="768" src="videos/candidate-positive_edge_failure.mp4"></video>

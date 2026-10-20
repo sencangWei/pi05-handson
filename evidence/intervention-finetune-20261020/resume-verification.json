@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "completed_trials": 12,
+  "existing_trial_artifacts_unchanged": true,
+  "verified_file_hashes": {
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432520316693621/result.json": "b7fbaa02b26302fcc27fc5c50d5bb534927ed67890c918211795948332044791",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432737067825465/result.json": "e3a6842bf87102f1083e7698618ffde65642d1da1eadacfdc59cae12e63343c8",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432847602743021/result.json": "03bf7ca55b7afad7873549bf108cea6783b985e1a512ebcd3e746001a52bae9d",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432933673921805/result.json": "e951ea65507e6625feab33bbbc606a08cc27e2901e7c3796bbc02c1f1309c2ea",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/near_negative_control/result.json": "72e044e9e03ac232cc831e201b932023af89d40ef723cc9519a4ab57856d3117",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/positive_edge_failure/result.json": "ad5719759f126a79a4062a8431498750c5d54f327721149d2d5c3b443058251c",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432520316693621/result.json": "eeb581d47306acaaea9913ddad31377cc9a82bd9f128ec833a19cab7d19dcc67",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432737067825465/result.json": "80fe55f6f151969525fc299f254f2f9e24aa65537b3d5767cf99eb927b9a150e",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432847602743021/result.json": "f11e7d424ab0e8e29e262c928c799a29d9667f5a9a4562b7d0e3e247a45db5cf",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432933673921805/result.json": "c358080edf34b7281039bffe50f7b2d45aecf356b4546263b11db24faa660550",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/near_negative_control/result.json": "59f5bdc557e562f337b030f107f4ec3b74615ab954591b017faf72fdbcdb9670",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/positive_edge_failure/result.json": "575cc080d1cfb1f67399c032128092a285e140e96e009faa3b5c78e5c733e638",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432520316693621/actions.csv": "72c12ba6a389ba02c8015381cee682bc21b708862425a4e2965428d103a9516b",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432737067825465/actions.csv": "9967d6281ae1451bef8692bafe63c9102bcb505fa1f90f5cc991f6387c4bdb47",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432847602743021/actions.csv": "5ed9ab3c6b6c2f0b533c8b845a5d5acd16fa49a6f04d920d22134abd363f92e3",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/human_1792432933673921805/actions.csv": "e545059d233a8f04c679d7c932cb3b6bd3f48c615fa986890bb77abd19088381",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/near_negative_control/actions.csv": "9bc9946a62370183c292f0720988fb094a174d079265ae7ff84b8d8ce14c1ec9",
+    "evaluations/intervention-finetune-20261020/candidate/seed-0/positive_edge_failure/actions.csv": "c480e859136d45227987b49b868f19ba8477bdab2df58ab7efed9f49fbe3da4a",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432520316693621/actions.csv": "91a31e92564f1d2a87e66546fcc493d46f2db9532605c8ff70359303cd156165",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432737067825465/actions.csv": "ab737b2701539a15e7952031939b676753b15c443a1074311aeebb7cde3ae09c",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432847602743021/actions.csv": "73b8fd2a0e19e61ab86aa05531b4277d6da41e54920331d00a9ec86a34e5c398",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/human_1792432933673921805/actions.csv": "c4f491a05a47d3e9fe5a41488951b504a31a9c7d8b56f1d07319642eae98bcf3",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/near_negative_control/actions.csv": "3f4cf0968947c66fa50f6931c381bb271406e558897a84e075d3960b50a6b282",
+    "evaluations/intervention-finetune-20261020/candidate/seed-1/positive_edge_failure/actions.csv": "3be44a63f372fbac3df695d66c5cfc8a7ae25cd4f8e3607c77c9009247f71052"
+  },
+  "cli_exit_code": 0
+}

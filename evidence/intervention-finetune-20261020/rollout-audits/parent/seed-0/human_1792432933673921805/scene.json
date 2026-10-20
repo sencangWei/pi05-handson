@@ -1,0 +1,85 @@
+{
+  "layout_id": 24,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.005547050812413551,
+      0.30381047607474143,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.06037055218384113,
+      0.21242470828447926,
+      0.8984038567263857
+    ],
+    "dx_m": -0.06591760299625468,
+    "dy_m": -0.09138576779026217
+  },
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "initial_state_sha256": "d0b96f355cb21e1418c3e62876e6979bf04099e08e65ea3dce73032b5cb6eaed",
+  "task_language": "pick up the black bowl next to the plate and place it on the plate",
+  "source_kind": "exact_saved_failure_holding_state",
+  "source_correction": "corrections/human_1792432933673921805",
+  "source_metadata_sha256": "bb0ccc8a48b922ec936aaec9e9d5a624926a68b8e9c305eea8b3e7338d25e5de",
+  "formal_benchmark": false,
+  "comparison_role": "trained_intervention_initial_state_diagnostic",
+  "controller_limit": "MuJoCo physical state exact; hidden OSC and gripper internal state reconstructed, not bit-exact GUI continuation.",
+  "interactive_experiment": false,
+  "untracked_native_gui_edits_possible": false,
+  "saved_scene_replay": "/home/robot/.pi05-handson/evidence/intervention-finetune-20261020/takeover-scenes/human_1792432933673921805",
+  "source_scene_sha256": "9e70eb22d4b4542982965411c237deb4c773c429b240d09d795b2f09801e8882",
+  "replan_steps": 1,
+  "max_steps": 600,
+  "post_release_steps_requested": 50,
+  "controller_initialization": [
+    {
+      "method": "update(force=True),reset_goal; inverse actuator-range gripper qpos mapping",
+      "not_exact_hidden_controller_restoration": true,
+      "goal_pos": [
+        -0.007902519666486025,
+        0.16227745417607475,
+        0.9574612785568415
+      ],
+      "goal_ori": [
+        [
+          0.490266682090391,
+          0.8590963998234361,
+          0.14694201660004966
+        ],
+        [
+          0.8671514059469291,
+          -0.4977571897767407,
+          0.016918013767134907
+        ],
+        [
+          0.08767564996247687,
+          0.11912663781023732,
+          -0.9890004168693179
+        ]
+      ],
+      "initial_joint": [
+        0.0,
+        -0.161037389,
+        0.0,
+        -2.44459747,
+        0.0,
+        2.2267522,
+        0.7853981633974483
+      ],
+      "gripper_qpos": [
+        0.03910841772020147,
+        -0.03891673970018946
+      ],
+      "gripper_accumulator": [
+        0.9554208860100734,
+        -0.945836985009473
+      ]
+    }
+  ],
+  "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+  "policy_rng": "Isolated server resets RNG per connection to seed 0",
+  "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG"
+}

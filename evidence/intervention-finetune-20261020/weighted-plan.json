@@ -1,0 +1,67 @@
+{
+  "status": "DEFERRED_NOT_LAUNCHED",
+  "parent": "checkpoints/pi05_handson_lora/ui_correct_1792406592268062907/1999",
+  "new_updates": 1000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "seed": 42,
+  "dataset_manifest": "evidence/corrections-intervention_weighted_20261020-manifest.json",
+  "dataset_manifest_sha256": "8047610ec3a26480391766c6e73cb72582537492fa20bc0d2aa5db51caece1ff",
+  "sampling_record": {
+    "profile": {
+      "path": "evidence/intervention-weighted-20261020-profile.json",
+      "sha256": "65fe201b2ade5438d0980449cffb35045b9a5afa0cf335548ea17e90622448f0"
+    },
+    "base_manifest": "evidence/corrections-public37_intervention_focus_v1-manifest.json",
+    "base_manifest_sha256": "4287b34d6fa4b16f5bc3c8b7d3d41b65d91e855c09df4d31ebacf3486c843e5b",
+    "repo_id": "course/libero_corrections_public37_intervention_focus_v1",
+    "real_frames": 6126,
+    "virtual_frames": 200000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 120000,
+        "real_frames": 4400,
+        "probability": 0.6
+      },
+      {
+        "name": "previous_approved_human",
+        "ranges": [
+          [
+            4400,
+            5446
+          ]
+        ],
+        "virtual_count": 20000,
+        "real_frames": 1046,
+        "probability": 0.1
+      },
+      {
+        "name": "new_four_interventions",
+        "ranges": [
+          [
+            5446,
+            6126
+          ]
+        ],
+        "virtual_count": 60000,
+        "real_frames": 680,
+        "probability": 0.3
+      }
+    ],
+    "sampling_indices_sha256": "bc1a5520a667c18c8549be5fa8c42e15e59b14d717ea910734fe51a673f24b70",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  },
+  "case_plan": "evidence/intervention-finetune-20261020/plan.json",
+  "case_plan_sha256": "5fee94926eb26497ecf1d83c6ee5bb7bca38df6a1047040dc60806b1dbbb5cf6",
+  "reason": "Uniform1000/lr5e-6 candidate failed all four trained takeover cases at seed0, so run one bounded retry with new-intervention starts30%, old-human10%, public60%; retain all labels unchanged.",
+  "limits": "Adaptive second experiment; two training knobs change, so do not claim causal isolation. No further automatic retries beyond this bounded attempt.",
+  "decision": "User reports fresh-start testing succeeded. Finish existing matched diagnostics and distinguish takeover-state limits before additional training; no weighted training launched."
+}

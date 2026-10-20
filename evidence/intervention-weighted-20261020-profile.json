@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "purpose": "bounded_weighted_intervention_retry",
+  "seed": 42,
+  "repo_id": "course/libero_corrections_public37_intervention_focus_v1",
+  "dataset_manifest": "evidence/corrections-public37_intervention_focus_v1-manifest.json",
+  "dataset_manifest_sha256": "4287b34d6fa4b16f5bc3c8b7d3d41b65d91e855c09df4d31ebacf3486c843e5b",
+  "virtual_frames": 200000,
+  "groups": [
+    {
+      "name": "public_complete",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 120000
+    },
+    {
+      "name": "previous_approved_human",
+      "ranges": [
+        [
+          4400,
+          5446
+        ]
+      ],
+      "virtual_count": 20000
+    },
+    {
+      "name": "new_four_interventions",
+      "ranges": [
+        [
+          5446,
+          6126
+        ]
+      ],
+      "virtual_count": 60000
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "experiment": "ui_correct_1792434450272918886",
+  "new_updates": 1000,
+  "batch_size": 4,
+  "dataset_manifest": "/home/robot/.pi05-handson/evidence/corrections-public37_intervention_focus_v1-manifest.json",
+  "dataset_manifest_sha256": "4287b34d6fa4b16f5bc3c8b7d3d41b65d91e855c09df4d31ebacf3486c843e5b",
+  "repo_id": "course/libero_corrections_public37_intervention_focus_v1",
+  "sampling": "uniform over combined public and correction frames",
+  "dataset_kind": "expanded_public_corrections_v1",
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792406592268062907/1999",
+  "parent_params_manifest_sha256": "71918f9fcfba901e10555d42734eca228deabf040da755ecca6a95c5456ba5d8",
+  "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+  "seed": 42,
+  "action_horizon": 10,
+  "normalization": {
+    "asset_id": "course/libero_black_bowl",
+    "recomputed": false,
+    "path": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+    "bytes": 1966,
+    "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "timing": {
+    "nominal_fps": 10,
+    "nominal_dt": 0.1,
+    "pauses_excluded": true,
+    "one_frame_per_human_control_action": true,
+    "physical_control_dt_by_episode": {
+      "corrections/human_1792298109792073701": 0.05,
+      "corrections/human_1792302165387076969": 0.05,
+      "corrections/human_1792404996662425932": 0.05,
+      "corrections/human_1792405753674636144": 0.05,
+      "corrections/human_1792432520316693621": 0.05,
+      "corrections/human_1792432737067825465": 0.05,
+      "corrections/human_1792432847602743021": 0.05,
+      "corrections/human_1792432933673921805": 0.05
+    },
+    "caveat": "Nominal timestamps follow the public 10 Hz convention; physical correction control_dt is recorded separately and may differ."
+  },
+  "checkpoint_directory": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792434450272918886",
+  "final_step_index": 999,
+  "learning_rate": {
+    "warmup_steps": 20,
+    "peak": 5e-06,
+    "final": 5e-06
+  },
+  "optimizer": "AdamW, clip gradient norm 1.0; only LoRA trainable",
+  "checkpoint_save_steps": [
+    999
+  ],
+  "source_commit": "189a8eefd46ea55fac51b23c5a685d3f50c5948b",
+  "openpi_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+  "source_sha256": {
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+    "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699",
+    "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "prepare_expanded_public.py": "f07dc6ce8dcf5863b475e9d85d3c885f82e63bdc0c63f0ca5844e62ba0ba1619",
+    "curated_checks.py": "1a9d12bef9ff3314bd7251983b3ef699694f665f36d075d7bd22ef6a2db61206"
+  },
+  "wandb_enabled": false,
+  "dry_run": false
+}

@@ -1,0 +1,554 @@
+[
+  {
+    "case": "human_1792432520316693621",
+    "seed": 0,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.22019939779615635,
+          "median": 0.1630716074213987
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 1.9452925327662103,
+          "median": 1.5701643086609787
+        },
+        "low_action_closed_not_On_frames": 66,
+        "longest_low_action_closed_not_On": {
+          "steps": 5,
+          "start_control_step": 44,
+          "end_control_step": 48
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 13,
+          "mean": 0.8506022483862362,
+          "median": 0.767247395993058
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432737067825465",
+    "seed": 0,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.22894605893295175,
+          "median": 0.16064313113924455
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 1.641180819734434,
+          "median": 1.3073882663769363
+        },
+        "low_action_closed_not_On_frames": 112,
+        "longest_low_action_closed_not_On": {
+          "steps": 3,
+          "start_control_step": 50,
+          "end_control_step": 52
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 23,
+          "mean": 0.6672017367013294,
+          "median": 0.5424467956657052
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432847602743021",
+    "seed": 0,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.320775372139809,
+          "median": 0.24150424319667868
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 3.335616396234587,
+          "median": 2.4597346226911143
+        },
+        "low_action_closed_not_On_frames": 116,
+        "longest_low_action_closed_not_On": {
+          "steps": 6,
+          "start_control_step": 6,
+          "end_control_step": 11
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 28,
+          "mean": 1.195792898989502,
+          "median": 1.0631785485092777
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432933673921805",
+    "seed": 0,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.1332310844791824,
+          "median": 0.08639884451791545
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 1.1593928321668467,
+          "median": 0.8670492078154579
+        },
+        "low_action_closed_not_On_frames": 25,
+        "longest_low_action_closed_not_On": {
+          "steps": 2,
+          "start_control_step": 230,
+          "end_control_step": 231
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 3,
+          "mean": 0.8249522009666257,
+          "median": 0.913437007987998
+        }
+      }
+    }
+  },
+  {
+    "case": "near_negative_control",
+    "seed": 0,
+    "metrics": {
+      "control_steps": 202,
+      "any_On": true,
+      "final_On": true,
+      "first_On_control_step": 117,
+      "first_ten_step_release_control_step": 152,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 50,
+        "quantity_complete": true,
+        "all_observed_gate_steps_pass": true,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": 4.1431778719499634e-07,
+        "strict_success": true
+      },
+      "completion_control_steps": 202,
+      "right_censored_without_release_at_budget": false,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 202,
+          "mean": 0.4348267387848539,
+          "median": 0.35680285104948184
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 201,
+          "mean": 5.132043349469873,
+          "median": 3.8339437516059482
+        },
+        "low_action_closed_not_On_frames": 9,
+        "longest_low_action_closed_not_On": {
+          "steps": 2,
+          "start_control_step": 58,
+          "end_control_step": 59
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 3,
+          "mean": 1.6522329570950287,
+          "median": 1.8865124621725857
+        }
+      }
+    }
+  },
+  {
+    "case": "positive_edge_failure",
+    "seed": 0,
+    "metrics": {
+      "control_steps": 205,
+      "any_On": true,
+      "final_On": true,
+      "first_On_control_step": 123,
+      "first_ten_step_release_control_step": 155,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 50,
+        "quantity_complete": true,
+        "all_observed_gate_steps_pass": false,
+        "first_gate_violation_control_step": 163,
+        "maximum_bowl_drift_m": 9.311450793164235e-09,
+        "strict_success": false
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": false,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 205,
+          "mean": 0.5148447529889962,
+          "median": 0.5571455193644921
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 204,
+          "mean": 6.064572649049846,
+          "median": 6.182200666006365
+        },
+        "low_action_closed_not_On_frames": 3,
+        "longest_low_action_closed_not_On": {
+          "steps": 2,
+          "start_control_step": 73,
+          "end_control_step": 74
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 1,
+          "mean": 0.9264834882938614,
+          "median": 0.9264834882938614
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432520316693621",
+    "seed": 1,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.2667062466972152,
+          "median": 0.22153658484448435
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 1.715863476750044,
+          "median": 1.4395797107365802
+        },
+        "low_action_closed_not_On_frames": 102,
+        "longest_low_action_closed_not_On": {
+          "steps": 3,
+          "start_control_step": 46,
+          "end_control_step": 48
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 23,
+          "mean": 0.8817121619348274,
+          "median": 0.7706639141320673
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432737067825465",
+    "seed": 1,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.18528955539553568,
+          "median": 0.12491626956733493
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 1.2412282443731466,
+          "median": 0.9780631940918604
+        },
+        "low_action_closed_not_On_frames": 125,
+        "longest_low_action_closed_not_On": {
+          "steps": 6,
+          "start_control_step": 264,
+          "end_control_step": 269
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 40,
+          "mean": 0.5252002711285114,
+          "median": 0.445041043565649
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432847602743021",
+    "seed": 1,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.3295670862567585,
+          "median": 0.26097472017707557
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 3.8116790842355646,
+          "median": 2.684276561568533
+        },
+        "low_action_closed_not_On_frames": 111,
+        "longest_low_action_closed_not_On": {
+          "steps": 4,
+          "start_control_step": 448,
+          "end_control_step": 451
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 27,
+          "mean": 1.4713115645627297,
+          "median": 1.1841115343026034
+        }
+      }
+    }
+  },
+  {
+    "case": "human_1792432933673921805",
+    "seed": 1,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.1368752011331928,
+          "median": 0.08707085158539131
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 1.2108435628859826,
+          "median": 0.9718293288391432
+        },
+        "low_action_closed_not_On_frames": 17,
+        "longest_low_action_closed_not_On": {
+          "steps": 2,
+          "start_control_step": 190,
+          "end_control_step": 191
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 1,
+          "mean": 0.8147424824139233,
+          "median": 0.8147424824139233
+        }
+      }
+    }
+  },
+  {
+    "case": "near_negative_control",
+    "seed": 1,
+    "metrics": {
+      "control_steps": 197,
+      "any_On": true,
+      "final_On": true,
+      "first_On_control_step": 111,
+      "first_ten_step_release_control_step": 147,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 50,
+        "quantity_complete": true,
+        "all_observed_gate_steps_pass": true,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": 9.32142271131406e-09,
+        "strict_success": true
+      },
+      "completion_control_steps": 197,
+      "right_censored_without_release_at_budget": false,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 197,
+          "mean": 0.46323712845590964,
+          "median": 0.41979812681012135
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 196,
+          "mean": 5.5312916272607335,
+          "median": 4.861381636271464
+        },
+        "low_action_closed_not_On_frames": 2,
+        "longest_low_action_closed_not_On": {
+          "steps": 2,
+          "start_control_step": 63,
+          "end_control_step": 64
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 1,
+          "mean": 1.9584464647951676,
+          "median": 1.9584464647951676
+        }
+      }
+    }
+  },
+  {
+    "case": "positive_edge_failure",
+    "seed": 1,
+    "metrics": {
+      "control_steps": 600,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 600,
+          "mean": 0.2841403809512412,
+          "median": 0.13809599506539552
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 599,
+          "mean": 2.927399063439135,
+          "median": 1.614080977133309
+        },
+        "low_action_closed_not_On_frames": 6,
+        "longest_low_action_closed_not_On": {
+          "steps": 1,
+          "start_control_step": 69,
+          "end_control_step": 69
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "first_attempt": "Interrupted with params.orbax-checkpoint-tmp-0; preserved.",
+  "first_resume": "Refused existing output with FileExistsError; no overwrite.",
+  "retry": "Unique reconstructed-retry-1 destination completed.",
+  "result": {
+    "status": "PASS",
+    "inference_only": true,
+    "optimizer_state_restored": false,
+    "tensor_count": 71,
+    "all_original_tensor_hashes_match": true,
+    "original_tree_sha256": "3479512f394384df6b8d9305f7da647b32381421d0a19462bafa4f2a5be9b253",
+    "restored_tree_sha256": "3479512f394384df6b8d9305f7da647b32381421d0a19462bafa4f2a5be9b253",
+    "adapter_metadata_sha256": "06a4ba5c824d9f7eba8752fe39d19e8ccdb9e821248542b4252e9f5f96fd5c13",
+    "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  }
+}

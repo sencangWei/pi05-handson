@@ -1,0 +1,116 @@
+{
+  "layout_id": 24,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.005547050812413551,
+      0.30381047607474143,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.06037055218384113,
+      0.21242470828447926,
+      0.8984038567263857
+    ],
+    "dx_m": -0.06591760299625468,
+    "dy_m": -0.09138576779026217
+  },
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "initial_state_sha256": "b966d8d96306f42cd1615653dd04c8d2cfe9428d153186a0350da232d898f5a9",
+  "task_language": "pick up the black bowl next to the plate and place it on the plate",
+  "source_kind": "exact_saved_failure_holding_state",
+  "source_correction": "corrections/human_1792432737067825465",
+  "source_metadata_sha256": "3ff75628dd1a3cd2630e8b5ed62270c2337e5b8d88861ecee71bfa5377f09060",
+  "formal_benchmark": false,
+  "comparison_role": "trained_intervention_initial_state_diagnostic",
+  "controller_limit": "MuJoCo physical state exact; hidden OSC and gripper internal state reconstructed, not bit-exact GUI continuation.",
+  "interactive_experiment": false,
+  "untracked_native_gui_edits_possible": false,
+  "saved_scene_replay": "/home/robot/.pi05-handson/evidence/intervention-finetune-20261020/takeover-scenes/human_1792432737067825465",
+  "source_scene_sha256": "a52790aed2c0f59fdd264adb6667ff92aeb49a567ddac6f24c0acdc8e6070d9b",
+  "replan_steps": 1,
+  "max_steps": 600,
+  "post_release_steps_requested": 50,
+  "controller_initialization": [
+    {
+      "method": "update(force=True),reset_goal; inverse actuator-range gripper qpos mapping",
+      "not_exact_hidden_controller_restoration": true,
+      "goal_pos": [
+        -0.011399543354560036,
+        0.19274391048127015,
+        0.9239258128218595
+      ],
+      "goal_ori": [
+        [
+          0.334462531271797,
+          0.9400263817728566,
+          0.06697176081222976
+        ],
+        [
+          0.9388662660734851,
+          -0.33851893753738077,
+          0.06273008335552513
+        ],
+        [
+          0.08163914260016773,
+          0.04189666454016504,
+          -0.9957809597978436
+        ]
+      ],
+      "initial_joint": [
+        0.0,
+        -0.161037389,
+        0.0,
+        -2.44459747,
+        0.0,
+        2.2267522,
+        0.7853981633974483
+      ],
+      "gripper_qpos": [
+        0.009496065673978189,
+        -0.009841401845740423
+      ],
+      "gripper_accumulator": [
+        -0.5251967163010905,
+        0.5079299077129789
+      ]
+    }
+  ],
+  "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+  "policy_rng": "Isolated server resets RNG per connection to seed 1",
+  "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG",
+  "control_steps": 600,
+  "inference_calls": 600,
+  "success": false,
+  "first_benchmark_success_control_steps": null,
+  "post_success_steps_executed": 0,
+  "final_benchmark_success": false,
+  "release_and_retreat_success": null,
+  "model_metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792406592268062907/1999",
+    "model_stage": "ui_correct_1792406592268062907/1999",
+    "params_manifest_sha256": "71918f9fcfba901e10555d42734eca228deabf040da755ecca6a95c5456ba5d8",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+    "policy_sampling_seed_at_server_start": 1,
+    "diagnostic_rng_reset_per_connection": 1,
+    "model_source": "pinned OpenPI JAX Policy._rng",
+    "state_input": false
+  },
+  "wall_duration_s": 50.04711004009005,
+  "ten_step_release_retreat_verified": false,
+  "first_ten_step_release_retreat_control_steps": null,
+  "post_release_steps_executed": 0,
+  "post_release_followup_complete": false,
+  "stop_reason": "step_limit",
+  "final_state_sha256": "6ce275fac3b4cd1a9222cd72b282a26db7aa7bca63494406eab35a1550136bef",
+  "video": "video.mp4",
+  "video_frames": 601,
+  "video_fps": 10
+}

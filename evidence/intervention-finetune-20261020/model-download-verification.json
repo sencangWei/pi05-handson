@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "release": "https://github.com/sencangWei/pi05-handson/releases/tag/intervention-focus-20261020",
+  "files": {
+    "adapter.npz": "1de29626fa02fc8cc1b698a2e0eb4ddb97fc7d409d52cdb50c39c647942b6ae6",
+    "metadata.json": "06a4ba5c824d9f7eba8752fe39d19e8ccdb9e821248542b4252e9f5f96fd5c13",
+    "norm_stats.json": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "downloaded_from_remote": true,
+  "full_param_reconstruction_pending": false,
+  "full_param_reconstruction_verified": true,
+  "verification_file": "model-restore-verification.json",
+  "limits": "Inference params only; optimizer/dataset not restored."
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "new_demos": 3,
+  "new_final60_pass": 3,
+  "recorded_controls": [
+    408,
+    446,
+    408
+  ],
+  "old_and_new_negative10_initial_file_sha256": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+  "old_negative10_controls": 800,
+  "new_negative10_controls": 408,
+  "gui_policy_rng_matched": false,
+  "screen_review_samples_per_video": 6,
+  "agent_review_samples_per_video": 20,
+  "all_source_files_preserved": true
+}

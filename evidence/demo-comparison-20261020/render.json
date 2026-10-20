@@ -1,0 +1,182 @@
+{
+  "comparisons": [
+    {
+      "file": "negative10-gui-before-after.mp4",
+      "sha256": "d77d72c0b22737f0229b43e9e443d6b51d6db2a61833596e4d8c17c2ac67ebd2",
+      "bytes": 5125225,
+      "inputs": [
+        {
+          "path": "exports/demo_comparison_20261020/before-negative10-original.mp4",
+          "sha256": "b6fe8537fc964dcaa36bb72d5d8a94d03e7fa4a246083787d44c2b9570285128"
+        },
+        {
+          "path": "exports/demo_comparison_20261020/after-negative10-original.mp4",
+          "sha256": "e75c7c024eaa46f0cbb08aad7d4c51bf341a45da110cc5dfaba284a3ff8aacfb"
+        }
+      ],
+      "start_trim_s": [
+        1.139521093,
+        0.694654922
+      ],
+      "source_playback_duration_s": [
+        102.127478907,
+        52.972345078000004
+      ],
+      "fps": 15,
+      "duration_s": 102.13333333333334,
+      "width": 2560,
+      "height": 1024,
+      "right_freeze_after_s": 52.972345078000004,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-n",
+        "-i",
+        "/home/robot/.pi05-handson/exports/demo_comparison_20261020/before-negative10-original.mp4",
+        "-i",
+        "/home/robot/.pi05-handson/exports/demo_comparison_20261020/after-negative10-original.mp4",
+        "-loop",
+        "1",
+        "-framerate",
+        "15",
+        "-i",
+        "/home/robot/.pi05-handson/evidence/demo-comparison-20261020/gui-header.png",
+        "-loop",
+        "1",
+        "-framerate",
+        "15",
+        "-i",
+        "/home/robot/.pi05-handson/evidence/demo-comparison-20261020/gui-footer.png",
+        "-filter_complex_threads",
+        "2",
+        "-filter_complex",
+        "[0:v]trim=start=1.139521093,setpts=PTS-STARTPTS,fps=15,scale=1280:640:force_original_aspect_ratio=decrease:force_divisible_by=2,pad=1280:640:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,tpad=stop_mode=clone:stop_duration=102.133333333,trim=duration=102.133333333[v0];[1:v]trim=start=0.694654922,setpts=PTS-STARTPTS,fps=15,scale=1280:640:force_original_aspect_ratio=decrease:force_divisible_by=2,pad=1280:640:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,tpad=stop_mode=clone:stop_duration=102.133333333,trim=duration=102.133333333[v1];[v0][v1]hstack=inputs=2,drawbox=x=iw/2-2:y=0:w=4:h=ih:color=white:t=fill[body];[2:v][body][3:v]vstack=inputs=3[layout];[layout]drawtext=fontfile=/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc:textfile=/home/robot/.pi05-handson/evidence/demo-comparison-20261020/ended.txt:fontsize=30:fontcolor=white:x=1300:y=94:enable='gte(t,52.972345078)'[out]",
+        "-map",
+        "[out]",
+        "-an",
+        "-t",
+        "102.133333333",
+        "-r",
+        "15",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "fast",
+        "-crf",
+        "22",
+        "-threads",
+        "4",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/robot/.pi05-handson/exports/demo_comparison_20261020/negative10-gui-before-after.mp4"
+      ],
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 2560,
+            "height": 1024,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "1532"
+          }
+        ],
+        "format": {
+          "duration": "102.134000"
+        }
+      }
+    },
+    {
+      "file": "negative10-camera-before-after.mp4",
+      "sha256": "3fbebcfa34bee7094b73fe71c2d216951404ed2d06ab59b2625d9135cbaec72c",
+      "bytes": 2401649,
+      "inputs": [
+        {
+          "path": "evidence/demo-comparison-20261020/records/demo-1792475365982322332/video.mp4",
+          "sha256": "309a29326a96b650b65cb1259634ec0c9d016c84cee9bc3b08d48b2c9321cb24"
+        },
+        {
+          "path": "evidence/demo-comparison-20261020/records/demo-1792485765485557611/video.mp4",
+          "sha256": "7b5cb962b4e3a02ed742eef7aa9aa5965355084165bf9b31e89276a93b6d0ebc"
+        }
+      ],
+      "start_trim_s": [
+        0,
+        0
+      ],
+      "source_playback_duration_s": [
+        80.1,
+        40.9
+      ],
+      "fps": 10,
+      "duration_s": 80.1,
+      "width": 1280,
+      "height": 1024,
+      "right_freeze_after_s": 40.9,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-n",
+        "-i",
+        "/home/robot/.pi05-handson/evidence/demo-comparison-20261020/records/demo-1792475365982322332/video.mp4",
+        "-i",
+        "/home/robot/.pi05-handson/evidence/demo-comparison-20261020/records/demo-1792485765485557611/video.mp4",
+        "-loop",
+        "1",
+        "-framerate",
+        "10",
+        "-i",
+        "/home/robot/.pi05-handson/evidence/demo-comparison-20261020/camera-header.png",
+        "-loop",
+        "1",
+        "-framerate",
+        "10",
+        "-i",
+        "/home/robot/.pi05-handson/evidence/demo-comparison-20261020/camera-footer.png",
+        "-filter_complex_threads",
+        "2",
+        "-filter_complex",
+        "[0:v]trim=start=0.000000000,setpts=PTS-STARTPTS,fps=10,scale=640:640:force_original_aspect_ratio=decrease:force_divisible_by=2,pad=640:640:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,tpad=stop_mode=clone:stop_duration=80.100000000,trim=duration=80.100000000[v0];[1:v]trim=start=0.000000000,setpts=PTS-STARTPTS,fps=10,scale=640:640:force_original_aspect_ratio=decrease:force_divisible_by=2,pad=640:640:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,tpad=stop_mode=clone:stop_duration=80.100000000,trim=duration=80.100000000[v1];[v0][v1]hstack=inputs=2,drawbox=x=iw/2-2:y=0:w=4:h=ih:color=white:t=fill[body];[2:v][body][3:v]vstack=inputs=3[layout];[layout]drawtext=fontfile=/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc:textfile=/home/robot/.pi05-handson/evidence/demo-comparison-20261020/ended.txt:fontsize=22:fontcolor=white:x=660:y=94:enable='gte(t,40.900000000)'[out]",
+        "-map",
+        "[out]",
+        "-an",
+        "-t",
+        "80.100000000",
+        "-r",
+        "10",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "fast",
+        "-crf",
+        "22",
+        "-threads",
+        "4",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/robot/.pi05-handson/exports/demo_comparison_20261020/negative10-camera-before-after.mp4"
+      ],
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1280,
+            "height": 1024,
+            "avg_frame_rate": "10/1",
+            "nb_frames": "801"
+          }
+        ],
+        "format": {
+          "duration": "80.100000"
+        }
+      }
+    }
+  ]
+}

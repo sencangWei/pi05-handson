@@ -1,0 +1,14 @@
+[
+  {
+    "time_ns": 1792485765486176365,
+    "scene": 7,
+    "kind": "demo_recording",
+    "recording": true,
+    "message": "正在录制面板＋三维窗口；再次点击停止保存：demo-1792485765485557611"
+  },
+  {
+    "time_ns": 1792485766180288228,
+    "scene": 7,
+    "kind": "run"
+  }
+]

@@ -1,5 +1,18 @@
 # π0.5 LoRA：从示范数据到 LIBERO 仿真执行
 
+## 2026-10-20 用户实录：同位置微调前后左右对比
+
+![左旧模型、右人工纠错微调后模型：同一初始状态](evidence/demo-comparison-20261020/comparison-poster.jpg)
+
+**布局0、黑碗X/Y都为−10cm，同一个初始状态文件：左侧旧模型800步未完成放置，右侧新模型408步完成放置、松爪和撤手。**
+
+[▶ 面板＋MuJoCo原速左右视频](https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/negative10-gui-before-after.mp4) · [▶ 固定相机按控制步同步](https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/negative10-camera-before-after.mp4) · [3条新录原片＋旧失败原片](https://github.com/sencangWei/pi05-handson/releases/tag/demo-comparison-20261020)
+
+处理措施：新增4条805帧人工纠错，保留旧47条6126帧；公开/旧人工/新纠错抽样50%/20%/30%；从当前模型继续进行π0.5 LoRA微调2000次更新（batch4、lr1e−5），预测10步、每步重新观察。三条新录原片均完成60步稳定收尾；同位置GUI原片推理随机流未配对，不是独立泛化成功率或精确耗时对照。固定配对开发评测总体7/10→8/10，仍有松爪停滞和部分场景变慢。
+
+[完整处理措施、数据与模型、所有新Demo和对比说明](evidence/demo-comparison-20261020/README.md) · [固定条件全部成功/失败报告](evidence/edge-recovery-20261020/README.md)
+
+
 本项目记录一次亲手完成的机器人模仿学习实践：公开示范检查、数据准备、归一化、LoRA 微调、闭环仿真、失败分析和模型备份。使用预训练 π0.5 基座进行单任务微调。
 
 **任务：** `pick up the black bowl next to the plate and place it on the plate`。

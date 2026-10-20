@@ -1,0 +1,1340 @@
+[
+  {
+    "demo": "demo-1792475365982322332",
+    "demo_metadata": {
+      "kind": "pi05-lab-screen-demo-v1",
+      "status": "saved",
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-007_init-000",
+      "started_at_ns": 1792475365982425719,
+      "fps": 15,
+      "region": {
+        "x": 82,
+        "y": 39,
+        "width": 2476,
+        "height": 1108,
+        "window_ids": [
+          88080568,
+          90178072
+        ]
+      },
+      "timing": "wall clock, including pauses",
+      "video": "demo.mp4",
+      "stopped_at_ns": 1792475469399406878,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2476,
+            "height": 1108
+          }
+        ],
+        "format": {
+          "duration": "103.267000"
+        }
+      }
+    },
+    "screen_video_sha256": "b6fe8537fc964dcaa36bb72d5d8a94d03e7fa4a246083787d44c2b9570285128",
+    "source_scene": "evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-007_init-000",
+    "scene": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09286294423527883,
+          0.19824631861827444,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.1
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "fb3c3a481e5856e1739d691ae05a5a733978dd73c4fe7b5aee59501917dcb1c7",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m"
+    },
+    "result": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09286294423527883,
+          0.19824631861827444,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.1
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "fb3c3a481e5856e1739d691ae05a5a733978dd73c4fe7b5aee59501917dcb1c7",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_steps": 800,
+      "inference_calls": 800,
+      "success": false,
+      "first_benchmark_success_control_steps": null,
+      "post_success_steps_executed": 0,
+      "final_benchmark_success": false,
+      "release_and_retreat_success": null,
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+        "checkpoint_step_index": "999",
+        "model_stage": "ui_correct_1792434450272918886/999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "30d3a1301666f17243441f1f1876dc6ae99794fcd521c014e7ff344e0e77f1b9",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m",
+      "timing_summary": {
+        "steps": 800,
+        "means": {
+          "action_interval_s": 0.12831527147560412,
+          "client_inference_s": 0.06746209589808132,
+          "server_infer_ms": 65.5664734961465,
+          "ready_to_step_s": 0.014218748359999154,
+          "apply_tick_s": 0.01600190994751756,
+          "eef_move_mm": 0.9827142310922632
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "stop_reason": "step_limit",
+      "final_state_sha256": "933dccdc4da5a7040cb45b4d9de31198379820c77dd72ad5b101a5f668b3c795",
+      "video": "video.mp4",
+      "video_frames": 801,
+      "video_fps": 10
+    },
+    "files": [
+      "final_state.npy",
+      "initial_state.npy",
+      "timing.csv",
+      "scene.json",
+      "final-agentview.png",
+      "initial-wrist.png",
+      "actions.csv",
+      "result.json",
+      "initial-agentview.png",
+      "video.mp4"
+    ],
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 2476,
+          "height": 1108,
+          "avg_frame_rate": "15/1",
+          "nb_frames": "1549"
+        }
+      ],
+      "format": {
+        "duration": "103.267000"
+      }
+    },
+    "screen_review": {
+      "indices": [
+        0,
+        310,
+        619,
+        929,
+        1238,
+        1548
+      ],
+      "frames": 1549,
+      "sheet": "review/demo-1792475365982322332-screen.jpg"
+    },
+    "agent_review": {
+      "indices": [
+        0,
+        42,
+        84,
+        126,
+        168,
+        211,
+        253,
+        295,
+        337,
+        379,
+        421,
+        463,
+        505,
+        547,
+        589,
+        632,
+        674,
+        716,
+        758,
+        800
+      ],
+      "frames": 801,
+      "sheet": "review/demo-1792475365982322332-agent.jpg"
+    },
+    "operations": {
+      "path": "evaluations/interactive_lab_20261020_133046_1792474246941380212/operations.jsonl",
+      "scene_number": 7,
+      "counts": {
+        "reset": 1,
+        "demo_recording": 1,
+        "run": 1,
+        "saved": 1,
+        "correction_started": 1,
+        "manual_action": 33,
+        "correction_finished": 1
+      },
+      "during_capture": [
+        {
+          "time_ns": 1792475365982982803,
+          "scene": 7,
+          "kind": "demo_recording",
+          "recording": true,
+          "message": "正在录制面板＋三维窗口；再次点击停止保存：demo-1792475365982322332"
+        },
+        {
+          "time_ns": 1792475367121946812,
+          "scene": 7,
+          "kind": "run"
+        }
+      ],
+      "during_capture_counts": {
+        "demo_recording": 1,
+        "run": 1
+      }
+    },
+    "source_artifacts": {
+      "final_state.npy": {
+        "sha256": "d83a464d480b91c52701ec39dde62491984431ee5c2f30127116835a0da914b8",
+        "bytes": 864
+      },
+      "initial_state.npy": {
+        "sha256": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+        "bytes": 864
+      },
+      "timing.csv": {
+        "sha256": "e0a64ba429fd2710b759a288c885f44cfaffd6673261576914db4b147bd8a9cc",
+        "bytes": 98056
+      },
+      "scene.json": {
+        "sha256": "8b76b53a02cc255ec2de365138b1996ef9e3a84bd3c05271d14e8a6b18f3b1ee",
+        "bytes": 1474
+      },
+      "final-agentview.png": {
+        "sha256": "91ce60ff818d2cb7d6f091ea9868c56b20403b6299778ea8bfa42a2ac30ab65b",
+        "bytes": 61640
+      },
+      "initial-wrist.png": {
+        "sha256": "b561b3a5abe800dac8783e89f5725863c370afabf94cbbc659744afb914be2c1",
+        "bytes": 56084
+      },
+      "actions.csv": {
+        "sha256": "c6f1c3a22b3ae85af7ba9ee1d5fb5e0bbc069aca69332d3f93e350060a4ea4b4",
+        "bytes": 387610
+      },
+      "result.json": {
+        "sha256": "0e7869588cfd749a5cd6cf37d2bc71e769e1af43b871975df09a5ad1bb584fbb",
+        "bytes": 3052
+      },
+      "initial-agentview.png": {
+        "sha256": "3a532e18a5479e3694093fe46c3e6440cbf37fc90b16ca672e988e157020db18",
+        "bytes": 59507
+      },
+      "video.mp4": {
+        "sha256": "309a29326a96b650b65cb1259634ec0c9d016c84cee9bc3b08d48b2c9321cb24",
+        "bytes": 478291
+      }
+    },
+    "published_original": "before-negative10-original.mp4",
+    "recomputed_metrics": {
+      "control_steps": 800,
+      "any_On": false,
+      "final_On": false,
+      "first_On_control_step": null,
+      "first_ten_step_release_control_step": null,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 0,
+        "quantity_complete": false,
+        "all_observed_gate_steps_pass": null,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": null,
+        "strict_success": null
+      },
+      "completion_control_steps": null,
+      "right_censored_without_release_at_budget": true,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 800,
+          "mean": 0.1953544506052695,
+          "median": 0.10414236178701222
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 799,
+          "mean": 2.0212366474712926,
+          "median": 1.1932885148840227
+        },
+        "low_action_closed_not_On_frames": 175,
+        "longest_low_action_closed_not_On": {
+          "steps": 7,
+          "start_control_step": 329,
+          "end_control_step": 335
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 95,
+          "mean": 0.6360076084881893,
+          "median": 0.4907639887072982
+        }
+      }
+    },
+    "run_offset_s": 1.139521093,
+    "archived_scene": "records/demo-1792475365982322332"
+  },
+  {
+    "demo": "demo-1792485422271925814",
+    "demo_metadata": {
+      "kind": "pi05-lab-screen-demo-v1",
+      "status": "saved",
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-003_init-000",
+      "started_at_ns": 1792485422272007413,
+      "fps": 15,
+      "region": {
+        "x": 82,
+        "y": 27,
+        "width": 2466,
+        "height": 1083,
+        "window_ids": [
+          90177720,
+          92274850
+        ]
+      },
+      "timing": "wall clock, including pauses",
+      "video": "demo.mp4",
+      "stopped_at_ns": 1792485476191830265,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2466,
+            "height": 1084
+          }
+        ],
+        "format": {
+          "duration": "53.800000"
+        }
+      }
+    },
+    "screen_video_sha256": "748adcd897926c15bda4118a1aa0ef5fb16b0d31d229f800a600ed887c762e55",
+    "source_scene": "evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-003_init-000",
+    "scene": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.06029509454843121,
+          0.20659704930720973,
+          0.8984038567263857
+        ],
+        "dx_m": -0.06743215031315239,
+        "dy_m": -0.09164926931106471
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "5cac9843e72b4e0233a98240ccf4027004a1cbd03276224fc2b2836b185030c5",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m"
+    },
+    "result": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.06029509454843121,
+          0.20659704930720973,
+          0.8984038567263857
+        ],
+        "dx_m": -0.06743215031315239,
+        "dy_m": -0.09164926931106471
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "5cac9843e72b4e0233a98240ccf4027004a1cbd03276224fc2b2836b185030c5",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_steps": 408,
+      "inference_calls": 408,
+      "success": true,
+      "first_benchmark_success_control_steps": 241,
+      "post_success_steps_executed": 167,
+      "final_benchmark_success": true,
+      "release_and_retreat_success": true,
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792480483802126335/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "ui_correct_1792480483802126335/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "7f663fea182ef9ba232d3aa78697644dbc5f7dff54370451fa6a68972af028f6",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m",
+      "stable_completion_steps": 60,
+      "timing_summary": {
+        "steps": 408,
+        "means": {
+          "action_interval_s": 0.12927618701496055,
+          "client_inference_s": 0.06848778857138492,
+          "server_infer_ms": 66.62868302116883,
+          "ready_to_step_s": 0.013779969068470082,
+          "apply_tick_s": 0.016003214437731395,
+          "eef_move_mm": 1.1226927099064012
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "stop_reason": "stable_release_complete",
+      "final_state_sha256": "dc63d4d8be7a4ecdf2211f51117640ec367a9cc4c13cfa9da2e56127aa0c9cbd",
+      "video": "video.mp4",
+      "video_frames": 409,
+      "video_fps": 10
+    },
+    "files": [
+      "final_state.npy",
+      "initial_state.npy",
+      "timing.csv",
+      "scene.json",
+      "final-agentview.png",
+      "initial-wrist.png",
+      "actions.csv",
+      "result.json",
+      "initial-agentview.png",
+      "video.mp4"
+    ],
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 2466,
+          "height": 1084,
+          "avg_frame_rate": "15/1",
+          "nb_frames": "807"
+        }
+      ],
+      "format": {
+        "duration": "53.800000"
+      }
+    },
+    "screen_review": {
+      "indices": [
+        0,
+        161,
+        322,
+        484,
+        645,
+        806
+      ],
+      "frames": 807,
+      "sheet": "review/demo-1792485422271925814-screen.jpg"
+    },
+    "agent_review": {
+      "indices": [
+        0,
+        21,
+        43,
+        64,
+        86,
+        107,
+        129,
+        150,
+        172,
+        193,
+        215,
+        236,
+        258,
+        279,
+        301,
+        322,
+        344,
+        365,
+        387,
+        408
+      ],
+      "frames": 409,
+      "sheet": "review/demo-1792485422271925814-agent.jpg"
+    },
+    "operations": {
+      "path": "evaluations/interactive_lab_20261020_161241_1792483961238262412/operations.jsonl",
+      "scene_number": 3,
+      "counts": {
+        "reset": 1,
+        "demo_recording": 1,
+        "run": 1,
+        "saved": 1
+      },
+      "during_capture": [
+        {
+          "time_ns": 1792485422273414013,
+          "scene": 3,
+          "kind": "demo_recording",
+          "recording": true,
+          "message": "正在录制面板＋三维窗口；再次点击停止保存：demo-1792485422271925814"
+        },
+        {
+          "time_ns": 1792485423273288620,
+          "scene": 3,
+          "kind": "run"
+        }
+      ],
+      "during_capture_counts": {
+        "demo_recording": 1,
+        "run": 1
+      }
+    },
+    "source_artifacts": {
+      "final_state.npy": {
+        "sha256": "3f94af0fa87d5210bd3152a43890fcdce1f3551e4027eaa84b4ce53192a1dccf",
+        "bytes": 864
+      },
+      "initial_state.npy": {
+        "sha256": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6",
+        "bytes": 864
+      },
+      "timing.csv": {
+        "sha256": "e01e8b636116fa261c957cc2e9ab95b208bf0b40f113c8db79d221b32d3a420a",
+        "bytes": 49941
+      },
+      "scene.json": {
+        "sha256": "dd94b04f48423c1c71abdb1be74c22df47bc3b836682ce4d3d65602fdd2462c3",
+        "bytes": 1506
+      },
+      "final-agentview.png": {
+        "sha256": "5e5d4e13cae15f99d3d855fce348239f1b1b399b28780214dd72a960b1b7e83f",
+        "bytes": 61787
+      },
+      "initial-wrist.png": {
+        "sha256": "66d9023f9e4a237759b58342d2e5baa2c02180c1f135fa9ffaf228767b11bb1a",
+        "bytes": 55173
+      },
+      "actions.csv": {
+        "sha256": "0715108d26b606a3e6be901f5d76eebeea16356777d91856099a450657ffb7b9",
+        "bytes": 199187
+      },
+      "result.json": {
+        "sha256": "db05005555d4b4a7a0077909300b55885d96ae441b23ad22c2e660233f6416b7",
+        "bytes": 3134
+      },
+      "initial-agentview.png": {
+        "sha256": "d291250c76d72f99ef65b518387bea7bd27a225bacc1e46f7de764cd5c7f209c",
+        "bytes": 59897
+      },
+      "video.mp4": {
+        "sha256": "a1a902b03d835de3858ec65f6c05fe7c33b1d823a28725b3726c980727681600",
+        "bytes": 260204
+      }
+    },
+    "published_original": "after-near-negative-demo1-original.mp4",
+    "recomputed_metrics": {
+      "control_steps": 408,
+      "any_On": true,
+      "final_On": true,
+      "first_On_control_step": 241,
+      "first_ten_step_release_control_step": 358,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 50,
+        "quantity_complete": true,
+        "all_observed_gate_steps_pass": true,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": 8.065278851488343e-09,
+        "strict_success": true
+      },
+      "completion_control_steps": 408,
+      "right_censored_without_release_at_budget": false,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 408,
+          "mean": 0.20898018006169672,
+          "median": 0.0780940417828915
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 407,
+          "mean": 2.3741962601961673,
+          "median": 1.3608481434189557
+        },
+        "low_action_closed_not_On_frames": 84,
+        "longest_low_action_closed_not_On": {
+          "steps": 17,
+          "start_control_step": 201,
+          "end_control_step": 217
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 58,
+          "mean": 0.5685340339437256,
+          "median": 0.519551002235565
+        }
+      }
+    },
+    "final60_audit": {
+      "all_gates_pass": true,
+      "bowl_maximum_drift_m": 9.400810755142833e-09
+    },
+    "run_offset_s": 1.001281207,
+    "archived_scene": "records/demo-1792485422271925814"
+  },
+  {
+    "demo": "demo-1792485491783291872",
+    "demo_metadata": {
+      "kind": "pi05-lab-screen-demo-v1",
+      "status": "saved",
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-004_init-000",
+      "started_at_ns": 1792485491783358105,
+      "fps": 15,
+      "region": {
+        "x": 82,
+        "y": 39,
+        "width": 2478,
+        "height": 1071,
+        "window_ids": [
+          90177720,
+          92274911
+        ]
+      },
+      "timing": "wall clock, including pauses",
+      "video": "demo.mp4",
+      "stopped_at_ns": 1792485550781068613,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2478,
+            "height": 1072
+          }
+        ],
+        "format": {
+          "duration": "58.867000"
+        }
+      }
+    },
+    "screen_video_sha256": "5112a444c3c0b1b3e5d5f2e46e6468b50eae438cd076718fe66162acf2fd0315",
+    "source_scene": "evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-004_init-000",
+    "scene": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.06029509454843121,
+          0.20659704930720973,
+          0.8984038567263857
+        ],
+        "dx_m": -0.06743215031315239,
+        "dy_m": -0.09164926931106471
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "5cac9843e72b4e0233a98240ccf4027004a1cbd03276224fc2b2836b185030c5",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m"
+    },
+    "result": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.06029509454843121,
+          0.20659704930720973,
+          0.8984038567263857
+        ],
+        "dx_m": -0.06743215031315239,
+        "dy_m": -0.09164926931106471
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "5cac9843e72b4e0233a98240ccf4027004a1cbd03276224fc2b2836b185030c5",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_steps": 446,
+      "inference_calls": 446,
+      "success": true,
+      "first_benchmark_success_control_steps": 344,
+      "post_success_steps_executed": 102,
+      "final_benchmark_success": true,
+      "release_and_retreat_success": true,
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792480483802126335/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "ui_correct_1792480483802126335/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "7f663fea182ef9ba232d3aa78697644dbc5f7dff54370451fa6a68972af028f6",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m",
+      "stable_completion_steps": 60,
+      "timing_summary": {
+        "steps": 446,
+        "means": {
+          "action_interval_s": 0.12920404444030079,
+          "client_inference_s": 0.06847878142636929,
+          "server_infer_ms": 66.56789056739599,
+          "ready_to_step_s": 0.014077082474198142,
+          "apply_tick_s": 0.01537983414258666,
+          "eef_move_mm": 1.3464769626867805
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "stop_reason": "stable_release_complete",
+      "final_state_sha256": "f67610508370a3e40dd87568105f3674147879d6f331e82a75e9ebf37bfc17f4",
+      "video": "video.mp4",
+      "video_frames": 447,
+      "video_fps": 10
+    },
+    "files": [
+      "final_state.npy",
+      "initial_state.npy",
+      "timing.csv",
+      "scene.json",
+      "final-agentview.png",
+      "initial-wrist.png",
+      "actions.csv",
+      "result.json",
+      "initial-agentview.png",
+      "video.mp4"
+    ],
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 2478,
+          "height": 1072,
+          "avg_frame_rate": "15/1",
+          "nb_frames": "883"
+        }
+      ],
+      "format": {
+        "duration": "58.867000"
+      }
+    },
+    "screen_review": {
+      "indices": [
+        0,
+        176,
+        353,
+        529,
+        706,
+        882
+      ],
+      "frames": 883,
+      "sheet": "review/demo-1792485491783291872-screen.jpg"
+    },
+    "agent_review": {
+      "indices": [
+        0,
+        23,
+        47,
+        70,
+        94,
+        117,
+        141,
+        164,
+        188,
+        211,
+        235,
+        258,
+        282,
+        305,
+        329,
+        352,
+        376,
+        399,
+        423,
+        446
+      ],
+      "frames": 447,
+      "sheet": "review/demo-1792485491783291872-agent.jpg"
+    },
+    "operations": {
+      "path": "evaluations/interactive_lab_20261020_161241_1792483961238262412/operations.jsonl",
+      "scene_number": 4,
+      "counts": {
+        "reset": 1,
+        "demo_recording": 1,
+        "run": 1,
+        "saved": 1
+      },
+      "during_capture": [
+        {
+          "time_ns": 1792485491784894310,
+          "scene": 4,
+          "kind": "demo_recording",
+          "recording": true,
+          "message": "正在录制面板＋三维窗口；再次点击停止保存：demo-1792485491783291872"
+        },
+        {
+          "time_ns": 1792485493041378973,
+          "scene": 4,
+          "kind": "run"
+        }
+      ],
+      "during_capture_counts": {
+        "demo_recording": 1,
+        "run": 1
+      }
+    },
+    "source_artifacts": {
+      "final_state.npy": {
+        "sha256": "7a1bbba0800dfce9f31b70c4bbf0c1d7c8e87a9bf68bc4084681f98c4c98c273",
+        "bytes": 864
+      },
+      "initial_state.npy": {
+        "sha256": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6",
+        "bytes": 864
+      },
+      "timing.csv": {
+        "sha256": "856ad208ef696629ddaba6f85b8545b92841bcc83a3edb6afb944ea8c0fe7e5c",
+        "bytes": 54565
+      },
+      "scene.json": {
+        "sha256": "dd94b04f48423c1c71abdb1be74c22df47bc3b836682ce4d3d65602fdd2462c3",
+        "bytes": 1506
+      },
+      "final-agentview.png": {
+        "sha256": "d6587761bddadbbce51e4555d50d006f832f069b51df4ee20c0acfaf479cb81b",
+        "bytes": 61796
+      },
+      "initial-wrist.png": {
+        "sha256": "66d9023f9e4a237759b58342d2e5baa2c02180c1f135fa9ffaf228767b11bb1a",
+        "bytes": 55173
+      },
+      "actions.csv": {
+        "sha256": "c60cd71ebce3f4be47abfd22ac1dc3bbdf199cc1c49cb049ec4fb53a658694d8",
+        "bytes": 217203
+      },
+      "result.json": {
+        "sha256": "62756010e944cfd6e3ca52fc087656001ebf953aa113961567412d6dfaaee2ce",
+        "bytes": 3133
+      },
+      "initial-agentview.png": {
+        "sha256": "d291250c76d72f99ef65b518387bea7bd27a225bacc1e46f7de764cd5c7f209c",
+        "bytes": 59897
+      },
+      "video.mp4": {
+        "sha256": "fa49ce5bb17ddccc05b5e9090a9d53d798b09f6cef51c44b9417539d949c4ae6",
+        "bytes": 278613
+      }
+    },
+    "published_original": "after-near-negative-demo2-original.mp4",
+    "recomputed_metrics": {
+      "control_steps": 446,
+      "any_On": true,
+      "final_On": true,
+      "first_On_control_step": 344,
+      "first_ten_step_release_control_step": 396,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 50,
+        "quantity_complete": true,
+        "all_observed_gate_steps_pass": true,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": 9.320625984852283e-09,
+        "strict_success": true
+      },
+      "completion_control_steps": 446,
+      "right_censored_without_release_at_budget": false,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 446,
+          "mean": 0.24508190001014,
+          "median": 0.11751063250997221
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 445,
+          "mean": 2.7776407927990876,
+          "median": 1.7972131133598304
+        },
+        "low_action_closed_not_On_frames": 70,
+        "longest_low_action_closed_not_On": {
+          "steps": 9,
+          "start_control_step": 267,
+          "end_control_step": 275
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 41,
+          "mean": 0.745170006700191,
+          "median": 0.5579359651010565
+        }
+      }
+    },
+    "final60_audit": {
+      "all_gates_pass": true,
+      "bowl_maximum_drift_m": 1.0864123290253485e-08
+    },
+    "run_offset_s": 1.258020868,
+    "archived_scene": "records/demo-1792485491783291872"
+  },
+  {
+    "demo": "demo-1792485765485557611",
+    "demo_metadata": {
+      "kind": "pi05-lab-screen-demo-v1",
+      "status": "saved",
+      "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-007_init-000",
+      "started_at_ns": 1792485765485633306,
+      "fps": 15,
+      "region": {
+        "x": 82,
+        "y": 27,
+        "width": 2466,
+        "height": 1157,
+        "window_ids": [
+          90177720,
+          92275080
+        ]
+      },
+      "timing": "wall clock, including pauses",
+      "video": "demo.mp4",
+      "stopped_at_ns": 1792485819279624147,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2466,
+            "height": 1158
+          }
+        ],
+        "format": {
+          "duration": "53.667000"
+        }
+      }
+    },
+    "screen_video_sha256": "e75c7c024eaa46f0cbb08aad7d4c51bf341a45da110cc5dfaba284a3ff8aacfb",
+    "source_scene": "evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-007_init-000",
+    "scene": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09286294423527883,
+          0.19824631861827444,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.1
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "fb3c3a481e5856e1739d691ae05a5a733978dd73c4fe7b5aee59501917dcb1c7",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m"
+    },
+    "result": {
+      "layout_id": 0,
+      "seed": 42,
+      "bowl_edit": {
+        "before_xyz": [
+          0.0071370557647211785,
+          0.29824631861827444,
+          0.8984038567263857
+        ],
+        "after_xyz": [
+          -0.09286294423527883,
+          0.19824631861827444,
+          0.8984038567263857
+        ],
+        "dx_m": -0.1,
+        "dy_m": -0.1
+      },
+      "task_metadata": {
+        "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+        "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+      },
+      "initial_state_sha256": "fb3c3a481e5856e1739d691ae05a5a733978dd73c4fe7b5aee59501917dcb1c7",
+      "task_language": "pick up the black bowl next to the plate and place it on the plate",
+      "interactive_experiment": true,
+      "formal_benchmark": false,
+      "untracked_native_gui_edits_possible": true,
+      "replan_steps": 1,
+      "max_steps": 800,
+      "post_success_steps": null,
+      "physics_horizon_ignored": true,
+      "stop_policy": "60 consecutive stable released/retreated steps, max800, or user save",
+      "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+      "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+      "policy_rng": "Server RNG advances across resets; reset does not reseed model sampling",
+      "control_steps": 408,
+      "inference_calls": 408,
+      "success": true,
+      "first_benchmark_success_control_steps": 286,
+      "post_success_steps_executed": 122,
+      "final_benchmark_success": true,
+      "release_and_retreat_success": true,
+      "model_metadata": {
+        "course": "pi05 LoRA",
+        "task": "pick up the black bowl next to the plate and place it on the plate",
+        "action_horizon": 10,
+        "seed": 42,
+        "configuration": "pi05_handson_lora",
+        "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792480483802126335/1999",
+        "checkpoint_step_index": "1999",
+        "model_stage": "ui_correct_1792480483802126335/1999",
+        "policy_sampling_seed_at_server_start": 0,
+        "params_manifest_sha256": "7f663fea182ef9ba232d3aa78697644dbc5f7dff54370451fa6a68972af028f6",
+        "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+      },
+      "control_loop": "responsive_v1",
+      "timing_file": "timing.csv",
+      "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m",
+      "stable_completion_steps": 60,
+      "timing_summary": {
+        "steps": 408,
+        "means": {
+          "action_interval_s": 0.1298844738524746,
+          "client_inference_s": 0.06856916083094855,
+          "server_infer_ms": 66.67725393701545,
+          "ready_to_step_s": 0.014462702717305636,
+          "apply_tick_s": 0.015447743370553808,
+          "eef_move_mm": 1.2554229112304582
+        },
+        "scope": "Client RPC includes network/server work; apply_tick includes observations, physics and recording. Intervals can include user single-step delays."
+      },
+      "stop_reason": "stable_release_complete",
+      "final_state_sha256": "0109719a01796d342296e0472924dfbd21da29e549d4c02b43ab68e30fd0ccff",
+      "video": "video.mp4",
+      "video_frames": 409,
+      "video_fps": 10
+    },
+    "files": [
+      "final_state.npy",
+      "initial_state.npy",
+      "timing.csv",
+      "scene.json",
+      "final-agentview.png",
+      "initial-wrist.png",
+      "actions.csv",
+      "result.json",
+      "initial-agentview.png",
+      "video.mp4"
+    ],
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 2466,
+          "height": 1158,
+          "avg_frame_rate": "15/1",
+          "nb_frames": "805"
+        }
+      ],
+      "format": {
+        "duration": "53.667000"
+      }
+    },
+    "screen_review": {
+      "indices": [
+        0,
+        161,
+        322,
+        482,
+        643,
+        804
+      ],
+      "frames": 805,
+      "sheet": "review/demo-1792485765485557611-screen.jpg"
+    },
+    "agent_review": {
+      "indices": [
+        0,
+        21,
+        43,
+        64,
+        86,
+        107,
+        129,
+        150,
+        172,
+        193,
+        215,
+        236,
+        258,
+        279,
+        301,
+        322,
+        344,
+        365,
+        387,
+        408
+      ],
+      "frames": 409,
+      "sheet": "review/demo-1792485765485557611-agent.jpg"
+    },
+    "operations": {
+      "path": "evaluations/interactive_lab_20261020_161241_1792483961238262412/operations.jsonl",
+      "scene_number": 7,
+      "counts": {
+        "reset": 1,
+        "demo_recording": 1,
+        "run": 1,
+        "saved": 1
+      },
+      "during_capture": [
+        {
+          "time_ns": 1792485765486176365,
+          "scene": 7,
+          "kind": "demo_recording",
+          "recording": true,
+          "message": "正在录制面板＋三维窗口；再次点击停止保存：demo-1792485765485557611"
+        },
+        {
+          "time_ns": 1792485766180288228,
+          "scene": 7,
+          "kind": "run"
+        }
+      ],
+      "during_capture_counts": {
+        "demo_recording": 1,
+        "run": 1
+      }
+    },
+    "source_artifacts": {
+      "final_state.npy": {
+        "sha256": "221fb7e232f6e6ba894f715ae40f0919244e6661c9088ba81d7475bedf08dc1e",
+        "bytes": 864
+      },
+      "initial_state.npy": {
+        "sha256": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+        "bytes": 864
+      },
+      "timing.csv": {
+        "sha256": "89620a782b45763c6d551d8643c36ecfe7fed58d6af5a144143d1911b833a64f",
+        "bytes": 49932
+      },
+      "scene.json": {
+        "sha256": "8b76b53a02cc255ec2de365138b1996ef9e3a84bd3c05271d14e8a6b18f3b1ee",
+        "bytes": 1474
+      },
+      "final-agentview.png": {
+        "sha256": "52f5b8c902dc81d189bb7814fc95eee77e27f1ff0fa8442fef33d6af84352237",
+        "bytes": 61688
+      },
+      "initial-wrist.png": {
+        "sha256": "b561b3a5abe800dac8783e89f5725863c370afabf94cbbc659744afb914be2c1",
+        "bytes": 56084
+      },
+      "actions.csv": {
+        "sha256": "531cea051286e7a8618da9490a8edbdc2edeed70914a768b99c26a1f908fa2e5",
+        "bytes": 198952
+      },
+      "result.json": {
+        "sha256": "9db759e8ed057dac595ed3beddb12940d736a370ee68a703682bb63ba2d26e9e",
+        "bytes": 3101
+      },
+      "initial-agentview.png": {
+        "sha256": "3a532e18a5479e3694093fe46c3e6440cbf37fc90b16ca672e988e157020db18",
+        "bytes": 59507
+      },
+      "video.mp4": {
+        "sha256": "7b5cb962b4e3a02ed742eef7aa9aa5965355084165bf9b31e89276a93b6d0ebc",
+        "bytes": 257355
+      }
+    },
+    "published_original": "after-negative10-original.mp4",
+    "recomputed_metrics": {
+      "control_steps": 408,
+      "any_On": true,
+      "final_On": true,
+      "first_On_control_step": 286,
+      "first_ten_step_release_control_step": 358,
+      "followup": {
+        "requested_steps": 50,
+        "observed_steps": 50,
+        "quantity_complete": true,
+        "all_observed_gate_steps_pass": true,
+        "first_gate_violation_control_step": null,
+        "maximum_bowl_drift_m": 9.330444077783073e-09,
+        "strict_success": true
+      },
+      "completion_control_steps": 408,
+      "right_censored_without_release_at_budget": false,
+      "diagnostic_proxies": {
+        "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+        "action_xyz_norm": {
+          "n": 408,
+          "mean": 0.2256720723766877,
+          "median": 0.10163274111232559
+        },
+        "post_to_post_eef_displacement_mm": {
+          "n": 407,
+          "mean": 2.521340157273702,
+          "median": 1.6681413808575496
+        },
+        "low_action_closed_not_On_frames": 83,
+        "longest_low_action_closed_not_On": {
+          "steps": 17,
+          "start_control_step": 237,
+          "end_control_step": 253
+        },
+        "post_to_post_eef_displacement_within_low_run_mm": {
+          "n": 48,
+          "mean": 0.749351601474789,
+          "median": 0.6911523260034775
+        }
+      }
+    },
+    "final60_audit": {
+      "all_gates_pass": true,
+      "bowl_maximum_drift_m": 1.0845401640730368e-08
+    },
+    "run_offset_s": 0.694654922,
+    "archived_scene": "records/demo-1792485765485557611"
+  }
+]

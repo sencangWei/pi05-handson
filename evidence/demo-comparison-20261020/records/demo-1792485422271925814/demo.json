@@ -1,0 +1,33 @@
+{
+  "kind": "pi05-lab-screen-demo-v1",
+  "status": "saved",
+  "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_161241_1792483961238262412/scene-003_init-000",
+  "started_at_ns": 1792485422272007413,
+  "fps": 15,
+  "region": {
+    "x": 82,
+    "y": 27,
+    "width": 2466,
+    "height": 1083,
+    "window_ids": [
+      90177720,
+      92274850
+    ]
+  },
+  "timing": "wall clock, including pauses",
+  "video": "demo.mp4",
+  "stopped_at_ns": 1792485476191830265,
+  "probe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 2466,
+        "height": 1084
+      }
+    ],
+    "format": {
+      "duration": "53.800000"
+    }
+  }
+}

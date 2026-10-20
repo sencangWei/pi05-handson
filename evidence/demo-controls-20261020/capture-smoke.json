@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "type": "Synthetic Tk windows; no model inference or robot motion",
+  "capture": {
+    "kind": "pi05-lab-screen-demo-v1",
+    "status": "saved",
+    "source_scene": "synthetic-two-window-smoke",
+    "started_at_ns": 1792474204029530029,
+    "fps": 15,
+    "region": {
+      "x": 82,
+      "y": 39,
+      "width": 1012,
+      "height": 434,
+      "window_ids": [
+        92274731,
+        92274726
+      ]
+    },
+    "timing": "wall clock, including pauses",
+    "video": "demo.mp4",
+    "stopped_at_ns": 1792474206681431716,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1012,
+          "height": 434
+        }
+      ],
+      "format": {
+        "duration": "2.403000"
+      }
+    }
+  },
+  "recycled_video_sha256": "cd8d0cc3d58fcc76670e425be78f06662623cc6e361cdaafffa96dbe5806e80b",
+  "deletion_preserved_video_bytes": true,
+  "screenshot": "evidence/demo-controls-20261020/two-window-capture-check.png"
+}

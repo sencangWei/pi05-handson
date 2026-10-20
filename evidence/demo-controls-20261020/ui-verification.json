@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "model_pid_preserved": 4048231,
+  "layout_and_offsets_restored_exactly": true,
+  "policy_motion_during_verification": false,
+  "session": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_133046_1792474246941380212",
+  "screenshot": "buttons-ready.png"
+}

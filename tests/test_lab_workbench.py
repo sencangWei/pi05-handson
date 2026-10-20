@@ -118,6 +118,23 @@ class WorkbenchTests(unittest.TestCase):
         self.assertTrue(self.lab.view.paused)
         self.assertFalse(self.lab.env.applied)
 
+    def test_demo_buttons_do_not_start_motion_and_save_stops_recording(self):
+        with self.assertRaises(ValueError):
+            self.lab.toggle_demo(12)
+        self.lab.reset(0)
+        demo = Mock(recording=False, last=None, message="demo status")
+        self.lab.demo = demo
+        self.lab.toggle_demo(12)
+        demo.start.assert_called_once_with(12, self.lab.record.directory)
+        self.assertTrue(self.lab.view.paused)
+        self.assertFalse(self.lab.env.applied)
+        demo.recording = True
+        self.lab.save()
+        demo.stop.assert_called_once()
+        demo.recording = False
+        self.lab.delete_last_demo()
+        demo.delete_last.assert_called_once()
+
     def test_switch_model_archives_scene_and_closes_old_connection(self):
         self.lab.reset(0)
         self.lab.policy = Mock()

@@ -9,3 +9,6 @@ exports/
 
 # Locally collected correction images and physical state snapshots.
 /corrections/
+
+# User screen recordings; keep private and separate from evaluation/training data.
+/demos/

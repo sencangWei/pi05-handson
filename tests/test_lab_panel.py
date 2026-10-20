@@ -105,6 +105,39 @@ class PanelTests(unittest.TestCase):
         self.assertTrue(self.panel._tick_enabled)
 
 
+class FakeDemoBackend(FakeBackend):
+    def __init__(self):
+        super().__init__()
+        self.data.update(demo_recording=False, demo_available=False, demo_status="准备录制")
+
+    def toggle_demo(self, panel_id):
+        self.calls.append(("demo", panel_id))
+        recording = not self.data["demo_recording"]
+        self.data.update(demo_recording=recording, demo_available=not recording)
+
+    def delete_last_demo(self):
+        self.calls.append(("delete_demo",))
+        self.data["demo_available"] = False
+
+
+class DemoPanelTests(PanelTests):
+    backend_class = FakeDemoBackend
+
+    def test_record_stop_delete_dispatch_and_states_without_motion(self):
+        self.assertEqual(str(self.panel.demo_button.cget("state")), "disabled")
+        self.panel.load_button.invoke()
+        self.panel.demo_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("demo", self.root.winfo_id()))
+        self.assertFalse(self.backend.data["running"])
+        self.assertEqual(self.panel.demo_button.cget("text"), "停止并保存 Demo")
+        self.assertEqual(str(self.panel.delete_demo_button.cget("state")), "disabled")
+        self.panel.demo_button.invoke()
+        self.assertEqual(str(self.panel.delete_demo_button.cget("state")), "normal")
+        self.panel.delete_demo_button.invoke()
+        self.assertEqual(self.backend.calls[-1], ("delete_demo",))
+        self.assertEqual(str(self.panel.delete_demo_button.cget("state")), "disabled")
+
+
 class FakeWorkbench(FakeBackend):
     def __init__(self):
         super().__init__()

@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "gui_record_stop_delete_buttons": true,
+  "capture": {
+    "kind": "pi05-lab-screen-demo-v1",
+    "status": "saved",
+    "source_scene": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-001_init-000",
+    "started_at_ns": 1792474297248219860,
+    "fps": 15,
+    "region": {
+      "x": 82,
+      "y": 27,
+      "width": 2466,
+      "height": 1046,
+      "window_ids": [
+        88080568,
+        90177583
+      ]
+    },
+    "timing": "wall clock, including pauses",
+    "video": "demo.mp4",
+    "stopped_at_ns": 1792474300257270631,
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 2466,
+          "height": 1046
+        }
+      ],
+      "format": {
+        "duration": "2.867000"
+      }
+    }
+  },
+  "deleted_demo": "demo-1792474297248146422",
+  "video_sha256": "890f201dd057d0e5e7b6aa19740fc0dafd6bc0da23e15d7d3060a5b12a4e355e",
+  "recycled_video": "/home/robot/.pi05-handson/.local/demo-trash/demo-1792474297248146422-1792474301389763111/demo.mp4",
+  "recording_test_motion": "Scene remained paused; no model actions executed."
+}

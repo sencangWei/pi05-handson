@@ -12,6 +12,7 @@ import webbrowser
 from evaluate_libero import write_json
 from export_training_curves import parse_metrics
 from lab_jobs import LabJobs
+from demo_recording import DemoRecording
 from responsive_lab import ResponsiveSimulationLab
 from simulation_lab import ROOT, PolicyConnection
 
@@ -19,6 +20,7 @@ from simulation_lab import ROOT, PolicyConnection
 class LabWorkbench(ResponsiveSimulationLab):
     def __init__(self, output, task, *, port=8755, jobs=None, root=ROOT, **kwargs):
         self.project = Path(root).resolve()
+        self.demo = DemoRecording(self.project)
         self.port = port
         self.jobs = jobs or LabJobs(self.project, port)
         self.connection = "尚未检查连接；可连接外部服务或在本页启动模型"
@@ -158,11 +160,32 @@ class LabWorkbench(ResponsiveSimulationLab):
             super().tick()
         finally:
             self._collect_background()
+            self.demo.poll()
+
+    def toggle_demo(self, panel_id):
+        if self.demo.recording:
+            self.demo.stop()
+        else:
+            if self.view is None or not self.view.is_running():
+                raise ValueError("请先加载仿真布局")
+            self.demo.start(panel_id, self.record.directory)
+        self.event("demo_recording", recording=self.demo.recording, message=self.demo.message)
+
+    def delete_last_demo(self):
+        self.demo.delete_last()
+        self.event("demo_deleted", message=self.demo.message)
+
+    def save(self, reason="user_saved"):
+        if self.demo.recording:
+            self.demo.stop()
+        return super().save(reason)
 
     def state(self):
         value = super().state()
         value["training_running"] = self.job_state["training"]["running"]
         value["current_result_path"] = str(self.record.directory / "result.json") if self.record else ""
+        value.update(demo_recording=self.demo.recording, demo_available=self.demo.last is not None,
+                     demo_status=self.demo.message)
         return value
 
     def workbench_state(self):

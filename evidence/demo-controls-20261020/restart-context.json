@@ -1,0 +1,33 @@
+{
+  "layout_id": 0,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.0071370557647211785,
+      0.29824631861827444,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      -0.06029509454843121,
+      0.20659704930720973,
+      0.8984038567263857
+    ],
+    "dx_m": -0.06743215031315239,
+    "dy_m": -0.09164926931106471
+  },
+  "source_session": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_124632_1792471592321820305",
+  "model_job": {
+    "pid": 4048231,
+    "log": "/home/robot/.pi05-handson/logs/ui_model_1792471732893324624.log",
+    "cmdline": [
+      "/home/robot/.pi05-handson/.venv/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/serve_checkpoint.py",
+      "--checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+      "--port",
+      "8755"
+    ],
+    "create_time": 1792471732.26
+  }
+}

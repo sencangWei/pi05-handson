@@ -81,6 +81,16 @@ class LabPanel:
         ttk.Button(controls, text="打开结果目录", command=lambda: self._perform(self._open_results)).grid(
             row=1, column=1, columnspan=2, padx=5)
         ttk.Button(controls, text="退出", command=self.close).grid(row=1, column=3, padx=5)
+        if hasattr(lab, "toggle_demo"):
+            self.demo_button = ttk.Button(controls, text="录制 Demo", command=lambda: self._perform(
+                lambda: lab.toggle_demo(root.winfo_id())))
+            self.demo_button.grid(row=2, column=0, columnspan=2, sticky="w", pady=5)
+            self.delete_demo_button = ttk.Button(controls, text="删除上一个 Demo",
+                                                  command=lambda: self._perform(lab.delete_last_demo))
+            self.delete_demo_button.grid(row=2, column=2, columnspan=2, sticky="w", padx=5)
+            self.demo_var = tk.StringVar(root)
+            ttk.Label(controls, textvariable=self.demo_var, wraplength=650).grid(
+                row=3, column=0, columnspan=4, sticky="w")
         self.info_var = tk.StringVar(root)
         ttk.Label(frame, textvariable=self.info_var, justify="left", wraplength=470).grid(
             row=7, column=0, columnspan=3, sticky="w", pady=(8, 0))
@@ -146,6 +156,12 @@ class LabPanel:
                                   text="暂停" if state["running"] else "运行")
         self.step_button.configure(state="normal" if available else "disabled")
         self.save_button.configure(state="normal" if state["ready"] and not correcting else "disabled")
+        if hasattr(self, "demo_button"):
+            recording = state.get("demo_recording", False)
+            self.demo_button.configure(text="停止并保存 Demo" if recording else "录制 Demo",
+                                       state="normal" if recording or state["ready"] else "disabled")
+            self.delete_demo_button.configure(state="normal" if state.get("demo_available") and not recording else "disabled")
+            self.demo_var.set(state.get("demo_status", ""))
         layout = state["layout_id"] if state["layout_id"] is not None else "未加载"
         reached = "已达到" if state["on_reached"] else "未达到"
         model = state["model_name"]

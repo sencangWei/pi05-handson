@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "release_url": "https://github.com/sencangWei/pi05-handson/releases/tag/edge-recovery-20261020",
+  "downloaded_assets": [
+    {
+      "name": "adapter.npz",
+      "sha256": "84edf84c920915e9f5f5d169403e0fe81d70d25c71101eecf29a24830a9c7bc9",
+      "bytes": 185316298
+    },
+    {
+      "name": "metadata.json",
+      "sha256": "9eacb6a02d01c985230c8241ba6c139f1d48fb94e934cc0fbda5f8c41b67fa8e",
+      "bytes": 30133
+    },
+    {
+      "name": "norm_stats.json",
+      "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788",
+      "bytes": 1966
+    },
+    {
+      "name": "new-corrections-and-scenes.tar.gz",
+      "sha256": "435a5029127b26e720428ce1481dad19b9e8021e479b5eed1190aa5c972ba4bc",
+      "bytes": 120466622
+    }
+  ],
+  "restored_raw_files": 835,
+  "all_restored_files_equal_archived_and_local_sha256": true,
+  "new_human_action_frames": 805,
+  "saved_initial_scenes": 5,
+  "manifest_sha256": "5a45a5cfe9e8de00ffa5b637ef83920dd4d306540b13d5ecc4dc9fcdd1fb7b01"
+}

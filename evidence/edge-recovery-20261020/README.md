@@ -69,7 +69,7 @@ cd ~/.pi05-handson
 .venv/bin/python evidence/edge-recovery-20261020/summarize.py
 ```
 
-index.html含全部20条仿真视频，review/index.html含4条人工双相机片段。视频按控制帧保存，不能用视频播放秒数替代包含模型推理与渲染的实际墙钟耗时。部分父模型评测期间有CPU导出活动，故仅比较配对控制步，不宣称纯推理速度差。
+index.html含全部20条仿真视频，review/index.html含4条人工双相机片段。rollouts/归档全部20条CSV/结果/状态，可用 `.venv/bin/python evidence/edge-recovery-20261020/audit_artifacts.py` 无模型重算并核对视频、状态与指标哈希。视频按控制帧保存，不能用视频播放秒数替代包含模型推理与渲染的实际墙钟耗时。部分父模型评测期间有CPU导出活动，故仅比较配对控制步，不宣称纯推理速度差。
 
 ## 备份范围
 
@@ -77,4 +77,4 @@ index.html含全部20条仿真视频，review/index.html含4条人工双相机�
 
 另附4条新纠错的805帧完整原始记录及5个初始场景，共835个文件，raw-backup-manifest.json逐文件列出哈希。旧47条训练数据仍本机保留，不在本次新增数据压缩包中。训练checkpoint/train_state仍在本机，不能把推理adapter称为完整可续训checkpoint。
 
-远端下载后的模型重建核查、原始纠错恢复核查将在本目录对应verification.json记录。代码、配置、视频与证据通过experiment/correction-learning分支备份，并以独立干净工作树应用远端补丁、比较Git树和逐文件SHA256核查。实际远端验证完成前不声称备份成功。
+远端下载已核查完成：model-restore-verification.json确认71张量及归一化与原模型逐项相同；raw-restore-verification.json确认四个远端资产的SHA256相同，并实际恢复835个原始文件逐个比对通过；release-verification.json确认公开prerelease及4个资产状态。代码、配置、视频与证据通过experiment/correction-learning分支备份，并以独立干净工作树应用远端补丁、比较Git树和逐文件SHA256核查。代码恢复证明写入本机 `.local/edge-recovery-remote-20261020/code-restore-proof.json`，该证明不加入自身校验的Git树以避免自引用。

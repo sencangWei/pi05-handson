@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "url": "https://github.com/sencangWei/pi05-handson/releases/tag/edge-recovery-20261020",
+  "release_id": 418127984,
+  "public_prerelease": true,
+  "assets": [
+    {
+      "name": "adapter.npz",
+      "bytes": 185316298,
+      "state": "uploaded"
+    },
+    {
+      "name": "metadata.json",
+      "bytes": 30133,
+      "state": "uploaded"
+    },
+    {
+      "name": "new-corrections-and-scenes.tar.gz",
+      "bytes": 120466622,
+      "state": "uploaded"
+    },
+    {
+      "name": "norm_stats.json",
+      "bytes": 1966,
+      "state": "uploaded"
+    }
+  ],
+  "model_download_and_restore": "model-restore-verification.json",
+  "data_download_and_restore": "raw-restore-verification.json",
+  "candidate_promoted": false,
+  "upload_deviation": "All4assets uploaded successfully; first final publish PATCH hit EOF and left draft; recovered by inspecting asset states and patching draft=false without reupload."
+}

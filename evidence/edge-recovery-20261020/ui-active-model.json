@@ -1,0 +1,17 @@
+{
+  "status": "PARENT_ACTIVE_NOT_PROMOTED",
+  "port": 8755,
+  "metadata": {
+    "course": "pi05 LoRA",
+    "task": "pick up the black bowl next to the plate and place it on the plate",
+    "action_horizon": 10,
+    "seed": 42,
+    "configuration": "pi05_handson_lora",
+    "checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+    "checkpoint_step_index": "999",
+    "model_stage": "ui_correct_1792434450272918886/999",
+    "policy_sampling_seed_at_server_start": 0,
+    "params_manifest_sha256": "30d3a1301666f17243441f1f1876dc6ae99794fcd521c014e7ff344e0e77f1b9",
+    "norm_stats_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  }
+}

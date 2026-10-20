@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "inference_only": true,
+  "optimizer_state_restored": false,
+  "tensor_count": 71,
+  "all_original_tensor_hashes_match": true,
+  "original_tree_sha256": "89268228067e74f8b9ab5b4424e55ccdc22dd9207511b82c19f6fe539b977304",
+  "restored_tree_sha256": "89268228067e74f8b9ab5b4424e55ccdc22dd9207511b82c19f6fe539b977304",
+  "adapter_metadata_sha256": "9eacb6a02d01c985230c8241ba6c139f1d48fb94e934cc0fbda5f8c41b67fa8e",
+  "normalization_sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+}

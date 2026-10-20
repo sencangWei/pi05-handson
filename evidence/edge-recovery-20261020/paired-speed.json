@@ -1,0 +1,41 @@
+{
+  "both_strict_success_pairs": [
+    {
+      "case": "near_negative_control",
+      "seed": 0,
+      "parent_steps": 234,
+      "candidate_steps": 311,
+      "delta_steps": 77
+    },
+    {
+      "case": "positive_edge_control",
+      "seed": 0,
+      "parent_steps": 303,
+      "candidate_steps": 398,
+      "delta_steps": 95
+    },
+    {
+      "case": "negative_edge_target",
+      "seed": 1,
+      "parent_steps": 350,
+      "candidate_steps": 486,
+      "delta_steps": 136
+    },
+    {
+      "case": "near_negative_control",
+      "seed": 1,
+      "parent_steps": 229,
+      "candidate_steps": 475,
+      "delta_steps": 246
+    },
+    {
+      "case": "positive_control",
+      "seed": 1,
+      "parent_steps": 240,
+      "candidate_steps": 353,
+      "delta_steps": 113
+    }
+  ],
+  "paired_mean_extra_control_steps": 133.4,
+  "note": "Control-step comparison is paired and deterministic in initial state/seed; wall duration includes inference, CPU export contention in some parent trials, rendering, and video encoding; no pure model speed claim."
+}

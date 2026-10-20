@@ -1,0 +1,69 @@
+{
+  "status": "FROZEN_BEFORE_TRAINING",
+  "parent": "checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+  "parent_params_manifest_sha256": "30d3a1301666f17243441f1f1876dc6ae99794fcd521c014e7ff344e0e77f1b9",
+  "new_updates": 2000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "training_seed": 42,
+  "action_horizon": 10,
+  "replan_steps": 1,
+  "policy_seeds": [
+    0,
+    1
+  ],
+  "cases": [
+    {
+      "case": "negative_edge_target",
+      "source_scene": "evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-007_init-000",
+      "role": "target_development",
+      "max_steps": 800,
+      "initialize_saved_controller": false,
+      "scene_sha256": "8b76b53a02cc255ec2de365138b1996ef9e3a84bd3c05271d14e8a6b18f3b1ee",
+      "initial_state_file_sha256": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01"
+    },
+    {
+      "case": "first_regrasp_control",
+      "source_scene": "evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-001_init-000",
+      "role": "known_success_control",
+      "max_steps": 800,
+      "initialize_saved_controller": false,
+      "scene_sha256": "dd94b04f48423c1c71abdb1be74c22df47bc3b836682ce4d3d65602fdd2462c3",
+      "initial_state_file_sha256": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6"
+    },
+    {
+      "case": "near_negative_control",
+      "source_scene": "evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-002_init-000",
+      "role": "known_success_control",
+      "max_steps": 800,
+      "initialize_saved_controller": false,
+      "scene_sha256": "c2041fc92cbf9c62bdf679c1e1de8fd20521d1f8a982ca7e448f898afc2f1443",
+      "initial_state_file_sha256": "d689041f15afc08fcc175620f9949334017b65906fc84abdb04ff83433b4bb6e"
+    },
+    {
+      "case": "positive_control",
+      "source_scene": "evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-003_init-000",
+      "role": "known_success_control",
+      "max_steps": 800,
+      "initialize_saved_controller": false,
+      "scene_sha256": "bd6e9b7fa7280aa7abf1782c84baf61960d910dd9921d2d375830cc37a84b726",
+      "initial_state_file_sha256": "fb06ddcbde5370003437ebdabd68277a946b659b4694698560f4ff8bfab79b32"
+    },
+    {
+      "case": "positive_edge_control",
+      "source_scene": "evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-006_init-000",
+      "role": "known_success_control",
+      "max_steps": 800,
+      "initialize_saved_controller": false,
+      "scene_sha256": "184cb18897425bc9c22ce8ec165763ab712d1760bb487d32ba0d112d96c0fab7",
+      "initial_state_file_sha256": "208ca0970852ec6daf7e13bcd3ebc6032610add84d9d189c894821de46cc55c8"
+    }
+  ],
+  "evaluation_protocol": "Ten consecutive On/open/gap>=.06m/retreat>=.10m steps, followed by50policy steps; strict requires all50gates and bowl drift<=.005m; max800.",
+  "limits": [
+    "All5layouts are previously observed development cases; target has human corrections in training. Not independent generalization.",
+    "Same physical initial states and matched per-connection policy RNG seeds for parent/candidate. GUI history RNG is not reproduced.",
+    "Original parent weights unchanged; parent matched rollout may run after training to prioritize requested trainer start. No changes to matrix after candidate results.",
+    "One bounded training run only; preserve parent and raw data, do not amplify policy actions to mask failures."
+  ]
+}

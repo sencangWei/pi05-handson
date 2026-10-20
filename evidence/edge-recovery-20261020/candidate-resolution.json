@@ -1,0 +1,47 @@
+{
+  "status": "TRAINING_COMPLETE",
+  "experiment": "ui_correct_1792480483802126335",
+  "checkpoint": "checkpoints/pi05_handson_lora/ui_correct_1792480483802126335/1999",
+  "parent": "checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+  "new_updates": 2000,
+  "batch_size": 4,
+  "learning_rate": 1e-05,
+  "seed": 42,
+  "manifest": "evidence/corrections-edge_recovery_focus_20261020-manifest.json",
+  "sampling": "public50%, previoushuman20%, newhuman30%; every real frame retained",
+  "job": {
+    "pid": 4150786,
+    "log": "/home/robot/.pi05-handson/logs/ui_training_1792480483802157306.log",
+    "cmdline": [
+      "/home/robot/.pi05-handson/.venv/bin/python",
+      "-u",
+      "/home/robot/.pi05-handson/scripts/train_corrections.py",
+      "--manifest",
+      "/home/robot/.pi05-handson/evidence/corrections-edge_recovery_focus_20261020-manifest.json",
+      "--parent-checkpoint",
+      "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+      "--steps",
+      "2000",
+      "--batch-size",
+      "4",
+      "--learning-rate",
+      "1e-05",
+      "--experiment",
+      "ui_correct_1792480483802126335"
+    ],
+    "create_time": 1792480483.19
+  },
+  "launch_surface": "Existing LabJobs API, registered and visible to lab GUI",
+  "stopped_only_owned_course_model_pid": 4048231,
+  "launch_note": "Initial launcher attempted cmdline on status-only return, raised KeyError after successful spawn; recovered exact cmdline from job registry, verified process, did NOT relaunch.",
+  "authorization": "我刚录了几条你训练试试",
+  "params_manifest_sha256": "7f663fea182ef9ba232d3aa78697644dbc5f7dff54370451fa6a68972af028f6",
+  "training_log_sha256": "8e9db283bb69243f8fa4459f56298a5ed5cef8588a76bd1a96c2efe4bbe034e5",
+  "logged_steps": 200,
+  "last_logged_step": [
+    "1990",
+    "0.1457",
+    "0.0175",
+    "1803.5801"
+  ]
+}

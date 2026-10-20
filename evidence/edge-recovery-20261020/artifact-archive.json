@@ -1,0 +1,102 @@
+[
+  {
+    "directory": "rollouts/parent/seed-0/negative_edge_target",
+    "video": "videos/parent-negative_edge_target.mp4",
+    "video_sha256": "b13091799a7afcf9b5c7f4863171821bbf1ec63443ae17098b437e8a919315ba"
+  },
+  {
+    "directory": "rollouts/parent/seed-0/first_regrasp_control",
+    "video": "videos/parent-first_regrasp_control.mp4",
+    "video_sha256": "626825e0b597dbc428ca050f40e27a5201ff4c85fff6ca5ca92ad4da77de9ea4"
+  },
+  {
+    "directory": "rollouts/parent/seed-0/near_negative_control",
+    "video": "videos/parent-near_negative_control.mp4",
+    "video_sha256": "a2e99d9929e07191db73e75257c4f294dc48dc31627ff12fd56e8ac57cbac252"
+  },
+  {
+    "directory": "rollouts/parent/seed-0/positive_control",
+    "video": "videos/parent-positive_control.mp4",
+    "video_sha256": "c36ae164a67bcccce54630cbb8c4b7c04be243a0c2df3c1c00c8f4e7510d989f"
+  },
+  {
+    "directory": "rollouts/parent/seed-0/positive_edge_control",
+    "video": "videos/parent-positive_edge_control.mp4",
+    "video_sha256": "e46773d053472ffcf37296af49b5fa6f478366a91e4508ff7bbfaf48ca69e80e"
+  },
+  {
+    "directory": "rollouts/parent/seed-1/negative_edge_target",
+    "video": "videos/parent-negative_edge_target-seed-1.mp4",
+    "video_sha256": "0bcceb0b3cc89cb7cc229745b0de47490b649572b89ce102610c9f0778e1e9c9"
+  },
+  {
+    "directory": "rollouts/parent/seed-1/first_regrasp_control",
+    "video": "videos/parent-first_regrasp_control-seed-1.mp4",
+    "video_sha256": "07184959770f73dc01859b7879fc9325e1d27c2270c11f9e174ffc6559ccdaf2"
+  },
+  {
+    "directory": "rollouts/parent/seed-1/near_negative_control",
+    "video": "videos/parent-near_negative_control-seed-1.mp4",
+    "video_sha256": "b1bc8b96dd9e0873b4d65eb00d832597db719f1f898fce15041a7fadb63b4339"
+  },
+  {
+    "directory": "rollouts/parent/seed-1/positive_control",
+    "video": "videos/parent-positive_control-seed-1.mp4",
+    "video_sha256": "35a15fed111547674d6392e38d5a84650acf56782cfca3aa3220d6f217d1f571"
+  },
+  {
+    "directory": "rollouts/parent/seed-1/positive_edge_control",
+    "video": "videos/parent-positive_edge_control-seed-1.mp4",
+    "video_sha256": "c065ab41c23a82e87c120ec212caecf5965e79e05060bf19d0422e03e8dc82af"
+  },
+  {
+    "directory": "rollouts/candidate/seed-0/negative_edge_target",
+    "video": "videos/candidate-negative_edge_target.mp4",
+    "video_sha256": "4ffaf4e2f73859d9ec01a407af4db056258ec5954829cd2cd42274238933295c"
+  },
+  {
+    "directory": "rollouts/candidate/seed-0/first_regrasp_control",
+    "video": "videos/candidate-first_regrasp_control.mp4",
+    "video_sha256": "eb472b8b27233020d2ece68d0d506fc09d938e5a0323d8011491a0cdf39bdf19"
+  },
+  {
+    "directory": "rollouts/candidate/seed-0/near_negative_control",
+    "video": "videos/candidate-near_negative_control.mp4",
+    "video_sha256": "5f3c0720f78ef7e58b9d097ea149a188c241559d89c1a965e5b529176a84de68"
+  },
+  {
+    "directory": "rollouts/candidate/seed-0/positive_control",
+    "video": "videos/candidate-positive_control.mp4",
+    "video_sha256": "7a82a5286af479b2ded7686025f3e3a06e3ffb1b732ebacf125c305e64dab57b"
+  },
+  {
+    "directory": "rollouts/candidate/seed-0/positive_edge_control",
+    "video": "videos/candidate-positive_edge_control.mp4",
+    "video_sha256": "c14592891c5b8416d5a046397ca9d8938b47261972bda63b2399de14cc7572a6"
+  },
+  {
+    "directory": "rollouts/candidate/seed-1/negative_edge_target",
+    "video": "videos/candidate-negative_edge_target-seed-1.mp4",
+    "video_sha256": "43c622c765d1372d82c67c1fa26c9e1863cd6fff1c57ca29edf020fe632ab00b"
+  },
+  {
+    "directory": "rollouts/candidate/seed-1/first_regrasp_control",
+    "video": "videos/candidate-first_regrasp_control-seed-1.mp4",
+    "video_sha256": "f9d0432d5d137ae6ad59cfcc8d7ce4c41fa145052ac1550bac4af5bfe32d85ee"
+  },
+  {
+    "directory": "rollouts/candidate/seed-1/near_negative_control",
+    "video": "videos/candidate-near_negative_control-seed-1.mp4",
+    "video_sha256": "07255817d270abde4c18e5c5066498879027faaf09d2c14cf43f4c8cef55dc49"
+  },
+  {
+    "directory": "rollouts/candidate/seed-1/positive_control",
+    "video": "videos/candidate-positive_control-seed-1.mp4",
+    "video_sha256": "5f742e6211043d7839c1afc4fb0f67622e774225b41b32829600d8f1c1bb19a5"
+  },
+  {
+    "directory": "rollouts/candidate/seed-1/positive_edge_control",
+    "video": "videos/candidate-positive_edge_control-seed-1.mp4",
+    "video_sha256": "4d150e724034bbe9f92a5fbcc37f4827a105b5eeafc9a39784c6b48205b338b5"
+  }
+]

@@ -1,0 +1,34 @@
+<!doctype html><meta charset="utf-8"><title>新增人工干预微调对比</title><style>body{max-width:1100px;margin:32px auto;font:18px sans-serif;line-height:1.6}video{max-width:100%}</style><h1>新增人工干预微调：训练前后对比</h1><p>布局0的1个负向边缘目标位置、4个已知开发对照，各2个推理种子。严格通过要求连续10步放置、松爪、撤手后再观察50步，碗漂移不超过5毫米。这些是开发诊断，不是独立泛化成功率；全部从保存的物理初始状态启动，不是从人工接管中途续跑。</p><p><strong>请分别阅读：</strong>本轮全部案例从保存的初始布局启动；目标位置及对照均用于开发诊断。此前旧模型的五条用户录屏中，前四条完成放置，最后一条负向边缘位置达到800步仍失败；新模型结果以本页配对评测为准。</p><p><strong>结论：</strong>目标位置严格通过1/2→2/2；总计7/10→8/10。仍有一条盘上闭爪停滞；另一条放置、撤手后出现一次闭爪指令，碗仍稳定在盘上，但未通过预先固定的持续开爪门限。配对成功的五条全部增加控制步，因此不推荐直接替代旧模型。</p><p><a href="review/index.html">新增人工干预片段</a> · <a href="summary.json">完整指标与校验</a></p><pre>{
+  &quot;parent&quot;: {
+    &quot;known_success_control&quot;: {
+      &quot;trials&quot;: 8,
+      &quot;strict_successes&quot;: 6,
+      &quot;completed_followup_gate_failures&quot;: 0,
+      &quot;no_release_at_budget&quot;: 1,
+      &quot;release_followup_incomplete&quot;: 1
+    },
+    &quot;target_development&quot;: {
+      &quot;trials&quot;: 2,
+      &quot;strict_successes&quot;: 1,
+      &quot;completed_followup_gate_failures&quot;: 0,
+      &quot;no_release_at_budget&quot;: 1,
+      &quot;release_followup_incomplete&quot;: 0
+    }
+  },
+  &quot;candidate&quot;: {
+    &quot;known_success_control&quot;: {
+      &quot;trials&quot;: 8,
+      &quot;strict_successes&quot;: 6,
+      &quot;completed_followup_gate_failures&quot;: 1,
+      &quot;no_release_at_budget&quot;: 1,
+      &quot;release_followup_incomplete&quot;: 0
+    },
+    &quot;target_development&quot;: {
+      &quot;trials&quot;: 2,
+      &quot;strict_successes&quot;: 2,
+      &quot;completed_followup_gate_failures&quot;: 0,
+      &quot;no_release_at_budget&quot;: 0,
+      &quot;release_followup_incomplete&quot;: 0
+    }
+  }
+}</pre><h3>parent / seed 0 / negative_edge_target</h3><p>严格通过：None；控制步：800</p><video controls preload="metadata" width="768" src="videos/parent-negative_edge_target.mp4"></video><h3>parent / seed 0 / first_regrasp_control</h3><p>严格通过：None；控制步：800</p><video controls preload="metadata" width="768" src="videos/parent-first_regrasp_control.mp4"></video><h3>parent / seed 0 / near_negative_control</h3><p>严格通过：True；控制步：234</p><video controls preload="metadata" width="768" src="videos/parent-near_negative_control.mp4"></video><h3>parent / seed 0 / positive_control</h3><p>严格通过：None；控制步：800</p><video controls preload="metadata" width="768" src="videos/parent-positive_control.mp4"></video><h3>parent / seed 0 / positive_edge_control</h3><p>严格通过：True；控制步：303</p><video controls preload="metadata" width="768" src="videos/parent-positive_edge_control.mp4"></video><h3>parent / seed 1 / negative_edge_target</h3><p>严格通过：True；控制步：350</p><video controls preload="metadata" width="768" src="videos/parent-negative_edge_target-seed-1.mp4"></video><h3>parent / seed 1 / first_regrasp_control</h3><p>严格通过：True；控制步：328</p><video controls preload="metadata" width="768" src="videos/parent-first_regrasp_control-seed-1.mp4"></video><h3>parent / seed 1 / near_negative_control</h3><p>严格通过：True；控制步：229</p><video controls preload="metadata" width="768" src="videos/parent-near_negative_control-seed-1.mp4"></video><h3>parent / seed 1 / positive_control</h3><p>严格通过：True；控制步：240</p><video controls preload="metadata" width="768" src="videos/parent-positive_control-seed-1.mp4"></video><h3>parent / seed 1 / positive_edge_control</h3><p>严格通过：True；控制步：259</p><video controls preload="metadata" width="768" src="videos/parent-positive_edge_control-seed-1.mp4"></video><h3>candidate / seed 0 / negative_edge_target</h3><p>严格通过：True；控制步：403</p><video controls preload="metadata" width="768" src="videos/candidate-negative_edge_target.mp4"></video><h3>candidate / seed 0 / first_regrasp_control</h3><p>严格通过：True；控制步：364</p><video controls preload="metadata" width="768" src="videos/candidate-first_regrasp_control.mp4"></video><h3>candidate / seed 0 / near_negative_control</h3><p>严格通过：True；控制步：311</p><video controls preload="metadata" width="768" src="videos/candidate-near_negative_control.mp4"></video><h3>candidate / seed 0 / positive_control</h3><p>严格通过：True；控制步：471</p><video controls preload="metadata" width="768" src="videos/candidate-positive_control.mp4"></video><h3>candidate / seed 0 / positive_edge_control</h3><p>严格通过：True；控制步：398</p><video controls preload="metadata" width="768" src="videos/candidate-positive_edge_control.mp4"></video><h3>candidate / seed 1 / negative_edge_target</h3><p>严格通过：True；控制步：486</p><video controls preload="metadata" width="768" src="videos/candidate-negative_edge_target-seed-1.mp4"></video><h3>candidate / seed 1 / first_regrasp_control</h3><p>严格通过：None；控制步：800</p><video controls preload="metadata" width="768" src="videos/candidate-first_regrasp_control-seed-1.mp4"></video><h3>candidate / seed 1 / near_negative_control</h3><p>严格通过：True；控制步：475</p><video controls preload="metadata" width="768" src="videos/candidate-near_negative_control-seed-1.mp4"></video><h3>candidate / seed 1 / positive_control</h3><p>严格通过：True；控制步：353</p><video controls preload="metadata" width="768" src="videos/candidate-positive_control-seed-1.mp4"></video><h3>candidate / seed 1 / positive_edge_control</h3><p>严格通过：False；控制步：387</p><video controls preload="metadata" width="768" src="videos/candidate-positive_edge_control-seed-1.mp4"></video>

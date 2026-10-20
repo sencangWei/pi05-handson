@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "virtual_samples": 200000,
+  "real_samples": 6931,
+  "every_real_start_retained": true,
+  "checked_virtual_samples": 23,
+  "state_action_image_wrist_exact": true,
+  "sampling": {
+    "profile": {
+      "path": "evidence/edge-recovery-20261020-profile.json",
+      "sha256": "58c8acdba4caff8c12d05a78c64d446761aeeb0ae1f4775a3885fea35fa3a464"
+    },
+    "base_manifest": "evidence/corrections-public37_edge_recovery_v1-manifest.json",
+    "base_manifest_sha256": "1d136c86297eb1d1fbb1f4428fe5a0f9cd8a218ceaeacccb62eeda644c39dfd3",
+    "repo_id": "course/libero_corrections_public37_edge_recovery_v1",
+    "real_frames": 6931,
+    "virtual_frames": 200000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 100000,
+        "real_frames": 4400,
+        "probability": 0.5
+      },
+      {
+        "name": "previous_approved_human",
+        "ranges": [
+          [
+            4400,
+            6126
+          ]
+        ],
+        "virtual_count": 40000,
+        "real_frames": 1726,
+        "probability": 0.2
+      },
+      {
+        "name": "new_negative_edge_recovery",
+        "ranges": [
+          [
+            6126,
+            6931
+          ]
+        ],
+        "virtual_count": 60000,
+        "real_frames": 805,
+        "probability": 0.3
+      }
+    ],
+    "sampling_indices_sha256": "24d3f6e8a2ecd4f82e2d199ee7ccad0dd711dc3b2061d9daf1738732031f1ffc",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  }
+}

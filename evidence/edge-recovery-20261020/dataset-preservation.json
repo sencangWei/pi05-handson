@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "train_episodes": 51,
+  "train_frames": 6931,
+  "previous47episode_parquet_bytes_identical": true,
+  "new_human_frames": 805,
+  "new_human_episodes": 4,
+  "old_holdout_episodes": 10,
+  "old_holdout_frames": 1170,
+  "base_manifest_sha256": "1d136c86297eb1d1fbb1f4428fe5a0f9cd8a218ceaeacccb62eeda644c39dfd3",
+  "training_manifest_sha256": "7b6dbbac2d4075968985419d315635c3aa1d6c895233f1d9f5aa22e3e73bb11b"
+}

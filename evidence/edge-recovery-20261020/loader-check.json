@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "1d136c86297eb1d1fbb1f4428fe5a0f9cd8a218ceaeacccb62eeda644c39dfd3",
+  "loader": "openpi.training.data_loader.create_torch_dataset",
+  "train_episodes": 51,
+  "train_frames": 6931,
+  "human_frames_exact": 2531,
+  "episode_start_tail_end_windows_checked": 153,
+  "action_shape": [
+    10,
+    7
+  ],
+  "state_shape": [
+    8
+  ],
+  "training_started": false,
+  "model_weights_loaded": false,
+  "limits": "Reader, labels and configuration checks only; no GPU training or rollout acceptance."
+}

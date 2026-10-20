@@ -1,0 +1,124 @@
+{
+  "experiment": "edge_recovery_20261020",
+  "new_updates": 2000,
+  "batch_size": 4,
+  "dataset_manifest": "/home/robot/.pi05-handson/evidence/corrections-edge_recovery_focus_20261020-manifest.json",
+  "dataset_manifest_sha256": "7b6dbbac2d4075968985419d315635c3aa1d6c895233f1d9f5aa22e3e73bb11b",
+  "repo_id": "course/libero_corrections_public37_edge_recovery_v1",
+  "sampling": "recovery focus over unchanged observation/action episodes",
+  "dataset_kind": "expanded_public_corrections_v1",
+  "parent_checkpoint": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+  "parent_params_manifest_sha256": "30d3a1301666f17243441f1f1876dc6ae99794fcd521c014e7ff344e0e77f1b9",
+  "lineage": "Initialize ALL model weights from parent; fresh Adam, scheduler, RNG and data cursor; not exact resume",
+  "seed": 42,
+  "action_horizon": 10,
+  "normalization": {
+    "asset_id": "course/libero_black_bowl",
+    "recomputed": false,
+    "path": "assets/pi05_handson_lora/course/libero_black_bowl/norm_stats.json",
+    "bytes": 1966,
+    "sha256": "5b17954187d2a2973cdccdae7e0f10041437fa7f74e5fa687f59309cd35cd788"
+  },
+  "timing": {
+    "nominal_fps": 10,
+    "nominal_dt": 0.1,
+    "pauses_excluded": true,
+    "one_frame_per_human_control_action": true,
+    "physical_control_dt_by_episode": {
+      "corrections/human_1792298109792073701": 0.05,
+      "corrections/human_1792302165387076969": 0.05,
+      "corrections/human_1792404996662425932": 0.05,
+      "corrections/human_1792405753674636144": 0.05,
+      "corrections/human_1792432520316693621": 0.05,
+      "corrections/human_1792432737067825465": 0.05,
+      "corrections/human_1792432847602743021": 0.05,
+      "corrections/human_1792432933673921805": 0.05,
+      "corrections/human_1792476145558302752": 0.05,
+      "corrections/human_1792476248742175503": 0.05,
+      "corrections/human_1792476341791196411": 0.05,
+      "corrections/human_1792476567439914314": 0.05
+    },
+    "caveat": "Nominal timestamps follow the public 10 Hz convention; physical correction control_dt is recorded separately and may differ."
+  },
+  "checkpoint_directory": "/home/robot/.pi05-handson/checkpoints/pi05_handson_lora/edge_recovery_20261020",
+  "final_step_index": 1999,
+  "learning_rate": {
+    "warmup_steps": 20,
+    "peak": 1e-05,
+    "final": 1e-05
+  },
+  "optimizer": "AdamW, clip gradient norm 1.0; only LoRA trainable",
+  "checkpoint_save_steps": [
+    1000,
+    1999
+  ],
+  "source_commit": "717f5833d40fbae53a632eb130bb74cf62febaa1",
+  "openpi_commit": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+  "source_sha256": {
+    "correction_data.py": "da0fab27a536a2004076eadd1e172e7d3488269075bbab6217171807d62c27e1",
+    "prepare_corrections.py": "2c9ab0c8dd61f636be76082851c95f3896cee4b4181d34e6a6657118d2294e3a",
+    "train_corrections.py": "ded0acd5a61eef8ac2c3993383c18a8e27482c0070963844f1186c6e6254d699",
+    "course_config.py": "896f91f0749241bc74550d3c30e8f906c80340cb466862d07e4c0febafcbfe6d",
+    "prepare_expanded_public.py": "f07dc6ce8dcf5863b475e9d85d3c885f82e63bdc0c63f0ca5844e62ba0ba1619",
+    "curated_checks.py": "1a9d12bef9ff3314bd7251983b3ef699694f665f36d075d7bd22ef6a2db61206",
+    "recovery_sampling.py": "29aa84309d187445291eab4f750bf9ea178990b0a0f9fa7ba367610be1a025cf",
+    "train_release_focus.py": "e8debfca203b0f894f3e06f3c6621c83a7f5f933586a5af43569dc8fff60bd52"
+  },
+  "wandb_enabled": false,
+  "dry_run": true,
+  "recovery_sampling": {
+    "profile": {
+      "path": "evidence/edge-recovery-20261020-profile.json",
+      "sha256": "58c8acdba4caff8c12d05a78c64d446761aeeb0ae1f4775a3885fea35fa3a464"
+    },
+    "base_manifest": "evidence/corrections-public37_edge_recovery_v1-manifest.json",
+    "base_manifest_sha256": "1d136c86297eb1d1fbb1f4428fe5a0f9cd8a218ceaeacccb62eeda644c39dfd3",
+    "repo_id": "course/libero_corrections_public37_edge_recovery_v1",
+    "real_frames": 6931,
+    "virtual_frames": 200000,
+    "seed": 42,
+    "groups": [
+      {
+        "name": "public_complete",
+        "ranges": [
+          [
+            0,
+            4400
+          ]
+        ],
+        "virtual_count": 100000,
+        "real_frames": 4400,
+        "probability": 0.5
+      },
+      {
+        "name": "previous_approved_human",
+        "ranges": [
+          [
+            4400,
+            6126
+          ]
+        ],
+        "virtual_count": 40000,
+        "real_frames": 1726,
+        "probability": 0.2
+      },
+      {
+        "name": "new_negative_edge_recovery",
+        "ranges": [
+          [
+            6126,
+            6931
+          ]
+        ],
+        "virtual_count": 60000,
+        "real_frames": 805,
+        "probability": 0.3
+      }
+    ],
+    "sampling_indices_sha256": "24d3f6e8a2ecd4f82e2d199ee7ccad0dd711dc3b2061d9daf1738732031f1ffc",
+    "meaning": "Repeated observation starts, shuffled by the existing loader; no extra scenarios, no action stitching"
+  },
+  "input_file_records": 13411,
+  "full_log_sha256": "92378bcc8fa5dd23c3b35130c47ea6555b68747ca07773019319c31825640f0f",
+  "status": "PASS"
+}

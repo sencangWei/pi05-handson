@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "task": "pick up the black bowl next to the plate and place it on the plate",
+  "rule": "each clip is a continuous [start,stop) slice; separate episodes, no stitching or frame dropping",
+  "review_method": "125sampled dual-camera pre-action pairs covering all command-run boundaries; full805frame checksums/contracts and endpoint gates. No action rescaling/stitching.",
+  "user_confirmations": {
+    "placement": "两段都可以",
+    "recovery": "是，这两段也保留用于训练",
+    "client_date": "2026-10-18",
+    "timezone": "Asia/Shanghai"
+  },
+  "scope": "Retain prior10selected clips unchanged; append4new805-frame negative-edge recovery records. Raw recordings/drafts preserved.",
+  "clips": [
+    {
+      "source_directory": "corrections/human_1792298109792073701",
+      "metadata_sha256": "c6d0d8e04723338bd327513d7aac9831bfac849ff6e0e6bb521f3178e0e44720",
+      "source_frame_count": 805,
+      "start": 425,
+      "stop": 635,
+      "reason": "保留末段持碗靠近、下降、横向校准、松爪和撤离；排除早期绕行及完成后多余抬升。起点已持碗，仅标为放置与释放纠正。",
+      "kind": "placement_release"
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_frame_count": 950,
+      "start": 0,
+      "stop": 45,
+      "kind": "lift_clearance",
+      "reason": "用户确认的抓取失败后抬起脱离；保留原始连续0–44帧，不与后续重抓跨间隔拼接。"
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_frame_count": 950,
+      "start": 430,
+      "stop": 520,
+      "kind": "regrasp_lift",
+      "reason": "用户确认的重新开爪、下探、闭爪和短距离提起；保留原始连续430–519帧，不以此宣称长期抓稳。"
+    },
+    {
+      "source_directory": "corrections/human_1792302165387076969",
+      "metadata_sha256": "2e9e309bc9de01fb558d4274bae4db644fceb47fedfddc62d3567eec1bb81dfb",
+      "source_frame_count": 950,
+      "start": 770,
+      "stop": 906,
+      "reason": "保留最后一次横向对准、下降放置、开夹和撤离；排除空夹绕行、姿态反复试探和完成后多余抬升。起点已持碗，不是重抓恢复示范。",
+      "kind": "placement_release"
+    },
+    {
+      "source_directory": "corrections/human_1792404996662425932",
+      "metadata_sha256": "dbdff3dff26502de44ae77d3da06e27a1b512ebf2d54e3e951415677c4841b03",
+      "source_frame_count": 280,
+      "start": 0,
+      "stop": 280,
+      "kind": "placement_release",
+      "reason": "保留完整单次抓取、普通0.6搬运、精细0.1放置、松爪撤手；placement_release仅为末尾观测门类型，不表示只截取放置动作。"
+    },
+    {
+      "source_directory": "corrections/human_1792405753674636144",
+      "metadata_sha256": "de414802cea2543bd3683ad68f58ff9660e3a3545f43e86047847ecdb1e2e988",
+      "source_frame_count": 285,
+      "start": 0,
+      "stop": 285,
+      "kind": "placement_release",
+      "reason": "保留完整单次抓取、普通0.6搬运、精细0.1放置、松爪撤手；placement_release仅为末尾观测门类型，不表示只截取放置动作。"
+    },
+    {
+      "source_directory": "corrections/human_1792432520316693621",
+      "metadata_sha256": "3e29fa5e4224473b1c074b6d2f890ae1fce734ecf1235c2f0a3accf44fa30ffe",
+      "source_frame_count": 145,
+      "start": 0,
+      "stop": 145,
+      "kind": "placement_release",
+      "reason": "持碗后重新对准、下降、松爪与撤手；完整连续145步。 placement_release仅表示末尾观测门，非独立基准成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792432737067825465",
+      "metadata_sha256": "3ff75628dd1a3cd2630e8b5ed62270c2337e5b8d88861ecee71bfa5377f09060",
+      "source_frame_count": 205,
+      "start": 0,
+      "stop": 205,
+      "kind": "placement_release",
+      "reason": "抬离、开爪、重对准重抓、搬运、放置松爪撤手；完整连续205步。 placement_release仅表示末尾观测门，非独立基准成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792432847602743021",
+      "metadata_sha256": "3a454f376d3fd5774dce9536e1b5655e528d083cb6b6f3b2e81f6e03070dd7d8",
+      "source_frame_count": 115,
+      "start": 0,
+      "stop": 115,
+      "kind": "placement_release",
+      "reason": "持碗后重新对准并放置、松爪撤手；完整连续115步。 placement_release仅表示末尾观测门，非独立基准成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792432933673921805",
+      "metadata_sha256": "bb0ccc8a48b922ec936aaec9e9d5a624926a68b8e9c305eea8b3e7338d25e5de",
+      "source_frame_count": 215,
+      "start": 0,
+      "stop": 215,
+      "kind": "placement_release",
+      "reason": "抬离与重新对准抓取、搬运、放置微调、松爪撤手；完整连续215步。 placement_release仅表示末尾观测门，非独立基准成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792476145558302752",
+      "metadata_sha256": "26554705ff20a251a8b0419236250750fff0253211d074b3bc1c7f239b833400",
+      "source_frame_count": 180,
+      "start": 0,
+      "stop": 180,
+      "kind": "placement_release",
+      "reason": "用户新录布局0、X/Y=-10cm纠正；完整连续重抓/重新对准、放置与松爪撤手。末尾观察门不代表独立泛化成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792476248742175503",
+      "metadata_sha256": "208962f15ac762247c318e71251e9aea0e8b0ff6955708cd1ddf868fbdd300ae",
+      "source_frame_count": 240,
+      "start": 0,
+      "stop": 240,
+      "kind": "placement_release",
+      "reason": "用户新录布局0、X/Y=-10cm纠正；完整连续重抓/重新对准、放置与松爪撤手。末尾观察门不代表独立泛化成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792476341791196411",
+      "metadata_sha256": "8c04d69e47f6a2318570697a7067154aacc92d902cbeb2c408720af4fdbca1ab",
+      "source_frame_count": 240,
+      "start": 0,
+      "stop": 240,
+      "kind": "placement_release",
+      "reason": "用户新录布局0、X/Y=-10cm纠正；完整连续重抓/重新对准、放置与松爪撤手。末尾观察门不代表独立泛化成功。"
+    },
+    {
+      "source_directory": "corrections/human_1792476567439914314",
+      "metadata_sha256": "e37d40e3fec3f07ea865fcf6637e062357dec6fe24232cedce06238e6ea8dc6b",
+      "source_frame_count": 145,
+      "start": 0,
+      "stop": 145,
+      "kind": "placement_release",
+      "reason": "用户新录布局0、X/Y=-10cm纠正；完整连续重抓/重新对准、放置与松爪撤手。末尾观察门不代表独立泛化成功。"
+    }
+  ],
+  "deferred_new_candidates": [
+    "corrections/human_1792404027525762765",
+    "corrections/human_1792405333386801102"
+  ],
+  "excluded_drafts": [
+    "corrections/human_1792432628975149265"
+  ]
+}

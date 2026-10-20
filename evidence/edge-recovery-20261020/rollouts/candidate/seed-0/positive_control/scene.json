@@ -1,0 +1,43 @@
+{
+  "layout_id": 0,
+  "seed": 42,
+  "bowl_edit": {
+    "before_xyz": [
+      0.0071370557647211785,
+      0.29824631861827444,
+      0.8984038567263857
+    ],
+    "after_xyz": [
+      0.0858426925079362,
+      0.35189976329468364,
+      0.8984038567263857
+    ],
+    "dx_m": 0.07870563674321503,
+    "dy_m": 0.05365344467640918
+  },
+  "task_metadata": {
+    "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe",
+    "reference_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e"
+  },
+  "initial_state_sha256": "5e4166c3ef3eea4203a3762fd89813a6a1b49e0db186b29bf665d9c5506c923d",
+  "task_language": "pick up the black bowl next to the plate and place it on the plate",
+  "interactive_experiment": false,
+  "formal_benchmark": false,
+  "untracked_native_gui_edits_possible": false,
+  "replan_steps": 1,
+  "max_steps": 800,
+  "post_success_steps": null,
+  "physics_horizon_ignored": true,
+  "stop_policy": "ten-step stable released retreat, then 50 extra policy steps, or budget",
+  "success_definition": "Official LIBERO On predicate; release/retreat requires inspection",
+  "video_timing": "initial frame plus one per control step, replay at 10 FPS; pauses omitted",
+  "policy_rng": "Isolated server resets RNG per connection to seed 0",
+  "control_loop": "responsive_v1",
+  "timing_file": "timing.csv",
+  "stable_completion_definition": "On, open command, gap>=.06m, EEF-bowl>=.10m for60 consecutive steps, bowl drift<=.005m",
+  "saved_scene_replay": "/home/robot/.pi05-handson/evaluations/interactive_lab_20261020_133046_1792474246941380212/scene-003_init-000",
+  "source_scene_sha256": "bd6e9b7fa7280aa7abf1782c84baf61960d910dd9921d2d375830cc37a84b726",
+  "post_release_steps_requested": 50,
+  "controller_initialization": null,
+  "replay_limit": "Restores MuJoCo integration state, not serialized controller internals or GUI policy RNG"
+}

@@ -1,0 +1,1172 @@
+{
+  "status": "COMPLETE_DEVELOPMENT_COMPARISON",
+  "promoted": false,
+  "arms": {
+    "parent": "checkpoints/pi05_handson_lora/ui_correct_1792434450272918886/999",
+    "candidate": "checkpoints/pi05_handson_lora/ui_correct_1792480483802126335/1999"
+  },
+  "totals": {
+    "parent": {
+      "known_success_control": {
+        "trials": 8,
+        "strict_successes": 6,
+        "completed_followup_gate_failures": 0,
+        "no_release_at_budget": 1,
+        "release_followup_incomplete": 1
+      },
+      "target_development": {
+        "trials": 2,
+        "strict_successes": 1,
+        "completed_followup_gate_failures": 0,
+        "no_release_at_budget": 1,
+        "release_followup_incomplete": 0
+      }
+    },
+    "candidate": {
+      "known_success_control": {
+        "trials": 8,
+        "strict_successes": 6,
+        "completed_followup_gate_failures": 1,
+        "no_release_at_budget": 1,
+        "release_followup_incomplete": 0
+      },
+      "target_development": {
+        "trials": 2,
+        "strict_successes": 2,
+        "completed_followup_gate_failures": 0,
+        "no_release_at_budget": 0,
+        "release_followup_incomplete": 0
+      }
+    }
+  },
+  "records": [
+    {
+      "arm": "parent",
+      "seed": 0,
+      "case": "negative_edge_target",
+      "role": "target_development",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-0/negative_edge_target",
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.1858523155203521,
+            "median": 0.09391339451066302
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.8404442985231944,
+            "median": 0.9962116726039334
+          },
+          "low_action_closed_not_On_frames": 138,
+          "longest_low_action_closed_not_On": {
+            "steps": 7,
+            "start_control_step": 234,
+            "end_control_step": 240
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 62,
+            "mean": 0.5441428914472902,
+            "median": 0.5289529849691305
+          }
+        }
+      },
+      "wall_duration_s": 70.99671288509853,
+      "artifacts": {
+        "actions.csv": "233f60ee8792203d2f20dc15bb5d231b48ec78206fe188edfa6fcefc79d0c727",
+        "result.json": "e952d438a0af7d67f35b39998d351683dbc815250a466085d8bd7ee6ceb0c607",
+        "initial_state.npy": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+        "scene.json": "3f87ed42bb2f422b0a5915e68040665257557a84ca7fa81da05672395036dff5"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 0,
+      "case": "first_regrasp_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-0/first_regrasp_control",
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 656,
+        "first_ten_step_release_control_step": 800,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.16904314481972046,
+            "median": 0.0927852526431055
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.7077810943024736,
+            "median": 0.9951774624348166
+          },
+          "low_action_closed_not_On_frames": 169,
+          "longest_low_action_closed_not_On": {
+            "steps": 8,
+            "start_control_step": 143,
+            "end_control_step": 150
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 75,
+            "mean": 0.5477731233060166,
+            "median": 0.48774439269241004
+          }
+        }
+      },
+      "wall_duration_s": 61.21968363202177,
+      "artifacts": {
+        "actions.csv": "3bfdabb5c72a508220ec4ad13e6883dfe3617d89b1ffb4583db2ae1bbc484107",
+        "result.json": "6507206f597845779d751f9f6ecc7ca277b08ce53a252c86a58cd0881dbb7616",
+        "initial_state.npy": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6",
+        "scene.json": "fea4e89f9c3e41b2cf9df4ec60d67a5eb0f049081a7ba085ae0264420d7e9888"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 0,
+      "case": "near_negative_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-0/near_negative_control",
+      "metrics": {
+        "control_steps": 234,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 127,
+        "first_ten_step_release_control_step": 184,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.6436420376791293e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 234,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 234,
+            "mean": 0.3757689603667569,
+            "median": 0.29065322124957677
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 233,
+            "mean": 4.45281832134674,
+            "median": 3.369788026319224
+          },
+          "low_action_closed_not_On_frames": 12,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 102,
+            "end_control_step": 103
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 3,
+            "mean": 0.9532959532917201,
+            "median": 0.9949191093829256
+          }
+        }
+      },
+      "wall_duration_s": 17.86260016297456,
+      "artifacts": {
+        "actions.csv": "15ec2b7556dccb9de012114ccfb9508f48ebb7246fc7e21b9943e347f550b95b",
+        "result.json": "b4eaa617c5557b4aa445f7d7e783c15a00174d82450ea74aab2832c769005ed7",
+        "initial_state.npy": "d689041f15afc08fcc175620f9949334017b65906fc84abdb04ff83433b4bb6e",
+        "scene.json": "4bfa5f9b4ed007de6935a2e960524367a8dbe8e4f9a08a084b35e0c2caf815d2"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 0,
+      "case": "positive_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-0/positive_control",
+      "metrics": {
+        "control_steps": 800,
+        "any_On": false,
+        "final_On": false,
+        "first_On_control_step": null,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.23489855879711222,
+            "median": 0.12145572735102081
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 2.454196146912165,
+            "median": 1.399128199899383
+          },
+          "low_action_closed_not_On_frames": 17,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 114,
+            "end_control_step": 115
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 2,
+            "mean": 0.9267676288688811,
+            "median": 0.9267676288688811
+          }
+        }
+      },
+      "wall_duration_s": 60.65215119405184,
+      "artifacts": {
+        "actions.csv": "03670e6fabc2d6489ea401b23d20eee7eba276124f0b405f3ff728e4ffb7e9d9",
+        "result.json": "502cfb360894a6f8dabf7688c7bacf8427ed39179d13884b94d83a77e3eec1d4",
+        "initial_state.npy": "fb06ddcbde5370003437ebdabd68277a946b659b4694698560f4ff8bfab79b32",
+        "scene.json": "01e686961b7b3f026ff7fa6d47d013071678026645f4080182f5316de1285e3b"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 0,
+      "case": "positive_edge_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-0/positive_edge_control",
+      "metrics": {
+        "control_steps": 303,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 181,
+        "first_ten_step_release_control_step": 253,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.59602697800981e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 303,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 303,
+            "mean": 0.3609617649040172,
+            "median": 0.2972419695345201
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 302,
+            "mean": 3.996316069033821,
+            "median": 3.1144874059399217
+          },
+          "low_action_closed_not_On_frames": 22,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 97,
+            "end_control_step": 100
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 9,
+            "mean": 0.66500656216064,
+            "median": 0.5910503954347148
+          }
+        }
+      },
+      "wall_duration_s": 23.15608405903913,
+      "artifacts": {
+        "actions.csv": "dbb4a086bfbc7e72116ed283b394963fccd9b2e7b59efb83dd1495eba3e7aa48",
+        "result.json": "2dae8e71be327e0e499d92de3124abbecc800065f0bdab9fafb542f7fe1256be",
+        "initial_state.npy": "208ca0970852ec6daf7e13bcd3ebc6032610add84d9d189c894821de46cc55c8",
+        "scene.json": "0752e25bf077473d1fe46561a8013710758dca154d780377fa54310238a8e2ca"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 1,
+      "case": "negative_edge_target",
+      "role": "target_development",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-1/negative_edge_target",
+      "metrics": {
+        "control_steps": 350,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 226,
+        "first_ten_step_release_control_step": 300,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 5.332774429882602e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 350,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 350,
+            "mean": 0.26447106628570816,
+            "median": 0.18162987647592232
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 349,
+            "mean": 2.962701197041412,
+            "median": 1.9732045544449697
+          },
+          "low_action_closed_not_On_frames": 46,
+          "longest_low_action_closed_not_On": {
+            "steps": 6,
+            "start_control_step": 188,
+            "end_control_step": 193
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 16,
+            "mean": 0.8647807269404966,
+            "median": 0.8052422693777965
+          }
+        }
+      },
+      "wall_duration_s": 37.185697979992256,
+      "artifacts": {
+        "actions.csv": "07368c170f0fa7a7384ed4535397ce55f74fa966061d8f427f30be0edc290537",
+        "result.json": "5a31475cc74b44d84e00ed38c125a6a3666a501b7dd0a76029bce0c206e9488a",
+        "initial_state.npy": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+        "scene.json": "25fa662d2e8a739d34263765dce453216462378d7f783d24b159c1b3a0942ecd"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 1,
+      "case": "first_regrasp_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-1/first_regrasp_control",
+      "metrics": {
+        "control_steps": 328,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 223,
+        "first_ten_step_release_control_step": 278,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.373111383900711e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 328,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 328,
+            "mean": 0.29161125896513923,
+            "median": 0.2276521957466418
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 327,
+            "mean": 3.375196086202011,
+            "median": 2.4969876145916814
+          },
+          "low_action_closed_not_On_frames": 43,
+          "longest_low_action_closed_not_On": {
+            "steps": 5,
+            "start_control_step": 189,
+            "end_control_step": 193
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 13,
+            "mean": 0.6737691555534805,
+            "median": 0.5617164855446957
+          }
+        }
+      },
+      "wall_duration_s": 25.49399425298907,
+      "artifacts": {
+        "actions.csv": "41f545b26d01d7ccdd24316b58867fe242198f2cd521f9e4833eb41df515b2d5",
+        "result.json": "1e1217cc33e05cb10a3b7b9483f0381ee721f71d118dfe660f193752f2075323",
+        "initial_state.npy": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6",
+        "scene.json": "3fc9e10a118a59b0076ca61dcd96bcbb3c34a315d03749985e4c6cdc215cb8b0"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 1,
+      "case": "near_negative_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-1/near_negative_control",
+      "metrics": {
+        "control_steps": 229,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 136,
+        "first_ten_step_release_control_step": 179,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 5.779422487529665e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 229,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 229,
+            "mean": 0.3675389574277066,
+            "median": 0.2963317435215543
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 228,
+            "mean": 4.4508417680521255,
+            "median": 3.5043474991219914
+          },
+          "low_action_closed_not_On_frames": 9,
+          "longest_low_action_closed_not_On": {
+            "steps": 3,
+            "start_control_step": 63,
+            "end_control_step": 65
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 3,
+            "mean": 1.4444391936567618,
+            "median": 1.7513518927779568
+          }
+        }
+      },
+      "wall_duration_s": 18.047194404993206,
+      "artifacts": {
+        "actions.csv": "cc3526656dfc608152bfa0952243757c755e7e6b802b8233a809b5721880899a",
+        "result.json": "5caabc1f8e4bfd2d8f2d1c7bd77b747519300006489d8c2f5fc16c95572d4bdb",
+        "initial_state.npy": "d689041f15afc08fcc175620f9949334017b65906fc84abdb04ff83433b4bb6e",
+        "scene.json": "c9cb217c058f25bf8ef69457f0aa355614509736da199e1db8d7f0ce8bbe8d15"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 1,
+      "case": "positive_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-1/positive_control",
+      "metrics": {
+        "control_steps": 240,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 149,
+        "first_ten_step_release_control_step": 190,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.413531377791547e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 240,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 240,
+            "mean": 0.41089624031786337,
+            "median": 0.3374592142829445
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 239,
+            "mean": 4.9940367491406885,
+            "median": 3.8869063584096035
+          },
+          "low_action_closed_not_On_frames": 5,
+          "longest_low_action_closed_not_On": {
+            "steps": 2,
+            "start_control_step": 147,
+            "end_control_step": 148
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 1,
+            "mean": 2.847247253740757,
+            "median": 2.847247253740757
+          }
+        }
+      },
+      "wall_duration_s": 18.466196259949356,
+      "artifacts": {
+        "actions.csv": "f481a981262c091b098c179db06acf1c2ed6cdabad9a2e6500bc1d5e56e1909d",
+        "result.json": "02e674fd95381f964029c856256222883427e24bd3bf4deefe35141d18054d34",
+        "initial_state.npy": "fb06ddcbde5370003437ebdabd68277a946b659b4694698560f4ff8bfab79b32",
+        "scene.json": "c5436be8be6e6d07b40987fd7c8e525f3a269cc9e6fbd96c01f4fb07dfe4e35b"
+      }
+    },
+    {
+      "arm": "parent",
+      "seed": 1,
+      "case": "positive_edge_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/parent/seed-1/positive_edge_control",
+      "metrics": {
+        "control_steps": 259,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 166,
+        "first_ten_step_release_control_step": 209,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 5.051169864597854e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 259,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 259,
+            "mean": 0.4037241704901686,
+            "median": 0.37650828318838897
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 258,
+            "mean": 4.889268772008549,
+            "median": 4.378451475590069
+          },
+          "low_action_closed_not_On_frames": 5,
+          "longest_low_action_closed_not_On": {
+            "steps": 1,
+            "start_control_step": 79,
+            "end_control_step": 79
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          }
+        }
+      },
+      "wall_duration_s": 21.238745606970042,
+      "artifacts": {
+        "actions.csv": "24b06a310840f70e7180b659c02085cf488529f08900fee2c15f18e15d7d80ae",
+        "result.json": "1d7440ca3ec121110cc612972c84998951aa9933473a2c3d7e261d2ee1412919",
+        "initial_state.npy": "208ca0970852ec6daf7e13bcd3ebc6032610add84d9d189c894821de46cc55c8",
+        "scene.json": "a52ee91214e18d6d9e2328b3fe54a1b88ea22865ce66b9b11e677a5eee784f99"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 0,
+      "case": "negative_edge_target",
+      "role": "target_development",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-0/negative_edge_target",
+      "metrics": {
+        "control_steps": 403,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 292,
+        "first_ten_step_release_control_step": 353,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 8.914906840168297e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 403,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 403,
+            "mean": 0.23463639484269846,
+            "median": 0.1128811870054685
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 402,
+            "mean": 2.6636722400535553,
+            "median": 2.0244692924163608
+          },
+          "low_action_closed_not_On_frames": 65,
+          "longest_low_action_closed_not_On": {
+            "steps": 11,
+            "start_control_step": 236,
+            "end_control_step": 246
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 45,
+            "mean": 0.6708789413985602,
+            "median": 0.6173373199499887
+          }
+        }
+      },
+      "wall_duration_s": 41.1597099089995,
+      "artifacts": {
+        "actions.csv": "3301bb566891b2114e903a024fa9d99c4f2327702b98a1d7ec0e910f76cb10f6",
+        "result.json": "b0419797f598c956e50da5375a0b772f90f9d3da6fbf3bd9b97616b7c3b770ba",
+        "initial_state.npy": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+        "scene.json": "3f87ed42bb2f422b0a5915e68040665257557a84ca7fa81da05672395036dff5"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 0,
+      "case": "first_regrasp_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-0/first_regrasp_control",
+      "metrics": {
+        "control_steps": 364,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 268,
+        "first_ten_step_release_control_step": 314,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.31597557265268e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 364,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 364,
+            "mean": 0.2583216614624945,
+            "median": 0.1383018810851417
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 363,
+            "mean": 3.017176102977174,
+            "median": 2.3707424643723827
+          },
+          "low_action_closed_not_On_frames": 74,
+          "longest_low_action_closed_not_On": {
+            "steps": 14,
+            "start_control_step": 191,
+            "end_control_step": 204
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 47,
+            "mean": 0.5798015374163507,
+            "median": 0.5500126728922851
+          }
+        }
+      },
+      "wall_duration_s": 27.825211771996692,
+      "artifacts": {
+        "actions.csv": "523dc36e2286f381ceeac7cce9fe50e023a290393c4da14e9197a9222bb74e2d",
+        "result.json": "92b631e153dc65c910ca6db8f85b2701fb8066ac1d7de6a0a375b94d013fd195",
+        "initial_state.npy": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6",
+        "scene.json": "fea4e89f9c3e41b2cf9df4ec60d67a5eb0f049081a7ba085ae0264420d7e9888"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 0,
+      "case": "near_negative_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-0/near_negative_control",
+      "metrics": {
+        "control_steps": 311,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 207,
+        "first_ten_step_release_control_step": 261,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 5.177605262041e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 311,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 311,
+            "mean": 0.307651066511055,
+            "median": 0.1544701937593736
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 310,
+            "mean": 3.591555532022067,
+            "median": 2.3915544253701757
+          },
+          "low_action_closed_not_On_frames": 50,
+          "longest_low_action_closed_not_On": {
+            "steps": 8,
+            "start_control_step": 163,
+            "end_control_step": 170
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 24,
+            "mean": 0.8769787656227491,
+            "median": 0.5748879451332495
+          }
+        }
+      },
+      "wall_duration_s": 23.661914324969985,
+      "artifacts": {
+        "actions.csv": "1ff8a88bf15233031c945e935d7df312134f3ecdbe5b355c366486297f805251",
+        "result.json": "fb4dc556f946fea5c2323435d67340066ad602ec8af84a4268d8f374d90d751c",
+        "initial_state.npy": "d689041f15afc08fcc175620f9949334017b65906fc84abdb04ff83433b4bb6e",
+        "scene.json": "4bfa5f9b4ed007de6935a2e960524367a8dbe8e4f9a08a084b35e0c2caf815d2"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 0,
+      "case": "positive_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-0/positive_control",
+      "metrics": {
+        "control_steps": 471,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 227,
+        "first_ten_step_release_control_step": 421,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.4662317636099966e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 471,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 471,
+            "mean": 0.2507133412267271,
+            "median": 0.09651065173533101
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 470,
+            "mean": 2.6702011903638296,
+            "median": 0.9951267674387749
+          },
+          "low_action_closed_not_On_frames": 58,
+          "longest_low_action_closed_not_On": {
+            "steps": 9,
+            "start_control_step": 176,
+            "end_control_step": 184
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 34,
+            "mean": 0.6000617374288968,
+            "median": 0.48142815432370606
+          }
+        }
+      },
+      "wall_duration_s": 36.116786328027956,
+      "artifacts": {
+        "actions.csv": "0cd88dbe6737ca4960c0dd3bf2ec72d15b12bf538130b18fa3c68998ac81887f",
+        "result.json": "f2bcbca7f76a2b93ad47fccd29b1b170d3deda6c01c9e2b3d1ddadab005e53cf",
+        "initial_state.npy": "fb06ddcbde5370003437ebdabd68277a946b659b4694698560f4ff8bfab79b32",
+        "scene.json": "01e686961b7b3f026ff7fa6d47d013071678026645f4080182f5316de1285e3b"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 0,
+      "case": "positive_edge_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-0/positive_edge_control",
+      "metrics": {
+        "control_steps": 398,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 280,
+        "first_ten_step_release_control_step": 348,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 9.323523667402584e-09,
+          "strict_success": true
+        },
+        "completion_control_steps": 398,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 398,
+            "mean": 0.28313587976673366,
+            "median": 0.1370299670235838
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 397,
+            "mean": 3.3726415111465666,
+            "median": 2.127683673083785
+          },
+          "low_action_closed_not_On_frames": 78,
+          "longest_low_action_closed_not_On": {
+            "steps": 10,
+            "start_control_step": 219,
+            "end_control_step": 228
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 50,
+            "mean": 0.7271331293390731,
+            "median": 0.5812894160183871
+          }
+        }
+      },
+      "wall_duration_s": 30.372667429968715,
+      "artifacts": {
+        "actions.csv": "0185954c57a42cc6a6a04e282025b95a64bd80e9d2021b3c094447badeb77a19",
+        "result.json": "21cfdeda9a7a0eddc60f46571e00ebe00a516ec7b35452da259de8060d26e8e1",
+        "initial_state.npy": "208ca0970852ec6daf7e13bcd3ebc6032610add84d9d189c894821de46cc55c8",
+        "scene.json": "0752e25bf077473d1fe46561a8013710758dca154d780377fa54310238a8e2ca"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 1,
+      "case": "negative_edge_target",
+      "role": "target_development",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-1/negative_edge_target",
+      "metrics": {
+        "control_steps": 486,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 270,
+        "first_ten_step_release_control_step": 436,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.427792839063763e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 486,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 486,
+            "mean": 0.1921196977811425,
+            "median": 0.07593333910638465
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 485,
+            "mean": 2.106867890199038,
+            "median": 0.9422074063810646
+          },
+          "low_action_closed_not_On_frames": 74,
+          "longest_low_action_closed_not_On": {
+            "steps": 7,
+            "start_control_step": 143,
+            "end_control_step": 149
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 47,
+            "mean": 0.6023168191959779,
+            "median": 0.5738878958640065
+          }
+        }
+      },
+      "wall_duration_s": 46.98536499205511,
+      "artifacts": {
+        "actions.csv": "ef03ab5337a16185f6f2f633f7b281602f78021991b63f5d028817c477fa7a57",
+        "result.json": "3da0df8ea9cb649fe87b61203fc2ef447f35780ddda97260cc4b4e89320a4dd2",
+        "initial_state.npy": "59ca17aa32bef24020a68d05623b0489aab5a6fde64d1b9278394a64f5a9ec01",
+        "scene.json": "25fa662d2e8a739d34263765dce453216462378d7f783d24b159c1b3a0942ecd"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 1,
+      "case": "first_regrasp_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-1/first_regrasp_control",
+      "metrics": {
+        "control_steps": 800,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 212,
+        "first_ten_step_release_control_step": null,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 0,
+          "quantity_complete": false,
+          "all_observed_gate_steps_pass": null,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": null,
+          "strict_success": null
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": true,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 800,
+            "mean": 0.13774570807714012,
+            "median": 0.06059902842055773
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 799,
+            "mean": 1.2274866996405447,
+            "median": 0.39121098371407825
+          },
+          "low_action_closed_not_On_frames": 59,
+          "longest_low_action_closed_not_On": {
+            "steps": 9,
+            "start_control_step": 202,
+            "end_control_step": 210
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 27,
+            "mean": 0.6129135999099172,
+            "median": 0.5405767106923113
+          }
+        }
+      },
+      "wall_duration_s": 61.7903913280461,
+      "artifacts": {
+        "actions.csv": "c00fd31d3d354f375c0c6b7b4a8f0898b49a109e353a13887cbd5da52c3e7acc",
+        "result.json": "54f6694e0d5779ddcbe8f847b49cb33a6c38797e4c55e086997c66471068b235",
+        "initial_state.npy": "c435874fafeb247875e993a1820f188e76beee2817f7efca29a9c39fce218ec6",
+        "scene.json": "3fc9e10a118a59b0076ca61dcd96bcbb3c34a315d03749985e4c6cdc215cb8b0"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 1,
+      "case": "near_negative_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-1/near_negative_control",
+      "metrics": {
+        "control_steps": 475,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 191,
+        "first_ten_step_release_control_step": 425,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 3.9646143312181975e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 475,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 475,
+            "mean": 0.22239426591485667,
+            "median": 0.08251627072921443
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 474,
+            "mean": 2.436735065996338,
+            "median": 0.931581836234694
+          },
+          "low_action_closed_not_On_frames": 68,
+          "longest_low_action_closed_not_On": {
+            "steps": 4,
+            "start_control_step": 119,
+            "end_control_step": 122
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 32,
+            "mean": 0.8078364545056668,
+            "median": 0.6635222034734145
+          }
+        }
+      },
+      "wall_duration_s": 36.37203941599,
+      "artifacts": {
+        "actions.csv": "91031d70d45b84bd513be8913011653000e83d99133935067e2ddc6673381f87",
+        "result.json": "19bc0976896d54e92e7a05b202f88aba8c9898d654d4e53ca8b2a29d6aeb8a86",
+        "initial_state.npy": "d689041f15afc08fcc175620f9949334017b65906fc84abdb04ff83433b4bb6e",
+        "scene.json": "c9cb217c058f25bf8ef69457f0aa355614509736da199e1db8d7f0ce8bbe8d15"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 1,
+      "case": "positive_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-1/positive_control",
+      "metrics": {
+        "control_steps": 353,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 201,
+        "first_ten_step_release_control_step": 303,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": true,
+          "first_gate_violation_control_step": null,
+          "maximum_bowl_drift_m": 4.070028651740518e-07,
+          "strict_success": true
+        },
+        "completion_control_steps": 353,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 353,
+            "mean": 0.27917700866359796,
+            "median": 0.1299495066971168
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 352,
+            "mean": 3.241913568919367,
+            "median": 1.499971252275941
+          },
+          "low_action_closed_not_On_frames": 59,
+          "longest_low_action_closed_not_On": {
+            "steps": 9,
+            "start_control_step": 166,
+            "end_control_step": 174
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 37,
+            "mean": 0.6852961154852883,
+            "median": 0.5864657786975652
+          }
+        }
+      },
+      "wall_duration_s": 26.883236346999183,
+      "artifacts": {
+        "actions.csv": "82411ba1634b4ac65dfaf2ffebcdcafe102d18d34b822d281ce745d544dcfc75",
+        "result.json": "2a21ecc56dd41a0aa3b37bcf861f741067b37b44e2316260825a5d2619fab524",
+        "initial_state.npy": "fb06ddcbde5370003437ebdabd68277a946b659b4694698560f4ff8bfab79b32",
+        "scene.json": "c5436be8be6e6d07b40987fd7c8e525f3a269cc9e6fbd96c01f4fb07dfe4e35b"
+      }
+    },
+    {
+      "arm": "candidate",
+      "seed": 1,
+      "case": "positive_edge_control",
+      "role": "known_success_control",
+      "directory": "evaluations/edge-recovery-20261020/candidate/seed-1/positive_edge_control",
+      "metrics": {
+        "control_steps": 387,
+        "any_On": true,
+        "final_On": true,
+        "first_On_control_step": 273,
+        "first_ten_step_release_control_step": 337,
+        "followup": {
+          "requested_steps": 50,
+          "observed_steps": 50,
+          "quantity_complete": true,
+          "all_observed_gate_steps_pass": false,
+          "first_gate_violation_control_step": 386,
+          "maximum_bowl_drift_m": 3.3782188107130237e-07,
+          "strict_success": false
+        },
+        "completion_control_steps": null,
+        "right_censored_without_release_at_budget": false,
+        "diagnostic_proxies": {
+          "definition": "closed command, not On, xyz action norm<.08; not verified grasp or a cause",
+          "action_xyz_norm": {
+            "n": 387,
+            "mean": 0.2827474275086938,
+            "median": 0.1113231190182002
+          },
+          "post_to_post_eef_displacement_mm": {
+            "n": 386,
+            "mean": 3.344406280861007,
+            "median": 1.8254188539101013
+          },
+          "low_action_closed_not_On_frames": 86,
+          "longest_low_action_closed_not_On": {
+            "steps": 14,
+            "start_control_step": 217,
+            "end_control_step": 230
+          },
+          "post_to_post_eef_displacement_within_low_run_mm": {
+            "n": 57,
+            "mean": 0.7765758043940765,
+            "median": 0.6498573513991145
+          }
+        }
+      },
+      "wall_duration_s": 29.413537160959095,
+      "artifacts": {
+        "actions.csv": "b33561d2408b38d38b8c2f85c1cac5031818201633f394f349eb43bb01eff88f",
+        "result.json": "7f0b53b1e950deab99b0c99ef55ba07a49901d33bf6c25665767f691d5bd5b3c",
+        "initial_state.npy": "208ca0970852ec6daf7e13bcd3ebc6032610add84d9d189c894821de46cc55c8",
+        "scene.json": "a52ee91214e18d6d9e2328b3fe54a1b88ea22865ce66b9b11e677a5eee784f99"
+      }
+    }
+  ],
+  "limits": [
+    "All5layouts are previously observed development cases; target has human corrections in training. Not independent generalization.",
+    "Same physical initial states and matched per-connection policy RNG seeds for parent/candidate. GUI history RNG is not reproduced.",
+    "Original parent weights unchanged; parent matched rollout may run after training to prioritize requested trainer start. No changes to matrix after candidate results.",
+    "One bounded training run only; preserve parent and raw data, do not amplify policy actions to mask failures."
+  ],
+  "user_feedback": "Prior parent GUI Demo review: first four of five recordings completed placement; last negative-edge case reached 800steps without placement. New candidate not yet manually tested by user.",
+  "interpretation": "Fresh-start development cases, not independent generalization; compare matched policy seeds."
+}

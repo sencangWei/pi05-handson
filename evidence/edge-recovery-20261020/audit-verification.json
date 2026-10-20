@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "rollouts": 20,
+  "videos": 20,
+  "frozen_initial_scenes": 5,
+  "strict_successes_of_ten": {
+    "parent": 7,
+    "candidate": 8
+  },
+  "summary_sha256": "9b43b2b647c88b7bbfffb533112c06c501dd5d11a7d8fbae4377a654441a9cb4",
+  "plan_sha256": "5213c36d022cf91128400cce1b15bb77352e3c0466e7af588bc106d668f56944"
+}

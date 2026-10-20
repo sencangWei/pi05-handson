@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "purpose": "negative-edge-corrective-pilot",
+  "seed": 42,
+  "repo_id": "course/libero_corrections_public37_edge_recovery_v1",
+  "dataset_manifest": "evidence/corrections-public37_edge_recovery_v1-manifest.json",
+  "dataset_manifest_sha256": "1d136c86297eb1d1fbb1f4428fe5a0f9cd8a218ceaeacccb62eeda644c39dfd3",
+  "virtual_frames": 200000,
+  "groups": [
+    {
+      "name": "public_complete",
+      "ranges": [
+        [
+          0,
+          4400
+        ]
+      ],
+      "virtual_count": 100000
+    },
+    {
+      "name": "previous_approved_human",
+      "ranges": [
+        [
+          4400,
+          6126
+        ]
+      ],
+      "virtual_count": 40000
+    },
+    {
+      "name": "new_negative_edge_recovery",
+      "ranges": [
+        [
+          6126,
+          6931
+        ]
+      ],
+      "virtual_count": 60000
+    }
+  ]
+}

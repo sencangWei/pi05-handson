@@ -80,5 +80,8 @@
 - `build_comparisons.py`、`render.json`：真实FFmpeg参数、原速/控制步同步方式、两侧结束和保持末帧时刻。
 - `media-verification.json`：输出解码/帧数/尺寸/时长检查和资产SHA256，原片与对比均保留。
 - `remote-media-restore.json`：从GitHub下载全部6个视频后逐字节哈希核对。
+- `homepage-verification.json`：仓库默认分支`main`的观看入口已发布，重新读取README后逐字节比对。
+
+发布核验完成：公开Release包含三条新原片、一条旧失败原片和两版左右对比，共6个MP4。全部重新下载，文件大小及SHA256与本地已核验素材一致；原片未重编码。代码、场景记录和制作说明位于`experiment/correction-learning`分支，默认首页已链接到本次发布页与报告。
 
 制作复现：下载本次release的四个`*-original.mp4`到`exports/demo_comparison_20261020/`，在项目根目录运行 `.venv-sim/bin/python evidence/demo-comparison-20261020/build_comparisons.py`。已存在对比文件会拒绝覆盖；可用`--output-dir`指定含四个原片的新目录。需要FFmpeg和已安装的NotoSansCJK字体。源录像未加速、不删中途失败/调整、不循环短侧、不合成机器人动作。

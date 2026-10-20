@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-10-20T10:36:34.257840+00:00",
+  "public_repository": "https://github.com/sencangWei/pi05-handson",
+  "release": "https://github.com/sencangWei/pi05-handson/releases/tag/demo-comparison-20261020",
+  "release_id": 418240006,
+  "asset_count": 6,
+  "all_downloaded_bytes_match_local_verified_media": true,
+  "assets": [
+    {
+      "name": "after-near-negative-demo1-original.mp4",
+      "bytes": 18107075,
+      "sha256": "748adcd897926c15bda4118a1aa0ef5fb16b0d31d229f800a600ed887c762e55",
+      "remote_asset_id": 658985882,
+      "url": "https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/after-near-negative-demo1-original.mp4",
+      "download_sha256_matches": true
+    },
+    {
+      "name": "after-near-negative-demo2-original.mp4",
+      "bytes": 19315489,
+      "sha256": "5112a444c3c0b1b3e5d5f2e46e6468b50eae438cd076718fe66162acf2fd0315",
+      "remote_asset_id": 658999345,
+      "url": "https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/after-near-negative-demo2-original.mp4",
+      "download_sha256_matches": true
+    },
+    {
+      "name": "after-negative10-original.mp4",
+      "bytes": 20825677,
+      "sha256": "e75c7c024eaa46f0cbb08aad7d4c51bf341a45da110cc5dfaba284a3ff8aacfb",
+      "remote_asset_id": 658967525,
+      "url": "https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/after-negative10-original.mp4",
+      "download_sha256_matches": true
+    },
+    {
+      "name": "before-negative10-original.mp4",
+      "bytes": 25061704,
+      "sha256": "b6fe8537fc964dcaa36bb72d5d8a94d03e7fa4a246083787d44c2b9570285128",
+      "remote_asset_id": 659017501,
+      "url": "https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/before-negative10-original.mp4",
+      "download_sha256_matches": true
+    },
+    {
+      "name": "negative10-camera-before-after.mp4",
+      "bytes": 2401649,
+      "sha256": "3fbebcfa34bee7094b73fe71c2d216951404ed2d06ab59b2625d9135cbaec72c",
+      "remote_asset_id": 658962042,
+      "url": "https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/negative10-camera-before-after.mp4",
+      "download_sha256_matches": true
+    },
+    {
+      "name": "negative10-gui-before-after.mp4",
+      "bytes": 5125225,
+      "sha256": "d77d72c0b22737f0229b43e9e443d6b51d6db2a61833596e4d8c17c2ac67ebd2",
+      "remote_asset_id": 658964528,
+      "url": "https://github.com/sencangWei/pi05-handson/releases/download/demo-comparison-20261020/negative10-gui-before-after.mp4",
+      "download_sha256_matches": true
+    }
+  ]
+}

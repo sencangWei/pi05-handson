@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "branch": "main",
+  "commit": "a19d4d01755036ffaedb6f7a30268bd8785d6bfe",
+  "readme_blob": "f5613b1bce53631ccdb8fcf5e801cc0ba13360df",
+  "readme_sha256": "8dd3fc562f431ae82adc6a50722faf180c411cb561d14c9b9f2cf333403fbd61",
+  "verified": "Read back GitHub main README and compare exact bytes after SHA-guarded update",
+  "url": "https://github.com/sencangWei/pi05-handson"
+}
